@@ -1,0 +1,4590 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: AdRotate\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-07-25 12:28+0800\n"
+"PO-Revision-Date: 2018-07-25 12:28+0800\n"
+"Last-Translator: Arnan de Gans <support@ajdg.solutions>\n"
+"Language-Team: Arnan de Gans from AJdG Solutions <info@adrotateplugin.com>\n"
+"Language: sv_SE\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-KeywordsList: __;_e;_\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Generator: Poedit 2.1\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: adrotate-functions.php:730
+msgid "No files found"
+msgstr "Inga filer hittades"
+
+#: adrotate-functions.php:733
+msgid "Folder not found or not accessible"
+msgstr "Folder inte hittas eller inte tillgänglig"
+
+#: adrotate-functions.php:818
+msgid "Ad saved"
+msgstr ""
+
+#: adrotate-functions.php:822
+msgid "Group saved"
+msgstr ""
+
+#: adrotate-functions.php:826
+msgid "Ad(s) deleted"
+msgstr "Annons(er) raderas"
+
+#: adrotate-functions.php:830
+msgid "Group deleted"
+msgstr "Grupp raderad"
+
+#: adrotate-functions.php:834
+msgid "Ad(s) statistics reset"
+msgstr "Annons(er) statistik återställning"
+
+#: adrotate-functions.php:838
+msgid "Ad(s) renewed"
+msgstr "Annons(er) förnyas"
+
+#: adrotate-functions.php:842
+msgid "Ad(s) deactivated"
+msgstr "Annons(er) avaktiveras"
+
+#: adrotate-functions.php:846
+msgid "Ad(s) activated"
+msgstr "Annons(er) aktiveras"
+
+#: adrotate-functions.php:850
+msgid "Group including it's Ads deleted"
+msgstr "Grupp inklusive dess annonser raderade"
+
+#: adrotate-functions.php:854
+#, fuzzy
+msgid "Export created"
+msgstr "export skapad"
+
+#: adrotate-functions.php:858
+msgid ""
+"Advert HTML generated and placed in the AdCode field. Configure your advert "
+"below."
+msgstr ""
+
+#: adrotate-functions.php:863
+msgid "Settings saved"
+msgstr "Inställningar sparas"
+
+#: adrotate-functions.php:867
+msgid "Database optimized"
+msgstr "Databas optimerad"
+
+#: adrotate-functions.php:871
+msgid "Database repaired"
+msgstr "Databas reparation"
+
+#: adrotate-functions.php:875
+msgid "Ads evaluated and statuses have been corrected where required"
+msgstr "annonser utvärderas och status har rättats till vid behov"
+
+#: adrotate-functions.php:879
+#, fuzzy
+#| msgid "Clean-up Database"
+msgid "Cleanup complete"
+msgstr "Städa upp Databas"
+
+#: adrotate-functions.php:884
+msgid "Action prohibited"
+msgstr "Åtgärden förbjuden"
+
+#: adrotate-functions.php:888
+msgid ""
+"The ad was saved but has an issue which might prevent it from working "
+"properly. Review the colored ad."
+msgstr ""
+
+#: adrotate-functions.php:892
+msgid "No data found in selected time period"
+msgstr "Inga data finns i vald tidsperiod"
+
+#: adrotate-functions.php:896
+msgid "Database can only be optimized or cleaned once every hour"
+msgstr "Databas kan endast optimeras eller rengöras en gång i timmen"
+
+#: adrotate-functions.php:900
+msgid "Form can not be (partially) empty!"
+msgstr ""
+
+#: adrotate-functions.php:904
+msgid "No ads found."
+msgstr ""
+
+#: adrotate-functions.php:908
+msgid "Unexpected error"
+msgstr ""
+
+#: adrotate-manage-publisher.php:795
+msgid "AdRotate Advertiser"
+msgstr ""
+
+#: adrotate-output.php:557
+msgid "Oh no! Something went wrong!"
+msgstr "Åh nej! Något gick fel!"
+
+#: adrotate-output.php:558
+msgid ""
+"WordPress was unable to verify the authenticity of the url you have clicked. "
+"Verify if the url used is valid or log in via your browser."
+msgstr ""
+"Wordpress kunde inte kontrollera äktheten av webbadressen som du har "
+"klickat. Kontrollera att webbadressen som används är giltigt eller logga in "
+"via webbläsaren."
+
+#: adrotate-output.php:559
+msgid ""
+"If you have received the url you want to visit via email, you are being "
+"tricked!"
+msgstr ""
+"Om du har fått webbadressen du vill besöka via e-post, är du bli lurad!"
+
+#: adrotate-output.php:560
+msgid "Contact support if the issue persists:"
+msgstr "Kontakta support om problemet kvarstår:"
+
+#: adrotate-output.php:575
+msgid ""
+"Error, Ad is not available at this time due to schedule/geolocation "
+"restrictions or does not exist!"
+msgstr ""
+"Fel, Annonsen är inte tillgänglig just nu på grund av schema / "
+"geolokalisering restriktioner eller finns inte!"
+
+#: adrotate-output.php:577
+msgid ""
+"Error, Ad is not available at this time due to schedule/geolocation "
+"restrictions!"
+msgstr ""
+"Fel, Annonsen är inte tillgänglig just nu på grund av schema / "
+"geolokalisering begränsningar!"
+
+#: adrotate-output.php:584 adrotate-output.php:586
+msgid ""
+"Either there are no banners, they are disabled or none qualified for this "
+"location!"
+msgstr ""
+"Antingen finns det inga banderoller, de har inaktiverats eller inga "
+"kvalificerade för den här platsen!"
+
+#: adrotate-output.php:592
+msgid "Error, no Ad ID set! Check your syntax!"
+msgstr "Fel, ingen annons ID set! Kontrollera din syntax!"
+
+#: adrotate-output.php:598
+msgid "Error, no group ID set! Check your syntax!"
+msgstr "Fel, ingen grupp-ID satt! Kontrollera din syntax!"
+
+#: adrotate-output.php:603
+msgid "Error, group does not exist! Check your syntax!"
+msgstr "Fel, gruppen existerar inte! Kontrollera din syntax!"
+
+#: adrotate-output.php:609
+msgid ""
+"There was an error locating the database tables for AdRotate. Please "
+"deactivate and re-activate AdRotate from the plugin page!!"
+msgstr ""
+"Det uppstod ett fel lokalisera databastabeller för AdRotate. Vänligen "
+"avaktivera och återaktivera AdRotate från plugin sidan!"
+
+#: adrotate-output.php:609
+msgid "If this does not solve the issue please seek support at"
+msgstr "Om detta inte löser problemet vänligen söka stöd hos"
+
+#: adrotate-output.php:615
+msgid "An unknown error occured."
+msgstr "Ett okänt fel uppstod."
+
+#: adrotate-output.php:635 adrotate-output.php:638 adrotate-output.php:642
+msgid "Check adverts"
+msgstr ""
+
+#: adrotate-output.php:652
+msgid ""
+"You have enabled caching support but W3 Total Cache is not active on your "
+"site!"
+msgstr ""
+
+#: adrotate-output.php:652
+#, fuzzy
+#| msgid "W3 Total Caching"
+msgid "Disable W3 Total Cache Support"
+msgstr "W3 Total Caching"
+
+#: adrotate-output.php:655
+msgid ""
+"You have enable caching support but the W3TC_DYNAMIC_SECURITY definition is "
+"not set."
+msgstr ""
+
+#: adrotate-output.php:655
+msgid "How to configure W3 Total Cache"
+msgstr ""
+
+#: adrotate-output.php:664
+msgid ""
+"You have enable caching support but Borlabs Cache is not active on your site!"
+msgstr ""
+
+#: adrotate-output.php:664
+msgid "Disable Borlabs Cache Support"
+msgstr ""
+
+#: adrotate-output.php:672
+msgid ""
+"You have enabled Borlabs Cache support but Fragment caching is not enabled!"
+msgstr ""
+
+#: adrotate-output.php:672
+msgid "Enable Fragment Caching"
+msgstr ""
+
+#: adrotate-output.php:678
+msgid "Your AdRotate Banner folder is not writable or does not exist."
+msgstr ""
+
+#: adrotate-output.php:678
+#, fuzzy
+#| msgid "Where are your banner ads?"
+msgid "Set up your banner folder"
+msgstr "Var är dina bannerannonser?"
+
+#: adrotate-output.php:698
+msgid "your attention:"
+msgstr ""
+
+#: adrotate-output.php:719 adrotate.php:447
+#: dashboard/publisher/schedules-main.php:13
+#, fuzzy
+#| msgid "AdRotate Pro"
+msgid "Get AdRotate Pro"
+msgstr "AdRotate Pro"
+
+#: adrotate-output.php:720
+msgid ""
+"Upgrade to <strong>AdRotate Professional</strong> and get Geo Targeting, "
+"Schedules and more..."
+msgstr ""
+
+#: adrotate-output.php:720
+#, php-format
+msgid ""
+"Use discount code <b>getadrotatepro</b> for 10% off on any AdRotate license!"
+msgstr ""
+
+#: adrotate-output.php:720
+#, fuzzy
+msgid "Thank you for your support!"
+msgstr "Tack. Din licens är nu aktiv"
+
+#: adrotate-output.php:837
+msgid ""
+"Thank you for choosing AdRotate. Everything related to AdRotate is in this "
+"menu. If you need help getting started take a look at the"
+msgstr ""
+
+#: adrotate-output.php:837
+msgid "manuals"
+msgstr "manual"
+
+#: adrotate-output.php:837 adrotate-output.php:921
+msgid "and"
+msgstr ""
+
+#: adrotate-output.php:837
+msgid "forums"
+msgstr ""
+
+#: adrotate-output.php:870
+#, fuzzy
+msgid "Useful Links"
+msgstr "Nyttiga länkar"
+
+#: adrotate-output.php:871
+msgid "Useful links to learn more about AdRotate"
+msgstr ""
+
+#: adrotate-output.php:873
+msgid "AdRotate website"
+msgstr ""
+
+#: adrotate-output.php:874
+#, fuzzy
+msgid "Getting Started With AdRotate"
+msgstr "Få fler funktioner! Skaffa AdRotate Pro."
+
+#: adrotate-output.php:875
+#, fuzzy
+msgid "AdRotate manuals"
+msgstr "AdRotate Information"
+
+#: adrotate-output.php:876
+#, fuzzy
+msgid "AdRotate Support Forum"
+msgstr "AdRotate butik"
+
+#: adrotate-output.php:913
+#, fuzzy
+msgid "Help AdRotate Grow"
+msgstr "Fastnat med AdRotate? Jag hjälper!"
+
+#: adrotate-output.php:914 adrotate.php:152
+#, fuzzy
+msgid "AdRotate Professional"
+msgstr "AdRotate"
+
+#: adrotate-output.php:921
+msgid ""
+"Many users only think to review AdRotate when something goes wrong while "
+"thousands of people happily use AdRotate."
+msgstr ""
+
+#: adrotate-output.php:921
+msgid "If you find AdRotate useful please leave your"
+msgstr ""
+
+#: adrotate-output.php:921
+msgid "rating"
+msgstr ""
+
+#: adrotate-output.php:921
+#, fuzzy
+msgid "review"
+msgstr "Betygsätt och omdöme"
+
+#: adrotate-output.php:921
+msgid "on WordPress.org to help AdRotate grow in a positive way"
+msgstr ""
+
+#: adrotate-output.php:922
+msgid ""
+"Get more advanced features like Geo Targeting, scheduling and much more with "
+"AdRotate Pro."
+msgstr ""
+
+#: adrotate-output.php:922
+msgid "Includes premium support and free updates!"
+msgstr ""
+
+#: adrotate-output.php:922
+#, fuzzy
+#| msgid "Go Pro today"
+msgid "Get started today"
+msgstr "Gå Pro idag"
+
+#: adrotate-statistics.php:155
+msgid "January"
+msgstr "Januari"
+
+#: adrotate-statistics.php:155
+msgid "February"
+msgstr "Februari"
+
+#: adrotate-statistics.php:155
+msgid "March"
+msgstr "Mars"
+
+#: adrotate-statistics.php:155
+msgid "April"
+msgstr "April"
+
+#: adrotate-statistics.php:155
+msgid "May"
+msgstr "Maj"
+
+#: adrotate-statistics.php:155
+msgid "June"
+msgstr "Juni"
+
+#: adrotate-statistics.php:155
+msgid "July"
+msgstr "Juli"
+
+#: adrotate-statistics.php:155
+msgid "August"
+msgstr "Augusti"
+
+#: adrotate-statistics.php:155
+msgid "September"
+msgstr "September"
+
+#: adrotate-statistics.php:155
+msgid "October"
+msgstr "Oktober"
+
+#: adrotate-statistics.php:155
+msgid "November"
+msgstr "November"
+
+#: adrotate-statistics.php:155
+msgid "December"
+msgstr "December"
+
+#: adrotate-statistics.php:164
+msgid "Previous"
+msgstr "Föregående"
+
+#: adrotate-statistics.php:166 dashboard/publisher/statistics-advert.php:66
+#: dashboard/publisher/statistics-group.php:73
+#: dashboard/publisher/statistics-main.php:37
+msgid "This month"
+msgstr "Den här månaden"
+
+#: adrotate-statistics.php:167
+msgid "Next"
+msgstr "Nästa"
+
+#: adrotate-statistics.php:225
+msgid "No data to show!"
+msgstr "Inga data att visa!"
+
+#: adrotate-statistics.php:302 adrotate-statistics.php:303
+#, fuzzy
+#| msgid "No files found"
+msgid "Not found"
+msgstr "Inga filer hittades"
+
+#: adrotate-widget.php:132
+msgid "Title (optional):"
+msgstr "Titel (valfritt):"
+
+#: adrotate-widget.php:135
+msgid "HTML will be stripped out."
+msgstr "HTML kommer att demonteras ut."
+
+#: adrotate-widget.php:138
+msgid "Description (optional):"
+msgstr "Beskrivning (valfritt):"
+
+#: adrotate-widget.php:141
+msgid "What is this widget used for? (Not parsed, HTML will be stripped out.)"
+msgstr ""
+"Vad är denna widget till? (Ej analyserad, HTML kommer att demonteras ut.)"
+
+#: adrotate-widget.php:144
+msgid "Type:"
+msgstr "Typ:"
+
+#: adrotate-widget.php:146
+msgid "Advert - Use Advert ID"
+msgstr ""
+
+#: adrotate-widget.php:147
+msgid "Group - Use group ID"
+msgstr ""
+
+#: adrotate-widget.php:150
+msgid "Choose what you want to use this widget for"
+msgstr "Välj vad du vill använda denna widget för"
+
+#: adrotate-widget.php:153
+msgid "ID:"
+msgstr "ID:"
+
+#: adrotate-widget.php:156
+msgid "Fill in the ID of the type you want to display!"
+msgstr "Fyll i ID för den typ som du vill visa!"
+
+#: adrotate.php:106
+msgid "General Info"
+msgstr "Allmän info"
+
+#: adrotate.php:107
+msgid "AdRotate Pro"
+msgstr "AdRotate Pro"
+
+#: adrotate.php:108 dashboard/info.php:40
+#: dashboard/publisher/adverts-edit.php:431
+#: dashboard/publisher/groups-main.php:34
+#: dashboard/publisher/schedules-main.php:34
+#: dashboard/publisher/statistics-main.php:24
+msgid "Adverts"
+msgstr "Annonser"
+
+#: adrotate.php:109 dashboard/info.php:44
+msgid "Groups"
+msgstr "Grupper"
+
+#: adrotate.php:110 adrotate.php:351
+#, fuzzy
+#| msgid "Schedule"
+msgid "Schedules"
+msgstr "Schema"
+
+#: adrotate.php:111 adrotate.php:390 dashboard/publisher/adverts-edit.php:177
+#: dashboard/publisher/statistics-main.php:12
+#: dashboard/settings/statistics.php:17
+msgid "Statistics"
+msgstr "Statistik"
+
+#: adrotate.php:112
+#, fuzzy
+#| msgid "Media:"
+msgid "Media"
+msgstr "Media:"
+
+#: adrotate.php:113
+msgid "Settings"
+msgstr "Inställningar"
+
+#: adrotate.php:134
+msgid "AdRotate Info"
+msgstr "AdRotate Information"
+
+#: adrotate.php:192
+msgid "Advert Management"
+msgstr ""
+
+#: adrotate.php:252 adrotate.php:320
+msgid "Manage"
+msgstr "Hantera"
+
+#: adrotate.php:253
+#, fuzzy
+#| msgid "General Info"
+msgid "Generator"
+msgstr "Allmän info"
+
+#: adrotate.php:254 adrotate.php:321
+msgid "Add New"
+msgstr "Lägg till ny"
+
+#: adrotate.php:314
+msgid "Group Management"
+msgstr "Grupp Hantering"
+
+#: adrotate.php:443
+msgid "Media and Assets"
+msgstr ""
+
+#: adrotate.php:447
+msgid ""
+"Upload images to the AdRotate Pro banners folder from here. This is useful "
+"if you have HTML5 adverts containing multiple files."
+msgstr ""
+
+#: adrotate.php:447 dashboard/publisher/schedules-main.php:13
+#, fuzzy
+msgid "Get more features"
+msgstr "Få fler funktioner! Skaffa AdRotate Pro."
+
+#: adrotate.php:474
+msgid "AdRotate Settings"
+msgstr "AdRotate Inställningar"
+
+#: adrotate.php:479 dashboard/publisher/statistics-main.php:17
+#, fuzzy
+#| msgid "General Info"
+msgid "General"
+msgstr "Allmän info"
+
+#: adrotate.php:480 dashboard/settings/notifications.php:18
+msgid "Notifications"
+msgstr "Meddelanden"
+
+#: adrotate.php:481 dashboard/publisher/adverts-disabled.php:69
+#: dashboard/publisher/adverts-error.php:63
+#: dashboard/publisher/adverts-main.php:81
+#: dashboard/publisher/groups-main.php:70
+msgid "Stats"
+msgstr "Statistik"
+
+#: adrotate.php:482 dashboard/publisher/adverts-edit.php:332
+#: dashboard/publisher/groups-edit.php:180
+#: dashboard/settings/advertisers.php:38
+msgid "Geo Targeting"
+msgstr "Geo Targeting"
+
+#: adrotate.php:483 dashboard/settings/notifications.php:70
+msgid "Advertisers"
+msgstr "Annonsörer"
+
+#: adrotate.php:484 dashboard/settings/roles.php:17
+msgid "Roles"
+msgstr ""
+
+#: adrotate.php:485
+msgid "Misc"
+msgstr ""
+
+#: adrotate.php:486 dashboard/settings/maintenance.php:16
+msgid "Maintenance"
+msgstr "Underhåll"
+
+#: dashboard/adrotatepro.php:20
+#, fuzzy
+msgid "Satisfy your advertisers"
+msgstr "Annonsörer"
+
+#: dashboard/adrotatepro.php:23
+msgid ""
+"Set up advertisers and let them log in to their statistics or even create "
+"their own adverts. Created adverts go into a moderation queue for your staff "
+"to review. Advertisers have access to their own little dashboard where they "
+"can see their adverts performance."
+msgstr ""
+
+#: dashboard/adrotatepro.php:27
+msgid "Mobile campaigns"
+msgstr ""
+
+#: dashboard/adrotatepro.php:30
+msgid ""
+"Target mobile users with ease and show the right adverts to smartphones, "
+"tablets and computers. Mix and match as you please and offer adverts that "
+"suit the device or mobile operating system. Create as many mobile adverts as "
+"you want without effort and with a few easy to use options they show up "
+"where you want them to!"
+msgstr ""
+
+#: dashboard/adrotatepro.php:34
+msgid "Localize your ad campaigns with Geo Targeting"
+msgstr ""
+
+#: dashboard/adrotatepro.php:37
+msgid ""
+"Go nationwide or global with localized adverts for your various audiences. "
+"Set up adverts for countries and cities and sell impressions per general "
+"area. Connect your site to MaxMind GeoIP2: Precision or AdRotate Geo. "
+"AdRotate Geo is an exclusive Geo Lookup service for AdRotate Pro users."
+msgstr ""
+
+#: dashboard/adrotatepro.php:41
+msgid "Get Fast Support almost all year round"
+msgstr ""
+
+#: dashboard/adrotatepro.php:44
+msgid ""
+"When you activate your AdRotate Pro license you can use fast and personal "
+"email support. No more queueing up in the forums. AdRotate support takes "
+"priority over the forums and is checked much more often than the forum. Get "
+"a solution (usually) within two business days."
+msgstr ""
+
+#: dashboard/adrotatepro.php:48
+msgid "AdRotate is brought to you by"
+msgstr "AdRotate kommer till dig genom"
+
+#: dashboard/adrotatepro.php:61
+msgid "Schedule all campaigns with ease"
+msgstr ""
+
+#: dashboard/adrotatepro.php:64
+msgid ""
+"Schedule your adverts and set up advertising campaigns based on dates you or "
+"your advertisers specify without hassle. Seasonal adverts, weekly adverts, "
+"specific days in the week. You name it, AdRotate schedules it. This makes "
+"planning your revenue stream very flexible. You can set one or many "
+"schedules for adverts."
+msgstr ""
+
+#: dashboard/adrotatepro.php:68
+msgid "Avoid adblockers"
+msgstr ""
+
+#: dashboard/adrotatepro.php:71
+msgid ""
+"Try and avoid adblockers so your adverts get the exposure you want them to "
+"have. AdRotate Pro offers some advanced tools to deceive adblockers so your "
+"adverts are less likely to be removed. Of-course make sure you create your "
+"adverts smartly so these features reach their full potential!"
+msgstr ""
+
+#: dashboard/adrotatepro.php:75
+msgid "Stay up-to-date with notifications"
+msgstr ""
+
+#: dashboard/adrotatepro.php:78
+msgid ""
+"Stay in touch with Email notifications. Have AdRotate send you an alert when "
+"adverts expire or need your attention. Get notified when adverts expire, "
+"have errors or when advertisers create new adverts. Select up to three email "
+"addresses to be notified. Never miss an expiration date again."
+msgstr ""
+
+#: dashboard/adrotatepro.php:82 dashboard/adrotatepro.php:94
+#: dashboard/info.php:79
+#, fuzzy
+msgid "Buy AdRotate Professional"
+msgstr "Köp nu"
+
+#: dashboard/adrotatepro.php:86 dashboard/info.php:83
+msgid "Single License"
+msgstr ""
+
+#: dashboard/adrotatepro.php:86 dashboard/info.php:83
+msgid "One WordPress installation."
+msgstr ""
+
+#: dashboard/adrotatepro.php:86 dashboard/adrotatepro.php:87
+#: dashboard/adrotatepro.php:88 dashboard/adrotatepro.php:89
+#: dashboard/adrotatepro.php:98 dashboard/adrotatepro.php:99
+#: dashboard/adrotatepro.php:100 dashboard/adrotatepro.php:101
+#: dashboard/info.php:83 dashboard/info.php:84 dashboard/info.php:85
+#: dashboard/info.php:86 dashboard/settings/geotargeting.php:40
+#, fuzzy
+msgid "Buy now"
+msgstr "Köp nu"
+
+#: dashboard/adrotatepro.php:87 dashboard/adrotatepro.php:99
+#: dashboard/info.php:84
+#, fuzzy
+msgid "Duo License"
+msgstr "AdRotate Licens"
+
+#: dashboard/adrotatepro.php:87 dashboard/info.php:84
+msgid "Two WordPress installations."
+msgstr ""
+
+#: dashboard/adrotatepro.php:88 dashboard/adrotatepro.php:100
+#: dashboard/info.php:85
+#, fuzzy
+msgid "Multi License"
+msgstr "AdRotate Licens"
+
+#: dashboard/adrotatepro.php:88 dashboard/info.php:85
+#, fuzzy
+msgid "Five WordPress installations."
+msgstr "Installation"
+
+#: dashboard/adrotatepro.php:89 dashboard/adrotatepro.php:101
+#: dashboard/info.php:86
+#, fuzzy
+msgid "Developer License"
+msgstr "Utvecklar Debug"
+
+#: dashboard/adrotatepro.php:89 dashboard/info.php:86
+msgid "Unlimited WordPress installations and/or networks."
+msgstr ""
+
+#: dashboard/adrotatepro.php:90 dashboard/adrotatepro.php:103
+#: dashboard/info.php:87
+msgid "Compare licenses"
+msgstr ""
+
+#: dashboard/adrotatepro.php:90 dashboard/info.php:87
+msgid "Not sure which license is for you? Compare them..."
+msgstr ""
+
+#: dashboard/adrotatepro.php:90 dashboard/info.php:87
+msgid "All Licenses"
+msgstr ""
+
+#: dashboard/adrotatepro.php:98
+msgid "Lifetime License"
+msgstr ""
+
+#: dashboard/adrotatepro.php:98
+msgid "Single installation."
+msgstr ""
+
+#: dashboard/adrotatepro.php:99
+msgid "Up to 2 installations."
+msgstr ""
+
+#: dashboard/adrotatepro.php:100
+msgid "Up to 10 installations."
+msgstr ""
+
+#: dashboard/adrotatepro.php:101
+msgid "Up to 25 installations or multisite networks."
+msgstr ""
+
+#: dashboard/adrotatepro.php:102
+msgid ""
+"Subscriptions get 1 year access to updates, email support & AdRotate Geo."
+msgstr ""
+
+#: dashboard/adrotatepro.php:103
+msgid "Not sure which license is for you?"
+msgstr ""
+
+#: dashboard/adrotatepro.php:103
+msgid "Compare Licenses"
+msgstr ""
+
+#: dashboard/info.php:27
+msgid "Currently"
+msgstr "För närvarande"
+
+#: dashboard/info.php:33
+msgid "Your setup"
+msgstr "Din installation"
+
+#: dashboard/info.php:34
+msgid "Adverts that need you"
+msgstr "Annonser som behöver dig"
+
+#: dashboard/info.php:41
+msgid "(Almost) Expired"
+msgstr "(Nästan) Expired"
+
+#: dashboard/info.php:45
+msgid "Have errors"
+msgstr "Har fel"
+
+#: dashboard/info.php:49
+msgid "Support AdRotate"
+msgstr "Support AdRotate"
+
+#: dashboard/info.php:50
+msgid ""
+"Consider writing a review if you like AdRotate. Also follow my Facebook page "
+"for updates about me and my plugins. Thank you!"
+msgstr ""
+
+#: dashboard/info.php:59
+msgid "Arnan de Gans News & Updates"
+msgstr ""
+
+#: dashboard/info.php:91
+msgid "AJdG Solutions Premium Support Group"
+msgstr ""
+
+#: dashboard/info.php:108
+msgid "Join the Media.net advertising network"
+msgstr ""
+
+#: dashboard/info.php:123
+msgid "Sponsored offers"
+msgstr ""
+
+#: dashboard/info.php:129
+msgid ""
+"These are affiliate banners, clicking them costs you nothing but it helps me "
+"and AdRotate a lot!"
+msgstr ""
+
+#: dashboard/publisher/adverts-disabled.php:15
+msgid "Disabled Adverts"
+msgstr ""
+
+#: dashboard/publisher/adverts-disabled.php:20
+#: dashboard/publisher/adverts-error.php:19
+#: dashboard/publisher/adverts-main.php:20
+#: dashboard/publisher/groups-main.php:20
+#: dashboard/publisher/schedules-main.php:21
+msgid "Bulk Actions"
+msgstr "Massåtgärder"
+
+#: dashboard/publisher/adverts-disabled.php:21
+#: dashboard/publisher/adverts-edit.php:186
+msgid "Activate"
+msgstr "Aktivera"
+
+#: dashboard/publisher/adverts-disabled.php:22
+#: dashboard/publisher/adverts-error.php:21
+#: dashboard/publisher/adverts-main.php:22 dashboard/publisher/media.php:60
+msgid "Delete"
+msgstr "Radera"
+
+#: dashboard/publisher/adverts-disabled.php:23
+#: dashboard/publisher/adverts-error.php:22
+#: dashboard/publisher/adverts-main.php:23
+msgid "Reset stats"
+msgstr "Återställ statistik"
+
+#: dashboard/publisher/adverts-disabled.php:25
+#: dashboard/publisher/adverts-error.php:29
+#: dashboard/publisher/adverts-main.php:30
+#: dashboard/publisher/groups-main.php:24
+#: dashboard/publisher/schedules-main.php:22
+msgid "Go"
+msgstr "Gå"
+
+#: dashboard/publisher/adverts-disabled.php:35
+#: dashboard/publisher/adverts-error.php:39
+#: dashboard/publisher/adverts-main.php:39
+#: dashboard/publisher/groups-main.php:32
+#: dashboard/publisher/schedules-main.php:31
+msgid "ID"
+msgstr "ID"
+
+#: dashboard/publisher/adverts-disabled.php:36
+#: dashboard/publisher/adverts-error.php:41
+#: dashboard/publisher/adverts-main.php:40
+#: dashboard/publisher/schedules-main.php:32
+#, fuzzy
+msgid "Start / End"
+msgstr ""
+"Tiden använder en 24-timmarsklocka. När du är van vid AM / PM-systemet ha "
+"detta i åtanke: Om start-eller sluttiden är efter lunch, lägga till 12 "
+"timmar. 14:00 är 14:00. 06:00 är 6:00 timmar."
+
+#: dashboard/publisher/adverts-disabled.php:37
+#: dashboard/publisher/adverts-error.php:40
+#: dashboard/publisher/adverts-main.php:41
+#: dashboard/publisher/groups-edit.php:51
+#: dashboard/publisher/groups-main.php:33 dashboard/publisher/media.php:30
+#: dashboard/publisher/schedules-main.php:33
+msgid "Name"
+msgstr "Namn"
+
+#: dashboard/publisher/adverts-disabled.php:39
+#: dashboard/publisher/adverts-main.php:43
+#: dashboard/publisher/groups-edit.php:333
+#: dashboard/publisher/groups-main.php:36
+msgid "Shown"
+msgstr "Visa"
+
+#: dashboard/publisher/adverts-disabled.php:40
+#: dashboard/publisher/adverts-main.php:45
+#: dashboard/publisher/groups-edit.php:334
+#: dashboard/publisher/groups-main.php:38
+#: dashboard/publisher/statistics-advert.php:52
+#: dashboard/publisher/statistics-advert.php:58
+#: dashboard/publisher/statistics-advert.php:72
+#: dashboard/publisher/statistics-advert.php:78
+#: dashboard/publisher/statistics-advert.php:99
+#: dashboard/publisher/statistics-group.php:59
+#: dashboard/publisher/statistics-group.php:65
+#: dashboard/publisher/statistics-group.php:79
+#: dashboard/publisher/statistics-group.php:85
+#: dashboard/publisher/statistics-group.php:104
+#: dashboard/publisher/statistics-main.php:29
+#: dashboard/publisher/statistics-main.php:43
+#: dashboard/publisher/statistics-main.php:47
+#: dashboard/publisher/statistics-main.php:64
+msgid "Clicks"
+msgstr "Klick"
+
+#: dashboard/publisher/adverts-disabled.php:41
+#: dashboard/publisher/adverts-main.php:47
+#: dashboard/publisher/statistics-advert.php:53
+#: dashboard/publisher/statistics-advert.php:59
+#: dashboard/publisher/statistics-advert.php:73
+#: dashboard/publisher/statistics-advert.php:79
+#: dashboard/publisher/statistics-advert.php:100
+#: dashboard/publisher/statistics-group.php:60
+#: dashboard/publisher/statistics-group.php:66
+#: dashboard/publisher/statistics-group.php:80
+#: dashboard/publisher/statistics-group.php:86
+#: dashboard/publisher/statistics-group.php:105
+#: dashboard/publisher/statistics-main.php:30
+#: dashboard/publisher/statistics-main.php:44
+#: dashboard/publisher/statistics-main.php:48
+#: dashboard/publisher/statistics-main.php:65
+msgid "CTR"
+msgstr "CTR"
+
+#: dashboard/publisher/adverts-disabled.php:69
+#: dashboard/publisher/adverts-error.php:63
+#: dashboard/publisher/adverts-main.php:81
+#: dashboard/publisher/groups-main.php:70
+msgid "Edit"
+msgstr "Ändra"
+
+#: dashboard/publisher/adverts-disabled.php:69
+#: dashboard/publisher/adverts-error.php:63
+#: dashboard/publisher/adverts-main.php:81
+#, fuzzy
+msgid "Groups:"
+msgstr "Grupper"
+
+#: dashboard/publisher/adverts-edit.php:58
+msgid "The AdCode cannot be empty!"
+msgstr "Den AdCode kan inte vara tomt!"
+
+#: dashboard/publisher/adverts-edit.php:61
+msgid ""
+"You did not use %asset% (or %image%) in your AdCode but did select a file to "
+"use!"
+msgstr ""
+
+#: dashboard/publisher/adverts-edit.php:64
+msgid ""
+"You did use %asset% (or %image%) in your AdCode but did not select a file to "
+"use!"
+msgstr ""
+
+#: dashboard/publisher/adverts-edit.php:67
+msgid ""
+"There is a problem saving the image. Please reset your image and re-save the "
+"ad!"
+msgstr ""
+
+#: dashboard/publisher/adverts-edit.php:70
+msgid "Tracking is enabled but no valid link/tag was found in the adcode!"
+msgstr ""
+
+#: dashboard/publisher/adverts-edit.php:75
+msgid ""
+"AdRotate cannot find an error but the ad is marked erroneous, try re-saving "
+"the ad!"
+msgstr ""
+"AdRotate kan inte hitta något fel, men annonsen är märkt felaktiga, försök "
+"åter spara annonsen!"
+
+#: dashboard/publisher/adverts-edit.php:78
+msgid "This ad is expired and currently not shown on your website!"
+msgstr ""
+"Den här annonsen har gått ut och för tillfället inte visas på din webbplats!"
+
+#: dashboard/publisher/adverts-edit.php:81
+msgid "The ad will expire in less than 2 days!"
+msgstr "Annonsen går ut om mindre än 2 dagar!"
+
+#: dashboard/publisher/adverts-edit.php:84
+msgid "This ad will expire in less than 7 days!"
+msgstr "Annonsen går ut om mindre än 7 dagar!"
+
+#: dashboard/publisher/adverts-edit.php:87
+msgid "This ad has been disabled and does not rotate on your site!"
+msgstr "Den här annonsen har inaktiverats och inte roterar på din webbplats!"
+
+#: dashboard/publisher/adverts-edit.php:91
+msgid ""
+"This advert uses the obsolete Responsive feature. Please use the more "
+"reliable Mobile feature! Saving the advert will disable the responsive "
+"option silently."
+msgstr ""
+
+#: dashboard/publisher/adverts-edit.php:116
+msgid "New Advert"
+msgstr "Ny annons"
+
+#: dashboard/publisher/adverts-edit.php:118
+msgid "Edit Advert"
+msgstr "Redigera annons"
+
+#: dashboard/publisher/adverts-edit.php:124
+msgid "Title"
+msgstr "Titel"
+
+#: dashboard/publisher/adverts-edit.php:130
+msgid "AdCode"
+msgstr ""
+
+#: dashboard/publisher/adverts-edit.php:135
+msgid "Basic Examples:"
+msgstr "Grundläggande Exempel:"
+
+#: dashboard/publisher/adverts-edit.php:139
+msgid "Get adverts from Media.net"
+msgstr ""
+
+#: dashboard/publisher/adverts-edit.php:144
+msgid "Useful tags"
+msgstr ""
+
+#: dashboard/publisher/adverts-edit.php:146
+msgid "Insert the advert ID Number."
+msgstr ""
+
+#: dashboard/publisher/adverts-edit.php:146
+msgid "Required when selecting a asset below."
+msgstr ""
+
+#: dashboard/publisher/adverts-edit.php:146
+msgid "Insert the advert name."
+msgstr ""
+
+#: dashboard/publisher/adverts-edit.php:146
+msgid "Insert a random seed. Useful for DFP/DoubleClick type adverts."
+msgstr ""
+
+#: dashboard/publisher/adverts-edit.php:146
+msgid "Add inside the <a> tag to open advert in a new window."
+msgstr ""
+
+#: dashboard/publisher/adverts-edit.php:146
+msgid "Add inside the <a> tag to tell crawlers to ignore this link"
+msgstr ""
+
+#: dashboard/publisher/adverts-edit.php:146
+msgid ""
+"Place the cursor in your AdCode where you want to add any of these tags and "
+"click to add it."
+msgstr ""
+
+#: dashboard/publisher/adverts-edit.php:151
+msgid "Preview"
+msgstr "Förhandsgranska"
+
+#: dashboard/publisher/adverts-edit.php:154
+msgid ""
+"Note: While this preview is an accurate one, it might look different then it "
+"does on the website."
+msgstr ""
+"OBS: Även förhandsvisningen är en riktig en, kan det se annorlunda ut då den "
+"gör på webbplatsen."
+
+#: dashboard/publisher/adverts-edit.php:155
+msgid ""
+"This is because of CSS differences. Your themes CSS file is not active here!"
+msgstr ""
+"Detta är på grund av CSS skillnader. Ditt teman CSS-fil är inte aktiv här!"
+
+#: dashboard/publisher/adverts-edit.php:160
+#: dashboard/publisher/adverts-generator.php:46
+msgid "Banner asset"
+msgstr ""
+
+#: dashboard/publisher/adverts-edit.php:163
+msgid "WordPress media:"
+msgstr ""
+
+#: dashboard/publisher/adverts-edit.php:163
+msgid "Select Banner"
+msgstr "Välj Banner"
+
+#: dashboard/publisher/adverts-edit.php:165
+#: dashboard/publisher/adverts-generator.php:53
+msgid "- OR -"
+msgstr "- ELLER -"
+
+#: dashboard/publisher/adverts-edit.php:167
+msgid "Banner folder:"
+msgstr "Banner folder:"
+
+#: dashboard/publisher/adverts-edit.php:168
+msgid "No image selected"
+msgstr "Ingen bild vald"
+
+#: dashboard/publisher/adverts-edit.php:172
+msgid "Use %asset% in the adcode instead of the file path."
+msgstr ""
+
+#: dashboard/publisher/adverts-edit.php:172
+msgid ""
+"Use either the text field or the dropdown. If the textfield has content that "
+"field has priority."
+msgstr ""
+"Använd antingen textfältet eller listrutan. Om textfältet har innehåll som "
+"området har företräde."
+
+#: dashboard/publisher/adverts-edit.php:179
+msgid "Enable click and impression tracking for this advert."
+msgstr ""
+
+#: dashboard/publisher/adverts-edit.php:180
+msgid ""
+"Note: Clicktracking does not work for Javascript adverts such as those "
+"provided by Google AdSense/DFP/DoubleClick. HTML5/Flash adverts are not "
+"always supported."
+msgstr ""
+
+#: dashboard/publisher/adverts-edit.php:190
+msgid "Yes, this ad will be used"
+msgstr "Ja, kommer denna annons att användas"
+
+#: dashboard/publisher/adverts-edit.php:191
+msgid "No, do not show this ad anywhere"
+msgstr "Nej, inte visa denna annons någonstans"
+
+#: dashboard/publisher/adverts-edit.php:198
+#: dashboard/publisher/adverts-main.php:105
+#: dashboard/publisher/groups-edit.php:71
+#: dashboard/publisher/groups-main.php:89
+#, fuzzy
+msgid "Get more features with AdRotate Pro."
+msgstr "Få fler funktioner! Skaffa AdRotate Pro."
+
+#: dashboard/publisher/adverts-edit.php:198
+#: dashboard/publisher/adverts-edit.php:261
+#: dashboard/publisher/adverts-edit.php:330
+#: dashboard/publisher/adverts-edit.php:401
+#: dashboard/publisher/adverts-main.php:105
+#: dashboard/publisher/groups-edit.php:71
+#: dashboard/publisher/groups-edit.php:191
+#: dashboard/publisher/groups-main.php:89 dashboard/publisher/media.php:73
+#: dashboard/publisher/schedules-main.php:89
+#: dashboard/publisher/statistics-advert.php:108
+#: dashboard/publisher/statistics-group.php:112
+#: dashboard/publisher/statistics-main.php:71
+#, fuzzy
+msgid "Upgrade now"
+msgstr "i dag"
+
+#: dashboard/publisher/adverts-edit.php:201
+#: dashboard/publisher/adverts-edit.php:264
+#: dashboard/publisher/adverts-edit.php:420
+#: dashboard/publisher/adverts-edit.php:461
+msgid "Save Advert"
+msgstr "Spara annons"
+
+#: dashboard/publisher/adverts-edit.php:202
+#: dashboard/publisher/adverts-edit.php:265
+#: dashboard/publisher/adverts-edit.php:421
+#: dashboard/publisher/adverts-edit.php:462
+#: dashboard/publisher/adverts-generator.php:129
+#: dashboard/publisher/groups-edit.php:150
+#: dashboard/publisher/groups-edit.php:299
+#: dashboard/publisher/groups-edit.php:391
+msgid "Cancel"
+msgstr "Avbryt"
+
+#: dashboard/publisher/adverts-edit.php:205
+#: dashboard/publisher/adverts-edit.php:403
+#: dashboard/publisher/groups-edit.php:132
+#: dashboard/publisher/groups-edit.php:281
+msgid "Usage"
+msgstr "Användning"
+
+#: dashboard/publisher/adverts-edit.php:209
+#: dashboard/publisher/adverts-edit.php:407
+#: dashboard/publisher/groups-edit.php:136
+#: dashboard/publisher/groups-edit.php:205
+#: dashboard/publisher/groups-edit.php:245
+#: dashboard/publisher/groups-edit.php:285
+msgid "Widget"
+msgstr ""
+
+#: dashboard/publisher/adverts-edit.php:210
+#: dashboard/publisher/adverts-edit.php:408
+msgid ""
+"Drag the AdRotate widget to the sidebar where you want to place the advert "
+"and select the advert or the group the advert is in."
+msgstr ""
+
+#: dashboard/publisher/adverts-edit.php:213
+#: dashboard/publisher/adverts-edit.php:411
+#: dashboard/publisher/groups-edit.php:140
+#: dashboard/publisher/groups-edit.php:289
+msgid "In a post or page"
+msgstr ""
+
+#: dashboard/publisher/adverts-edit.php:215
+#: dashboard/publisher/adverts-edit.php:413
+#: dashboard/publisher/groups-edit.php:142
+#: dashboard/publisher/groups-edit.php:291
+msgid "Directly in a theme"
+msgstr ""
+
+#: dashboard/publisher/adverts-edit.php:221
+msgid "Schedule your advert"
+msgstr ""
+
+#: dashboard/publisher/adverts-edit.php:222
+msgid ""
+"Time uses a 24 hour clock. When you're used to the AM/PM system keep this in "
+"mind: If the start or end time is after lunch, add 12 hours. 2PM is 14:00 "
+"hours. 6AM is 6:00 hours."
+msgstr ""
+"Tiden använder en 24-timmarsklocka. När du är van vid AM / PM-systemet ha "
+"detta i åtanke: Om start-eller sluttiden är efter lunch, lägga till 12 "
+"timmar. 14:00 är 14:00. 06:00 är 6:00 timmar."
+
+#: dashboard/publisher/adverts-edit.php:226
+#, fuzzy
+msgid "Start date"
+msgstr ""
+"Tiden använder en 24-timmarsklocka. När du är van vid AM / PM-systemet ha "
+"detta i åtanke: Om start-eller sluttiden är efter lunch, lägga till 12 "
+"timmar. 14:00 är 14:00. 06:00 är 6:00 timmar."
+
+#: dashboard/publisher/adverts-edit.php:230
+#, fuzzy
+#| msgid "Ad updated"
+msgid "End date"
+msgstr "Annons uppdaterad"
+
+#: dashboard/publisher/adverts-edit.php:236
+msgid "Start time (hh:mm)"
+msgstr ""
+
+#: dashboard/publisher/adverts-edit.php:243
+msgid "End time (hh:mm)"
+msgstr ""
+
+#: dashboard/publisher/adverts-edit.php:253
+msgid "Maximum Clicks"
+msgstr ""
+
+#: dashboard/publisher/adverts-edit.php:254
+#: dashboard/publisher/adverts-edit.php:256
+msgid "Leave empty or 0 to skip this."
+msgstr "Lämna tomt eller 0 för att hoppa över detta."
+
+#: dashboard/publisher/adverts-edit.php:255
+msgid "Maximum Impressions"
+msgstr ""
+
+#: dashboard/publisher/adverts-edit.php:261
+msgid ""
+"Create multiple and more advanced schedules for each advert with AdRotate "
+"Pro."
+msgstr ""
+
+#: dashboard/publisher/adverts-edit.php:268
+#: dashboard/publisher/groups-edit.php:153
+msgid "Advanced"
+msgstr "Utökad"
+
+#: dashboard/publisher/adverts-edit.php:269
+#: dashboard/publisher/adverts-edit.php:333
+msgid "Available in AdRotate Pro!"
+msgstr ""
+
+#: dashboard/publisher/adverts-edit.php:274
+#: dashboard/publisher/groups-edit.php:331
+msgid "Weight"
+msgstr "Vikt"
+
+#: dashboard/publisher/adverts-edit.php:277
+msgid "Few impressions"
+msgstr ""
+
+#: dashboard/publisher/adverts-edit.php:282
+msgid "Less than average"
+msgstr "Mindre än genomsnittet"
+
+#: dashboard/publisher/adverts-edit.php:287
+msgid "Normal impressions"
+msgstr ""
+
+#: dashboard/publisher/adverts-edit.php:292
+msgid "More than average"
+msgstr "Mer än genomsnittet"
+
+#: dashboard/publisher/adverts-edit.php:297
+msgid "Many impressions"
+msgstr ""
+
+#: dashboard/publisher/adverts-edit.php:302
+msgid "Mobile"
+msgstr ""
+
+#: dashboard/publisher/adverts-edit.php:304
+msgid "Computers"
+msgstr ""
+
+#: dashboard/publisher/adverts-edit.php:307
+msgid "Smartphones"
+msgstr ""
+
+#: dashboard/publisher/adverts-edit.php:310
+msgid "Tablets"
+msgstr ""
+
+#: dashboard/publisher/adverts-edit.php:313
+msgid ""
+"Also enable mobile support in the group this advert goes in or these are "
+"ignored."
+msgstr ""
+
+#: dashboard/publisher/adverts-edit.php:313
+msgid "Operating system detection only detects iOS/Android/Other or neither."
+msgstr ""
+
+#: dashboard/publisher/adverts-edit.php:317
+msgid "Mobile OS"
+msgstr ""
+
+#: dashboard/publisher/adverts-edit.php:319
+msgid "iOS"
+msgstr ""
+
+#: dashboard/publisher/adverts-edit.php:322
+msgid "Android"
+msgstr ""
+
+#: dashboard/publisher/adverts-edit.php:325
+msgid "Others"
+msgstr ""
+
+#: dashboard/publisher/adverts-edit.php:330
+msgid ""
+"With AdRotate Pro you can easily select which devices and mobile operating "
+"systems the advert should show on!"
+msgstr ""
+
+#: dashboard/publisher/adverts-edit.php:333
+msgid ""
+"Assign the advert to a group and enable that group to use Geo Targeting."
+msgstr ""
+
+#: dashboard/publisher/adverts-edit.php:391
+msgid "A comma separated list of items:"
+msgstr ""
+
+#: dashboard/publisher/adverts-edit.php:391
+#, fuzzy
+msgid ""
+"AdRotate does not check the validity of names so make sure you spell them "
+"correctly!"
+msgstr ""
+"AdRotate kan inte kontrollera giltigheten av namn så se till att stava dem "
+"rätt!"
+
+#: dashboard/publisher/adverts-edit.php:401
+msgid "Target your audience with Geo Targeting in AdRotate Pro"
+msgstr ""
+
+#: dashboard/publisher/adverts-edit.php:425
+msgid "Select Groups"
+msgstr "Välj Grupper"
+
+#: dashboard/publisher/adverts-edit.php:430
+msgid "ID - Name"
+msgstr "ID - Namn"
+
+#: dashboard/publisher/adverts-edit.php:440
+#: dashboard/publisher/groups-main.php:60
+#: dashboard/settings/geotargeting.php:54
+msgid "Default"
+msgstr "Default"
+
+#: dashboard/publisher/adverts-edit.php:441
+#: dashboard/publisher/groups-main.php:61
+msgid "Dynamic"
+msgstr "Dynamic"
+
+#: dashboard/publisher/adverts-edit.php:441
+#: dashboard/publisher/groups-main.php:61
+#, fuzzy
+msgid "second rotation"
+msgstr "Geo Location"
+
+#: dashboard/publisher/adverts-edit.php:442
+#: dashboard/publisher/groups-main.php:62
+msgid "Block"
+msgstr "Block"
+
+#: dashboard/publisher/adverts-edit.php:442
+#: dashboard/publisher/groups-main.php:62
+#, fuzzy
+msgid "grid"
+msgstr ""
+"Gör ett rutnät för dina annonser. Fylla i 2 och 2 gör ett 2x2 rutnät. "
+"(Standard: 2/2)"
+
+#: dashboard/publisher/adverts-edit.php:443
+#: dashboard/publisher/groups-edit.php:199
+#: dashboard/publisher/groups-main.php:63
+msgid "Post Injection"
+msgstr "Post injektion"
+
+#: dashboard/publisher/adverts-edit.php:444
+msgid "Geolocation"
+msgstr "Geolocation"
+
+#: dashboard/publisher/adverts-edit.php:450
+#: dashboard/publisher/groups-edit.php:57
+#: dashboard/publisher/groups-main.php:70
+msgid "Mode"
+msgstr "läge"
+
+#: dashboard/publisher/adverts-error.php:12
+msgid "Adverts that need attention"
+msgstr ""
+
+#: dashboard/publisher/adverts-error.php:20
+#: dashboard/publisher/adverts-main.php:21
+msgid "Deactivate"
+msgstr "Avaktivera"
+
+#: dashboard/publisher/adverts-error.php:23
+#: dashboard/publisher/adverts-main.php:25
+msgid "-- Renew --"
+msgstr "- Förnya -"
+
+#: dashboard/publisher/adverts-error.php:24
+#: dashboard/publisher/adverts-main.php:26
+msgid "For 1 year"
+msgstr "För 1 år"
+
+#: dashboard/publisher/adverts-error.php:25
+#: dashboard/publisher/adverts-main.php:27
+msgid "For 180 days"
+msgstr "För 180 dagar"
+
+#: dashboard/publisher/adverts-error.php:26
+#: dashboard/publisher/adverts-main.php:28
+msgid "For 30 days"
+msgstr "För 30 dagar"
+
+#: dashboard/publisher/adverts-error.php:27
+#: dashboard/publisher/adverts-main.php:29
+msgid "For 7 days"
+msgstr "För 7 dagar"
+
+#: dashboard/publisher/adverts-error.php:71
+#, fuzzy
+#| msgid "Configuration errors."
+msgid "Configuration errors"
+msgstr "Konfigurations fel."
+
+#: dashboard/publisher/adverts-error.php:72
+#, fuzzy
+#| msgid "Expires soon."
+msgid "Expires soon"
+msgstr "Utgår inom kort."
+
+#: dashboard/publisher/adverts-error.php:73
+#: dashboard/settings/maintenance.php:64
+msgid "Expired"
+msgstr "Utgånget"
+
+#: dashboard/publisher/adverts-generator.php:35
+#, fuzzy
+#| msgid "Moderate Adverts"
+msgid "Generate Advert Code"
+msgstr "Moderate Annonser"
+
+#: dashboard/publisher/adverts-generator.php:36
+msgid ""
+"Use the Generator if you have received a target url, banner image and/or "
+"some separate files with a description on how to use those. The AdRotate "
+"Generator will take your bits and pieces and try to generate a working "
+"adcode from it."
+msgstr ""
+
+#: dashboard/publisher/adverts-generator.php:38
+msgid ""
+"If you have a complete and working ad code / ad tag you do not use the "
+"Generator. You can simply paste that code in the AdCode field when creating "
+"your advert. For example as provided by Media.net or Google AdSense among "
+"others."
+msgstr ""
+
+#: dashboard/publisher/adverts-generator.php:40
+#, fuzzy
+#| msgid "Statistics for advert"
+msgid "Basic advert"
+msgstr "Statistik för annons"
+
+#: dashboard/publisher/adverts-generator.php:41
+msgid ""
+"This is a regular advert consisting of an image and a link, made up from "
+"HTML code."
+msgstr ""
+
+#: dashboard/publisher/adverts-generator.php:50
+#: dashboard/publisher/adverts-generator.php:99
+#, fuzzy
+#| msgid "No image selected"
+msgid "No file selected"
+msgstr "Ingen bild vald"
+
+#: dashboard/publisher/adverts-generator.php:52
+#: dashboard/publisher/adverts-generator.php:101
+msgid "Is your file not listed? Upload it via the AdRotate Media Manager."
+msgstr ""
+
+#: dashboard/publisher/adverts-generator.php:54
+msgid "Visible text if this is a text link banner."
+msgstr ""
+
+#: dashboard/publisher/adverts-generator.php:54
+#, fuzzy
+#| msgid ""
+#| "Use either the text field or the dropdown. If the textfield has content "
+#| "that field has priority."
+msgid ""
+"Use either the dropdown or the text field. If the dropdown is used, that "
+"field has priority."
+msgstr ""
+"Använd antingen textfältet eller listrutan. Om textfältet har innehåll som "
+"området har företräde."
+
+#: dashboard/publisher/adverts-generator.php:59
+#, fuzzy
+#| msgid "website"
+msgid "Target website"
+msgstr "hemsida"
+
+#: dashboard/publisher/adverts-generator.php:61
+msgid "Where does the person clicking the advert go?"
+msgstr ""
+
+#: dashboard/publisher/adverts-generator.php:65
+#, fuzzy
+#| msgid "GeoTargeting"
+msgid "Target window"
+msgstr "GeoTargeting"
+
+#: dashboard/publisher/adverts-generator.php:67
+#: dashboard/publisher/adverts-generator.php:73
+#: dashboard/publisher/adverts-generator.php:119
+#, fuzzy
+#| msgid "Available in AdRotate Pro"
+msgid "Available in AdRotate Pro."
+msgstr "Tillgänglig i AdRotate Pro"
+
+#: dashboard/publisher/adverts-generator.php:67
+msgid "Open the target website in a new window?"
+msgstr ""
+
+#: dashboard/publisher/adverts-generator.php:71
+msgid "NoFollow"
+msgstr ""
+
+#: dashboard/publisher/adverts-generator.php:73
+msgid "Tell crawlers and search engines not to follow the target website url?"
+msgstr ""
+
+#: dashboard/publisher/adverts-generator.php:77
+#: dashboard/publisher/adverts-generator.php:106
+#: dashboard/publisher/groups-edit.php:95
+msgid "Advert size"
+msgstr ""
+
+#: dashboard/publisher/adverts-generator.php:79
+#: dashboard/publisher/adverts-generator.php:108
+#, fuzzy
+#| msgid "pixel(s) wide"
+msgid "px wide"
+msgstr "bildpunkt (er) bredd"
+
+#: dashboard/publisher/adverts-generator.php:80
+#: dashboard/publisher/adverts-generator.php:109
+#, fuzzy
+#| msgid "pixel(s) high."
+msgid "px high."
+msgstr "bildpunkter (er) hög."
+
+#: dashboard/publisher/adverts-generator.php:81
+#: dashboard/publisher/adverts-generator.php:110
+#, fuzzy
+#| msgid ""
+#| "Define the maximum size of the ads in pixels. Height can be "
+#| "'auto' (Default: 125/125)"
+msgid "Define the maximum size of the adverts in pixels."
+msgstr ""
+"Definiera den maximala storleken av de annonser i pixlar. Höjd kan vara "
+"\"auto\" (Standard: 125/125)"
+
+#: dashboard/publisher/adverts-generator.php:81
+#: dashboard/publisher/adverts-generator.php:119
+#, fuzzy
+#| msgid "Options"
+msgid "(Optional)"
+msgstr "Alternativ"
+
+#: dashboard/publisher/adverts-generator.php:88
+msgid "HTML5 or Flash Advert"
+msgstr ""
+
+#: dashboard/publisher/adverts-generator.php:89
+msgid ""
+"These are more advanced adverts, using a Flash file or HTML5 files. Try to "
+"avoid Flash. HTML5 is the new and better standard."
+msgstr ""
+
+#: dashboard/publisher/adverts-generator.php:90
+msgid ""
+"If your HTML5 advert consists of multiple files, upload all files using the "
+"AdRotate Media Manager and select the HTML file here."
+msgstr ""
+
+#: dashboard/publisher/adverts-generator.php:95
+msgid "HTML/Flash file"
+msgstr ""
+
+#: dashboard/publisher/adverts-generator.php:114
+msgid "Flash clickTAG"
+msgstr ""
+
+#: dashboard/publisher/adverts-generator.php:117
+msgid "Parameter"
+msgstr ""
+
+#: dashboard/publisher/adverts-generator.php:118
+msgid "No clickTAG"
+msgstr ""
+
+#: dashboard/publisher/adverts-generator.php:119
+msgid "URL"
+msgstr ""
+
+#: dashboard/publisher/adverts-generator.php:119
+msgid ""
+"This option is ignored for HTML5 adverts. All choices do the exact same, but "
+"some developers write the parameter differently."
+msgstr ""
+
+#: dashboard/publisher/adverts-generator.php:128
+msgid "Generate and Configure Advert"
+msgstr ""
+
+#: dashboard/publisher/adverts-generator.php:129
+msgid "Always test your adverts before activating them."
+msgstr ""
+
+#: dashboard/publisher/adverts-generator.php:132
+msgid "NOTE:"
+msgstr ""
+
+#: dashboard/publisher/adverts-generator.php:132
+msgid ""
+"While the Code Generator has been tested and works, code generation, as "
+"always, is a interpretation of user input. If you provide the correct bits "
+"and pieces, a working advert may be generated. If you leave fields empty or "
+"insert the wrong info you probably end up with a broken advert."
+msgstr ""
+
+#: dashboard/publisher/adverts-generator.php:132
+msgid ""
+"Based on your input and experiences later iterations of the Code Generator "
+"will be better and more feature rich."
+msgstr ""
+
+#: dashboard/publisher/adverts-main.php:12
+msgid "Active Adverts"
+msgstr ""
+
+#: dashboard/publisher/adverts-main.php:24
+#, fuzzy
+msgid "Export to CSV"
+msgstr "Exportera"
+
+#: dashboard/publisher/adverts-main.php:44
+#: dashboard/publisher/adverts-main.php:46
+#: dashboard/publisher/groups-main.php:37
+#: dashboard/publisher/groups-main.php:39
+#: dashboard/publisher/statistics-advert.php:44
+#: dashboard/publisher/statistics-group.php:51
+msgid "Today"
+msgstr "i dag"
+
+#: dashboard/publisher/adverts-main.php:100
+msgid "No adverts created yet!"
+msgstr ""
+
+#: dashboard/publisher/groups-edit.php:43
+msgid "New Group"
+msgstr "Ny grupp"
+
+#: dashboard/publisher/groups-edit.php:45
+msgid "Edit Group"
+msgstr "Redigera grupp"
+
+#: dashboard/publisher/groups-edit.php:60
+msgid "Default - Show one ad at a time"
+msgstr "Standard - Visa en annons i taget"
+
+#: dashboard/publisher/groups-edit.php:61
+msgid "Dynamic Mode - Show a different ad every few seconds"
+msgstr "Dynamiskt läge - Visa en annan annons med några sekunders"
+
+#: dashboard/publisher/groups-edit.php:62
+msgid "Block Mode - Show a block of adverts"
+msgstr ""
+
+#: dashboard/publisher/groups-edit.php:66
+#, fuzzy
+msgid "Dynamic mode requires jQuery. You can enable this in AdRotate Settings."
+msgstr ""
+"'Dynamic' och 'block' läge kräver 'jQuery' och 'jQuery Showoff' att laddas. "
+"Du kan aktivera detta i AdRotate inställningar."
+
+#: dashboard/publisher/groups-edit.php:73
+#: dashboard/publisher/groups-edit.php:100
+msgid "Dynamic and Block Mode"
+msgstr "Dynamisk och Blockläge"
+
+#: dashboard/publisher/groups-edit.php:74
+msgid "Only required if your group is in Dynamic or Block mode."
+msgstr "Krävs endast om din grupp är i dynamisk eller Blockera läget."
+
+#: dashboard/publisher/groups-edit.php:78
+msgid "Block size"
+msgstr ""
+
+#: dashboard/publisher/groups-edit.php:84
+msgid "rows"
+msgstr "rader"
+
+#: dashboard/publisher/groups-edit.php:88
+msgid "columns"
+msgstr "kolumner"
+
+#: dashboard/publisher/groups-edit.php:91
+msgid "Block Mode"
+msgstr "Blockläge"
+
+#: dashboard/publisher/groups-edit.php:91
+msgid "Larger blocks will degrade your sites performance! Default: 2/2."
+msgstr ""
+
+#: dashboard/publisher/groups-edit.php:97
+msgid "pixel(s) wide"
+msgstr "bildpunkt (er) bredd"
+
+#: dashboard/publisher/groups-edit.php:97
+msgid "pixel(s) high."
+msgstr "bildpunkter (er) hög."
+
+#: dashboard/publisher/groups-edit.php:100
+msgid ""
+"Define the maximum size of the adverts in pixels. Size can be 'auto' (Not "
+"recommended). Default: 125/125."
+msgstr ""
+
+#: dashboard/publisher/groups-edit.php:104
+msgid "Automated refresh"
+msgstr "Automatisk uppdatering"
+
+#: dashboard/publisher/groups-edit.php:123
+msgid "seconds."
+msgstr "sekunder."
+
+#: dashboard/publisher/groups-edit.php:126
+msgid "Dynamic Mode"
+msgstr "Dynamiskt läge"
+
+#: dashboard/publisher/groups-edit.php:126
+msgid ""
+"Load a new advert in this interval without reloading the page. Default: 6."
+msgstr ""
+"Ladda en ny annons i detta intervall utan att ladda om sidan. Standard: 6."
+
+#: dashboard/publisher/groups-edit.php:137
+#: dashboard/publisher/groups-edit.php:286
+msgid ""
+"Drag the AdRotate widget to the sidebar you want it in, select \"Group of "
+"Adverts\" and enter ID"
+msgstr ""
+
+#: dashboard/publisher/groups-edit.php:149
+#: dashboard/publisher/groups-edit.php:298
+#: dashboard/publisher/groups-edit.php:390
+#, fuzzy
+msgid "Save Group"
+msgstr "Spara"
+
+#: dashboard/publisher/groups-edit.php:157
+msgid "Advert Margin"
+msgstr "Annons Marginal"
+
+#: dashboard/publisher/groups-edit.php:159
+msgid "pixel(s)"
+msgstr "bildpunkt (er)"
+
+#: dashboard/publisher/groups-edit.php:162
+#, fuzzy
+msgid "A transparent area outside the advert in pixels. Default: 0."
+msgstr "En transparant border utanför annonsen i pixlar. Standard: 1."
+
+#: dashboard/publisher/groups-edit.php:162
+#, fuzzy
+msgid "Set to 0 to disable."
+msgstr "Standard: 10. Sätt till 0 för att inaktivera denna timer."
+
+#: dashboard/publisher/groups-edit.php:162
+msgid "Margins are automatically disabled for blocks where required."
+msgstr ""
+
+#: dashboard/publisher/groups-edit.php:166
+#, fuzzy
+msgid "Align the group"
+msgstr "Annonser i grupp"
+
+#: dashboard/publisher/groups-edit.php:169
+#, fuzzy
+msgid "None (Default)"
+msgstr "Default"
+
+#: dashboard/publisher/groups-edit.php:170
+msgid "Left"
+msgstr ""
+
+#: dashboard/publisher/groups-edit.php:171
+#, fuzzy
+msgid "Right"
+msgstr "Vikt"
+
+#: dashboard/publisher/groups-edit.php:172
+msgid "Center"
+msgstr ""
+
+#: dashboard/publisher/groups-edit.php:176
+msgid ""
+"Align the group in your post or page. Using 'center' may affect your margin "
+"setting. Not every theme supports this feature."
+msgstr ""
+
+#: dashboard/publisher/groups-edit.php:181
+msgid "Enable Geo Targeting for this group."
+msgstr ""
+
+#: dashboard/publisher/groups-edit.php:182
+msgid "Do not forget to tell the adverts for which areas they should show."
+msgstr "Glöm inte att tala om för de annonser för vilka områden de ska visa."
+
+#: dashboard/publisher/groups-edit.php:185
+msgid "Mobile support"
+msgstr ""
+
+#: dashboard/publisher/groups-edit.php:186
+msgid "Enable mobile support for this group."
+msgstr ""
+
+#: dashboard/publisher/groups-edit.php:187
+msgid "Do not forget to put at least one mobile advert in this group."
+msgstr ""
+
+#: dashboard/publisher/groups-edit.php:191
+msgid "Set up mobile support and use Geo Targeting in AdRotate Pro"
+msgstr ""
+
+#: dashboard/publisher/groups-edit.php:204
+#: dashboard/publisher/groups-edit.php:244
+#: dashboard/settings/geotargeting.php:24 dashboard/settings/statistics.php:24
+#, fuzzy
+msgid "Disabled"
+msgstr "Inaktivera annonser"
+
+#: dashboard/publisher/groups-edit.php:206
+#: dashboard/publisher/groups-edit.php:246
+#, fuzzy
+msgid "Before content"
+msgstr "Innan publicerat innehåll"
+
+#: dashboard/publisher/groups-edit.php:207
+#: dashboard/publisher/groups-edit.php:247
+#, fuzzy
+msgid "After content"
+msgstr "Före och efter innehållet"
+
+#: dashboard/publisher/groups-edit.php:208
+#: dashboard/publisher/groups-edit.php:248
+#, fuzzy
+msgid "Before and after content"
+msgstr "Före och efter innehållet"
+
+#: dashboard/publisher/groups-edit.php:209
+#: dashboard/publisher/groups-edit.php:249
+msgid "Inside the content..."
+msgstr ""
+
+#: dashboard/publisher/groups-edit.php:215
+#: dashboard/publisher/groups-edit.php:255
+msgid "after the middle paragraph"
+msgstr ""
+
+#: dashboard/publisher/groups-edit.php:216
+#: dashboard/publisher/groups-edit.php:256
+msgid "after the 1st paragraph"
+msgstr ""
+
+#: dashboard/publisher/groups-edit.php:217
+#: dashboard/publisher/groups-edit.php:257
+msgid "after the 2nd paragraph"
+msgstr ""
+
+#: dashboard/publisher/groups-edit.php:218
+#: dashboard/publisher/groups-edit.php:258
+msgid "after the 3rd paragraph"
+msgstr ""
+
+#: dashboard/publisher/groups-edit.php:219
+#: dashboard/publisher/groups-edit.php:259
+msgid "after the 4th paragraph"
+msgstr ""
+
+#: dashboard/publisher/groups-edit.php:220
+#: dashboard/publisher/groups-edit.php:260
+msgid "after the 5th paragraph"
+msgstr ""
+
+#: dashboard/publisher/groups-edit.php:221
+#: dashboard/publisher/groups-edit.php:261
+msgid "after the 6th paragraph"
+msgstr ""
+
+#: dashboard/publisher/groups-edit.php:222
+#: dashboard/publisher/groups-edit.php:262
+msgid "after the 7th paragraph"
+msgstr ""
+
+#: dashboard/publisher/groups-edit.php:223
+#: dashboard/publisher/groups-edit.php:263
+msgid "after the 8th paragraph"
+msgstr ""
+
+#: dashboard/publisher/groups-edit.php:239
+msgid "Page Injection"
+msgstr ""
+
+#: dashboard/publisher/groups-edit.php:302
+msgid "Wrapper code"
+msgstr "Wrapper kod"
+
+#: dashboard/publisher/groups-edit.php:303
+msgid "Wraps around each advert. HTML/JavaScript allowed, use with care!"
+msgstr ""
+
+#: dashboard/publisher/groups-edit.php:307
+msgid "Before advert"
+msgstr ""
+
+#: dashboard/publisher/groups-edit.php:310
+#: dashboard/publisher/groups-edit.php:318
+msgid "Example:"
+msgstr "Exempel:"
+
+#: dashboard/publisher/groups-edit.php:311
+msgid "Options:"
+msgstr "Options:"
+
+#: dashboard/publisher/groups-edit.php:315
+msgid "After advert"
+msgstr ""
+
+#: dashboard/publisher/groups-edit.php:324
+msgid "Select adverts"
+msgstr ""
+
+#: dashboard/publisher/groups-edit.php:329
+msgid "Choose adverts"
+msgstr ""
+
+#: dashboard/publisher/groups-edit.php:330
+msgid "Visible until"
+msgstr "Synlig tills"
+
+#: dashboard/publisher/groups-edit.php:377
+msgid "No adverts created!"
+msgstr ""
+
+#: dashboard/publisher/groups-edit.php:384
+msgid "Configuration errors."
+msgstr "Konfigurations fel."
+
+#: dashboard/publisher/groups-edit.php:385
+#: dashboard/publisher/schedules-main.php:87
+msgid "Expires soon."
+msgstr "Utgår inom kort."
+
+#: dashboard/publisher/groups-edit.php:386
+#: dashboard/publisher/schedules-main.php:88
+msgid "Has expired."
+msgstr "Har gått ut."
+
+#: dashboard/publisher/groups-main.php:12
+msgid "Manage Groups"
+msgstr "Hantera Grupper"
+
+#: dashboard/publisher/groups-main.php:21
+msgid "Delete Group"
+msgstr "Ta bort grupp"
+
+#: dashboard/publisher/groups-main.php:22
+msgid "Delete Group including adverts"
+msgstr ""
+
+#: dashboard/publisher/groups-main.php:24
+msgid "You are about to delete a group"
+msgstr "Du håller på att ta bort en grupp"
+
+#: dashboard/publisher/groups-main.php:24
+msgid "This action can not be undone!"
+msgstr "Denna åtgärd kan inte ångras!"
+
+#: dashboard/publisher/groups-main.php:24 dashboard/settings/maintenance.php:22
+#: dashboard/settings/maintenance.php:39 dashboard/settings/maintenance.php:110
+msgid "OK to continue, CANCEL to stop."
+msgstr "OK för att fortsätta, CANCEL för att avbryta."
+
+#: dashboard/publisher/groups-main.php:84
+msgid "No groups created!"
+msgstr "Inga grupper skapas!"
+
+#: dashboard/publisher/media.php:17
+#, fuzzy
+msgid "Upload new file"
+msgstr "Banner image:"
+
+#: dashboard/publisher/media.php:18
+#, fuzzy
+msgid "Accepted files:"
+msgstr "Godkända filer är:"
+
+#: dashboard/publisher/media.php:18
+#, fuzzy
+msgid "Maximum size is 512Kb per file."
+msgstr "Maximal storlek är 512Kb."
+
+#: dashboard/publisher/media.php:18
+msgid "Important:"
+msgstr ""
+
+#: dashboard/publisher/media.php:18
+msgid ""
+"Make sure your file has no spaces or special characters in the name. Replace "
+"spaces with a - or _."
+msgstr ""
+
+#: dashboard/publisher/media.php:18
+msgid ""
+"If you remove spaces from filenames for HTML5 adverts also edit the html "
+"file so it knows about the changed name. For example for the javascript file."
+msgstr ""
+
+#: dashboard/publisher/media.php:21
+#, fuzzy
+msgid "Upload file"
+msgstr "Överföring ofullständig."
+
+#: dashboard/publisher/media.php:21
+msgid "Click only once per file!"
+msgstr ""
+
+#: dashboard/publisher/media.php:25
+#, fuzzy
+#| msgid "Available in AdRotate Pro"
+msgid "Available files in"
+msgstr "Tillgänglig i AdRotate Pro"
+
+#: dashboard/publisher/media.php:31
+#, fuzzy
+msgid "Actions"
+msgstr "Massåtgärder"
+
+#: dashboard/publisher/media.php:65
+#, fuzzy
+#| msgid "No files found"
+msgid "No files found!"
+msgstr "Inga filer hittades"
+
+#: dashboard/publisher/media.php:72
+msgid ""
+"Make sure the banner images are not in use by adverts when you delete them!"
+msgstr ""
+
+#: dashboard/publisher/media.php:73 dashboard/publisher/schedules-main.php:89
+#: dashboard/publisher/statistics-advert.php:108
+#: dashboard/publisher/statistics-group.php:112
+#: dashboard/publisher/statistics-main.php:71
+#, fuzzy
+msgid "Get more features with AdRotate Pro"
+msgstr "Få fler funktioner! Skaffa AdRotate Pro."
+
+#: dashboard/publisher/schedules-main.php:12
+#, fuzzy
+msgid "Manage Schedules"
+msgstr "Hantera"
+
+#: dashboard/publisher/schedules-main.php:13
+msgid ""
+"In AdRotate Pro you can schedule adverts for multiple periods of time. One "
+"schedule can be assigned to many adverts allowing you to manage multi advert "
+"campaigns easily. Schedules can be active on certain days of the week or on "
+"certain hours of the day."
+msgstr ""
+
+#: dashboard/publisher/schedules-main.php:36
+#, fuzzy
+#| msgid "Shown"
+msgid "Max Shown"
+msgstr "Visa"
+
+#: dashboard/publisher/schedules-main.php:37
+msgid "Max Clicks"
+msgstr "Max Klick"
+
+#: dashboard/publisher/schedules-main.php:70
+msgid "Mon:"
+msgstr ""
+
+#: dashboard/publisher/schedules-main.php:70
+msgid "Tue:"
+msgstr ""
+
+#: dashboard/publisher/schedules-main.php:70
+msgid "Wed:"
+msgstr ""
+
+#: dashboard/publisher/schedules-main.php:70
+msgid "Thu:"
+msgstr ""
+
+#: dashboard/publisher/schedules-main.php:70
+msgid "Fri:"
+msgstr ""
+
+#: dashboard/publisher/schedules-main.php:70
+msgid "Sat:"
+msgstr ""
+
+#: dashboard/publisher/schedules-main.php:70
+msgid "Sun:"
+msgstr ""
+
+#: dashboard/publisher/schedules-main.php:70
+msgid "Between:"
+msgstr ""
+
+#: dashboard/publisher/schedules-main.php:70
+#, fuzzy
+#| msgid "Impressions"
+msgid "Impression spread:"
+msgstr "Intryck"
+
+#: dashboard/publisher/schedules-main.php:70
+#, fuzzy
+#| msgid "Delete"
+msgid "Auto Delete:"
+msgstr "Radera"
+
+#: dashboard/publisher/schedules-main.php:81
+msgid "Nothing here!"
+msgstr ""
+
+#: dashboard/publisher/statistics-advert.php:39
+msgid "Statistics for advert"
+msgstr "Statistik för annons"
+
+#: dashboard/publisher/statistics-advert.php:46
+#: dashboard/publisher/statistics-group.php:53
+#: dashboard/publisher/statistics-main.php:19
+#, fuzzy
+msgid "All time"
+msgstr "Intryck timer"
+
+#: dashboard/publisher/statistics-advert.php:51
+#: dashboard/publisher/statistics-advert.php:57
+#: dashboard/publisher/statistics-advert.php:71
+#: dashboard/publisher/statistics-advert.php:77
+#: dashboard/publisher/statistics-advert.php:98
+#: dashboard/publisher/statistics-group.php:58
+#: dashboard/publisher/statistics-group.php:64
+#: dashboard/publisher/statistics-group.php:78
+#: dashboard/publisher/statistics-group.php:84
+#: dashboard/publisher/statistics-group.php:103
+#: dashboard/publisher/statistics-main.php:28
+#: dashboard/publisher/statistics-main.php:42
+#: dashboard/publisher/statistics-main.php:46
+#: dashboard/publisher/statistics-main.php:63
+msgid "Impressions"
+msgstr "Intryck"
+
+#: dashboard/publisher/statistics-advert.php:64
+#: dashboard/publisher/statistics-group.php:71
+#: dashboard/publisher/statistics-main.php:35
+#, fuzzy
+#| msgid "This month"
+msgid "Last month"
+msgstr "Den här månaden"
+
+#: dashboard/publisher/statistics-advert.php:85
+#: dashboard/publisher/statistics-group.php:92
+#: dashboard/publisher/statistics-main.php:53
+msgid "Monthly overview of clicks and impressions"
+msgstr "Månads översikt av klick och visningar"
+
+#: dashboard/publisher/statistics-advert.php:109
+#: dashboard/publisher/statistics-group.php:113
+#: dashboard/publisher/statistics-main.php:72
+#: dashboard/settings/notifications.php:58
+msgid "Note:"
+msgstr "Notera:"
+
+#: dashboard/publisher/statistics-advert.php:109
+#: dashboard/publisher/statistics-group.php:113
+#: dashboard/publisher/statistics-main.php:72
+msgid ""
+"All statistics are indicative. They do not nessesarily reflect results "
+"counted by other parties."
+msgstr ""
+"All statistik är vägledande. De återspeglar inte nödvändigtvis resultat "
+"räknas av andra parter."
+
+#: dashboard/publisher/statistics-group.php:46
+msgid "Statistics for group"
+msgstr "Statistik för grupp"
+
+#: dashboard/publisher/statistics-main.php:26
+msgid "Adverts counting stats"
+msgstr ""
+
+#: dashboard/settings/advertisers.php:16
+msgid "Advertisers - Available in AdRotate Pro"
+msgstr ""
+
+#: dashboard/settings/advertisers.php:17
+#, fuzzy
+msgid "Enable advertisers so they can review and manage their own ads."
+msgstr "Aktivera Annonsörer"
+
+#: dashboard/settings/advertisers.php:20
+msgid "Enable Advertisers"
+msgstr "Aktivera Annonsörer"
+
+#: dashboard/settings/advertisers.php:22
+msgid "Allow adverts to be coupled to users (Advertisers)."
+msgstr "Tillåt reklam för att kopplas till användare (annonsörer)."
+
+#: dashboard/settings/advertisers.php:26
+msgid "Edit/update adverts"
+msgstr "Edit / update annonser"
+
+#: dashboard/settings/advertisers.php:28
+msgid "Allow advertisers to add new or edit their adverts."
+msgstr "Tillåt annonsörer att lägga till nya eller redigera sina annonser."
+
+#: dashboard/settings/advertisers.php:32
+msgid "Mobile adverts"
+msgstr ""
+
+#: dashboard/settings/advertisers.php:34
+msgid "Allow advertisers to specify on which devices their ads will show."
+msgstr ""
+
+#: dashboard/settings/advertisers.php:40
+msgid ""
+"Allow advertisers to specify where their ads will show. Geo Targeting has to "
+"be enabled, too."
+msgstr ""
+
+#: dashboard/settings/advertisers.php:44
+msgid "Advertiser role"
+msgstr "Annonsören role"
+
+#: dashboard/settings/advertisers.php:46
+msgid "Create a seperate user role for your advertisers."
+msgstr ""
+
+#: dashboard/settings/advertisers.php:47
+msgid ""
+"Don't forget to give these users access to their advertiser dashboard via "
+"the Roles tab."
+msgstr ""
+
+#: dashboard/settings/advertisers.php:53 dashboard/settings/general.php:78
+#: dashboard/settings/maintenance.php:116 dashboard/settings/misc.php:47
+#: dashboard/settings/notifications.php:79 dashboard/settings/roles.php:55
+#: dashboard/settings/statistics.php:73
+msgid "Update Options"
+msgstr "Update Options"
+
+#: dashboard/settings/general.php:17
+msgid "General Settings"
+msgstr ""
+
+#: dashboard/settings/general.php:18
+msgid "General settings for AdRotate."
+msgstr ""
+
+#: dashboard/settings/general.php:18 dashboard/settings/statistics.php:18
+msgid "Some options are only available in AdRotate Pro!"
+msgstr ""
+
+#: dashboard/settings/general.php:21
+msgid "Shortcode in widgets"
+msgstr ""
+
+#: dashboard/settings/general.php:22
+msgid ""
+"Enable this option to if your theme does not support shortcodes in the "
+"WordPress text widget."
+msgstr ""
+
+#: dashboard/settings/general.php:25
+msgid "Disable live preview"
+msgstr ""
+
+#: dashboard/settings/general.php:26
+msgid ""
+"Enable this option if you have faulty adverts that overflow their designated "
+"area while creating/editing adverts."
+msgstr ""
+
+#: dashboard/settings/general.php:29
+msgid "Disable dynamic mode"
+msgstr ""
+
+#: dashboard/settings/general.php:30
+msgid ""
+"Enable this option to disable dynamic mode in groups for mobile devices if "
+"you notice skipping or jumpy content."
+msgstr ""
+
+#: dashboard/settings/general.php:33
+#, fuzzy
+msgid "Load jQuery"
+msgstr ""
+"Den jQuery Showoff Library (0.1.2 +) krävs för dynamiska grupper. Inaktivera "
+"om andra plugins eller teman redan läsa här."
+
+#: dashboard/settings/general.php:34
+msgid ""
+"Enable this option if your theme does not load jQuery. jQuery is required "
+"for dynamic groups, statistics and some other features."
+msgstr ""
+
+#: dashboard/settings/general.php:37
+msgid "Load scripts in footer?"
+msgstr ""
+
+#: dashboard/settings/general.php:38
+msgid ""
+"Enable this option if you want to load all AdRotate Javascripts in the "
+"footer of your site."
+msgstr ""
+
+#: dashboard/settings/general.php:41
+msgid "Adblock disguise"
+msgstr ""
+
+#: dashboard/settings/general.php:43
+msgid "Leave empty to disable. Use only lowercaps letters. For example:"
+msgstr ""
+
+#: dashboard/settings/general.php:44
+msgid ""
+"Try and avoid adblock plugins in most modern browsers when using shortcodes."
+msgstr ""
+
+#: dashboard/settings/general.php:44
+msgid ""
+"To also apply this feature to widgets, use a text widget with a shortcode "
+"instead of the AdRotate widget."
+msgstr ""
+
+#: dashboard/settings/general.php:44
+msgid ""
+"Avoid the use of obvious keywords or filenames in your adverts or this "
+"feature will have little effect!"
+msgstr ""
+
+#: dashboard/settings/general.php:49
+msgid "Banner Folder"
+msgstr "Banner Folder"
+
+#: dashboard/settings/general.php:50
+#, fuzzy
+msgid "Set a folder where your banner images will be stored."
+msgstr ""
+"Ange en plats där din banner bilder lagras. (Standard: / wp-content/"
+"banners /)."
+
+#: dashboard/settings/general.php:53
+msgid "Folder name"
+msgstr ""
+
+#: dashboard/settings/general.php:55
+#, fuzzy
+msgid "(Default: banners)."
+msgstr ""
+"Ange en plats där din banner bilder lagras. (Standard: / wp-content/"
+"banners /)."
+
+#: dashboard/settings/general.php:56
+msgid ""
+"To try and trick ad blockers you could set the folder to something crazy "
+"like:"
+msgstr ""
+"Att försöka lura annons blockerare som du kan ställa in mappen till något "
+"galet som:"
+
+#: dashboard/settings/general.php:57
+msgid ""
+"This folder will not be automatically created if it doesn't exist. AdRotate "
+"will show errors when the folder is missing."
+msgstr ""
+"Denna mapp kommer inte automatiskt att skapas om den inte existerar. "
+"AdRotate visar fel när mappen saknas."
+
+#: dashboard/settings/general.php:62
+#, fuzzy
+msgid "Bot filter"
+msgstr "User-Agent Filter"
+
+#: dashboard/settings/general.php:63
+msgid "The bot filter is used for the AdRotate stats tracker."
+msgstr ""
+
+#: dashboard/settings/general.php:66
+msgid "User-Agent Filter"
+msgstr "User-Agent Filter"
+
+#: dashboard/settings/general.php:69
+msgid ""
+"A comma separated list of keywords. Filter out bots/crawlers/user-agents."
+msgstr ""
+
+#: dashboard/settings/general.php:70
+msgid ""
+"Keep in mind that this might give false positives. The word 'fire' also "
+"matches 'firefox', but not vice-versa. So be careful!"
+msgstr ""
+
+#: dashboard/settings/general.php:71
+msgid ""
+"Only words with alphanumeric characters and [ - _ ] are allowed. All other "
+"characters are stripped out."
+msgstr ""
+
+#: dashboard/settings/general.php:72
+msgid ""
+"Additionally to the list specified here, empty User-Agents are blocked as "
+"well."
+msgstr ""
+"Ytterligare till listan anges här, tomma user-agents blockerades också."
+
+#: dashboard/settings/general.php:72
+msgid "Learn more about"
+msgstr "Läs mer om"
+
+#: dashboard/settings/general.php:72
+msgid "user-agents"
+msgstr "user-agents"
+
+#: dashboard/settings/geotargeting.php:17
+msgid "Geo Targeting - Available in AdRotate Pro"
+msgstr ""
+
+#: dashboard/settings/geotargeting.php:18
+msgid "Target certain areas in the world for better advertising oppurtunities."
+msgstr ""
+
+#: dashboard/settings/geotargeting.php:21
+msgid "Which Geo Service"
+msgstr ""
+
+#: dashboard/settings/geotargeting.php:32
+msgid "30000 free lookups every day, uses GeoLite2 databases from MaxMind!"
+msgstr ""
+
+#: dashboard/settings/geotargeting.php:33
+#: dashboard/settings/geotargeting.php:37
+#: dashboard/settings/geotargeting.php:41
+#: dashboard/settings/geotargeting.php:45
+msgid "Supports:"
+msgstr ""
+
+#: dashboard/settings/geotargeting.php:34
+#: dashboard/settings/geotargeting.php:38
+#: dashboard/settings/geotargeting.php:42
+#: dashboard/settings/geotargeting.php:46
+msgid "Scalability:"
+msgstr ""
+
+#: dashboard/settings/geotargeting.php:34
+msgid "Suitable for small to medium websites."
+msgstr ""
+
+#: dashboard/settings/geotargeting.php:36
+msgid "15000 free lookups per hour, uses GeoLite2 databases from MaxMind!"
+msgstr ""
+
+#: dashboard/settings/geotargeting.php:38
+msgid "Suitable for medium sized websites."
+msgstr ""
+
+#: dashboard/settings/geotargeting.php:40
+msgid ""
+"The most accurate geo targeting you can get for only $20 USD per 50000 "
+"lookups."
+msgstr ""
+
+#: dashboard/settings/geotargeting.php:42
+msgid "Suitable for any size website as long as you have lookups."
+msgstr ""
+
+#: dashboard/settings/geotargeting.php:44
+msgid "Basic geolocation included in every CloudFlare account."
+msgstr ""
+
+#: dashboard/settings/geotargeting.php:46
+msgid "Suitable for any size website."
+msgstr ""
+
+#: dashboard/settings/geotargeting.php:51
+msgid "Geo Cookie Lifespan"
+msgstr ""
+
+#: dashboard/settings/geotargeting.php:60
+msgid "Hours."
+msgstr ""
+
+#: dashboard/settings/geotargeting.php:61
+msgid ""
+"Geo Data is stored in a cookie to reduce lookups. How long should this "
+"cookie last? A longer period is less accurate for mobile users but may "
+"reduce the usage of your lookups drastically."
+msgstr ""
+
+#: dashboard/settings/geotargeting.php:67
+msgid "MaxMind City/Country"
+msgstr ""
+
+#: dashboard/settings/geotargeting.php:70
+msgid "Username/Email"
+msgstr ""
+
+#: dashboard/settings/geotargeting.php:74
+msgid "Password/License Key"
+msgstr ""
+
+#: dashboard/settings/maintenance.php:17
+msgid ""
+"Use these functions when you notice your database is slow, unresponsive and "
+"sluggish."
+msgstr ""
+
+#: dashboard/settings/maintenance.php:20 dashboard/settings/maintenance.php:22
+msgid "Optimize Database"
+msgstr "Optimera Databas"
+
+#: dashboard/settings/maintenance.php:22
+msgid "You are about to optimize the AdRotate database."
+msgstr "Du håller på att optimera AdRotate databasen."
+
+#: dashboard/settings/maintenance.php:22
+msgid "Did you make a backup of your database?"
+msgstr "Har du gjort en säkerhetskopia av din databas?"
+
+#: dashboard/settings/maintenance.php:22
+msgid ""
+"This may take a moment and may cause your website to respond slow "
+"temporarily!"
+msgstr ""
+"Detta kan ta en stund och kan göra din webbplats för att svara långsamt "
+"tillfälligt!"
+
+#: dashboard/settings/maintenance.php:23
+msgid "Cleans up overhead data in the AdRotate tables."
+msgstr "Rensar övervakningsdata i AdRotate tabeller."
+
+#: dashboard/settings/maintenance.php:24
+msgid ""
+"Overhead data is accumulated garbage resulting from many changes you've "
+"made. This can vary from nothing to hundreds of KiB of data."
+msgstr ""
+"Övervaknings uppgifter samlas skräp till följd av många ändringar du har "
+"gjort. Denna kan variera från ingenting till hundratals KiB of data."
+
+#: dashboard/settings/maintenance.php:28
+#, fuzzy
+#| msgid "Clean-up Database"
+msgid "Clean-up Database and Files"
+msgstr "Städa upp Databas"
+
+#: dashboard/settings/maintenance.php:30
+msgid "Clean-up Database"
+msgstr "Städa upp Databas"
+
+#: dashboard/settings/maintenance.php:30
+#, fuzzy
+#| msgid ""
+#| "You are about to clean up your database. This may delete expired "
+#| "schedules and older statistics."
+msgid ""
+"You are about to clean up your database. This may delete expired schedules, "
+"older statistics and try to delete export files"
+msgstr ""
+"Du håller på att städa upp din databas. Detta kan ta bort utgångna scheman "
+"och äldre statistik."
+
+#: dashboard/settings/maintenance.php:30
+msgid "Are you sure you want to continue?"
+msgstr "Är du säker på att du vill fortsätta?"
+
+#: dashboard/settings/maintenance.php:30
+msgid "THIS ACTION CAN NOT BE UNDONE!"
+msgstr ""
+
+#: dashboard/settings/maintenance.php:31
+#, fuzzy
+#| msgid "Delete stats older than 356 days (Optional)."
+msgid "Delete stats older than 356 days."
+msgstr "Radera statistik äldre än 356 dagar (tillval)."
+
+#: dashboard/settings/maintenance.php:32
+msgid "Delete leftover export files."
+msgstr ""
+
+#: dashboard/settings/maintenance.php:33
+msgid ""
+"For when you create an advert, group or schedule and it does not save or "
+"keep changes you make."
+msgstr ""
+
+#: dashboard/settings/maintenance.php:33
+#, fuzzy
+#| msgid ""
+#| "Additionally you can clean up old statistics. This will improve the speed "
+#| "of your site."
+msgid ""
+"Additionally you can delete statistics and/or unused export files. This will "
+"improve the speed of your site."
+msgstr ""
+"Ytterligare kan du rensa upp gammal statistik. Detta kommer att förbättra "
+"hastigheten på din webbplats."
+
+#: dashboard/settings/maintenance.php:37
+#, fuzzy
+msgid "Re-evaluate Ads"
+msgstr "Omvärdera annonser"
+
+#: dashboard/settings/maintenance.php:39
+#, fuzzy
+msgid "Re-evaluate all ads"
+msgstr "Omvärdera alla annonser"
+
+#: dashboard/settings/maintenance.php:39
+#, fuzzy
+msgid "You are about to check all ads for errors."
+msgstr "Du håller på att kolla alla annonser för fel."
+
+#: dashboard/settings/maintenance.php:39 dashboard/settings/maintenance.php:110
+#, fuzzy
+msgid "This might take a while and may slow down your site during this action!"
+msgstr ""
+"Detta kan ta en stund och kan göra din webbplats för att svara långsamt "
+"tillfälligt!"
+
+#: dashboard/settings/maintenance.php:40
+#, fuzzy
+msgid ""
+"This will apply all evaluation rules to all ads to see if any error slipped "
+"in. Normally you should not need this feature."
+msgstr ""
+"Detta kommer att gälla alla regler utvärderings alla annonser för att se om "
+"något fel halkade in. Normalt ska du inte behöva den här funktionen."
+
+#: dashboard/settings/maintenance.php:44
+msgid ""
+"DISCLAIMER: The above functions are intented to be used to OPTIMIZE your "
+"database. They only apply to your ads/groups and stats. Not to other "
+"settings or other parts of WordPress! Always always make a backup! If for "
+"any reason your data is lost, damaged or otherwise becomes unusable in any "
+"way or by any means in whichever way I will not take responsibility. You "
+"should always have a backup of your database. These functions do NOT destroy "
+"data. If data is lost, damaged or unusable in any way, your database likely "
+"was beyond repair already. Claiming it worked before clicking these buttons "
+"is not a valid point in any case."
+msgstr ""
+
+#: dashboard/settings/maintenance.php:46
+msgid "Troubleshooting"
+msgstr "Felsökning"
+
+#: dashboard/settings/maintenance.php:47
+msgid ""
+"The below options are not meant for normal use and are only there for "
+"developers to review saved settings or how ads are selected. These can be "
+"used as a measure of troubleshooting upon request but for normal use they "
+"SHOULD BE LEFT UNCHECKED!!"
+msgstr ""
+
+#: dashboard/settings/maintenance.php:50
+msgid "Developer Debug"
+msgstr "Utvecklar Debug"
+
+#: dashboard/settings/maintenance.php:52
+msgid "Troubleshoot ads and how they are selected. Visible on the front-end."
+msgstr ""
+
+#: dashboard/settings/maintenance.php:53
+msgid "View advert specs and (some) stats in the dashboard."
+msgstr ""
+
+#: dashboard/settings/maintenance.php:54
+#, fuzzy
+#| msgid "Track clicks and impressions."
+msgid "Disable timers for clicks and impressions."
+msgstr "Spåra klick och visningar."
+
+#: dashboard/settings/maintenance.php:55
+msgid "Temporarily disable encryption on the redirect url."
+msgstr "Inaktivera tillfälligt kryptering på omdirigera url."
+
+#: dashboard/settings/maintenance.php:60
+msgid "Status and Versions"
+msgstr ""
+
+#: dashboard/settings/maintenance.php:63
+msgid "Current status of adverts"
+msgstr "Aktuell status för annonser"
+
+#: dashboard/settings/maintenance.php:64
+msgid "Normal"
+msgstr "Normal"
+
+#: dashboard/settings/maintenance.php:64
+msgid "Error"
+msgstr "Error"
+
+#: dashboard/settings/maintenance.php:64
+msgid "Expires Soon"
+msgstr "Utgår snart"
+
+#: dashboard/settings/maintenance.php:64
+msgid "Unknown"
+msgstr ""
+
+#: dashboard/settings/maintenance.php:67
+msgid "Banners/assets Folder"
+msgstr ""
+
+#: dashboard/settings/maintenance.php:71 dashboard/settings/maintenance.php:80
+msgid "Exists and appears writable"
+msgstr ""
+
+#: dashboard/settings/maintenance.php:71 dashboard/settings/maintenance.php:80
+msgid "Not writable or does not exist"
+msgstr ""
+
+#: dashboard/settings/maintenance.php:76
+msgid "Reports Folder"
+msgstr ""
+
+#: dashboard/settings/maintenance.php:85
+msgid "Advert evaluation"
+msgstr ""
+
+#: dashboard/settings/maintenance.php:86
+msgid "Not scheduled! Re-activate the plugin from the plugins page."
+msgstr ""
+
+#: dashboard/settings/maintenance.php:87
+#, fuzzy
+#| msgid "Clean Trackerdata next run:"
+msgid "Clean Trackerdata"
+msgstr "Rensa Trackerdata nästa körning:"
+
+#: dashboard/settings/maintenance.php:88
+msgid "Not scheduled!"
+msgstr "Inte planerat!"
+
+#: dashboard/settings/maintenance.php:91
+msgid "Background tasks"
+msgstr ""
+
+#: dashboard/settings/maintenance.php:93
+msgid "Reset background tasks"
+msgstr ""
+
+#: dashboard/settings/maintenance.php:98
+msgid "Internal Versions"
+msgstr ""
+
+#: dashboard/settings/maintenance.php:99
+msgid ""
+"Unless you experience database issues or a warning shows below, these "
+"numbers are not really relevant for troubleshooting. Support may ask for "
+"them to verify your database status."
+msgstr ""
+
+#: dashboard/settings/maintenance.php:102
+msgid "AdRotate version"
+msgstr ""
+
+#: dashboard/settings/maintenance.php:103
+#: dashboard/settings/maintenance.php:105
+msgid "Current:"
+msgstr ""
+
+#: dashboard/settings/maintenance.php:103
+#: dashboard/settings/maintenance.php:105
+msgid "Should be:"
+msgstr ""
+
+#: dashboard/settings/maintenance.php:103
+#: dashboard/settings/maintenance.php:105
+msgid "Previous:"
+msgstr ""
+
+#: dashboard/settings/maintenance.php:104
+msgid "Database version"
+msgstr ""
+
+#: dashboard/settings/maintenance.php:108
+msgid "Manual upgrade"
+msgstr ""
+
+#: dashboard/settings/maintenance.php:110
+msgid "YOU ARE ABOUT TO DO A MANUAL UPDATE FOR ADROTATE."
+msgstr ""
+
+#: dashboard/settings/maintenance.php:110
+msgid "Make sure you have a database backup!"
+msgstr ""
+
+#: dashboard/settings/maintenance.php:110
+#, fuzzy
+#| msgid "Ad updated"
+msgid "Run updater"
+msgstr "Annons uppdaterad"
+
+#: dashboard/settings/misc.php:16
+msgid "Miscellaneous"
+msgstr "Diverse"
+
+#: dashboard/settings/misc.php:19
+msgid "Widget alignment"
+msgstr "widget inriktnings"
+
+#: dashboard/settings/misc.php:20
+msgid ""
+"Check this box if your widgets do not align in your themes sidebar. (Does "
+"not always help!)"
+msgstr ""
+"Markera denna ruta om dina prylar inte rikta in dina teman sidofältet. (Inte "
+"alltid hjälper!)"
+
+#: dashboard/settings/misc.php:23
+msgid "Widget padding"
+msgstr "widget padding"
+
+#: dashboard/settings/misc.php:24
+msgid ""
+"Enable this to remove the padding (blank space) around ads in widgets. (Does "
+"not always work!)"
+msgstr ""
+"Aktivera detta för att ta bort utfyllnaden (mellanslag) runt annonser i "
+"widgets. (Fungerar inte alltid!)"
+
+#: dashboard/settings/misc.php:28
+#, fuzzy
+msgid "NOTICE:"
+msgstr "Meddelande"
+
+#: dashboard/settings/misc.php:29
+msgid ""
+"You have enabled W3 Total Caching support but not defined the security hash."
+msgstr ""
+
+#: dashboard/settings/misc.php:29
+msgid ""
+"AdRotate has generated the following line for you to add to your wp-config."
+"php around line 52 (below the WordPress nonces). If you do not know how to "
+"add this line, check out the following guide;"
+msgstr ""
+
+#: dashboard/settings/misc.php:29
+msgid "Set up W3 Total Caching"
+msgstr ""
+
+#: dashboard/settings/misc.php:33
+msgid "W3 Total Caching"
+msgstr "W3 Total Caching"
+
+#: dashboard/settings/misc.php:34
+msgid "Check this box if you use W3 Total Caching on your site."
+msgstr "Markera denna ruta om du använder W3 Total Caching på din webbplats."
+
+#: dashboard/settings/misc.php:37
+msgid "Borlabs Cache"
+msgstr ""
+
+#: dashboard/settings/misc.php:38
+#, fuzzy
+#| msgid "Check this box if you use W3 Total Caching on your site."
+msgid "Check this box if you use Borlabs Caching on your site."
+msgstr "Markera denna ruta om du använder W3 Total Caching på din webbplats."
+
+#: dashboard/settings/misc.php:42
+msgid ""
+"It may take a while for the ad to start rotating. The caching plugin needs "
+"to refresh the cache. This can take up to a week if not done manually."
+msgstr ""
+"Det kan ta en stund för annonsen att börja rotera. Den caching plugin "
+"behöver uppdatera cachen. Detta kan ta upp till en vecka om det inte görs "
+"manuellt."
+
+#: dashboard/settings/misc.php:42
+msgid ""
+"Caching support only works for [shortcodes] and the AdRotate Widget. If you "
+"use a PHP Snippet you need to wrap your PHP in the exclusion code yourself."
+msgstr ""
+"Caching stöd fungerar bara för [shortcodes] och AdRotate Widget. Om du "
+"använder ett PHP Snippet måste du svepa din PHP i utanförskap koden själv."
+
+#: dashboard/settings/notifications.php:19
+#, fuzzy
+msgid "Set up who gets notifications if ads need your attention."
+msgstr "Annonser som behöver uppmärksammas"
+
+#: dashboard/settings/notifications.php:22
+msgid "How to notify"
+msgstr ""
+
+#: dashboard/settings/notifications.php:24
+msgid "Dashboard banner."
+msgstr ""
+
+#: dashboard/settings/notifications.php:25
+#, fuzzy
+msgid "Email message."
+msgstr "E-post eller Remote sida:"
+
+#: dashboard/settings/notifications.php:29
+msgid "Test notification"
+msgstr ""
+
+#: dashboard/settings/notifications.php:31
+msgid "Test"
+msgstr "Test"
+
+#: dashboard/settings/notifications.php:31
+msgid ""
+"Send a test notification to enabled methods. Before you test, save the "
+"options first!"
+msgstr ""
+
+#: dashboard/settings/notifications.php:36
+msgid "Dashboard Banner"
+msgstr ""
+
+#: dashboard/settings/notifications.php:37
+msgid ""
+"These go in a dashboard banner visible to all users with access to AdRotate "
+"on every WordPress dashboard page."
+msgstr ""
+
+#: dashboard/settings/notifications.php:40
+#: dashboard/settings/notifications.php:52
+msgid "What"
+msgstr ""
+
+#: dashboard/settings/notifications.php:42
+msgid "Expired adverts."
+msgstr ""
+
+#: dashboard/settings/notifications.php:43
+msgid "Almost expired adverts."
+msgstr ""
+
+#: dashboard/settings/notifications.php:48
+msgid "Email Message"
+msgstr ""
+
+#: dashboard/settings/notifications.php:48
+msgid "Available in AdRotate Pro"
+msgstr "Tillgänglig i AdRotate Pro"
+
+#: dashboard/settings/notifications.php:49
+msgid ""
+"Receive email notifications about what is happening with your AdRotate setup."
+msgstr ""
+
+#: dashboard/settings/notifications.php:54
+msgid "Daily digest of any advert status other than normal."
+msgstr ""
+
+#: dashboard/settings/notifications.php:55
+msgid "When you are running out of Geo Targeting Lookups."
+msgstr ""
+
+#: dashboard/settings/notifications.php:56
+msgid "Any advertiser saving an advert in your moderation queue."
+msgstr ""
+
+#: dashboard/settings/notifications.php:57
+#, fuzzy
+msgid "A moderator approved an advert from the moderation queue."
+msgstr "Godkänn / avvisa annonser i moderation Queue"
+
+#: dashboard/settings/notifications.php:58
+#, fuzzy
+msgid "A moderator rejected an advert from the moderation queue."
+msgstr "Godkänn / avvisa annonser i moderation Queue"
+
+#: dashboard/settings/notifications.php:58
+msgid ""
+"If you have a lot of activity with many advertisers adding/changing adverts "
+"you may get a lot of messages!"
+msgstr ""
+
+#: dashboard/settings/notifications.php:58
+msgid ""
+"Sending out a lot of email is sometimes seen as automated mailing and deemed "
+"spammy. This may result in automated filters such as those used in services "
+"like Google Gmail and Microsoft Hotmail/Outlook.com blocking your server. "
+"Make sure you whitelist the sending address in your email account once you "
+"start receiving notifications!"
+msgstr ""
+
+#: dashboard/settings/notifications.php:63
+#, fuzzy
+msgid "Publishers"
+msgstr ""
+"Gå igenom global statistik, per annons / grupp / block-statistik. Synlig "
+"endast till förlag."
+
+#: dashboard/settings/notifications.php:66
+msgid ""
+"Messages are sent once every 24 hours.  Maximum of 5 addresses. Comma "
+"separated. This field may not be empty!"
+msgstr ""
+
+#: dashboard/settings/notifications.php:73
+msgid ""
+"Who gets email from advertisers. Maximum of 5 addresses. Comma separated. "
+"This field may not be empty!"
+msgstr ""
+
+#: dashboard/settings/roles.php:18
+msgid "Who has access to what?"
+msgstr ""
+
+#: dashboard/settings/roles.php:21
+msgid "Manage/Add/Edit adverts"
+msgstr "Hantera / Lägg till / redigera annonser"
+
+#: dashboard/settings/roles.php:25
+msgid "Role to see and add/edit ads."
+msgstr "Role för att se och lägga till / redigera annonser."
+
+#: dashboard/settings/roles.php:29
+msgid "Delete/Reset adverts"
+msgstr "Radera / Reset annonser"
+
+#: dashboard/settings/roles.php:33
+msgid "Role to delete ads and reset stats."
+msgstr "Role att ta bort annonser och återställ statistik."
+
+#: dashboard/settings/roles.php:37
+msgid "Manage/Add/Edit groups"
+msgstr "Hantera / Lägg till / Redigera grupper"
+
+#: dashboard/settings/roles.php:41
+msgid "Role to see and add/edit groups."
+msgstr "Role för att se och lägga till / redigera grupp."
+
+#: dashboard/settings/roles.php:45
+msgid "Delete groups"
+msgstr "Ta bort grupper"
+
+#: dashboard/settings/roles.php:49
+msgid "Role to delete groups."
+msgstr "Role att ta bort grupper."
+
+#: dashboard/settings/statistics.php:18
+msgid "Track statistics for your adverts."
+msgstr ""
+
+#: dashboard/settings/statistics.php:21
+msgid "How to track stats"
+msgstr ""
+
+#: dashboard/settings/statistics.php:30
+msgid "Tracks impressions and clicks internally"
+msgstr ""
+
+#: dashboard/settings/statistics.php:30 dashboard/settings/statistics.php:32
+#: dashboard/settings/statistics.php:34
+msgid "manual"
+msgstr ""
+
+#: dashboard/settings/statistics.php:31
+msgid ""
+"Click and Impression recording, Click and impression limits, impression "
+"spread for schedules, local stats display. Javascript/HTML5/Flash adverts "
+"will only track impressions."
+msgstr ""
+
+#: dashboard/settings/statistics.php:32 dashboard/settings/statistics.php:34
+msgid "In AdRotate Pro!"
+msgstr ""
+
+#: dashboard/settings/statistics.php:32
+msgid ""
+"Requires Piwik Analytics tracker installed in your sites footer! Uses data "
+"attributes"
+msgstr ""
+
+#: dashboard/settings/statistics.php:33
+msgid ""
+"Click and Impression recording via Cookie, stats are displayed in Actions > "
+"Contents."
+msgstr ""
+
+#: dashboard/settings/statistics.php:34
+msgid ""
+"Requires Google Analytics tracker installed in your sites footer! uses "
+"onClick() and onload() in adverts"
+msgstr ""
+
+#: dashboard/settings/statistics.php:35
+msgid ""
+"Click and Impression recording via Cookie, stats are displayed in Events > "
+"Banner."
+msgstr ""
+
+#: dashboard/settings/statistics.php:41
+msgid "Internal Tracker"
+msgstr ""
+
+#: dashboard/settings/statistics.php:42
+msgid ""
+"The settings below are for the internal tracker and have no effect when "
+"using Piwik/Google Analytics."
+msgstr ""
+
+#: dashboard/settings/statistics.php:45
+#, fuzzy
+msgid "Logged in impressions"
+msgstr "Spåra visningar från inloggade användare (rekommenderas)."
+
+#: dashboard/settings/statistics.php:47
+msgid "Track impressions from logged in users."
+msgstr ""
+
+#: dashboard/settings/statistics.php:51
+#, fuzzy
+msgid "Logged in clicks"
+msgstr "Spår klick från inloggade användare."
+
+#: dashboard/settings/statistics.php:53
+msgid "Track clicks from logged in users."
+msgstr "Spår klick från inloggade användare."
+
+#: dashboard/settings/statistics.php:57
+msgid "Impression timer"
+msgstr ""
+
+#: dashboard/settings/statistics.php:59 dashboard/settings/statistics.php:66
+msgid "Seconds."
+msgstr "Sekunder."
+
+#: dashboard/settings/statistics.php:60
+#, fuzzy
+msgid "Default: 60."
+msgstr "Default"
+
+#: dashboard/settings/statistics.php:60
+#, fuzzy
+msgid "This number may not be empty, be lower than 10 or exceed 3600 (1 hour)."
+msgstr ""
+"Detta nummer kan inte vara tom, negativa eller överstiga 3600 (1 timme)."
+
+#: dashboard/settings/statistics.php:64
+msgid "Click timer"
+msgstr ""
+
+#: dashboard/settings/statistics.php:67
+#, fuzzy
+msgid "Default: 86400."
+msgstr "Default"
+
+#: dashboard/settings/statistics.php:67
+#, fuzzy
+msgid ""
+"This number may not be empty, be lower than 60 or exceed 86400 (24 hours)."
+msgstr ""
+"Detta nummer kan inte vara tom, negativa eller överstiga 3600 (1 timme)."
+
+#, fuzzy
+#~ msgid "Push Notifications"
+#~ msgstr "Meddelanden"
+
+#, fuzzy
+#~ msgid "User Key"
+#~ msgstr "Licensnyckel"
+
+#, fuzzy
+#~ msgid "More information..."
+#~ msgstr "Mer info"
+
+#~ msgid "This feature is available in AdRotate Pro"
+#~ msgstr "Den här funktionen är tillgänglig i AdRotate Pro"
+
+#, fuzzy
+#~ msgid "Learn more"
+#~ msgstr "Läs mer om"
+
+#, fuzzy
+#~| msgid "Monthly overview of clicks and impressions"
+#~ msgid "Periodic overview of clicks and impressions"
+#~ msgstr "Månads översikt av klick och visningar"
+
+#, fuzzy
+#~| msgid "Show from"
+#~ msgid "Shown from"
+#~ msgstr "Visa från"
+
+#, fuzzy
+#~| msgid "Show until"
+#~ msgid "Shown until"
+#~ msgstr "Visa till"
+
+#, fuzzy
+#~ msgid "Used"
+#~ msgstr "Används"
+
+#~ msgid "Max Impressions"
+#~ msgstr "Max Intryck"
+
+#~ msgid "Report"
+#~ msgstr "Rapport"
+
+#, fuzzy
+#~ msgid "More information"
+#~ msgstr "Mer info"
+
+#~ msgid "Impressions today"
+#~ msgstr "Intryck idag"
+
+#~ msgid "Clicks today"
+#~ msgstr "Klick idag"
+
+#~ msgid "Empty database records removed"
+#~ msgstr "Tomma databasposter tas bort"
+
+#, fuzzy
+#~ msgid "For two WordPress installations."
+#~ msgstr "Installation"
+
+#, fuzzy
+#~ msgid " For up to five WordPress installations."
+#~ msgstr "Installation"
+
+#, fuzzy
+#~ msgid "Location"
+#~ msgstr "Geo Location"
+
+#, fuzzy
+#~ msgid ""
+#~ "Disable timers for clicks and impressions and enable a alert window for "
+#~ "clicktracking."
+#~ msgstr "Du har satt en annonsör men inte gjorde det möjligt clicktracking!"
+
+#, fuzzy
+#~ msgid "Manage Media"
+#~ msgstr "Media:"
+
+#, fuzzy
+#~ msgid "Schedule Management available in AdRotate Pro"
+#~ msgstr "Tillgänglig i AdRotate Pro"
+
+#, fuzzy
+#~ msgid ""
+#~ "Schedule management and multiple schedules per advert is available in "
+#~ "AdRotate Pro."
+#~ msgstr "Den här funktionen är tillgänglig i AdRotate Pro"
+
+#, fuzzy
+#~ msgid "Start"
+#~ msgstr "Starttid (hh: mm):"
+
+#, fuzzy
+#~ msgid "End"
+#~ msgstr "Avsluta tid (hh: mm):"
+
+#~ msgid "Ads"
+#~ msgstr "Annonser"
+
+#, fuzzy
+#~ msgid "No schedules created yet!"
+#~ msgstr "Inga block har skapats än!"
+
+#, fuzzy
+#~ msgid "Easily manage your schedules from here with AdRotate Pro."
+#~ msgstr "Få fler funktioner! Skaffa AdRotate Pro."
+
+#, fuzzy
+#~ msgid "Upgrade today!"
+#~ msgstr "i dag"
+
+#, fuzzy
+#~ msgid "Media Management available in AdRotate Pro"
+#~ msgstr "Tillgänglig i AdRotate Pro"
+
+#, fuzzy
+#~ msgid "Media uploading and management is available in AdRotate Pro."
+#~ msgstr "Den här funktionen är tillgänglig i AdRotate Pro"
+
+#, fuzzy
+#~ msgid "Manage your banner folder from here with AdRotate Pro."
+#~ msgstr "Få fler funktioner! Skaffa AdRotate Pro."
+
+#~ msgid "Everything below is optional."
+#~ msgstr "Allt nedan är frivillig."
+
+#~ msgid "For administrative purposes set a sortorder."
+#~ msgstr "För administrativa ändamål sätt en sortorder."
+
+#~ msgid "Leave empty or 0 to skip this. Will default to ad id."
+#~ msgstr ""
+#~ "Lämna tomt eller 0 för att hoppa över detta. Går automatiskt till annons-"
+#~ "ID."
+
+#, fuzzy
+#~ msgid "Select the countries you want the adverts to show in."
+#~ msgstr "Välj de länder som du vill att annonser för att visa i."
+
+#, fuzzy
+#~ msgid "Cities take priority and will be filtered first."
+#~ msgstr "Städer prioriteras och kommer att filtreras först."
+
+#~ msgid "Leave empty or 0 to skip this. Will default to group id."
+#~ msgstr ""
+#~ "Lämna tomt eller 0 för att hoppa över detta. Går automatiskt till grupp-"
+#~ "ID."
+
+#~ msgid "Which categories?"
+#~ msgstr "Vilka kategorier?"
+
+#~ msgid "Click the categories posts you want the adverts to show in."
+#~ msgstr "Klicka på kategorierna inlägg du vill att annonser för att visa i."
+
+#~ msgid "Which pages?"
+#~ msgstr "Vilka sidor?"
+
+#~ msgid "Click the pages you want the adverts to show in."
+#~ msgstr "Klicka på de sidor du vill annonserna att visa i."
+
+#, fuzzy
+#~ msgid "Enable responsive support for this advert."
+#~ msgstr "Aktivera klickspårning för denna annons."
+
+#~ msgid "Current version:"
+#~ msgstr "Aktuell version:"
+
+#~ msgid "Previous version:"
+#~ msgstr "Tidigare version:"
+
+#~ msgid "Current database version:"
+#~ msgstr "Nuvarande databasversion:"
+
+#~ msgid "Previous database version:"
+#~ msgstr "Tidigare databasversion:"
+
+#, fuzzy
+#~ msgid "Ad evaluation next run:"
+#~ msgstr "Annons Meddelanden nästa körning:"
+
+#, fuzzy
+#~ msgid "Set up who gets notification emails."
+#~ msgstr "Annonser som behöver uppmärksammas"
+
+#~ msgid ""
+#~ "A comma separated list of email addresses. Maximum of 5 addresses. Keep "
+#~ "this list to a minimum!"
+#~ msgstr ""
+#~ "En kommaseparerad lista med e-postadresser. Maximalt av 5 adresser. Spara "
+#~ "denna lista till ett minimum!"
+
+#, fuzzy
+#~ msgid ""
+#~ "Messages are sent once every 24 hours when needed. If this field is empty "
+#~ "no email notifications will be send."
+#~ msgstr ""
+#~ "Meddelanden skickas en gång per 24 timmar när det behövs. Om detta fält "
+#~ "är tomt funktionen avaktiveras."
+
+#, fuzzy
+#~ msgid ""
+#~ "Who gets email from advertisers. Maximum of 2 addresses. Comma seperated. "
+#~ "This field may not be empty!"
+#~ msgstr "Max 2 adresser. Kommaseparerad. Detta fält kan inte vara tomt!"
+
+#~ msgid "Visit the"
+#~ msgstr "Besök"
+
+#~ msgid "AdRotate News and Developer Blog"
+#~ msgstr "AdRotate Nyheter och Utvecklar Blog"
+
+#, fuzzy
+#~ msgid ""
+#~ "This sends a test notification. Before you test, save the options first!"
+#~ msgstr ""
+#~ "Detta skickar en testanmälan. Innan du testar, till exempel med en ny e-"
+#~ "postadress. Spara alternativen först!"
+
+#~ msgid "Email Notifications"
+#~ msgstr "E-postmeddelanden"
+
+#~ msgid "active ad(s) expired."
+#~ msgstr "aktiv annons (er) gått ut."
+
+#~ msgid "Take action now"
+#~ msgstr "Agera nu"
+
+#~ msgid "active ad(s) are about to expire."
+#~ msgstr "aktiv annons(er) är på väg att löpa ut."
+
+#~ msgid "Check it out"
+#~ msgstr "Kolla in det"
+
+#~ msgid "active ad(s) with configuration errors."
+#~ msgstr "aktiv annons(er) med konfigurationsfel."
+
+#~ msgid "Solve this"
+#~ msgstr "Lös det här"
+
+#~ msgid "ad(s) expired."
+#~ msgstr "annons(er) gått ut."
+
+#~ msgid "ad(s) are about to expire."
+#~ msgstr "annons(er) är på väg att löpa ut."
+
+#~ msgid "ad(s) with configuration errors."
+#~ msgstr "annons (er) med konfigurationsfel."
+
+#~ msgid "Fix this as soon as possible"
+#~ msgstr "Lös det här så fort som möjligt"
+
+#~ msgid "Brought to you by"
+#~ msgstr "Presenteras av"
+
+#~ msgid "Single Ad - Use Ad ID"
+#~ msgstr "Singel annons - Användare och ID"
+
+#~ msgid "Group of Ads - Use group ID"
+#~ msgstr "Grupp av annonser - Använd grupp-ID"
+
+#~ msgid "Manage Ads"
+#~ msgstr "Hantera Annonser"
+
+#~ msgid "Ad Management"
+#~ msgstr "Annonshantering"
+
+#~ msgid "Disabled Ads"
+#~ msgstr "Inaktivera annonser"
+
+#~ msgid "Ads that need immediate attention"
+#~ msgstr "Annonser som behöver omedelbar uppmärksamhet"
+
+#~ msgid "Active Ads"
+#~ msgstr "aktiva annonser"
+
+#~ msgid "No ads created yet!"
+#~ msgstr "Inga annonser skapats ännu!"
+
+#~ msgid "Block Mode - Show a block of ads"
+#~ msgstr "Blockläge - Visa ett block av annonser"
+
+#, fuzzy
+#~ msgid ""
+#~ "Define the maximum size of the ads in pixels. Size can be 'auto' (Not "
+#~ "recommended). Default: 125/125."
+#~ msgstr ""
+#~ "Ange den maximala storleken på annonserna i pixlar minus marginal. "
+#~ "Storlek kan vara 'auto' (Rekommenderas ej). Standard: 125/125."
+
+#~ msgid "No ads created!"
+#~ msgstr "Inga annonser skapat!"
+
+#~ msgid "Delete Group including ads"
+#~ msgstr "Ta bort grupp inklusive annonser"
+
+#, fuzzy
+#~ msgid "Dashboard Notifications"
+#~ msgstr ""
+#~ "Registrera ditt exemplar av AdRotate. Detta kommer att göra det möjligt "
+#~ "för ticket och uppdatera underrättelser direkt från din dashboard."
+
+#, fuzzy
+#~ msgid "AdRotate Page"
+#~ msgstr "AdRotate Pro"
+
+#~ msgid "Find out more"
+#~ msgstr "Läs mer"
+
+#~ msgid "Barely visible"
+#~ msgstr "Knappt synlig"
+
+#~ msgid "Normal coverage"
+#~ msgstr "Normal täckning"
+
+#~ msgid "Best visibility"
+#~ msgstr "Bästa synlighet"
+
+#~ msgid "Ads in group"
+#~ msgstr "Annonser i grupp"
+
+#~ msgid "Code"
+#~ msgstr "Kod"
+
+#~ msgid "Impressions timer"
+#~ msgstr "Intryck timer"
+
+#, fuzzy
+#~ msgid "Learn More"
+#~ msgstr "Läs mer om"
+
+#~ msgid ""
+#~ "Your one stop for Webdevelopment, consultancy and anything WordPress! "
+#~ "Find out more about what I can do for you!"
+#~ msgstr ""
+#~ "Du ett steg för webbutveckling, rådgivning och allt Wordpress! Ta reda på "
+#~ "mer om vad jag kan göra för dig!"
+
+#~ msgid "Ad created"
+#~ msgstr "Annons skapad"
+
+#~ msgid ""
+#~ "The ad was saved but has an issue which might prevent it from working "
+#~ "properly. Review the yellow marked ad."
+#~ msgstr ""
+#~ "Annonsen har sparats, men har en fråga som skulle kunna hindra den från "
+#~ "att fungera korrekt. Granska den gula markerade annons."
+
+#~ msgid "Group created"
+#~ msgstr "Grupp skapad"
+
+#~ msgid "Group updated"
+#~ msgstr "Grupp uppdaterad"
+
+#~ msgid "Access Rights"
+#~ msgstr "Tillträde"
+
+#~ msgid ""
+#~ "A comma separated list of keywords. Filter out bots/crawlers/user-agents. "
+#~ "To prevent impressions and clicks counted on them."
+#~ msgstr ""
+#~ "En kommaseparerad lista med sökord. Filtrera bort bots / sökrobotar / "
+#~ "user-agents. För att förhindra att visningar och klick räknas på dem."
+
+#~ msgid ""
+#~ "Keep in mind that this might give false positives. The word 'google' also "
+#~ "matches 'googlebot', but not vice-versa. So be careful!"
+#~ msgstr ""
+#~ "Tänk på att detta kan ge falska positiva. Ordet \"google\" träffar "
+#~ "\"googlebot\", men inte vice versa. Så var försiktig!"
+
+#~ msgid "Keep your list up-to-date"
+#~ msgstr "Håll din lista up-to-date"
+
+#~ msgid ""
+#~ "Use only words with alphanumeric characters, [ - _ ] are allowed too. All "
+#~ "other characters are stripped out."
+#~ msgstr ""
+#~ "Använd endast ord med alfanumeriska tecken, [- _] tillåts också. Alla "
+#~ "andra tecken avskalade ut."
+
+#, fuzzy
+#~ msgid ""
+#~ "jQuery is required for all Javascript features below. Enable this if your "
+#~ "theme does not load jQuery already."
+#~ msgstr ""
+#~ "Den jQuery Showoff Library (0.1.2 +) krävs för dynamiska grupper. "
+#~ "Inaktivera om andra plugins eller teman redan läsa här."
+
+#, fuzzy
+#~ msgid "Load in footer?"
+#~ msgstr ""
+#~ "Ladda en ny annons i detta intervall utan att ladda om sidan. Standard: 6."
+
+#, fuzzy
+#~ msgid ""
+#~ "Enable if you want to load the above libraries in the footer. Your theme "
+#~ "needs to call wp_footer() for this to work."
+#~ msgstr "Markera denna ruta om du använder WP Super Cache på din webbplats."
+
+#, fuzzy
+#~ msgid ""
+#~ "NOTE: The below functions are intented to be used to OPTIMIZE your "
+#~ "database. They only apply to your ads/groups and stats. Not to other "
+#~ "settings or other parts of WordPress! Always always make a backup! These "
+#~ "functions are to be used when you feel or notice your database is slow, "
+#~ "unresponsive and sluggish."
+#~ msgstr ""
+#~ "OBS: Nedanstående funktioner är ämnad att användas för att optimera "
+#~ "databasen. De gäller endast för dina annonser / grupper / block och "
+#~ "statistik. Inte till andra inställningar eller andra delar av Wordpress! "
+#~ "Alltid alltid göra en backup! Dessa funktioner ska användas när du känner "
+#~ "eller märker din databas är långsam, inte svarar och trög."
+
+#, fuzzy
+#~ msgid ""
+#~ "AdRotate creates empty records when you start making ads or groups. In "
+#~ "rare occasions these records are faulty."
+#~ msgstr ""
+#~ "Om du gjorde en annons eller grupp som inte sparar när du gör det använda "
+#~ "den här knappen för att ta bort de tomma poster."
+
+#~ msgid ""
+#~ "If you made an ad or group that does not save when you make it use this "
+#~ "button to delete those empty records."
+#~ msgstr ""
+#~ "Om du gjorde en annons eller grupp som inte sparar när du gör det använda "
+#~ "den här knappen för att ta bort de tomma poster."
+
+#~ msgid ""
+#~ "DISCLAIMER: If for any reason your data is lost, damaged or otherwise "
+#~ "becomes unusable in any way or by any means in whichever way I will not "
+#~ "take responsibility. You should always have a backup of your database. "
+#~ "These functions do NOT destroy data. If data is lost, damaged or "
+#~ "unusable, your database likely was beyond repair already. Claiming it "
+#~ "worked before clicking these buttons is not a valid point in any case."
+#~ msgstr ""
+#~ "DISCLAIMER: Om du av någon anledning din data går förlorad, skadats eller "
+#~ "på annat sätt blir obrukbar på något sätt eller på något sätt på vilket "
+#~ "sätt jag inte kommer att ta ansvar. Du bör alltid ha en säkerhetskopia av "
+#~ "din databas. Dessa funktioner INTE förstöra data. Om data går förlorad, "
+#~ "skadad eller oanvändbar, din databas sannolikt var bortom reparation "
+#~ "redan. Påstå det fungerade innan du klickar på dessa knappar är inte en "
+#~ "giltig punkt i alla fall."
+
+#~ msgid "Unknown Status"
+#~ msgstr "Okänd status"
+
+#~ msgid ""
+#~ "NOTE: The below options are not meant for normal use and are only there "
+#~ "for developers to review saved settings or how ads are selected. These "
+#~ "can be used as a measure of troubleshooting upon request but for normal "
+#~ "use they SHOULD BE LEFT UNCHECKED!!"
+#~ msgstr ""
+#~ "OBS: Nedanstående alternativ är inte avsedda för normal användning och är "
+#~ "bara där för utvecklare att granska sparade inställningar eller hur "
+#~ "annonser väljs. Dessa kan användas som ett mått på felsökning på begäran, "
+#~ "men för normal användning de bör lämnas därhän!"
+
+#~ msgid ""
+#~ "Troubleshoot ads and how (if) they are selected, has front-end output."
+#~ msgstr "Felsök annonser och hur (om) de är markerade, har front-end-utgång."
+
+#~ msgid "Show all settings, dashboard routines and related values."
+#~ msgstr ""
+#~ "Visa alla inställningar, instrumentpanelen rutiner och tillhörande värden."
+
+#~ msgid "Show array of all userroles and capabilities."
+#~ msgstr "Visa samling av alla userroles och möjligheter."
+
+#~ msgid "Review saved advertisers! Visible to advertisers."
+#~ msgstr "Omdöme sparad annonsörer! Visas för annonsörer."
+
+#, fuzzy
+#~ msgid "Review global stats, per ad/group stats. Visible only to publishers."
+#~ msgstr ""
+#~ "Gå igenom global statistik, per annons / grupp / block-statistik. Synlig "
+#~ "endast till förlag."
+
+#~ msgid "Queued"
+#~ msgstr "Queued"
+
+#~ msgid "The last few days"
+#~ msgstr "De senaste dagarna"
+
+#, fuzzy
+#~ msgid "Network License"
+#~ msgstr "AdRotate Licens"
+
+#~ msgid ""
+#~ "Your one stop for Webdevelopment, consultancy and anything WordPress! If "
+#~ "you need a custom plugin. Theme customizations or have your site moved/"
+#~ "migrated entirely. Visit my website for details!"
+#~ msgstr ""
+#~ "Du är ett stopp för Webbutveckling, rådgivning och allt Wordpress! Om du "
+#~ "behöver en anpassad plugin. Tema anpassningar eller har din webbplats "
+#~ "flyttas / migreras helt. Besök min hemsida för mer information!"
+
+#, fuzzy
+#~ msgid "Singe License"
+#~ msgstr "AdRotate Licens"
+
+#~ msgid "You did use %image% in your AdCode but did not select an image!"
+#~ msgstr "Du använde %image% i AdCode men valde inte en bild!"
+
+#~ msgid "Use %image% in the code. Accepted files are:"
+#~ msgstr "Använd %image% i koden. Godkända filer är:"
+
+#, fuzzy
+#~ msgid "After..."
+#~ msgstr "Efter annons"
+
+#~ msgid "WP Super Cache"
+#~ msgstr "WP Super Cache"
+
+#~ msgid "Check this box if you use WP Super Cache on your site."
+#~ msgstr "Markera denna ruta om du använder WP Super Cache på din webbplats."
+
+#, fuzzy
+#~ msgid "Stay up-to-date with the notification system"
+#~ msgstr "Annonser som behöver uppmärksammas"
+
+#~ msgid "Title:"
+#~ msgstr "Titel:"
+
+#~ msgid "AdCode:"
+#~ msgstr "AdCode:"
+
+#~ msgid "Banner image:"
+#~ msgstr "Banner image:"
+
+#~ msgid "Activate:"
+#~ msgstr "Aktivera:"
+
+#~ msgid "In a post or page:"
+#~ msgstr "I ett inlägg eller sida:"
+
+#~ msgid "Directly in a theme:"
+#~ msgstr "Direkt i ett tema:"
+
+#~ msgid "Start date (day/month/year):"
+#~ msgstr "Startdatum (dag / månad / år):"
+
+#~ msgid "End date (day/month/year):"
+#~ msgstr "Slutdatum (dag / månad / år):"
+
+#~ msgid "Start time (hh:mm):"
+#~ msgstr "Starttid (hh: mm):"
+
+#~ msgid "End time (hh:mm):"
+#~ msgstr "Avsluta tid (hh: mm):"
+
+#~ msgid "Maximum Clicks:"
+#~ msgstr "Max Klick:"
+
+#~ msgid "Maximum Impressions:"
+#~ msgstr "Maximala Intryck:"
+
+#~ msgid ""
+#~ "The maximum clicks and impressions are measured over the set schedule "
+#~ "only. Every schedule can have it's own limit!"
+#~ msgstr ""
+#~ "De maximala klick och visningar mäts över den inställda schema. Varje "
+#~ "schema kan få en egen gräns!"
+
+#~ msgid "Weight:"
+#~ msgstr "Vikt:"
+
+#, fuzzy
+#~ msgid "AdRotate Pro only"
+#~ msgstr "AdRotate Pro"
+
+#~ msgid "Sortorder:"
+#~ msgstr "Sorteringsordning:"
+
+#, fuzzy
+#~ msgid "Cities/States:"
+#~ msgstr "Städer"
+
+#, fuzzy
+#~ msgid "Countries:"
+#~ msgstr "Länder"
+
+#~ msgid "Name:"
+#~ msgstr "Namn:"
+
+#~ msgid "Include ads in categories?"
+#~ msgstr "Inkludera annonser i kategorierna?"
+
+#~ msgid "Include ads in pages?"
+#~ msgstr "Inkludera annonser på sidor?"
+
+#~ msgid "Before ad"
+#~ msgstr "Innan annons"
+
+#~ msgid "After ad"
+#~ msgstr "Efter annons"
+
+#~ msgid "Select Ads"
+#~ msgstr "Välj Annonser"
+
+#, fuzzy
+#~ msgid "Enable stats"
+#~ msgstr "Statistik"
+
+#, fuzzy
+#~ msgid ""
+#~ "Disabling this also disables click and impression limits on schedules."
+#~ msgstr ""
+#~ "Inaktivera detta också inaktiverar klick och visningar gränser för "
+#~ "scheman och inaktiverar tidsramar."
+
+#~ msgid ""
+#~ "There is a problem saving the image specification. Please reset your "
+#~ "image and re-save the ad!"
+#~ msgstr ""
+#~ "Det är ett problem med att spara bilden specifikationen. Återställ din "
+#~ "image och åter spara annonsen!"
+
+#~ msgid "Clicktracking:"
+#~ msgstr "Clicktracking:"
+
+#~ msgid "Enable click tracking for this advert."
+#~ msgstr "Aktivera klickspårning för denna annons."
+
+#, fuzzy
+#~ msgid "Usage:"
+#~ msgstr "Användning:"
+
+#, fuzzy
+#~ msgid "A comma separated list of cities and/or states"
+#~ msgstr "En kommaseparerad lista över städer"
+
+#~ msgid "You didn't use %image% in your AdCode but did select an image!"
+#~ msgstr "Du använde inte %image% i AdCode men valde en bild!"
+
+#~ msgid "These are required."
+#~ msgstr "Dessa krävs."
+
+#~ msgid ""
+#~ "Place the cursor where you want to add a tag and click to add it to your "
+#~ "AdCode."
+#~ msgstr ""
+#~ "Placera markören där du vill lägga till en tagg och klicka för att lägga "
+#~ "till den i din AdCode."
+
+#~ msgid ""
+#~ "Copy the shortcode in a post or page. The PHP code goes in a theme file "
+#~ "where you want the advert to show up."
+#~ msgstr ""
+#~ "Kopiera kortkod i ett inlägg eller sida. PHP-koden går i ett tema-fil där "
+#~ "du vill att annonsen ska visas."
+
+#, fuzzy
+#~ msgid "Place the target URL in your adcode - Similar to code example 1."
+#~ msgstr ""
+#~ "URL-fältet inte längre behövs. Placering webbadressen i ditt adcode och "
+#~ "möjliggöra klickspårning är tillräcklig."
+
+#, fuzzy
+#~ msgid "Target URL:"
+#~ msgstr ""
+#~ "Ange mål-URL här om du avsikt att använda den här annonsen i utskick "
+#~ "eller på avlägsna sidor."
+
+#, fuzzy
+#~ msgid "Geo Location in AdRotate Pro"
+#~ msgstr "Geo Location"
+
+#~ msgid ""
+#~ "This works if you assign the advert to a group and enable that group to "
+#~ "use Geo Targeting."
+#~ msgstr ""
+#~ "Detta fungerar om du tilldelar annonsen till en grupp och göra det "
+#~ "möjligt för denna grupp att använda Geo inriktning."
+
+#, fuzzy
+#~ msgid "Target your audience with Geo Location in AdRotate Pro"
+#~ msgstr "Få fler funktioner! Skaffa AdRotate Pro."
+
+#~ msgid "From when to when is the advert visible?"
+#~ msgstr "Från när till när är annonsen syns?"
+
+#, fuzzy
+#~ msgid "Choose Multiple Schedules in AdRotate Pro"
+#~ msgstr "Tillgänglig i AdRotate Pro"
+
+#~ msgid "From / Until"
+#~ msgstr "Från / Till"
+
+#, fuzzy
+#~ msgid "impressions per day"
+#~ msgstr "Intryck"
+
+#, fuzzy
+#~ msgid "In use by this advert."
+#~ msgstr ""
+#~ "Ange mål-URL här om du avsikt att använda den här annonsen i utskick "
+#~ "eller på avlägsna sidor."
+
+#~ msgid "Optionally select the group(s) this ad belongs to."
+#~ msgstr "Eventuellt välja grupp (er) här annons tillhör."
+
+#~ msgid "Block shape and border"
+#~ msgstr "Block form och border"
+
+#, fuzzy
+#~ msgid ""
+#~ "Make a grid for your ads. Selecting 3 and 2 makes a grid with 2 columns "
+#~ "showing a maximum of 6 ads. Default: 2x2."
+#~ msgstr ""
+#~ "Gör ett rutnät för dina annonser. Fylla i 3 och 2 gör ett rutnät med 2 "
+#~ "kolumner som visar maximalt 6 annonser. Standard: 2x2."
+
+#~ msgid "Advert Width and Height"
+#~ msgstr "Annons Bredd och höjd"
+
+#~ msgid "Wraps around each ad."
+#~ msgstr "Sveper runt varje annons."
+
+#~ msgid "HTML/JavaScript allowed, use with care!"
+#~ msgstr "HTML / JavaScript tillåtet, använd med omsorg!"
+
+#, fuzzy
+#~ msgid "AdRotate Website."
+#~ msgstr "AdRotate butik"
+
+#, fuzzy
+#~ msgid "AdRotate Getting Started."
+#~ msgstr "AdRotate Inställningar"
+
+#, fuzzy
+#~ msgid "AdRotate Website Forum."
+#~ msgstr "AdRotate butik"
+
+#~ msgid "You are using"
+#~ msgstr "Du använder"
+
+#, fuzzy
+#~ msgid "or go to the"
+#~ msgstr "Gå"
+
+#~ msgid "Your gift will ensure the continued development of AdRotate!"
+#~ msgstr ""
+#~ "Din gåva kommer att säkerställa den fortsatta utvecklingen av AdRotate!"
+
+#, fuzzy
+#~ msgid "AdRotate Server"
+#~ msgstr "AdRotate"
+
+#, fuzzy
+#~ msgid "Overview"
+#~ msgstr "Månads översikt av klick och visningar"
+
+#, fuzzy
+#~ msgid "Javascript Libraries"
+#~ msgstr "HTML / JavaScript tillåtet, använd med omsorg!"
+
+#, fuzzy
+#~ msgid "Added / Updated"
+#~ msgstr "Block uppdateras"
+
+#, fuzzy
+#~ msgid "No ads received yet!"
+#~ msgstr "Inga annonser skapats ännu!"
+
+#, fuzzy
+#~ msgid "Erroneous ads from server"
+#~ msgstr "Queued och Felaktiga annonser"
+
+#, fuzzy
+#~ msgid "Updated"
+#~ msgstr "Block uppdateras"
+
+#, fuzzy
+#~ msgid "AdRotate Server Settings"
+#~ msgstr "AdRotate Inställningar"
+
+#, fuzzy
+#~ msgid "Status"
+#~ msgstr "Okänd status"
+
+#, fuzzy
+#~ msgid "Not linked - No adverts will be synced."
+#~ msgstr "Annonser"
+
+#, fuzzy
+#~ msgid "Server Key"
+#~ msgstr "Licensnyckel"
+
+#, fuzzy
+#~ msgid "Hide Server Details"
+#~ msgstr "Kunde inte skriva filen till servern."
+
+#, fuzzy
+#~ msgid "Link to server"
+#~ msgstr "Kunde inte skriva filen till servern."
+
+#, fuzzy
+#~ msgid "Unlink from server"
+#~ msgstr "Kunde inte skriva filen till servern."
+
+#, fuzzy
+#~ msgid "AdRotate Website"
+#~ msgstr "AdRotate butik"
+
+#, fuzzy
+#~ msgid "Block of Ads (Obsolete)"
+#~ msgstr "Block av annonser - Använd Block ID"
+
+#, fuzzy
+#~ msgid "Default: 60. Set to 0 to disable this timer."
+#~ msgstr "Standard: 10. Sätt till 0 för att inaktivera denna timer."
+
+#, fuzzy
+#~ msgid "Default: 86400. Set to 0 to disable this timer."
+#~ msgstr "Standard: 10. Sätt till 0 för att inaktivera denna timer."
+
+#, fuzzy
+#~ msgid "Load jQuery Clicktracking"
+#~ msgstr ""
+#~ "Den jQuery Showoff Library (0.1.2 +) krävs för dynamiska grupper. "
+#~ "Inaktivera om andra plugins eller teman redan läsa här."
+
+#~ msgid "Get more features! Get AdRotate Pro."
+#~ msgstr "Få fler funktioner! Skaffa AdRotate Pro."
+
+#~ msgid "More info"
+#~ msgstr "Mer info"
+
+#, fuzzy
+#~ msgid "Get help with installations"
+#~ msgstr "Installation"
+
+#~ msgid "Not sure how to set up AdRotate? Get me to do it!"
+#~ msgstr "Inte säker på hur man ställer in AdRotate? Få mig att göra det!"
+
+#~ msgid "Premium Support"
+#~ msgstr "Premium Support"
+
+#~ msgid "Stuck with AdRotate? I'll help!"
+#~ msgstr "Fastnat med AdRotate? Jag hjälper!"
+
+#~ msgid "Visit store to see all services and products"
+#~ msgstr "Besök butik för att se alla tjänster och produkter"
+
+#~ msgid "Email or Remote page:"
+#~ msgstr "E-post eller Remote sida:"
+
+#, fuzzy
+#~ msgid "Buy"
+#~ msgstr "Köp nu"
+
+#~ msgid "Check out the"
+#~ msgstr "Kolla in"
+
+#~ msgid "and have the most popular features explained."
+#~ msgstr "och har de mest populära funktionerna förklaras."
+
+#~ msgid "Grab the latest news and updates on the"
+#~ msgstr "Ta de senaste nyheterna och uppdateringarna på"
+
+#~ msgid "AdRotate Blog"
+#~ msgstr "AdRotate Blog"
+
+#~ msgid "Find my website at"
+#~ msgstr "Hitta min hemsida"
+
+#, fuzzy
+#~ msgid "Load Dynamic Groups"
+#~ msgstr "Hantera Grupper"
+
+#~ msgid "Choose the ads to use in this group"
+#~ msgstr "Välj annonserna att använda i den här gruppen"
+
+#~ msgid "Create Role"
+#~ msgstr "Skapa Role"
+
+#~ msgid ""
+#~ "This role has no capabilities unless you assign them using the above "
+#~ "options. Obviously you should use this with care."
+#~ msgstr ""
+#~ "Denna roll har ingen kapacitet om du tilldelar dem med ovanstående "
+#~ "alternativ. Självklart ska du använda detta med omsorg."
+
+#~ msgid ""
+#~ "This type of user is NOT required to use AdRotate or any of it's "
+#~ "features. It merely helps you to seperate advertisers from regular "
+#~ "subscribers without giving them too much access to your dashboard."
+#~ msgstr ""
+#~ "Denna typ av användare är inte skyldig att använda AdRotate eller någon "
+#~ "av det funktioner. Det hjälper bara dig att skilja annonsörer från "
+#~ "vanliga abonnenter utan att ge dem för mycket tillgång till "
+#~ "instrumentpanelen."
+
+#~ msgid "Track impressions from logged in users (Recommended)."
+#~ msgstr "Spåra intryck från inloggade användare (rekommenderas)."
+
+#~ msgid "Has no effect when click and impression tracking is disabled."
+#~ msgstr "Har ingen effekt när klick och intryck spårning är inaktiverad."
+
+#~ msgid "Geographic Tracking"
+#~ msgstr "Geographic Spårning"
+
+#~ msgid "Enable Freegeoip for adverts."
+#~ msgstr "Aktivera Freegeoip för annonser."
+
+#~ msgid "Consider making a donation to"
+#~ msgstr "Överväg att göra en donation till"
+
+#~ msgid "to keep their services free and awesome!"
+#~ msgstr "att hålla sina tjänster gratis och fantastiskt!"
+
+#~ msgid "Allow advertisers to specify where their ads will show."
+#~ msgstr "Tillåt annonsörer att ange var deras annonser visas."
+
+#, fuzzy
+#~ msgid "Admin Bar"
+#~ msgstr "Admin Meny"
+
+#, fuzzy
+#~ msgid "Enable the AdRotate Quickmenu in the Admin Bar"
+#~ msgstr "Aktivera AdRotate QuickMenu i Admin Meny"
+
+#, fuzzy
+#~ msgid "Disable Dashboard Notifications about advert statuses."
+#~ msgstr ""
+#~ "Registrera ditt exemplar av AdRotate. Detta kommer att göra det möjligt "
+#~ "för ticket och uppdatera underrättelser direkt från din dashboard."
+
+#, fuzzy
+#~ msgid ""
+#~ "When editing adverts; Hide schedules that are not in use by that advert."
+#~ msgstr "Administratören har inaktiv redigering av annonser."
+
+#, fuzzy
+#~ msgid "Load Ad Blocker Detection"
+#~ msgstr ""
+#~ "Den jQuery Showoff Library (0.1.2 +) krävs för dynamiska grupper. "
+#~ "Inaktivera om andra plugins eller teman redan läsa här."
+
+#, fuzzy
+#~ msgid "Try to detect Ad Blockers and show your visitors a nag message."
+#~ msgstr ""
+#~ "Den jQuery Showoff Library (0.1.2 +) krävs för dynamiska grupper. "
+#~ "Inaktivera om andra plugins eller teman redan läsa här."
+
+#~ msgid "Geo Location"
+#~ msgstr "Geo Location"
+
+#, fuzzy
+#~ msgid "Enable GeoTargeting for this group."
+#~ msgstr "Enable GeoTargeting för denna grupp."
+
+#~ msgid "Fallback group"
+#~ msgstr "Reserv grupp"
+
+#~ msgid "No"
+#~ msgstr "Nej"
+
+#~ msgid ""
+#~ "Select another group to fall back on when all ads are expired, not in the "
+#~ "visitors geographic area or are otherwise unavailable."
+#~ msgstr ""
+#~ "Välj en annan grupp att falla tillbaka på när alla annonser gått ut, inte "
+#~ "i besökare geografiskt område eller på annat sätt är otillgängliga."
+
+#~ msgid "Like the plugin?"
+#~ msgstr "Gillar plugin?"
+
+#~ msgid "Rate and review"
+#~ msgstr "Betyg och omdöme"
+
+#, fuzzy
+#~ msgid "Buy AdRotate Professional here"
+#~ msgstr "Köp nu"
+
+#~ msgid "Check the manual of your caching plugin to see how this works."
+#~ msgstr ""
+#~ "Läs i manualen för din caching plugin för att se hur detta fungerar."
+
+#~ msgid "Current Schedules"
+#~ msgstr "Aktuell Schema"
+
+#~ msgid "This ad used"
+#~ msgstr "Annonsen används"
+
+#~ msgid "Fallback"
+#~ msgstr "Fallback"
+
+#~ msgid "AJdG Solutions"
+#~ msgstr "AJdG Solutions"
+
+#, fuzzy
+#~ msgid ""
+#~ "Who has access to what? All but the \"advertiser page\" are usually for "
+#~ "admins and moderators."
+#~ msgstr "Annonsörens sida"
+
+#, fuzzy
+#~ msgid ""
+#~ "Activate your AdRotate License here to receive support via the fast and "
+#~ "personal ticket system."
+#~ msgstr ""
+#~ "Aktivera din AdRotate Licens här för att få stöd via den snabba och "
+#~ "personliga ticket system."
+
+#, fuzzy
+#~ msgid ""
+#~ "The jQuery.jshowoff.adrotate library is required for Dynamic Groups. This "
+#~ "library depends on jQuery."
+#~ msgstr ""
+#~ "Den jQuery Showoff Library (0.1.2 +) krävs för dynamiska grupper. "
+#~ "Inaktivera om andra plugins eller teman redan läsa här."
+
+#, fuzzy
+#~ msgid ""
+#~ "The jQuery.clicktracker library is required for Clicktracking. This "
+#~ "library depends on jQuery."
+#~ msgstr ""
+#~ "Den jQuery Showoff Library (0.1.2 +) krävs för dynamiska grupper. "
+#~ "Inaktivera om andra plugins eller teman redan läsa här."
+
+#~ msgid "Manage Blocks"
+#~ msgstr "Hantera Block"
+
+#~ msgid "Delete Block(s)"
+#~ msgstr "Radera Block"
+
+#~ msgid "You are about to delete a block"
+#~ msgstr "Du håller på att radera ett block"
+
+#~ msgid "View"
+#~ msgstr "Visa"
+
+#~ msgid "No blocks created yet!"
+#~ msgstr "Inga block skapats än!"
+
+#~ msgid "Your support makes a difference"
+#~ msgstr "Ditt stöd gör skillnad"
+
+#~ msgid ""
+#~ "Your awesome gift will ensure the continued development of AdRotate! "
+#~ "Thanks for your consideration!"
+#~ msgstr ""
+#~ "Din enorm gåva kommer att säkerställa den fortsatta utvecklingen av "
+#~ "AdRotate! Tack för ditt övervägande!"
+
+#~ msgid "Moderate"
+#~ msgstr "Moderate"
+
+#~ msgid "Global Reports"
+#~ msgstr "Globala Rapporter"
+
+#~ msgid "Moderation queue"
+#~ msgstr "Moderation queue"
+
+#~ msgid "Approve"
+#~ msgstr "Godkänn"
+
+#~ msgid "Reject"
+#~ msgstr "Avvisa"
+
+#~ msgid "Advertiser"
+#~ msgstr "Annonsören"
+
+#~ msgid ""
+#~ "Couple adverts to advertisers and allow them to create and upload their "
+#~ "own advertisements for you to moderate and approve or reject!"
+#~ msgstr ""
+#~ "Para annonser till annonsörer och ge dem möjlighet att skapa och ladda "
+#~ "upp sina egna annonser för dig att moderera och godkänna eller förkasta!"
+
+#~ msgid "A summarized overview of all adverts currently active!"
+#~ msgstr "En sammanfattande översikt över alla annonser aktiv!"
+
+#, fuzzy
+#~ msgid "AdRotate Promotions & Highlighted blog posts"
+#~ msgstr "AdRotate kampanjer"
+
+#~ msgid "Advertiser & Budget"
+#~ msgstr "Annonsör & Budget"
+
+#~ msgid ""
+#~ "Link your ad to an Advertiser and optionally set a budget for clicks and "
+#~ "impressions."
+#~ msgstr ""
+#~ "Länka annonsen till en annonsör och eventuellt sätt en budget för klick "
+#~ "och visningar."
+
+#~ msgid "Enable."
+#~ msgstr "Aktivera."
+
+#~ msgid "Do not use this feature"
+#~ msgstr "Använd inte den här funktionen"
+
+#~ msgid "Before the post content"
+#~ msgstr "Innan publicerat innehåll"
+
+#~ msgid "After the page content"
+#~ msgstr "Efter sidans innehåll"
+
+#~ msgid "Save"
+#~ msgstr "Spara"
+
+#~ msgid "Block of Ads - Use Block ID"
+#~ msgstr "Block av annonser - Använd Block ID"
+
+#~ msgid "Block Management"
+#~ msgstr "Block Hantering"
+
+#~ msgid "Block created"
+#~ msgstr "Block skapad"
+
+#~ msgid "Block updated"
+#~ msgstr "Block uppdateras"
+
+#~ msgid "Advertiser page"
+#~ msgstr "Annonsören sida"
+
+#~ msgid "Role to allow users/advertisers to see their advertisement page."
+#~ msgstr "Role för att låta användare / annonsörer att se deras annons sidan."
+
+#~ msgid "Global report page"
+#~ msgstr "Global rapport sida"
+
+#~ msgid "Role to review the global report."
+#~ msgstr "Role att granska den globala rapport."
+
+#~ msgid "Manage/Add/Edit blocks"
+#~ msgstr "Hantera / Lägg till / redigera block"
+
+#~ msgid "Role to see and add/edit blocks."
+#~ msgstr "Role för att se och lägga till / redigera block."
+
+#~ msgid "Delete blocks"
+#~ msgstr "Radera block"
+
+#~ msgid "Role to delete blocks."
+#~ msgstr "Role att ta bort block."
+
+#~ msgid "Moderate new adverts"
+#~ msgstr "Moderate nya annonser"
+
+#~ msgid "Role to approve ads submitted by advertisers."
+#~ msgstr "Role att godkänna annonser som lämnats in av annonsörer."
+
+#~ msgid "Role to approve or reject ads submitted by advertisers."
+#~ msgstr ""
+#~ "Role för att godkänna eller avvisa annonser som lämnats in av annonsörer."
+
+#~ msgid "Advertiser Messages"
+#~ msgstr "Annonsör Meddelanden"
+
+#, fuzzy
+#~ msgid "Configure who gets email from advertisers."
+#~ msgstr ""
+#~ "meddelanden från Annonsörer som använder AdRotate. Din e-postadress visas "
+#~ "inte för dem förrän du svara på deras meddelanden."
+
+#~ msgid ""
+#~ "This sends a test message. Before you test, for example, with a new email "
+#~ "address. Save the options first!"
+#~ msgstr ""
+#~ "Detta skickar ett testmeddelande. Innan du testar, till exempel med en ny "
+#~ "e-postadress. Spara alternativen först!"
+
+#, fuzzy
+#~ msgid "Load jQuery ShowOff"
+#~ msgstr ""
+#~ "Den jQuery Showoff Library (0.1.2 +) krävs för dynamiska grupper. "
+#~ "Inaktivera om andra plugins eller teman redan läsa här."
+
+#~ msgid "Blocks"
+#~ msgstr "Blocks"
+
+#~ msgid "Periodic Maintenance"
+#~ msgstr "Periodiskt underhåll"
+
+#~ msgid "No time to get things done? Let's make a schedule!"
+#~ msgstr "Ingen tid att få saker gjorda? Låt oss göra ett schema!"
+
+#~ msgid ""
+#~ "This advert has run out of budget. Add more budget to the advert or reset "
+#~ "the rate to zero!"
+#~ msgstr ""
+#~ "Denna annons har slut på budgeten. Lägg mer budget till annonsen eller "
+#~ "återställa till noll!"
+
+#~ msgid "Click an example to add it to your AdCode."
+#~ msgstr "Klicka på ett exempel för att lägga till den i din AdCode."
+
+#, fuzzy
+#~ msgid "jQuery must be active on your site for clicktracking to work."
+#~ msgstr ""
+#~ "Måste vara en registrerad användare på din webbplats med lämpliga role "
+#~ "tillträde."
+
+#~ msgid "Remote usage:"
+#~ msgstr "Remote användning:"
+
+#~ msgid ""
+#~ "Enter the target url here if you intent to use this advert in mailings or "
+#~ "on remote pages."
+#~ msgstr ""
+#~ "Ange mål-URL här om du avsikt att använda den här annonsen i utskick "
+#~ "eller på avlägsna sidor."
+
+#~ msgid "Edit Block"
+#~ msgstr "Redigera Block"
+
+#~ msgid "The basics"
+#~ msgstr "grunderna"
+
+#~ msgid "Name / Reference:"
+#~ msgstr "Namn / Referens:"
+
+#~ msgid ""
+#~ "Block shape  and border (Required) - Define the shape and size of the "
+#~ "block"
+#~ msgstr ""
+#~ "Block form och border (Required) - Definiera formen och storleken på "
+#~ "blocket"
+
+#~ msgid "Rows and Columns"
+#~ msgstr "Rader och kolumner"
+
+#~ msgid ""
+#~ "Make a grid for your ads. Filling in 2 and 2 makes a 2x2 grid. (Default: "
+#~ "2/2)"
+#~ msgstr ""
+#~ "Gör ett rutnät för dina annonser. Fylla i 2 och 2 gör ett 2x2 rutnät. "
+#~ "(Standard: 2/2)"
+
+#~ msgid "Block Padding"
+#~ msgstr "Block Padding"
+
+#~ msgid "An invisible border inside the block in pixels. (Default: 1)"
+#~ msgstr "En osynlig border inne i blocket i pixlar. (Standard: 1)"
+
+#~ msgid ""
+#~ "Advert shape and border (Required) - Define the shape and size of the "
+#~ "adverts"
+#~ msgstr ""
+#~ "Annons form och border (Obligatoriskt) - Definiera formen och storleken "
+#~ "på de annonser"
+
+#~ msgid "Width and Height"
+#~ msgstr "Bredd och höjd"
+
+#~ msgid "pixel(s) margin"
+#~ msgstr "bildpunkt (er) marginal"
+
+#~ msgid "An invisible border outside the advert in pixels. (Default: 1)"
+#~ msgstr "En osynlig border utanför annonsen i pixlar. (Standard: 1)"
+
+#~ msgid "Advert Border"
+#~ msgstr "Annons Border"
+
+#~ msgid "Style"
+#~ msgstr "Stil"
+
+#~ msgid "Width"
+#~ msgstr "Bredd"
+
+#~ msgid "pixel(s). Color"
+#~ msgstr "bildpunkt (er). Färg"
+
+#~ msgid ""
+#~ "Set the border width to 0 to disable. Color must be a valid hex value. "
+#~ "(Default: none/0/#fff)"
+#~ msgstr ""
+#~ "Ställ in border till 0 för att inaktivera. Color måste vara ett giltigt "
+#~ "hexadecimalt värde. (Standard: ingen / 0 / # fff)"
+
+#~ msgid "Wrapper code (Optional) - Wraps around each ad"
+#~ msgstr "Wrapper-kod (tillval) - Wraps runt varje annons"
+
+#~ msgid "Choose the groups to use in this block"
+#~ msgstr "Välj det grupper för användning i detta block"
+
+#~ msgid "This blocks performance"
+#~ msgstr "Detta block prestanda"
+
+#~ msgid "Statistics for"
+#~ msgstr "Statistik för"
+
+#~ msgid "Export options for"
+#~ msgstr "Exportalternativ för"
+
+#~ msgid "Track visitors"
+#~ msgstr "Spåra besökare"
+
+#~ msgid "You are about to remove empty records from the AdRotate database."
+#~ msgstr "Du håller på att ta bort tomma poster från AdRotate databasen."
+
+#~ msgid ""
+#~ "AdRotate creates empty records when you start making ads, groups or "
+#~ "blocks. In rare occasions these records are faulty. If you made an ad, "
+#~ "group or block that does not save when you make it use this button to "
+#~ "delete those empty records."
+#~ msgstr ""
+#~ "AdRotate skapar tomma poster när du börjar göra annonser, grupper eller "
+#~ "block. I sällsynta fall har dessa register är felaktiga. Om du gjort en "
+#~ "annons, grupp eller block som inte sparar när du gör det använda den här "
+#~ "knappen för att ta bort de tomma poster."
+
+#~ msgid ""
+#~ "Additionally the statistics are cleaned up. Old temporary data will be "
+#~ "removed."
+#~ msgstr ""
+#~ "Ytterligare statistiken städas upp. Gamla temporära data kommer att tas "
+#~ "bort."
+
+#~ msgid "No address specified"
+#~ msgstr "Ingen adress angiven"
+
+#~ msgid "Feedback/bugs"
+#~ msgstr "Feedback / buggar"

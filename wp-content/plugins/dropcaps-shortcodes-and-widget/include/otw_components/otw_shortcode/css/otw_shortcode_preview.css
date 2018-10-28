@@ -1,0 +1,33 @@
+.otw-sc-box.with-icon i{
+	left: 13px;
+	top: 13px;
+}
+.otw-sc-box img{
+	left: 13px !important;
+	top: 13px !important;
+}
+.otw_live_preview_wapper{
+	margin: 10px;
+	position: relative;
+}
+.otw_live_preview_shortcode{
+	width: 350px;
+}
+ol.otw-list{
+	margin: 0 0 0 30px !important;
+	padding: 0 !important
+}
+.otw-sc-box.with-icon{
+	position: relative !important;
+}
+.otw-sc-box.with-icon i, .otw-sc-box.with-icon > img {
+  left: 10px !important;
+}
+.otw-shortcode-preview-error{
+	background-color: #FFEBE8;
+	border: 1px solid #CC0000;
+	padding: 10px;
+}
+.otw_live_preview_shortcode embed, .otw_live_preview_shortcode iframe, .otw_live_preview_shortcode img{
+	max-width: 100%;
+}

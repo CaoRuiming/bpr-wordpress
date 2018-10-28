@@ -1,0 +1,4753 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: AdRotate\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-07-25 12:28+0800\n"
+"PO-Revision-Date: 2018-07-25 12:28+0800\n"
+"Last-Translator: Arnan de Gans <support@ajdg.solutions>\n"
+"Language-Team: Andrijana Nikolic <andrijanan@webhostinggeeks.com>\n"
+"Language: sr_RS\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-KeywordsList: __;_e;_\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Generator: Poedit 2.1\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: adrotate-functions.php:730
+msgid "No files found"
+msgstr "Nijedan fajl nije pronadjen"
+
+#: adrotate-functions.php:733
+msgid "Folder not found or not accessible"
+msgstr "Folder nije pronadjen ili nije prihvatljiv"
+
+#: adrotate-functions.php:818
+msgid "Ad saved"
+msgstr ""
+
+#: adrotate-functions.php:822
+msgid "Group saved"
+msgstr ""
+
+#: adrotate-functions.php:826
+msgid "Ad(s) deleted"
+msgstr "Izbrisani oglasu"
+
+#: adrotate-functions.php:830
+msgid "Group deleted"
+msgstr "Izbrisana grupa"
+
+#: adrotate-functions.php:834
+msgid "Ad(s) statistics reset"
+msgstr "Statistički resestovani oglasi"
+
+#: adrotate-functions.php:838
+msgid "Ad(s) renewed"
+msgstr "Ponovo obnovljeni oglasi"
+
+#: adrotate-functions.php:842
+msgid "Ad(s) deactivated"
+msgstr "Deaktivirani oglasi"
+
+#: adrotate-functions.php:846
+msgid "Ad(s) activated"
+msgstr "Aktivirani oglasi"
+
+#: adrotate-functions.php:850
+msgid "Group including it's Ads deleted"
+msgstr "Grupa koja podrazumeva obrisane oglase"
+
+#: adrotate-functions.php:854
+#, fuzzy
+msgid "Export created"
+msgstr "Izlazne opcije za"
+
+#: adrotate-functions.php:858
+msgid ""
+"Advert HTML generated and placed in the AdCode field. Configure your advert "
+"below."
+msgstr ""
+
+#: adrotate-functions.php:863
+msgid "Settings saved"
+msgstr "Postavke sačuvane"
+
+#: adrotate-functions.php:867
+msgid "Database optimized"
+msgstr "Baza podataka optimizirana"
+
+#: adrotate-functions.php:871
+msgid "Database repaired"
+msgstr "Baza podataka popravljena"
+
+#: adrotate-functions.php:875
+msgid "Ads evaluated and statuses have been corrected where required"
+msgstr "Oglasi procenjuju i statusi su ispravljene kada je to potrebno"
+
+#: adrotate-functions.php:879
+#, fuzzy
+#| msgid "Clean-up Database"
+msgid "Cleanup complete"
+msgstr "Čišćenje baze"
+
+#: adrotate-functions.php:884
+msgid "Action prohibited"
+msgstr "Zabranjeno delo"
+
+#: adrotate-functions.php:888
+msgid ""
+"The ad was saved but has an issue which might prevent it from working "
+"properly. Review the colored ad."
+msgstr ""
+
+#: adrotate-functions.php:892
+msgid "No data found in selected time period"
+msgstr "Nijedan podatak nije nadjen u odredjenom vremenskom periodu"
+
+#: adrotate-functions.php:896
+msgid "Database can only be optimized or cleaned once every hour"
+msgstr "Baza podataka može biti optimizovana ili čiste jednom svaki sat"
+
+#: adrotate-functions.php:900
+msgid "Form can not be (partially) empty!"
+msgstr ""
+
+#: adrotate-functions.php:904
+msgid "No ads found."
+msgstr ""
+
+#: adrotate-functions.php:908
+msgid "Unexpected error"
+msgstr ""
+
+#: adrotate-manage-publisher.php:795
+msgid "AdRotate Advertiser"
+msgstr ""
+
+#: adrotate-output.php:557
+msgid "Oh no! Something went wrong!"
+msgstr "O ne! Nešto nije kako treba!"
+
+#: adrotate-output.php:558
+msgid ""
+"WordPress was unable to verify the authenticity of the url you have clicked. "
+"Verify if the url used is valid or log in via your browser."
+msgstr ""
+"WordPress nije bio u mogućnosti da verifikuje autentičnost url-a na koji ste "
+"kliknuli. Verifikuj ak je url korišćen kao validan ili login via vašeg "
+"pretraživača."
+
+#: adrotate-output.php:559
+msgid ""
+"If you have received the url you want to visit via email, you are being "
+"tricked!"
+msgstr "Ako ste primili url koji želite da posetite via email, prevaeni ste!"
+
+#: adrotate-output.php:560
+msgid "Contact support if the issue persists:"
+msgstr "Kontaktirajte podršku ako se problem nastavi:"
+
+#: adrotate-output.php:575
+#, fuzzy
+msgid ""
+"Error, Ad is not available at this time due to schedule/geolocation "
+"restrictions or does not exist!"
+msgstr "Nema vremena da se stvari urade ? Hajde da napravimo raspored !"
+
+#: adrotate-output.php:577
+#, fuzzy
+msgid ""
+"Error, Ad is not available at this time due to schedule/geolocation "
+"restrictions!"
+msgstr "Nema vremena da se stvari urade ? Hajde da napravimo raspored !"
+
+#: adrotate-output.php:584 adrotate-output.php:586
+msgid ""
+"Either there are no banners, they are disabled or none qualified for this "
+"location!"
+msgstr "Ili nema banera, onemogućeni su ili nije kvalifikovan za ovu lokaciju!"
+
+#: adrotate-output.php:592
+msgid "Error, no Ad ID set! Check your syntax!"
+msgstr "Error, nema Ad ID seta! Proverite vašu syntax!"
+
+#: adrotate-output.php:598
+#, fuzzy
+msgid "Error, no group ID set! Check your syntax!"
+msgstr "Error, nema Ad ID seta! Proverite vašu syntax!"
+
+#: adrotate-output.php:603
+#, fuzzy
+msgid "Error, group does not exist! Check your syntax!"
+msgstr "Error, nema Ad ID seta! Proverite vašu syntax!"
+
+#: adrotate-output.php:609
+msgid ""
+"There was an error locating the database tables for AdRotate. Please "
+"deactivate and re-activate AdRotate from the plugin page!!"
+msgstr ""
+"Error se prikazao locirajući bazupodataka tabele za AdRotate. Molim vas "
+"deaktivirajte i reaktivirajte AdRotate sa plugin stranice!!"
+
+#: adrotate-output.php:609
+msgid "If this does not solve the issue please seek support at"
+msgstr "Ako ne reši problem potražite podršku na"
+
+#: adrotate-output.php:615
+msgid "An unknown error occured."
+msgstr "Nepoznati error se ukazao."
+
+#: adrotate-output.php:635 adrotate-output.php:638 adrotate-output.php:642
+msgid "Check adverts"
+msgstr ""
+
+#: adrotate-output.php:652
+msgid ""
+"You have enabled caching support but W3 Total Cache is not active on your "
+"site!"
+msgstr ""
+
+#: adrotate-output.php:652
+#, fuzzy
+#| msgid "W3 Total Caching"
+msgid "Disable W3 Total Cache Support"
+msgstr "W3 Total Caching"
+
+#: adrotate-output.php:655
+msgid ""
+"You have enable caching support but the W3TC_DYNAMIC_SECURITY definition is "
+"not set."
+msgstr ""
+
+#: adrotate-output.php:655
+msgid "How to configure W3 Total Cache"
+msgstr ""
+
+#: adrotate-output.php:664
+msgid ""
+"You have enable caching support but Borlabs Cache is not active on your site!"
+msgstr ""
+
+#: adrotate-output.php:664
+msgid "Disable Borlabs Cache Support"
+msgstr ""
+
+#: adrotate-output.php:672
+msgid ""
+"You have enabled Borlabs Cache support but Fragment caching is not enabled!"
+msgstr ""
+
+#: adrotate-output.php:672
+msgid "Enable Fragment Caching"
+msgstr ""
+
+#: adrotate-output.php:678
+msgid "Your AdRotate Banner folder is not writable or does not exist."
+msgstr ""
+
+#: adrotate-output.php:678
+#, fuzzy
+#| msgid "Where are your banner ads?"
+msgid "Set up your banner folder"
+msgstr "Gde su ti baneri ?"
+
+#: adrotate-output.php:698
+msgid "your attention:"
+msgstr ""
+
+#: adrotate-output.php:719 adrotate.php:447
+#: dashboard/publisher/schedules-main.php:13
+#, fuzzy
+#| msgid "AdRotate Pro"
+msgid "Get AdRotate Pro"
+msgstr "AdRotate Pro"
+
+#: adrotate-output.php:720
+msgid ""
+"Upgrade to <strong>AdRotate Professional</strong> and get Geo Targeting, "
+"Schedules and more..."
+msgstr ""
+
+#: adrotate-output.php:720
+#, php-format
+msgid ""
+"Use discount code <b>getadrotatepro</b> for 10% off on any AdRotate license!"
+msgstr ""
+
+#: adrotate-output.php:720
+msgid "Thank you for your support!"
+msgstr ""
+
+#: adrotate-output.php:837
+msgid ""
+"Thank you for choosing AdRotate. Everything related to AdRotate is in this "
+"menu. If you need help getting started take a look at the"
+msgstr ""
+
+#: adrotate-output.php:837
+msgid "manuals"
+msgstr "priručnici"
+
+#: adrotate-output.php:837 adrotate-output.php:921
+msgid "and"
+msgstr ""
+
+#: adrotate-output.php:837
+msgid "forums"
+msgstr ""
+
+#: adrotate-output.php:870
+#, fuzzy
+msgid "Useful Links"
+msgstr "Korisni linkovi"
+
+#: adrotate-output.php:871
+msgid "Useful links to learn more about AdRotate"
+msgstr ""
+
+#: adrotate-output.php:873
+msgid "AdRotate website"
+msgstr ""
+
+#: adrotate-output.php:874
+#, fuzzy
+msgid "Getting Started With AdRotate"
+msgstr "Nabvite jos karakteristika! AdRotate Pro."
+
+#: adrotate-output.php:875
+#, fuzzy
+msgid "AdRotate manuals"
+msgstr "AdRotate informacije"
+
+#: adrotate-output.php:876
+#, fuzzy
+msgid "AdRotate Support Forum"
+msgstr "AdRotate prodavnica"
+
+#: adrotate-output.php:913
+#, fuzzy
+msgid "Help AdRotate Grow"
+msgstr "Zaglavili ste se sa AdRotate ? Ja ću vam pomoći !"
+
+#: adrotate-output.php:914 adrotate.php:152
+#, fuzzy
+msgid "AdRotate Professional"
+msgstr "AdRotate promocije"
+
+#: adrotate-output.php:921
+msgid ""
+"Many users only think to review AdRotate when something goes wrong while "
+"thousands of people happily use AdRotate."
+msgstr ""
+
+#: adrotate-output.php:921
+msgid "If you find AdRotate useful please leave your"
+msgstr ""
+
+#: adrotate-output.php:921
+msgid "rating"
+msgstr ""
+
+#: adrotate-output.php:921
+#, fuzzy
+msgid "review"
+msgstr "Dajte ocenu i komentar"
+
+#: adrotate-output.php:921
+msgid "on WordPress.org to help AdRotate grow in a positive way"
+msgstr ""
+
+#: adrotate-output.php:922
+msgid ""
+"Get more advanced features like Geo Targeting, scheduling and much more with "
+"AdRotate Pro."
+msgstr ""
+
+#: adrotate-output.php:922
+msgid "Includes premium support and free updates!"
+msgstr ""
+
+#: adrotate-output.php:922
+#, fuzzy
+#| msgid "Go Pro today"
+msgid "Get started today"
+msgstr "Predjite na Pro danas"
+
+#: adrotate-statistics.php:155
+msgid "January"
+msgstr "Januar"
+
+#: adrotate-statistics.php:155
+msgid "February"
+msgstr "Februar"
+
+#: adrotate-statistics.php:155
+msgid "March"
+msgstr "Mart"
+
+#: adrotate-statistics.php:155
+msgid "April"
+msgstr "April"
+
+#: adrotate-statistics.php:155
+msgid "May"
+msgstr "Maj"
+
+#: adrotate-statistics.php:155
+msgid "June"
+msgstr "Jun"
+
+#: adrotate-statistics.php:155
+msgid "July"
+msgstr "Jul"
+
+#: adrotate-statistics.php:155
+msgid "August"
+msgstr "Avgust"
+
+#: adrotate-statistics.php:155
+msgid "September"
+msgstr "Septembar"
+
+#: adrotate-statistics.php:155
+msgid "October"
+msgstr "Oktobar"
+
+#: adrotate-statistics.php:155
+msgid "November"
+msgstr "Novembar"
+
+#: adrotate-statistics.php:155
+msgid "December"
+msgstr "Decembar"
+
+#: adrotate-statistics.php:164
+msgid "Previous"
+msgstr "Prethodno"
+
+#: adrotate-statistics.php:166 dashboard/publisher/statistics-advert.php:66
+#: dashboard/publisher/statistics-group.php:73
+#: dashboard/publisher/statistics-main.php:37
+msgid "This month"
+msgstr "Ovaj mesec"
+
+#: adrotate-statistics.php:167
+msgid "Next"
+msgstr "Sledeći"
+
+#: adrotate-statistics.php:225
+msgid "No data to show!"
+msgstr "Nema podataka za prikaz!"
+
+#: adrotate-statistics.php:302 adrotate-statistics.php:303
+#, fuzzy
+#| msgid "No files found"
+msgid "Not found"
+msgstr "Nijedan fajl nije pronadjen"
+
+#: adrotate-widget.php:132
+msgid "Title (optional):"
+msgstr "Naslov (opcionalno):"
+
+#: adrotate-widget.php:135
+msgid "HTML will be stripped out."
+msgstr "HTML će biti skinut."
+
+#: adrotate-widget.php:138
+#, fuzzy
+msgid "Description (optional):"
+msgstr "Naslov (opcionalno):"
+
+#: adrotate-widget.php:141
+#, fuzzy
+msgid "What is this widget used for? (Not parsed, HTML will be stripped out.)"
+msgstr "HTML će biti skinut."
+
+#: adrotate-widget.php:144
+msgid "Type:"
+msgstr "Tip:"
+
+#: adrotate-widget.php:146
+msgid "Advert - Use Advert ID"
+msgstr ""
+
+#: adrotate-widget.php:147
+msgid "Group - Use group ID"
+msgstr ""
+
+#: adrotate-widget.php:150
+msgid "Choose what you want to use this widget for"
+msgstr "Izaberite za šta želite da koristite ovaj widget "
+
+#: adrotate-widget.php:153
+msgid "ID:"
+msgstr "ID:"
+
+#: adrotate-widget.php:156
+msgid "Fill in the ID of the type you want to display!"
+msgstr "Popunite ID tipa koji želite da prikažete!"
+
+#: adrotate.php:106
+msgid "General Info"
+msgstr "Opšte informacije"
+
+#: adrotate.php:107
+msgid "AdRotate Pro"
+msgstr "AdRotate Pro"
+
+#: adrotate.php:108 dashboard/info.php:40
+#: dashboard/publisher/adverts-edit.php:431
+#: dashboard/publisher/groups-main.php:34
+#: dashboard/publisher/schedules-main.php:34
+#: dashboard/publisher/statistics-main.php:24
+msgid "Adverts"
+msgstr "Oglasi"
+
+#: adrotate.php:109 dashboard/info.php:44
+msgid "Groups"
+msgstr "Grupe"
+
+#: adrotate.php:110 adrotate.php:351
+#, fuzzy
+msgid "Schedules"
+msgstr "Nema vremena da se stvari urade ? Hajde da napravimo raspored !"
+
+#: adrotate.php:111 adrotate.php:390 dashboard/publisher/adverts-edit.php:177
+#: dashboard/publisher/statistics-main.php:12
+#: dashboard/settings/statistics.php:17
+msgid "Statistics"
+msgstr "Statistike"
+
+#: adrotate.php:112
+#, fuzzy
+#| msgid "Media:"
+msgid "Media"
+msgstr "Media:"
+
+#: adrotate.php:113
+msgid "Settings"
+msgstr "Postavke"
+
+#: adrotate.php:134
+msgid "AdRotate Info"
+msgstr "AdRotate informacije"
+
+#: adrotate.php:192
+msgid "Advert Management"
+msgstr ""
+
+#: adrotate.php:252 adrotate.php:320
+msgid "Manage"
+msgstr "Upravljati"
+
+#: adrotate.php:253
+#, fuzzy
+#| msgid "General Info"
+msgid "Generator"
+msgstr "Opšte informacije"
+
+#: adrotate.php:254 adrotate.php:321
+msgid "Add New"
+msgstr "Dodati novi"
+
+#: adrotate.php:314
+msgid "Group Management"
+msgstr "Menadžment grupe"
+
+#: adrotate.php:443
+msgid "Media and Assets"
+msgstr ""
+
+#: adrotate.php:447
+msgid ""
+"Upload images to the AdRotate Pro banners folder from here. This is useful "
+"if you have HTML5 adverts containing multiple files."
+msgstr ""
+
+#: adrotate.php:447 dashboard/publisher/schedules-main.php:13
+#, fuzzy
+msgid "Get more features"
+msgstr "Nabvite jos karakteristika! AdRotate Pro."
+
+#: adrotate.php:474
+msgid "AdRotate Settings"
+msgstr "AdRotate postavke"
+
+#: adrotate.php:479 dashboard/publisher/statistics-main.php:17
+#, fuzzy
+#| msgid "General Info"
+msgid "General"
+msgstr "Opšte informacije"
+
+#: adrotate.php:480 dashboard/settings/notifications.php:18
+msgid "Notifications"
+msgstr "Notifikacije"
+
+#: adrotate.php:481 dashboard/publisher/adverts-disabled.php:69
+#: dashboard/publisher/adverts-error.php:63
+#: dashboard/publisher/adverts-main.php:81
+#: dashboard/publisher/groups-main.php:70
+msgid "Stats"
+msgstr "Statistika"
+
+#: adrotate.php:482 dashboard/publisher/adverts-edit.php:332
+#: dashboard/publisher/groups-edit.php:180
+#: dashboard/settings/advertisers.php:38
+#, fuzzy
+msgid "Geo Targeting"
+msgstr "GeoTargeting"
+
+#: adrotate.php:483 dashboard/settings/notifications.php:70
+msgid "Advertisers"
+msgstr "Oglašivači"
+
+#: adrotate.php:484 dashboard/settings/roles.php:17
+msgid "Roles"
+msgstr ""
+
+#: adrotate.php:485
+msgid "Misc"
+msgstr ""
+
+#: adrotate.php:486 dashboard/settings/maintenance.php:16
+msgid "Maintenance"
+msgstr "Održavanje"
+
+#: dashboard/adrotatepro.php:20
+#, fuzzy
+msgid "Satisfy your advertisers"
+msgstr "Oglašivači"
+
+#: dashboard/adrotatepro.php:23
+msgid ""
+"Set up advertisers and let them log in to their statistics or even create "
+"their own adverts. Created adverts go into a moderation queue for your staff "
+"to review. Advertisers have access to their own little dashboard where they "
+"can see their adverts performance."
+msgstr ""
+
+#: dashboard/adrotatepro.php:27
+msgid "Mobile campaigns"
+msgstr ""
+
+#: dashboard/adrotatepro.php:30
+msgid ""
+"Target mobile users with ease and show the right adverts to smartphones, "
+"tablets and computers. Mix and match as you please and offer adverts that "
+"suit the device or mobile operating system. Create as many mobile adverts as "
+"you want without effort and with a few easy to use options they show up "
+"where you want them to!"
+msgstr ""
+
+#: dashboard/adrotatepro.php:34
+msgid "Localize your ad campaigns with Geo Targeting"
+msgstr ""
+
+#: dashboard/adrotatepro.php:37
+msgid ""
+"Go nationwide or global with localized adverts for your various audiences. "
+"Set up adverts for countries and cities and sell impressions per general "
+"area. Connect your site to MaxMind GeoIP2: Precision or AdRotate Geo. "
+"AdRotate Geo is an exclusive Geo Lookup service for AdRotate Pro users."
+msgstr ""
+
+#: dashboard/adrotatepro.php:41
+msgid "Get Fast Support almost all year round"
+msgstr ""
+
+#: dashboard/adrotatepro.php:44
+msgid ""
+"When you activate your AdRotate Pro license you can use fast and personal "
+"email support. No more queueing up in the forums. AdRotate support takes "
+"priority over the forums and is checked much more often than the forum. Get "
+"a solution (usually) within two business days."
+msgstr ""
+
+#: dashboard/adrotatepro.php:48
+msgid "AdRotate is brought to you by"
+msgstr "AdRotate vam je omogućio"
+
+#: dashboard/adrotatepro.php:61
+msgid "Schedule all campaigns with ease"
+msgstr ""
+
+#: dashboard/adrotatepro.php:64
+msgid ""
+"Schedule your adverts and set up advertising campaigns based on dates you or "
+"your advertisers specify without hassle. Seasonal adverts, weekly adverts, "
+"specific days in the week. You name it, AdRotate schedules it. This makes "
+"planning your revenue stream very flexible. You can set one or many "
+"schedules for adverts."
+msgstr ""
+
+#: dashboard/adrotatepro.php:68
+msgid "Avoid adblockers"
+msgstr ""
+
+#: dashboard/adrotatepro.php:71
+msgid ""
+"Try and avoid adblockers so your adverts get the exposure you want them to "
+"have. AdRotate Pro offers some advanced tools to deceive adblockers so your "
+"adverts are less likely to be removed. Of-course make sure you create your "
+"adverts smartly so these features reach their full potential!"
+msgstr ""
+
+#: dashboard/adrotatepro.php:75
+msgid "Stay up-to-date with notifications"
+msgstr ""
+
+#: dashboard/adrotatepro.php:78
+msgid ""
+"Stay in touch with Email notifications. Have AdRotate send you an alert when "
+"adverts expire or need your attention. Get notified when adverts expire, "
+"have errors or when advertisers create new adverts. Select up to three email "
+"addresses to be notified. Never miss an expiration date again."
+msgstr ""
+
+#: dashboard/adrotatepro.php:82 dashboard/adrotatepro.php:94
+#: dashboard/info.php:79
+#, fuzzy
+msgid "Buy AdRotate Professional"
+msgstr "Kupite odmah"
+
+#: dashboard/adrotatepro.php:86 dashboard/info.php:83
+msgid "Single License"
+msgstr ""
+
+#: dashboard/adrotatepro.php:86 dashboard/info.php:83
+msgid "One WordPress installation."
+msgstr ""
+
+#: dashboard/adrotatepro.php:86 dashboard/adrotatepro.php:87
+#: dashboard/adrotatepro.php:88 dashboard/adrotatepro.php:89
+#: dashboard/adrotatepro.php:98 dashboard/adrotatepro.php:99
+#: dashboard/adrotatepro.php:100 dashboard/adrotatepro.php:101
+#: dashboard/info.php:83 dashboard/info.php:84 dashboard/info.php:85
+#: dashboard/info.php:86 dashboard/settings/geotargeting.php:40
+#, fuzzy
+msgid "Buy now"
+msgstr "Kupite odmah"
+
+#: dashboard/adrotatepro.php:87 dashboard/adrotatepro.php:99
+#: dashboard/info.php:84
+msgid "Duo License"
+msgstr ""
+
+#: dashboard/adrotatepro.php:87 dashboard/info.php:84
+msgid "Two WordPress installations."
+msgstr ""
+
+#: dashboard/adrotatepro.php:88 dashboard/adrotatepro.php:100
+#: dashboard/info.php:85
+msgid "Multi License"
+msgstr ""
+
+#: dashboard/adrotatepro.php:88 dashboard/info.php:85
+#, fuzzy
+msgid "Five WordPress installations."
+msgstr "Instalacije"
+
+#: dashboard/adrotatepro.php:89 dashboard/adrotatepro.php:101
+#: dashboard/info.php:86
+#, fuzzy
+msgid "Developer License"
+msgstr "Debug za programera"
+
+#: dashboard/adrotatepro.php:89 dashboard/info.php:86
+msgid "Unlimited WordPress installations and/or networks."
+msgstr ""
+
+#: dashboard/adrotatepro.php:90 dashboard/adrotatepro.php:103
+#: dashboard/info.php:87
+msgid "Compare licenses"
+msgstr ""
+
+#: dashboard/adrotatepro.php:90 dashboard/info.php:87
+msgid "Not sure which license is for you? Compare them..."
+msgstr ""
+
+#: dashboard/adrotatepro.php:90 dashboard/info.php:87
+#, fuzzy
+msgid "All Licenses"
+msgstr "Ponovo ocenite sve oglase"
+
+#: dashboard/adrotatepro.php:98
+msgid "Lifetime License"
+msgstr ""
+
+#: dashboard/adrotatepro.php:98
+msgid "Single installation."
+msgstr ""
+
+#: dashboard/adrotatepro.php:99
+msgid "Up to 2 installations."
+msgstr ""
+
+#: dashboard/adrotatepro.php:100
+msgid "Up to 10 installations."
+msgstr ""
+
+#: dashboard/adrotatepro.php:101
+msgid "Up to 25 installations or multisite networks."
+msgstr ""
+
+#: dashboard/adrotatepro.php:102
+msgid ""
+"Subscriptions get 1 year access to updates, email support & AdRotate Geo."
+msgstr ""
+
+#: dashboard/adrotatepro.php:103
+msgid "Not sure which license is for you?"
+msgstr ""
+
+#: dashboard/adrotatepro.php:103
+msgid "Compare Licenses"
+msgstr ""
+
+#: dashboard/info.php:27
+msgid "Currently"
+msgstr "Trenutno"
+
+#: dashboard/info.php:33
+msgid "Your setup"
+msgstr "Vaš pristup"
+
+#: dashboard/info.php:34
+msgid "Adverts that need you"
+msgstr "Oglasi koji su vam potrebni"
+
+#: dashboard/info.php:41
+msgid "(Almost) Expired"
+msgstr "( Skoro ) Isteklo"
+
+#: dashboard/info.php:45
+msgid "Have errors"
+msgstr "Ima greške"
+
+#: dashboard/info.php:49
+msgid "Support AdRotate"
+msgstr "AdRotate podrška"
+
+#: dashboard/info.php:50
+msgid ""
+"Consider writing a review if you like AdRotate. Also follow my Facebook page "
+"for updates about me and my plugins. Thank you!"
+msgstr ""
+
+#: dashboard/info.php:59
+msgid "Arnan de Gans News & Updates"
+msgstr ""
+
+#: dashboard/info.php:91
+msgid "AJdG Solutions Premium Support Group"
+msgstr ""
+
+#: dashboard/info.php:108
+msgid "Join the Media.net advertising network"
+msgstr ""
+
+#: dashboard/info.php:123
+msgid "Sponsored offers"
+msgstr ""
+
+#: dashboard/info.php:129
+msgid ""
+"These are affiliate banners, clicking them costs you nothing but it helps me "
+"and AdRotate a lot!"
+msgstr ""
+
+#: dashboard/publisher/adverts-disabled.php:15
+msgid "Disabled Adverts"
+msgstr ""
+
+#: dashboard/publisher/adverts-disabled.php:20
+#: dashboard/publisher/adverts-error.php:19
+#: dashboard/publisher/adverts-main.php:20
+#: dashboard/publisher/groups-main.php:20
+#: dashboard/publisher/schedules-main.php:21
+msgid "Bulk Actions"
+msgstr "Delo bulk-ovanja"
+
+#: dashboard/publisher/adverts-disabled.php:21
+#: dashboard/publisher/adverts-edit.php:186
+msgid "Activate"
+msgstr "Aktiviraj"
+
+#: dashboard/publisher/adverts-disabled.php:22
+#: dashboard/publisher/adverts-error.php:21
+#: dashboard/publisher/adverts-main.php:22 dashboard/publisher/media.php:60
+msgid "Delete"
+msgstr "Obrisati"
+
+#: dashboard/publisher/adverts-disabled.php:23
+#: dashboard/publisher/adverts-error.php:22
+#: dashboard/publisher/adverts-main.php:23
+msgid "Reset stats"
+msgstr "Resetuj statistiku"
+
+#: dashboard/publisher/adverts-disabled.php:25
+#: dashboard/publisher/adverts-error.php:29
+#: dashboard/publisher/adverts-main.php:30
+#: dashboard/publisher/groups-main.php:24
+#: dashboard/publisher/schedules-main.php:22
+msgid "Go"
+msgstr "Kreni"
+
+#: dashboard/publisher/adverts-disabled.php:35
+#: dashboard/publisher/adverts-error.php:39
+#: dashboard/publisher/adverts-main.php:39
+#: dashboard/publisher/groups-main.php:32
+#: dashboard/publisher/schedules-main.php:31
+msgid "ID"
+msgstr "ID"
+
+#: dashboard/publisher/adverts-disabled.php:36
+#: dashboard/publisher/adverts-error.php:41
+#: dashboard/publisher/adverts-main.php:40
+#: dashboard/publisher/schedules-main.php:32
+#, fuzzy
+msgid "Start / End"
+msgstr ""
+"Sat koristi 24 -časovni sat . Kada se koristi za AM / PM sistem imajte ovo "
+"na umu : Ako je početak ili kraj je vreme posle ručka , dodajte 12 sati . "
+"2pm je 14:00 sati . 6 prepodne je 6:00 sati ."
+
+#: dashboard/publisher/adverts-disabled.php:37
+#: dashboard/publisher/adverts-error.php:40
+#: dashboard/publisher/adverts-main.php:41
+#: dashboard/publisher/groups-edit.php:51
+#: dashboard/publisher/groups-main.php:33 dashboard/publisher/media.php:30
+#: dashboard/publisher/schedules-main.php:33
+msgid "Name"
+msgstr "Ime"
+
+#: dashboard/publisher/adverts-disabled.php:39
+#: dashboard/publisher/adverts-main.php:43
+#: dashboard/publisher/groups-edit.php:333
+#: dashboard/publisher/groups-main.php:36
+#, fuzzy
+msgid "Shown"
+msgstr "Ovaj oglas je istekao i trenutno se ne prikazuje na sajtu!"
+
+#: dashboard/publisher/adverts-disabled.php:40
+#: dashboard/publisher/adverts-main.php:45
+#: dashboard/publisher/groups-edit.php:334
+#: dashboard/publisher/groups-main.php:38
+#: dashboard/publisher/statistics-advert.php:52
+#: dashboard/publisher/statistics-advert.php:58
+#: dashboard/publisher/statistics-advert.php:72
+#: dashboard/publisher/statistics-advert.php:78
+#: dashboard/publisher/statistics-advert.php:99
+#: dashboard/publisher/statistics-group.php:59
+#: dashboard/publisher/statistics-group.php:65
+#: dashboard/publisher/statistics-group.php:79
+#: dashboard/publisher/statistics-group.php:85
+#: dashboard/publisher/statistics-group.php:104
+#: dashboard/publisher/statistics-main.php:29
+#: dashboard/publisher/statistics-main.php:43
+#: dashboard/publisher/statistics-main.php:47
+#: dashboard/publisher/statistics-main.php:64
+msgid "Clicks"
+msgstr "Klikovi"
+
+#: dashboard/publisher/adverts-disabled.php:41
+#: dashboard/publisher/adverts-main.php:47
+#: dashboard/publisher/statistics-advert.php:53
+#: dashboard/publisher/statistics-advert.php:59
+#: dashboard/publisher/statistics-advert.php:73
+#: dashboard/publisher/statistics-advert.php:79
+#: dashboard/publisher/statistics-advert.php:100
+#: dashboard/publisher/statistics-group.php:60
+#: dashboard/publisher/statistics-group.php:66
+#: dashboard/publisher/statistics-group.php:80
+#: dashboard/publisher/statistics-group.php:86
+#: dashboard/publisher/statistics-group.php:105
+#: dashboard/publisher/statistics-main.php:30
+#: dashboard/publisher/statistics-main.php:44
+#: dashboard/publisher/statistics-main.php:48
+#: dashboard/publisher/statistics-main.php:65
+msgid "CTR"
+msgstr "CTR"
+
+#: dashboard/publisher/adverts-disabled.php:69
+#: dashboard/publisher/adverts-error.php:63
+#: dashboard/publisher/adverts-main.php:81
+#: dashboard/publisher/groups-main.php:70
+msgid "Edit"
+msgstr "Edituj"
+
+#: dashboard/publisher/adverts-disabled.php:69
+#: dashboard/publisher/adverts-error.php:63
+#: dashboard/publisher/adverts-main.php:81
+#, fuzzy
+msgid "Groups:"
+msgstr "Grupe"
+
+#: dashboard/publisher/adverts-edit.php:58
+msgid "The AdCode cannot be empty!"
+msgstr "AdCode ne može biti prazan !"
+
+#: dashboard/publisher/adverts-edit.php:61
+msgid ""
+"You did not use %asset% (or %image%) in your AdCode but did select a file to "
+"use!"
+msgstr ""
+
+#: dashboard/publisher/adverts-edit.php:64
+msgid ""
+"You did use %asset% (or %image%) in your AdCode but did not select a file to "
+"use!"
+msgstr ""
+
+#: dashboard/publisher/adverts-edit.php:67
+msgid ""
+"There is a problem saving the image. Please reset your image and re-save the "
+"ad!"
+msgstr ""
+
+#: dashboard/publisher/adverts-edit.php:70
+msgid "Tracking is enabled but no valid link/tag was found in the adcode!"
+msgstr ""
+
+#: dashboard/publisher/adverts-edit.php:75
+msgid ""
+"AdRotate cannot find an error but the ad is marked erroneous, try re-saving "
+"the ad!"
+msgstr ""
+"AdRotate ne može da pronađe grešku , alioglas obeležen pogrešno , pokušajte "
+"ponovo čuvanja oglas !"
+
+#: dashboard/publisher/adverts-edit.php:78
+msgid "This ad is expired and currently not shown on your website!"
+msgstr "Ovaj oglas je istekao i trenutno se ne prikazuje na sajtu!"
+
+#: dashboard/publisher/adverts-edit.php:81
+msgid "The ad will expire in less than 2 days!"
+msgstr "Oglas ističe za manje od 2 dana !"
+
+#: dashboard/publisher/adverts-edit.php:84
+msgid "This ad will expire in less than 7 days!"
+msgstr "Ovaj oglas će isteći za manje od 7 dana !"
+
+#: dashboard/publisher/adverts-edit.php:87
+msgid "This ad has been disabled and does not rotate on your site!"
+msgstr "Ovaj oglas je onemogućen i ne rotira na vašem sajtu !"
+
+#: dashboard/publisher/adverts-edit.php:91
+msgid ""
+"This advert uses the obsolete Responsive feature. Please use the more "
+"reliable Mobile feature! Saving the advert will disable the responsive "
+"option silently."
+msgstr ""
+
+#: dashboard/publisher/adverts-edit.php:116
+#, fuzzy
+msgid "New Advert"
+msgstr ""
+"Ubacite novu reklamu u ovom intervalu , bez ponovnog učitavanja stranice."
+"Default: 6."
+
+#: dashboard/publisher/adverts-edit.php:118
+#, fuzzy
+msgid "Edit Advert"
+msgstr "Edituj"
+
+#: dashboard/publisher/adverts-edit.php:124
+msgid "Title"
+msgstr "Naslov"
+
+#: dashboard/publisher/adverts-edit.php:130
+msgid "AdCode"
+msgstr ""
+
+#: dashboard/publisher/adverts-edit.php:135
+msgid "Basic Examples:"
+msgstr "Osnovni Primeri :"
+
+#: dashboard/publisher/adverts-edit.php:139
+msgid "Get adverts from Media.net"
+msgstr ""
+
+#: dashboard/publisher/adverts-edit.php:144
+msgid "Useful tags"
+msgstr ""
+
+#: dashboard/publisher/adverts-edit.php:146
+msgid "Insert the advert ID Number."
+msgstr ""
+
+#: dashboard/publisher/adverts-edit.php:146
+msgid "Required when selecting a asset below."
+msgstr ""
+
+#: dashboard/publisher/adverts-edit.php:146
+msgid "Insert the advert name."
+msgstr ""
+
+#: dashboard/publisher/adverts-edit.php:146
+msgid "Insert a random seed. Useful for DFP/DoubleClick type adverts."
+msgstr ""
+
+#: dashboard/publisher/adverts-edit.php:146
+msgid "Add inside the <a> tag to open advert in a new window."
+msgstr ""
+
+#: dashboard/publisher/adverts-edit.php:146
+msgid "Add inside the <a> tag to tell crawlers to ignore this link"
+msgstr ""
+
+#: dashboard/publisher/adverts-edit.php:146
+msgid ""
+"Place the cursor in your AdCode where you want to add any of these tags and "
+"click to add it."
+msgstr ""
+
+#: dashboard/publisher/adverts-edit.php:151
+msgid "Preview"
+msgstr "Pregled"
+
+#: dashboard/publisher/adverts-edit.php:154
+msgid ""
+"Note: While this preview is an accurate one, it might look different then it "
+"does on the website."
+msgstr ""
+"Napomena : Iako je ovaj pregled jejedan tačan , to bi moglo da izgleda "
+"drugačije onda to čini na sajtu ."
+
+#: dashboard/publisher/adverts-edit.php:155
+msgid ""
+"This is because of CSS differences. Your themes CSS file is not active here!"
+msgstr "To je zbog CSS razlika . Vaš teme CSS fajl nije aktivan ovde !"
+
+#: dashboard/publisher/adverts-edit.php:160
+#: dashboard/publisher/adverts-generator.php:46
+msgid "Banner asset"
+msgstr ""
+
+#: dashboard/publisher/adverts-edit.php:163
+msgid "WordPress media:"
+msgstr ""
+
+#: dashboard/publisher/adverts-edit.php:163
+#, fuzzy
+msgid "Select Banner"
+msgstr "Baner Folder"
+
+#: dashboard/publisher/adverts-edit.php:165
+#: dashboard/publisher/adverts-generator.php:53
+msgid "- OR -"
+msgstr "- ILI -"
+
+#: dashboard/publisher/adverts-edit.php:167
+msgid "Banner folder:"
+msgstr "Folder banera:"
+
+#: dashboard/publisher/adverts-edit.php:168
+msgid "No image selected"
+msgstr "Nijedna slika nije izabrana"
+
+#: dashboard/publisher/adverts-edit.php:172
+msgid "Use %asset% in the adcode instead of the file path."
+msgstr ""
+
+#: dashboard/publisher/adverts-edit.php:172
+msgid ""
+"Use either the text field or the dropdown. If the textfield has content that "
+"field has priority."
+msgstr ""
+"Koristite ili polje za tekst ili dropdown. Ako polje teksta ima sadržaj koji "
+"polje ima prioritet ."
+
+#: dashboard/publisher/adverts-edit.php:179
+msgid "Enable click and impression tracking for this advert."
+msgstr ""
+
+#: dashboard/publisher/adverts-edit.php:180
+msgid ""
+"Note: Clicktracking does not work for Javascript adverts such as those "
+"provided by Google AdSense/DFP/DoubleClick. HTML5/Flash adverts are not "
+"always supported."
+msgstr ""
+
+#: dashboard/publisher/adverts-edit.php:190
+msgid "Yes, this ad will be used"
+msgstr "Da , ovaj oglas će se koristiti"
+
+#: dashboard/publisher/adverts-edit.php:191
+msgid "No, do not show this ad anywhere"
+msgstr "Ne , ne pokazuju nigde ovaj oglas"
+
+#: dashboard/publisher/adverts-edit.php:198
+#: dashboard/publisher/adverts-main.php:105
+#: dashboard/publisher/groups-edit.php:71
+#: dashboard/publisher/groups-main.php:89
+#, fuzzy
+msgid "Get more features with AdRotate Pro."
+msgstr "Nabvite jos karakteristika! AdRotate Pro."
+
+#: dashboard/publisher/adverts-edit.php:198
+#: dashboard/publisher/adverts-edit.php:261
+#: dashboard/publisher/adverts-edit.php:330
+#: dashboard/publisher/adverts-edit.php:401
+#: dashboard/publisher/adverts-main.php:105
+#: dashboard/publisher/groups-edit.php:71
+#: dashboard/publisher/groups-edit.php:191
+#: dashboard/publisher/groups-main.php:89 dashboard/publisher/media.php:73
+#: dashboard/publisher/schedules-main.php:89
+#: dashboard/publisher/statistics-advert.php:108
+#: dashboard/publisher/statistics-group.php:112
+#: dashboard/publisher/statistics-main.php:71
+#, fuzzy
+msgid "Upgrade now"
+msgstr "Danas"
+
+#: dashboard/publisher/adverts-edit.php:201
+#: dashboard/publisher/adverts-edit.php:264
+#: dashboard/publisher/adverts-edit.php:420
+#: dashboard/publisher/adverts-edit.php:461
+msgid "Save Advert"
+msgstr "Sačuvaj oglas"
+
+#: dashboard/publisher/adverts-edit.php:202
+#: dashboard/publisher/adverts-edit.php:265
+#: dashboard/publisher/adverts-edit.php:421
+#: dashboard/publisher/adverts-edit.php:462
+#: dashboard/publisher/adverts-generator.php:129
+#: dashboard/publisher/groups-edit.php:150
+#: dashboard/publisher/groups-edit.php:299
+#: dashboard/publisher/groups-edit.php:391
+msgid "Cancel"
+msgstr "Ukini"
+
+#: dashboard/publisher/adverts-edit.php:205
+#: dashboard/publisher/adverts-edit.php:403
+#: dashboard/publisher/groups-edit.php:132
+#: dashboard/publisher/groups-edit.php:281
+msgid "Usage"
+msgstr "upotreba"
+
+#: dashboard/publisher/adverts-edit.php:209
+#: dashboard/publisher/adverts-edit.php:407
+#: dashboard/publisher/groups-edit.php:136
+#: dashboard/publisher/groups-edit.php:205
+#: dashboard/publisher/groups-edit.php:245
+#: dashboard/publisher/groups-edit.php:285
+msgid "Widget"
+msgstr ""
+
+#: dashboard/publisher/adverts-edit.php:210
+#: dashboard/publisher/adverts-edit.php:408
+msgid ""
+"Drag the AdRotate widget to the sidebar where you want to place the advert "
+"and select the advert or the group the advert is in."
+msgstr ""
+
+#: dashboard/publisher/adverts-edit.php:213
+#: dashboard/publisher/adverts-edit.php:411
+#: dashboard/publisher/groups-edit.php:140
+#: dashboard/publisher/groups-edit.php:289
+msgid "In a post or page"
+msgstr ""
+
+#: dashboard/publisher/adverts-edit.php:215
+#: dashboard/publisher/adverts-edit.php:413
+#: dashboard/publisher/groups-edit.php:142
+#: dashboard/publisher/groups-edit.php:291
+msgid "Directly in a theme"
+msgstr ""
+
+#: dashboard/publisher/adverts-edit.php:221
+msgid "Schedule your advert"
+msgstr ""
+
+#: dashboard/publisher/adverts-edit.php:222
+msgid ""
+"Time uses a 24 hour clock. When you're used to the AM/PM system keep this in "
+"mind: If the start or end time is after lunch, add 12 hours. 2PM is 14:00 "
+"hours. 6AM is 6:00 hours."
+msgstr ""
+"Sat koristi 24 -časovni sat . Kada se koristi za AM / PM sistem imajte ovo "
+"na umu : Ako je početak ili kraj je vreme posle ručka , dodajte 12 sati . "
+"2pm je 14:00 sati . 6 prepodne je 6:00 sati ."
+
+#: dashboard/publisher/adverts-edit.php:226
+#, fuzzy
+msgid "Start date"
+msgstr ""
+"Sat koristi 24 -časovni sat . Kada se koristi za AM / PM sistem imajte ovo "
+"na umu : Ako je početak ili kraj je vreme posle ručka , dodajte 12 sati . "
+"2pm je 14:00 sati . 6 prepodne je 6:00 sati ."
+
+#: dashboard/publisher/adverts-edit.php:230
+#, fuzzy
+#| msgid "Ad updated"
+msgid "End date"
+msgstr "Update oglasa"
+
+#: dashboard/publisher/adverts-edit.php:236
+msgid "Start time (hh:mm)"
+msgstr ""
+
+#: dashboard/publisher/adverts-edit.php:243
+msgid "End time (hh:mm)"
+msgstr ""
+
+#: dashboard/publisher/adverts-edit.php:253
+msgid "Maximum Clicks"
+msgstr ""
+
+#: dashboard/publisher/adverts-edit.php:254
+#: dashboard/publisher/adverts-edit.php:256
+msgid "Leave empty or 0 to skip this."
+msgstr "Ostavite prazno ili 0 da preskoči ovo."
+
+#: dashboard/publisher/adverts-edit.php:255
+msgid "Maximum Impressions"
+msgstr ""
+
+#: dashboard/publisher/adverts-edit.php:261
+msgid ""
+"Create multiple and more advanced schedules for each advert with AdRotate "
+"Pro."
+msgstr ""
+
+#: dashboard/publisher/adverts-edit.php:268
+#: dashboard/publisher/groups-edit.php:153
+msgid "Advanced"
+msgstr ""
+
+#: dashboard/publisher/adverts-edit.php:269
+#: dashboard/publisher/adverts-edit.php:333
+msgid "Available in AdRotate Pro!"
+msgstr ""
+
+#: dashboard/publisher/adverts-edit.php:274
+#: dashboard/publisher/groups-edit.php:331
+msgid "Weight"
+msgstr "Težina"
+
+#: dashboard/publisher/adverts-edit.php:277
+msgid "Few impressions"
+msgstr ""
+
+#: dashboard/publisher/adverts-edit.php:282
+#, fuzzy
+msgid "Less than average"
+msgstr "Oglas ističe za manje od 2 dana !"
+
+#: dashboard/publisher/adverts-edit.php:287
+msgid "Normal impressions"
+msgstr ""
+
+#: dashboard/publisher/adverts-edit.php:292
+#, fuzzy
+msgid "More than average"
+msgstr "Saznajte više"
+
+#: dashboard/publisher/adverts-edit.php:297
+msgid "Many impressions"
+msgstr ""
+
+#: dashboard/publisher/adverts-edit.php:302
+msgid "Mobile"
+msgstr ""
+
+#: dashboard/publisher/adverts-edit.php:304
+msgid "Computers"
+msgstr ""
+
+#: dashboard/publisher/adverts-edit.php:307
+msgid "Smartphones"
+msgstr ""
+
+#: dashboard/publisher/adverts-edit.php:310
+msgid "Tablets"
+msgstr ""
+
+#: dashboard/publisher/adverts-edit.php:313
+msgid ""
+"Also enable mobile support in the group this advert goes in or these are "
+"ignored."
+msgstr ""
+
+#: dashboard/publisher/adverts-edit.php:313
+msgid "Operating system detection only detects iOS/Android/Other or neither."
+msgstr ""
+
+#: dashboard/publisher/adverts-edit.php:317
+msgid "Mobile OS"
+msgstr ""
+
+#: dashboard/publisher/adverts-edit.php:319
+msgid "iOS"
+msgstr ""
+
+#: dashboard/publisher/adverts-edit.php:322
+msgid "Android"
+msgstr ""
+
+#: dashboard/publisher/adverts-edit.php:325
+msgid "Others"
+msgstr ""
+
+#: dashboard/publisher/adverts-edit.php:330
+msgid ""
+"With AdRotate Pro you can easily select which devices and mobile operating "
+"systems the advert should show on!"
+msgstr ""
+
+#: dashboard/publisher/adverts-edit.php:333
+msgid ""
+"Assign the advert to a group and enable that group to use Geo Targeting."
+msgstr ""
+
+#: dashboard/publisher/adverts-edit.php:391
+msgid "A comma separated list of items:"
+msgstr ""
+
+#: dashboard/publisher/adverts-edit.php:391
+msgid ""
+"AdRotate does not check the validity of names so make sure you spell them "
+"correctly!"
+msgstr ""
+
+#: dashboard/publisher/adverts-edit.php:401
+msgid "Target your audience with Geo Targeting in AdRotate Pro"
+msgstr ""
+
+#: dashboard/publisher/adverts-edit.php:425
+msgid "Select Groups"
+msgstr "Izbor grupe"
+
+#: dashboard/publisher/adverts-edit.php:430
+#, fuzzy
+msgid "ID - Name"
+msgstr "Ime"
+
+#: dashboard/publisher/adverts-edit.php:440
+#: dashboard/publisher/groups-main.php:60
+#: dashboard/settings/geotargeting.php:54
+#, fuzzy
+msgid "Default"
+msgstr "Default - Prikazati po jedan oglas"
+
+#: dashboard/publisher/adverts-edit.php:441
+#: dashboard/publisher/groups-main.php:61
+#, fuzzy
+msgid "Dynamic"
+msgstr "Dinamični mod-Prikaži drugačiji oglas svakih par sekundi"
+
+#: dashboard/publisher/adverts-edit.php:441
+#: dashboard/publisher/groups-main.php:61
+#, fuzzy
+msgid "second rotation"
+msgstr "Ili nema banera, onemogućeni su ili nije kvalifikovan za ovu lokaciju!"
+
+#: dashboard/publisher/adverts-edit.php:442
+#: dashboard/publisher/groups-main.php:62
+#, fuzzy
+msgid "Block"
+msgstr "Menadžmet blokiranih"
+
+#: dashboard/publisher/adverts-edit.php:442
+#: dashboard/publisher/groups-main.php:62
+#, fuzzy
+msgid "grid"
+msgstr ""
+"Napravite mrežu za oglase. Popunjavanje 2 i 2 čini 2x2 mrežu.  (Default: 2/2)"
+
+#: dashboard/publisher/adverts-edit.php:443
+#: dashboard/publisher/groups-edit.php:199
+#: dashboard/publisher/groups-main.php:63
+#, fuzzy
+msgid "Post Injection"
+msgstr "U post ili stranicu:"
+
+#: dashboard/publisher/adverts-edit.php:444
+#, fuzzy
+msgid "Geolocation"
+msgstr "GeoLocation"
+
+#: dashboard/publisher/adverts-edit.php:450
+#: dashboard/publisher/groups-edit.php:57
+#: dashboard/publisher/groups-main.php:70
+msgid "Mode"
+msgstr "Mod"
+
+#: dashboard/publisher/adverts-error.php:12
+msgid "Adverts that need attention"
+msgstr ""
+
+#: dashboard/publisher/adverts-error.php:20
+#: dashboard/publisher/adverts-main.php:21
+msgid "Deactivate"
+msgstr "Deaktivirati"
+
+#: dashboard/publisher/adverts-error.php:23
+#: dashboard/publisher/adverts-main.php:25
+msgid "-- Renew --"
+msgstr "--Obnovit --"
+
+#: dashboard/publisher/adverts-error.php:24
+#: dashboard/publisher/adverts-main.php:26
+msgid "For 1 year"
+msgstr "Za 1 dan"
+
+#: dashboard/publisher/adverts-error.php:25
+#: dashboard/publisher/adverts-main.php:27
+msgid "For 180 days"
+msgstr "Za 180 dana"
+
+#: dashboard/publisher/adverts-error.php:26
+#: dashboard/publisher/adverts-main.php:28
+msgid "For 30 days"
+msgstr "Za 30 dana"
+
+#: dashboard/publisher/adverts-error.php:27
+#: dashboard/publisher/adverts-main.php:29
+msgid "For 7 days"
+msgstr "Za 7 dana"
+
+#: dashboard/publisher/adverts-error.php:71
+#, fuzzy
+#| msgid "Configuration errors."
+msgid "Configuration errors"
+msgstr "Konfiguracione greške."
+
+#: dashboard/publisher/adverts-error.php:72
+#, fuzzy
+#| msgid "Expires soon."
+msgid "Expires soon"
+msgstr "Ističe uskoro."
+
+#: dashboard/publisher/adverts-error.php:73
+#: dashboard/settings/maintenance.php:64
+#, fuzzy
+msgid "Expired"
+msgstr "Isteklo je."
+
+#: dashboard/publisher/adverts-generator.php:35
+#, fuzzy
+#| msgid "Moderate Adverts"
+msgid "Generate Advert Code"
+msgstr "Ograničite oglase"
+
+#: dashboard/publisher/adverts-generator.php:36
+msgid ""
+"Use the Generator if you have received a target url, banner image and/or "
+"some separate files with a description on how to use those. The AdRotate "
+"Generator will take your bits and pieces and try to generate a working "
+"adcode from it."
+msgstr ""
+
+#: dashboard/publisher/adverts-generator.php:38
+msgid ""
+"If you have a complete and working ad code / ad tag you do not use the "
+"Generator. You can simply paste that code in the AdCode field when creating "
+"your advert. For example as provided by Media.net or Google AdSense among "
+"others."
+msgstr ""
+
+#: dashboard/publisher/adverts-generator.php:40
+#, fuzzy
+msgid "Basic advert"
+msgstr "Sttistike za"
+
+#: dashboard/publisher/adverts-generator.php:41
+msgid ""
+"This is a regular advert consisting of an image and a link, made up from "
+"HTML code."
+msgstr ""
+
+#: dashboard/publisher/adverts-generator.php:50
+#: dashboard/publisher/adverts-generator.php:99
+#, fuzzy
+#| msgid "No image selected"
+msgid "No file selected"
+msgstr "Nijedna slika nije izabrana"
+
+#: dashboard/publisher/adverts-generator.php:52
+#: dashboard/publisher/adverts-generator.php:101
+msgid "Is your file not listed? Upload it via the AdRotate Media Manager."
+msgstr ""
+
+#: dashboard/publisher/adverts-generator.php:54
+msgid "Visible text if this is a text link banner."
+msgstr ""
+
+#: dashboard/publisher/adverts-generator.php:54
+#, fuzzy
+#| msgid ""
+#| "Use either the text field or the dropdown. If the textfield has content "
+#| "that field has priority."
+msgid ""
+"Use either the dropdown or the text field. If the dropdown is used, that "
+"field has priority."
+msgstr ""
+"Koristite ili polje za tekst ili dropdown. Ako polje teksta ima sadržaj koji "
+"polje ima prioritet ."
+
+#: dashboard/publisher/adverts-generator.php:59
+#, fuzzy
+#| msgid "website"
+msgid "Target website"
+msgstr "websajt"
+
+#: dashboard/publisher/adverts-generator.php:61
+msgid "Where does the person clicking the advert go?"
+msgstr ""
+
+#: dashboard/publisher/adverts-generator.php:65
+#, fuzzy
+#| msgid "GeoTargeting"
+msgid "Target window"
+msgstr "GeoTargeting"
+
+#: dashboard/publisher/adverts-generator.php:67
+#: dashboard/publisher/adverts-generator.php:73
+#: dashboard/publisher/adverts-generator.php:119
+#, fuzzy
+#| msgid "Available in AdRotate Pro"
+msgid "Available in AdRotate Pro."
+msgstr "Dostupno u AdRotate Pro"
+
+#: dashboard/publisher/adverts-generator.php:67
+msgid "Open the target website in a new window?"
+msgstr ""
+
+#: dashboard/publisher/adverts-generator.php:71
+msgid "NoFollow"
+msgstr ""
+
+#: dashboard/publisher/adverts-generator.php:73
+msgid "Tell crawlers and search engines not to follow the target website url?"
+msgstr ""
+
+#: dashboard/publisher/adverts-generator.php:77
+#: dashboard/publisher/adverts-generator.php:106
+#: dashboard/publisher/groups-edit.php:95
+msgid "Advert size"
+msgstr ""
+
+#: dashboard/publisher/adverts-generator.php:79
+#: dashboard/publisher/adverts-generator.php:108
+#, fuzzy
+#| msgid "pixel(s) wide"
+msgid "px wide"
+msgstr "širina piksela"
+
+#: dashboard/publisher/adverts-generator.php:80
+#: dashboard/publisher/adverts-generator.php:109
+#, fuzzy
+#| msgid "pixel(s) high."
+msgid "px high."
+msgstr "visina piksela"
+
+#: dashboard/publisher/adverts-generator.php:81
+#: dashboard/publisher/adverts-generator.php:110
+#, fuzzy
+#| msgid ""
+#| "Define the maximum size of the ads in pixels. Height can be "
+#| "'auto' (Default: 125/125)"
+msgid "Define the maximum size of the adverts in pixels."
+msgstr ""
+"Definisati maksimalnu veličinu oglasa u pikselima. Visina može biti "
+"'auto' (Default: 125/125)"
+
+#: dashboard/publisher/adverts-generator.php:81
+#: dashboard/publisher/adverts-generator.php:119
+#, fuzzy
+#| msgid "Options"
+msgid "(Optional)"
+msgstr "Opcije"
+
+#: dashboard/publisher/adverts-generator.php:88
+msgid "HTML5 or Flash Advert"
+msgstr ""
+
+#: dashboard/publisher/adverts-generator.php:89
+msgid ""
+"These are more advanced adverts, using a Flash file or HTML5 files. Try to "
+"avoid Flash. HTML5 is the new and better standard."
+msgstr ""
+
+#: dashboard/publisher/adverts-generator.php:90
+msgid ""
+"If your HTML5 advert consists of multiple files, upload all files using the "
+"AdRotate Media Manager and select the HTML file here."
+msgstr ""
+
+#: dashboard/publisher/adverts-generator.php:95
+msgid "HTML/Flash file"
+msgstr ""
+
+#: dashboard/publisher/adverts-generator.php:114
+msgid "Flash clickTAG"
+msgstr ""
+
+#: dashboard/publisher/adverts-generator.php:117
+msgid "Parameter"
+msgstr ""
+
+#: dashboard/publisher/adverts-generator.php:118
+msgid "No clickTAG"
+msgstr ""
+
+#: dashboard/publisher/adverts-generator.php:119
+msgid "URL"
+msgstr ""
+
+#: dashboard/publisher/adverts-generator.php:119
+msgid ""
+"This option is ignored for HTML5 adverts. All choices do the exact same, but "
+"some developers write the parameter differently."
+msgstr ""
+
+#: dashboard/publisher/adverts-generator.php:128
+msgid "Generate and Configure Advert"
+msgstr ""
+
+#: dashboard/publisher/adverts-generator.php:129
+msgid "Always test your adverts before activating them."
+msgstr ""
+
+#: dashboard/publisher/adverts-generator.php:132
+msgid "NOTE:"
+msgstr ""
+
+#: dashboard/publisher/adverts-generator.php:132
+msgid ""
+"While the Code Generator has been tested and works, code generation, as "
+"always, is a interpretation of user input. If you provide the correct bits "
+"and pieces, a working advert may be generated. If you leave fields empty or "
+"insert the wrong info you probably end up with a broken advert."
+msgstr ""
+
+#: dashboard/publisher/adverts-generator.php:132
+msgid ""
+"Based on your input and experiences later iterations of the Code Generator "
+"will be better and more feature rich."
+msgstr ""
+
+#: dashboard/publisher/adverts-main.php:12
+msgid "Active Adverts"
+msgstr ""
+
+#: dashboard/publisher/adverts-main.php:24
+#, fuzzy
+msgid "Export to CSV"
+msgstr "Izlazne opcije za"
+
+#: dashboard/publisher/adverts-main.php:44
+#: dashboard/publisher/adverts-main.php:46
+#: dashboard/publisher/groups-main.php:37
+#: dashboard/publisher/groups-main.php:39
+#: dashboard/publisher/statistics-advert.php:44
+#: dashboard/publisher/statistics-group.php:51
+msgid "Today"
+msgstr "Danas"
+
+#: dashboard/publisher/adverts-main.php:100
+msgid "No adverts created yet!"
+msgstr ""
+
+#: dashboard/publisher/groups-edit.php:43
+#, fuzzy
+msgid "New Group"
+msgstr "Dodati novi"
+
+#: dashboard/publisher/groups-edit.php:45
+msgid "Edit Group"
+msgstr "Edituj grupu"
+
+#: dashboard/publisher/groups-edit.php:60
+msgid "Default - Show one ad at a time"
+msgstr "Default - Prikazati po jedan oglas"
+
+#: dashboard/publisher/groups-edit.php:61
+msgid "Dynamic Mode - Show a different ad every few seconds"
+msgstr "Dinamični mod-Prikaži drugačiji oglas svakih par sekundi"
+
+#: dashboard/publisher/groups-edit.php:62
+msgid "Block Mode - Show a block of adverts"
+msgstr ""
+
+#: dashboard/publisher/groups-edit.php:66
+#, fuzzy
+msgid "Dynamic mode requires jQuery. You can enable this in AdRotate Settings."
+msgstr "AdRotate postavke"
+
+#: dashboard/publisher/groups-edit.php:73
+#: dashboard/publisher/groups-edit.php:100
+#, fuzzy
+msgid "Dynamic and Block Mode"
+msgstr "Blok mod - Prikaži blokove oglasa"
+
+#: dashboard/publisher/groups-edit.php:74
+#, fuzzy
+msgid "Only required if your group is in Dynamic or Block mode."
+msgstr "Blok mod - Prikaži blokove oglasa"
+
+#: dashboard/publisher/groups-edit.php:78
+msgid "Block size"
+msgstr ""
+
+#: dashboard/publisher/groups-edit.php:84
+msgid "rows"
+msgstr "redovi"
+
+#: dashboard/publisher/groups-edit.php:88
+msgid "columns"
+msgstr "kolone"
+
+#: dashboard/publisher/groups-edit.php:91
+#, fuzzy
+msgid "Block Mode"
+msgstr "Blok mod - Prikaži blokove oglasa"
+
+#: dashboard/publisher/groups-edit.php:91
+msgid "Larger blocks will degrade your sites performance! Default: 2/2."
+msgstr ""
+
+#: dashboard/publisher/groups-edit.php:97
+msgid "pixel(s) wide"
+msgstr "širina piksela"
+
+#: dashboard/publisher/groups-edit.php:97
+msgid "pixel(s) high."
+msgstr "visina piksela"
+
+#: dashboard/publisher/groups-edit.php:100
+msgid ""
+"Define the maximum size of the adverts in pixels. Size can be 'auto' (Not "
+"recommended). Default: 125/125."
+msgstr ""
+
+#: dashboard/publisher/groups-edit.php:104
+#, fuzzy
+msgid "Automated refresh"
+msgstr ""
+"To može potrajati dok oglas počne da se rotira . Hvatanje plugina mora da "
+"osveži cache. To može da potraje i do nedelju dana, ako ne radi ručno "
+
+#: dashboard/publisher/groups-edit.php:123
+msgid "seconds."
+msgstr "sekundi."
+
+#: dashboard/publisher/groups-edit.php:126
+#, fuzzy
+msgid "Dynamic Mode"
+msgstr "Dinamični mod-Prikaži drugačiji oglas svakih par sekundi"
+
+#: dashboard/publisher/groups-edit.php:126
+msgid ""
+"Load a new advert in this interval without reloading the page. Default: 6."
+msgstr ""
+"Ubacite novu reklamu u ovom intervalu , bez ponovnog učitavanja stranice."
+"Default: 6."
+
+#: dashboard/publisher/groups-edit.php:137
+#: dashboard/publisher/groups-edit.php:286
+msgid ""
+"Drag the AdRotate widget to the sidebar you want it in, select \"Group of "
+"Adverts\" and enter ID"
+msgstr ""
+
+#: dashboard/publisher/groups-edit.php:149
+#: dashboard/publisher/groups-edit.php:298
+#: dashboard/publisher/groups-edit.php:390
+#, fuzzy
+msgid "Save Group"
+msgstr "Sačuvati"
+
+#: dashboard/publisher/groups-edit.php:157
+msgid "Advert Margin"
+msgstr "Margina oglasa"
+
+#: dashboard/publisher/groups-edit.php:159
+msgid "pixel(s)"
+msgstr "pikseli"
+
+#: dashboard/publisher/groups-edit.php:162
+#, fuzzy
+msgid "A transparent area outside the advert in pixels. Default: 0."
+msgstr "Nevidljiva granica van oglasa u pikselima.  (Default: 1)"
+
+#: dashboard/publisher/groups-edit.php:162
+#, fuzzy
+msgid "Set to 0 to disable."
+msgstr "Default:10 . Podesite na 0 da isključite ovaj tajmer ."
+
+#: dashboard/publisher/groups-edit.php:162
+msgid "Margins are automatically disabled for blocks where required."
+msgstr ""
+
+#: dashboard/publisher/groups-edit.php:166
+#, fuzzy
+msgid "Align the group"
+msgstr "Gupni oglasi - Koristite grupni ID"
+
+#: dashboard/publisher/groups-edit.php:169
+#, fuzzy
+msgid "None (Default)"
+msgstr "Default - Prikazati po jedan oglas"
+
+#: dashboard/publisher/groups-edit.php:170
+msgid "Left"
+msgstr ""
+
+#: dashboard/publisher/groups-edit.php:171
+#, fuzzy
+msgid "Right"
+msgstr "Težina"
+
+#: dashboard/publisher/groups-edit.php:172
+msgid "Center"
+msgstr ""
+
+#: dashboard/publisher/groups-edit.php:176
+msgid ""
+"Align the group in your post or page. Using 'center' may affect your margin "
+"setting. Not every theme supports this feature."
+msgstr ""
+
+#: dashboard/publisher/groups-edit.php:181
+msgid "Enable Geo Targeting for this group."
+msgstr ""
+
+#: dashboard/publisher/groups-edit.php:182
+#, fuzzy
+msgid "Do not forget to tell the adverts for which areas they should show."
+msgstr "Ne , ne pokazuju nigde ovaj oglas"
+
+#: dashboard/publisher/groups-edit.php:185
+msgid "Mobile support"
+msgstr ""
+
+#: dashboard/publisher/groups-edit.php:186
+msgid "Enable mobile support for this group."
+msgstr ""
+
+#: dashboard/publisher/groups-edit.php:187
+msgid "Do not forget to put at least one mobile advert in this group."
+msgstr ""
+
+#: dashboard/publisher/groups-edit.php:191
+msgid "Set up mobile support and use Geo Targeting in AdRotate Pro"
+msgstr ""
+
+#: dashboard/publisher/groups-edit.php:204
+#: dashboard/publisher/groups-edit.php:244
+#: dashboard/settings/geotargeting.php:24 dashboard/settings/statistics.php:24
+#, fuzzy
+msgid "Disabled"
+msgstr "Onemogući odgovore"
+
+#: dashboard/publisher/groups-edit.php:206
+#: dashboard/publisher/groups-edit.php:246
+#, fuzzy
+msgid "Before content"
+msgstr "Pre objavljenog sadržaja"
+
+#: dashboard/publisher/groups-edit.php:207
+#: dashboard/publisher/groups-edit.php:247
+#, fuzzy
+msgid "After content"
+msgstr "Pre i posle sadržaju"
+
+#: dashboard/publisher/groups-edit.php:208
+#: dashboard/publisher/groups-edit.php:248
+#, fuzzy
+msgid "Before and after content"
+msgstr "Pre i posle sadržaju"
+
+#: dashboard/publisher/groups-edit.php:209
+#: dashboard/publisher/groups-edit.php:249
+msgid "Inside the content..."
+msgstr ""
+
+#: dashboard/publisher/groups-edit.php:215
+#: dashboard/publisher/groups-edit.php:255
+msgid "after the middle paragraph"
+msgstr ""
+
+#: dashboard/publisher/groups-edit.php:216
+#: dashboard/publisher/groups-edit.php:256
+msgid "after the 1st paragraph"
+msgstr ""
+
+#: dashboard/publisher/groups-edit.php:217
+#: dashboard/publisher/groups-edit.php:257
+msgid "after the 2nd paragraph"
+msgstr ""
+
+#: dashboard/publisher/groups-edit.php:218
+#: dashboard/publisher/groups-edit.php:258
+msgid "after the 3rd paragraph"
+msgstr ""
+
+#: dashboard/publisher/groups-edit.php:219
+#: dashboard/publisher/groups-edit.php:259
+msgid "after the 4th paragraph"
+msgstr ""
+
+#: dashboard/publisher/groups-edit.php:220
+#: dashboard/publisher/groups-edit.php:260
+msgid "after the 5th paragraph"
+msgstr ""
+
+#: dashboard/publisher/groups-edit.php:221
+#: dashboard/publisher/groups-edit.php:261
+msgid "after the 6th paragraph"
+msgstr ""
+
+#: dashboard/publisher/groups-edit.php:222
+#: dashboard/publisher/groups-edit.php:262
+msgid "after the 7th paragraph"
+msgstr ""
+
+#: dashboard/publisher/groups-edit.php:223
+#: dashboard/publisher/groups-edit.php:263
+msgid "after the 8th paragraph"
+msgstr ""
+
+#: dashboard/publisher/groups-edit.php:239
+msgid "Page Injection"
+msgstr ""
+
+#: dashboard/publisher/groups-edit.php:302
+#, fuzzy
+msgid "Wrapper code"
+msgstr "Kod omotača (Opcionalno) - Obmotava se oko svakog posebnog oglasa"
+
+#: dashboard/publisher/groups-edit.php:303
+msgid "Wraps around each advert. HTML/JavaScript allowed, use with care!"
+msgstr ""
+
+#: dashboard/publisher/groups-edit.php:307
+msgid "Before advert"
+msgstr ""
+
+#: dashboard/publisher/groups-edit.php:310
+#: dashboard/publisher/groups-edit.php:318
+msgid "Example:"
+msgstr "Primer"
+
+#: dashboard/publisher/groups-edit.php:311
+msgid "Options:"
+msgstr "Opcije :"
+
+#: dashboard/publisher/groups-edit.php:315
+msgid "After advert"
+msgstr ""
+
+#: dashboard/publisher/groups-edit.php:324
+msgid "Select adverts"
+msgstr ""
+
+#: dashboard/publisher/groups-edit.php:329
+msgid "Choose adverts"
+msgstr ""
+
+#: dashboard/publisher/groups-edit.php:330
+msgid "Visible until"
+msgstr "Vidljivo do"
+
+#: dashboard/publisher/groups-edit.php:377
+msgid "No adverts created!"
+msgstr ""
+
+#: dashboard/publisher/groups-edit.php:384
+msgid "Configuration errors."
+msgstr "Konfiguracione greške."
+
+#: dashboard/publisher/groups-edit.php:385
+#: dashboard/publisher/schedules-main.php:87
+msgid "Expires soon."
+msgstr "Ističe uskoro."
+
+#: dashboard/publisher/groups-edit.php:386
+#: dashboard/publisher/schedules-main.php:88
+msgid "Has expired."
+msgstr "Isteklo je."
+
+#: dashboard/publisher/groups-main.php:12
+msgid "Manage Groups"
+msgstr "Upravljajte grupama"
+
+#: dashboard/publisher/groups-main.php:21
+msgid "Delete Group"
+msgstr "Brisanje grupe"
+
+#: dashboard/publisher/groups-main.php:22
+msgid "Delete Group including adverts"
+msgstr ""
+
+#: dashboard/publisher/groups-main.php:24
+msgid "You are about to delete a group"
+msgstr "Vi ste na putu da izbrišete grupu"
+
+#: dashboard/publisher/groups-main.php:24
+msgid "This action can not be undone!"
+msgstr "Ovo delo se ne može povratiti!"
+
+#: dashboard/publisher/groups-main.php:24 dashboard/settings/maintenance.php:22
+#: dashboard/settings/maintenance.php:39 dashboard/settings/maintenance.php:110
+msgid "OK to continue, CANCEL to stop."
+msgstr "OK da biste nastavili , CANCEL da se zaustavi ."
+
+#: dashboard/publisher/groups-main.php:84
+msgid "No groups created!"
+msgstr "Grupa nije napravljena!"
+
+#: dashboard/publisher/media.php:17
+#, fuzzy
+msgid "Upload new file"
+msgstr "Slika banera:"
+
+#: dashboard/publisher/media.php:18
+#, fuzzy
+msgid "Accepted files:"
+msgstr "Koristi %image% u kodu. Prihvatljivi fajlovi su:"
+
+#: dashboard/publisher/media.php:18
+msgid "Maximum size is 512Kb per file."
+msgstr ""
+
+#: dashboard/publisher/media.php:18
+msgid "Important:"
+msgstr ""
+
+#: dashboard/publisher/media.php:18
+msgid ""
+"Make sure your file has no spaces or special characters in the name. Replace "
+"spaces with a - or _."
+msgstr ""
+
+#: dashboard/publisher/media.php:18
+msgid ""
+"If you remove spaces from filenames for HTML5 adverts also edit the html "
+"file so it knows about the changed name. For example for the javascript file."
+msgstr ""
+
+#: dashboard/publisher/media.php:21
+#, fuzzy
+msgid "Upload file"
+msgstr "Slika banera:"
+
+#: dashboard/publisher/media.php:21
+msgid "Click only once per file!"
+msgstr ""
+
+#: dashboard/publisher/media.php:25
+#, fuzzy
+#| msgid "Available in AdRotate Pro"
+msgid "Available files in"
+msgstr "Dostupno u AdRotate Pro"
+
+#: dashboard/publisher/media.php:31
+#, fuzzy
+msgid "Actions"
+msgstr "Delo bulk-ovanja"
+
+#: dashboard/publisher/media.php:65
+#, fuzzy
+#| msgid "No files found"
+msgid "No files found!"
+msgstr "Nijedan fajl nije pronadjen"
+
+#: dashboard/publisher/media.php:72
+msgid ""
+"Make sure the banner images are not in use by adverts when you delete them!"
+msgstr ""
+
+#: dashboard/publisher/media.php:73 dashboard/publisher/schedules-main.php:89
+#: dashboard/publisher/statistics-advert.php:108
+#: dashboard/publisher/statistics-group.php:112
+#: dashboard/publisher/statistics-main.php:71
+#, fuzzy
+msgid "Get more features with AdRotate Pro"
+msgstr "Nabvite jos karakteristika! AdRotate Pro."
+
+#: dashboard/publisher/schedules-main.php:12
+#, fuzzy
+msgid "Manage Schedules"
+msgstr "Upravljati"
+
+#: dashboard/publisher/schedules-main.php:13
+msgid ""
+"In AdRotate Pro you can schedule adverts for multiple periods of time. One "
+"schedule can be assigned to many adverts allowing you to manage multi advert "
+"campaigns easily. Schedules can be active on certain days of the week or on "
+"certain hours of the day."
+msgstr ""
+
+#: dashboard/publisher/schedules-main.php:36
+#, fuzzy
+msgid "Max Shown"
+msgstr "Ovaj oglas je istekao i trenutno se ne prikazuje na sajtu!"
+
+#: dashboard/publisher/schedules-main.php:37
+#, fuzzy
+msgid "Max Clicks"
+msgstr "Klikovi"
+
+#: dashboard/publisher/schedules-main.php:70
+msgid "Mon:"
+msgstr ""
+
+#: dashboard/publisher/schedules-main.php:70
+msgid "Tue:"
+msgstr ""
+
+#: dashboard/publisher/schedules-main.php:70
+msgid "Wed:"
+msgstr ""
+
+#: dashboard/publisher/schedules-main.php:70
+msgid "Thu:"
+msgstr ""
+
+#: dashboard/publisher/schedules-main.php:70
+msgid "Fri:"
+msgstr ""
+
+#: dashboard/publisher/schedules-main.php:70
+msgid "Sat:"
+msgstr ""
+
+#: dashboard/publisher/schedules-main.php:70
+msgid "Sun:"
+msgstr ""
+
+#: dashboard/publisher/schedules-main.php:70
+msgid "Between:"
+msgstr ""
+
+#: dashboard/publisher/schedules-main.php:70
+#, fuzzy
+#| msgid "Impressions"
+msgid "Impression spread:"
+msgstr "Utisci"
+
+#: dashboard/publisher/schedules-main.php:70
+#, fuzzy
+#| msgid "Delete"
+msgid "Auto Delete:"
+msgstr "Obrisati"
+
+#: dashboard/publisher/schedules-main.php:81
+msgid "Nothing here!"
+msgstr ""
+
+#: dashboard/publisher/statistics-advert.php:39
+#, fuzzy
+msgid "Statistics for advert"
+msgstr "Sttistike za"
+
+#: dashboard/publisher/statistics-advert.php:46
+#: dashboard/publisher/statistics-group.php:53
+#: dashboard/publisher/statistics-main.php:19
+#, fuzzy
+msgid "All time"
+msgstr "Utisci tajmer"
+
+#: dashboard/publisher/statistics-advert.php:51
+#: dashboard/publisher/statistics-advert.php:57
+#: dashboard/publisher/statistics-advert.php:71
+#: dashboard/publisher/statistics-advert.php:77
+#: dashboard/publisher/statistics-advert.php:98
+#: dashboard/publisher/statistics-group.php:58
+#: dashboard/publisher/statistics-group.php:64
+#: dashboard/publisher/statistics-group.php:78
+#: dashboard/publisher/statistics-group.php:84
+#: dashboard/publisher/statistics-group.php:103
+#: dashboard/publisher/statistics-main.php:28
+#: dashboard/publisher/statistics-main.php:42
+#: dashboard/publisher/statistics-main.php:46
+#: dashboard/publisher/statistics-main.php:63
+msgid "Impressions"
+msgstr "Utisci"
+
+#: dashboard/publisher/statistics-advert.php:64
+#: dashboard/publisher/statistics-group.php:71
+#: dashboard/publisher/statistics-main.php:35
+#, fuzzy
+#| msgid "This month"
+msgid "Last month"
+msgstr "Ovaj mesec"
+
+#: dashboard/publisher/statistics-advert.php:85
+#: dashboard/publisher/statistics-group.php:92
+#: dashboard/publisher/statistics-main.php:53
+msgid "Monthly overview of clicks and impressions"
+msgstr "Mesečni pregled klikova i utisaka"
+
+#: dashboard/publisher/statistics-advert.php:109
+#: dashboard/publisher/statistics-group.php:113
+#: dashboard/publisher/statistics-main.php:72
+#: dashboard/settings/notifications.php:58
+msgid "Note:"
+msgstr "Beleška:"
+
+#: dashboard/publisher/statistics-advert.php:109
+#: dashboard/publisher/statistics-group.php:113
+#: dashboard/publisher/statistics-main.php:72
+msgid ""
+"All statistics are indicative. They do not nessesarily reflect results "
+"counted by other parties."
+msgstr ""
+"Svi statistički podaci su indikativni . Oni nužno ne odražavaju rezultate "
+"obračunate od drugih stranaka ."
+
+#: dashboard/publisher/statistics-group.php:46
+#, fuzzy
+msgid "Statistics for group"
+msgstr "Sttistike za"
+
+#: dashboard/publisher/statistics-main.php:26
+#, fuzzy
+#| msgid "Advertise using Broadstreet Ads"
+msgid "Adverts counting stats"
+msgstr "Reklame koristeći Broadstreet oglase"
+
+#: dashboard/settings/advertisers.php:16
+msgid "Advertisers - Available in AdRotate Pro"
+msgstr ""
+
+#: dashboard/settings/advertisers.php:17
+#, fuzzy
+msgid "Enable advertisers so they can review and manage their own ads."
+msgstr "Omogući oglašivače"
+
+#: dashboard/settings/advertisers.php:20
+msgid "Enable Advertisers"
+msgstr "Omogući oglašivače"
+
+#: dashboard/settings/advertisers.php:22
+msgid "Allow adverts to be coupled to users (Advertisers)."
+msgstr "Dozvoli reklame, da se zajedno sa korisnicima ( oglašivači ) ."
+
+#: dashboard/settings/advertisers.php:26
+msgid "Edit/update adverts"
+msgstr "Edit/update oglasi"
+
+#: dashboard/settings/advertisers.php:28
+msgid "Allow advertisers to add new or edit their adverts."
+msgstr "Dozvoli oglašavačima da dodate nove ili izmeniti njihove reklame ."
+
+#: dashboard/settings/advertisers.php:32
+msgid "Mobile adverts"
+msgstr ""
+
+#: dashboard/settings/advertisers.php:34
+msgid "Allow advertisers to specify on which devices their ads will show."
+msgstr ""
+
+#: dashboard/settings/advertisers.php:40
+msgid ""
+"Allow advertisers to specify where their ads will show. Geo Targeting has to "
+"be enabled, too."
+msgstr ""
+
+#: dashboard/settings/advertisers.php:44
+msgid "Advertiser role"
+msgstr "Uloga oglašivača"
+
+#: dashboard/settings/advertisers.php:46
+msgid "Create a seperate user role for your advertisers."
+msgstr ""
+
+#: dashboard/settings/advertisers.php:47
+msgid ""
+"Don't forget to give these users access to their advertiser dashboard via "
+"the Roles tab."
+msgstr ""
+
+#: dashboard/settings/advertisers.php:53 dashboard/settings/general.php:78
+#: dashboard/settings/maintenance.php:116 dashboard/settings/misc.php:47
+#: dashboard/settings/notifications.php:79 dashboard/settings/roles.php:55
+#: dashboard/settings/statistics.php:73
+msgid "Update Options"
+msgstr "Update opcije"
+
+#: dashboard/settings/general.php:17
+msgid "General Settings"
+msgstr ""
+
+#: dashboard/settings/general.php:18
+msgid "General settings for AdRotate."
+msgstr ""
+
+#: dashboard/settings/general.php:18 dashboard/settings/statistics.php:18
+msgid "Some options are only available in AdRotate Pro!"
+msgstr ""
+
+#: dashboard/settings/general.php:21
+msgid "Shortcode in widgets"
+msgstr ""
+
+#: dashboard/settings/general.php:22
+msgid ""
+"Enable this option to if your theme does not support shortcodes in the "
+"WordPress text widget."
+msgstr ""
+
+#: dashboard/settings/general.php:25
+msgid "Disable live preview"
+msgstr ""
+
+#: dashboard/settings/general.php:26
+msgid ""
+"Enable this option if you have faulty adverts that overflow their designated "
+"area while creating/editing adverts."
+msgstr ""
+
+#: dashboard/settings/general.php:29
+msgid "Disable dynamic mode"
+msgstr ""
+
+#: dashboard/settings/general.php:30
+msgid ""
+"Enable this option to disable dynamic mode in groups for mobile devices if "
+"you notice skipping or jumpy content."
+msgstr ""
+
+#: dashboard/settings/general.php:33
+#, fuzzy
+msgid "Load jQuery"
+msgstr ""
+"Ubacite novu reklamu u ovom intervalu , bez ponovnog učitavanja stranice."
+"Default: 6."
+
+#: dashboard/settings/general.php:34
+msgid ""
+"Enable this option if your theme does not load jQuery. jQuery is required "
+"for dynamic groups, statistics and some other features."
+msgstr ""
+
+#: dashboard/settings/general.php:37
+msgid "Load scripts in footer?"
+msgstr ""
+
+#: dashboard/settings/general.php:38
+msgid ""
+"Enable this option if you want to load all AdRotate Javascripts in the "
+"footer of your site."
+msgstr ""
+
+#: dashboard/settings/general.php:41
+msgid "Adblock disguise"
+msgstr ""
+
+#: dashboard/settings/general.php:43
+msgid "Leave empty to disable. Use only lowercaps letters. For example:"
+msgstr ""
+
+#: dashboard/settings/general.php:44
+msgid ""
+"Try and avoid adblock plugins in most modern browsers when using shortcodes."
+msgstr ""
+
+#: dashboard/settings/general.php:44
+msgid ""
+"To also apply this feature to widgets, use a text widget with a shortcode "
+"instead of the AdRotate widget."
+msgstr ""
+
+#: dashboard/settings/general.php:44
+msgid ""
+"Avoid the use of obvious keywords or filenames in your adverts or this "
+"feature will have little effect!"
+msgstr ""
+
+#: dashboard/settings/general.php:49
+msgid "Banner Folder"
+msgstr "Baner Folder"
+
+#: dashboard/settings/general.php:50
+#, fuzzy
+msgid "Set a folder where your banner images will be stored."
+msgstr ""
+"Odredite lokaciju gde će se Vaš baner slike smestiti .(Default: /wp-content/"
+"banners/)."
+
+#: dashboard/settings/general.php:53
+msgid "Folder name"
+msgstr ""
+
+#: dashboard/settings/general.php:55
+#, fuzzy
+msgid "(Default: banners)."
+msgstr ""
+"Odredite lokaciju gde će se Vaš baner slike smestiti .(Default: /wp-content/"
+"banners/)."
+
+#: dashboard/settings/general.php:56
+msgid ""
+"To try and trick ad blockers you could set the folder to something crazy "
+"like:"
+msgstr ""
+"Da biste probali i prevarili blokatore oglasa možete da odredite folder u "
+"nešto ludo kao što su :"
+
+#: dashboard/settings/general.php:57
+msgid ""
+"This folder will not be automatically created if it doesn't exist. AdRotate "
+"will show errors when the folder is missing."
+msgstr ""
+"Ovaj folder neće biti kreirani automatski ako se ona ne postoji . AdRotate "
+"će pokazati greške kada folder nedostaje ."
+
+#: dashboard/settings/general.php:62
+#, fuzzy
+msgid "Bot filter"
+msgstr "User- agent filter"
+
+#: dashboard/settings/general.php:63
+msgid "The bot filter is used for the AdRotate stats tracker."
+msgstr ""
+
+#: dashboard/settings/general.php:66
+msgid "User-Agent Filter"
+msgstr "User- agent filter"
+
+#: dashboard/settings/general.php:69
+msgid ""
+"A comma separated list of keywords. Filter out bots/crawlers/user-agents."
+msgstr ""
+
+#: dashboard/settings/general.php:70
+msgid ""
+"Keep in mind that this might give false positives. The word 'fire' also "
+"matches 'firefox', but not vice-versa. So be careful!"
+msgstr ""
+
+#: dashboard/settings/general.php:71
+msgid ""
+"Only words with alphanumeric characters and [ - _ ] are allowed. All other "
+"characters are stripped out."
+msgstr ""
+
+#: dashboard/settings/general.php:72
+msgid ""
+"Additionally to the list specified here, empty User-Agents are blocked as "
+"well."
+msgstr ""
+"Pored toga na spisku ovde , prazne korisnički agenti su blokirani , kao "
+"dobro."
+
+#: dashboard/settings/general.php:72
+msgid "Learn more about"
+msgstr "Saznajte više o"
+
+#: dashboard/settings/general.php:72
+msgid "user-agents"
+msgstr "korisnici-agenti"
+
+#: dashboard/settings/geotargeting.php:17
+msgid "Geo Targeting - Available in AdRotate Pro"
+msgstr ""
+
+#: dashboard/settings/geotargeting.php:18
+msgid "Target certain areas in the world for better advertising oppurtunities."
+msgstr ""
+
+#: dashboard/settings/geotargeting.php:21
+msgid "Which Geo Service"
+msgstr ""
+
+#: dashboard/settings/geotargeting.php:32
+msgid "30000 free lookups every day, uses GeoLite2 databases from MaxMind!"
+msgstr ""
+
+#: dashboard/settings/geotargeting.php:33
+#: dashboard/settings/geotargeting.php:37
+#: dashboard/settings/geotargeting.php:41
+#: dashboard/settings/geotargeting.php:45
+msgid "Supports:"
+msgstr ""
+
+#: dashboard/settings/geotargeting.php:34
+#: dashboard/settings/geotargeting.php:38
+#: dashboard/settings/geotargeting.php:42
+#: dashboard/settings/geotargeting.php:46
+msgid "Scalability:"
+msgstr ""
+
+#: dashboard/settings/geotargeting.php:34
+msgid "Suitable for small to medium websites."
+msgstr ""
+
+#: dashboard/settings/geotargeting.php:36
+msgid "15000 free lookups per hour, uses GeoLite2 databases from MaxMind!"
+msgstr ""
+
+#: dashboard/settings/geotargeting.php:38
+msgid "Suitable for medium sized websites."
+msgstr ""
+
+#: dashboard/settings/geotargeting.php:40
+msgid ""
+"The most accurate geo targeting you can get for only $20 USD per 50000 "
+"lookups."
+msgstr ""
+
+#: dashboard/settings/geotargeting.php:42
+msgid "Suitable for any size website as long as you have lookups."
+msgstr ""
+
+#: dashboard/settings/geotargeting.php:44
+msgid "Basic geolocation included in every CloudFlare account."
+msgstr ""
+
+#: dashboard/settings/geotargeting.php:46
+msgid "Suitable for any size website."
+msgstr ""
+
+#: dashboard/settings/geotargeting.php:51
+msgid "Geo Cookie Lifespan"
+msgstr ""
+
+#: dashboard/settings/geotargeting.php:60
+msgid "Hours."
+msgstr ""
+
+#: dashboard/settings/geotargeting.php:61
+msgid ""
+"Geo Data is stored in a cookie to reduce lookups. How long should this "
+"cookie last? A longer period is less accurate for mobile users but may "
+"reduce the usage of your lookups drastically."
+msgstr ""
+
+#: dashboard/settings/geotargeting.php:67
+msgid "MaxMind City/Country"
+msgstr ""
+
+#: dashboard/settings/geotargeting.php:70
+msgid "Username/Email"
+msgstr ""
+
+#: dashboard/settings/geotargeting.php:74
+msgid "Password/License Key"
+msgstr ""
+
+#: dashboard/settings/maintenance.php:17
+msgid ""
+"Use these functions when you notice your database is slow, unresponsive and "
+"sluggish."
+msgstr ""
+
+#: dashboard/settings/maintenance.php:20 dashboard/settings/maintenance.php:22
+msgid "Optimize Database"
+msgstr "Optimizacija baze podataka"
+
+#: dashboard/settings/maintenance.php:22
+msgid "You are about to optimize the AdRotate database."
+msgstr "Na putu ste da optimizirate  AdRotate bazu podataka ."
+
+#: dashboard/settings/maintenance.php:22
+msgid "Did you make a backup of your database?"
+msgstr "Da li ste napravili rezervnu kopiju baze podataka ?"
+
+#: dashboard/settings/maintenance.php:22
+msgid ""
+"This may take a moment and may cause your website to respond slow "
+"temporarily!"
+msgstr ""
+"To može da potraje nekoliko trenutaka i može izazvati vaš sajt da reaguju "
+"sporo privremeno !"
+
+#: dashboard/settings/maintenance.php:23
+msgid "Cleans up overhead data in the AdRotate tables."
+msgstr "Čiste se režijski  podaci u tabelama AdRotate ."
+
+#: dashboard/settings/maintenance.php:24
+msgid ""
+"Overhead data is accumulated garbage resulting from many changes you've "
+"made. This can vary from nothing to hundreds of KiB of data."
+msgstr ""
+"Opšti podaci se akumulira smeća usled mnogih promena koje ste napravili . "
+"Ovo može da varira od nule do nekoliko stotina KiB podataka ."
+
+#: dashboard/settings/maintenance.php:28
+#, fuzzy
+#| msgid "Clean-up Database"
+msgid "Clean-up Database and Files"
+msgstr "Čišćenje baze"
+
+#: dashboard/settings/maintenance.php:30
+msgid "Clean-up Database"
+msgstr "Čišćenje baze"
+
+#: dashboard/settings/maintenance.php:30
+#, fuzzy
+msgid ""
+"You are about to clean up your database. This may delete expired schedules, "
+"older statistics and try to delete export files"
+msgstr "Čišćenje baze"
+
+#: dashboard/settings/maintenance.php:30
+#, fuzzy
+msgid "Are you sure you want to continue?"
+msgstr "Popunite ID tipa koji želite da prikažete!"
+
+#: dashboard/settings/maintenance.php:30
+msgid "THIS ACTION CAN NOT BE UNDONE!"
+msgstr ""
+
+#: dashboard/settings/maintenance.php:31
+#, fuzzy
+msgid "Delete stats older than 356 days."
+msgstr "Uloga obrisati oglase i resetovanje ."
+
+#: dashboard/settings/maintenance.php:32
+msgid "Delete leftover export files."
+msgstr ""
+
+#: dashboard/settings/maintenance.php:33
+msgid ""
+"For when you create an advert, group or schedule and it does not save or "
+"keep changes you make."
+msgstr ""
+
+#: dashboard/settings/maintenance.php:33
+#, fuzzy
+msgid ""
+"Additionally you can delete statistics and/or unused export files. This will "
+"improve the speed of your site."
+msgstr "Čišćenje baze"
+
+#: dashboard/settings/maintenance.php:37
+msgid "Re-evaluate Ads"
+msgstr "Ponovo ocenjeni oglasi"
+
+#: dashboard/settings/maintenance.php:39
+msgid "Re-evaluate all ads"
+msgstr "Ponovo ocenite sve oglase"
+
+#: dashboard/settings/maintenance.php:39
+msgid "You are about to check all ads for errors."
+msgstr "Vi ste o tome da proveri sve oglase za greške ."
+
+#: dashboard/settings/maintenance.php:39 dashboard/settings/maintenance.php:110
+#, fuzzy
+msgid "This might take a while and may slow down your site during this action!"
+msgstr ""
+"To može da potraje nekoliko trenutaka i može izazvati vaš sajt da reaguju "
+"sporo privremeno !"
+
+#: dashboard/settings/maintenance.php:40
+msgid ""
+"This will apply all evaluation rules to all ads to see if any error slipped "
+"in. Normally you should not need this feature."
+msgstr ""
+"Ovo će primeniti sva pravila za ocenjivanje na sve oglase da vidim da li "
+"bilo koja greška okliznuo unutra Normalno ne bi trebalo ovu funkciju ."
+
+#: dashboard/settings/maintenance.php:44
+msgid ""
+"DISCLAIMER: The above functions are intented to be used to OPTIMIZE your "
+"database. They only apply to your ads/groups and stats. Not to other "
+"settings or other parts of WordPress! Always always make a backup! If for "
+"any reason your data is lost, damaged or otherwise becomes unusable in any "
+"way or by any means in whichever way I will not take responsibility. You "
+"should always have a backup of your database. These functions do NOT destroy "
+"data. If data is lost, damaged or unusable in any way, your database likely "
+"was beyond repair already. Claiming it worked before clicking these buttons "
+"is not a valid point in any case."
+msgstr ""
+
+#: dashboard/settings/maintenance.php:46
+msgid "Troubleshooting"
+msgstr "Rešavanje problema"
+
+#: dashboard/settings/maintenance.php:47
+msgid ""
+"The below options are not meant for normal use and are only there for "
+"developers to review saved settings or how ads are selected. These can be "
+"used as a measure of troubleshooting upon request but for normal use they "
+"SHOULD BE LEFT UNCHECKED!!"
+msgstr ""
+
+#: dashboard/settings/maintenance.php:50
+msgid "Developer Debug"
+msgstr "Debug za programera"
+
+#: dashboard/settings/maintenance.php:52
+msgid "Troubleshoot ads and how they are selected. Visible on the front-end."
+msgstr ""
+
+#: dashboard/settings/maintenance.php:53
+msgid "View advert specs and (some) stats in the dashboard."
+msgstr ""
+
+#: dashboard/settings/maintenance.php:54
+#, fuzzy
+#| msgid "Track clicks and impressions."
+msgid "Disable timers for clicks and impressions."
+msgstr "Pratite klikove i prikaze ."
+
+#: dashboard/settings/maintenance.php:55
+msgid "Temporarily disable encryption on the redirect url."
+msgstr "Privremeno onemogući šifrovanje na URL adresu za preusmeravanje ."
+
+#: dashboard/settings/maintenance.php:60
+msgid "Status and Versions"
+msgstr ""
+
+#: dashboard/settings/maintenance.php:63
+#, fuzzy
+msgid "Current status of adverts"
+msgstr "Trenutni raspored"
+
+#: dashboard/settings/maintenance.php:64
+#, fuzzy
+msgid "Normal"
+msgstr ""
+"NAPOMENA : Slede opcije nisu namenjene za normalnu upotrebu , a tu su samo "
+"za programere da pregledaju sačuvane postavke ili kako se oglasi izabrani . "
+"To se može koristiti kao mera za rešavanje problema na zahtev , ali za "
+"normalnu upotrebu oni treba da budu levo neprovereni "
+
+#: dashboard/settings/maintenance.php:64
+#, fuzzy
+msgid "Error"
+msgstr "Nepoznati error se ukazao."
+
+#: dashboard/settings/maintenance.php:64
+#, fuzzy
+msgid "Expires Soon"
+msgstr "Ističe uskoro."
+
+#: dashboard/settings/maintenance.php:64
+msgid "Unknown"
+msgstr ""
+
+#: dashboard/settings/maintenance.php:67
+msgid "Banners/assets Folder"
+msgstr ""
+
+#: dashboard/settings/maintenance.php:71 dashboard/settings/maintenance.php:80
+msgid "Exists and appears writable"
+msgstr ""
+
+#: dashboard/settings/maintenance.php:71 dashboard/settings/maintenance.php:80
+msgid "Not writable or does not exist"
+msgstr ""
+
+#: dashboard/settings/maintenance.php:76
+msgid "Reports Folder"
+msgstr ""
+
+#: dashboard/settings/maintenance.php:85
+msgid "Advert evaluation"
+msgstr ""
+
+#: dashboard/settings/maintenance.php:86
+msgid "Not scheduled! Re-activate the plugin from the plugins page."
+msgstr ""
+
+#: dashboard/settings/maintenance.php:87
+#, fuzzy
+#| msgid "Clean Trackerdata next run:"
+msgid "Clean Trackerdata"
+msgstr "Očistite Trackerdata u sledećem pokušaju :"
+
+#: dashboard/settings/maintenance.php:88
+msgid "Not scheduled!"
+msgstr "Nije planirano:"
+
+#: dashboard/settings/maintenance.php:91
+msgid "Background tasks"
+msgstr ""
+
+#: dashboard/settings/maintenance.php:93
+msgid "Reset background tasks"
+msgstr ""
+
+#: dashboard/settings/maintenance.php:98
+msgid "Internal Versions"
+msgstr ""
+
+#: dashboard/settings/maintenance.php:99
+msgid ""
+"Unless you experience database issues or a warning shows below, these "
+"numbers are not really relevant for troubleshooting. Support may ask for "
+"them to verify your database status."
+msgstr ""
+
+#: dashboard/settings/maintenance.php:102
+msgid "AdRotate version"
+msgstr ""
+
+#: dashboard/settings/maintenance.php:103
+#: dashboard/settings/maintenance.php:105
+msgid "Current:"
+msgstr ""
+
+#: dashboard/settings/maintenance.php:103
+#: dashboard/settings/maintenance.php:105
+msgid "Should be:"
+msgstr ""
+
+#: dashboard/settings/maintenance.php:103
+#: dashboard/settings/maintenance.php:105
+msgid "Previous:"
+msgstr ""
+
+#: dashboard/settings/maintenance.php:104
+msgid "Database version"
+msgstr ""
+
+#: dashboard/settings/maintenance.php:108
+msgid "Manual upgrade"
+msgstr ""
+
+#: dashboard/settings/maintenance.php:110
+msgid "YOU ARE ABOUT TO DO A MANUAL UPDATE FOR ADROTATE."
+msgstr ""
+
+#: dashboard/settings/maintenance.php:110
+msgid "Make sure you have a database backup!"
+msgstr ""
+
+#: dashboard/settings/maintenance.php:110
+#, fuzzy
+#| msgid "Ad updated"
+msgid "Run updater"
+msgstr "Update oglasa"
+
+#: dashboard/settings/misc.php:16
+msgid "Miscellaneous"
+msgstr "Ostalo"
+
+#: dashboard/settings/misc.php:19
+msgid "Widget alignment"
+msgstr "Widget alignment"
+
+#: dashboard/settings/misc.php:20
+msgid ""
+"Check this box if your widgets do not align in your themes sidebar. (Does "
+"not always help!)"
+msgstr ""
+"Proverite ovo polje ako dodaci ne uskladi u vaš sidebar teme . ( Ne pomaže "
+"uvek ! )"
+
+#: dashboard/settings/misc.php:23
+#, fuzzy
+msgid "Widget padding"
+msgstr "Blokiraj punjenje"
+
+#: dashboard/settings/misc.php:24
+#, fuzzy
+msgid ""
+"Enable this to remove the padding (blank space) around ads in widgets. (Does "
+"not always work!)"
+msgstr ""
+"Proverite ovo polje ako dodaci ne uskladi u vaš sidebar teme . ( Ne pomaže "
+"uvek ! )"
+
+#: dashboard/settings/misc.php:28
+#, fuzzy
+msgid "NOTICE:"
+msgstr ""
+"NAPOMENA : Slede funkcije intented da se koristi za optimizaciju baze "
+"podataka . Oni se primenjuju samo na oglase / grupa / blokova i statistika . "
+"Nije na druge postavke ili druge delove WordPress ! Uvek uvek napravite "
+"rezervnu kopiju ! Ove funkcije mogu da se koriste kada se osećate ili "
+"primetite vaša baza podataka je spor , spor i ne reaguje ."
+
+#: dashboard/settings/misc.php:29
+msgid ""
+"You have enabled W3 Total Caching support but not defined the security hash."
+msgstr ""
+
+#: dashboard/settings/misc.php:29
+msgid ""
+"AdRotate has generated the following line for you to add to your wp-config."
+"php around line 52 (below the WordPress nonces). If you do not know how to "
+"add this line, check out the following guide;"
+msgstr ""
+
+#: dashboard/settings/misc.php:29
+msgid "Set up W3 Total Caching"
+msgstr ""
+
+#: dashboard/settings/misc.php:33
+msgid "W3 Total Caching"
+msgstr "W3 Total Caching"
+
+#: dashboard/settings/misc.php:34
+msgid "Check this box if you use W3 Total Caching on your site."
+msgstr "Proverite ovo polje ako koristite W3 Total Caching na vašem sajtu."
+
+#: dashboard/settings/misc.php:37
+msgid "Borlabs Cache"
+msgstr ""
+
+#: dashboard/settings/misc.php:38
+#, fuzzy
+#| msgid "Check this box if you use W3 Total Caching on your site."
+msgid "Check this box if you use Borlabs Caching on your site."
+msgstr "Proverite ovo polje ako koristite W3 Total Caching na vašem sajtu."
+
+#: dashboard/settings/misc.php:42
+msgid ""
+"It may take a while for the ad to start rotating. The caching plugin needs "
+"to refresh the cache. This can take up to a week if not done manually."
+msgstr ""
+"To može potrajati dok oglas počne da se rotira . Hvatanje plugina mora da "
+"osveži cache. To može da potraje i do nedelju dana, ako ne radi ručno "
+
+#: dashboard/settings/misc.php:42
+msgid ""
+"Caching support only works for [shortcodes] and the AdRotate Widget. If you "
+"use a PHP Snippet you need to wrap your PHP in the exclusion code yourself."
+msgstr ""
+"Hvatanje podrške radi samo za [kratke brojeve] i AdRotate Widget . Ako "
+"koristite PHP Snippet treba da zamotate svoj PHP u isključenju svog koda."
+
+#: dashboard/settings/notifications.php:19
+#, fuzzy
+msgid "Set up who gets notifications if ads need your attention."
+msgstr "Oglasi koje treba neposrednu pažnju"
+
+#: dashboard/settings/notifications.php:22
+msgid "How to notify"
+msgstr ""
+
+#: dashboard/settings/notifications.php:24
+msgid "Dashboard banner."
+msgstr ""
+
+#: dashboard/settings/notifications.php:25
+#, fuzzy
+msgid "Email message."
+msgstr "Stranica oglašivača"
+
+#: dashboard/settings/notifications.php:29
+msgid "Test notification"
+msgstr ""
+
+#: dashboard/settings/notifications.php:31
+msgid "Test"
+msgstr "Test"
+
+#: dashboard/settings/notifications.php:31
+msgid ""
+"Send a test notification to enabled methods. Before you test, save the "
+"options first!"
+msgstr ""
+
+#: dashboard/settings/notifications.php:36
+msgid "Dashboard Banner"
+msgstr ""
+
+#: dashboard/settings/notifications.php:37
+msgid ""
+"These go in a dashboard banner visible to all users with access to AdRotate "
+"on every WordPress dashboard page."
+msgstr ""
+
+#: dashboard/settings/notifications.php:40
+#: dashboard/settings/notifications.php:52
+msgid "What"
+msgstr ""
+
+#: dashboard/settings/notifications.php:42
+msgid "Expired adverts."
+msgstr ""
+
+#: dashboard/settings/notifications.php:43
+msgid "Almost expired adverts."
+msgstr ""
+
+#: dashboard/settings/notifications.php:48
+msgid "Email Message"
+msgstr ""
+
+#: dashboard/settings/notifications.php:48
+msgid "Available in AdRotate Pro"
+msgstr "Dostupno u AdRotate Pro"
+
+#: dashboard/settings/notifications.php:49
+msgid ""
+"Receive email notifications about what is happening with your AdRotate setup."
+msgstr ""
+
+#: dashboard/settings/notifications.php:54
+msgid "Daily digest of any advert status other than normal."
+msgstr ""
+
+#: dashboard/settings/notifications.php:55
+msgid "When you are running out of Geo Targeting Lookups."
+msgstr ""
+
+#: dashboard/settings/notifications.php:56
+msgid "Any advertiser saving an advert in your moderation queue."
+msgstr ""
+
+#: dashboard/settings/notifications.php:57
+#, fuzzy
+msgid "A moderator approved an advert from the moderation queue."
+msgstr "Odobri / odbaci reklame u red za uređivanje"
+
+#: dashboard/settings/notifications.php:58
+#, fuzzy
+msgid "A moderator rejected an advert from the moderation queue."
+msgstr "Odobri / odbaci reklame u red za uređivanje"
+
+#: dashboard/settings/notifications.php:58
+msgid ""
+"If you have a lot of activity with many advertisers adding/changing adverts "
+"you may get a lot of messages!"
+msgstr ""
+
+#: dashboard/settings/notifications.php:58
+msgid ""
+"Sending out a lot of email is sometimes seen as automated mailing and deemed "
+"spammy. This may result in automated filters such as those used in services "
+"like Google Gmail and Microsoft Hotmail/Outlook.com blocking your server. "
+"Make sure you whitelist the sending address in your email account once you "
+"start receiving notifications!"
+msgstr ""
+
+#: dashboard/settings/notifications.php:63
+#, fuzzy
+msgid "Publishers"
+msgstr ""
+"Pregled globalna statistike , po oglasu / grupa / blok statistika . Vidljivo "
+"samo izdavačima ."
+
+#: dashboard/settings/notifications.php:66
+msgid ""
+"Messages are sent once every 24 hours.  Maximum of 5 addresses. Comma "
+"separated. This field may not be empty!"
+msgstr ""
+
+#: dashboard/settings/notifications.php:73
+msgid ""
+"Who gets email from advertisers. Maximum of 5 addresses. Comma separated. "
+"This field may not be empty!"
+msgstr ""
+
+#: dashboard/settings/roles.php:18
+msgid "Who has access to what?"
+msgstr ""
+
+#: dashboard/settings/roles.php:21
+msgid "Manage/Add/Edit adverts"
+msgstr "Upravljanje / Add / Edit reklame"
+
+#: dashboard/settings/roles.php:25
+msgid "Role to see and add/edit ads."
+msgstr "Uloga videti i add / edit oglase ."
+
+#: dashboard/settings/roles.php:29
+msgid "Delete/Reset adverts"
+msgstr "Brisanje / Reset reklame"
+
+#: dashboard/settings/roles.php:33
+msgid "Role to delete ads and reset stats."
+msgstr "Uloga obrisati oglase i resetovanje ."
+
+#: dashboard/settings/roles.php:37
+msgid "Manage/Add/Edit groups"
+msgstr "Upravljanje / Add / Edit grupama"
+
+#: dashboard/settings/roles.php:41
+msgid "Role to see and add/edit groups."
+msgstr "Uloga videti i add / edit grupe ."
+
+#: dashboard/settings/roles.php:45
+msgid "Delete groups"
+msgstr "Brisanje grupe"
+
+#: dashboard/settings/roles.php:49
+msgid "Role to delete groups."
+msgstr "Uloga za brisanje grupe ."
+
+#: dashboard/settings/statistics.php:18
+msgid "Track statistics for your adverts."
+msgstr ""
+
+#: dashboard/settings/statistics.php:21
+msgid "How to track stats"
+msgstr ""
+
+#: dashboard/settings/statistics.php:30
+msgid "Tracks impressions and clicks internally"
+msgstr ""
+
+#: dashboard/settings/statistics.php:30 dashboard/settings/statistics.php:32
+#: dashboard/settings/statistics.php:34
+msgid "manual"
+msgstr ""
+
+#: dashboard/settings/statistics.php:31
+msgid ""
+"Click and Impression recording, Click and impression limits, impression "
+"spread for schedules, local stats display. Javascript/HTML5/Flash adverts "
+"will only track impressions."
+msgstr ""
+
+#: dashboard/settings/statistics.php:32 dashboard/settings/statistics.php:34
+msgid "In AdRotate Pro!"
+msgstr ""
+
+#: dashboard/settings/statistics.php:32
+msgid ""
+"Requires Piwik Analytics tracker installed in your sites footer! Uses data "
+"attributes"
+msgstr ""
+
+#: dashboard/settings/statistics.php:33
+msgid ""
+"Click and Impression recording via Cookie, stats are displayed in Actions > "
+"Contents."
+msgstr ""
+
+#: dashboard/settings/statistics.php:34
+msgid ""
+"Requires Google Analytics tracker installed in your sites footer! uses "
+"onClick() and onload() in adverts"
+msgstr ""
+
+#: dashboard/settings/statistics.php:35
+msgid ""
+"Click and Impression recording via Cookie, stats are displayed in Events > "
+"Banner."
+msgstr ""
+
+#: dashboard/settings/statistics.php:41
+msgid "Internal Tracker"
+msgstr ""
+
+#: dashboard/settings/statistics.php:42
+msgid ""
+"The settings below are for the internal tracker and have no effect when "
+"using Piwik/Google Analytics."
+msgstr ""
+
+#: dashboard/settings/statistics.php:45
+#, fuzzy
+msgid "Logged in impressions"
+msgstr "Pratite utiske ulogovanih korisniika (Preporučeno)"
+
+#: dashboard/settings/statistics.php:47
+msgid "Track impressions from logged in users."
+msgstr ""
+
+#: dashboard/settings/statistics.php:51
+#, fuzzy
+msgid "Logged in clicks"
+msgstr "Pratite klikove ulogovani korisnici ."
+
+#: dashboard/settings/statistics.php:53
+msgid "Track clicks from logged in users."
+msgstr "Pratite klikove ulogovani korisnici ."
+
+#: dashboard/settings/statistics.php:57
+msgid "Impression timer"
+msgstr ""
+
+#: dashboard/settings/statistics.php:59 dashboard/settings/statistics.php:66
+msgid "Seconds."
+msgstr "Sekunde."
+
+#: dashboard/settings/statistics.php:60
+#, fuzzy
+msgid "Default: 60."
+msgstr "Default - Prikazati po jedan oglas"
+
+#: dashboard/settings/statistics.php:60
+#, fuzzy
+msgid "This number may not be empty, be lower than 10 or exceed 3600 (1 hour)."
+msgstr ""
+"Ovaj broj ne može da bude prazan , negativan ili veći od 3600 ( 1 sat ) ."
+
+#: dashboard/settings/statistics.php:64
+msgid "Click timer"
+msgstr ""
+
+#: dashboard/settings/statistics.php:67
+#, fuzzy
+msgid "Default: 86400."
+msgstr "Default - Prikazati po jedan oglas"
+
+#: dashboard/settings/statistics.php:67
+#, fuzzy
+msgid ""
+"This number may not be empty, be lower than 60 or exceed 86400 (24 hours)."
+msgstr ""
+"Ovaj broj ne može da bude prazan , negativan ili veći od 3600 ( 1 sat ) ."
+
+#, fuzzy
+#~ msgid "Push Notifications"
+#~ msgstr "Notifikacije"
+
+#, fuzzy
+#~ msgid "User Key"
+#~ msgstr "korisnici-agenti"
+
+#, fuzzy
+#~ msgid "More information..."
+#~ msgstr "Saznajte više"
+
+#~ msgid "This feature is available in AdRotate Pro"
+#~ msgstr "Ova karakteristika je dostupna na AdRotate Pro"
+
+#~ msgid "Learn more"
+#~ msgstr "Saznajte više"
+
+#, fuzzy
+#~| msgid "Monthly overview of clicks and impressions"
+#~ msgid "Periodic overview of clicks and impressions"
+#~ msgstr "Mesečni pregled klikova i utisaka"
+
+#, fuzzy
+#~| msgid "Show from"
+#~ msgid "Shown from"
+#~ msgstr "Prikazati iz"
+
+#, fuzzy
+#~| msgid "Show until"
+#~ msgid "Shown until"
+#~ msgstr "Prikazati do"
+
+#, fuzzy
+#~ msgid "Used"
+#~ msgstr "Da , ovaj oglas će se koristiti"
+
+#, fuzzy
+#~ msgid "Max Impressions"
+#~ msgstr "Utisci"
+
+#~ msgid "Report"
+#~ msgstr "Izveštaj"
+
+#, fuzzy
+#~ msgid "More information"
+#~ msgstr "Saznajte više"
+
+#~ msgid "Impressions today"
+#~ msgstr "Današnji utisci"
+
+#~ msgid "Clicks today"
+#~ msgstr "Klik danas"
+
+#~ msgid "Empty database records removed"
+#~ msgstr "Prazni zapisi baze podataka uklanjaju"
+
+#, fuzzy
+#~ msgid "For two WordPress installations."
+#~ msgstr "Instalacije"
+
+#, fuzzy
+#~ msgid " For up to five WordPress installations."
+#~ msgstr "Instalacije"
+
+#, fuzzy
+#~ msgid "Location"
+#~ msgstr ""
+#~ "Ili nema banera, onemogućeni su ili nije kvalifikovan za ovu lokaciju!"
+
+#, fuzzy
+#~ msgid ""
+#~ "Disable timers for clicks and impressions and enable a alert window for "
+#~ "clicktracking."
+#~ msgstr "Pratite klikove i prikaze ."
+
+#, fuzzy
+#~ msgid "Manage Media"
+#~ msgstr "Media:"
+
+#, fuzzy
+#~ msgid "Schedule Management available in AdRotate Pro"
+#~ msgstr "Dostupno u AdRotate Pro"
+
+#, fuzzy
+#~ msgid ""
+#~ "Schedule management and multiple schedules per advert is available in "
+#~ "AdRotate Pro."
+#~ msgstr "Ova karakteristika je dostupna na AdRotate Pro"
+
+#, fuzzy
+#~ msgid "Start"
+#~ msgstr "Početno vreme (hh:mm):"
+
+#, fuzzy
+#~ msgid "End"
+#~ msgstr "Završno vreme (hh:mm):"
+
+#~ msgid "Ads"
+#~ msgstr "Oglasi"
+
+#, fuzzy
+#~ msgid "No schedules created yet!"
+#~ msgstr "Nijedan blok nije stvoren još uvek!"
+
+#, fuzzy
+#~ msgid "Easily manage your schedules from here with AdRotate Pro."
+#~ msgstr "Nabvite jos karakteristika! AdRotate Pro."
+
+#, fuzzy
+#~ msgid "Upgrade today!"
+#~ msgstr "Danas"
+
+#, fuzzy
+#~ msgid "Media Management available in AdRotate Pro"
+#~ msgstr "Dostupno u AdRotate Pro"
+
+#, fuzzy
+#~ msgid "Media uploading and management is available in AdRotate Pro."
+#~ msgstr "Ova karakteristika je dostupna na AdRotate Pro"
+
+#, fuzzy
+#~ msgid "Manage your banner folder from here with AdRotate Pro."
+#~ msgstr "Nabvite jos karakteristika! AdRotate Pro."
+
+#, fuzzy
+#~ msgid "Everything below is optional."
+#~ msgstr "Naslov (opcionalno):"
+
+#~ msgid "For administrative purposes set a sortorder."
+#~ msgstr "Za administrativne svrhe postavili sortorder ."
+
+#~ msgid "Leave empty or 0 to skip this. Will default to ad id."
+#~ msgstr ""
+#~ "Ostavite prazno ili 0 da preskočite ovo . Će podrazumevano ID oglasa ."
+
+#, fuzzy
+#~ msgid "Select the countries you want the adverts to show in."
+#~ msgstr "Kliknite na poruke kategorije koje želite da se prikažu oglasi."
+
+#~ msgid "Leave empty or 0 to skip this. Will default to group id."
+#~ msgstr "Ostavite prazno ili 0 da preskočite ovo . Biće default  ID grupe ."
+
+#~ msgid "Which categories?"
+#~ msgstr "Koje kategorije?"
+
+#~ msgid "Click the categories posts you want the adverts to show in."
+#~ msgstr "Kliknite na poruke kategorije koje želite da se prikažu oglasi."
+
+#~ msgid "Which pages?"
+#~ msgstr "Koje stranice ?"
+
+#~ msgid "Click the pages you want the adverts to show in."
+#~ msgstr "Izaberite stranice koje želite da reklama pokaže"
+
+#, fuzzy
+#~ msgid "Enable responsive support for this advert."
+#~ msgstr "Oglasi"
+
+#~ msgid "Current version:"
+#~ msgstr "Trenutna verzija :"
+
+#~ msgid "Previous version:"
+#~ msgstr "Prethodna verzija :"
+
+#~ msgid "Current database version:"
+#~ msgstr "Trenutna verzija baze podataka :"
+
+#~ msgid "Previous database version:"
+#~ msgstr "Prethodna verzija baze podataka :"
+
+#, fuzzy
+#~ msgid "Ad evaluation next run:"
+#~ msgstr "Očistite Trackerdata u sledećem pokušaju :"
+
+#, fuzzy
+#~ msgid "Set up who gets notification emails."
+#~ msgstr "Oglasi koje treba neposrednu pažnju"
+
+#~ msgid ""
+#~ "A comma separated list of email addresses. Maximum of 5 addresses. Keep "
+#~ "this list to a minimum!"
+#~ msgstr ""
+#~ "Razdvojene zarezom spisak adresa e-pošte . Maksimalan broj 5 adresa . "
+#~ "Držite ovu listu na minimum !"
+
+#, fuzzy
+#~ msgid ""
+#~ "Messages are sent once every 24 hours when needed. If this field is empty "
+#~ "no email notifications will be send."
+#~ msgstr ""
+#~ "Poruke se šalju jednom u 24 sata kada je to potrebno . Ako ovo polje je "
+#~ "praznofunkcija će biti onemogućena "
+
+#, fuzzy
+#~ msgid ""
+#~ "Who gets email from advertisers. Maximum of 2 addresses. Comma seperated. "
+#~ "This field may not be empty!"
+#~ msgstr ""
+#~ "Maksimalno 2 adrese. Odvojenu zarezima. Ovo polje ne može biti prazno !"
+
+#~ msgid "Visit the"
+#~ msgstr "Posetite"
+
+#~ msgid "AdRotate News and Developer Blog"
+#~ msgstr "AdRotate novosti i blog za programere"
+
+#, fuzzy
+#~ msgid ""
+#~ "This sends a test notification. Before you test, save the options first!"
+#~ msgstr ""
+#~ "Ovaj test šalje obaveštenje . Pre nego što testirate , na primer , sa "
+#~ "novim email adresu. Sačuvajte prvi opcije !"
+
+#~ msgid "Email Notifications"
+#~ msgstr "Email Obaveštenja"
+
+#~ msgid "active ad(s) expired."
+#~ msgstr "aktivni ad-ovi su istekli."
+
+#~ msgid "Take action now"
+#~ msgstr "Reagujte odmah"
+
+#~ msgid "active ad(s) are about to expire."
+#~ msgstr "aktivni ad-ovi će  uskoro da isteknu."
+
+#~ msgid "Check it out"
+#~ msgstr "Pogledajte ovde"
+
+#~ msgid "active ad(s) with configuration errors."
+#~ msgstr "aktivni ad-ovi sa konfiguracionim greškama."
+
+#~ msgid "Solve this"
+#~ msgstr "Reši ovo"
+
+#~ msgid "ad(s) expired."
+#~ msgstr "ad-ovi su istekli."
+
+#~ msgid "ad(s) are about to expire."
+#~ msgstr "ad-ovi će  uskoro da isteknu."
+
+#~ msgid "ad(s) with configuration errors."
+#~ msgstr "ad-ovi sa konfiguracionim greškama."
+
+#~ msgid "Fix this as soon as possible"
+#~ msgstr "Popravi ovo što pre je moguće"
+
+#~ msgid "Brought to you by"
+#~ msgstr "Za tebe od"
+
+#~ msgid "Single Ad - Use Ad ID"
+#~ msgstr "Single oglas- koristi Ad ID"
+
+#~ msgid "Group of Ads - Use group ID"
+#~ msgstr "Gupni oglasi - Koristite grupni ID"
+
+#~ msgid "Manage Ads"
+#~ msgstr "Upravljajte oglasima"
+
+#~ msgid "Ad Management"
+#~ msgstr "Menadžment oglasa"
+
+#~ msgid "Disabled Ads"
+#~ msgstr "Onemogući odgovore"
+
+#~ msgid "Ads that need immediate attention"
+#~ msgstr "Oglasi koje treba neposrednu pažnju"
+
+#~ msgid "Active Ads"
+#~ msgstr "Aktivni oglasi"
+
+#~ msgid "No ads created yet!"
+#~ msgstr "Nijedan oglas još nje stvoren!"
+
+#~ msgid "Block Mode - Show a block of ads"
+#~ msgstr "Blok mod - Prikaži blokove oglasa"
+
+#, fuzzy
+#~ msgid ""
+#~ "Define the maximum size of the ads in pixels. Size can be 'auto' (Not "
+#~ "recommended). Default: 125/125."
+#~ msgstr ""
+#~ "Definišite maksimalnu veličinu oglasa u pikselima minus margine . "
+#~ "Veličina može biti 'auto' ( ne preporučuje se) . Default: 125/125."
+
+#~ msgid "No ads created!"
+#~ msgstr "Nema oglasa stvorio!"
+
+#~ msgid "Delete Group including ads"
+#~ msgstr "Brisanje grupe, uključujući i oglase"
+
+#, fuzzy
+#~ msgid "Dashboard Notifications"
+#~ msgstr "Notifikacije"
+
+#, fuzzy
+#~ msgid "AdRotate Page"
+#~ msgstr "AdRotate Pro"
+
+#~ msgid "Find out more"
+#~ msgstr "Saznajte više"
+
+#, fuzzy
+#~ msgid "Barely visible"
+#~ msgstr "Vidljivo do"
+
+#, fuzzy
+#~ msgid "Normal coverage"
+#~ msgstr ""
+#~ "NAPOMENA : Slede opcije nisu namenjene za normalnu upotrebu , a tu su "
+#~ "samo za programere da pregledaju sačuvane postavke ili kako se oglasi "
+#~ "izabrani . To se može koristiti kao mera za rešavanje problema na "
+#~ "zahtev , ali za normalnu upotrebu oni treba da budu levo neprovereni "
+
+#, fuzzy
+#~ msgid "Best visibility"
+#~ msgstr "Vidljivo do"
+
+#, fuzzy
+#~ msgid "Ads in group"
+#~ msgstr "Gupni oglasi - Koristite grupni ID"
+
+#~ msgid "Code"
+#~ msgstr "Kod"
+
+#~ msgid "Impressions timer"
+#~ msgstr "Utisci tajmer"
+
+#, fuzzy
+#~ msgid "Learn More"
+#~ msgstr "Saznajte više"
+
+#, fuzzy
+#~ msgid ""
+#~ "Your one stop for Webdevelopment, consultancy and anything WordPress! "
+#~ "Find out more about what I can do for you!"
+#~ msgstr ""
+#~ "Vaša jedna stanica za Webdevelopment , konsultacije i sve vezano za "
+#~ "WordPress ! Ako vam je potreban prilagođeni plugin . Tema prilagođavanja "
+#~ "ili je vaš sajt preseljen/ migrirali u potpunosti . Posetite moj sajt za "
+#~ "više detalja !"
+
+#~ msgid "Ad created"
+#~ msgstr "Stvaranje oglasa"
+
+#~ msgid ""
+#~ "The ad was saved but has an issue which might prevent it from working "
+#~ "properly. Review the yellow marked ad."
+#~ msgstr ""
+#~ "Oglas je sačuvan , ali ima taj problem što može da spreči da radi "
+#~ "ispravno . Pregledajte žuto označeni oglas. "
+
+#~ msgid "Group created"
+#~ msgstr "Stvorena grupa"
+
+#~ msgid "Group updated"
+#~ msgstr "Updateovana grupa"
+
+#~ msgid "Access Rights"
+#~ msgstr "Prava pristupa"
+
+#~ msgid ""
+#~ "A comma separated list of keywords. Filter out bots/crawlers/user-agents. "
+#~ "To prevent impressions and clicks counted on them."
+#~ msgstr ""
+#~ "Zarezom odvojena lista ključnih reči . Filter se botovi / popisivači / "
+#~ "user-agent . Da biste sprečili prikaza i klikova na njih računati ."
+
+#, fuzzy
+#~ msgid ""
+#~ "Keep in mind that this might give false positives. The word 'google' also "
+#~ "matches 'googlebot', but not vice-versa. So be careful!"
+#~ msgstr ""
+#~ "Sat koristi 24 -časovni sat . Kada se koristi za AM / PM sistem imajte "
+#~ "ovo na umu : Ako je početak ili kraj je vreme posle ručka , dodajte 12 "
+#~ "sati . 2pm je 14:00 sati . 6 prepodne je 6:00 sati ."
+
+#, fuzzy
+#~ msgid "Keep your list up-to-date"
+#~ msgstr ""
+#~ "Razdvojene zarezom spisak adresa e-pošte . Maksimalan broj 5 adresa . "
+#~ "Držite ovu listu na minimum !"
+
+#, fuzzy
+#~ msgid ""
+#~ "Use only words with alphanumeric characters, [ - _ ] are allowed too. All "
+#~ "other characters are stripped out."
+#~ msgstr "HTML će biti skinut."
+
+#, fuzzy
+#~ msgid ""
+#~ "jQuery is required for all Javascript features below. Enable this if your "
+#~ "theme does not load jQuery already."
+#~ msgstr "Praćenje klikom:"
+
+#, fuzzy
+#~ msgid "Load in footer?"
+#~ msgstr ""
+#~ "Ubacite novu reklamu u ovom intervalu , bez ponovnog učitavanja stranice."
+#~ "Default: 6."
+
+#, fuzzy
+#~ msgid ""
+#~ "Enable if you want to load the above libraries in the footer. Your theme "
+#~ "needs to call wp_footer() for this to work."
+#~ msgstr ""
+#~ "Vaša jedna stanica za Webdevelopment , konsultacije i sve vezano za "
+#~ "WordPress ! Ako vam je potreban prilagođeni plugin . Tema prilagođavanja "
+#~ "ili je vaš sajt preseljen/ migrirali u potpunosti . Posetite moj sajt za "
+#~ "više detalja !"
+
+#, fuzzy
+#~ msgid ""
+#~ "NOTE: The below functions are intented to be used to OPTIMIZE your "
+#~ "database. They only apply to your ads/groups and stats. Not to other "
+#~ "settings or other parts of WordPress! Always always make a backup! These "
+#~ "functions are to be used when you feel or notice your database is slow, "
+#~ "unresponsive and sluggish."
+#~ msgstr ""
+#~ "NAPOMENA : Slede funkcije intented da se koristi za optimizaciju baze "
+#~ "podataka . Oni se primenjuju samo na oglase / grupa / blokova i "
+#~ "statistika . Nije na druge postavke ili druge delove WordPress ! Uvek "
+#~ "uvek napravite rezervnu kopiju ! Ove funkcije mogu da se koriste kada se "
+#~ "osećate ili primetite vaša baza podataka je spor , spor i ne reaguje ."
+
+#, fuzzy
+#~ msgid ""
+#~ "AdRotate creates empty records when you start making ads or groups. In "
+#~ "rare occasions these records are faulty."
+#~ msgstr "Prazni zapisi baze podataka uklanjaju"
+
+#, fuzzy
+#~ msgid ""
+#~ "If you made an ad or group that does not save when you make it use this "
+#~ "button to delete those empty records."
+#~ msgstr "Vi ste na putu da izbrišete grupu"
+
+#~ msgid ""
+#~ "DISCLAIMER: If for any reason your data is lost, damaged or otherwise "
+#~ "becomes unusable in any way or by any means in whichever way I will not "
+#~ "take responsibility. You should always have a backup of your database. "
+#~ "These functions do NOT destroy data. If data is lost, damaged or "
+#~ "unusable, your database likely was beyond repair already. Claiming it "
+#~ "worked before clicking these buttons is not a valid point in any case."
+#~ msgstr ""
+#~ "NAPOMENA : Ako se iz bilo kog razloga vaši podaci izgubljeni , oštećeni "
+#~ "ili na drugi način postane neupotrebljiv na bilo koji način ili bilo "
+#~ "kojim sredstvom u koji god način ne preuzima odgovornost . Uvek treba "
+#~ "imati rezervnu kopiju baze podataka . Ove funkcije ne uništi podatke . "
+#~ "Ako se podaci izgubljeni , oštećeni ili neupotrebljiv , baza podataka je "
+#~ "verovatno već nepopravljivo . Tvrdeći da je radio pre nego što kliknete "
+#~ "na ovu dugmad nijevažna stvar u svakom slučaju ."
+
+#, fuzzy
+#~ msgid "Unknown Status"
+#~ msgstr "Nepoznati error se ukazao."
+
+#~ msgid ""
+#~ "NOTE: The below options are not meant for normal use and are only there "
+#~ "for developers to review saved settings or how ads are selected. These "
+#~ "can be used as a measure of troubleshooting upon request but for normal "
+#~ "use they SHOULD BE LEFT UNCHECKED!!"
+#~ msgstr ""
+#~ "NAPOMENA : Slede opcije nisu namenjene za normalnu upotrebu , a tu su "
+#~ "samo za programere da pregledaju sačuvane postavke ili kako se oglasi "
+#~ "izabrani . To se može koristiti kao mera za rešavanje problema na "
+#~ "zahtev , ali za normalnu upotrebu oni treba da budu levo neprovereni "
+
+#~ msgid ""
+#~ "Troubleshoot ads and how (if) they are selected, has front-end output."
+#~ msgstr ""
+#~ "Rešavanje problema sa oglasima i kako ( ako ) su odabrani,  ima prednji "
+#~ "kraj izlaza ."
+
+#~ msgid "Show all settings, dashboard routines and related values."
+#~ msgstr "Pokaži sve parametre , Dashboard rutine i srodnih vrednosti ."
+
+#~ msgid "Show array of all userroles and capabilities."
+#~ msgstr "Prikaži niz svih uloga korisnika i mogućnosti."
+
+#~ msgid "Review saved advertisers! Visible to advertisers."
+#~ msgstr "Pregled sačuvanih oglašivača ! Vidljivo oglašivačima"
+
+#, fuzzy
+#~ msgid "Review global stats, per ad/group stats. Visible only to publishers."
+#~ msgstr ""
+#~ "Pregled globalna statistike , po oglasu / grupa / blok statistika . "
+#~ "Vidljivo samo izdavačima ."
+
+#~ msgid "Queued"
+#~ msgstr "Zahtevi"
+
+#~ msgid "The last few days"
+#~ msgstr "Poslednjih nekoliko dana"
+
+#~ msgid ""
+#~ "Your one stop for Webdevelopment, consultancy and anything WordPress! If "
+#~ "you need a custom plugin. Theme customizations or have your site moved/"
+#~ "migrated entirely. Visit my website for details!"
+#~ msgstr ""
+#~ "Vaša jedna stanica za Webdevelopment , konsultacije i sve vezano za "
+#~ "WordPress ! Ako vam je potreban prilagođeni plugin . Tema prilagođavanja "
+#~ "ili je vaš sajt preseljen/ migrirali u potpunosti . Posetite moj sajt za "
+#~ "više detalja !"
+
+#~ msgid "You did use %image% in your AdCode but did not select an image!"
+#~ msgstr "Vi ste koristili %image% u AdCode ali niste izabrali sliku !"
+
+#~ msgid "Use %image% in the code. Accepted files are:"
+#~ msgstr "Koristi %image% u kodu. Prihvatljivi fajlovi su:"
+
+#, fuzzy
+#~ msgid "After..."
+#~ msgstr "Posle oglasa"
+
+#, fuzzy
+#~ msgid "WP Super Cache"
+#~ msgstr ""
+#~ "To može potrajati dok oglas počne da se rotira . Hvatanje plugina mora da "
+#~ "osveži cache. To može da potraje i do nedelju dana, ako ne radi ručno "
+
+#, fuzzy
+#~ msgid "Check this box if you use WP Super Cache on your site."
+#~ msgstr "Proverite ovo polje ako koristite W3 Total Caching na vašem sajtu."
+
+#, fuzzy
+#~ msgid "Stay up-to-date with the notification system"
+#~ msgstr "Oglasi koje treba neposrednu pažnju"
+
+#~ msgid "Title:"
+#~ msgstr "Naslov :"
+
+#~ msgid "AdCode:"
+#~ msgstr "AdCode:"
+
+#~ msgid "Banner image:"
+#~ msgstr "Slika banera:"
+
+#~ msgid "Activate:"
+#~ msgstr "Aktiviranje :"
+
+#~ msgid "In a post or page:"
+#~ msgstr "U post ili stranicu:"
+
+#~ msgid "Directly in a theme:"
+#~ msgstr "Direktno na temu :"
+
+#~ msgid "Start date (day/month/year):"
+#~ msgstr "Datum početka (dan/mesec/godina):"
+
+#~ msgid "End date (day/month/year):"
+#~ msgstr "Datum završetka (dan/mesec/godina)"
+
+#~ msgid "Start time (hh:mm):"
+#~ msgstr "Početno vreme (hh:mm):"
+
+#~ msgid "End time (hh:mm):"
+#~ msgstr "Završno vreme (hh:mm):"
+
+#~ msgid "Maximum Clicks:"
+#~ msgstr "Maksimum klikovi:"
+
+#~ msgid "Maximum Impressions:"
+#~ msgstr "Maksimalni utisci:"
+
+#~ msgid ""
+#~ "The maximum clicks and impressions are measured over the set schedule "
+#~ "only. Every schedule can have it's own limit!"
+#~ msgstr ""
+#~ "Maksimalne klikovi i prikazi praćeni tokom postavljenom rasporedu samo . "
+#~ "Svaki raspored može da ima svoju granicu !"
+
+#~ msgid "Weight:"
+#~ msgstr "Težina:"
+
+#, fuzzy
+#~ msgid "AdRotate Pro only"
+#~ msgstr "AdRotate Pro"
+
+#~ msgid "Sortorder:"
+#~ msgstr "Poredak:"
+
+#, fuzzy
+#~ msgid "Cities/States:"
+#~ msgstr "Gradovi:"
+
+#, fuzzy
+#~ msgid "Countries:"
+#~ msgstr "Zemlje:"
+
+#~ msgid "Name:"
+#~ msgstr "Ime:"
+
+#~ msgid "Include ads in categories?"
+#~ msgstr "Uključiti oglase u kategorije?"
+
+#~ msgid "Include ads in pages?"
+#~ msgstr "Uključite oglase na stranicama ?"
+
+#~ msgid "Before ad"
+#~ msgstr "Pre ad"
+
+#~ msgid "After ad"
+#~ msgstr "Posle oglasa"
+
+#~ msgid "Select Ads"
+#~ msgstr "Izaberite oglase"
+
+#, fuzzy
+#~ msgid "Enable stats"
+#~ msgstr "Statistika"
+
+#, fuzzy
+#~ msgid ""
+#~ "Disabling this also disables click and impression limits on schedules."
+#~ msgstr ""
+#~ "Onemogućavanje ovoga takođe onemogućava klikovima i prikazima granice "
+#~ "rasporede i onemogućava rokovima "
+
+#~ msgid ""
+#~ "There is a problem saving the image specification. Please reset your "
+#~ "image and re-save the ad!"
+#~ msgstr ""
+#~ "Postoji problem čuvanja slike specifikaciju. Molimo resetujete sliku i "
+#~ "ponovo sačuvajte oglas !"
+
+#~ msgid "Clicktracking:"
+#~ msgstr "Praćenje klikom:"
+
+#, fuzzy
+#~ msgid "Enable click tracking for this advert."
+#~ msgstr "Nema efekta ako se klik i utisak praćenja onemogući ."
+
+#, fuzzy
+#~ msgid "Usage:"
+#~ msgstr "upotreba"
+
+#~ msgid "You didn't use %image% in your AdCode but did select an image!"
+#~ msgstr "Niste koristili %image% AdCode ali ste  izaberali neku sliku !"
+
+#, fuzzy
+#~ msgid "These are required."
+#~ msgstr ""
+#~ "Blok oblik i granicu (Obavezno ) - Definišite oblik i veličinu bloka"
+
+#, fuzzy
+#~ msgid ""
+#~ "Place the cursor where you want to add a tag and click to add it to your "
+#~ "AdCode."
+#~ msgstr "Kliknite na poruke kategorije koje želite da se prikažu oglasi."
+
+#, fuzzy
+#~ msgid ""
+#~ "Copy the shortcode in a post or page. The PHP code goes in a theme file "
+#~ "where you want the advert to show up."
+#~ msgstr "U post ili stranicu:"
+
+#, fuzzy
+#~ msgid "Place the target URL in your adcode - Similar to code example 1."
+#~ msgstr ""
+#~ "Niste koristili %link%  u AdCode ali ste  aktivirali praćenje klikom!"
+
+#, fuzzy
+#~ msgid ""
+#~ "This field is no longer required. You can place the URL directly in the "
+#~ "adcode (above) instead of %link%."
+#~ msgstr ""
+#~ "WordPress nije bio u mogućnosti da verifikuje autentičnost url-a na koji "
+#~ "ste kliknuli. Verifikuj ak je url korišćen kao validan ili login via "
+#~ "vašeg pretraživača."
+
+#, fuzzy
+#~ msgid "Geo Location in AdRotate Pro"
+#~ msgstr "AdRotate Pro"
+
+#, fuzzy
+#~ msgid ""
+#~ "This works if you assign the advert to a group and enable that group to "
+#~ "use Geo Targeting."
+#~ msgstr "Gupni oglasi - Koristite grupni ID"
+
+#, fuzzy
+#~ msgid "Target your audience with Geo Location in AdRotate Pro"
+#~ msgstr "Targetirajte gradove i zemlje sa  GeoLocation."
+
+#, fuzzy
+#~ msgid "From when to when is the advert visible?"
+#~ msgstr "Nema efekta ako se klik i utisak praćenja onemogući ."
+
+#, fuzzy
+#~ msgid "Choose Multiple Schedules in AdRotate Pro"
+#~ msgstr "Dostupno u AdRotate Pro"
+
+#, fuzzy
+#~ msgid "From / Until"
+#~ msgstr "Vidljivo do"
+
+#, fuzzy
+#~ msgid "impressions per day"
+#~ msgstr "Utisci"
+
+#, fuzzy
+#~ msgid "In use by this advert."
+#~ msgstr "Granica oglasa"
+
+#, fuzzy
+#~ msgid "Optionally select the group(s) this ad belongs to."
+#~ msgstr "aktivni ad-ovi su istekli."
+
+#, fuzzy
+#~ msgid "Block shape and border"
+#~ msgstr ""
+#~ "Blok oblik i granicu (Obavezno ) - Definišite oblik i veličinu bloka"
+
+#, fuzzy
+#~ msgid ""
+#~ "Make a grid for your ads. Selecting 3 and 2 makes a grid with 2 columns "
+#~ "showing a maximum of 6 ads. Default: 2x2."
+#~ msgstr ""
+#~ "Napravite mrežu za oglase . Popunjavanje 3 i 2 čini mrežu sa 2 kolone "
+#~ "pokazuju maksimalno 6 oglasa.  Default: 2x2."
+
+#, fuzzy
+#~ msgid "Advert Width and Height"
+#~ msgstr "Širina i visina"
+
+#, fuzzy
+#~ msgid "Wraps around each ad."
+#~ msgstr "Kod omotača (Opcionalno) - Obmotava se oko svakog posebnog oglasa"
+
+#~ msgid "HTML/JavaScript allowed, use with care!"
+#~ msgstr "HTML / JavaScript dozvoljeno , koristite pažljivo !"
+
+#, fuzzy
+#~ msgid "AdRotate Website."
+#~ msgstr "AdRotate prodavnica"
+
+#, fuzzy
+#~ msgid "AdRotate Getting Started."
+#~ msgstr "AdRotate postavke"
+
+#, fuzzy
+#~ msgid "AdRotate Website Forum."
+#~ msgstr "AdRotate prodavnica"
+
+#~ msgid "You are using"
+#~ msgstr "Koristite"
+
+#, fuzzy
+#~ msgid "or go to the"
+#~ msgstr "Kreni"
+
+#~ msgid "Your gift will ensure the continued development of AdRotate!"
+#~ msgstr "Vaš poklon će obezbediti kontinuirani razvoj AdRotate !"
+
+#, fuzzy
+#~ msgid "AdRotate Server"
+#~ msgstr "AdRotate promocije"
+
+#, fuzzy
+#~ msgid "Overview"
+#~ msgstr "Mesečni pregled klikova i utisaka"
+
+#, fuzzy
+#~ msgid "Javascript Libraries"
+#~ msgstr "HTML / JavaScript dozvoljeno , koristite pažljivo !"
+
+#, fuzzy
+#~ msgid "Added / Updated"
+#~ msgstr "Update-ovanje blokiranja"
+
+#, fuzzy
+#~ msgid "No ads received yet!"
+#~ msgstr "Nijedan oglas još nje stvoren!"
+
+#, fuzzy
+#~ msgid "Updated"
+#~ msgstr "Update-ovanje blokiranja"
+
+#, fuzzy
+#~ msgid "AdRotate Server Settings"
+#~ msgstr "AdRotate postavke"
+
+#, fuzzy
+#~ msgid "Status"
+#~ msgstr "Statistika"
+
+#, fuzzy
+#~ msgid "Not linked - No adverts will be synced."
+#~ msgstr "Oglasi"
+
+#, fuzzy
+#~ msgid "Unlink from server"
+#~ msgstr "Prikazati iz"
+
+#, fuzzy
+#~ msgid "AdRotate Website"
+#~ msgstr "AdRotate prodavnica"
+
+#, fuzzy
+#~ msgid "Block of Ads (Obsolete)"
+#~ msgstr "Blokirajte oglase - Koristite Block ID"
+
+#, fuzzy
+#~ msgid "Default: 60. Set to 0 to disable this timer."
+#~ msgstr "Default:10 . Podesite na 0 da isključite ovaj tajmer ."
+
+#, fuzzy
+#~ msgid "Default: 86400. Set to 0 to disable this timer."
+#~ msgstr "Default:10 . Podesite na 0 da isključite ovaj tajmer ."
+
+#, fuzzy
+#~ msgid "Load jQuery Clicktracking"
+#~ msgstr "Praćenje klikom:"
+
+#~ msgid "Get more features! Get AdRotate Pro."
+#~ msgstr "Nabvite jos karakteristika! AdRotate Pro."
+
+#~ msgid "More info"
+#~ msgstr "Više informacija"
+
+#, fuzzy
+#~ msgid "Get help with installations"
+#~ msgstr "Instalacije"
+
+#~ msgid "Not sure how to set up AdRotate? Get me to do it!"
+#~ msgstr "Niste sigurni kako da podesite AdRotate ? Dajte mi da to uradim !"
+
+#~ msgid "Premium Support"
+#~ msgstr "Premium podrška"
+
+#~ msgid "Stuck with AdRotate? I'll help!"
+#~ msgstr "Zaglavili ste se sa AdRotate ? Ja ću vam pomoći !"
+
+#~ msgid "Visit store to see all services and products"
+#~ msgstr "Posetite prodavnicu da vidite sve usluge i proizvode"
+
+#, fuzzy
+#~ msgid "Email or Remote page:"
+#~ msgstr "Stranica oglašivača"
+
+#, fuzzy
+#~ msgid "Buy"
+#~ msgstr "Kupite odmah"
+
+#~ msgid "Check out the"
+#~ msgstr "Pogledajte"
+
+#~ msgid "and have the most popular features explained."
+#~ msgstr "i najpopularnije karakteristike objašnjene"
+
+#~ msgid "Grab the latest news and updates on the"
+#~ msgstr "Uhvatite najnovije vesti i update na"
+
+#~ msgid "AdRotate Blog"
+#~ msgstr "AdRotate Blog"
+
+#~ msgid "Find my website at"
+#~ msgstr "Pronadjite moj website na"
+
+#, fuzzy
+#~ msgid "Load Dynamic Groups"
+#~ msgstr "Grupe"
+
+#~ msgid "Choose the ads to use in this group"
+#~ msgstr "Izaberite da se oglasi za korišćenje u ovoj grupi"
+
+#~ msgid "Create Role"
+#~ msgstr "Stvoriti ulogu"
+
+#~ msgid ""
+#~ "This role has no capabilities unless you assign them using the above "
+#~ "options. Obviously you should use this with care."
+#~ msgstr ""
+#~ "Ova uloga nema mogućnosti osim ako ih dodelite korišćenjem navedenih "
+#~ "opcija . Očigledno treba da koristite ovo sa pažnjom."
+
+#~ msgid ""
+#~ "This type of user is NOT required to use AdRotate or any of it's "
+#~ "features. It merely helps you to seperate advertisers from regular "
+#~ "subscribers without giving them too much access to your dashboard."
+#~ msgstr ""
+#~ "Ovaj tip korisnik ne mora da koristi AdRotate ili bilo koji od njenih "
+#~ "karakteristika . On vam samo pomaže da odvojiti oglašavače od redovnih "
+#~ "pretplatnika da im ne date previše pristupa kontrolnoj tabli ."
+
+#~ msgid "Track impressions from logged in users (Recommended)."
+#~ msgstr "Pratite utiske ulogovanih korisniika (Preporučeno)"
+
+#~ msgid "Has no effect when click and impression tracking is disabled."
+#~ msgstr "Nema efekta ako se klik i utisak praćenja onemogući ."
+
+#, fuzzy
+#~ msgid "Geographic Tracking"
+#~ msgstr "Nema efekta ako se klik i utisak praćenja onemogući ."
+
+#, fuzzy
+#~ msgid "Enable Freegeoip for adverts."
+#~ msgstr "Oglasi"
+
+#, fuzzy
+#~ msgid "to keep their services free and awesome!"
+#~ msgstr "Posetite prodavnicu da vidite sve usluge i proizvode"
+
+#~ msgid "Allow advertisers to specify where their ads will show."
+#~ msgstr ""
+#~ "Dozvoli oglašavačima da odredite gde se njihovi oglasi će pokazati ."
+
+#, fuzzy
+#~ msgid "Enable the AdRotate Quickmenu in the Admin Bar"
+#~ msgstr "Omogući oglašivače"
+
+#, fuzzy
+#~ msgid "Disable Dashboard Notifications about advert statuses."
+#~ msgstr "Notifikacije"
+
+#, fuzzy
+#~ msgid ""
+#~ "When editing adverts; Hide schedules that are not in use by that advert."
+#~ msgstr ""
+#~ "Oblik i granica oglasa (Potrebno) - Definišite oblik i veličinu oglasa"
+
+#, fuzzy
+#~ msgid "Load Ad Blocker Detection"
+#~ msgstr "Praćenje klikom:"
+
+#, fuzzy
+#~ msgid "Try to detect Ad Blockers and show your visitors a nag message."
+#~ msgstr "Praćenje klikom:"
+
+#, fuzzy
+#~ msgid "Geo Location"
+#~ msgstr ""
+#~ "Ili nema banera, onemogućeni su ili nije kvalifikovan za ovu lokaciju!"
+
+#, fuzzy
+#~ msgid "Enable GeoTargeting for this group."
+#~ msgstr "Omogući oglašivače"
+
+#, fuzzy
+#~ msgid "Fallback group"
+#~ msgstr "Rezervna"
+
+#, fuzzy
+#~ msgid "No"
+#~ msgstr "Ništa"
+
+#~ msgid ""
+#~ "Select another group to fall back on when all ads are expired, not in the "
+#~ "visitors geographic area or are otherwise unavailable."
+#~ msgstr ""
+#~ "Izaberite drugu grupu za oslonac kada svi oglasi isteknu, ne u "
+#~ "geografskom području posetilaca ili su na neki drugi način nedostupne ."
+
+#~ msgid "Like the plugin?"
+#~ msgstr "Dopada vam se plugin?"
+
+#~ msgid "Rate and review"
+#~ msgstr "Dajte ocenu i komentar"
+
+#, fuzzy
+#~ msgid "Buy AdRotate Professional here"
+#~ msgstr "Kupite odmah"
+
+#~ msgid "Check the manual of your caching plugin to see how this works."
+#~ msgstr "Proverite uputstvo vašeg keširanje plugin da vidim kako to radi."
+
+#~ msgid "Current Schedules"
+#~ msgstr "Trenutni raspored"
+
+#, fuzzy
+#~ msgid "This ad used"
+#~ msgstr "Da , ovaj oglas će se koristiti"
+
+#~ msgid "Fallback"
+#~ msgstr "Rezervna"
+
+#~ msgid "AJdG Solutions"
+#~ msgstr "AJdG rešenja"
+
+#, fuzzy
+#~ msgid ""
+#~ "Who has access to what? All but the \"advertiser page\" are usually for "
+#~ "admins and moderators."
+#~ msgstr "Stranica oglašivača"
+
+#, fuzzy
+#~ msgid ""
+#~ "Activate your AdRotate License here to receive support via the fast and "
+#~ "personal ticket system."
+#~ msgstr "AdRotate podrška"
+
+#, fuzzy
+#~ msgid ""
+#~ "The jQuery.jshowoff.adrotate library is required for Dynamic Groups. This "
+#~ "library depends on jQuery."
+#~ msgstr "Grupe"
+
+#, fuzzy
+#~ msgid ""
+#~ "The jQuery.clicktracker library is required for Clicktracking. This "
+#~ "library depends on jQuery."
+#~ msgstr "Praćenje klikom:"
+
+#~ msgid "Manage Blocks"
+#~ msgstr "Upravljajte blokiranima"
+
+#~ msgid "Delete Block(s)"
+#~ msgstr "Izbrisati blokirane"
+
+#~ msgid "You are about to delete a block"
+#~ msgstr "Na putu ste da izbrišete blokiranu"
+
+#~ msgid "No blocks created yet!"
+#~ msgstr "Nijedan blok nije stvoren još uvek!"
+
+#~ msgid "Your support makes a difference"
+#~ msgstr "Your support makes a difference"
+
+#~ msgid ""
+#~ "Your awesome gift will ensure the continued development of AdRotate! "
+#~ "Thanks for your consideration!"
+#~ msgstr ""
+#~ "Vaš strava poklon će osigurati kontinuirani razvoj AdRotate! Hvala vam na "
+#~ "tome!"
+
+#~ msgid "Moderate"
+#~ msgstr "Ograničite"
+
+#~ msgid "Global Reports"
+#~ msgstr "Globalni izveštaji"
+
+#~ msgid "Moderation queue"
+#~ msgstr "Zahtevi moderacije"
+
+#~ msgid "Approve"
+#~ msgstr "Odobreno"
+
+#~ msgid "Reject"
+#~ msgstr "Odbijeno"
+
+#~ msgid "Advertiser"
+#~ msgstr "Oglašivač"
+
+#~ msgid ""
+#~ "Couple adverts to advertisers and allow them to create and upload their "
+#~ "own advertisements for you to moderate and approve or reject!"
+#~ msgstr ""
+#~ "Par oglasa oglašivačima i omogućiti im da stvore i upload sopstvene "
+#~ "reklame za vas da umereno i odobri ili odbije !"
+
+#~ msgid "A summarized overview of all adverts currently active!"
+#~ msgstr "Sažeti pregled svih trenutno aktivnih oglasa !"
+
+#, fuzzy
+#~ msgid "AdRotate Promotions & Highlighted blog posts"
+#~ msgstr "AdRotate promocije"
+
+#~ msgid "Advertiser & Budget"
+#~ msgstr "Oglašivača i budžet"
+
+#, fuzzy
+#~ msgid ""
+#~ "Link your ad to an Advertiser and optionally set a budget for clicks and "
+#~ "impressions."
+#~ msgstr "Oglašivača i budžet"
+
+#, fuzzy
+#~ msgid "Enable."
+#~ msgstr "Omogući oglašivače"
+
+#~ msgid "Do not use this feature"
+#~ msgstr "Nemojte da koristite ovu funkciju"
+
+#~ msgid "Before the post content"
+#~ msgstr "Pre objavljenog sadržaja"
+
+#~ msgid "After the page content"
+#~ msgstr "Nakon sadržaj stranice"
+
+#~ msgid "Save"
+#~ msgstr "Sačuvati"
+
+#~ msgid "Block of Ads - Use Block ID"
+#~ msgstr "Blokirajte oglase - Koristite Block ID"
+
+#~ msgid "Block Management"
+#~ msgstr "Menadžmet blokiranih"
+
+#~ msgid "Block created"
+#~ msgstr "Kreirano blokiranje"
+
+#~ msgid "Block updated"
+#~ msgstr "Update-ovanje blokiranja"
+
+#~ msgid "Advertiser page"
+#~ msgstr "Stranica oglašivača"
+
+#~ msgid "Role to allow users/advertisers to see their advertisement page."
+#~ msgstr ""
+#~ "Uloga da omogući korisnicima / oglašavačima da vide svoju stranu reklama "
+
+#~ msgid "Global report page"
+#~ msgstr "Globalni izveštaj stranica"
+
+#~ msgid "Role to review the global report."
+#~ msgstr " Uloga da preispita globalni izveštaj ."
+
+#~ msgid "Manage/Add/Edit blocks"
+#~ msgstr "Upravljanje / Add / Edit blokova"
+
+#~ msgid "Role to see and add/edit blocks."
+#~ msgstr "Uloga videti i add / edit blokova ."
+
+#~ msgid "Delete blocks"
+#~ msgstr "Brisanje blokova"
+
+#~ msgid "Role to delete blocks."
+#~ msgstr "Uloga za brisanje blokova ."
+
+#~ msgid "Moderate new adverts"
+#~ msgstr "Moderacija novih oglasa"
+
+#~ msgid "Role to approve ads submitted by advertisers."
+#~ msgstr "Uloga odobri oglase koji oglašavači šalju ."
+
+#~ msgid "Role to approve or reject ads submitted by advertisers."
+#~ msgstr "Uloga da odobri ili odbije oglase dostavljene od oglašivača ."
+
+#~ msgid "Advertiser Messages"
+#~ msgstr "Advertiser poruke"
+
+#, fuzzy
+#~ msgid "Configure who gets email from advertisers."
+#~ msgstr "Oglašivači"
+
+#~ msgid ""
+#~ "This sends a test message. Before you test, for example, with a new email "
+#~ "address. Save the options first!"
+#~ msgstr ""
+#~ "Ovaj test šalje poruke . Pre nego što testirate , na primer , sa novim "
+#~ "email adresu. Sačuvajte prvi opcije !"
+
+#, fuzzy
+#~ msgid "Load jQuery ShowOff"
+#~ msgstr ""
+#~ "Ubacite novu reklamu u ovom intervalu , bez ponovnog učitavanja stranice."
+#~ "Default: 6."
+
+#~ msgid "Blocks"
+#~ msgstr "Blokovi"
+
+#~ msgid "Periodic Maintenance"
+#~ msgstr "Periodično održavanje"
+
+#~ msgid "No time to get things done? Let's make a schedule!"
+#~ msgstr "Nema vremena da se stvari urade ? Hajde da napravimo raspored !"
+
+#~ msgid ""
+#~ "This advert has run out of budget. Add more budget to the advert or reset "
+#~ "the rate to zero!"
+#~ msgstr ""
+#~ "Ovaj oglas je ostao bez budžeta . Dodajte još budžeta za reklamu ili "
+#~ "resetuje stopu na nulu !"
+
+#, fuzzy
+#~ msgid "Click an example to add it to your AdCode."
+#~ msgstr "Primer"
+
+#, fuzzy
+#~ msgid "jQuery must be active on your site for clicktracking to work."
+#~ msgstr "Praćenje klikom:"
+
+#, fuzzy
+#~ msgid "Remote usage:"
+#~ msgstr "upotreba"
+
+#, fuzzy
+#~ msgid ""
+#~ "Enter the target url here if you intent to use this advert in mailings or "
+#~ "on remote pages."
+#~ msgstr "Izaberite stranice koje želite da reklama pokaže"
+
+#~ msgid "Edit Block"
+#~ msgstr "Edituj blokove"
+
+#~ msgid "The basics"
+#~ msgstr "Osnove"
+
+#~ msgid "Name / Reference:"
+#~ msgstr "Ime / Reference"
+
+#~ msgid ""
+#~ "Block shape  and border (Required) - Define the shape and size of the "
+#~ "block"
+#~ msgstr ""
+#~ "Blok oblik i granicu (Obavezno ) - Definišite oblik i veličinu bloka"
+
+#~ msgid "Rows and Columns"
+#~ msgstr "Redovi i kolone"
+
+#~ msgid ""
+#~ "Make a grid for your ads. Filling in 2 and 2 makes a 2x2 grid. (Default: "
+#~ "2/2)"
+#~ msgstr ""
+#~ "Napravite mrežu za oglase. Popunjavanje 2 i 2 čini 2x2 mrežu.  (Default: "
+#~ "2/2)"
+
+#~ msgid "Block Padding"
+#~ msgstr "Blokiraj punjenje"
+
+#~ msgid "An invisible border inside the block in pixels. (Default: 1)"
+#~ msgstr "Nevidljiva granica unutar blokova u pikselima. (Default: 1)"
+
+#~ msgid ""
+#~ "Advert shape and border (Required) - Define the shape and size of the "
+#~ "adverts"
+#~ msgstr ""
+#~ "Oblik i granica oglasa (Potrebno) - Definišite oblik i veličinu oglasa"
+
+#~ msgid "Width and Height"
+#~ msgstr "Širina i visina"
+
+#~ msgid "pixel(s) margin"
+#~ msgstr "margina piksela"
+
+#~ msgid "An invisible border outside the advert in pixels. (Default: 1)"
+#~ msgstr "Nevidljiva granica van oglasa u pikselima.  (Default: 1)"
+
+#~ msgid "Advert Border"
+#~ msgstr "Granica oglasa"
+
+#~ msgid "Style"
+#~ msgstr "Stil"
+
+#~ msgid "Width"
+#~ msgstr "Širina"
+
+#~ msgid "pixel(s). Color"
+#~ msgstr "pikseli. Boja"
+
+#~ msgid ""
+#~ "Set the border width to 0 to disable. Color must be a valid hex value. "
+#~ "(Default: none/0/#fff)"
+#~ msgstr ""
+#~ "Podesite širinu granice na 0 da biste onemogućili . Boja mora biti važeća "
+#~ "hex vrednost.  (Default: none/0/#fff)"
+
+#~ msgid "Wrapper code (Optional) - Wraps around each ad"
+#~ msgstr "Kod omotača (Opcionalno) - Obmotava se oko svakog posebnog oglasa"
+
+#~ msgid "Choose the groups to use in this block"
+#~ msgstr "Izaberi grubu koja će se koristiti"
+
+#~ msgid "This blocks performance"
+#~ msgstr "Performanse ovog bloka"
+
+#~ msgid "Statistics for"
+#~ msgstr "Sttistike za"
+
+#~ msgid "Export options for"
+#~ msgstr "Izlazne opcije za"
+
+#~ msgid "Track visitors"
+#~ msgstr "Pratite posetioce"
+
+#~ msgid "You are about to remove empty records from the AdRotate database."
+#~ msgstr "Spremate se da uklonite prazne zapise iz baze podataka AdRotate ."
+
+#~ msgid ""
+#~ "AdRotate creates empty records when you start making ads, groups or "
+#~ "blocks. In rare occasions these records are faulty. If you made an ad, "
+#~ "group or block that does not save when you make it use this button to "
+#~ "delete those empty records."
+#~ msgstr ""
+#~ "AdRotate stvara prazne zapise kada počnete da zarađujete reklame, grupa "
+#~ "ili blokove . U retkim slučajevima ovi podaci su neispravni . Ako ste "
+#~ "napravili oglasnu grupu , ili blok koji se ne čuva kada bi to koristite "
+#~ "ovo dugme da biste izbrisali te prazne zapise ."
+
+#~ msgid ""
+#~ "Additionally the statistics are cleaned up. Old temporary data will be "
+#~ "removed."
+#~ msgstr ""
+#~ "Pored statistike se očisti . Stari privremeni podaci će biti uklonjeni ."
+
+#~ msgid "No address specified"
+#~ msgstr "Bez odredjene adrese"
+
+#~ msgid "Feedback/bugs"
+#~ msgstr "Feedback/bugovi"
+
+#~ msgid "Error, Ad"
+#~ msgstr "Error, oglas"
+
+#~ msgid "Error, ad could not be found! Make sure it exists."
+#~ msgstr "Error, ad nije pronadjen! Budite sigurni da postoji!"
+
+#~ msgid "Error, Block"
+#~ msgstr "Error, blokirati"
+
+#~ msgid "Error, no Block ID set! Check your syntax!"
+#~ msgstr "Error, nema Blokiraj ID set!  Proverite vaš syntax!"
+
+#, fuzzy
+#~ msgid "Clean-up Stats"
+#~ msgstr "Čišćenje baze"
+
+#, fuzzy
+#~ msgid "Clean-up Statistics"
+#~ msgstr "Statistike"
+
+#, fuzzy
+#~ msgid ""
+#~ "You are about to remove statistics older than 356 days from the AdRotate "
+#~ "database."
+#~ msgstr "Spremate se da uklonite prazne zapise iz baze podataka AdRotate ."
+
+#~ msgid ""
+#~ "You've enabled clicktracking but didn't provide an url in the url field!"
+#~ msgstr ""
+#~ "Vi ste omogućili praćenje klikom ali niste pružili URL adresu u polju URL-"
+#~ "a !"
+
+#~ msgid "You didn't enable clicktracking but you did use the url field!"
+#~ msgstr "Nisi omogućiti praćenje klikom ali ste koristite URL polje!"
+
+#~ msgid "You've %link% in your AdCode but didn't enable clicktracking!"
+#~ msgstr "Imate %link% u AdCode ali nije omogućeno praćenje klikom !"
+
+#~ msgid "Enable?"
+#~ msgstr "Omogućiti?"
+
+#~ msgid "Use %link% in the adcode instead of the actual url."
+#~ msgstr "Koristi %link% u adcode umesto url-a."
+
+#~ msgid "For a random seed you can use %random%."
+#~ msgstr "Za random seed možete koristiti %random%."
+
+#~ msgid ""
+#~ "If you use remote clicktracking (ads in emails for example) add "
+#~ "\"&remote=1\" to the very end of the tracking url."
+#~ msgstr ""
+#~ "Ako koristite praćenje klikom (oglasi u mailovima na primer) add "
+#~ "\"&remote=1\" za kraj praćenja url-a."
+
+#~ msgid "Leave empty or 0 to skip this. Will default to block id."
+#~ msgstr "Ostavi prazno ili 0 da bi se ovo preskočilo. Default za blok id."
+
+#~ msgid "None"
+#~ msgstr "Ništa"
+
+#~ msgid "Solid"
+#~ msgstr "Solidno"
+
+#~ msgid "Dotted"
+#~ msgstr "Tačkasto"
+
+#~ msgid "Dashed"
+#~ msgstr "Isprekidano"
+
+#~ msgid "Double"
+#~ msgstr "Poduplano"
+
+#~ msgid "Groove"
+#~ msgstr "Isečeno"
+
+#~ msgid "Ridge"
+#~ msgstr "Ridge"
+
+#~ msgid "Inset"
+#~ msgstr "Inset"
+
+#~ msgid "Outset"
+#~ msgstr "Outset"
+
+#~ msgid "More on AdRotate on"
+#~ msgstr "Više o AdRotate na"
+
+#~ msgid "Be sure to subscribe!"
+#~ msgstr "Pretplatite se!"
+
+#~ msgid "AdRotate Notice"
+#~ msgstr "AdRotate beleška"
+
+#~ msgid ""
+#~ "The overall stats do not take ads from other advertisers into account."
+#~ msgstr "Ukupne statistike ne uzimaju oglase iz drugih oglašavača u obzir ."
+
+#~ msgid "Your ads are published with"
+#~ msgstr "Vaši oglasi su objavljeni sa"
+
+#~ msgid "for WordPress. Created by"
+#~ msgstr "za WordPress. Kreirano od strane"
+
+#, fuzzy
+#~ msgid "Using the geoPlugin option requires a free account from"
+#~ msgstr "Korišćenje GeoLocation zahteva besplatan nalog sa"
+
+#~ msgid "New Ad"
+#~ msgstr "Novi oglas"
+
+#~ msgid "This ad has no schedules!"
+#~ msgstr "Ovaj oglas nema rasporeda !"
+
+#~ msgid "The basics (Required)"
+#~ msgstr "Osnove (Obavezno )"
+
+#~ msgid "From"
+#~ msgstr "Od"
+
+#~ msgid "Until"
+#~ msgstr "Dok"
+
+#~ msgid "Timeframe"
+#~ msgstr "Vremenski okvir"
+
+#, fuzzy
+#~ msgid "Timeframe (Optional)"
+#~ msgstr "Naslov (opcionalno):"
+
+#, fuzzy
+#~ msgid "Timeframe:"
+#~ msgstr "Vremenski okvir"
+
+#, fuzzy
+#~ msgid "Maximum clicks:"
+#~ msgstr "Maksimum klikovi:"
+
+#~ msgid "Advertisement performance"
+#~ msgstr "Performanse reklamiranja"
+
+#~ msgid ""
+#~ "Automated refresh of adverts (Optional - Ignored if not using Dynamic "
+#~ "Mode)"
+#~ msgstr ""
+#~ "Automatski refresh oglasa ( opcionalno - zanemarenio ako se ne koristiti "
+#~ "dinamični mod)"
+
+#~ msgid "Interval"
+#~ msgstr "Interval"
+
+#~ msgid "Block shape and border (Optional - Ignored if not using Block Mode)"
+#~ msgstr ""
+#~ "Blok oblika i granica ( opcionalno - Zanemariti i ako ne koristite Block "
+#~ "Mode )"
+
+#~ msgid "Advanced (optional)"
+#~ msgstr "Unapredjeno (opcionalno)"
+
+#~ msgid "This groups performance"
+#~ msgstr "Performans ove grupe"
+
+#~ msgid "You do not have permission to do this."
+#~ msgstr "Vi nemate dozvolu da to uradite."
+
+#~ msgid ""
+#~ "Check this box if your theme does not add jQuery to your site. This "
+#~ "option may be required for Dynamic Mode in Groups."
+#~ msgstr ""
+#~ "Proverite ovo polje ako tema ne dodaje jQuery na vaš sajt . Ova opcija se "
+#~ "može zahtevati za Dynamic Mode u grupama ."
+
+#~ msgid "Add new schedules"
+#~ msgstr "Dodati nove rasporede"

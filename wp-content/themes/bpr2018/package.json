@@ -1,0 +1,45 @@
+{
+    "private": true,
+    "scripts": {
+        "dev": "npm run development",
+        "development": "cross-env NODE_ENV=development webpack --progress --hide-modules --config build/webpack.config.js",
+        "prod": "npm run production",
+        "production": "cross-env NODE_ENV=production webpack --progress --hide-modules --config build/webpack.config.js",
+        "watch": "npm run development -- --watch && webpack-dev-server --progress --colors",
+        "lint:js": "eslint resources/assets/js/**/*.{js,vue}",
+        "lint:sass": "stylelint resources/assets/sass/**/*.{scss,sass}",
+        "lint": "npm run lint:js && npm run lint:sass"
+    },
+    "dependencies": {
+        "bootstrap-sass": "^3.3.7"
+    },
+    "devDependencies": {
+        "autoprefixer": "^6.7.7",
+        "babel-core": "^6.24.1",
+        "babel-loader": "^7.1.0",
+        "babel-preset-env": "^1.3.3",
+        "browser-sync": "^2.18.8",
+        "browser-sync-webpack-plugin": "^1.1.4",
+        "clean-webpack-plugin": "^0.1.16",
+        "copy-webpack-plugin": "^4.0.1",
+        "cross-env": "^5.0.1",
+        "css-loader": "^0.28.0",
+        "dotenv": "^5.0.1",
+        "eslint": "^4.10.0",
+        "eslint-loader": "^1.9.0",
+        "eslint-plugin-vue": "^4.7.1",
+        "extract-text-webpack-plugin": "^3.0.0",
+        "file-loader": "^0.11.1",
+        "imagemin-webpack-plugin": "^1.4.4",
+        "img-loader": "^2.0.0",
+        "isdev": "^1.0.1",
+        "node-sass": "^4.5.2",
+        "postcss-loader": "^1.3.3",
+        "sass-loader": "^6.0.3",
+        "style-loader": "^0.16.1",
+        "stylelint-webpack-plugin": "^0.7.0",
+        "webpack": "^3.0.0",
+        "webpack-dev-server": "^2.4.4",
+        "webpack-merge": "^4.1.0"
+    }
+}

@@ -1,0 +1,12 @@
+{
+    "assets": {
+        "app": [
+            "./resources/assets/js/app.js",
+            "./resources/assets/sass/app.scss"
+        ],
+        "bootstrap": [
+            "./resources/assets/js/bootstrap.js",
+            "./resources/assets/sass/bootstrap.scss"
+        ]
+    }
+}
