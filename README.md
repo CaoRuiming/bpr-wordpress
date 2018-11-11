@@ -9,3 +9,8 @@ composer install
 npm install
 npm run dev
 ```
+
+To have assets automatically compile on save, run:
+```
+npm run dev && npm run watch
+```

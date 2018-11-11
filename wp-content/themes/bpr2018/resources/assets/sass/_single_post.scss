@@ -1,0 +1,15 @@
+@import "bpr_vars";
+
+.single-post {
+  .post-content {
+    p, span {
+      font-family: inherit !important;
+      font-size: inherit !important;
+    }
+
+    img {
+      margin-top: $spacing-md;
+      margin-bottom: $spacing-md;
+    }
+  }
+}

@@ -1,0 +1,46 @@
+// Extract these to theme specific stylsheets
+$color-white: #fff;
+$color-white-dark: #fefbf2;
+$color-black: #000;
+$color-gray-dark: #333333;
+$color-gray-light: #dbdbdb;
+$color-maroon: #510000;
+$color-maroon-dark: #140000;
+$color-gold: #fba919;
+$color-manilla: #ffebb9;
+$color-green: #53550a;
+$color-blue: #31506f;
+
+$color-background-mask: rgba(0, 0, 0, .6);
+$color-blue-background-mask: rgba(49,80,111, 0.85);
+
+$header-font: 'Playfair Display', sans-serif;
+$body-font: 'Source Sans Pro', sans-serif;
+
+$spacing-xs: 10px;
+$spacing-sm: 20px;
+$spacing-md: 40px;
+$spacing-lg: 80px;
+$spacing-xl: 120px;
+
+$narrow-width: 800px;
+
+$default-hover-opacity: 0.7;
+
+$default-icon-size: 32px;
+
+@mixin background-mask {
+  content: '';
+  background-color: $color-background-mask;
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+}
+
+@mixin background-default($background-size: cover) {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: $background-size;
+}
