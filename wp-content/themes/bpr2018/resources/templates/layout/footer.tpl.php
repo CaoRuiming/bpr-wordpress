@@ -11,27 +11,23 @@
                       <div>
                         <img class="top_element" id="logo" src="http://www.brownpoliticalreview.org/wp-content/uploads/2016/03/SQ_Logo.jpg" width="25%"/>
                       </div>
-                      <div>
-                        <ul id="media_links">
-                          <li><a target="_blank" href="https://www.facebook.com/BrownPoliticalReview">F</a></li>
-                          <li><a target="_blank" href="https://twitter.com/BrownBPR">t</a></li>
-                          <li><a target="_blank" href="https://www.youtube.com/user/BrownBPR/videos">y</a></li>
-                          <li><a target="_blank" href="https://www.instagram.com/brownpoliticalreview/">i</a></li>
-                          <li><a target="_blank" href="https://soundcloud.com/bpr-chief-of-staff">s</a></li>
-                        </ul>
+                      <div id="media_links">
+                          <?php wp_nav_menu( array(
+                              'menu' => 'social-media',
+                              // 'theme_location' => 'top',
+                              'menu_id' => '4',
+                          ) ); ?>
                       </div>
                     </div>
                     <div class="content col-lg-3">
                       <div class="internal_links">
                         <p>Brown Political Review</p>
                         <hr/>
-                        <ul>
-                          <li><a href="https://www.brownpoliticalreview.org/about">About</a></li>
-                          <li><a href="https://www.brownpoliticalreview.org/masthead">Masthead</a></li>
-                          <li><a href="https://www.brownpoliticalreview.org/contact-us">Contact Us</a></li>
-                          <li><a href="https://www.brownpoliticalreview.org/withus">Join BPR!</a></li>
-                          <li><a href="https://www.brownpoliticalreview.org/donate">Donate</a></li>
-                        </ul>
+                        <?php wp_nav_menu( array(
+                            'menu' => 'footer-menu',
+                            // 'theme_location' => 'top',
+                            'menu_id' => 'footer-menu',
+                        ) ); ?>
                       </div>
                     </div>
                     <div class="content col-lg-3">
