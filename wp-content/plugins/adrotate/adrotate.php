@@ -4,16 +4,16 @@ Plugin Name: AdRotate
 Plugin URI: https://ajdg.solutions/products/adrotate-for-wordpress/
 Author: Arnan de Gans
 Author URI: https://www.arnan.me/
-Description: Monetise your website with adverts while keeping things simple. Start making money today!
+Description: AdRotate Banner Manager - Monetise your website with adverts while keeping things simple. Start making money today!
 Text Domain: adrotate
 Domain Path: /languages/
-Version: 4.13.3
+Version: 4.15.1
 License: GPLv3
 */
 
 /* ------------------------------------------------------------------------------------
 *  COPYRIGHT AND TRADEMARK NOTICE
-*  Copyright 2008-2018 Arnan de Gans. All Rights Reserved.
+*  Copyright 2008-2019 Arnan de Gans. All Rights Reserved.
 *  ADROTATE is a trademark of Arnan de Gans.
 
 *  COPYRIGHT NOTICES AND ALL THE COMMENTS SHOULD REMAIN INTACT.
@@ -22,7 +22,7 @@ License: GPLv3
 ------------------------------------------------------------------------------------ */
 
 /*--- AdRotate values ---------------------------------------*/
-define("ADROTATE_DISPLAY", '4.13.3');
+define("ADROTATE_DISPLAY", '4.15.1');
 define("ADROTATE_VERSION", 392);
 define("ADROTATE_DB_VERSION", 64);
 $plugin_folder = plugin_dir_path(__FILE__);

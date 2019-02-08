@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright (C) 2014-2018 ServMask Inc.
+ * Copyright (C) 2014-2019 ServMask Inc.
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -24,4 +24,14 @@
  */
 ?>
 
-<i class="ai1wm-icon-notification" style="color: #e74c3c;"></i>&nbsp;<?php _e( 'Import from file is available via a free extension. <a href="https://import.wp-migration.com" target="_blank">Download it here</a>', AI1WM_PLUGIN_NAME ); ?>
+<p class="max-upload-size">
+	<?php printf( __( 'Maximum upload file size: <strong>%s</strong>.' ), esc_html( size_format( wp_max_upload_size() ) ) ); ?>
+</p>
+<p>
+	<a href="https://help.servmask.com/2018/10/27/how-to-increase-maximum-upload-file-size-in-wordpress/" target="_blank"><?php _e( 'How-to: Increase maximum upload file size', AI1WM_PLUGIN_NAME ); ?></a>
+	<?php _e( 'or', AI1WM_PLUGIN_NAME ); ?>
+	<a href="https://import.wp-migration.com" target="_blank" class="ai1wm-label">
+		<i class="ai1wm-icon-notification"></i>
+		<?php _e( 'Get unlimited', AI1WM_PLUGIN_NAME ); ?>
+	</a>
+</p>

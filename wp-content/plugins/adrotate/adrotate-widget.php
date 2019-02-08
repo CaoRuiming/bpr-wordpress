@@ -1,7 +1,7 @@
 <?php
 /* ------------------------------------------------------------------------------------
 *  COPYRIGHT AND TRADEMARK NOTICE
-*  Copyright 2008-2017 Arnan de Gans. All Rights Reserved.
+*  Copyright 2008-2019 Arnan de Gans. All Rights Reserved.
 *  ADROTATE is a trademark of Arnan de Gans.
 
 *  COPYRIGHT NOTICES AND ALL THE COMMENTS SHOULD REMAIN INTACT.
@@ -55,11 +55,11 @@ class adrotate_widgets extends WP_Widget {
 		if($adrotate_config['w3caching'] == 'Y') {
 			echo '<!-- mfunc '.W3TC_DYNAMIC_SECURITY.' -->';
 			if($instance['type'] == "single") {
-				echo 'echo adrotate_ad('.$instance['adid'].', true, 0, 0, 0);';
+				echo 'echo adrotate_ad('.$instance['adid'].', true);';
 			}
 	
 			if($instance['type'] == "group") {
-				echo 'echo adrotate_group('.$instance['adid'].', 0, 0, 0);';
+				echo 'echo adrotate_group('.$instance['adid'].');';
 			}
 			echo '<!-- /mfunc '.W3TC_DYNAMIC_SECURITY.' -->';
 		} else if($adrotate_config['borlabscache'] == "Y" AND function_exists('BorlabsCacheHelper') AND BorlabsCacheHelper()->willFragmentCachingPerform()) {
@@ -67,20 +67,22 @@ class adrotate_widgets extends WP_Widget {
 	
 			echo '<!--[borlabs cache start: '.$borlabsphrase.']-->';
 			if($instance['type'] == "single") {
-				echo adrotate_ad($instance['adid'], true, 0, 0, 0);
+				echo 'echo adrotate_ad('.$instance['adid'].', true);';
 			}
 	
 			if($instance['type'] == "group") {
-				echo adrotate_group($instance['adid'], 0, 0, 0);
+				echo 'echo adrotate_group('.$instance['adid'].');';
 			}
 			echo '<!--[borlabs cache end: '.$borlabsphrase.']-->';
+
+			unset($borlabsphrase);
 		} else {
 			if($instance['type'] == "single") {
-				echo adrotate_ad($instance['adid'], true, 0, 0, 0);
+				echo adrotate_ad($instance['adid'], true);
 			}
 	
 			if($instance['type'] == "group") {
-				echo adrotate_group($instance['adid'], 0, 0, 0);
+				echo adrotate_group($instance['adid']);
 			}
 		}
 

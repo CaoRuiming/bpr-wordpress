@@ -71,7 +71,7 @@ if( !defined('ABSPATH') ){ exit();}
 									<?php echo $publishtime;?>
 									</td>
 									
-									<td style="vertical-align: middle !important;padding: 5px;">
+									<td class='xyz_fbap_td_custom' style="vertical-align: middle !important;padding: 5px;">
 									<?php
 									
 								  	if($status=="1"){

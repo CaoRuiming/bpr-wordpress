@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright (C) 2014-2018 ServMask Inc.
+ * Copyright (C) 2014-2019 ServMask Inc.
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -40,9 +40,8 @@ class Ai1wm_Export_Controller {
 		}
 
 		// Set priority
-		$priority = 5;
-		if ( isset( $params['priority'] ) ) {
-			$priority = (int) $params['priority'];
+		if ( ! isset( $params['priority'] ) ) {
+			$params['priority'] = 5;
 		}
 
 		// Set secret key
@@ -70,7 +69,7 @@ class Ai1wm_Export_Controller {
 
 			// Loop over filters
 			while ( $hooks = current( $filters ) ) {
-				if ( $priority === key( $filters ) ) {
+				if ( intval( $params['priority'] ) === key( $filters ) ) {
 					foreach ( $hooks as $hook ) {
 						try {
 
@@ -81,8 +80,12 @@ class Ai1wm_Export_Controller {
 							Ai1wm_Log::export( $params );
 
 						} catch ( Exception $e ) {
-							Ai1wm_Status::error( __( 'Unable to export', AI1WM_PLUGIN_NAME ), $e->getMessage() );
-							Ai1wm_Notification::error( __( 'Unable to export', AI1WM_PLUGIN_NAME ), $e->getMessage() );
+							if ( defined( 'WP_CLI' ) ) {
+								WP_CLI::error( sprintf( __( 'Unable to export: %s', AI1WM_PLUGIN_NAME ), $e->getMessage() ) );
+							} else {
+								Ai1wm_Status::error( __( 'Unable to export', AI1WM_PLUGIN_NAME ), $e->getMessage() );
+								Ai1wm_Notification::error( __( 'Unable to export', AI1WM_PLUGIN_NAME ), $e->getMessage() );
+							}
 							Ai1wm_Directory::delete( ai1wm_storage_path( $params ) );
 							exit;
 						}
@@ -96,6 +99,10 @@ class Ai1wm_Export_Controller {
 
 					// Do request
 					if ( $completed === false || ( $next = next( $filters ) ) && ( $params['priority'] = key( $filters ) ) ) {
+						if ( defined( 'WP_CLI' ) ) {
+							continue;
+						}
+
 						if ( isset( $params['ai1wm_manual_export'] ) ) {
 							echo json_encode( $params );
 							exit;
@@ -115,6 +122,7 @@ class Ai1wm_Export_Controller {
 				next( $filters );
 			}
 		}
+		return $params;
 	}
 
 	public static function buttons() {
@@ -134,6 +142,7 @@ class Ai1wm_Export_Controller {
 			apply_filters( 'ai1wm_export_glacier', Ai1wm_Template::get_content( 'export/button-glacier' ) ),
 			apply_filters( 'ai1wm_export_pcloud', Ai1wm_Template::get_content( 'export/button-pcloud' ) ),
 			apply_filters( 'ai1wm_export_webdav', Ai1wm_Template::get_content( 'export/button-webdav' ) ),
+			apply_filters( 'ai1wm_export_s3_client', Ai1wm_Template::get_content( 'export/button-s3-client' ) ),
 		);
 	}
 
@@ -145,5 +154,41 @@ class Ai1wm_Export_Controller {
 		}
 
 		return $headers;
+	}
+
+	public static function cleanup() {
+		// Iterate over storage directory
+		$iterator = new Ai1wm_Recursive_Directory_Iterator( AI1WM_STORAGE_PATH );
+
+		// Exclude index.php
+		$iterator = new Ai1wm_Recursive_Exclude_Filter( $iterator, array( 'index.php' ) );
+
+		// Recursively iterate over content directory
+		$iterator = new Ai1wm_Recursive_Iterator_Iterator( $iterator, RecursiveIteratorIterator::CHILD_FIRST, RecursiveIteratorIterator::CATCH_GET_CHILD );
+
+		// We can't delete in the main loop since deletion updates mtime for parent folders
+		$files = $folders = array();
+		foreach ( $iterator as $item ) {
+			try {
+				if ( $item->getMTime() < time() - 23 * 60 * 60 ) {
+					if ( $item->isFile() ) {
+						$files[] = $item->getPathname();
+					} elseif ( $item->isDir() ) {
+						$folders[] = $item->getPathname();
+					}
+				}
+			} catch ( Exception $e ) {
+			}
+		}
+
+		// Delete outdated files
+		foreach ( $files as $file ) {
+			@unlink( $file );
+		}
+
+		// Delete outdated folders
+		foreach ( $folders as $folder ) {
+			Ai1wm_Directory::delete( $folder );
+		}
 	}
 }

@@ -225,19 +225,14 @@ function xyz_fbap_is_session_started()
 
 
 
-if(!function_exists('xyz_fbap_post_to_facebook'))
-{		function xyz_fbap_post_to_facebook($post_details) {
+if(!function_exists('xyz_fbap_post_to_smap_api'))
+{		function xyz_fbap_post_to_smap_api($post_details,$url,$xyzscripts_hash_val='') {
 			if (function_exists('curl_init'))
 			{
-				$url=XYZ_SMAP_SOLUTION_PUBLISH_URL.'api/facebook.php';
-				$header_array = array();
-				$header_array[]='X-SMAP-AUTH-KEY: '.$post_details['xyz_smap_secret_key'];
 				$post_parameters['post_params'] = serialize($post_details);
-				$post_parameters['request_hash'] = md5($post_parameters['post_params'].$post_details['xyz_smap_secret_key']);
-		
+				$post_parameters['request_hash'] = md5($post_parameters['post_params'].$xyzscripts_hash_val);
 				$ch = curl_init();
 				curl_setopt($ch, CURLOPT_URL, $url);
-				curl_setopt($ch, CURLOPT_HTTPHEADER, $header_array);
 				curl_setopt($ch, CURLOPT_POST, true);
 				curl_setopt($ch, CURLOPT_POSTFIELDS, $post_parameters);
 				curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);

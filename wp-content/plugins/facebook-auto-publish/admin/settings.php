@@ -50,7 +50,7 @@ if(isset($_POST['fb']))
 	$fbap_pages_list_ids="";
 
 
-	if($ss!="" && count($ss)>0)
+	if(!empty($ss))//$ss!="" && count($ss)>0
 	{
 		for($i=0;$i<count($ss);$i++)
 		{
@@ -65,14 +65,8 @@ if(isset($_POST['fb']))
 
 
 	update_option('xyz_fbap_pages_ids',$fbap_pages_list_ids);
-// 	if(isset($_POST['xyz_fbap_secret_key'])&& isset($_POST['xyz_fbap_page_names'])){
-// 	update_option('xyz_fbap_page_names',$_POST['xyz_fbap_page_names']);
-// 	update_option('xyz_fbap_secret_key',$_POST['xyz_fbap_secret_key']);
-// 	update_option('xyz_fbap_af',0);
-// 	}
 	$applidold=get_option('xyz_fbap_application_id');
 	$applsecretold=get_option('xyz_fbap_application_secret');
-	//$app_name_old=get_option('xyz_fbap_application_name');
 	$posting_method=intval($_POST['xyz_fbap_po_method']);
 	$posting_permission=intval($_POST['xyz_fbap_post_permission']);
 	$app_name=sanitize_text_field($_POST['xyz_fbap_application_name']);
@@ -109,7 +103,7 @@ if(isset($_POST['fb']))
 		else if ($xyz_fbap_app_sel_mode_old != $xyz_fbap_app_sel_mode)
 		{
 			update_option('xyz_fbap_af',1);
-// 			update_option('xyz_fbap_fb_token','');
+			update_option('xyz_fbap_fb_token','');
 		//	update_option('xyz_fbap_secret_key','');
 			update_option('xyz_fbap_page_names','');
 		}
@@ -194,10 +188,12 @@ function dethide_fbap(id)
 </script>
 
 <div style="width: 100%">
+<div class="xyz_fbap_tab">
+  <button class="xyz_fbap_tablinks" onclick="xyz_fbap_open_tab(event, 'xyz_fbap_facebook_settings')" id="xyz_fbap_default_tab_settings">Facebook Settings</button>
+   <button class="xyz_fbap_tablinks" onclick="xyz_fbap_open_tab(event, 'xyz_fbap_basic_settings')" id="xyz_fbap_basic_tab_settings">General Settings</button>
+</div>
+<div id="xyz_fbap_facebook_settings" class="xyz_fbap_tabcontent">
 
-	<h2>
-		 <img src="<?php echo plugins_url()?>/facebook-auto-publish/images/fbap.png" height="16px"> Facebook Settings
-	</h2>
 	<?php
 	$af=get_option('xyz_fbap_af');
 	$appid=get_option('xyz_fbap_application_id');
@@ -247,7 +243,7 @@ function dethide_fbap(id)
  			     <?php wp_nonce_field( 'xyz_smap_fb_auth_nonce' );?>
  			     <input type="hidden" value="<?php echo  (is_ssl() ? 'https://' : 'http://' ) . $_SERVER['HTTP_HOST']; ?>" id="parent_domain">
  					<input type="submit" class="submit_fbap_new" name="fb_auth"
- 						value="Authorize" onclick="javascript:return fbap_popup_fb_auth('<?php echo urlencode($domain_name);?>','<?php echo $xyz_fbap_smapsoln_userid;?>','<?php echo $xyzscripts_user_id;?>','<?php echo $xyzscripts_hash_val;?>','<?php echo $auth_secret_key;?>');"/><br><br>
+ 						value="Authorize" onclick="javascript:return fbap_popup_fb_auth('<?php echo urlencode($domain_name);?>','<?php echo $xyz_fbap_smapsoln_userid;?>','<?php echo $xyzscripts_user_id;?>','<?php echo $xyzscripts_hash_val;?>','<?php echo $auth_secret_key;?>');void(0);"/><br><br>
  				</form></span>
  				<?php }
  				else if($af==0 )
@@ -258,7 +254,7 @@ function dethide_fbap(id)
  				<?php wp_nonce_field( 'xyz_smap_fb_auth_nonce' );?>
  				<input type="hidden" value="<?php echo  (is_ssl() ? 'https://' : 'http://' ) . $_SERVER['HTTP_HOST']; ?>" id="parent_domain">
  				<input type="submit" class="submit_fbap_new" name="fb_auth"
- 				value="Reauthorize" title="Reauthorize the account" onclick="javascript:return fbap_popup_fb_auth('<?php echo urlencode($domain_name);?>','<?php echo $xyz_fbap_smapsoln_userid;?>','<?php echo $xyzscripts_user_id;?>','<?php echo $xyzscripts_hash_val;?>','<?php echo $auth_secret_key;?>');"/><br><br>
+ 				value="Reauthorize" title="Reauthorize the account" onclick="javascript:return fbap_popup_fb_auth('<?php echo urlencode($domain_name);?>','<?php echo $xyz_fbap_smapsoln_userid;?>','<?php echo $xyzscripts_user_id;?>','<?php echo $xyzscripts_hash_val;?>','<?php echo $auth_secret_key;?>');void(0);"/><br><br>
  				</form>
  				<?php }
  	}
@@ -297,7 +293,17 @@ function dethide_fbap(id)
 			<div style="font-weight: bold;padding: 3px;">All fields given below are mandatory</div> 
 			<table class="widefat xyz_fbap_widefat_table" style="width: 99%">
 			<tr valign="top">
+				<td>Enable auto publish post to my facebook account
+				</td>
+				<td  class="switch-field">
+					<label id="xyz_fbap_post_permission_yes"><input type="radio" name="xyz_fbap_post_permission" value="1" <?php  if(get_option('xyz_fbap_post_permission')==1) echo 'checked';?>/>Yes</label>
+					<label id="xyz_fbap_post_permission_no"><input type="radio" name="xyz_fbap_post_permission" value="0" <?php  if(get_option('xyz_fbap_post_permission')==0) echo 'checked';?>/>No</label>
+				</td>
+			</tr>
+			
+			<tr valign="top">
 					<td width="50%">Application name
+					<br/><span style="color: #0073aa;">[This is for tracking purpose as well as creating Facebook app album]</span>
 					</td>
 					<td><input id="xyz_fbap_application_name"
 						name="xyz_fbap_application_name" type="text"
@@ -325,7 +331,7 @@ function dethide_fbap(id)
 			<span id='ajax-save-xyzscript_acc' style="display:none;"><img	class="img"  title="Saving details"	src="<?php echo plugins_url('../images/ajax-loader.gif',__FILE__);?>" style="width:65px;height:70px; "></span>
 			<span id="connect_to_xyzscripts"style="background-color: #1A87B9;color: white; padding: 4px 5px;
     text-align: center; text-decoration: none;   display: inline-block;border-radius: 4px;">
-			<a href="javascript:fbap_popup_connect_to_xyzscripts();" style="color:white !important;">Connect your xyzscripts account</a>
+			<a href="javascript:fbap_popup_connect_to_xyzscripts();void(0);" style="color:white !important;">Connect your xyzscripts account</a>
 			</span>
 			</td>
 			</tr>
@@ -348,6 +354,34 @@ function dethide_fbap(id)
 						value="<?php if($ms2=="") {echo $apsecret; }?>" />
 					</td>
 				</tr>
+				
+				<tr valign="top">
+					<td>Posting method
+					</td>
+					<td>
+					<select id="xyz_fbap_po_method" name="xyz_fbap_po_method">
+							<option value="3"
+				<?php  if(get_option('xyz_fbap_po_method')==3) echo 'selected';?>>Simple text message</option>
+				
+				<optgroup label="Text message with image">
+					<option value="4"
+					<?php  if(get_option('xyz_fbap_po_method')==4) echo 'selected';?>>Upload image to app album</option>
+					<option value="5"
+					<?php  if(get_option('xyz_fbap_po_method')==5) echo 'selected';?>>Upload image to timeline album</option>
+				</optgroup>
+				
+				<optgroup label="Text message with attached link">
+					<option value="1"
+					<?php  if(get_option('xyz_fbap_po_method')==1) echo 'selected';?>>Attach
+						your blog post</option>
+					<option value="2"
+					<?php  if(get_option('xyz_fbap_po_method')==2) echo 'selected';?>>
+						Share a link to your blog post</option>
+					</optgroup>
+					</select>
+					</td>
+				</tr>
+				
 				<tr valign="top">
 					<td>Message format for posting <img src="<?php echo $heimg?>"
 						onmouseover="detdisplay_fbap('xyz_fb')" onmouseout="dethide_fbap('xyz_fb')" style="width:13px;height:auto;">
@@ -377,41 +411,6 @@ function dethide_fbap(id)
 						<textarea id="xyz_fbap_message"  name="xyz_fbap_message" style="height:80px !important;" ><?php 
 												echo esc_textarea(get_option('xyz_fbap_message'));?></textarea>
 					</td></tr>
-								
-				<tr valign="top">
-					<td>Posting method
-					</td>
-					<td>
-					<select id="xyz_fbap_po_method" name="xyz_fbap_po_method">
-							<option value="3"
-				<?php  if(get_option('xyz_fbap_po_method')==3) echo 'selected';?>>Simple text message</option>
-				
-				<optgroup label="Text message with image">
-					<option value="4"
-					<?php  if(get_option('xyz_fbap_po_method')==4) echo 'selected';?>>Upload image to app album</option>
-					<option value="5"
-					<?php  if(get_option('xyz_fbap_po_method')==5) echo 'selected';?>>Upload image to timeline album</option>
-				</optgroup>
-				
-				<optgroup label="Text message with attached link">
-					<option value="1"
-					<?php  if(get_option('xyz_fbap_po_method')==1) echo 'selected';?>>Attach
-						your blog post</option>
-					<option value="2"
-					<?php  if(get_option('xyz_fbap_po_method')==2) echo 'selected';?>>
-						Share a link to your blog post</option>
-					</optgroup>
-					</select>
-					</td>
-				</tr>
-				<tr valign="top">
-						<td>Enable auto publish post to my facebook account
-						</td>
-						<td  class="switch-field">
-				<label id="xyz_fbap_post_permission_yes"><input type="radio" name="xyz_fbap_post_permission" value="1" <?php  if(get_option('xyz_fbap_post_permission')==1) echo 'checked';?>/>Yes</label>
-				<label id="xyz_fbap_post_permission_no"><input type="radio" name="xyz_fbap_post_permission" value="0" <?php  if(get_option('xyz_fbap_post_permission')==0) echo 'checked';?>/>No</label>
-						</td>
-					</tr>
 				<?php 
 				$xyz_acces_token=get_option('xyz_fbap_fb_token');
 				if($xyz_acces_token!="" && get_option('xyz_fbap_app_sel_mode')==0){
@@ -436,6 +435,8 @@ function dethide_fbap(id)
 // 							break;
 // 					}while(array_key_exists("next", $pagearray1->paging));
 					}while(isset($pagearray1->paging->next));
+					$count=0;
+					if (!empty($data))
 					$count=count($data);
 						$fbap_pages_ids1=get_option('xyz_fbap_pages_ids');
 						$fbap_pages_ids0=array();
@@ -443,13 +444,14 @@ function dethide_fbap(id)
 							$fbap_pages_ids0=explode(",",$fbap_pages_ids1);
 						
 						$fbap_pages_ids=array();
+						if (!empty($fbap_pages_ids0)){
 						for($i=0;$i<count($fbap_pages_ids0);$i++)
 						{
 							if($fbap_pages_ids0[$i]!="-1")
 							$fbap_pages_ids[$i]=trim(substr($fbap_pages_ids0[$i],0,strpos($fbap_pages_ids0[$i],"-")));
 						    else
 							$fbap_pages_ids[$i]=$fbap_pages_ids0[$i];
-						}
+						}}
 						
 					//$data[$i]->id."-".$data[$i]->access_token
 						?>
@@ -506,6 +508,7 @@ function dethide_fbap(id)
 				</tr>
 			</table>
 	</form>
+	</div>
 
 	<?php 
 
@@ -587,29 +590,63 @@ function dethide_fbap(id)
 	$xyz_fbap_default_selection_edit=get_option('xyz_fbap_default_selection_edit');
 // 	$xyz_fbap_utf_decode_enable=get_option('xyz_fbap_utf_decode_enable');
 	?>
-		<h2>Basic Settings</h2>
+<div id="xyz_fbap_basic_settings" class="xyz_fbap_tabcontent">
 		<form method="post">
 <?php wp_nonce_field( 'xyz_smap_basic_settings_form_nonce' );?>
 			<table class="widefat xyz_fbap_widefat_table" style="width: 99%">
-
-				<tr valign="top">
-				<td  colspan="1" width="50%">Publish wordpress `pages` to facebook
-				</td>
-				<td  class="switch-field">
-					<label id="xyz_fbap_include_pages_yes"><input type="radio" name="xyz_fbap_include_pages" value="1" <?php  if($xyz_fbap_include_pages==1) echo 'checked';?>/>Yes</label>
-					<label id="xyz_fbap_include_pages_no"><input type="radio" name="xyz_fbap_include_pages" value="0" <?php  if($xyz_fbap_include_pages==0) echo 'checked';?>/>No</label>
-				</td>
-				</tr>
-
+<tr><td><h2>Basic Settings</h2></td></tr>
 				<tr valign="top">
 					<td  colspan="1">Publish wordpress `posts` to facebook
 					</td>
-				<td  class="switch-field">
+					<td  class="switch-field">
 					<label id="xyz_fbap_include_posts_yes"><input type="radio" name="xyz_fbap_include_posts" value="1" <?php  if($xyz_fbap_include_posts==1) echo 'checked';?>/>Yes</label>
 					<label id="xyz_fbap_include_posts_no"><input type="radio" name="xyz_fbap_include_posts" value="0" <?php  if($xyz_fbap_include_posts==0) echo 'checked';?>/>No</label>
-				</td>				
-			</tr>
+					</td>				
+				</tr>
 				
+				<tr valign="top">
+					<td  colspan="1" width="50%">Publish wordpress `pages` to facebook
+					</td>
+					<td  class="switch-field">
+						<label id="xyz_fbap_include_pages_yes"><input type="radio" name="xyz_fbap_include_pages" value="1" <?php  if($xyz_fbap_include_pages==1) echo 'checked';?>/>Yes</label>
+						<label id="xyz_fbap_include_pages_no"><input type="radio" name="xyz_fbap_include_pages" value="0" <?php  if($xyz_fbap_include_pages==0) echo 'checked';?>/>No</label>
+					</td>
+				</tr>
+				
+				<?php 
+				$xyz_fbap_hide_custompost_settings='';
+					$args=array(
+							'public'   => true,
+							'_builtin' => false
+					);
+					$output = 'names'; // names or objects, note names is the default
+					$operator = 'and'; // 'and' or 'or'
+					$post_types=get_post_types($args,$output,$operator);
+
+					$ar1=explode(",",$xyz_fbap_include_customposttypes);
+					$cnt=count($post_types);
+					if($cnt==0){
+						$xyz_fbap_hide_custompost_settings = 'style="display: none;"';//echo 'NA';
+					}
+					?>
+					<tr valign="top" <?php echo $xyz_fbap_hide_custompost_settings;?>>
+					<td  colspan="1">Select wordpress custom post types for auto publish</td>
+					<td>	<?php 	foreach ($post_types  as $post_type ) {
+
+						echo '<input type="checkbox" name="post_types[]" value="'.$post_type.'" ';
+						if(in_array($post_type, $ar1))
+						{
+							echo 'checked="checked"/>';
+						}
+						else
+							echo '/>';
+
+						echo $post_type.'<br/>';
+
+					}?>
+					</td>
+				</tr>
+				<tr><td><h2>Advanced Settings</h2>	</td></tr>
 				<tr valign="top" id="selPostCat">
 					<td  colspan="1">Select post categories for auto publish
 					</td>
@@ -657,42 +694,8 @@ function dethide_fbap(id)
 					?><br /> <br /> </div>
 				</td>
 				</tr>
-
-
 				<tr valign="top">
-					<td  colspan="1">Select wordpress custom post types for auto publish</td>
-					<td><?php 
-					$args=array(
-							'public'   => true,
-							'_builtin' => false
-					);
-					$output = 'names'; // names or objects, note names is the default
-					$operator = 'and'; // 'and' or 'or'
-					$post_types=get_post_types($args,$output,$operator);
-
-					$ar1=explode(",",$xyz_fbap_include_customposttypes);
-					$cnt=count($post_types);
-					foreach ($post_types  as $post_type ) {
-
-						echo '<input type="checkbox" name="post_types[]" value="'.$post_type.'" ';
-						if(in_array($post_type, $ar1))
-						{
-							echo 'checked="checked"/>';
-						}
-						else
-							echo '/>';
-
-						echo $post_type.'<br/>';
-
-					}
-					if($cnt==0)
-						echo 'NA';
-					?>
-					</td>
-				</tr>
-
-				<tr valign="top">
-					<td scope="row" colspan="1" width="50%">Default selection of auto publish while editing posts/pages/custom post types
+					<td scope="row" colspan="1" width="50%">Auto publish on editing posts/pages/custom post types
 					</td>
 					<td  class="switch-field">
 						<label id="xyz_fbap_default_selection_edit_yes"><input type="radio" name="xyz_fbap_default_selection_edit" value="1" <?php  if($xyz_fbap_default_selection_edit==1) echo 'checked';?>/>Enabled</label>
@@ -747,7 +750,7 @@ function dethide_fbap(id)
 					<label id="xyz_fbap_utf_decode_enable_no"><input type="radio" name="xyz_fbap_utf_decode_enable" value="0" <?php  //if($xyz_fbap_utf_decode_enable==0) echo 'checked';?>/>No</label>
 					</td>
 				</tr>	-->
-					
+				<tr><td><h2>Other Settings</h2>	</td></tr>
 				<tr valign="top">
 
 					<td  colspan="1">Enable credit link to author
@@ -778,6 +781,11 @@ function dethide_fbap(id)
 				
 			</table>
 		</form>
+		
+		</div>	
+		
+		
+		
 </div>		
 <?php if (is_array($xyz_fbap_include_categories))
 $xyz_fbap_include_categories1=implode(',', $xyz_fbap_include_categories);
@@ -792,6 +800,21 @@ var catval='<?php echo $xyz_fbap_include_categories1; ?>';
 var custtypeval='<?php echo esc_html($xyz_fbap_include_customposttypes); ?>';
 var get_opt_cats='<?php echo esc_html(get_option('xyz_fbap_include_posts'));?>';
 jQuery(document).ready(function() {
+
+	<?php 
+	if(isset($_POST['bsettngs']))
+	
+	{?>
+	document.getElementById("xyz_fbap_basic_tab_settings").click();	
+	<?php }
+	else {?>
+	document.getElementById("xyz_fbap_default_tab_settings").click();
+		
+	<?php }
+	?>
+
+	// Get the element with id="xyz_fbap_default_tab_settings" and click on it
+	
 	  if(catval=="All")
 		  jQuery("#cat_dropdown_span").hide();
 	  else
@@ -849,7 +872,7 @@ jQuery(document).ready(function() {
 		   	}
 	   });
    window.addEventListener('message', function(e) {
-		ProcessChildMessage_2(e.data);
+	   xyz_fbap_ProcessChildMessage_2(e.data);
 	} , false);
 }); 
 
@@ -966,7 +989,7 @@ function fbap_popup_connect_to_xyzscripts()
 	childWindow = window.open(smap_xyzscripts_url, "Connect to xyzscripts", "toolbar=yes,scrollbars=yes,resizable=yes,left=500,width=600,height=600");
 	return false;	
 }
-function ProcessChildMessage_2(message) {
+function xyz_fbap_ProcessChildMessage_2(message) {
 	var messageType = message.slice(0,5);
 	if(messageType==="error")
 	{
@@ -997,8 +1020,12 @@ function ProcessChildMessage_2(message) {
 		jQuery("#connect_to_xyzscripts").hide();
 		jQuery("#ajax-save-xyzscript_acc").show();
 		jQuery.post(ajaxurl, dataString ,function(response) {
+			 if(response==1)
+			       	alert("You do not have sufficient permissions");
+			else{	
  		  var base_url = '<?php echo admin_url('admin.php?page=facebook-auto-publish-settings');?>';//msg - 
   		 window.location.href = base_url+'&msg=4';
+		}
 		});
 	}
 	else if(obj1.pages && obj1.smapsoln_userid)
@@ -1035,8 +1062,27 @@ function ProcessChildMessage_2(message) {
 		jQuery("#auth_message").hide();
 		jQuery("#ajax-save").show();
 		jQuery.post(ajaxurl, dataString ,function(response) {
+			 if(response==1)
+			       	alert("You do not have sufficient permissions");
+			else{
 		  var base_url = '<?php echo admin_url('admin.php?page=facebook-auto-publish-settings');?>';//msg - 
 		 window.location.href = base_url+'&msg=5';
+		}
 		});
 	}
-}</script>
+}
+
+function xyz_fbap_open_tab(evt, xyz_fbap_form_div_id) {
+    var i, xyz_fbap_tabcontent, xyz_fbap_tablinks;
+    tabcontent = document.getElementsByClassName("xyz_fbap_tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("xyz_fbap_tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    document.getElementById(xyz_fbap_form_div_id).style.display = "block";
+    evt.currentTarget.className += " active";
+}
+</script>

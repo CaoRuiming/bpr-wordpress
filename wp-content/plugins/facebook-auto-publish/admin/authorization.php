@@ -89,7 +89,8 @@ if(isset($_COOKIE['xyz_fbap_session_state']) && isset($_REQUEST['state']) && ($_
 // 				break;
 // 		}while(array_key_exists("next", $pagearray1->paging));
 		}while(isset($pagearray1->paging->next));
-			
+		$count=0;
+		if (!empty($data))
 		$count=count($data);			
 		$fbap_pages_ids1=get_option('xyz_fbap_pages_ids');
 		$fbap_pages_ids0=array();$newpgs="";
@@ -97,6 +98,7 @@ if(isset($_COOKIE['xyz_fbap_session_state']) && isset($_REQUEST['state']) && ($_
 			$fbap_pages_ids0=explode(",",$fbap_pages_ids1);
 		
 		$fbap_pages_ids=array();$profile_flg=0;
+		if (!empty($fbap_pages_ids0)){
 		for($i=0;$i<count($fbap_pages_ids0);$i++)
 		{
 		if($fbap_pages_ids0[$i]!="-1")
@@ -104,7 +106,7 @@ if(isset($_COOKIE['xyz_fbap_session_state']) && isset($_REQUEST['state']) && ($_
 			else{
 			$fbap_pages_ids[$i]=$fbap_pages_ids0[$i];$profile_flg=1;
 			}
-		}		
+		}}		
 		for($i=0;$i<$count;$i++)
 		{
 		if(in_array($data[$i]->id, $fbap_pages_ids))

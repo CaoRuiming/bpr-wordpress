@@ -1,7 +1,7 @@
 <?php
 /* ------------------------------------------------------------------------------------
 *  COPYRIGHT AND TRADEMARK NOTICE
-*  Copyright 2008-2017 Arnan de Gans. All Rights Reserved.
+*  Copyright 2008-2019 Arnan de Gans. All Rights Reserved.
 *  ADROTATE is a trademark of Arnan de Gans.
 
 *  COPYRIGHT NOTICES AND ALL THE COMMENTS SHOULD REMAIN INTACT.
@@ -10,63 +10,8 @@
 ------------------------------------------------------------------------------------ */
 
 /*-------------------------------------------------------------
- Name:      adrotate_shortcode
-
- Purpose:   Prepare function requests for calls on shortcodes
- Receive:   $atts, $content
- Return:    Function()
- Since:		0.7
--------------------------------------------------------------*/
-function adrotate_shortcode($atts, $content = null) {
-	global $adrotate_config;
-
-	$banner_id = $group_ids = 0;
-	if(!empty($atts['banner'])) $banner_id = trim($atts['banner'], "\r\t ");
-	if(!empty($atts['group'])) $group_ids = trim($atts['group'], "\r\t ");
-	if(!empty($atts['fallback'])) $fallback	= 0; // Not supported in free version
-	if(!empty($atts['weight']))	$weight	= 0; // Not supported in free version
-	if(!empty($atts['site'])) $site = 0; // Not supported in free version
-
-	$output = '';
-	if($adrotate_config['w3caching'] == "Y") {
-		$output .= '<!-- mfunc '.W3TC_DYNAMIC_SECURITY.' -->';
-		if($banner_id > 0 AND ($group_ids == 0 OR $group_ids > 0)) { // Show one Ad
-			$output .= 'echo adrotate_ad('.$banner_id.', true, 0, 0);';
-		}	
-		if($banner_id == 0 AND $group_ids > 0) { // Show group
-			$output .= 'echo adrotate_group('.$group_ids.', 0, 0, 0);';
-		}
-		$output .= '<!-- /mfunc '.W3TC_DYNAMIC_SECURITY.' -->';
-	} else if($adrotate_config['borlabscache'] == "Y" AND function_exists('BorlabsCacheHelper') AND BorlabsCacheHelper()->willFragmentCachingPerform()) {
-		$borlabsphrase = BorlabsCacheHelper()->getFragmentCachingPhrase();
-
-		$output .= '<!--[borlabs cache start: '.$borlabsphrase.']--> ';
-		if($banner_id > 0 AND ($group_ids == 0 OR $group_ids > 0)) { // Show one Ad
-			$output .= 'echo adrotate_ad('.$banner_id.', true, 0, 0);';
-		}		
-		if($banner_id == 0 AND $group_ids > 0) { // Show group
-			$output .= 'echo adrotate_group('.$group_ids.', 0, 0, 0);';
-		}
-		$output .= ' <!--[borlabs cache end: '.$borlabsphrase.']-->';
-	} else {
-		if($banner_id > 0 AND ($group_ids == 0 OR $group_ids > 0)) { // Show one Ad
-			$output .= adrotate_ad($banner_id, true, 0, 0);
-		}
-	
-		if($banner_id == 0 AND $group_ids > 0) { // Show group
-			$output .= adrotate_group($group_ids, 0, 0, 0);
-		}
-	}
-
-	return $output;
-}
-
-/*-------------------------------------------------------------
  Name:      adrotate_is_networked
-
  Purpose:   Determine if AdRotate is network activated
- Receive:   -None-
- Return:    Boolean
  Since:		3.9.8
 -------------------------------------------------------------*/
 function adrotate_is_networked() {
@@ -80,10 +25,7 @@ function adrotate_is_networked() {
 
 /*-------------------------------------------------------------
  Name:      adrotate_is_human
-
  Purpose:   Check if visitor is a bot
- Receive:   -None-
- Return:    Boolean
  Since:		3.11.10
 -------------------------------------------------------------*/
 function adrotate_is_human() {
@@ -116,10 +58,7 @@ function adrotate_is_human() {
 
 /*-------------------------------------------------------------
  Name:      adrotate_is_mobile
-
  Purpose:   Check if visitor is on a smartphone
- Receive:   -None-
- Return:    Boolean
  Since:		3.13.2
 -------------------------------------------------------------*/
 function adrotate_is_mobile() {

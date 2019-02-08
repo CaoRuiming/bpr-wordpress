@@ -11,7 +11,6 @@ function xyz_fbap_ajax_backlink_call() {
 					echo 1;die;
 		 }
 		 if(current_user_can('administrator')){
-		 	global $wpdb;
 		 	if(isset($_POST)){
 		 		if(intval($_POST['enable'])==1){
 		 			update_option('xyz_credit_link','fbap');
@@ -35,7 +34,6 @@ function xyz_fbap_selected_pages_auto_update_fn() {
 		{
 			echo 1;die;
 		}
-		global $wpdb;
 		if(isset($_POST)){
 			$pages=stripslashes($_POST['pages']);
 			$smap_sec_key=$_POST['smap_secretkey'];
@@ -58,12 +56,48 @@ function xyz_fbap_xyzscripts_accinfo_auto_update_fn() {
 		{
 			echo 1;die;
 		}
-		global $wpdb;
 		if(isset($_POST)){
 			$xyzscripts_hash_val=stripslashes($_POST['xyz_user_hash']);
 			$xyzscripts_user_id=$_POST['xyz_userid'];
 			update_option('xyz_fbap_xyzscripts_user_id', $xyzscripts_user_id);
 			update_option('xyz_fbap_xyzscripts_hash_val', $xyzscripts_hash_val);
+		}
+	}
+	die();
+}
+add_action('wp_ajax_xyz_fbap_del_entries', 'xyz_fbap_del_entries_fn');
+function xyz_fbap_del_entries_fn() {
+	global $wpdb;
+	if($_POST){
+		if (! isset( $_POST['_wpnonce'] )|| ! wp_verify_nonce( $_POST['_wpnonce'],'xyz_fbap_del_entries_nonce' ))
+		{
+			echo 1;die;
+		}
+		$auth_id=$_POST['auth_id'];
+		$xyz_fbap_xyzscripts_user_id = $_POST['xyzscripts_id'];
+		$xyz_fbap_xyzscripts_hash_val= $_POST['xyzscripts_user_hash'];
+		$delete_entry_details=array('smap_id'=>$auth_id,
+				'xyzscripts_user_id' =>$xyz_fbap_xyzscripts_user_id,
+		);
+		
+		$url=XYZ_SMAP_SOLUTION_AUTH_URL.'authorize/delete-fb-auth.php';
+		$content=xyz_fbap_post_to_smap_api($delete_entry_details, $url,$xyz_fbap_xyzscripts_hash_val);
+		echo $content;
+		$result=json_decode($content);$delete_flag=0;
+		if(!empty($result))
+		{
+			if (isset($result->status))
+				$delete_flag =$result->status;
+		}
+		if ($delete_flag===1)
+		{
+			if ($auth_id==get_option('xyz_fbap_smapsoln_userid'))
+			{
+				update_option('xyz_fbap_page_names','');
+				update_option('xyz_fbap_af', 1);
+				update_option('xyz_fbap_secret_key', '');
+				update_option('xyz_fbap_smapsoln_userid', 0);
+			}
 		}
 	}
 	die();

@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright (C) 2014-2018 ServMask Inc.
+ * Copyright (C) 2014-2019 ServMask Inc.
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -50,6 +50,7 @@ class Ai1wm_Import_Done {
 					ai1wm_discover_plugin_basename( 'really-simple-ssl/rlrsssl-really-simple-ssl.php' ),
 					ai1wm_discover_plugin_basename( 'wordpress-https/wordpress-https.php' ),
 					ai1wm_discover_plugin_basename( 'wp-force-ssl/wp-force-ssl.php' ),
+					ai1wm_discover_plugin_basename( 'force-https-littlebizzy/force-https.php' ),
 				) );
 			}
 
@@ -62,6 +63,11 @@ class Ai1wm_Import_Done {
 				ai1wm_discover_plugin_basename( 'mycustomwidget/my_custom_widget.php' ),
 				ai1wm_discover_plugin_basename( 'lockdown-wp-admin/lockdown-wp-admin.php' ),
 				ai1wm_discover_plugin_basename( 'rename-wp-login/rename-wp-login.php' ),
+				ai1wm_discover_plugin_basename( 'wp-simple-firewall/icwp-wpsf.php' ),
+				ai1wm_discover_plugin_basename( 'join-my-multisite/joinmymultisite.php' ),
+				ai1wm_discover_plugin_basename( 'multisite-clone-duplicator/multisite-clone-duplicator.php' ),
+				ai1wm_discover_plugin_basename( 'wordpress-mu-domain-mapping/domain_mapping.php' ),
+				ai1wm_discover_plugin_basename( 'pro-sites/pro-sites.php' ),
 			) );
 
 			// Deactivate Jetpack modules
@@ -106,6 +112,7 @@ class Ai1wm_Import_Done {
 						ai1wm_discover_plugin_basename( 'really-simple-ssl/rlrsssl-really-simple-ssl.php' ),
 						ai1wm_discover_plugin_basename( 'wordpress-https/wordpress-https.php' ),
 						ai1wm_discover_plugin_basename( 'wp-force-ssl/wp-force-ssl.php' ),
+						ai1wm_discover_plugin_basename( 'force-https-littlebizzy/force-https.php' ),
 					) );
 				}
 
@@ -118,6 +125,11 @@ class Ai1wm_Import_Done {
 					ai1wm_discover_plugin_basename( 'mycustomwidget/my_custom_widget.php' ),
 					ai1wm_discover_plugin_basename( 'lockdown-wp-admin/lockdown-wp-admin.php' ),
 					ai1wm_discover_plugin_basename( 'rename-wp-login/rename-wp-login.php' ),
+					ai1wm_discover_plugin_basename( 'wp-simple-firewall/icwp-wpsf.php' ),
+					ai1wm_discover_plugin_basename( 'join-my-multisite/joinmymultisite.php' ),
+					ai1wm_discover_plugin_basename( 'multisite-clone-duplicator/multisite-clone-duplicator.php' ),
+					ai1wm_discover_plugin_basename( 'wordpress-mu-domain-mapping/domain_mapping.php' ),
+					ai1wm_discover_plugin_basename( 'pro-sites/pro-sites.php' ),
 				) );
 
 				// Deactivate Jetpack modules
@@ -164,6 +176,7 @@ class Ai1wm_Import_Done {
 						ai1wm_discover_plugin_basename( 'really-simple-ssl/rlrsssl-really-simple-ssl.php' ),
 						ai1wm_discover_plugin_basename( 'wordpress-https/wordpress-https.php' ),
 						ai1wm_discover_plugin_basename( 'wp-force-ssl/wp-force-ssl.php' ),
+						ai1wm_discover_plugin_basename( 'force-https-littlebizzy/force-https.php' ),
 					) );
 				}
 
@@ -176,6 +189,11 @@ class Ai1wm_Import_Done {
 					ai1wm_discover_plugin_basename( 'mycustomwidget/my_custom_widget.php' ),
 					ai1wm_discover_plugin_basename( 'lockdown-wp-admin/lockdown-wp-admin.php' ),
 					ai1wm_discover_plugin_basename( 'rename-wp-login/rename-wp-login.php' ),
+					ai1wm_discover_plugin_basename( 'wp-simple-firewall/icwp-wpsf.php' ),
+					ai1wm_discover_plugin_basename( 'join-my-multisite/joinmymultisite.php' ),
+					ai1wm_discover_plugin_basename( 'multisite-clone-duplicator/multisite-clone-duplicator.php' ),
+					ai1wm_discover_plugin_basename( 'wordpress-mu-domain-mapping/domain_mapping.php' ),
+					ai1wm_discover_plugin_basename( 'pro-sites/pro-sites.php' ),
 				) );
 
 				// Deactivate Jetpack modules

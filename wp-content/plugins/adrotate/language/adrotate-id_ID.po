@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: AdRotate\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-25 12:28+0800\n"
-"PO-Revision-Date: 2018-07-25 12:28+0800\n"
+"POT-Creation-Date: 2019-01-22 09:48+0100\n"
+"PO-Revision-Date: 2019-01-22 09:48+0100\n"
 "Last-Translator: Arnan de Gans <support@ajdg.solutions>\n"
 "Language-Team: ChameleonJohn.com <jordan.silaen@chameleonjohn.com>\n"
 "Language: id_ID\n"
@@ -17,87 +17,87 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: adrotate-functions.php:730
+#: adrotate-functions.php:720
 msgid "No files found"
 msgstr "Tidak ada file yang ditemukan"
 
-#: adrotate-functions.php:733
+#: adrotate-functions.php:723
 msgid "Folder not found or not accessible"
 msgstr "Folder tidak ditemukan atau tidak dapat diakses"
 
-#: adrotate-functions.php:818
+#: adrotate-functions.php:808
 msgid "Ad saved"
 msgstr "iklan tersimpan"
 
-#: adrotate-functions.php:822
+#: adrotate-functions.php:812
 msgid "Group saved"
 msgstr "kelompok disimpan"
 
-#: adrotate-functions.php:826
+#: adrotate-functions.php:816
 msgid "Ad(s) deleted"
 msgstr "Iklan (s) dihapus"
 
-#: adrotate-functions.php:830
+#: adrotate-functions.php:820
 msgid "Group deleted"
 msgstr "kelompok dihapus"
 
-#: adrotate-functions.php:834
+#: adrotate-functions.php:824
 msgid "Ad(s) statistics reset"
 msgstr "Iklan (s) statistik ulang"
 
-#: adrotate-functions.php:838
+#: adrotate-functions.php:828
 msgid "Ad(s) renewed"
 msgstr "Iklan (s) baru"
 
-#: adrotate-functions.php:842
+#: adrotate-functions.php:832
 msgid "Ad(s) deactivated"
 msgstr "Iklan (s) dinonaktifkan"
 
-#: adrotate-functions.php:846
+#: adrotate-functions.php:836
 msgid "Ad(s) activated"
 msgstr "Iklan (s) diaktifkan"
 
-#: adrotate-functions.php:850
+#: adrotate-functions.php:840
 msgid "Group including it's Ads deleted"
 msgstr "Kelompok termasuk itu iklan dihapus"
 
-#: adrotate-functions.php:854
+#: adrotate-functions.php:844
 msgid "Export created"
 msgstr "ekspor dibuat"
 
-#: adrotate-functions.php:858
+#: adrotate-functions.php:848
 msgid ""
 "Advert HTML generated and placed in the AdCode field. Configure your advert "
 "below."
 msgstr ""
 
-#: adrotate-functions.php:863
+#: adrotate-functions.php:853
 msgid "Settings saved"
 msgstr "pengaturan disimpan"
 
-#: adrotate-functions.php:867
+#: adrotate-functions.php:857
 msgid "Database optimized"
 msgstr "database dioptimalkan"
 
-#: adrotate-functions.php:871
+#: adrotate-functions.php:861
 msgid "Database repaired"
 msgstr "database diperbaiki"
 
-#: adrotate-functions.php:875
+#: adrotate-functions.php:865
 msgid "Ads evaluated and statuses have been corrected where required"
 msgstr "Iklan dievaluasi dan status telah diperbaiki di mana diperlukan"
 
-#: adrotate-functions.php:879
+#: adrotate-functions.php:869
 #, fuzzy
 #| msgid "Clean-up Database"
 msgid "Cleanup complete"
 msgstr "Clean-up database"
 
-#: adrotate-functions.php:884
+#: adrotate-functions.php:874
 msgid "Action prohibited"
 msgstr "aksi dilarang"
 
-#: adrotate-functions.php:888
+#: adrotate-functions.php:878
 msgid ""
 "The ad was saved but has an issue which might prevent it from working "
 "properly. Review the colored ad."
@@ -105,23 +105,23 @@ msgstr ""
 "iklan itu disimpan tapi memiliki masalah yang mungkin mencegah dari bekerja "
 "dengan baik. Tinjau iklan berwarna."
 
-#: adrotate-functions.php:892
+#: adrotate-functions.php:882
 msgid "No data found in selected time period"
 msgstr "Tidak ada data pada periode waktu yang dipilih"
 
-#: adrotate-functions.php:896
+#: adrotate-functions.php:886
 msgid "Database can only be optimized or cleaned once every hour"
 msgstr "Database hanya dapat dioptimalkan atau dibersihkan sekali setiap jam"
 
-#: adrotate-functions.php:900
+#: adrotate-functions.php:890
 msgid "Form can not be (partially) empty!"
 msgstr "Form tidak bisa (sebagian) kosong!"
 
-#: adrotate-functions.php:904
+#: adrotate-functions.php:894
 msgid "No ads found."
 msgstr "Tidak ada iklan yang ditemukan."
 
-#: adrotate-functions.php:908
+#: adrotate-functions.php:898
 msgid "Unexpected error"
 msgstr "Kesalahan tak terduga"
 
@@ -129,11 +129,11 @@ msgstr "Kesalahan tak terduga"
 msgid "AdRotate Advertiser"
 msgstr "AdRotate Pengiklan"
 
-#: adrotate-output.php:557
+#: adrotate-output.php:572
 msgid "Oh no! Something went wrong!"
 msgstr "Oh tidak! Ada yang salah!"
 
-#: adrotate-output.php:558
+#: adrotate-output.php:573
 msgid ""
 "WordPress was unable to verify the authenticity of the url you have clicked. "
 "Verify if the url used is valid or log in via your browser."
@@ -142,7 +142,7 @@ msgstr ""
 "Periksa apakah url yang digunakan adalah valid atau masuk melalui browser "
 "Anda."
 
-#: adrotate-output.php:559
+#: adrotate-output.php:574
 msgid ""
 "If you have received the url you want to visit via email, you are being "
 "tricked!"
@@ -150,11 +150,11 @@ msgstr ""
 "Jika Anda telah menerima url yang ingin Anda kunjungi melalui email, Anda "
 "sedang ditipu!"
 
-#: adrotate-output.php:560
+#: adrotate-output.php:575
 msgid "Contact support if the issue persists:"
 msgstr "Hubungi dukungan jika masalah terus berlanjut:"
 
-#: adrotate-output.php:575
+#: adrotate-output.php:590
 msgid ""
 "Error, Ad is not available at this time due to schedule/geolocation "
 "restrictions or does not exist!"
@@ -162,7 +162,7 @@ msgstr ""
 "Kesalahan, Iklan tidak tersedia pada saat ini karena jadwal pembatasan / "
 "geolocation atau tidak ada!"
 
-#: adrotate-output.php:577
+#: adrotate-output.php:592
 msgid ""
 "Error, Ad is not available at this time due to schedule/geolocation "
 "restrictions!"
@@ -170,7 +170,7 @@ msgstr ""
 "Kesalahan, Iklan tidak tersedia pada saat ini karena jadwal pembatasan / "
 "geolocation!"
 
-#: adrotate-output.php:584 adrotate-output.php:586
+#: adrotate-output.php:599 adrotate-output.php:601
 msgid ""
 "Either there are no banners, they are disabled or none qualified for this "
 "location!"
@@ -178,19 +178,19 @@ msgstr ""
 "Entah ada spanduk, mereka dinonaktifkan atau tidak memenuhi syarat untuk "
 "lokasi ini!"
 
-#: adrotate-output.php:592
+#: adrotate-output.php:607
 msgid "Error, no Ad ID set! Check your syntax!"
 msgstr "Kesalahan, tidak ada ID Iklan set! Memeriksa sintaks Anda!"
 
-#: adrotate-output.php:598
+#: adrotate-output.php:613
 msgid "Error, no group ID set! Check your syntax!"
 msgstr "Kesalahan, tidak ada ID kelompok ditetapkan! Memeriksa sintaks Anda!"
 
-#: adrotate-output.php:603
+#: adrotate-output.php:618
 msgid "Error, group does not exist! Check your syntax!"
 msgstr "Kesalahan, kelompok tidak ada! Memeriksa sintaks Anda!"
 
-#: adrotate-output.php:609
+#: adrotate-output.php:624
 msgid ""
 "There was an error locating the database tables for AdRotate. Please "
 "deactivate and re-activate AdRotate from the plugin page!!"
@@ -198,19 +198,19 @@ msgstr ""
 "Ada kesalahan menemukan tabel database untuk AdRotate. Harap menonaktifkan "
 "dan mengaktifkan kembali AdRotate dari halaman Plugin !!"
 
-#: adrotate-output.php:609
+#: adrotate-output.php:624
 msgid "If this does not solve the issue please seek support at"
 msgstr "Jika ini tidak memecahkan masalah silahkan mencari dukungan di"
 
-#: adrotate-output.php:615
+#: adrotate-output.php:630
 msgid "An unknown error occured."
 msgstr "Terjadi kesalahan tak dikenal."
 
-#: adrotate-output.php:635 adrotate-output.php:638 adrotate-output.php:642
+#: adrotate-output.php:650 adrotate-output.php:653 adrotate-output.php:657
 msgid "Check adverts"
 msgstr "periksa iklan"
 
-#: adrotate-output.php:652
+#: adrotate-output.php:662
 #, fuzzy
 #| msgid ""
 #| "You have enable caching support but W3 Total Cache is not active on your "
@@ -222,13 +222,13 @@ msgstr ""
 "Anda memiliki mengaktifkan dukungan caching tapi W3 Total Cache tidak aktif "
 "di situs Anda!"
 
-#: adrotate-output.php:652
+#: adrotate-output.php:662
 #, fuzzy
 #| msgid "W3 Total Caching"
 msgid "Disable W3 Total Cache Support"
 msgstr "W3 Jumlah Caching"
 
-#: adrotate-output.php:655
+#: adrotate-output.php:665
 msgid ""
 "You have enable caching support but the W3TC_DYNAMIC_SECURITY definition is "
 "not set."
@@ -236,13 +236,13 @@ msgstr ""
 "Anda memiliki mengaktifkan dukungan caching tetapi definisi "
 "W3TC_DYNAMIC_SECURITY tidak diatur."
 
-#: adrotate-output.php:655
+#: adrotate-output.php:665
 #, fuzzy
 #| msgid "Set up W3 Total Caching"
 msgid "How to configure W3 Total Cache"
 msgstr "Mengatur W3 Jumlah Caching"
 
-#: adrotate-output.php:664
+#: adrotate-output.php:669
 #, fuzzy
 #| msgid ""
 #| "You have enable caching support but W3 Total Cache is not active on your "
@@ -253,11 +253,11 @@ msgstr ""
 "Anda memiliki mengaktifkan dukungan caching tapi W3 Total Cache tidak aktif "
 "di situs Anda!"
 
-#: adrotate-output.php:664
+#: adrotate-output.php:669
 msgid "Disable Borlabs Cache Support"
 msgstr ""
 
-#: adrotate-output.php:672
+#: adrotate-output.php:677
 #, fuzzy
 #| msgid ""
 #| "You have enable caching support but W3 Total Cache is not active on your "
@@ -268,38 +268,38 @@ msgstr ""
 "Anda memiliki mengaktifkan dukungan caching tapi W3 Total Cache tidak aktif "
 "di situs Anda!"
 
-#: adrotate-output.php:672
+#: adrotate-output.php:677
 msgid "Enable Fragment Caching"
 msgstr ""
 
-#: adrotate-output.php:678
+#: adrotate-output.php:683
 msgid "Your AdRotate Banner folder is not writable or does not exist."
 msgstr "Anda folder AdRotate Banner tidak dapat ditulis atau tidak ada."
 
-#: adrotate-output.php:678
+#: adrotate-output.php:683
 #, fuzzy
 #| msgid "Where are your banner ads?"
 msgid "Set up your banner folder"
 msgstr "Къде се намират вашите рекламни банери?"
 
-#: adrotate-output.php:698
+#: adrotate-output.php:703
 msgid "your attention:"
 msgstr ""
 
-#: adrotate-output.php:719 adrotate.php:447
+#: adrotate-output.php:724 adrotate.php:447
 #: dashboard/publisher/schedules-main.php:13
 #, fuzzy
 #| msgid "AdRotate Pro"
 msgid "Get AdRotate Pro"
 msgstr "AdRotate Pro"
 
-#: adrotate-output.php:720
+#: adrotate-output.php:725
 msgid ""
 "Upgrade to <strong>AdRotate Professional</strong> and get Geo Targeting, "
 "Schedules and more..."
 msgstr ""
 
-#: adrotate-output.php:720
+#: adrotate-output.php:725
 #, php-format
 msgid ""
 "Use discount code <b>getadrotatepro</b> for 10% off on any AdRotate license!"
@@ -307,13 +307,13 @@ msgstr ""
 "Gunakan kode diskon <b> getadrotatepro </ b> untuk 10% off pada setiap "
 "lisensi AdRotate!"
 
-#: adrotate-output.php:720
+#: adrotate-output.php:725
 #, fuzzy
 #| msgid "Thank you for your purchase!"
 msgid "Thank you for your support!"
 msgstr "Terima kasih atas pembelian Anda!"
 
-#: adrotate-output.php:837
+#: adrotate-output.php:793
 msgid ""
 "Thank you for choosing AdRotate. Everything related to AdRotate is in this "
 "menu. If you need help getting started take a look at the"
@@ -321,51 +321,27 @@ msgstr ""
 "Terima kasih telah memilih AdRotate. Semuanya terkait dengan AdRotate dalam "
 "menu ini. Jika Anda memerlukan bantuan mendapatkan mulai melihat pada"
 
-#: adrotate-output.php:837
+#: adrotate-output.php:793
 msgid "manuals"
 msgstr "manual"
 
-#: adrotate-output.php:837 adrotate-output.php:921
+#: adrotate-output.php:793 adrotate-output.php:893
 msgid "and"
 msgstr "dan"
 
-#: adrotate-output.php:837
+#: adrotate-output.php:793
 msgid "forums"
 msgstr "forum"
 
-#: adrotate-output.php:870
-msgid "Useful Links"
-msgstr "Link berguna"
-
-#: adrotate-output.php:871
-msgid "Useful links to learn more about AdRotate"
-msgstr "link yang berguna untuk mempelajari lebih lanjut tentang AdRotate"
-
-#: adrotate-output.php:873
-msgid "AdRotate website"
-msgstr "situs AdRotate"
-
-#: adrotate-output.php:874
-msgid "Getting Started With AdRotate"
-msgstr "Memulai Dengan AdRotate"
-
-#: adrotate-output.php:875
-msgid "AdRotate manuals"
-msgstr "manual AdRotate"
-
-#: adrotate-output.php:876
-msgid "AdRotate Support Forum"
-msgstr "Forum Dukungan AdRotate"
-
-#: adrotate-output.php:913
+#: adrotate-output.php:885
 msgid "Help AdRotate Grow"
 msgstr "Помогнете за развитието на AdRotate"
 
-#: adrotate-output.php:914 adrotate.php:152
+#: adrotate-output.php:886 adrotate.php:152
 msgid "AdRotate Professional"
 msgstr "AdRotate profesional"
 
-#: adrotate-output.php:921
+#: adrotate-output.php:893
 msgid ""
 "Many users only think to review AdRotate when something goes wrong while "
 "thousands of people happily use AdRotate."
@@ -374,36 +350,36 @@ msgstr ""
 "berjalan salah sementara ribuan orang dengan senang hati menggunakan "
 "AdRotate."
 
-#: adrotate-output.php:921
+#: adrotate-output.php:893
 msgid "If you find AdRotate useful please leave your"
 msgstr "Jika Anda menemukan AdRotate berguna silakan tinggalkan Anda"
 
-#: adrotate-output.php:921
+#: adrotate-output.php:893
 msgid "rating"
 msgstr "penilaian"
 
-#: adrotate-output.php:921
+#: adrotate-output.php:893
 msgid "review"
 msgstr "ulasan"
 
-#: adrotate-output.php:921
+#: adrotate-output.php:893
 #, fuzzy
 #| msgid "on WordPress.org to help AdRotate grow in a positive way"
 msgid "on WordPress.org to help AdRotate grow in a positive way"
 msgstr ""
 "di WordPress.org untuk membantu AdRotate tumbuh dengan cara yang positif"
 
-#: adrotate-output.php:922
+#: adrotate-output.php:894
 msgid ""
 "Get more advanced features like Geo Targeting, scheduling and much more with "
 "AdRotate Pro."
 msgstr ""
 
-#: adrotate-output.php:922
+#: adrotate-output.php:894
 msgid "Includes premium support and free updates!"
 msgstr ""
 
-#: adrotate-output.php:922
+#: adrotate-output.php:894
 #, fuzzy
 #| msgid "Getting Started With AdRotate"
 msgid "Get started today"
@@ -481,45 +457,45 @@ msgstr "Tidak ada data untuk menunjukkan!"
 msgid "Not found"
 msgstr "Tidak ada iklan yang ditemukan."
 
-#: adrotate-widget.php:132
+#: adrotate-widget.php:134
 msgid "Title (optional):"
 msgstr "Judul (opsional):"
 
-#: adrotate-widget.php:135
+#: adrotate-widget.php:137
 msgid "HTML will be stripped out."
 msgstr "HTML akan dilucuti keluar."
 
-#: adrotate-widget.php:138
+#: adrotate-widget.php:140
 msgid "Description (optional):"
 msgstr "Deskripsi (opsional):"
 
-#: adrotate-widget.php:141
+#: adrotate-widget.php:143
 msgid "What is this widget used for? (Not parsed, HTML will be stripped out.)"
 msgstr ""
 "Apa yang widget ini digunakan untuk? (Tidak diurai, HTML akan dilucuti "
 "keluar.)"
 
-#: adrotate-widget.php:144
+#: adrotate-widget.php:146
 msgid "Type:"
 msgstr "Mengetik:"
 
-#: adrotate-widget.php:146
+#: adrotate-widget.php:148
 msgid "Advert - Use Advert ID"
 msgstr "Iklan - Gunakan iklan ID"
 
-#: adrotate-widget.php:147
+#: adrotate-widget.php:149
 msgid "Group - Use group ID"
 msgstr "Group - Gunakan ID grup"
 
-#: adrotate-widget.php:150
+#: adrotate-widget.php:152
 msgid "Choose what you want to use this widget for"
 msgstr "Pilih apa yang Anda ingin menggunakan widget ini untuk"
 
-#: adrotate-widget.php:153
+#: adrotate-widget.php:155
 msgid "ID:"
 msgstr "ID:"
 
-#: adrotate-widget.php:156
+#: adrotate-widget.php:158
 msgid "Fill in the ID of the type you want to display!"
 msgstr "Isi ID dari jenis yang ingin ditampilkan!"
 
@@ -721,10 +697,10 @@ msgstr "Dapatkan Premium Dukungan hampir sepanjang tahun"
 #| "support  takes priority over the forums and is checked much more often "
 #| "than the forum. Get a solution (usually) within one business day."
 msgid ""
-"When you activate your AdRotate Pro license you can use fast and personal "
+"When you activate your AdRotate Pro license you can use the more personal "
 "email support. No more queueing up in the forums. AdRotate support takes "
-"priority over the forums and is checked much more often than the forum. Get "
-"a solution (usually) within two business days."
+"priority over the forums and is checked once or twice a day. Get a solution "
+"(usually) within two business days."
 msgstr ""
 "Bila Anda mengaktifkan lisensi Pro AdRotate Anda Anda dapat menggunakan "
 "cepat dan pribadi dukungan email. Tidak ada lagi antri di forum. dukungan "
@@ -796,15 +772,15 @@ msgstr ""
 "lagi."
 
 #: dashboard/adrotatepro.php:82 dashboard/adrotatepro.php:94
-#: dashboard/info.php:79
+#: dashboard/info.php:90
 msgid "Buy AdRotate Professional"
 msgstr "Beli AdRotate profesional"
 
-#: dashboard/adrotatepro.php:86 dashboard/info.php:83
+#: dashboard/adrotatepro.php:86 dashboard/info.php:94
 msgid "Single License"
 msgstr "Lisensi tunggal"
 
-#: dashboard/adrotatepro.php:86 dashboard/info.php:83
+#: dashboard/adrotatepro.php:86 dashboard/info.php:94
 msgid "One WordPress installation."
 msgstr "Satu instalasi WordPress."
 
@@ -812,50 +788,50 @@ msgstr "Satu instalasi WordPress."
 #: dashboard/adrotatepro.php:88 dashboard/adrotatepro.php:89
 #: dashboard/adrotatepro.php:98 dashboard/adrotatepro.php:99
 #: dashboard/adrotatepro.php:100 dashboard/adrotatepro.php:101
-#: dashboard/info.php:83 dashboard/info.php:84 dashboard/info.php:85
-#: dashboard/info.php:86 dashboard/settings/geotargeting.php:40
+#: dashboard/info.php:94 dashboard/info.php:95 dashboard/info.php:96
+#: dashboard/info.php:97
 msgid "Buy now"
 msgstr "Beli sekarang"
 
 #: dashboard/adrotatepro.php:87 dashboard/adrotatepro.php:99
-#: dashboard/info.php:84
+#: dashboard/info.php:95
 msgid "Duo License"
 msgstr "Duo Lisensi"
 
-#: dashboard/adrotatepro.php:87 dashboard/info.php:84
+#: dashboard/adrotatepro.php:87 dashboard/info.php:95
 msgid "Two WordPress installations."
 msgstr "Dua instalasi WordPress."
 
 #: dashboard/adrotatepro.php:88 dashboard/adrotatepro.php:100
-#: dashboard/info.php:85
+#: dashboard/info.php:96
 msgid "Multi License"
 msgstr "multi License"
 
-#: dashboard/adrotatepro.php:88 dashboard/info.php:85
+#: dashboard/adrotatepro.php:88 dashboard/info.php:96
 #, fuzzy
 #| msgid "One WordPress installation."
 msgid "Five WordPress installations."
 msgstr "Satu instalasi WordPress."
 
 #: dashboard/adrotatepro.php:89 dashboard/adrotatepro.php:101
-#: dashboard/info.php:86
+#: dashboard/info.php:97
 msgid "Developer License"
 msgstr "Lisensi developer"
 
-#: dashboard/adrotatepro.php:89 dashboard/info.php:86
+#: dashboard/adrotatepro.php:89 dashboard/info.php:97
 msgid "Unlimited WordPress installations and/or networks."
 msgstr "instalasi WordPress terbatas dan / atau jaringan."
 
 #: dashboard/adrotatepro.php:90 dashboard/adrotatepro.php:103
-#: dashboard/info.php:87
+#: dashboard/info.php:98
 msgid "Compare licenses"
 msgstr "bandingkan lisensi"
 
-#: dashboard/adrotatepro.php:90 dashboard/info.php:87
+#: dashboard/adrotatepro.php:90 dashboard/info.php:98
 msgid "Not sure which license is for you? Compare them..."
 msgstr "Tidak yakin yang lisensi adalah untuk Anda? Membandingkan mereka..."
 
-#: dashboard/adrotatepro.php:90 dashboard/info.php:87
+#: dashboard/adrotatepro.php:90 dashboard/info.php:98
 msgid "All Licenses"
 msgstr "semua Lisensi"
 
@@ -930,22 +906,18 @@ msgstr ""
 msgid "Arnan de Gans News & Updates"
 msgstr ""
 
-#: dashboard/info.php:91
-msgid "AJdG Solutions Premium Support Group"
-msgstr ""
-
-#: dashboard/info.php:108
-msgid "Join the Media.net advertising network"
-msgstr ""
-
-#: dashboard/info.php:123
+#: dashboard/info.php:73
 msgid "Sponsored offers"
 msgstr ""
 
-#: dashboard/info.php:129
+#: dashboard/info.php:79
 msgid ""
 "These are affiliate banners, clicking them costs you nothing but it helps me "
 "and AdRotate a lot!"
+msgstr ""
+
+#: dashboard/info.php:102
+msgid "Join the Media.net advertising network"
 msgstr ""
 
 #: dashboard/publisher/adverts-disabled.php:15
@@ -2676,7 +2648,9 @@ msgid "Which Geo Service"
 msgstr "Yang Geo Layanan"
 
 #: dashboard/settings/geotargeting.php:32
-msgid "30000 free lookups every day, uses GeoLite2 databases from MaxMind!"
+#, fuzzy
+#| msgid "30000 free lookups every day, uses GeoLite2 databases from MaxMind!"
+msgid "20000 free lookups every day, uses GeoLite2 databases from MaxMind!"
 msgstr ""
 "30000 pencarian gratis setiap hari, menggunakan database GeoLite2 dari "
 "MaxMind!"
@@ -2700,26 +2674,18 @@ msgid "Suitable for small to medium websites."
 msgstr "Cocok untuk kecil untuk website menengah."
 
 #: dashboard/settings/geotargeting.php:36
-#, fuzzy
-#| msgid "30000 free lookups every day, uses GeoLite2 databases from MaxMind!"
-msgid "15000 free lookups per hour, uses GeoLite2 databases from MaxMind!"
+msgid "10000 free lookups per month, requires account."
 msgstr ""
-"30000 pencarian gratis setiap hari, menggunakan database GeoLite2 dari "
-"MaxMind!"
 
 #: dashboard/settings/geotargeting.php:38
-#, fuzzy
-#| msgid "Suitable for any size website."
-msgid "Suitable for medium sized websites."
-msgstr "Cocok untuk setiap situs web ukuran."
+msgid ""
+"Suitable for small to medium sized websites with a free account - Paid "
+"options available."
+msgstr ""
 
 #: dashboard/settings/geotargeting.php:40
-msgid ""
-"The most accurate geo targeting you can get for only $20 USD per 50000 "
-"lookups."
+msgid "The most accurate geo targeting available."
 msgstr ""
-"Geo paling akurat menargetkan Anda bisa mendapatkan untuk hanya $ 20 USD per "
-"50.000 pencarian."
 
 #: dashboard/settings/geotargeting.php:42
 msgid "Suitable for any size website as long as you have lookups."
@@ -3456,6 +3422,43 @@ msgid ""
 msgstr ""
 "Jumlah ini mungkin tidak kosong, lebih rendah dari 60 atau melebihi 86.400 "
 "(24 jam)."
+
+#~ msgid "Useful Links"
+#~ msgstr "Link berguna"
+
+#~ msgid "Useful links to learn more about AdRotate"
+#~ msgstr "link yang berguna untuk mempelajari lebih lanjut tentang AdRotate"
+
+#~ msgid "AdRotate website"
+#~ msgstr "situs AdRotate"
+
+#~ msgid "Getting Started With AdRotate"
+#~ msgstr "Memulai Dengan AdRotate"
+
+#~ msgid "AdRotate manuals"
+#~ msgstr "manual AdRotate"
+
+#~ msgid "AdRotate Support Forum"
+#~ msgstr "Forum Dukungan AdRotate"
+
+#, fuzzy
+#~| msgid "30000 free lookups every day, uses GeoLite2 databases from MaxMind!"
+#~ msgid "15000 free lookups per hour, uses GeoLite2 databases from MaxMind!"
+#~ msgstr ""
+#~ "30000 pencarian gratis setiap hari, menggunakan database GeoLite2 dari "
+#~ "MaxMind!"
+
+#, fuzzy
+#~| msgid "Suitable for any size website."
+#~ msgid "Suitable for medium sized websites."
+#~ msgstr "Cocok untuk setiap situs web ukuran."
+
+#~ msgid ""
+#~ "The most accurate geo targeting you can get for only $20 USD per 50000 "
+#~ "lookups."
+#~ msgstr ""
+#~ "Geo paling akurat menargetkan Anda bisa mendapatkan untuk hanya $ 20 USD "
+#~ "per 50.000 pencarian."
 
 #, fuzzy
 #~| msgid ""

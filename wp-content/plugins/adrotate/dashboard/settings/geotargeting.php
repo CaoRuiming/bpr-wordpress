@@ -29,19 +29,19 @@
 				<option value="0" disabled="1">CloudFlare</option>
 			</select><br />
 			<span class="description">
-				<p><strong>AdRotate Geo</strong> - <?php _e('30000 free lookups every day, uses GeoLite2 databases from MaxMind!', 'adrotate'); ?><br />
+				<p><strong>AdRotate Geo</strong> - <?php _e('20000 free lookups every day, uses GeoLite2 databases from MaxMind!', 'adrotate'); ?><br />
 				<em><strong><?php _e('Supports:', 'adrotate'); ?></strong> ipv4/ipv6, Countries, Cities, DMA codes, States and State ISO (3166-2) codes.</em><br />
 				<em><strong><?php _e('Scalability:', 'adrotate'); ?></strong> <?php _e('Suitable for small to medium websites.', 'adrotate'); ?></em><br /><br />
 
-				<p><strong>FreegeoIP</strong> - <?php _e('15000 free lookups per hour, uses GeoLite2 databases from MaxMind!', 'adrotate'); ?><br />
+				<p><strong>ipstack</strong> - <?php _e('10000 free lookups per month, requires account.', 'adrotate'); ?><br />
 				<em><strong><?php _e('Supports:', 'adrotate'); ?></strong> ipv4, Countries, Cities, DMA codes, States and State ISO (3166-2) codes.</em><br />
-				<em><strong><?php _e('Scalability:', 'adrotate'); ?></strong> <?php _e('Suitable for medium sized websites.', 'adrotate'); ?></em><br /><br />
+				<em><strong><?php _e('Scalability:', 'adrotate'); ?></strong> <?php _e('Suitable for small to medium sized websites with a free account - Paid options available.', 'adrotate'); ?></em><br /><br />
 
-				<strong>MaxMind</strong> - <a href="https://www.maxmind.com/en/geoip2-precision-services?rId=ajdgnet" target="_blank">GeoIP2 Precision</a> - <?php _e('The most accurate geo targeting you can get for only $20 USD per 50000 lookups.', 'adrotate'); ?> <a href="https://www.maxmind.com/en/geoip2-precision-city?rId=ajdgnet" target="_blank"><?php _e('Buy now', 'adrotate'); ?>.</a><br />
+				<strong>MaxMind GeoIP2</strong> - <?php _e('The most accurate geo targeting available.', 'adrotate'); ?><br />
 				<em><strong><?php _e('Supports:', 'adrotate'); ?></strong> ipv4/ipv6, Countries, States, State ISO (3166-2) codes, Cities and DMA codes.</em><br />
 				<em><strong><?php _e('Scalability:', 'adrotate'); ?></strong> <?php _e('Suitable for any size website as long as you have lookups.', 'adrotate'); ?></em><br /><br />
 				
-				<strong>CloudFlare</strong> - <a href="https://support.cloudflare.com/hc/en-us/articles/200168236-What-does-CloudFlare-IP-Geolocation-do-" target="_blank">IP Geolocation</a> - <?php _e('Basic geolocation included in every CloudFlare account.', 'adrotate'); ?><br />
+				<strong>CloudFlare</strong> - <?php _e('Basic geolocation included in every CloudFlare account.', 'adrotate'); ?><br />
 				<em><strong><?php _e('Supports:', 'adrotate'); ?></strong> ipv4/ipv6, Countries.</em><br />
 				<em><strong><?php _e('Scalability:', 'adrotate'); ?></strong> <?php _e('Suitable for any size website.', 'adrotate'); ?></em>
 			</span>
@@ -51,7 +51,7 @@
 		<th valign="top"><?php _e('Geo Cookie Lifespan', 'adrotate'); ?></th>
 		<td>
 			<label for="adrotate_geo_cookie_life"><select name="adrotate_geo_cookie_life_disabled">
-				<option value="0" disabled>24 (<?php _e('Default', 'adrotate'); ?>)</option>
+				<option value="0" disabled selected>24 (<?php _e('Default', 'adrotate'); ?>)</option>
 				<option value="0" disabled>36</option>
 				<option value="0" disabled>48</option>
 				<option value="0" disabled>72</option>

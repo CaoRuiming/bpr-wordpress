@@ -21,6 +21,8 @@ function xyz_fbap_menu()
 {
 	add_menu_page('Facebook Auto Publish - Manage settings', 'WP Facebook Auto Publish', 'manage_options', 'facebook-auto-publish-settings', 'xyz_fbap_settings',plugin_dir_url( XYZ_FBAP_PLUGIN_FILE ) . 'images/fbap.png');
 	add_submenu_page('facebook-auto-publish-settings', 'Facebook Auto Publish - Manage settings', ' Settings', 'manage_options', 'facebook-auto-publish-settings' ,'xyz_fbap_settings'); // 8 for admin
+	if(get_option('xyz_fbap_xyzscripts_hash_val')!=''&& get_option('xyz_fbap_xyzscripts_user_id')!='')
+		add_submenu_page('facebook-auto-publish-settings', 'Facebook Auto Publish - Manage Authorizations', 'Manage Authorizations', 'manage_options', 'facebook-auto-publish-manage-authorizations' ,'xyz_fbap_manage_authorizations');
 	add_submenu_page('facebook-auto-publish-settings', 'Facebook Auto Publish - Logs', 'Logs', 'manage_options', 'facebook-auto-publish-log' ,'xyz_fbap_logs');
 	add_submenu_page('facebook-auto-publish-settings', 'Facebook Auto Publish - About', 'About', 'manage_options', 'facebook-auto-publish-about' ,'xyz_fbap_about'); // 8 for admin
 	add_submenu_page('facebook-auto-publish-settings', 'Facebook Auto Publish - Suggest Feature', 'Suggest a Feature', 'manage_options', 'facebook-auto-publish-suggest-feature' ,'xyz_fbap_suggest_feature');
@@ -66,7 +68,12 @@ function xyz_fbap_suggest_feature()
 	require( dirname( __FILE__ ) . '/fbap-suggest-feature.php' );
 	require( dirname( __FILE__ ) . '/footer.php' );
 }
-
+function xyz_fbap_manage_authorizations()
+{
+	require( dirname( __FILE__ ) . '/header.php' );
+	require( dirname( __FILE__ ) . '/manage-authorizations.php' );
+	require( dirname( __FILE__ ) . '/footer.php' );
+}
 add_action('wp_head', 'xyz_fbap_insert_og_image_for_fb');
 function xyz_fbap_insert_og_image_for_fb(){
 

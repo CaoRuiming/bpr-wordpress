@@ -833,6 +833,7 @@ class WPSEO_Utils {
 			'wpseo_tools',
 			'wpseo_search_console',
 			'wpseo_licenses',
+			'wpseo_courses',
 		);
 
 		return in_array( $current_page, $yoast_seo_free_pages, true );
@@ -1014,6 +1015,10 @@ SVG;
 			return false;
 		}
 
+		if ( $post_type === 'attachment' && WPSEO_Options::get( 'disable-attachment' ) ) {
+			return false;
+		}
+
 		return WPSEO_Options::get( 'display-metabox-pt-' . $post_type );
 	}
 
@@ -1104,6 +1109,24 @@ SVG;
 		return $wpseo_admin_l10n;
 	}
 
+	/**
+	 * Retrieves the analysis worker log level. Defaults to errors only.
+	 *
+	 * Uses bool YOAST_SEO_DEBUG as flag to enable logging. Off equals ERROR.
+	 * Uses string YOAST_SEO_DEBUG_ANALYSIS_WORKER as log level for the Analysis
+	 * Worker. Defaults to INFO.
+	 * Can be: TRACE, DEBUG, INFO, WARN or ERROR.
+	 *
+	 * @return string The log level to use.
+	 */
+	public static function get_analysis_worker_log_level() {
+		if ( defined( 'YOAST_SEO_DEBUG' ) && YOAST_SEO_DEBUG ) {
+			return defined( 'YOAST_SEO_DEBUG_ANALYSIS_WORKER' ) ? YOAST_SEO_DEBUG_ANALYSIS_WORKER : 'INFO';
+		}
+
+		return 'ERROR';
+	}
+
 	/* ********************* DEPRECATED METHODS ********************* */
 
 	/**
@@ -1111,13 +1134,14 @@ SVG;
 	 *
 	 * @see        WPSEO_Language_Utils::get_language()
 	 *
-	 * @since      3.4
+	 * @since      9.5
 	 *
 	 * @param string $locale The locale to get the language of.
 	 *
-	 * @returns string The language part of the locale.
+	 * @return string The language part of the locale.
 	 */
 	public static function get_language( $locale ) {
+		_deprecated_function( __METHOD__, 'WPSEO 9.5', 'WPSEO_Language_Utils::get_language' );
 		return WPSEO_Language_Utils::get_language( $locale );
 	}
 
@@ -1132,11 +1156,13 @@ SVG;
 	 *
 	 * @see        WPSEO_Language_Utils::get_user_locale()
 	 *
-	 * @since      4.1
+	 * @since      9.5
 	 *
-	 * @returns string The locale.
+	 * @return string The locale.
 	 */
 	public static function get_user_locale() {
+		_deprecated_function( __METHOD__, 'WPSEO 9.5', 'WPSEO_Language_Utils::get_user_locale' );
+
 		return WPSEO_Language_Utils::get_user_locale();
 	}
 }

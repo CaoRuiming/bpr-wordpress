@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright (C) 2014-2018 ServMask Inc.
+ * Copyright (C) 2014-2019 ServMask Inc.
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -129,14 +129,6 @@ require_once AI1WM_VENDOR_PATH .
 			DIRECTORY_SEPARATOR .
 			'servmask' .
 			DIRECTORY_SEPARATOR .
-			'filter' .
-			DIRECTORY_SEPARATOR .
-			'class-ai1wm-recursive-newline-filter.php';
-
-require_once AI1WM_VENDOR_PATH .
-			DIRECTORY_SEPARATOR .
-			'servmask' .
-			DIRECTORY_SEPARATOR .
 			'archiver' .
 			DIRECTORY_SEPARATOR .
 			'class-ai1wm-archiver.php';
@@ -188,12 +180,6 @@ require_once AI1WM_VENDOR_PATH .
 			'database' .
 			DIRECTORY_SEPARATOR .
 			'class-ai1wm-database-utility.php';
-
-require_once AI1WM_VENDOR_PATH .
-			DIRECTORY_SEPARATOR .
-			'math' .
-			DIRECTORY_SEPARATOR .
-			'BigInteger.php';
 
 require_once AI1WM_CONTROLLER_PATH .
 			DIRECTORY_SEPARATOR .
@@ -274,6 +260,10 @@ require_once AI1WM_EXPORT_PATH .
 require_once AI1WM_IMPORT_PATH .
 			DIRECTORY_SEPARATOR .
 			'class-ai1wm-import-compatibility.php';
+
+require_once AI1WM_IMPORT_PATH .
+			DIRECTORY_SEPARATOR .
+			'class-ai1wm-import-upload.php';
 
 require_once AI1WM_IMPORT_PATH .
 			DIRECTORY_SEPARATOR .

@@ -51,7 +51,13 @@ if(isset($_GET['action']) && $_GET['action']=="edit" && !empty($_GET['post']))  
 	
 	
 	if((get_option('xyz_fbap_af')==0 && get_option('xyz_fbap_post_permission')==1 && ((get_option('xyz_fbap_fb_token')!=""&& (get_option('xyz_fbap_app_sel_mode')==0))|| (get_option('xyz_fbap_app_sel_mode')==1 && get_option('xyz_fbap_page_names')!=""))))
-	add_meta_box( "xyz_fbap", '<strong>WP Facebook Auto Publish </strong>', 'xyz_fbap_addpostmetatags') ;
+		add_meta_box( 'xyz_fbap', '<strong>WP Facebook Auto Publish </strong>', 'xyz_fbap_addpostmetatags',
+				null, 'normal', 'high',
+				array(
+						'__block_editor_compatible_meta_box' => true,
+				)
+				);
+	//add_meta_box( "xyz_fbap", '<strong>WP Facebook Auto Publish </strong>', 'xyz_fbap_addpostmetatags') ;
 }
 function xyz_fbap_addpostmetatags()
 {

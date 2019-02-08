@@ -1,7 +1,7 @@
 <?php
 /* ------------------------------------------------------------------------------------
 *  COPYRIGHT AND TRADEMARK NOTICE
-*  Copyright 2008-2017 Arnan de Gans. All Rights Reserved.
+*  Copyright 2008-2019 Arnan de Gans. All Rights Reserved.
 *  ADROTATE is a trademark of Arnan de Gans.
 
 *  COPYRIGHT NOTICES AND ALL THE COMMENTS SHOULD REMAIN INTACT.
@@ -218,12 +218,63 @@ function adrotate_group($group_ids, $fallback = 0, $weight = 0, $site = 0) {
 }
 
 /*-------------------------------------------------------------
+ Name:      adrotate_shortcode
+ Purpose:   Prepare function requests for calls on shortcodes
+ Since:		0.7
+-------------------------------------------------------------*/
+function adrotate_shortcode($atts, $content = null) {
+	global $adrotate_config;
+
+	$banner_id = $group_ids = 0;
+	if(!empty($atts['banner'])) $banner_id = trim($atts['banner'], "\r\t ");
+	if(!empty($atts['group'])) $group_ids = trim($atts['group'], "\r\t ");
+	if(!empty($atts['fallback'])) $fallback	= 0; // Not supported in free version
+	if(!empty($atts['weight']))	$weight	= 0; // Not supported in free version
+	if(!empty($atts['site'])) $site = 0; // Not supported in free version
+
+	$output = '';
+	if($adrotate_config['w3caching'] == "Y") {
+		$output .= '<!-- mfunc '.W3TC_DYNAMIC_SECURITY.' -->';
+		if($banner_id > 0 AND ($group_ids == 0 OR $group_ids > 0)) { // Show one Ad
+			$output .= 'echo adrotate_ad('.$banner_id.', true);';
+		}	
+		if($banner_id == 0 AND $group_ids > 0) { // Show group
+			$output .= 'echo adrotate_group('.$group_ids.');';
+		}
+		$output .= '<!-- /mfunc '.W3TC_DYNAMIC_SECURITY.' -->';
+	} else if($adrotate_config['borlabscache'] == "Y" AND function_exists('BorlabsCacheHelper') AND BorlabsCacheHelper()->willFragmentCachingPerform()) {
+		$borlabsphrase = BorlabsCacheHelper()->getFragmentCachingPhrase();
+
+		$output .= '<!--[borlabs cache start: '.$borlabsphrase.']--> ';
+		if($banner_id > 0 AND ($group_ids == 0 OR $group_ids > 0)) { // Show one Ad
+			$output .= 'echo adrotate_ad('.$banner_id.', true);';
+		}		
+		if($banner_id == 0 AND $group_ids > 0) { // Show group
+			$output .= 'echo adrotate_group('.$group_ids.');';
+		}
+		$output .= ' <!--[borlabs cache end: '.$borlabsphrase.']-->';
+
+		unset($borlabsphrase);
+	} else {
+		if($banner_id > 0 AND ($group_ids == 0 OR $group_ids > 0)) { // Show one Ad
+			$output .= adrotate_ad($banner_id, true);
+		}
+	
+		if($banner_id == 0 AND $group_ids > 0) { // Show group
+			$output .= adrotate_group($group_ids);
+		}
+	}
+
+	return $output;
+}
+
+/*-------------------------------------------------------------
  Name:      adrotate_inject_posts
  Purpose:   Add an advert to a single post
  Added:		3.7
 -------------------------------------------------------------*/
 function adrotate_inject_posts($post_content) { 
-	global $wpdb, $post, $adrotate_debug;
+	global $wpdb, $post, $adrotate_config, $adrotate_debug;
 
 	$group_array = array();
 	if(is_page()) {
@@ -271,18 +322,36 @@ function adrotate_inject_posts($post_content) {
 
 	if($group_count > 0) {
 		$before = $after = $inside = 0;
+		$advert_output = '';
 		foreach($group_array as $group_id => $group) {
 			if(is_page($group['ids']) OR has_category($group['ids'])) {
+				// Caching or not?
+				if($adrotate_config['w3caching'] == 'Y') {
+					$advert_output = '<!-- mfunc '.W3TC_DYNAMIC_SECURITY.' -->';
+					$advert_output .= 'echo adrotate_group('.$group_id.');';
+					$advert_output .= '<!-- /mfunc '.W3TC_DYNAMIC_SECURITY.' -->';
+				} else if($adrotate_config['borlabscache'] == "Y" AND function_exists('BorlabsCacheHelper') AND BorlabsCacheHelper()->willFragmentCachingPerform()) {
+					$borlabsphrase = BorlabsCacheHelper()->getFragmentCachingPhrase();
+
+					$advert_output = '<!--[borlabs cache start: '.$borlabsphrase.']-->';
+					$advert_output .= 'echo adrotate_group('.$group_id.');';
+					$advert_output .= '<!--[borlabs cache end: '.$borlabsphrase.']-->';
+
+					unset($borlabsphrase);
+				} else {
+					$advert_output = adrotate_group($group_id);
+				}
+
 				// Advert in front of content
 				if(($group['location'] == 1 OR $group['location'] == 3) AND $before == 0) {
-					$post_content = adrotate_group($group_id).$post_content;
+					$post_content = $advert_output.$post_content;
 					unset($group_array[$group_id]);
 					$before = 1;
 				}
 	
 				// Advert behind the content
 				if(($group['location'] == 2 OR $group['location'] == 3) AND $after == 0) {
-					$post_content = $post_content.adrotate_group($group_id);
+					$post_content = $post_content.$advert_output;
 					unset($group_array[$group_id]);
 					$after = 1;
 				}
@@ -299,7 +368,7 @@ function adrotate_inject_posts($post_content) {
 				        }
 
 				        if($count_p == $index + 1 AND $inside == 0) {
-				            $paragraphs[$index] .= adrotate_group($group_id);
+				            $paragraphs[$index] .= $advert_output;
 							unset($group_array[$group_id]);
 				            $inside = 1;
 				        }
@@ -311,7 +380,7 @@ function adrotate_inject_posts($post_content) {
 				}
 			}
 		}
-		unset($group_array, $before, $after, $inside);
+		unset($group_array, $before, $after, $inside, $advert_output);
 	}
 
 	return $post_content;
@@ -808,11 +877,37 @@ function adrotate_help_info() {
 
     $screen->add_help_tab(array(
         'id' => 'adrotate_thanks',
-        'title' => 'AdRotate',
+        'title' => 'Thanks to you',
         'content' => '<h4>Thank you for using AdRotate</h4>'.
         '<p>AdRotate is growing to be one of the most popular WordPress plugins for Advertising and is a household name for many companies around the world. AdRotate wouldn\'t be possible without your support and my life wouldn\'t be what it is today without your help.</p><p><em>- Arnan</em></p>'.
-        '<p><strong>Social:</strong> <a href="https://www.facebook.com/ajdgsolutions/" target="_blank">Facebook</a>. <strong>Business:</strong> <a href="https://ajdg.solutions/" target="_blank">ajdg.solutions</a>. <strong>Personal:</strong> <a href="https://www.arnan.me" target="_blank">arnan.me</a>.</p>'.
-        '<p><strong>Useful Links:</strong> <a href="https://ajdg.solutions/manuals/adrotate-manuals/getting-started-with-adrotate/" target="_blank">Getting Started with AdRotate</a>, <a href="https://ajdg.solutions/manuals/adrotate-manuals/" target="_blank">AdRotate Manuals</a> and <a href="https://ajdg.solutions/forums/forum/adrotate-for-wordpress/" target="_blank">Support Forum</a>.</p>'
+
+        '<p><strong>Social:</strong> <a href="https://www.facebook.com/ajdgsolutions/" target="_blank">Facebook</a> & <a href="https://linkedin.com/in/arnandegans/" target="_blank">LinkedIn</a>. <strong>Business:</strong> <a href="https://ajdg.solutions/" target="_blank">ajdg.solutions</a>. <strong>Personal:</strong> <a href="https://www.arnan.me" target="_blank">arnan.me</a>.</p>'
+		)
+    );
+    $screen->add_help_tab(array(
+        'id' => 'adrotate_partners',
+        'title' => 'Advertising Partners',
+        'content' => '<h4>Our partners</h4>'.
+        '<p>Try these great advertising partners for getting relevant adverts to your site. Increase revenue with their contextual adverts and earn more money with AdRotate!</p>'.
+
+        '<p><strong>Blind Ferret:</strong> <a href="https://ajdg.solutions/go/blindferret/" target="_blank">Sign up with the Blind Ferret Publisher Network</a><br />Industry leader in Header Bidding adverts!'.
+        
+        '<p><strong>Media.net:</strong> <a href="https://ajdg.solutions/go/medianet/" target="_blank">Sign up for Media.net Contextual Adverts</a><br />Get 10% extra earnings commission for the first 3 months!</p>'.
+
+        '<p><strong>Social:</strong> <a href="https://www.facebook.com/ajdgsolutions/" target="_blank">Facebook</a> & <a href="https://linkedin.com/in/arnandegans/" target="_blank">LinkedIn</a>. <strong>Business:</strong> <a href="https://ajdg.solutions/" target="_blank">ajdg.solutions</a>. <strong>Personal:</strong> <a href="https://www.arnan.me" target="_blank">arnan.me</a>.</p>'.
+
+        '<p><small><em>These are affiliate links, using them supports the future of AdRotate!</em></small></p>'
+		)
+    );
+    $screen->add_help_tab(array(
+        'id' => 'adrotate_support',
+        'title' => 'Getting Support',
+        'content' => '<h4>Get help using AdRotate</h4>'.
+        '<p>Everyone needs a little help sometimes. AdRotate has many guides and manuals as well as a Support Forum on the AdRotate website to get you going.</p>'.
+
+        '<p>Take a look at the <a href="https://ajdg.solutions/support/adrotate-manuals/" target="_blank">AdRotate Manuals</a> and the <a href="https://ajdg.solutions/forums/forum/adrotate-for-wordpress/" target="_blank">Support Forum</a>.</p>'.
+
+        '<p><strong>Social:</strong> <a href="https://www.facebook.com/ajdgsolutions/" target="_blank">Facebook</a> & <a href="https://linkedin.com/in/arnandegans/" target="_blank">LinkedIn</a>. <strong>Business:</strong> <a href="https://ajdg.solutions/" target="_blank">ajdg.solutions</a>. <strong>Personal:</strong> <a href="https://www.arnan.me" target="_blank">arnan.me</a>.</p>'
 		)
     );
 }
@@ -825,7 +920,7 @@ function adrotate_help_info() {
 function adrotate_action_links($links) {
 	$custom_actions = array();
 	$custom_actions['adrotate-pro'] = sprintf('<a href="%s" target="_blank">%s</a>', 'https://ajdg.solutions/cart/?add-to-cart=1124', 'Get Pro');
-	$custom_actions['adrotate-help'] = sprintf('<a href="%s" target="_blank">%s</a>', 'https://ajdg.solutions/forums/', 'Support');
+	$custom_actions['adrotate-help'] = sprintf('<a href="%s" target="_blank">%s</a>', 'https://ajdg.solutions/support/', 'Support');
 	$custom_actions['adrotate-arnan'] = sprintf('<a href="%s" target="_blank">%s</a>', 'https://www.arnan.me/', 'arnan.me');
 
 	return array_merge($custom_actions, $links);

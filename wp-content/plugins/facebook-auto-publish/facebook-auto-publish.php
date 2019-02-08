@@ -3,7 +3,7 @@
  Plugin Name: WP Facebook Auto Publish
 Plugin URI: https://xyzscripts.com/wordpress-plugins/facebook-auto-publish/
 Description:   Publish posts automatically from your blog to Facebook social media. You can publish your posts to Facebook as simple text message, text message with image or as attached link to your blog. The plugin supports filtering posts by custom post-types and categories.
-Version: 2.0.1
+Version: 2.1
 Author: xyzscripts.com
 Author URI: https://xyzscripts.com/
 License: GPLv2 or later
@@ -39,7 +39,7 @@ if (!defined('XYZ_SMAP_SOLUTION_PUBLISH_URL'))
 define('XYZ_SMAP_SOLUTION_PUBLISH_URL','https://free-publish.smapsolutions.com/');
 
 global $wpdb;
-if(isset($_POST) && isset($_POST['fb_auth'] ) ||(isset($_GET['page']) && ($_GET['page']=='facebook-auto-publish-suggest-feature'))|| (isset($_GET['page']) && ($_GET['page']=='facebook-auto-publish-settings')) )
+if(isset($_POST) && isset($_POST['fb_auth'] ) ||(isset($_GET['page']) && ($_GET['page']=='facebook-auto-publish-suggest-feature'))|| (isset($_GET['page']) && ($_GET['page']=='facebook-auto-publish-settings')) || (isset($_GET['page']) && ($_GET['page']=='facebook-auto-publish-manage-authorizations')))
 {
 	ob_start();
 }
@@ -49,7 +49,7 @@ require_once( dirname( __FILE__ ) . '/admin/menu.php' );
 require_once( dirname( __FILE__ ) . '/admin/destruction.php' );
 if (version_compare(PHP_VERSION, '5.4.0', '>'))
 {
-	require_once( dirname( __FILE__ ) . '/api/Facebook/autoload.php');
+	require_once( dirname( __FILE__ ) . '/vendor/autoload.php');
 	require_once( dirname( __FILE__ ) . '/admin/publish.php' );
 }
 require_once( dirname( __FILE__ ) . '/admin/ajax-backlink.php' );
