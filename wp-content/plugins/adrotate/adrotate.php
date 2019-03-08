@@ -7,7 +7,7 @@ Author URI: https://www.arnan.me/
 Description: AdRotate Banner Manager - Monetise your website with adverts while keeping things simple. Start making money today!
 Text Domain: adrotate
 Domain Path: /languages/
-Version: 4.15.1
+Version: 4.15.2
 License: GPLv3
 */
 
@@ -22,7 +22,7 @@ License: GPLv3
 ------------------------------------------------------------------------------------ */
 
 /*--- AdRotate values ---------------------------------------*/
-define("ADROTATE_DISPLAY", '4.15.1');
+define("ADROTATE_DISPLAY", '4.15.2');
 define("ADROTATE_VERSION", 392);
 define("ADROTATE_DB_VERSION", 64);
 $plugin_folder = plugin_dir_path(__FILE__);

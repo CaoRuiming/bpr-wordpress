@@ -202,7 +202,7 @@ if(!is_array($meta_array)) $meta_array = array();
 							<p><label for="adrotate_cat_location">
 							    <select tabindex="18" name="adrotate_cat_location">
 							    	<option value="0" <?php if($edit_group->cat_loc == 0) { echo 'selected'; } ?>><?php _e('Disabled', 'adrotate'); ?></option>
-							    	<option value="5" <?php if($edit_group->cat_loc == 5) { echo 'selected'; } ?>><?php _e('Widget', 'adrotate'); ?></option>
+							    	<option value="0" disabled><?php _e('Widget (Pro only)', 'adrotate'); ?></option>
 							    	<option value="1" <?php if($edit_group->cat_loc == 1) { echo 'selected'; } ?>><?php _e('Before content', 'adrotate'); ?></option>
 							    	<option value="2" <?php if($edit_group->cat_loc == 2) { echo 'selected'; } ?>><?php _e('After content', 'adrotate'); ?></option>
 							    	<option value="3" <?php if($edit_group->cat_loc == 3) { echo 'selected'; } ?>><?php _e('Before and after content', 'adrotate'); ?></option>
@@ -242,7 +242,7 @@ if(!is_array($meta_array)) $meta_array = array();
 							<p><label for="adrotate_page_location">
 						        <select tabindex="20" name="adrotate_page_location">
 						        	<option value="0" <?php if($edit_group->page_loc == 0) { echo 'selected'; } ?>><?php _e('Disabled', 'adrotate'); ?></option>
-						        	<option value="5" <?php if($edit_group->page_loc == 5) { echo 'selected'; } ?>><?php _e('Widget', 'adrotate'); ?></option>
+							    	<option value="0" disabled><?php _e('Widget (Pro only)', 'adrotate'); ?></option>
 						        	<option value="1" <?php if($edit_group->page_loc == 1) { echo 'selected'; } ?>><?php _e('Before content', 'adrotate'); ?></option>
 						        	<option value="2" <?php if($edit_group->page_loc == 2) { echo 'selected'; } ?>><?php _e('After content', 'adrotate'); ?></option>
 						        	<option value="3" <?php if($edit_group->page_loc == 3) { echo 'selected'; } ?>><?php _e('Before and after content', 'adrotate'); ?></option>

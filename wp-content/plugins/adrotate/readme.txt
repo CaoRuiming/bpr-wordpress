@@ -4,7 +4,7 @@ Donate link: https://www.arnan.me/donate.html
 Tags: ads, advert, adsense, advertising, doubleclick, responsive adverts, ad manager, banner manager, advert manager, monetise, advertisement, banner
 Requires at least: 3.8
 Tested up to: 5.0
-Stable tag: 4.15.1
+Stable tag: 4.15.2
 License: GPLv3
 
 Monetise your website with adverts while keeping things simple. Start making money today!
@@ -97,21 +97,13 @@ You can also post your questions on the [forum](https://ajdg.solutions/forums/)!
 
 Be a Professional and go Pro. With [AdRotate Professional](https://ajdg.solutions/plugins/adrotate-for-wordpress/)!
 
-= 4.15.1 FREE =
-* [fix] Post injection not always working with Caching plugins
+= 4.15.2 FREE =
+* [fix] Typos in the dashboard
+* [i18n] Updated translation files
 
-= 4.15 FREE =
-* [new] Post injection now compatible with Caching plugins
-* [i18n] Updated translations
-
-= 4.18.1 PRO =
-* [fix] Post injection not always working with Caching plugins
-
-= 4.18 PRO =
-* [change] Now uses AdRotate Geo v5
-* [new] Post injection now compatible with Caching plugins
-* [fix] AdRotate Geo sending empty responses
-* [i18n] Updated translations
+= 4.18.2 PRO =
+* [fix] Incorrect slug for updates
+* [i18n] Updated translation files
 
 All recent changes are available on the [AdRotate website](https://ajdg.solutions/plugins/adrotate-for-wordpress/development/).
 

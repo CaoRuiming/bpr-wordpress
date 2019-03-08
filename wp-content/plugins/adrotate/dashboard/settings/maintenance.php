@@ -28,7 +28,7 @@
 		<th valign="top"><?php _e('Clean-up Database and Files', 'adrotate'); ?></th>
 		<td>
 			<input type="submit" id="post-role-submit" name="adrotate_db_cleanup_submit" value="<?php _e('Clean-up Database', 'adrotate'); ?>" class="button-secondary" onclick="return confirm('<?php _e('You are about to clean up your database. This may delete expired schedules, older statistics and try to delete export files', 'adrotate'); ?>\n\n<?php _e('Are you sure you want to continue?', 'adrotate'); ?>\n<?php _e('THIS ACTION CAN NOT BE UNDONE!', 'adrotate'); ?>')" /><br />
-			<label for="adrotate_db_cleanup_statistics"><input type="checkbox" name="adrotate_db_cleanup_statistics" value="1" /> <?php _e('Delete stats older than 356 days.', 'adrotate'); ?></label><br />
+			<label for="adrotate_db_cleanup_statistics"><input type="checkbox" name="adrotate_db_cleanup_statistics" value="1" /> <?php _e('Delete stats older than 365 days.', 'adrotate'); ?></label><br />
 			<label for="adrotate_db_cleanup_exportfiles"><input type="checkbox" name="adrotate_db_cleanup_exportfiles" value="1" /> <?php _e('Delete leftover export files.', 'adrotate'); ?></label><br />
 			<span class="description"><?php _e('For when you create an advert, group or schedule and it does not save or keep changes you make.', 'adrotate'); ?><br /><?php _e('Additionally you can delete statistics and/or unused export files. This will improve the speed of your site.', 'adrotate'); ?></span>
 		</td>
