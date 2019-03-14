@@ -1,0 +1,16 @@
+.app {
+  nav {
+    padding: $spacing-sm;
+
+    text-align: center;
+
+    .header-center {
+      .header-logo {
+        @include background-default(cover);
+        margin: 0 auto;
+        width: 200px;
+        height: 75px;
+      }
+    }
+  }
+}
