@@ -9,5 +9,15 @@
     <body <?php body_class(); ?>>
         <main id="app" class="app">
             <nav>
-                <a href="<?= get_home_url(); ?>"><h1>WordPress Starter Theme</h1></a>
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-sm-4 header left"></div>
+                        <div class="col-sm-4 header-center">
+                            <a href="<?= get_home_url(); ?>">
+                                <div class="header-logo" style="background-image: url(<?php echo get_template_directory_uri() . '/resources/assets/images/logo_bright.png' ?>)"></div>
+                            </a>
+                        </div>
+                        <div class="col-sm-4 header-right"></div>
+                    </div>
+                </div>
             </nav>
