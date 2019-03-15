@@ -1,42 +1,44 @@
             <footer class="footer">
-              <ul>
-                  <li><a href="<?= get_home_url(); ?>">Index</a></li>
-                  <li><a href="https://github.com/tonik/tonik/wiki">Documentation</a></li>
-                  <li><a href="https://github.com/tonik/tonik">Github</a></li>
-              </ul>
               <div id="background">
                 <div class="content-wrapper container-fluid">
                   <div class="row">
+                    <div class="footer-heading content col-lg-3">
+                    <h1 id="brown">BROWN</h1>
+                    <h1 id="political">POLITICAL</h1>
+                    <h1 id="review">REVIEW</h1>
+                    </div>
                     <div class="content col-lg-3">
-                      <div>
-                        <img class="top_element" id="logo" src="http://www.brownpoliticalreview.org/wp-content/uploads/2016/03/SQ_Logo.jpg" width="25%"/>
-                      </div>
-                      <div id="media_links">
+                      <!-- <div id="media_links">
                           <?php wp_nav_menu( array(
                               'menu' => 'social-media',
                               // 'theme_location' => 'top',
                               'menu_id' => '4',
                           ) ); ?>
-                      </div>
+                      </div> -->
                     </div>
                     <div class="content col-lg-3">
-                      <div class="internal_links">
-                        <p>Brown Political Review</p>
-                        <hr/>
+                      <p id="sub_heading">Brown Political Review</p>
+                      <hr/>
+                      <div class="internal_links left">
                         <?php wp_nav_menu( array(
                             'menu' => 'footer-menu',
                             // 'theme_location' => 'top',
                             'menu_id' => 'footer-menu',
                         ) ); ?>
                       </div>
-                    </div>
-                    <div class="content col-lg-3">
-                      <div class="tags">
-                        <p>Tags</p>
-                        <hr/>
-                        <select class="category">
-
-                        </select>
+                      <div class="internal_links center">
+                        <?php wp_nav_menu( array(
+                            'menu' => 'footer-menu',
+                            // 'theme_location' => 'top',
+                            'menu_id' => 'footer-menu',
+                        ) ); ?>
+                      </div>
+                      <div class="internal_links right">
+                        <?php wp_nav_menu( array(
+                            'menu' => 'footer-menu',
+                            // 'theme_location' => 'top',
+                            'menu_id' => 'footer-menu',
+                        ) ); ?>
                       </div>
                     </div>
                     <div class="content col-lg-3"></div>
