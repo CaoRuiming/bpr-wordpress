@@ -1,15 +1,40 @@
 @import "bpr_vars";
 
 .single-post {
-  .post-content {
-    p, span {
-      font-family: inherit !important;
-      font-size: inherit !important;
+  article {
+    h1 {
+      margin-bottom: 25px;
+    }
+
+    div.byline {
+      font-family: $body-font, sans-serif;
+      text-transform: uppercase;
+      margin: 25px 0 50px 0;
     }
 
     img {
-      margin-top: $spacing-md;
-      margin-bottom: $spacing-md;
+      width: 100%;
+    }
+
+    .hline {
+      width: 50px;
+      height: 2px;
+      background: #000000;
+      margin: 50px 0 50px 0;
+    }
+
+    .post-category {
+      // display: none;
+      text-transform: uppercase;
+
+      li {
+        list-style-type: none;
+        text-align: right;
+
+        a {
+          color: inherit;
+        }
+      }
     }
   }
 }
