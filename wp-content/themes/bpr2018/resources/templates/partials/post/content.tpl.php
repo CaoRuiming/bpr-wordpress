@@ -1,6 +1,6 @@
 <article>
     <div class="row">
-        <div class="col-lg-1"></div> <!-- Paddging -->
+        <div class="col-lg-1"></div> <!-- Padding -->
 
         <div class="content col-lg-10">
             <h1><?php the_title(); ?></h1>
@@ -19,7 +19,7 @@
             <div class="hline"></div>
         </div>
 
-        <div class="col-lg-1"></div> <!-- Paddging -->
+        <div class="col-lg-1"></div> <!-- Padding -->
     </div>
 
     <div class="row">
