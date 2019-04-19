@@ -39,17 +39,37 @@
 
     .pullquote {
       font-family: $header-font;
+      font-style: italic;
       font-weight: 700;
       font-size: 2.0em;
       color: #9F9F9F;
-      font-style: italic;
+      margin: 0 0 1.4em 0;
+
       &:nth-child(odd) {
         text-align: left;
-        margin: 0 4em 1.4em -4em;
+        @media (min-width: $width-xl) {
+          margin: 0 8vw 1.4em -8vw;
+        }
       }
       &:nth-child(even) {
         text-align: right;
-        margin: 0 -4em 1.4em 4em;
+        @media (min-width: $width-xl) {
+          margin: 0 -8vw 1.4em 8vw;
+        }
+      }
+    }
+
+    .back-to-top {
+      text-transform: uppercase;
+      margin: 100px 0 50px 0;
+      text-align: center;
+      
+      a {
+        font-size: 18px;
+        color: inherit;
+        text-decoration: none;
+        padding-bottom: 3px;
+        border-bottom: 2px solid #000;
       }
     }
   }

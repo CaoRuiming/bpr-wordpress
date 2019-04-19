@@ -3,6 +3,7 @@
         <div class="col-lg-1"></div> <!-- Padding -->
 
         <div class="content col-lg-10">
+            <a name="article-top"></a>
             <h1><?php the_title(); ?></h1>
 
             <div class="byline">
@@ -29,6 +30,9 @@
 
         <div class="content col-lg-10">
             <p><?php the_content(); ?></p>
+            <div class="back-to-top">
+                <a href="#article-top">Back to Top</a>
+            </div>
         </div>
 
         <div class="col-lg-1 post-category">
