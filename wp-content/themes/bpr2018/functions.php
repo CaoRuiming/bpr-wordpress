@@ -32,3 +32,23 @@ if ($ok) {
     // they must be under the same dir path.
     (new Tonik\Gin\Foundation\Autoloader($theme->get('config')))->register();
 }
+
+
+// Define custom shortcode callback functions
+function dropcap_shortcode_function($atts, $content=null) {
+    return $content; // nothing special happens for dropcaps for now
+}
+function pullquote_shortcode_function($atts, $content=null) {
+    return '<div class="pullquote">"'.$content.'"</div>';
+}
+
+
+// Register custom shortcodes
+function register_shortcodes(){
+    add_shortcode('dropcap', 'dropcap_shortcode_function');
+    add_shortcode('pullquote', 'pullquote_shortcode_function');
+}
+
+
+// Actually run register_shortcodes
+add_action('init', 'register_shortcodes');
