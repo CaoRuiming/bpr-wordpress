@@ -15,13 +15,7 @@ get_header(); ?>
   <div class="primary">
     <?php if ( have_posts() ) : ?>
 
-    <form role="search" method="get" id="search-form" action="<?php echo esc_url( home_url( '/' ) ); ?>">
-        <div class="search-wrap">
-          <label class="screen-reader-text" for="s"><?php _e( 'Search for:', 'presentation' ); ?></label>
-          <input type="search" placeholder="<?php echo esc_attr( 'Search…', 'presentation' ); ?>" name="s" id="search-input" value="<?php echo esc_attr( get_search_query() ); ?>" />
-          <input class="screen-reader-text" type="submit" id="search-submit" value="Search" />
-        </div>
-      </form>
+      <?php get_search_form(); ?>
 
       <p class="search-status"><?php
         if ( $wp_query->max_num_pages == 0 ) {
@@ -49,13 +43,7 @@ get_header(); ?>
     <?php else : ?>
 
       <p><?php printf( __( 'Our apologies but there\'s nothing that matches your search for "%s"', 'brown-political-review-2019' ), get_search_query() ); ?></p>
-      <form role="search" method="get" id="search-form" action="<?php echo esc_url( home_url( '/' ) ); ?>">
-        <div class="search-wrap">
-          <label class="screen-reader-text" for="s"><?php _e( 'Search for:', 'presentation' ); ?></label>
-          <input type="search" placeholder="<?php echo esc_attr( 'Search…', 'presentation' ); ?>" name="s" id="search-input" value="<?php echo esc_attr( get_search_query() ); ?>" />
-          <input class="screen-reader-text" type="submit" id="search-submit" value="Search" />
-        </div>
-      </form>
+      <?php get_search_form(); ?>
 
     <?php endif; ?>
   </div><!-- .primary -->
