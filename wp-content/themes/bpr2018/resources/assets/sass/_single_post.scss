@@ -100,5 +100,44 @@
         }
       }
     }
+
+    .suggested-articles-title {
+      margin: 25px 0 50px 0;
+    }
+
+    .suggested-articles {
+      margin: 0 50px 0 50px;
+
+      ul { padding: 0; }
+
+      .suggested-img {
+        width: 28vw;
+        height: 21vw;
+        background-position: center;
+      }
+
+      .post-categories {
+        margin-top: 15px;
+        text-transform: uppercase;
+
+        li {
+          list-style-type: none;
+
+          a {
+            color: inherit;
+          }
+        }
+      }
+
+      p.suggested-title {
+        margin-bottom: 10px;
+        font-weight: 700;
+
+        a {
+          color: #000000;
+          text-decoration: inherit;
+        }
+      }
+    }
   }
 }

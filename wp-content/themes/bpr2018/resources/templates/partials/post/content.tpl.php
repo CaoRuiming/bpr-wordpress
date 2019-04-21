@@ -1,8 +1,8 @@
 <article>
     <div class="row">
-        <div class="col-lg-1"></div> <!-- Padding -->
+        <div class="col-lg-2"></div> <!-- Padding -->
 
-        <div class="content col-lg-10">
+        <div class="content col-lg-8">
             <a id="article-top" name="article-top"></a> <!-- For back to top -->
             <h1><?php the_title(); ?></h1>
 
@@ -26,11 +26,11 @@
     </div>
 
     <div class="row">
-        <div class="col-lg-1">
-            Part of some issue
+        <div class="col-lg-2">
+            <!-- Part of some issue -->
         </div>
 
-        <div class="content col-lg-10">
+        <div class="content col-lg-8">
             <p><?php the_content(); ?></p>
 
             <div class="back-to-top">
@@ -44,7 +44,7 @@
                             <?php 
                             $tags = wp_get_post_tags(get_the_ID());
                             foreach($tags as $tag) {
-                                echo '<div class="tag">'. $tag->name . '</div>';
+                                echo '<div class="tag">'.$tag->name.'</div>';
                             }
                             ?>
                         </div>
@@ -59,11 +59,49 @@
 
                     <div class="social-and-sharing col-sm-3"></div>
                 </div>
+                <div class="row">
+                    <p class="suggested-articles-title">SUGGESTED ARTICLES</p>
+                </div>
             </div>
         </div>
 
-        <div class="col-lg-1 post-category">
+        <div class="col-lg-2 post-category">
             <?php the_category(); ?>
         </div>
+    </div>
+    <div class="row suggested-articles">
+        <?php 
+        $suggested  = new WP_Query(array(
+            'posts_per_page' => 3,
+            'meta_key' => 'post_views_count',
+            'orderby' => 'meta_value_num',
+            'order' => 'DESC'
+        ));
+        while ($suggested->have_posts()): ?>
+            <?php
+            $post = $suggested->the_post();
+            $pic_url = get_the_post_thumbnail_url();
+            ?>
+            <div class="col-md-4 suggested-article">
+                <a href="<?php echo get_permalink(); ?>">
+                    <div
+                        class="suggested-img"
+                        style="background-image: url(<?php echo $pic_url; ?>);">
+                    </div>
+                </a>
+
+                <?php the_category(); ?>
+                
+                <p class="suggested-title">
+                    <a href="<?php echo get_permalink(); ?>">
+                        <?php the_title(); ?>
+                    </a>
+                </p>
+
+                <div class="suggested-author-date">
+                    <?php the_author(); ?> | <?php the_date(); ?>
+                </div>
+            </div>
+        <?php endwhile; ?>
     </div>
 </article>

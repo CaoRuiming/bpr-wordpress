@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-<div class="single-template content-wrapper container fluid">
+<div class="single-template content-wrapper container-fluid">
     <?php if (have_posts()) : ?>
     <?php while (have_posts()) : the_post() ?>
     <?php
