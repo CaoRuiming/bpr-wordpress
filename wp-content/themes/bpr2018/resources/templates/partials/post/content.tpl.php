@@ -104,4 +104,12 @@
             </div>
         <?php endwhile; ?>
     </div>
+
+    <!-- Script to enable pull quotes on alternating sides -->
+    <script>
+        var highlightedItems = document.querySelectorAll(".pullquote");
+        highlightedItems.forEach(function(item, index) {
+            item.className = "pullquote " + ((index % 2) ? "right" : "left");
+        });
+    </script>
 </article>

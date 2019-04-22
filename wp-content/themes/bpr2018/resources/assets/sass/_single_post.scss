@@ -48,13 +48,13 @@
       color: #9F9F9F;
       margin: 0 0 1.4em 0;
 
-      &:nth-child(odd) {
+      &.left {
         text-align: left;
         @media (min-width: $width-xl) {
           margin: 0 8vw 1.4em -8vw;
         }
       }
-      &:nth-child(even) {
+      &.right {
         text-align: right;
         @media (min-width: $width-xl) {
           margin: 0 -8vw 1.4em 8vw;
