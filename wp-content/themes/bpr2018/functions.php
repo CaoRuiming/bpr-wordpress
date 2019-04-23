@@ -62,7 +62,7 @@ add_action( 'wp_head', 'track_post_views');
 function get_post_views($postID){
     $count_key = 'post_views_count';
     $count = get_post_meta($postID, $count_key, true);
-    if($count==''){
+    if ($count == '') {
         delete_post_meta($postID, $count_key);
         add_post_meta($postID, $count_key, '0');
         return "0 View";
@@ -73,10 +73,10 @@ function get_post_views($postID){
 
 // Define custom shortcode callback functions
 function dropcap_shortcode_function($atts, $content=null) {
-    return $content; // nothing special happens for dropcaps for now
+    return $content; // nothing special happens to dropcaps for now
 }
 function pullquote_shortcode_function($atts, $content=null) {
-    return '<div class="pullquote">"'.$content.'"</div>';
+    return '<div class="pullquote right">"'.$content.'"</div>';
 }
 
 // Register custom shortcodes
