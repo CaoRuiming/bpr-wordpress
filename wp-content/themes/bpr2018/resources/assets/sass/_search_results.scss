@@ -22,9 +22,10 @@
     height: 2 * ($spacing-xl + $spacing-md);
     border-bottom: solid black 1px;
     border-radius: 2px;
+    overflow-y: hidden;
     
-    .image {
-      position: absolute;
+    div.image {
+      background-size: cover;
       background: white;
       border: solid 2px black;
       width: 3 * $spacing-xl;
