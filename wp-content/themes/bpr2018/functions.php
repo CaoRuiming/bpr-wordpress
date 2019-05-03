@@ -32,3 +32,59 @@ if ($ok) {
     // they must be under the same dir path.
     (new Tonik\Gin\Foundation\Autoloader($theme->get('config')))->register();
 }
+
+// Setting up tracking of post views
+function set_post_views($postID) {
+    $count_key = 'post_views_count';
+    $count = get_post_meta($postID, $count_key, true);
+    if ($count == '') {
+        $count = 0;
+        delete_post_meta($postID, $count_key);
+        add_post_meta($postID, $count_key, '0');
+    } else {
+        $count++;
+        update_post_meta($postID, $count_key, $count);
+    }
+}
+//To keep the count accurate, get rid of prefetching
+remove_action( 'wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0);
+
+function track_post_views($post_id) {
+    if (!is_single()) return;
+    if (empty($post_id)) {
+        global $post;
+        $post_id = $post->ID;    
+    }
+    set_post_views($post_id);
+}
+add_action( 'wp_head', 'track_post_views');
+
+function get_post_views($postID){
+    $count_key = 'post_views_count';
+    $count = get_post_meta($postID, $count_key, true);
+    if ($count == '') {
+        delete_post_meta($postID, $count_key);
+        add_post_meta($postID, $count_key, '0');
+        return "0 View";
+    }
+    return $count.' Views';
+}
+
+
+// Define custom shortcode callback functions
+function dropcap_shortcode_function($atts, $content=null) {
+    return $content; // nothing special happens to dropcaps for now
+}
+function pullquote_shortcode_function($atts, $content=null) {
+    return '<div class="pullquote right">"'.$content.'"</div>';
+}
+
+// Register custom shortcodes
+function register_shortcodes(){
+    add_shortcode('dropcap', 'dropcap_shortcode_function');
+    add_shortcode('pullquote', 'pullquote_shortcode_function');
+}
+
+
+// Actually run register_shortcodes
+add_action('init', 'register_shortcodes');
