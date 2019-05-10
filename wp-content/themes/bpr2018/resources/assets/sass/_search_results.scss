@@ -2,22 +2,27 @@
   position: relative;
   margin-bottom: $spacing-md;
 
-  label {
-      font-family: $body-font
+  #search-icon {
+    width: $icon-size;
+    height: $icon-size;
+    background-size: cover;
+    display: inline-block;
   }
 
-  input {
-    width: 100%;
-    height: $spacing-md + 15px;
-    margin-top: $spacing-sm;
-    font-size: $font-size-h2;
-    font-family: $body-font;
-    outline: none;
+  #search-bar {
+    width: calc(100% - 39px);
+    display: inline-block;
+    margin-left: 10px;
     border-top: 0;
     border-left: 0;
     border-right: 0;
-    border-bottom: solid black 2px;
-    margin-bottom: $spacing-md;
+    border-bottom: solid 2px grey;
+  }
+
+  input {
+    font-size: 30px;
+    font-family: $body-font;
+    outline: none;
   }
 
   .result {
@@ -25,17 +30,19 @@
     width: 100%;
     height: 2 * ($spacing-xl + $spacing-md);
     border-bottom: solid black 1px;
-    border-radius: 2px;
     overflow-y: hidden;
+    display: flex;
     
     div.image {
       background-size: cover;
       background: white;
-      border: solid 2px black;
-      // max-width: 100%;
-      // height: auto;
+      border: solid 1px grey;
       width: 3 * $spacing-xl;
       height: 2 * $spacing-xl;
+      margin-top: auto;
+      margin-bottom: auto;
+      margin-left: auto;
+      margin-right: 0;
     }
 
     p {
@@ -46,16 +53,31 @@
   
     .date {
       margin-top: 30px;
+      padding: 0;
     }
   
     .info {
       margin-left: $spacing-xl + $spacing-md;
       margin-top: $spacing-sm + 5px;
       width: 45%;
+
+      .description-container {
+        height: 80%;
+        overflow: scroll;
+        margin-bottom: 5px;
+      }
+
+      .author {
+        color: $gray;
+      }
   
       p {
         position: relative;
         margin: 0;
+      }
+
+      .title, a {
+        color: $color-black;
       }
 
       .description {
