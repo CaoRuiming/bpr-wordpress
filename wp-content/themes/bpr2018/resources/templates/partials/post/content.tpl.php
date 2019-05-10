@@ -1,7 +1,6 @@
 <article>
     <div class="row">
         <div class="col-lg-2"></div> <!-- Padding -->
-
         <div class="content col-lg-8">
             <a id="article-top" name="article-top"></a> <!-- For back to top -->
             <h1><?php the_title(); ?></h1>

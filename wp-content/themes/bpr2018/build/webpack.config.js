@@ -18,7 +18,7 @@ const javascriptRule = require('./rules/javascript')
 const externalFontsRule = require('./rules/external.fonts')
 const externalImagesRule = require('./rules/external.images')
 
-const config = require('./app.config')
+const config = require('./app.config');
 
 module.exports = {
   /**
