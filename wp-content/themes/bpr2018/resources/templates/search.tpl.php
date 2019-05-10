@@ -8,9 +8,11 @@
 
 get_header(); ?>
 
-<div class="col-lg-1"></div> <!-- padding -->
+<div class="col-lg-2">
+    <div id="search-icon" style="background-image: url(<?php echo get_template_directory_uri() . '/resources/assets/images/search-icon.png' ?>)"></div>
+</div> <!-- padding -->
 
-<div class="search-results col-lg-10" id="content">
+<div class="search-results col-lg-8" id="content">
 
   <!-- <h1 class="post-title"><?php printf( __( 'Search results for "%s"', 'brown-political-review-2019' ), get_search_query() ); ?></h1> -->
 
@@ -20,7 +22,6 @@ get_header(); ?>
       <form role="search" method="get" id="search-form" action="<?php echo esc_url( home_url( '/' ) ); ?>">
           <div class="search-wrap">
             <!-- <label class="screen-reader-text" for="s"><?php _e( 'Search for:', 'presentation' ); ?></label> -->
-            <div id="search-icon" style="background-image: url(<?php echo get_template_directory_uri() . '/resources/assets/images/search-icon.png' ?>)"></div>
             <input id="search-bar" type="search" placeholder="<?php echo esc_attr( 'Search…', 'presentation' ); ?>" name="s" id="search-input" value="<?php echo esc_attr( get_search_query() ); ?>" />
             <!-- <input class="screen-reader-text" type="submit" id="search-submit" value="Search" /> -->
           </div>
@@ -57,7 +58,7 @@ get_header(); ?>
                 </div>
                 <p class="author"><?php the_author(); ?></p> 
             </div>
-            <div class="image col-lg-12" style="background-image: url(<?php echo $thumbnail; ?>);background-size: cover;"></div>
+            <div class="image col-lg-9" style="background-image: url(<?php echo $thumbnail; ?>);background-size: cover;"></div>
         </div>
 
       <?php endwhile; ?>
