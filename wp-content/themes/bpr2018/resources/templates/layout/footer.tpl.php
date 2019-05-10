@@ -3,9 +3,7 @@
                 <div class="content-wrapper container-fluid">
                   <div class="row">
                     <div class="footer-heading content col-lg-3">
-                    <h1 id="brown">BROWN</h1>
-                    <h1 id="political">POLITICAL</h1>
-                    <h1 id="review">REVIEW</h1>
+                      <div class="footer-logo" style="background-image: url(<?php echo get_template_directory_uri() . '/resources/assets/images/BPR_logo_white.png' ?>)"></div>
                     </div>
                     <div class="content col-lg-3">
                       <!-- <div id="media_links">

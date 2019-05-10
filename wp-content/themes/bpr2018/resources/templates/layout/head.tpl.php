@@ -14,7 +14,7 @@
                         <div class="col-sm-4 header left"></div>
                         <div class="col-sm-4 header-center">
                             <a href="<?= get_home_url(); ?>">
-                                <div class="header-logo" style="background-image: url(<?php echo get_template_directory_uri() . '/resources/assets/images/logo_bright.png' ?>)"></div>
+                                <div class="header-logo" style="background-image: url(<?php echo get_template_directory_uri() . '/resources/assets/images/BPR_logo_black.png' ?>)"></div>
                             </a>
                         </div>
                         <div class="col-sm-4 header-right"></div>

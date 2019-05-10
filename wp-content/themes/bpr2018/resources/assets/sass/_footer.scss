@@ -15,28 +15,11 @@
     width: 400px;
   }
 
-  .footer-heading {
-    position: absolute;
-    pointer-events: none;
-    h1 {
-      color: white;
-      font-family: Georgia, 'Times New Roman', Times, serif;
-      font-size: 30px;
-      line-height: 4px;
-    }
-  
-    #brown {
-      margin-top: 35px;
-    }
-
-    #political {
-      margin-left: 17px;
-    }
-  
-    #review {
-      margin-left: 55px;
-    }
-
+  .footer-heading .footer-logo {
+    @include background-default(cover);
+    margin: 0 auto;
+    width: 200px;
+    height: 75px;
   }
 
   #background {
