@@ -14,6 +14,9 @@
     margin-left: auto;
     margin-right: 0;
     margin-top: $spacing-lg + $spacing-xs;
+    @media (max-width: $width-xl) {
+        display: none;
+    }
   }
 
   #search-bar {
@@ -42,22 +45,24 @@
     display: -ms-flexbox;
     display: flex;
     
-    div.image {
-      background-size: cover;
-      background: white;
-      border: solid 1px grey;
-      width: 240px;
-      height: 180px;
-      margin-top: auto;
-      margin-bottom: auto;
-      margin-left: auto;
-      margin-right: 0;
+    a {
+        margin-top: auto;
+        margin-bottom: auto;
+        margin-left: auto;
+        margin-right: 0;
+
+        div.image {
+            background-size: cover;
+            background: white;
+            border: solid 1px grey;
+            width: 240px;
+            height: 180px;
+        }
     }
 
     p {
       font-family: $body-font;
       font-size: $font-size-h5;
-      position: absolute;
     }
   
     .date {
@@ -67,13 +72,12 @@
     }
   
     .info {
-      margin-left: $spacing-xl + $spacing-md;
       margin-top: $spacing-sm + 5px;
       width: 45%;
 
       .description-container {
         height: 72%;
-        overflow: scroll;
+        overflow: hidden;
       }
 
       .author {

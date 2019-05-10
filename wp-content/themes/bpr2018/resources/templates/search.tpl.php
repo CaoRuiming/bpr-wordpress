@@ -49,7 +49,7 @@ get_header(); ?>
         <?php $thumbnail = get_the_post_thumbnail_url(); ?>
 
         <div class="result">
-            <p class="date col-lg-9"><?php the_date(); ?></p>
+            <p class="date col-lg-2"><?php the_date(); ?></p>
             <div class="info col-lg-9">
                 <div class="description-container">
                     <a href="<?php the_permalink(); ?>"><p class="title"><?php the_title(); ?></p></a>
@@ -58,7 +58,9 @@ get_header(); ?>
                 </div>
                 <p class="author"><?php the_author(); ?></p> 
             </div>
-            <div class="image col-lg-9" style="background-image: url(<?php echo $thumbnail; ?>);background-size: cover;"></div>
+            <a href="<?php the_permalink(); ?>">
+                <div class="image col-lg-9" style="background-image: url(<?php echo $thumbnail; ?>);background-size: cover;"></div>
+            </a>
         </div>
 
       <?php endwhile; ?>
@@ -76,6 +78,6 @@ get_header(); ?>
 
 </div><!-- #content -->
 
-<div class="col-lg-1"></div> <!-- padding -->
+<div class="col-lg-2"></div> <!-- padding -->
 
 <?php get_footer(); ?>
