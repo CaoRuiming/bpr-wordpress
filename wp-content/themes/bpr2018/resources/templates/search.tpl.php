@@ -8,7 +8,9 @@
 
 get_header(); ?>
 
-<div class="search-results" id="content">
+<div class="col-lg-1"></div> <!-- padding -->
+
+<div class="search-results col-lg-10" id="content">
 
   <h1 class="post-title"><?php printf( __( 'Search results for "%s"', 'brown-political-review-2019' ), get_search_query() ); ?></h1>
 
@@ -45,14 +47,14 @@ get_header(); ?>
         <?php $thumbnail = get_the_post_thumbnail_url(); ?>
 
         <div class="result">
-            <p class="date"><?php the_date(); ?></p>
-            <div class="info">
+            <p class="date col-lg-9"><?php the_date(); ?></p>
+            <div class="info col-lg-9">
                 <a href="<?php the_permalink(); ?>"><p class="title"><?php the_title(); ?></p></a>
                 <p class="tag spacing"><?php the_category( ' ' ); ?></p>
                 <p class="description spacing"><?php the_content(); ?></p>
                 <p class="author"><?php the_author(); ?></p> 
             </div>
-            <div class="image" style="background-image: url(<?php echo $thumbnail; ?>);background-size: cover;"></div>
+            <div class="image col-lg-12" style="background-image: url(<?php echo $thumbnail; ?>);background-size: cover;"></div>
         </div>
 
       <?php endwhile; ?>
@@ -74,5 +76,7 @@ get_header(); ?>
   </div><!-- .primary -->
 
 </div><!-- #content -->
+
+<div class="col-lg-1"></div> <!-- padding -->
 
 <?php get_footer(); ?>

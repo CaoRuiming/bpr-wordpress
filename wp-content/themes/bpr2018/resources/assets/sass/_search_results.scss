@@ -2,6 +2,10 @@
   position: relative;
   margin-bottom: $spacing-md;
 
+  label {
+      font-family: $body-font
+  }
+
   input {
     width: 100%;
     height: $spacing-md + 15px;
@@ -28,10 +32,10 @@
       background-size: cover;
       background: white;
       border: solid 2px black;
+      // max-width: 100%;
+      // height: auto;
       width: 3 * $spacing-xl;
       height: 2 * $spacing-xl;
-      right: $spacing-md;
-      top: $spacing-md;
     }
 
     p {
@@ -45,7 +49,6 @@
     }
   
     .info {
-      position: absolute;
       margin-left: $spacing-xl + $spacing-md;
       margin-top: $spacing-sm + 5px;
       width: 45%;
