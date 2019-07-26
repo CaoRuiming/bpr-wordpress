@@ -1,16 +1,79 @@
 .app {
-  nav {
+  nav#main-menu {
     padding: $spacing-sm;
 
     text-align: center;
 
-    .header-center {
+    .navbar-toggler {
+      display: none;
+    }
+
+    a.navbar-brand {
+      height: auto;
+
       .header-logo {
         @include background-default(cover);
-        margin: 0 auto;
+        margin: 0 85px 0 auto;
         width: 200px;
         height: 75px;
       }
     }
+
+    ul.nav.navbar-nav {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 55px;
+      border-bottom: 2px solid black;
+
+      li {
+        float: unset;
+
+        & > a {
+          color: black;
+          padding-bottom: 5px;
+          text-transform: uppercase;
+        }
+
+        .dropdown-menu {
+          padding-top: 10px;
+
+          .dropdown-item {
+            margin-bottom: 10px;
+          }
+        }
+      }
+
+
+      // li {
+      //   a {
+      //     padding: 9
+      //   }
+      // }
+      // li {
+      //   a {
+      //     color: black;
+      //     padding: 0 0 5px 0;
+      //     text-transform: uppercase;
+    
+      //     &:hover {
+      //       font-weight: 700;
+      //     }
+      //   }
+      // }
+    }
+
+
+    // ul.menu {
+    //   list-style: none;
+    //   display: flex;
+    //   justify-content: space-between;
+    //   padding: 0 0 5px 0;
+    //   border-bottom: 2px solid black;
+
+    //   li {
+    //     margin: 0;
+    //     padding: 0;
+    //   }
+    // }
   }
 }

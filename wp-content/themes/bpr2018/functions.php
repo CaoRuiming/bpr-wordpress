@@ -33,6 +33,9 @@ if ($ok) {
     (new Tonik\Gin\Foundation\Autoloader($theme->get('config')))->register();
 }
 
+// Register Custom Navigation Walker
+require_once get_template_directory() . '/class-wp-bootstrap-navwalker.php';
+
 // Setting up tracking of post views
 function set_post_views($postID) {
     $count_key = 'post_views_count';
