@@ -1,6 +1,6 @@
 .app {
   max-width: $website-max-width;
-  margin: $spacing-lg auto;
+  margin: $spacing-md auto;
 
   @media all and (max-width: $width-md) {
     margin: $spacing-sm;

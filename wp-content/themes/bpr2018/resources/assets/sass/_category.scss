@@ -1,4 +1,4 @@
-#front-page {
+#category-page {
   margin: $spacing-lg auto;
 
   a {
@@ -6,19 +6,32 @@
     text-decoration: inherit;
   }
 
+  .category-title {
+    font-size: 100px;
+    margin-bottom: $spacing-xs;
+  }
+
   .horizontal-rule {
     margin-bottom: 10px;
     width: 100%;
     border-top: 1px solid black;
+
+    &.faint {
+      border-top: 1px solid #D9D9D9;
+
+      &:nth-child(3) { display: none; }
+    }
   }
 
-  .category-title {
+  .section-title {
     font-size: 30px;
     margin-bottom: 25px;
     color: black;
   }
 
   .read-more {
+    margin-top: $spacing-lg;
+    text-align: center;
     text-transform: uppercase;
     font-size: 18px;
     color: black;
@@ -27,9 +40,7 @@
   #popular-articles {
     margin-bottom: $spacing-lg;
 
-    .featured-post {
-      margin: 0;
-    }
+    .featured-post { margin: 0; }
 
     .post-categories {
       padding: 0;
@@ -48,40 +59,19 @@
     }
   }
 
-  .category-row {
-    margin: 0 0 50px 0;
+  .row.latest-post {
+    margin: 0 0 $spacing-sm 0;
 
     ul { padding: 0; }
 
-    .recent-article {
-      padding-bottom: 30px;
-      // overflow: hidden;
-
-      p.recent-title {
-        margin-bottom: 10px;
-        font-weight: 700;
-      }
+    .post-date { text-transform: uppercase; }
+    .post-title {
+      margin-top: 0;
+      font-size: 24px;
+      font-weight: 300;
     }
-  }
-
-  .category-cols {
-    margin-bottom: 50px;
-
-    .read-more {
+    .post-author {
       text-transform: uppercase;
-      font-size: 18px;
-      color: black;
-    }
-
-    .recent-article {
-      padding: 0;
-      margin-bottom: 50px;
-      overflow: hidden;
-
-      p.recent-title {
-        margin-bottom: 10px;
-        font-weight: 700;
-      }
     }
   }
 }

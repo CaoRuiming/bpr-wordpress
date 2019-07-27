@@ -1,6 +1,11 @@
 <?php
 
-namespace BPRWP\Theme\ContentCategory;
+/*!
+	Template Name: Category Page
+	Template Post Type: page
+*/
+
+namespace BPRWP\Theme\Category;
 
 /*
 |------------------------------------------------------------------
@@ -20,4 +25,4 @@ use function BPRWP\Theme\App\template;
  *
  * @see resources/templates/content-category.tpl.php
  */
-template('content-category');
+template('category');
