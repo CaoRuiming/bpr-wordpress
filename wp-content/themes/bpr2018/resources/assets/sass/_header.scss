@@ -1,6 +1,13 @@
 .app {
+  max-width: $website-max-width;
+  margin: $spacing-lg auto;
+
+  @media all and (max-width: $width-md) {
+    margin: $spacing-sm;
+  }
+
   nav#main-menu {
-    padding: $spacing-sm;
+    padding-top: $spacing-sm;
 
     text-align: center;
 

@@ -73,7 +73,6 @@ function get_post_views($postID){
     return $count.' Views';
 }
 
-
 // Define custom shortcode callback functions
 function dropcap_shortcode_function($atts, $content=null) {
     return $content; // nothing special happens to dropcaps for now
@@ -83,11 +82,21 @@ function pullquote_shortcode_function($atts, $content=null) {
 }
 
 // Register custom shortcodes
-function register_shortcodes(){
+function register_shortcodes() {
     add_shortcode('dropcap', 'dropcap_shortcode_function');
     add_shortcode('pullquote', 'pullquote_shortcode_function');
 }
-
-
-// Actually run register_shortcodes
 add_action('init', 'register_shortcodes');
+
+// Register custom scripts
+function register_scripts() {
+    $path = get_template_directory_uri() . '/resources/assets/js/scripts/';
+
+    wp_deregister_script('jquery');
+    wp_register_script('jquery', $path . 'jquery-3.4.1.min.js');
+    wp_enqueue_script('jquery');
+
+    wp_register_script('slick', $path . 'slick.min.js', array('jquery'));
+    wp_enqueue_script('slick');
+}
+add_action('wp_enqueue_scripts', 'register_scripts');
