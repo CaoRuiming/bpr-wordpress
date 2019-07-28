@@ -100,3 +100,6 @@ function register_scripts() {
     wp_enqueue_script('slick');
 }
 add_action('wp_enqueue_scripts', 'register_scripts');
+
+// For enabling pagination in category template
+ini_set('mysql.trace_mode', 0);

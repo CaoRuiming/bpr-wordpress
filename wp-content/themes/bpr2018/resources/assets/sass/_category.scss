@@ -3,16 +3,8 @@
 
   .post-title-large { margin: $spacing-sm 0; }
   .post-title-small { margin-bottom: $spacing-sm; }
-
-  .category-title {
-    font-size: 100px;
-    margin-bottom: $spacing-xs;
-  }
-
-  .more-link {
-    margin-top: $spacing-lg;
-    text-align: center;
-  }
+  .more-link { margin-top: $spacing-lg; }
+  .category-title { margin-bottom: $spacing-xs; }
 
   #popular-articles {
     margin-bottom: $spacing-lg;

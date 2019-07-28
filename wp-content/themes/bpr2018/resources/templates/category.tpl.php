@@ -22,7 +22,7 @@ if (is_single()) {
       </div>
     <?php endif; ?>
 
-    <div class="category-title"><?php echo $category->name; ?></div>
+    <div class="category-title font-size-100"><?php echo $category->name; ?></div>
     <div class="horizontal-rule"></div>
     <div class="section-title">Popular Articles</div>
   </div>
@@ -93,14 +93,20 @@ if (is_single()) {
     <div class="horizontal-rule"></div>
     <div class="section-title">Latest</div>
     <?php
-    $latest  = new WP_Query(array(
+    $paged = get_query_var('paged') ? get_query_var('paged') : 1;
+    $query  = new WP_Query(array(
       'category_name' => $category->slug,
-      'posts_per_page' => 5,
+      'paged' => $paged,
+      'posts_per_page' => get_option('posts_per_page'),
+      'orderby' => 'date',
+      'order' => 'desc',
+      'post_type' => 'post',
+      'post_status' => 'publish',
     ));
 
-    while ($latest->have_posts()): ?>
+    while ($query->have_posts()): ?>
       <?php
-      $post = $latest->the_post();
+      $post = $query->the_post();
       $pic_url = get_the_post_thumbnail_url();
       ?>
       <div class="horizontal-rule faint"></div>
@@ -136,7 +142,25 @@ if (is_single()) {
         </div>
       </div>
     <?php endwhile; ?>
-    <div class="more-link">SHOW MORE</div>
+    <?php wp_reset_postdata(); ?>
+    <?php if ($paged === 1): ?>
+      <div class="more-link text-center">
+        <?php next_posts_link('Show Older', $query->max_num_pages); ?>
+      </div>
+    <?php elseif (!get_next_posts_link()): ?>
+      <div class="more-link text-center">
+        <?php previous_posts_link('Show Newer', $query->max_num_pages); ?>
+      </div>
+    <?php else: ?>
+      <div class="row">
+        <div class="more-link older col-xs-6 text-left">
+          <?php previous_posts_link('Show Newer', $query->max_num_pages); ?>
+        </div>
+        <div class="more-link newer col-xs-6 text-right">
+          <?php next_posts_link('Show Older', $query->max_num_pages); ?>
+        </div>
+      </div>
+    <?php endif; ?>
   </div>
 </div>
 
