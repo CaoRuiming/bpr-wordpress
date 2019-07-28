@@ -18,56 +18,63 @@ if ( is_single() ) {
   </div>
 
   <div id="popular-articles" class="row">
-    <div class="carousel-wrapper container-fluid">
-      <?php
-      $recent  = new WP_Query(array(
-          'category_name' => $category->slug,
-          'posts_per_page' => 3,
-      ));
+    <div class="carousel-wrapper">
+      <div class="carousel container-fluid">
+        <?php
+        $recent  = new WP_Query(array(
+            'category_name' => $category->slug,
+            'posts_per_page' => 3,
+        ));
 
-      while ($recent->have_posts()): ?>
-          <?php
-          $post = $recent->the_post();
-          $pic_url = get_the_post_thumbnail_url();
-          ?>
-          <div class="row featured-post">
-            <div class="col-md-6">
-              <a href="<?php echo get_permalink(); ?>">
-                  <div
-                      class="img-40"
-                      style="background-image: url(<?php echo $pic_url; ?>);">
-                  </div>
-              </a>
-            </div>
+        while ($recent->have_posts()): ?>
+            <?php
+            $post = $recent->the_post();
+            $pic_url = get_the_post_thumbnail_url();
+            ?>
+            <div class="row featured-post">
+              <div class="col-md-6">
+                <a href="<?php echo get_permalink(); ?>">
+                    <div
+                        class="img-40"
+                        style="background-image: url(<?php echo $pic_url; ?>);">
+                    </div>
+                </a>
+              </div>
 
-            <div class="col-md-6">
-              <?php the_category(); ?>
+              <div class="col-md-6">
+                <?php the_category(); ?>
 
-              <h1 class="post-title-large">
-                  <a href="<?php echo get_permalink(); ?>">
-                      <?php the_title(); ?>
-                  </a>
-              </h1>
+                <h1 class="post-title-large">
+                    <a href="<?php echo get_permalink(); ?>">
+                        <?php the_title(); ?>
+                    </a>
+                </h1>
 
-              <p class="font-size-24">
-                <?php
-                $content = apply_filters('the_content', get_the_content());
-                echo substr(sanitize_text_field($content), 0, 250) . '...';
-                ?>
-              </p>
+                <p class="font-size-24">
+                  <?php
+                  $content = apply_filters('the_content', get_the_content());
+                  echo substr(sanitize_text_field($content), 0, 250) . '...';
+                  ?>
+                </p>
 
-              <div class="post-author post-date font-size-20">
-                  <?php the_author(); ?><?php if (get_the_date()) { echo ' | ' . get_the_date(); } ?>
+                <div class="post-author post-date font-size-20">
+                    <?php the_author(); ?><?php if (get_the_date()) { echo ' | ' . get_the_date(); } ?>
+                </div>
               </div>
             </div>
-          </div>
-      <?php endwhile; ?>
+        <?php endwhile; ?>
+      </div>
+      <div class="carousel-arrow carousel-prev">&#11139;</div>
+      <div class="carousel-arrow carousel-next">&#11137;</div>
     </div>
     <script>
-      $('.carousel-wrapper').slick({
+      $('.carousel').slick({
         infinite: true,
         autoplay: true,
-        autoplaySpeed: 7000
+        autoplaySpeed: 10000,
+        arrows: true,
+        prevArrow: $('.carousel-prev'),
+        nextArrow: $('.carousel-next')
       });
     </script>
   </div>

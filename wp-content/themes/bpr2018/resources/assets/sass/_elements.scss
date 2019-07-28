@@ -9,3 +9,18 @@
     &:nth-child(3) { display: none; }
   }
 }
+
+/** For Slick carousels. Arrow elements are:
+ * <div class="carousel-arrow carousel-prev">&#11139;</div>
+ * <div class="carousel-arrow carousel-next">&#11137;</div>
+ */
+.carousel-wrapper { position: relative; }
+.carousel-arrow {
+  position: absolute;
+  top: 33%;
+  font-size: 60px;
+  cursor: pointer;
+
+  &.carousel-prev { left: -60px; }
+  &.carousel-next { right: -60px; }
+}
