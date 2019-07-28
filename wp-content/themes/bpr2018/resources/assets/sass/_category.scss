@@ -5,14 +5,11 @@
   .post-title-small { margin-bottom: $spacing-sm; }
   .more-link { margin-top: $spacing-lg; }
   .category-title { margin-bottom: $spacing-xs; }
+  .horizontal-rule:nth-child(3) { display: none; }
+  .row.latest-post { margin-bottom: $spacing-sm; }
 
   #popular-articles {
     margin-bottom: $spacing-lg;
     .featured-post { margin: 0; }
-  }
-
-  .row.latest-post {
-    margin-bottom: $spacing-sm;
-    ul { padding: 0; }
   }
 }

@@ -1,83 +1,89 @@
-<?php
-/**
- * Search results template
- *
- * @package Innovate New Albany 2014
- * @author Buckeye Interactive
- */
+<?php get_header(); ?>
 
-get_header(); ?>
+<div id="search-page" class="container=fluid">
+  <div id="search-field" class="row">
+    <?php
+    $search_icon_url = get_template_directory_uri() . '/resources/assets/images/search-icon.png';
+    ?>
+    <div
+      id="search-icon"
+      style="background-image: url(<?php echo $search_icon_url ?>)">
+    </div>
+    <form
+      id="search-form"
+      class="col-xs-12"
+      role="search"
+      method="get"
+      action="<?php echo esc_url( home_url( '/' ) ); ?>"
+    >
+      <input
+        id="search-input"
+        type="search"
+        placeholder="Search…"
+        name="s"
+        value="<?php echo esc_attr( get_search_query() ); ?>"
+      />
+    </form>
+  </div>
 
-<div class="col-lg-2">
-    <div id="search-icon" style="background-image: url(<?php echo get_template_directory_uri() . '/resources/assets/images/search-icon.png' ?>)"></div>
-</div> <!-- padding -->
+  <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+    <?php $pic_url = get_the_post_thumbnail_url(); ?>
+    <div class="horizontal-rule faint"></div>
+    <div class="row search-result">
+      <div class="col-sm-2 post-date font-size-18">
+        <?php if (get_the_date()) { echo get_the_date(); } ?>
+      </div>
 
-<div class="search-results col-lg-8" id="content">
-
-  <!-- <h1 class="post-title"><?php printf( __( 'Search results for "%s"', 'brown-political-review-2019' ), get_search_query() ); ?></h1> -->
-
-  <div class="primary">
-    <?php if ( have_posts() ) : ?>
-
-      <form role="search" method="get" id="search-form" action="<?php echo esc_url( home_url( '/' ) ); ?>">
-          <div class="search-wrap">
-            <!-- <label class="screen-reader-text" for="s"><?php _e( 'Search for:', 'presentation' ); ?></label> -->
-            <input id="search-bar" type="search" placeholder="<?php echo esc_attr( 'Search…', 'presentation' ); ?>" name="s" id="search-input" value="<?php echo esc_attr( get_search_query() ); ?>" />
-            <!-- <input class="screen-reader-text" type="submit" id="search-submit" value="Search" /> -->
-          </div>
-      </form>
-
-      <p class="search-status"><?php
-        global $wp_query;
-
-        if ( $wp_query->max_num_pages == 0 ) {
-          printf( __( 'Showing %d results.', 'brown-political-review-2019' ), $wp_query->found_posts );
-        } else {
-          $page = ( get_query_var( 'paged' ) ? get_query_var( 'paged' ) : 1 );
-          $start = ($page - 1) * get_query_var( 'posts_per_page' ) + 1;
-          $end = $start - 1 + $wp_query->post_count;
-          if ( $end - $start == 0 ) {
-            // printf( __( 'Showing result %d of %d.', 'brown-political-review-2019' ), $start, $wp_query->found_posts );
-          } else {
-            // printf( __( 'Showing results %d&ndash;%d of %d.', 'brown-political-review-2019' ), $start, $end, $wp_query->found_posts );
-          }
-        }
-      ?></p>
-
-      <?php while ( have_posts() ) : the_post(); ?>
-
-        <?php $thumbnail = get_the_post_thumbnail_url(); ?>
-
-        <div class="result">
-            <p class="date col-lg-2"><?php the_date(); ?></p>
-            <div class="info col-lg-9">
-                <div class="description-container">
-                    <a href="<?php the_permalink(); ?>"><p class="title"><?php the_title(); ?></p></a>
-                    <p class="tag spacing"><?php the_category( ' ' ); ?></p>
-                    <p class="description spacing"><?php the_content(); ?></p>
-                </div>
-                <p class="author"><?php the_author(); ?></p> 
-            </div>
-            <a href="<?php the_permalink(); ?>">
-                <div class="image col-lg-9" style="background-image: url(<?php echo $thumbnail; ?>);background-size: cover;"></div>
-            </a>
+      <div class="col-sm-8">
+        <div class="post-title-small">
+          <a href="<?php echo get_permalink(); ?>">
+            <?php the_title(); ?>
+          </a>
         </div>
 
-      <?php endwhile; ?>
+        <?php the_category(); ?>
 
-      <?php echo ina_post_nav_links(); ?>
+        <p class="font-size-20">
+          <?php
+          $content = apply_filters('the_content', get_the_content());
+          echo substr(sanitize_text_field($content), 0, 250) . '...';
+          ?>
+        </p>
 
-    <?php else : ?>
+        <div class="post-author font-size-18"><?php the_author(); ?></div>
+      </div>
 
-      <p><?php printf( __( 'Our apologies but there\'s nothing that matches your search for "%s"', 'brown-political-review-2019' ), get_search_query() ); ?></p>
-      <form role="search" method="get" id="search-form" action="<?php echo esc_url( home_url( '/' ) ); ?>">
-      </form>
-
+      <div class="col-sm-2">
+        <a href="<?php echo get_permalink(); ?>">
+          <div
+            class="img-10"
+            style="background-image: url(<?php echo $pic_url; ?>);">
+          </div>
+        </a>
+      </div>
+    </div>
+  <?php endwhile; ?>
+    <?php if (!get_previous_posts_link()): ?>
+      <div class="more-link text-center">
+        <?php next_posts_link('Next Page'); ?>
+      </div>
+    <?php elseif (!get_next_posts_link()): ?>
+      <div class="more-link text-center">
+        <?php previous_posts_link('Previous Page'); ?>
+      </div>
+    <?php else: ?>
+      <div class="row">
+        <div class="more-link col-xs-6 text-left">
+          <?php previous_posts_link('Previous Page'); ?>
+        </div>
+        <div class="more-link col-xs-6 text-right">
+          <?php next_posts_link('Next Page'); ?>
+        </div>
+      </div>
     <?php endif; ?>
-  </div><!-- .primary -->
-
-</div><!-- #content -->
-
-<div class="col-lg-2"></div> <!-- padding -->
+  <?php else: ?>
+    <p><?php esc_html_e( 'Sorry, no posts matched your search.' ); ?></p>
+  <?php endif; ?>
+</div>
 
 <?php get_footer(); ?>

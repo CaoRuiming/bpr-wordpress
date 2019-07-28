@@ -120,7 +120,11 @@ blockquote {
   text-transform: uppercase;
   font-size: 25px;
 
-  li { list-style-type: none; }
+  li {
+    list-style-type: none;
+    display: inline-block;
+    margin-right: $spacing-sm;
+  }
 
   a {
     padding: 0 0 $spacing-xs 0;
