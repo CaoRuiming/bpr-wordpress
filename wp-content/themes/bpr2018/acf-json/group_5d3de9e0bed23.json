@@ -1,0 +1,161 @@
+{
+    "key": "group_5d3de9e0bed23",
+    "title": "Front Page",
+    "fields": [
+        {
+            "key": "field_5d3dea554d1c7",
+            "label": "Section 1 Category",
+            "name": "section_1",
+            "type": "taxonomy",
+            "instructions": "Category or taxonomy of posts to show in this section.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "taxonomy": "category",
+            "field_type": "checkbox",
+            "add_term": 1,
+            "save_terms": 0,
+            "load_terms": 0,
+            "return_format": "object",
+            "multiple": 0,
+            "allow_null": 0
+        },
+        {
+            "key": "field_5d3decb14dfa4",
+            "label": "Section 2 Category",
+            "name": "section_2",
+            "type": "taxonomy",
+            "instructions": "Category or taxonomy of posts to show in this section.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "taxonomy": "category",
+            "field_type": "checkbox",
+            "add_term": 1,
+            "save_terms": 0,
+            "load_terms": 0,
+            "return_format": "object",
+            "multiple": 0,
+            "allow_null": 0
+        },
+        {
+            "key": "field_5d3decc94dfa5",
+            "label": "Section 3 Category",
+            "name": "section_3",
+            "type": "taxonomy",
+            "instructions": "Category or taxonomy of posts to show in this section.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "taxonomy": "category",
+            "field_type": "checkbox",
+            "add_term": 1,
+            "save_terms": 0,
+            "load_terms": 0,
+            "return_format": "object",
+            "multiple": 0,
+            "allow_null": 0
+        },
+        {
+            "key": "field_5d3decce4dfa6",
+            "label": "Section 4 Category",
+            "name": "section_4",
+            "type": "taxonomy",
+            "instructions": "Category or taxonomy of posts to show in this section.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "taxonomy": "category",
+            "field_type": "checkbox",
+            "add_term": 1,
+            "save_terms": 0,
+            "load_terms": 0,
+            "return_format": "object",
+            "multiple": 0,
+            "allow_null": 0
+        },
+        {
+            "key": "field_5d3decd04dfa7",
+            "label": "Section 5 Category",
+            "name": "section_5",
+            "type": "taxonomy",
+            "instructions": "Category or taxonomy of posts to show in this section.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "taxonomy": "category",
+            "field_type": "checkbox",
+            "add_term": 1,
+            "save_terms": 0,
+            "load_terms": 0,
+            "return_format": "object",
+            "multiple": 0,
+            "allow_null": 0
+        },
+        {
+            "key": "field_5d3decd24dfa8",
+            "label": "Section 6 Category",
+            "name": "section_6",
+            "type": "taxonomy",
+            "instructions": "Category or taxonomy of posts to show in this section.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "taxonomy": "category",
+            "field_type": "checkbox",
+            "add_term": 1,
+            "save_terms": 0,
+            "load_terms": 0,
+            "return_format": "object",
+            "multiple": 0,
+            "allow_null": 0
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "page_template",
+                "operator": "==",
+                "value": "front-page.php"
+            }
+        ]
+    ],
+    "menu_order": -1,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": [
+        "the_content",
+        "discussion",
+        "comments",
+        "author"
+    ],
+    "active": 1,
+    "description": "Custom fields for the front page (Home)",
+    "modified": 1564341619
+}

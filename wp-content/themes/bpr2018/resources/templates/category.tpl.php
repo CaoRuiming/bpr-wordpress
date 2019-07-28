@@ -153,10 +153,10 @@ if (is_single()) {
       </div>
     <?php else: ?>
       <div class="row">
-        <div class="more-link older col-xs-6 text-left">
+        <div class="more-link col-xs-6 text-left">
           <?php previous_posts_link('Show Newer', $query->max_num_pages); ?>
         </div>
-        <div class="more-link newer col-xs-6 text-right">
+        <div class="more-link col-xs-6 text-right">
           <?php next_posts_link('Show Older', $query->max_num_pages); ?>
         </div>
       </div>

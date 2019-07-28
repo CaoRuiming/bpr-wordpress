@@ -1,4 +1,4 @@
-<?php get_header(); ?>
+<?php get_header(); $page_id = get_option('page_on_front'); ?>
 
 <div id="front-page" class="container-fluid">
   <div id="popular-articles">
@@ -67,7 +67,8 @@
 
   <div id="section-1" class="category-row">
     <?php
-    $category_object = get_category_by_slug( 'us' );
+    $slug = get_field('section_1', $page_id)[0]->slug;
+    $category_object = get_category_by_slug($slug);
     ?>
 
     <div class="horizontal-rule"></div>
@@ -116,7 +117,8 @@
 
   <div id="section-2" class="category-row">
     <?php
-    $category_object = get_category_by_slug( 'us' );
+    $slug = get_field('section_2', $page_id)[0]->slug;
+    $category_object = get_category_by_slug($slug);
     ?>
 
     <div class="horizontal-rule"></div>
@@ -166,7 +168,8 @@
   <div class="row category-cols">
     <div id="section-3" class="col-md-6 category-col">
       <?php
-      $category_object = get_category_by_slug( 'us' );
+      $slug = get_field('section_3', $page_id)[0]->slug;
+      $category_object = get_category_by_slug($slug);
       ?>
 
       <div class="horizontal-rule"></div>
@@ -212,7 +215,8 @@
     </div>
     <div id="section-4" class="col-md-6 category-col">
       <?php
-      $category_object = get_category_by_slug( 'us' );
+      $slug = get_field('section_4', $page_id)[0]->slug;
+      $category_object = get_category_by_slug($slug);
       ?>
 
       <div class="horizontal-rule"></div>
@@ -261,7 +265,8 @@
   <div class="row category-cols">
     <div id="section-5" class="col-md-6 category-col">
       <?php
-      $category_object = get_category_by_slug( 'us' );
+      $slug = get_field('section_5', $page_id)[0]->slug;
+      $category_object = get_category_by_slug($slug);
       ?>
 
       <div class="horizontal-rule"></div>
@@ -307,7 +312,8 @@
     </div>
     <div id="section-6" class="col-md-6 category-col-compact">
       <?php
-      $category_object = get_category_by_slug( 'us' );
+      $slug = get_field('section_6', $page_id)[0]->slug;
+      $category_object = get_category_by_slug($slug);
       ?>
 
       <div class="horizontal-rule"></div>
