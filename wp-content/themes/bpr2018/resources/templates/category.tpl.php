@@ -12,6 +12,16 @@ if ( is_single() ) {
 
 <div id="category-page" class="container-fluid">
   <div class="container-fluid">
+    <?php if ($category->parent > 0): ?>
+      <?php
+      $parent = get_category($category->parent);
+      $parent_link = get_category_link($parent);
+      ?>
+      <div class="parent-category-title post-categories">
+        <a href="<?php echo $parent_link; ?>"><?php echo $parent->name; ?></a>
+      </div>
+    <?php endif; ?>
+
     <div class="category-title"><?php echo $category->name; ?></div>
     <div class="horizontal-rule"></div>
     <div class="section-title">Popular Articles</div>

@@ -23,8 +23,8 @@
     font-size: 60px;
     cursor: pointer;
   
-    &.carousel-prev { left: -30px; }
-    &.carousel-next { right: -30px; }
+    &.carousel-prev { left: -40px; }
+    &.carousel-next { right: -40px; }
   
     @media all and (max-width: $width-lg) {
       height: 0;

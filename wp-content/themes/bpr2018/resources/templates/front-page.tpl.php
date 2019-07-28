@@ -1,12 +1,10 @@
 <?php get_header(); ?>
 
 <div id="front-page" class="container-fluid">
-  <div id="popular-articles" class="row">
-    <div class="container-fluid">
-      <div class="section-title">Popular Articles</div>
-    </div>
+  <div id="popular-articles">
+    <div class="section-title">Popular Articles</div>
     <div class="carousel-wrapper">
-      <div class="carousel container-fluid">
+      <div class="carousel">
         <?php 
         $category_object = get_category_by_slug( 'us' );
         $recent  = new WP_Query(array(
