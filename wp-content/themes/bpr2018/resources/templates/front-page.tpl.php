@@ -3,7 +3,7 @@
 <div id="front-page" class="container-fluid">
   <div id="popular-articles" class="row">
     <div class="container-fluid">
-      <div class="category-title">Popular Articles</div>
+      <div class="section-title">Popular Articles</div>
     </div>
     <div class="carousel-wrapper container-fluid">
       <?php 
@@ -31,20 +31,20 @@
             <div class="col-md-6">
               <?php the_category(); ?>
 
-              <h1 class="post-title">
+              <div class="post-title-large">
                   <a href="<?php echo get_permalink(); ?>">
                       <?php the_title(); ?>
                   </a>
-              </h1>
+              </div>
 
-              <p>
+              <p class="font-size-24">
                 <?php
                 $content = apply_filters('the_content', get_the_content());
                 echo substr(sanitize_text_field($content), 0, 250) . '...';
                 ?>
               </p>
 
-              <div class="post-author-date">
+              <div class="post-author post-date font-size-20">
                   <?php the_author(); ?><?php if (get_the_date()) { echo ' | ' . get_the_date(); } ?>
               </div>
             </div>
@@ -67,7 +67,7 @@
 
       <div class="horizontal-rule"></div>
 
-      <div class="category-title">
+      <div class="section-title">
         <?php echo $category_object->name; ?>
       </div>
 
@@ -90,19 +90,19 @@
                   </div>
               </a>
 
-              <p class="recent-title">
+              <div class="post-title-small">
                   <a href="<?php echo get_permalink(); ?>">
                       <?php the_title(); ?>
                   </a>
-              </p>
+              </div>
 
-              <div class="recent-author-date">
+              <div class="post-author post-date font-size-18">
                   <?php the_author(); ?><?php if (get_the_date()) { echo ' | ' . get_the_date(); } ?>
               </div>
           </div>
       <?php endwhile; ?>
 
-      <a class="read-more" href="<?php echo get_category_link($category_object); ?>">
+      <a class="more-link" href="<?php echo get_category_link($category_object); ?>">
         More from  <?php echo $category_object->name; ?> >
       </a>
   </div>
@@ -114,7 +114,7 @@
 
       <div class="horizontal-rule"></div>
 
-      <div class="category-title">
+      <div class="section-title">
         <?php echo $category_object->name; ?>
       </div>
 
@@ -137,19 +137,19 @@
                   </div>
               </a>
 
-              <p class="recent-title">
+              <div class="post-title-small">
                   <a href="<?php echo get_permalink(); ?>">
                       <?php the_title(); ?>
                   </a>
-              </p>
+              </div>
 
-              <div class="recent-author-date">
+              <div class="post-author post-date font-size-18">
                   <?php the_author(); ?><?php if (get_the_date()) { echo ' | ' . get_the_date(); } ?>
               </div>
           </div>
       <?php endwhile; ?>
 
-      <a class="read-more" href="<?php echo get_category_link($category_object); ?>">
+      <a class="more-link" href="<?php echo get_category_link($category_object); ?>">
         More from  <?php echo $category_object->name; ?> >
       </a>
   </div>
@@ -162,7 +162,7 @@
 
       <div class="horizontal-rule"></div>
 
-      <div class="category-title">
+      <div class="section-title">
         <?php echo $category_object->name; ?>
       </div>
 
@@ -185,19 +185,19 @@
                   </div>
               </a>
 
-              <p class="recent-title">
+              <div class="post-title-small">
                   <a href="<?php echo get_permalink(); ?>">
                       <?php the_title(); ?>
                   </a>
-              </p>
+              </div>
 
-              <div class="recent-author-date">
+              <div class="post-author post-date font-size-18">
                   <?php the_author(); ?><?php if (get_the_date()) { echo ' | ' . get_the_date(); } ?>
               </div>
           </div>
       <?php endwhile; ?>
 
-      <a class="read-more" href="<?php echo get_category_link($category_object); ?>">
+      <a class="more-link" href="<?php echo get_category_link($category_object); ?>">
         More from  <?php echo $category_object->name; ?> >
       </a>
     </div>
@@ -208,7 +208,7 @@
 
       <div class="horizontal-rule"></div>
 
-      <div class="category-title">
+      <div class="section-title">
         <?php echo $category_object->name; ?>
       </div>
 
@@ -231,19 +231,19 @@
                   </div>
               </a>
 
-              <p class="recent-title">
+              <div class="post-title-small">
                   <a href="<?php echo get_permalink(); ?>">
                       <?php the_title(); ?>
                   </a>
-              </p>
+              </div>
 
-              <div class="recent-author-date">
+              <div class="post-author post-date font-size-18">
                   <?php the_author(); ?><?php if (get_the_date()) { echo ' | ' . get_the_date(); } ?>
               </div>
           </div>
       <?php endwhile; ?>
 
-      <a class="read-more" href="<?php echo get_category_link($category_object); ?>">
+      <a class="more-link" href="<?php echo get_category_link($category_object); ?>">
         More from  <?php echo $category_object->name; ?> >
       </a>
     </div>
@@ -257,7 +257,7 @@
 
       <div class="horizontal-rule"></div>
 
-      <div class="category-title">
+      <div class="section-title">
         <?php echo $category_object->name; ?>
       </div>
 
@@ -280,19 +280,19 @@
                   </div>
               </a>
 
-              <p class="recent-title">
+              <div class="post-title-small">
                   <a href="<?php echo get_permalink(); ?>">
                       <?php the_title(); ?>
                   </a>
-              </p>
+              </div>
 
-              <div class="recent-author-date">
+              <div class="post-author post-date font-size-18">
                   <?php the_author(); ?><?php if (get_the_date()) { echo ' | ' . get_the_date(); } ?>
               </div>
           </div>
       <?php endwhile; ?>
 
-      <a class="read-more" href="<?php echo get_category_link($category_object); ?>">
+      <a class="more-link" href="<?php echo get_category_link($category_object); ?>">
         More from  <?php echo $category_object->name; ?> >
       </a>
     </div>
@@ -303,7 +303,7 @@
 
       <div class="horizontal-rule"></div>
 
-      <div class="category-title">
+      <div class="section-title">
         <?php echo $category_object->name; ?>
       </div>
 
@@ -329,20 +329,20 @@
               </div>
   
               <div class="text col-sm-7">
-                <p class="recent-title">
+                <div class="post-title-small">
                     <a href="<?php echo get_permalink(); ?>">
                         <?php the_title(); ?>
                     </a>
-                </p>
+                </div>
   
-                <div class="recent-author-date">
+                <div class="post-author post-date font-size-18">
                     <?php the_author(); ?><?php if (get_the_date()) { echo ' | ' . get_the_date(); } ?>
                 </div>
               </div>
           </div>
       <?php endwhile; ?>
 
-      <a class="read-more" href="<?php echo get_category_link($category_object); ?>">
+      <a class="more-link" href="<?php echo get_category_link($category_object); ?>">
         More from  <?php echo $category_object->name; ?> >
       </a>
     </div>

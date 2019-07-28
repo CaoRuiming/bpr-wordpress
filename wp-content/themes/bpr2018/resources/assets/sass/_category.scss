@@ -1,40 +1,17 @@
 #category-page {
   margin: $spacing-lg auto;
 
-  a {
-    color: #000000;
-    text-decoration: inherit;
-  }
+  .post-title-large { margin: $spacing-sm 0; }
+  .post-title-small { margin-bottom: $spacing-sm; }
 
   .category-title {
     font-size: 100px;
     margin-bottom: $spacing-xs;
   }
 
-  .horizontal-rule {
-    margin-bottom: 10px;
-    width: 100%;
-    border-top: 1px solid black;
-
-    &.faint {
-      border-top: 1px solid #D9D9D9;
-
-      &:nth-child(3) { display: none; }
-    }
-  }
-
-  .section-title {
-    font-size: 30px;
-    margin-bottom: 25px;
-    color: black;
-  }
-
-  .read-more {
+  .more-link {
     margin-top: $spacing-lg;
     text-align: center;
-    text-transform: uppercase;
-    font-size: 18px;
-    color: black;
   }
 
   #popular-articles {
@@ -60,18 +37,8 @@
   }
 
   .row.latest-post {
-    margin: 0 0 $spacing-sm 0;
+    margin-bottom: $spacing-sm;
 
     ul { padding: 0; }
-
-    .post-date { text-transform: uppercase; }
-    .post-title {
-      margin-top: 0;
-      font-size: 24px;
-      font-weight: 300;
-    }
-    .post-author {
-      text-transform: uppercase;
-    }
   }
 }

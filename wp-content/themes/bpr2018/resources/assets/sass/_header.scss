@@ -8,8 +8,13 @@
 
   nav#main-menu {
     padding-top: $spacing-sm;
-
     text-align: center;
+
+    a { font-size: 16px; }
+
+    &> .container {
+      margin: 0 30px;
+    }
 
     .navbar-toggler {
       display: none;
@@ -20,7 +25,7 @@
 
       .header-logo {
         @include background-default(cover);
-        margin: 0 85px 0 auto;
+        // margin: 0 85px 0 auto;
         width: 200px;
         height: 75px;
       }
@@ -49,38 +54,6 @@
           }
         }
       }
-
-
-      // li {
-      //   a {
-      //     padding: 9
-      //   }
-      // }
-      // li {
-      //   a {
-      //     color: black;
-      //     padding: 0 0 5px 0;
-      //     text-transform: uppercase;
-    
-      //     &:hover {
-      //       font-weight: 700;
-      //     }
-      //   }
-      // }
     }
-
-
-    // ul.menu {
-    //   list-style: none;
-    //   display: flex;
-    //   justify-content: space-between;
-    //   padding: 0 0 5px 0;
-    //   border-bottom: 2px solid black;
-
-    //   li {
-    //     margin: 0;
-    //     padding: 0;
-    //   }
-    // }
   }
 }

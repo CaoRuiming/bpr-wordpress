@@ -1,35 +1,13 @@
 #front-page {
   margin: $spacing-lg auto;
 
-  a {
-    color: #000000;
-    text-decoration: inherit;
-  }
-
-  .horizontal-rule {
-    margin-bottom: 10px;
-    width: 100%;
-    border-top: 1px solid black;
-  }
-
-  .category-title {
-    font-size: 30px;
-    margin-bottom: 25px;
-    color: black;
-  }
-
-  .read-more {
-    text-transform: uppercase;
-    font-size: 18px;
-    color: black;
-  }
+  .post-title-large { margin: $spacing-sm 0; }
+  .post-title-small { margin: $spacing-xxs 0 $spacing-xs 0; }
 
   #popular-articles {
     margin-bottom: $spacing-lg;
 
-    .featured-post {
-      margin: 0;
-    }
+    .featured-post { margin: 0; }
 
     .post-categories {
       padding: 0;
@@ -53,35 +31,16 @@
 
     ul { padding: 0; }
 
-    .recent-article {
-      padding-bottom: 30px;
-      // overflow: hidden;
-
-      p.recent-title {
-        margin-bottom: 10px;
-        font-weight: 700;
-      }
-    }
+    .recent-article { padding-bottom: 30px; }
   }
 
   .category-cols {
     margin-bottom: 50px;
 
-    .read-more {
-      text-transform: uppercase;
-      font-size: 18px;
-      color: black;
-    }
-
     .recent-article {
       padding: 0;
       margin-bottom: 50px;
       overflow: hidden;
-
-      p.recent-title {
-        margin-bottom: 10px;
-        font-weight: 700;
-      }
     }
   }
 }

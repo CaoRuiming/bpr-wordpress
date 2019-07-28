@@ -43,20 +43,20 @@ if ( is_single() ) {
             <div class="col-md-6">
               <?php the_category(); ?>
 
-              <h1 class="post-title">
+              <h1 class="post-title-large">
                   <a href="<?php echo get_permalink(); ?>">
                       <?php the_title(); ?>
                   </a>
               </h1>
 
-              <p>
+              <p class="font-size-24">
                 <?php
                 $content = apply_filters('the_content', get_the_content());
                 echo substr(sanitize_text_field($content), 0, 250) . '...';
                 ?>
               </p>
 
-              <div class="post-author-date">
+              <div class="post-author post-date font-size-20">
                   <?php the_author(); ?><?php if (get_the_date()) { echo ' | ' . get_the_date(); } ?>
               </div>
             </div>
@@ -88,28 +88,28 @@ if ( is_single() ) {
         ?>
         <div class="horizontal-rule faint"></div>
         <div class="row latest-post">
-          <div class="col-md-2 post-date">
+          <div class="col-sm-2 post-date font-size-18">
             <?php if (get_the_date()) { echo get_the_date(); } ?>
           </div>
 
-          <div class="col-md-8">
-            <h1 class="post-title">
+          <div class="col-sm-8">
+            <div class="post-title-small">
                 <a href="<?php echo get_permalink(); ?>">
                     <?php the_title(); ?>
                 </a>
-            </h1>
+            </div>
 
-            <p>
+            <p class="font-size-20">
               <?php
               $content = apply_filters('the_content', get_the_content());
               echo substr(sanitize_text_field($content), 0, 250) . '...';
               ?>
             </p>
 
-            <div class="post-author"><?php the_author(); ?></div>
+            <div class="post-author font-size-18"><?php the_author(); ?></div>
           </div>
 
-          <div class="col-md-2">
+          <div class="col-sm-2">
             <a href="<?php echo get_permalink(); ?>">
                 <div
                     class="img-10"
@@ -119,7 +119,7 @@ if ( is_single() ) {
           </div>
         </div>
     <?php endwhile; ?>
-    <div class="read-more">SHOW MORE</div>
+    <div class="more-link">SHOW MORE</div>
   </div>
 </div>
 

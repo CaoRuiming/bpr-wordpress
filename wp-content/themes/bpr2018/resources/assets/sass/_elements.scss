@@ -1,0 +1,11 @@
+.horizontal-rule {
+  margin-bottom: 10px;
+  width: 100%;
+  border-top: 1px solid black;
+
+  &.faint {
+    border-top: 1px solid #D9D9D9;
+
+    &:nth-child(3) { display: none; }
+  }
+}
