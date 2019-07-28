@@ -111,3 +111,18 @@ blockquote {
   font-weight: 400;
   line-height: 1;
 }
+ul.post-categories {
+  padding: 0;
+  text-transform: uppercase;
+  font-size: 25px;
+
+  li {
+    list-style-type: none;
+
+    a {
+      padding: 0 0 $spacing-xs 0;
+      border-bottom: 2px solid black;
+      color: inherit;
+    }
+  }
+}

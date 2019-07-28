@@ -14,13 +14,21 @@
  * <div class="carousel-arrow carousel-prev">&#11139;</div>
  * <div class="carousel-arrow carousel-next">&#11137;</div>
  */
-.carousel-wrapper { position: relative; }
-.carousel-arrow {
-  position: absolute;
-  top: 33%;
-  font-size: 60px;
-  cursor: pointer;
+.carousel-wrapper {
+  position: relative;
 
-  &.carousel-prev { left: -60px; }
-  &.carousel-next { right: -60px; }
+  .carousel-arrow {
+    position: absolute;
+    top: 33%;
+    font-size: 60px;
+    cursor: pointer;
+  
+    &.carousel-prev { left: -30px; }
+    &.carousel-next { right: -30px; }
+  
+    @media all and (max-width: $width-lg) {
+      height: 0;
+      width: 0;
+    }
+  }
 }

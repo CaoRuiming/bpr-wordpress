@@ -16,29 +16,11 @@
 
   #popular-articles {
     margin-bottom: $spacing-lg;
-
     .featured-post { margin: 0; }
-
-    .post-categories {
-      padding: 0;
-      text-transform: uppercase;
-      font-size: 25px;
-
-      li {
-        list-style-type: none;
-
-        a {
-          padding: 0 0 $spacing-xs 0;
-          border-bottom: 2px solid black;
-          color: inherit;
-        }
-      }
-    }
   }
 
   .row.latest-post {
     margin-bottom: $spacing-sm;
-
     ul { padding: 0; }
   }
 }

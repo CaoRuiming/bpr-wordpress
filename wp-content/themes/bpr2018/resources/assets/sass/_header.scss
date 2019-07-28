@@ -2,7 +2,7 @@
   max-width: $website-max-width;
   margin: $spacing-md auto;
 
-  @media all and (max-width: $width-md) {
+  @media all and (max-width: $width-lg) {
     margin: $spacing-sm;
   }
 
