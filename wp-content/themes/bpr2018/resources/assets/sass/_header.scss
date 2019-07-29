@@ -12,24 +12,11 @@
 
     a { font-size: 16px; }
 
-    &> .container {
-      margin: 0 30px;
-    }
+    &> .container { margin: 0 30px; }
 
-    .navbar-toggler {
-      display: none;
-    }
+    .navbar-toggler { display: none; }
 
-    a.navbar-brand {
-      height: auto;
-
-      .header-logo {
-        @include background-default(cover);
-        // margin: 0 85px 0 auto;
-        width: 200px;
-        height: 75px;
-      }
-    }
+    a.navbar-brand { height: auto; }
 
     ul.nav.navbar-nav {
       display: flex;

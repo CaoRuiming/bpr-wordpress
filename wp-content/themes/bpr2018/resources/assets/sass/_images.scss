@@ -3,6 +3,12 @@
   background-size: cover;
 }
 
+.logo {
+  @include background-default(cover);
+  width: 200px;
+  height: 75px;
+}
+
 .img-50 {
   @include img-common();
   max-width: 1000px;
