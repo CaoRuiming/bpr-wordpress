@@ -1,34 +1,103 @@
-@import "bpr_vars";
+article {
+  h1 { margin-bottom: 25px; }
 
-.single-post {
-  article {
-    h1 {
-      margin-bottom: 25px;
-    }
+  .post-author.post-date { margin: $spacing-sm 0 $spacing-md; }
 
-    div.byline {
-      font-family: $body-font, sans-serif;
-      text-transform: uppercase;
-      margin: 25px 0 50px 0;
-      
-      a {
-        color: #000000;
+  .hline {
+    width: 50px;
+    height: 2px;
+    background: #000000;
+    margin: 50px 0 50px 0;
+  }
+
+  .post-categories a {
+    font-family: $body-font;
+    font-size: 24px;
+    border: none;
+  }
+
+  .pullquote {
+    font-family: $header-font;
+    font-style: italic;
+    font-weight: 700;
+    font-size: 2.0em;
+    color: #9F9F9F;
+    margin: 0 0 1.4em 0;
+
+    &.left {
+      text-align: left;
+      @media (min-width: $width-xl) {
+        margin: 0 8vw 1.4em -8vw;
       }
     }
+    &.right {
+      text-align: right;
+      @media (min-width: $width-xl) {
+        margin: 0 -8vw 1.4em 8vw;
+      }
+    }
+  }
 
-    .hline {
-      width: 50px;
-      height: 2px;
-      background: #000000;
-      margin: 50px 0 50px 0;
+  .back-to-top {
+    text-transform: uppercase;
+    margin: 100px 0 50px 0;
+    text-align: center;
+    
+    a {
+      font-size: 18px;
+      color: inherit;
+      text-decoration: none;
+      padding-bottom: 3px;
+      border-bottom: 2px solid #000000;
+    }
+  }
+
+  .article-bottom {
+    border-top: 2px solid #D9D9D9;
+    border-bottom: 2px solid #D9D9D9;
+
+    .article-tags .tag {
+      display: inline-block;
+      text-transform: uppercase;
+      color: #707070;
+      margin: 25px 25px 0 0;
+      padding: 9px 9px 9px 9px;
+      border: 2px solid #707070;
+      border-radius: 10px;
     }
 
-    .post-category {
+    .about-author {
+      margin: 50px 0 50px 0;
+
+      .about-author-title {
+        margin-bottom: 0;
+        text-transform: uppercase;
+        font-weight: 700;
+      }
+    }
+  }
+
+  .suggested-articles-title {
+    margin: 25px 0 50px 0;
+  }
+
+  .suggested-articles {
+    margin: 0 50px 15px 50px;
+
+    ul { padding: 0; }
+
+    .suggested-img {
+      width: 28vw;
+      height: 21vw;
+      background-position: center;
+    }
+
+    .post-categories {
+      margin-top: 15px;
       text-transform: uppercase;
 
       li {
         list-style-type: none;
-        text-align: right;
 
         a {
           color: inherit;
@@ -36,103 +105,13 @@
       }
     }
 
-    .pullquote {
-      font-family: $header-font;
-      font-style: italic;
+    p.suggested-title {
+      margin-bottom: 10px;
       font-weight: 700;
-      font-size: 2.0em;
-      color: #9F9F9F;
-      margin: 0 0 1.4em 0;
 
-      &.left {
-        text-align: left;
-        @media (min-width: $width-xl) {
-          margin: 0 8vw 1.4em -8vw;
-        }
-      }
-      &.right {
-        text-align: right;
-        @media (min-width: $width-xl) {
-          margin: 0 -8vw 1.4em 8vw;
-        }
-      }
-    }
-
-    .back-to-top {
-      text-transform: uppercase;
-      margin: 100px 0 50px 0;
-      text-align: center;
-      
       a {
-        font-size: 18px;
-        color: inherit;
-        text-decoration: none;
-        padding-bottom: 3px;
-        border-bottom: 2px solid #000000;
-      }
-    }
-
-    .article-bottom {
-      border-top: 2px solid #D9D9D9;
-      border-bottom: 2px solid #D9D9D9;
-
-      .article-tags .tag {
-        display: inline-block;
-        text-transform: uppercase;
-        color: #707070;
-        margin: 25px 25px 0 0;
-        padding: 9px 9px 9px 9px;
-        border: 2px solid #707070;
-        border-radius: 10px;
-      }
-
-      .about-author {
-        margin: 50px 0 50px 0;
-  
-        .about-author-title {
-          margin-bottom: 0;
-          text-transform: uppercase;
-          font-weight: 700;
-        }
-      }
-    }
-
-    .suggested-articles-title {
-      margin: 25px 0 50px 0;
-    }
-
-    .suggested-articles {
-      margin: 0 50px 15px 50px;
-
-      ul { padding: 0; }
-
-      .suggested-img {
-        width: 28vw;
-        height: 21vw;
-        background-position: center;
-      }
-
-      .post-categories {
-        margin-top: 15px;
-        text-transform: uppercase;
-
-        li {
-          list-style-type: none;
-
-          a {
-            color: inherit;
-          }
-        }
-      }
-
-      p.suggested-title {
-        margin-bottom: 10px;
-        font-weight: 700;
-
-        a {
-          color: #000000;
-          text-decoration: inherit;
-        }
+        color: #000000;
+        text-decoration: inherit;
       }
     }
   }
