@@ -14,6 +14,13 @@ article {
     font-family: $body-font;
     font-size: 24px;
     border: none;
+    padding-bottom: 0;
+  }
+
+  .featured-image {
+    @include img-common();
+    width: 100%;
+    padding-bottom: 75%;
   }
 
   .pullquote {
@@ -39,14 +46,9 @@ article {
   }
 
   .back-to-top {
-    text-transform: uppercase;
     margin: 100px 0 50px 0;
-    text-align: center;
     
     a {
-      font-size: 18px;
-      color: inherit;
-      text-decoration: none;
       padding-bottom: 3px;
       border-bottom: 2px solid #000000;
     }
@@ -56,63 +58,35 @@ article {
     border-top: 2px solid #D9D9D9;
     border-bottom: 2px solid #D9D9D9;
 
-    .article-tags .tag {
-      display: inline-block;
-      text-transform: uppercase;
-      color: #707070;
-      margin: 25px 25px 0 0;
-      padding: 9px 9px 9px 9px;
-      border: 2px solid #707070;
-      border-radius: 10px;
+    .post-tags {
+      margin-top: $spacing-md;
+      margin-bottom: $spacing-md;
+
+      .post-tag {
+        color: #707070;
+        margin: 25px 25px 0 0;
+        padding: 9px 9px 9px 9px;
+        border: 2px solid #707070;
+        border-radius: 10px;
+      }
     }
 
     .about-author {
-      margin: 50px 0 50px 0;
-
-      .about-author-title {
-        margin-bottom: 0;
-        text-transform: uppercase;
-        font-weight: 700;
-      }
+      margin-bottom: $spacing-md;
+      .about-author-title { font-weight: 700; }
     }
   }
 
-  .suggested-articles-title {
-    margin: 25px 0 50px 0;
-  }
+  .suggested-articles-title { margin: 25px 0 50px 0; }
 
   .suggested-articles {
     margin: 0 50px 15px 50px;
-
     ul { padding: 0; }
-
-    .suggested-img {
-      width: 28vw;
-      height: 21vw;
-      background-position: center;
-    }
 
     .post-categories {
       margin-top: 15px;
       text-transform: uppercase;
-
-      li {
-        list-style-type: none;
-
-        a {
-          color: inherit;
-        }
-      }
-    }
-
-    p.suggested-title {
-      margin-bottom: 10px;
-      font-weight: 700;
-
-      a {
-        color: #000000;
-        text-decoration: inherit;
-      }
+      a { font-size: 18px; }
     }
   }
 }

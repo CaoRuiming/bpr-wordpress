@@ -12,10 +12,13 @@
       </div>
 
       <?php 
-      $url = wp_get_attachment_url(get_post_thumbnail_id(get_the_ID()));
-      if ($url):
+      $pic_url = wp_get_attachment_url(get_post_thumbnail_id(get_the_ID()));
+      if ($pic_url):
       ?>
-        <img class="featured-image" src="<?php echo $url; ?>">
+        <div
+          class="featured-image"
+          style="background-image: url(<?php echo $pic_url; ?>);">
+        </div>
       <?php endif; ?>
 
       <div class="hline"></div>
@@ -30,28 +33,31 @@
     <div class="content col-lg-8">
       <?php the_content(); ?>
 
-      <div class="back-to-top">
-        <a href="#article-top">Back to Top</a>
+      <div class="back-to-top text-center">
+        <a href="#article-top" class="uppercase font-size-18">Back to Top</a>
       </div>
 
       <div class="article-bottom-wrapper container-fluid">
         <div class="article-bottom row">
           <div class="tags-and-author col-sm-9">
-            <div class="article-tags">
-              <?php 
-              $tags = wp_get_post_tags(get_the_ID());
-              foreach($tags as $tag) {
-                echo '<div class="tag">'.$tag->name.'</div>';
-              }
+            <div class="post-tags">
+              <?php
+              the_tags(
+                '<span class="post-tag uppercase font-size-16">',
+                '</span><span class="post-tag uppercase font-size-16">',
+                '</span>'
+              );
               ?>
             </div>
 
-            <div class="about-author">
-              <p class="about-author-title">About the Author</p>
-              <p class="about-author-bio">
-                <?php echo get_the_author_meta('user_description'); ?>
-              </p>
-            </div>
+            <?php if (get_the_author_meta('user_description')): ?>
+              <div class="about-author">
+                <p class="about-author-title uppercase">About the Author</p>
+                <p class="about-author-bio">
+                  <?php echo get_the_author_meta('user_description'); ?>
+                </p>
+              </div>
+            <?php endif; ?>
           </div>
 
           <div class="social-and-sharing col-sm-3"></div>
@@ -72,32 +78,34 @@
       'orderby' => 'meta_value_num',
       'order' => 'DESC'
     ));
-    while ($suggested->have_posts()): ?>
+    $suggested_count = 0;
+    while ($suggested->have_posts() && $suggested_count < 3): ?>
       <?php
+      $suggested_count += 1;
       $post = $suggested->the_post();
       $pic_url = get_the_post_thumbnail_url();
       ?>
       <div class="col-md-4 suggested-article">
         <a href="<?php echo get_permalink(); ?>">
           <div
-            class="suggested-img"
+            class="img-30"
             style="background-image: url(<?php echo $pic_url; ?>);">
           </div>
         </a>
 
         <?php the_category(); ?>
         
-        <p class="suggested-title">
+        <div class="post-title-small">
           <a href="<?php echo get_permalink(); ?>">
             <?php the_title(); ?>
           </a>
-        </p>
+        </div>
 
-        <div class="suggested-author-date">
-          <?php the_author(); ?> | <?php the_date(); ?>
+        <div class="post-author post-date font-size-18">
+          <?php the_author(); ?><?php if (get_the_date()) { echo ' | ' . get_the_date(); } ?>
         </div>
       </div>
-    <?php endwhile; ?>
+    <?php endwhile; wp_reset_postdata(); ?>
   </div>
 
   <!-- Script to enable pull quotes on alternating sides -->

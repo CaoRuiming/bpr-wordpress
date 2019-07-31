@@ -5,8 +5,9 @@
     <div class="section-title">Popular Articles</div>
     <div class="carousel-wrapper">
       <div class="carousel">
-        <?php 
-        $category_object = get_category_by_slug( 'us' );
+        <?php
+        $slug = get_field('section_1', $page_id)[0]->slug;
+        $category_object = get_category_by_slug($slug);
         $recent  = new WP_Query(array(
             'category_name' => $category_object->slug,
             'posts_per_page' => 3,
