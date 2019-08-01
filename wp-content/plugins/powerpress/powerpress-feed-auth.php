@@ -31,6 +31,12 @@
 			$user = $_SERVER['PHP_AUTH_USER'];
 			$password = $_SERVER['PHP_AUTH_PW'];
 			
+			if(  strpos( $user, '@', 1 ) !== false ) {
+				$userObjID = get_user_by( 'email', $user); // Get the user by email
+				if( !is_wp_error($userIDObj) )
+					$user = $userObjID->user_login; // Use the user's login (not email) to authenticate
+			}
+			
 			$userObj = wp_authenticate($user, $password);
 			
 			if( !is_wp_error($userObj) )

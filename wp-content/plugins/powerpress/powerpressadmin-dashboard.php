@@ -143,7 +143,7 @@ function powerpress_dashboard_stats_content()
 	// If using user capabilities...
 	if( !empty($Settings['use_caps']) && !current_user_can('view_podcast_stats') )
 		return;
-		
+
 	$content = '';
 	$UserPass = ( !empty($Settings['blubrry_auth']) ? $Settings['blubrry_auth']:'');
 	$Keyword = ( !empty($Settings['blubrry_program_keyword']) ? $Settings['blubrry_program_keyword']:'');
@@ -156,7 +156,10 @@ function powerpress_dashboard_stats_content()
 		$StatsCached['updated'] = 1; // Some time
 	
 	// If no content or it's been over 3 hours...
-	if( $UserPass && time() > ($StatsCached['updated']+(60*60*3)) )
+    if( !empty($Settings['network_mode']) ) {
+        $content = 'Network mode is enabled, please visit the <a href="https://stats.blubrry.com/" target="_blank">Blubrry.com</a> to see your statistics';
+    }
+    else if( $UserPass && time() > ($StatsCached['updated']+(60*60*3)) )
 	{
 		$success = false;
 		$api_url_array = powerpress_get_api_array();
@@ -215,7 +218,7 @@ function powerpress_dashboard_stats_content()
 <?php
 	echo $content;
 	
-	if( $UserPass )
+	if( $UserPass && empty($Settings['network_mode']) )
 	{
 ?>
 	<div id="blubrry_stats_media_show">

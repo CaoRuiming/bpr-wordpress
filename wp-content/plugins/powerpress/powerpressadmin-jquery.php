@@ -117,22 +117,7 @@ function powerpress_admin_jquery_init()
 			exit;
 			
 		}; // No break here, let this fall thru..
-		case 'powerpress-jquery-media-delete': {
-			
-			if( !current_user_can('edit_posts') )
-			{
-				powerpress_admin_jquery_header('Uploader');
-				powerpress_page_message_add_notice( __('You do not have sufficient permission to upload media.', 'powerpress') );
-				powerpress_page_message_print();
-				powerpress_admin_jquery_footer();
-				exit;
-			}
-			
-			check_admin_referer('powerpress-jquery-media-delete');
-			$DeleteFile = $_GET['delete'];
-			
-		}; // No break here, let this fall thru..
-		
+
 		case 'powerpress-jquery-hosting': {
 		
 				powerpress_admin_jquery_header( __('Blubrry Podcast Media Hosting', 'powerpress') );
@@ -150,9 +135,27 @@ function powerpress_admin_jquery_init()
 				exit;
 				
 		}; break;
-		
+
+		case 'powerpress-jquery-media-delete': {
+
+			if( !current_user_can('edit_posts') )
+			{
+				powerpress_admin_jquery_header('Uploader');
+				powerpress_page_message_add_notice( __('You do not have sufficient permission to upload media.', 'powerpress') );
+				powerpress_page_message_print();
+				powerpress_admin_jquery_footer();
+				exit;
+			}
+
+			check_admin_referer('powerpress-jquery-media-delete');
+			$DeleteFile = $_GET['delete'];
+
+		}; // No break here, let this fall thru..
+
 		case 'powerpress-jquery-media': {
 			
+			$QuotaData = false;
+
 			if( !current_user_can('edit_posts') )
 			{
 				powerpress_admin_jquery_header( __('Select Media', 'powerpress') );
@@ -180,8 +183,29 @@ function powerpress_admin_jquery_init()
 				powerpress_admin_jquery_footer();
 				exit;
 			}
-			
+            if(empty($Settings['network_mode'])) {
+                $Settings['network_mode'] = '0';
+            }
 			$Msg = false;
+            $blubrryProgramKeyword =  $Settings['blubrry_program_keyword'];
+            $userLastPodcast = get_user_meta(get_current_user_id(), 'pp_default_podcast', true);
+            if(!empty($Settings['cat_casting']) && !empty($Settings['custom_cat_feeds']) && count($Settings['custom_cat_feeds']) > 0 && (empty($userLastPodcast) || $userLastPodcast == '!nodefault') && $Settings['network_mode'] == '1') {
+                $blubrryProgramKeyword = '!selectPodcast';
+            }
+            if(!empty($userLastPodcast) && $userLastPodcast != '!nodefault' && $Settings['network_mode'] == '1') {
+                $blubrryProgramKeyword = $userLastPodcast;
+            }
+            if(!empty($_GET['blubrryProgramKeyword'])) {
+                $blubrryProgramKeyword = $_GET['blubrryProgramKeyword'];
+            }
+            if( !empty($_GET['blubrryProgramKeyword']) && !empty($_GET['remSel']) &&  $_GET['remSel'] == 'true' ) {
+                update_user_meta(get_current_user_id(), 'pp_default_podcast', $blubrryProgramKeyword);
+                $userLastPodcast = $blubrryProgramKeyword;
+            }
+            if( isset($_GET['remSel']) && $_GET['remSel'] == 'false') {
+                update_user_meta(get_current_user_id(), 'pp_default_podcast', '!nodefault');
+                $userLastPodcast = '!nodefault';
+            }
 			if( $DeleteFile )
 			{
 				$json_data = false;
@@ -189,6 +213,7 @@ function powerpress_admin_jquery_init()
 				foreach( $api_url_array as $index => $api_url )
 				{
 					$req_url = sprintf('%s/media/%s/%s?format=json', rtrim($api_url, '/'), $Settings['blubrry_program_keyword'], $DeleteFile );
+					$req_url = sprintf('%s/media/%s/%s?format=json', rtrim($api_url, '/'), $blubrryProgramKeyword , $DeleteFile );
 					$req_url .= (defined('POWERPRESS_BLUBRRY_API_QSA')?'&'. POWERPRESS_BLUBRRY_API_QSA:'');
 					$json_data = powerpress_remote_fopen($req_url, $Settings['blubrry_auth'], array(), 10, 'DELETE');
 					if( !$json_data && $api_url == 'https://api.blubrry.com/' ) { // Lets force cURL and see if that helps...
@@ -198,7 +223,7 @@ function powerpress_admin_jquery_init()
 						break;
 				}
 				$results =  powerpress_json_decode($json_data);
-				
+
 				if( isset($results['text']) )
 					$Msg = $results['text'];
 				else if( isset($results['error']) )
@@ -206,23 +231,60 @@ function powerpress_admin_jquery_init()
 				else
 					$Msg = __('An unknown error occurred deleting media file.', 'powerpress');
 			}
-			
+
 			$json_data = false;
+			$json_data_programs = false;
 			$api_url_array = powerpress_get_api_array();
 			foreach( $api_url_array as $index => $api_url )
 			{
-				$req_url = sprintf('%s/media/%s/index.json?quota=true&published=true', rtrim($api_url, '/'), $Settings['blubrry_program_keyword'] );
+				$req_url = sprintf('%s/media/%s/index.json?quota=true&published=true', rtrim($api_url, '/'), $blubrryProgramKeyword );
 				$req_url .= (defined('POWERPRESS_BLUBRRY_API_QSA')?'&'. POWERPRESS_BLUBRRY_API_QSA:'');
+                $req_url_programs = sprintf('%s/service/index.json', rtrim($api_url, '/') );
+                $req_url_programs .= (defined('POWERPRESS_BLUBRRY_API_QSA')?'?'. POWERPRESS_BLUBRRY_API_QSA:'');
 				$json_data = powerpress_remote_fopen($req_url, $Settings['blubrry_auth']);
-				if( !$json_data && $api_url == 'https://api.blubrry.com/' ) { // Lets force cURL and see if that helps...
+				$json_data_programs = powerpress_remote_fopen($req_url_programs, $Settings['blubrry_auth']);
+                if( !$json_data && $api_url == 'https://api.blubrry.com/' ) { // Lets force cURL and see if that helps...
 					$json_data = powerpress_remote_fopen($req_url, $Settings['blubrry_auth'], array(), 15, false, true);
 				}
+                else if(!$json_data_programs && $api_url == 'https://api.blubrry.com/') {
+                    $json_data_programs = powerpress_remote_fopen($req_url, $Settings['blubrry_auth'], array(), 15, false, true);
+                }
 				if( $json_data != false )
 					break;
 			}
 			
 			$results =  powerpress_json_decode($json_data);
-				
+			$results_programs = powerpress_json_decode($json_data_programs);
+            if( isset($results_programs['error']) )
+            {
+                $Error = $results_programs['error'];
+                if( strstr($Error, __('currently not available', 'powerpress') ) )
+                {
+                    $Error = __('Unable to find podcasts for this account.', 'powerpress');
+                    $Error .= '<br /><span style="font-weight: normal; font-size: 12px;">';
+
+
+                    $Error .= 'Verify that the email address you enter here matches the email address you used when you listed your podcast on blubrry.com.</span>';
+                }
+                else if( preg_match('/No programs found.*media hosting/i', $results_programs['error']) )
+                {
+                    $Error .= '<br/><span style="font-weight: normal; font-size: 12px;">';
+                    $Error .= 'Service may take a few minutes to activate.</span>';
+                }
+            }
+            else if( !is_array($results_programs) )
+            {
+                $Error = $json_data_programs;
+            }
+            else {
+                // Get all the programs for this user...
+                foreach ($results_programs as $null => $row) {
+                    $Programs[$row['program_keyword']] = $row['program_title'];
+                }
+            }
+            if( $Error ) {
+                powerpress_page_message_add_notice($Error, 'inline', false);
+            }
 			$FeedSlug = sanitize_title($_GET['podcast-feed']);
 			powerpress_admin_jquery_header( __('Select Media', 'powerpress'), true );
 ?>
@@ -243,6 +305,7 @@ function SelectMedia(File)
 	self.parent.document.getElementById('powerpress_hosting_<?php echo $FeedSlug; ?>').value='1';
 	self.parent.document.getElementById('powerpress_url_<?php echo $FeedSlug; ?>').readOnly=true;
 	self.parent.document.getElementById('powerpress_hosting_note_<?php echo $FeedSlug; ?>').style.display='block';
+	self.parent.document.getElementById('powerpress_program_keyword_<?php echo $FeedSlug; ?>').value= document.querySelector('#blubrry_program_keyword').value;
 	if( self.parent.powerpress_update_for_video )
 		self.parent.powerpress_update_for_video(File, '<?php echo $FeedSlug; ?>');
 	self.parent.tb_remove();
@@ -261,12 +324,50 @@ function DeleteMedia(File)
 {
 	return confirm('<?php echo __('Delete', 'powerpress'); ?>: '+File+'\n\n<?php echo __('Are you sure you want to delete this media file?', 'powerpress'); ?>');
 }
+
+window.onload = function() {
+    const program = document.querySelector('#blubrry_program_keyword');
+    const remember = document.querySelector('#remember_selection');
+    function reloadFrame() {
+        window.location = "<?php echo admin_url('admin.php'); ?>?action=powerpress-jquery-media&blubrryProgramKeyword="+ program.value +"&podcast-feed=<?php echo $FeedSlug; ?>&KeepThis=true&TB_iframe=true&modal=false&remSel=" + remember.checked;
+    }
+    program.addEventListener('change', function() {
+        reloadFrame();
+    });
+    remember.addEventListener('change', function() {
+        reloadFrame();
+    });
+}
 //-->
 </script>
 		<div id="media-header">
-			<h2><?php echo __('Select Media', 'powerpress'); ?></h2>
+            <?php
+            if (count($Programs) > 1 && $Settings['network_mode'] == '1') {
+                ?>
+                <h2><?php echo __('Select Program', 'powerpress'); ?></h2>
+                <span>
+                <select id="blubrry_program_keyword" name="Settings[blubrry_program_keyword]">
+                    <option value="!selectPodcast"><?php echo __('Select Program', 'powerpress'); ?></option>
+                    <?php
+                    foreach ($Programs as $value => $desc)
+                        echo "\t<option value=\"$value\"" . ($blubrryProgramKeyword == $value ? ' selected' : '') . ">$desc</option>\n";
+                    ?>
+                </select>
+                <span <?php echo $blubrryProgramKeyword == '!selectPodcast' ? 'style="visibility: hidden;"' : null ?>>
+                    <input type="checkbox" id="remember_selection"
+                           name="remember_selection" <?php echo ($userLastPodcast == '!nodefault') ? null : 'checked'; ?>>
+                    <label for="remember_selection">Remember Selection</label>
+                </span>
+            </span>
+                <?php
+            } else {
+			?>
+			<input type="hidden" name="Settings[blubrry_program_keyword]" id="blubrry_program_keyword" value="<?php echo htmlspecialchars($blubrryProgramKeyword); ?>" />
 			<?php
-			
+			}
+            ?>
+			<h2><?php echo __('Select Media', 'powerpress') ?> <?php echo $blubrryProgramKeyword != '!selectPodcast' ? '- '. $Programs[$blubrryProgramKeyword] : null ?></h2>
+			<?php
 				if(  !empty($results['quota']['expires'] ) )
 				{
 					$message = '';
@@ -283,6 +384,11 @@ function DeleteMedia(File)
 					powerpress_page_message_add_notice( $message, 'inline', false );
 					powerpress_page_message_print();
 				}
+				else if($blubrryProgramKeyword == '!selectPodcast') {
+                    $message = '<p style="text-align: center;"><strong>Please Select A Program</strong></p>';
+                    powerpress_page_message_add_notice( $message, 'inline', false );
+                    powerpress_page_message_print();
+                }
 				else if( empty($results) )
 				{
 					// Handle the error here.
@@ -302,67 +408,73 @@ function DeleteMedia(File)
 				
 				if( $Msg )
 				echo '<p>'. $Msg . '</p>';
-			?>
-			<div class="media-upload-link"><a title="<?php echo esc_attr(__('Blubrry Podcast Hosting', 'powerpress')); ?>"  href="<?php echo admin_url() . wp_nonce_url("admin.php?action=powerpress-jquery-upload", 'powerpress-jquery-upload'); ?>&podcast-feed=<?php echo $FeedSlug; ?>&keepThis=true&TB_iframe=true&height=350&width=530&modal=false" class="thickbox"><?php echo __('Upload Media File', 'powerpress'); ?></a></div>
-			<p><?php echo __('Select from media files uploaded to blubrry.com', 'powerpress'); ?>:</p>
-		</div>
-	<div id="media-items-container">
-		<div id="media-items">
-<?php
-		$QuotaData = false;
-		if( isset($results['error']) )
-		{
-			echo '<p class="error">'.$results['error'].'</p>';
-			echo '<p><a href="https://publish.blubrry.com/services/" target="_blank">'. __('Manage your blubrry.com Account', 'powerpress') .'</a></p>';
-		}
-		else if( is_array($results) )
-		{
-			$PublishedList = false;
-			foreach( $results as $index => $data )
-			{
-				if( $index === 'quota' )
-				{
-					$QuotaData = $data;
-					continue;
-				}
-				
-				if( $PublishedList == false && !empty($data['published']) )
-				{
-?>
-<div id="media-published-title">
-	<?php echo __('Last 20 Published media files', 'powerpress'); ?>:
-</div>
-<?php
-					$PublishedList = true;
-				}
+                if($blubrryProgramKeyword != '!selectPodcast') {
+            ?>
+            <div class="media-upload-link"><a
+                        title="<?php echo esc_attr(__('Blubrry Podcast Hosting', 'powerpress')); ?>"
+                        href="<?php echo admin_url() . wp_nonce_url("admin.php?action=powerpress-jquery-upload", 'powerpress-jquery-upload'); ?>&blubrryProgramKeyword=<?php echo $blubrryProgramKeyword ?>&podcast-feed=<?php echo $FeedSlug; ?>&keepThis=true&TB_iframe=true&height=350&width=530&modal=false"
+                        class="thickbox"><?php echo __('Upload Media File', 'powerpress'); ?></a></div>
+            <p><?php echo __('Select from media files uploaded to blubrry.com', 'powerpress'); ?>:</p>
+        </div>
+            <div id="media-items-container">
+                <div id="media-items">
+                    <?php
 
-?>
-<div class="media-item <?php echo (empty($data['published'])?'media-unpublished':'media-published'); ?>">
-	<strong class="media-name"><?php echo htmlspecialchars($data['name']); ?></strong>
-	<cite><?php echo powerpress_byte_size($data['length']); ?></cite>
-	<?php if( !empty($data['published']) ) { ?>
-	<div class="media-published-date">&middot; <?php echo __('Published on', 'powerpress'); ?> <?php echo date(get_option('date_format'), $data['last_modified']); ?></div>
-	<?php } ?>
-	<div class="media-item-links">
-		<?php if( !empty($data['published']) && !empty($data['url']) ) { ?>
-			<a href="#" onclick="SelectURL('<?php echo $data['url']; ?>'); return false;"><?php echo __('Select', 'powerpress'); ?></a>
-		<?php } else { ?>
-			<?php if (function_exists('curl_init')) { ?>
-				<a href="<?php echo admin_url() . wp_nonce_url("admin.php?action=powerpress-jquery-media-delete", 'powerpress-jquery-media-delete'); ?>&amp;podcast-feed=<?php echo $FeedSlug; ?>&amp;delete=<?php echo urlencode($data['name']); ?>" onclick="return DeleteMedia('<?php echo $data['name']; ?>');"><?php echo __('Delete', 'powerpress'); ?></a> | 
-			<?php } ?>
-			<a href="#" onclick="SelectMedia('<?php echo $data['name']; ?>'); return false;"><?php echo __('Select', 'powerpress'); ?></a>
-		<?php } ?>
-	</div> 
-</div>
-<?php				
-			}
-		}
-?>
-		</div><!-- end media-items -->
-	</div><!-- end media-items-container -->
-	<div id="media-footer">
-		<div class="media-upload-link"><a title="<?php echo esc_attr(__('Blubrry Podcast Hosting', 'powerpress')); ?>" href="<?php echo admin_url() . wp_nonce_url("admin.php?action=powerpress-jquery-upload", 'powerpress-jquery-upload'); ?>&podcast-feed=<?php echo $FeedSlug; ?>&keepThis=true&TB_iframe=true&height=350&width=530&modal=false" class="thickbox"><?php echo __('Upload Media File', 'powerpress'); ?></a></div>
-		<?php
+                    if (isset($results['error'])) {
+                        echo '<p class="error">' . $results['error'] . '</p>';
+                        echo '<p><a href="https://publish.blubrry.com/services/" target="_blank">' . __('Manage your blubrry.com Account', 'powerpress') . '</a></p>';
+                    } else if (is_array($results)) {
+                        $PublishedList = false;
+                        foreach ($results as $index => $data) {
+                            if ($index === 'quota') {
+                                $QuotaData = $data;
+                                continue;
+                            }
+
+                            if ($PublishedList == false && !empty($data['published'])) {
+                                ?>
+                                <div id="media-published-title">
+                                    <?php echo __('Last 20 Published media files', 'powerpress'); ?>:
+                                </div>
+                                <?php
+                                $PublishedList = true;
+                            }
+
+                            ?>
+                            <div class="media-item <?php echo(empty($data['published']) ? 'media-unpublished' : 'media-published'); ?>">
+                                <strong class="media-name"><?php echo htmlspecialchars($data['name']); ?></strong>
+                                <cite><?php echo powerpress_byte_size($data['length']); ?></cite>
+                                <?php if (!empty($data['published'])) { ?>
+                                    <div class="media-published-date">
+                                        &middot; <?php echo __('Published on', 'powerpress'); ?> <?php echo date(get_option('date_format'), $data['last_modified']); ?></div>
+                                <?php } ?>
+                                <div class="media-item-links">
+                                    <?php if (!empty($data['published']) && !empty($data['url'])) { ?>
+                                        <a href="#"
+                                           onclick="SelectURL('<?php echo $data['url']; ?>'); return false;"><?php echo __('Select', 'powerpress'); ?></a>
+                                    <?php } else { ?>
+                                        <?php if (function_exists('curl_init')) { ?>
+                                            <a href="<?php echo admin_url() . wp_nonce_url("admin.php?action=powerpress-jquery-media-delete", 'powerpress-jquery-media-delete'); ?>&amp;podcast-feed=<?php echo $FeedSlug; ?>&amp;blubrryProgramKeyword=<?php echo urlencode($blubrryProgramKeyword); ?>&amp;delete=<?php echo urlencode($data['name']); ?>"
+                                               onclick="return DeleteMedia('<?php echo $data['name']; ?>');"><?php echo __('Delete', 'powerpress'); ?></a> |
+                                        <?php } ?>
+                                        <a href="#"
+                                           onclick="SelectMedia('<?php echo $data['name']; ?>'); return false;"><?php echo __('Select', 'powerpress'); ?></a>
+                                    <?php } ?>
+                                </div>
+                            </div>
+                            <?php
+                        }
+                    }
+                    ?>
+                </div><!-- end media-items -->
+            </div><!-- end media-items-container -->
+            <div id="media-footer">
+                <div class="media-upload-link"><a
+                            title="<?php echo esc_attr(__('Blubrry Podcast Hosting', 'powerpress')); ?>"
+                            href="<?php echo admin_url() . wp_nonce_url("admin.php?action=powerpress-jquery-upload", 'powerpress-jquery-upload'); ?>&blubrryProgramKeyword=<?php echo $blubrryProgramKeyword ?>&podcast-feed=<?php echo $FeedSlug; ?>&keepThis=true&TB_iframe=true&height=350&width=530&modal=false"
+                            class="thickbox"><?php echo __('Upload Media File', 'powerpress'); ?></a></div>
+                <?php
+                }
 		if( $QuotaData ) {
 					
 			$NextDate = strtotime( $QuotaData['published']['next_date']);
@@ -603,6 +715,7 @@ function DeleteMedia(File)
 			}
 			
 			if( $Save )
+			    $SaveSettings['network_mode'] = (isset($SaveSettings['network_mode'])) ? 1 : 0;
 				powerpress_save_settings($SaveSettings);
 			
 			// Clear cached statistics
@@ -671,7 +784,10 @@ jQuery(document).ready(function($) {
 				$Settings['blubrry_hosting'] = false;
 			if( empty($Settings['blubrry_program_keyword']) )
 				$Settings['blubrry_program_keyword'] = '';
-				
+			if(empty($Settings['network_mode'])) {
+			    $Settings['network_mode'] = '0';
+            }
+
 			if( $Programs == false )
 				$Programs = array();
 			
@@ -697,15 +813,23 @@ jQuery(document).ready(function($) {
 	<input type="hidden" name="Password" value="<?php echo esc_attr($Password); ?>" />
 	<!-- <input type="hidden" name="Settings[blubrry_hosting]" value="<?php echo $Settings['blubrry_hosting']; ?>" /> -->
 	<p>
-		<label for="blubrry_program_keyword"><?php echo __('Select Blubrry Program', 'powerpress'); ?></label>
+		<label for="blubrry_program_keyword"><?php echo __('Select Default Program', 'powerpress'); ?></label>
 <select id="blubrry_program_keyword" name="Settings[blubrry_program_keyword]">
-<option value=""><?php echo __('Select Program', 'powerpress'); ?></option>
 <?php
+if (count($Programs) > 1 && $Settings['network_mode'] == '1') {
+    ?>
+    <option value="no_default"><?php echo __('No Default', 'powerpress'); ?></option>
+    <?php
+}
 foreach( $Programs as $value => $desc )
 	echo "\t<option value=\"$value\"". ($Settings['blubrry_program_keyword']==$value?' selected':''). ">$desc</option>\n";
 ?>
 </select>
 	</p>
+    <p>
+        <label for="blubrry_network_mode"><?php echo __('Network mode (publish to multiple Blubrry Hosting Accounts)', 'powerpress') ?></label>
+        <input type="checkbox" id="blubrry_network_mode" value="1" name="Settings[network_mode]" <?php echo $Settings['network_mode'] == '1' ? 'checked' : ''; ?> />
+    </p>
 <?php } ?>
 	<p>
 		<input type="submit" name="Save" value="<?php echo __('Save', 'powerpress'); ?>" />
@@ -714,6 +838,22 @@ foreach( $Programs as $value => $desc )
 	</p>
 </div>
 </form>
+<script type="text/javascript"><!--
+
+
+    jQuery(document).ready(function($) {
+        jQuery('#blubrry_network_mode').change( function(event) {
+            if(this.checked) {
+                jQuery("#blubrry_program_keyword").prepend('<option value="no_default"><?php echo __("No Default", "powerpress"); ?></option>');
+            }
+            else {
+                jQuery('#blubrry_program_keyword option[value="no_default"').remove();
+            }
+
+        } );
+    } );
+    //-->
+</script>
 <?php
 			powerpress_admin_jquery_footer();
 			exit;
@@ -748,14 +888,17 @@ foreach( $Programs as $value => $desc )
 			{
 				$Error = __('This feature is available to Blubrry Hosting users only.','powerpress');
 			}
-			
+            $blubrryProgramKeyword =  $Settings['blubrry_program_keyword'];
+            if( !empty($_GET['blubrryProgramKeyword']) ) {
+                $blubrryProgramKeyword = $_GET['blubrryProgramKeyword'];
+            }
 			if( $Error == false )
 			{
 				$json_data = false;
 				$api_url_array = powerpress_get_api_array();
 				foreach( $api_url_array as $index => $api_url )
 				{
-					$req_url = sprintf('%s/media/%s/upload_session.json', rtrim($api_url, '/'), $Settings['blubrry_program_keyword'] );
+					$req_url = sprintf('%s/media/%s/upload_session.json', rtrim($api_url, '/'), $blubrryProgramKeyword );
 					$req_url .= (defined('POWERPRESS_BLUBRRY_API_QSA')?'?'. POWERPRESS_BLUBRRY_API_QSA:'');
 					$json_data = powerpress_remote_fopen($req_url, $Settings['blubrry_auth']);
 					if( !$json_data && $api_url == 'https://api.blubrry.com/' ) { // Lets force cURL and see if that helps...
@@ -881,6 +1024,13 @@ self.parent.tb_remove();
 
 function powerpress_admin_jquery_header($title, $jquery = false)
 {
+	if( function_exists('get_current_screen') ) {
+		$current_screen = get_current_screen();
+		if( !empty($current_screen) && is_object($current_screen) && $current_screen->is_block_editor() ) { 
+			return;
+		}
+	}
+	
 	header( "Expires: Mon, 26 Jul 1997 05:00:00 GMT" );
 	header( "Last-Modified: " . gmdate( "D, d M Y H:i:s" ) . "GMT" );
 	header( 'Cache-Control: no-store, no-cache, must-revalidate' );
@@ -899,7 +1049,8 @@ function powerpress_admin_jquery_header($title, $jquery = false)
 <?php
 
 // In case these functions haven't been included yet...
-require_once(ABSPATH . 'wp-admin/includes/admin.php');
+if( !defined('WP_ADMIN') )
+	require_once(ABSPATH . 'wp-admin/includes/admin.php');
 
 wp_admin_css( 'css/global' );
 wp_admin_css();
@@ -933,6 +1084,7 @@ function powerpress_admin_jquery_footer($jquery = false)
 </body>
 </html>
 <?php
+	exit();
 }
 
 ?>

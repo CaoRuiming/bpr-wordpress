@@ -16,13 +16,24 @@
 		
 		global $post;
 		$content = $post->post_content;
+		if( function_exists('do_blocks') )
+			$content = do_blocks($content);
 		$content = wptexturize($content);
-		$content = convert_smilies($content);
 		$content = wpautop($content);
-		$content = shortcode_unautop($content);
+		$content = shortcode_unautop($content); // Why do we do this?
 		$content = prepend_attachment($content);
-		//$content = wp_make_content_images_responsive($content);
+		if( function_exists('wp_make_content_images_responsive') )
+			$content = wp_make_content_images_responsive($content);
+		
+		$shortcodesTemp = $GLOBALS['shortcode_tags'];
+		$GLOBALS['shortcode_tags']['skipto'] = 'powerpress_shortcode_skipto';
+		$content = do_shortcode($content);
+		$GLOBALS['shortcode_tags'] = $shortcodesTemp;
+		
 		$content = capital_P_dangit($content);
+		
+		$content = convert_smilies($content);
+		
 		$content = strip_shortcodes( $content );
 		$content = str_replace(']]>', ']]&gt;', $content);
 		
@@ -50,7 +61,12 @@
 		}
 		$output = strip_tags($post->post_excerpt);
 		if ( $output == '') {
-			$output = strip_shortcodes( $post->post_content );
+			$output = $post->post_content;
+			$shortcodesTemp = $GLOBALS['shortcode_tags'];
+			$GLOBALS['shortcode_tags']['skipto'] = 'powerpress_shortcode_skipto';
+			$output = do_shortcode($output);
+			$GLOBALS['shortcode_tags'] = $shortcodesTemp;
+			$output = strip_shortcodes( $output );
 			$output = str_replace(']]>', ']]&gt;', $output);
 			$output = strip_tags($output);
 		}

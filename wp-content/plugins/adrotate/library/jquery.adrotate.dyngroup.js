@@ -1,14 +1,14 @@
 /*
 Dynamic advert rotation for AdRotate
-Arnan de Gans (http://www.arnan.me)
-Version: 1.0
-With help from: Mathias Joergensen (http://www.moofy.me), Fraser Munro
+Arnan de Gans (https://www.arnan.me)
+Version: 1.0.1
+With help from: Mathias Joergensen, Fraser Munro
 Original code: Arnan de Gans
 */
 
 /* ------------------------------------------------------------------------------------
 *  COPYRIGHT AND TRADEMARK NOTICE
-*  Copyright 2008-2018 Arnan de Gans. All Rights Reserved.
+*  Copyright 2008-2019 Arnan de Gans. All Rights Reserved.
 *  ADROTATE is a trademark of Arnan de Gans.
 
 *  COPYRIGHT NOTICES AND ALL THE COMMENTS SHOULD REMAIN INTACT.

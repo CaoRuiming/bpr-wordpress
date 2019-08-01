@@ -3,11 +3,11 @@
 Plugin Name: Blubrry PowerPress
 Plugin URI: http://create.blubrry.com/resources/powerpress/
 Description: <a href="http://create.blubrry.com/resources/powerpress/" target="_blank">Blubrry PowerPress</a> is the No. 1 Podcasting plugin for WordPress. Developed by podcasters for podcasters; features include Simple and Advanced modes, multiple audio/video player options, subscribe to podcast tools, podcast SEO features, and more! Fully supports Apple Podcasts (previously iTunes), Google Podcasts, Spotify, Stitcher, and Blubrry Podcasting directories, as well as all podcast applications and clients.
-Version: 7.4
+Version: 7.5.3
 Author: Blubrry
 Author URI: http://www.blubrry.com/
 Requires at least: 3.6
-Tested up to: 4.9.9
+Tested up to: 5.2.2
 Text Domain: powerpress
 Change Log:
 	Please see readme.txt for detailed change log.
@@ -20,7 +20,7 @@ Credits:
 	getID3(), License: GPL 2.0+ by James Heinrich <info [at] getid3.org> http://www.getid3.org
 		Note: getid3.php analyze() function modified to prevent redundant filesize() function call.
 	
-Copyright 2008-2017 Blubrry (http://www.blubrry.com)
+Copyright 2008-2019 Blubrry (http://www.blubrry.com)
 
 License: GPL (http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt)
 
@@ -28,11 +28,14 @@ License: GPL (http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt)
 */
 
 
-if( !function_exists('add_action') )
-	die("access denied.");
+if( !function_exists('add_action') ) {
+	header( 'Status: 403 Forbidden' );
+	header( 'HTTP/1.1 403 Forbidden' );
+	exit();
+}
 	
 // WP_PLUGIN_DIR (REMEMBER TO USE THIS DEFINE IF NEEDED)
-define('POWERPRESS_VERSION', '7.4' );
+define('POWERPRESS_VERSION', '7.5.3' );
 
 // Translation support:
 if ( !defined('POWERPRESS_ABSPATH') )
@@ -87,7 +90,9 @@ if( defined('POWERPRESS_DEBUG') ) {
 
 if( !defined('POWERPRESS_SUBSCRIBE') )
 	define('POWERPRESS_SUBSCRIBE', true);
-
+if(!defined('POWERPRESS_NEW_APPLE_CATEGORIES')) {
+    define('POWERPRESS_NEW_APPLE_CATEGORIES', true);
+}
 // Set regular expression values for determining mobile devices
 if( !defined('POWERPRESS_MOBILE_REGEX') )
 	define('POWERPRESS_MOBILE_REGEX', 'iphone|ipod|ipad|aspen|android|blackberry|opera mini|webos|incognito|webmate|silk');
@@ -200,8 +205,10 @@ function powerpress_content($content)
 	if( !empty($GeneralSettings['posttype_podcasting']) )
 	{
 		$post_type = get_query_var('post_type');
-		//$post_type = get_post_type();
-		
+		if ( is_array( $post_type ) ) {
+			$post_type = reset( $post_type ); // get first element in array
+		}
+			
 		// Get the feed slugs and titles for this post type
 		$PostTypeSettingsArray = get_option('powerpress_posttype_'.$post_type);
 		// Loop through this array of post type settings...
@@ -295,7 +302,7 @@ function powerpress_content($content)
 		// Just in case, if there's no URL lets escape!
 		if( !$EpisodeData['url'] )
 			continue;
-		
+
 		// If the player is not already inserted in the body of the post using the shortcode...
 		//if( preg_match('/\[powerpress(.*)\]/is', $content) == 0 )
 		if( !isset($ExcludePlayers[ $feed_slug ]) ) // If the player is not in our exclude list because it's already in the post body somewhere...
@@ -414,16 +421,45 @@ function powerpress_pinw(pinw_url){window.open(pinw_url, 'PowerPressPlayer','too
 	
 	if( !empty($Powerpress['feed_links']) )
 	{
-		// Loop through podcast feeds and display them here 
-		foreach( $Powerpress['custom_feeds'] as $feed_slug=> $title )
-		{
+		if( is_home() ) {
+			$feed_slug = 'podcast';
 			$href = get_feed_link($feed_slug);
-			if ( isset($title) && isset($href) )
-				echo '<link rel="alternate" type="' . feed_content_type() . '" title="' . esc_attr( $title ) . '" href="' . esc_url( $href ) . '" />' . "\n";
+			// Podcast default and channel feed settings
+			$Settings = get_option('powerpress_feed_'. $feed_slug);
+
+			if( empty($Settings) && $feed_slug == 'podcast' )
+				$Settings = get_option('powerpress_feed'); // Get the main feed settings
+
+			if( empty($Settings['title']) )
+				$Settings['title'] = get_bloginfo_rss('name'); // Get blog title
+
+			// Get the default podcast feed...
+			echo '<link rel="alternate" type="' . feed_content_type() . '" title="' . esc_attr( $Settings['title'] ) . '" href="' . esc_url( $href ) . '" />' . "\n";
+		} else if( is_category() ) {
+
+			$category_id = get_query_var('cat');
+			if( $category_id ) {
+				$Settings = get_option('powerpress_cat_feed_'.$category_id );
+				if( empty($Settings['title']) ) {
+					$Settings['title'] = get_cat_name( $category_id ); // Get category title
+					$Settings['title'] .= ' '. apply_filters( 'document_title_separator', '-' ) .' ';
+					$Settings['title'] .= get_bloginfo_rss('name');
+				}
+				if( empty($Settings['title']) )	{
+					$Settings['title'] = get_bloginfo_rss('name'); // Get blog title, best we can do
+				}
+
+				if( !empty($Settings['feed_redirect_url']) )
+					$Settings['feed_url'] = $Settings['feed_redirect_url'];
+				else if( !empty($General['cat_casting_podcast_feeds']) )
+					$Settings['feed_url'] = get_category_feed_link($category_id, 'podcast');
+				else
+					$Settings['feed_url'] = get_category_feed_link( $category_id ); // Get category feed URL
+
+				// Get the category podcast feed...
+				echo '<link rel="alternate" type="' . feed_content_type() . '" title="' . esc_attr( $Settings['title'] ) . '" href="' . esc_url( $Settings['feed_url'] ) . '" />' . "\n";
+			}
 		}
-		reset($Powerpress['custom_feeds']);
-		
-		// TODO: Add logic to add category, post type and taxonomy feeds as well
 	}
 }
 
@@ -444,16 +480,16 @@ function powerpress_exit_on_http_head($return)
 		header('Content-Type: ' . feed_content_type('rss-http') . '; charset=' . get_option('blog_charset'), true);
 		
 		// Needs authentication?
-    $GeneralSettings = get_option('powerpress_general');
-    if( !empty($GeneralSettings['premium_caps']) )
-    {
-      $feed_slug = get_query_var('feed');
-      $FeedSettings = get_option('powerpress_feed_'.$feed_slug);
-      if( !empty($FeedSettings['premium']) )
-      {
-        return false; // Let the logic further into PowerPress authenticate this HEAD request
-      }
-    }
+		$GeneralSettings = get_option('powerpress_general');
+		if( !empty($GeneralSettings['premium_caps']) )
+		{
+		  $feed_slug = get_query_var('feed');
+		  $FeedSettings = get_option('powerpress_feed_'.$feed_slug);
+		  if( !empty($FeedSettings['premium']) )
+		  {
+			return false; // Let the logic further into PowerPress authenticate this HEAD request
+		  }
+		}
 	}
 	return $return;
 }
@@ -523,8 +559,16 @@ function powerpress_rss2_head()
 	{
 		if( is_category() )
 			$Feed['url'] = get_category_link($cat_ID);
-		else
-			$Feed['url'] = get_bloginfo('url');
+		else {
+
+			$blogHomepage = get_option('page_for_posts');
+			if( !empty($blogHomepage) ) {
+				$Feed['url'] = get_permalink( $blogHomepage );
+			}
+
+			if( empty($Feed['url']) )
+				$Feed['url'] = get_bloginfo('url');
+		}
 	}
 	
 	$General = get_option('powerpress_general');
@@ -552,7 +596,12 @@ function powerpress_rss2_head()
 		echo $feedComment.' ';
 	
 	echo 'Blubrry PowerPress Podcasting plugin for WordPress (https://www.blubrry.com/powerpress/) -->'.PHP_EOL;
-		
+	
+	// Websub!
+	if(!empty($General['websub_enabled']) && $General['websub_enabled'] == 1) {
+        echo "\t<atom:link rel=\"hub\" href=\"https://pubsubhubbub.appspot.com/\" />" . PHP_EOL;
+    }
+
 	// add the itunes:new-feed-url tag to feed
 	if( powerpress_is_custom_podcast_feed() )
 	{
@@ -656,15 +705,43 @@ function powerpress_rss2_head()
 	}
 	
 	// Handle iTunes categories
-	$Categories = powerpress_itunes_categories();
-	$Cat1 = false; $Cat2 = false; $Cat3 = false;
-	if( !empty($Feed['itunes_cat_1']) )
-			list($Cat1, $SubCat1) = explode('-', $Feed['itunes_cat_1']);
-	if( !empty($Feed['itunes_cat_2']) )
-			list($Cat2, $SubCat2) = explode('-', $Feed['itunes_cat_2']);
-	if( !empty($Feed['itunes_cat_3']) )
-			list($Cat3, $SubCat3) = explode('-', $Feed['itunes_cat_3']);
- 
+	$Cat1 = false; $Cat2 = false; $Cat3 = false; $SubCat1 = false; $SubCat2 = false; $SubCat3 = false;
+	if(defined('POWERPRESS_NEW_APPLE_CATEGORIES') && POWERPRESS_NEW_APPLE_CATEGORIES == true) {
+	    $Categories = powerpress_apple_categories();
+        for ($i = 1; $i <= 3; $i++) {
+            if(!empty($Feed['itunes_cat_'.$i]) && empty($Feed['apple_cat_'.$i])) {
+                $mappings = array('01-00' => '01-00', '01-01' => '01-02', '01-02' => '01-03', '01-03' => '01-04', '01-04' => '01-01',
+                    '01-05' => '01-05', '01-06' => '01-06', '02-00' => '02-00', '02-01' => '12-01', '02-02' => '02-01', '02-03' => '02-03',
+                    '02-04' => '02-00', '02-05' => '02-00', '03-00' => '03-00', '04-00' => '04-00', '04-01' => '04-00', '04-02' => '04-00',
+                    '04-03' => '09-01', '04-04' => '04-03', '04-05' => '04-00', '05-00' => '10-00', '05-01' => '10-02', '05-02' => '10-03',
+                    '05-03' => '10-06', '05-04' => '10-05', '05-05' => '10-05', '06-00' => '06-00', '06-01' => '06-00', '06-02' => '06-00',
+                    '06-03' => '06-00', '06-04' => '06-00', '07-00' => '07-00', '07-01' => '07-01', '07-02' => '07-00', '07-03' => '04-04',
+                    '07-04' => '07-06', '08-00' => '09-00', '09-00' => '11-00', '11-00' => '13-00', '11-01' => '13-01', '11-02' => '13-02',
+                    '11-03' => '13-03', '11-04' => '13-04', '11-05' => '13-05', '11-06' => '13-06', '11-07' => '13-07', '12-00' => '14-00',
+                    '12-01' => '07-03', '12-02' => '14-06', '12-03' => '14-09', '13-00' => '15-00', '13-01' => '08-00', '13-02' => '15-02',
+                    '13-03' => '15-03', '13-04' => '15-04', '14-00' => '16-00', '14-01' => '16-00', '14-02' => '16-00', '14-03' => '16-15',
+                    '14-04' => '16-00', '15-00' => '17-00', '15-01' => '17-00', '15-02' => '12-07', '15-03' => '17-00', '15-04' => '17-00', '16-00' => '19-00');
+                $Feed['apple_cat_'. $i] = $mappings[$Feed['itunes_cat_'.$i]];
+
+            }
+        }
+        if (!empty($Feed['apple_cat_1']))
+            list($Cat1, $SubCat1) = explode('-', $Feed['apple_cat_1']);
+        if (!empty($Feed['apple_cat_2']))
+            list($Cat2, $SubCat2) = explode('-', $Feed['apple_cat_2']);
+        if (!empty($Feed['apple_cat_3']))
+            list($Cat3, $SubCat3) = explode('-', $Feed['apple_cat_3']);
+    }
+	else {
+        $Categories = powerpress_itunes_categories();
+        if (!empty($Feed['itunes_cat_1']))
+            list($Cat1, $SubCat1) = explode('-', $Feed['itunes_cat_1']);
+        if (!empty($Feed['itunes_cat_2']))
+            list($Cat2, $SubCat2) = explode('-', $Feed['itunes_cat_2']);
+        if (!empty($Feed['itunes_cat_3']))
+            list($Cat3, $SubCat3) = explode('-', $Feed['itunes_cat_3']);
+    }
+
 	if( $Cat1 )
 	{
 		$CatDesc = $Categories[$Cat1.'-00'];
@@ -1106,10 +1183,24 @@ function powerpress_bloginfo_rss($content, $field = '')
 					}
 				}; break;
 				case 'url': {
+					// If the website URL is set for this podcast then lets use it...
 					if( !empty($Feed['url']) )
 						return trim($Feed['url']);
-					else if( is_category() )
+
+					if( is_category() ) {
 						return get_category_link( get_query_var('cat') );
+					} else {
+						$urlTemp = '';
+						$blogHomepage = get_option('page_for_posts');
+						if( !empty($blogHomepage) ) {
+							$urlTemp = get_permalink( $blogHomepage );
+						}
+
+						if( empty($urlTemp) )
+							$urlTemp = get_bloginfo('url');
+						if( !empty($urlTemp) )
+							return $urlTemp;
+					}
 				}; break;
 				case 'name': { // As of wp 4.4+ title is handled by get_the_title_rss completely.
 					if( !empty($Feed['title']) )
@@ -1342,6 +1433,13 @@ function powerpress_template_redirect()
 {
 	if( is_feed() && powerpress_is_custom_podcast_feed() )
 	{
+		if ( defined('WPSEO_VERSION') && version_compare(WPSEO_VERSION, '7.7',  '>=') && class_exists( 'WPSEO_Frontend' ) ) {
+			$wpseo_frontend = WPSEO_Frontend::get_instance();
+			if( !empty($wpseo_frontend) ) {
+				remove_action( 'template_redirect', array( $wpseo_frontend, 'noindex_feed' ) );
+			}
+		}
+
 		remove_action('template_redirect', 'ol_feed_redirect'); // Remove this action so feedsmith doesn't redirect
 		global $powerpress_feed;
 		if( !isset($powerpress_feed['feed_redirect_url']) )
@@ -1475,7 +1573,7 @@ function powerpress_init()
 	{
 		powerpress_podpress_redirect_check();
 	}
-	
+
 	// Add the podcast feeds;
 	if( !defined('POWERPRESS_NO_PODCAST_FEED') )
 	{
@@ -1554,6 +1652,9 @@ function powerpress_init()
 			//add_filter( 'get_wp_title_rss', 'wp_encode_emoji' );
 		}
 	}
+
+	remove_action( 'wp_head', 'feed_links', 2 );
+	remove_action( 'wp_head', 'feed_links_extra', 3 );
 }
 
 add_action('init', 'powerpress_init', -100); // We need to add the feeds before other plugins start screwing with them
@@ -1673,6 +1774,8 @@ function powerpress_load_general_feed_settings()
 		$GeneralSettings = get_option('powerpress_general');
 		if( !isset($GeneralSettings['custom_feeds']['podcast']) )
 			$GeneralSettings['custom_feeds']['podcast'] = 'Podcast Feed'; // Fixes scenario where the user never configured the custom default podcast feed.
+		if( empty($GeneralSettings['default_url']) )
+			$GeneralSettings['default_url'] = '';
 		
 		if( $GeneralSettings )
 		{
@@ -1810,9 +1913,13 @@ function powerpress_load_general_feed_settings()
 				if( !empty($GeneralSettings['posttype_podcasting']) )
 				{
 					$post_type = get_query_var('post_type');
-					//$post_type = get_post_type();
+					
 					if( !empty($post_type) )
 					{
+						if ( is_array( $post_type ) ) {
+							$post_type = reset( $post_type ); // get first element in array
+						}
+						
 						// Get the settings for this podcast post type
 						$PostTypeSettingsArray = get_option('powerpress_posttype_'. $post_type);
 						if( !empty($PostTypeSettingsArray[ $feed_slug ]) )
@@ -1984,7 +2091,7 @@ function powerpress_posts_fields($cols)
 		{
 			$feed_slug = get_query_var('feed');
 			global $wpdb;
-			$cols .= ", {$wpdb->postmeta}.meta_value AS podcast_meta_value ";
+			$cols .= ", pp_{$wpdb->postmeta}.meta_value AS podcast_meta_value ";
 		}
 	}
 
@@ -2006,8 +2113,8 @@ function powerpress_posts_join($join)
 	if( powerpress_is_custom_podcast_feed() || get_query_var('feed') === 'podcast' )
 	{
 		global $wpdb;
-		$join .= " INNER JOIN {$wpdb->postmeta} ";
-		$join .= " ON {$wpdb->posts}.ID = {$wpdb->postmeta}.post_id ";
+		$join .= " INNER JOIN {$wpdb->postmeta} AS pp_{$wpdb->postmeta} ";
+		$join .= " ON {$wpdb->posts}.ID = pp_{$wpdb->postmeta}.post_id ";
 	}
 
   return $join;
@@ -2030,13 +2137,13 @@ function powerpress_posts_where($where)
 		$where .= " AND (";
 		
 		if( powerpress_is_custom_podcast_feed() && get_query_var('feed') !== 'podcast' )
-			$where .= " {$wpdb->postmeta}.meta_key = '_". get_query_var('feed') .":enclosure' ";
+			$where .= " pp_{$wpdb->postmeta}.meta_key = '_". get_query_var('feed') .":enclosure' ";
 		else	
-			$where .= " {$wpdb->postmeta}.meta_key = 'enclosure' ";
+			$where .= " pp_{$wpdb->postmeta}.meta_key = 'enclosure' ";
 	
 		// Include Podpress data if exists...
 		if( !empty($powerpress_feed['process_podpress']) && get_query_var('feed') === 'podcast' )
-			$where .= " OR {$wpdb->postmeta}.meta_key = 'podPressMedia' OR {$wpdb->postmeta}.meta_key = '_podPressMedia' ";
+			$where .= " OR pp_{$wpdb->postmeta}.meta_key = 'podPressMedia' OR pp_{$wpdb->postmeta}.meta_key = '_podPressMedia' ";
 		
 		$where .= ") ";
 	}
@@ -2171,8 +2278,10 @@ function get_the_powerpress_content()
 	if( !empty($GeneralSettings['posttype_podcasting']) )
 	{
 		$post_type = get_query_var('post_type');
-		//$post_type = get_post_type();
-		
+		if ( is_array( $post_type ) ) {
+			$post_type = reset( $post_type ); // get first element in array
+		}
+			
 		// Get the feed slugs and titles for this post type
 		$PostTypeSettingsArray = get_option('powerpress_posttype_'.$post_type);
 		// Loop through this array of post type settings...
@@ -2498,6 +2607,156 @@ function powerpress_itunes_categories($PrefixSubCategories = false)
 	return $temp;
 }
 
+/**
+ * Categories for 2019+ Apple Podcast directory
+ */
+function powerpress_apple_categories($PrefixSubCategories = false) {
+    $temp = array();
+    $temp['01-00'] = 'Arts';
+    $temp['01-01'] = 'Books';
+    $temp['01-02'] = 'Design';
+    $temp['01-03'] = 'Fashion & Beauty';
+    $temp['01-04'] = 'Food';
+    $temp['01-05'] = 'Performing Arts';
+    $temp['01-06'] = 'Visual Arts';
+
+    $temp['02-00'] = 'Business';
+    $temp['02-01'] = 'Careers';
+    $temp['02-02'] = 'Entrepreneurship';
+    $temp['02-03'] = 'Investing';
+    $temp['02-04'] = 'Management';
+    $temp['02-05'] = 'Marketing';
+    $temp['02-06'] = 'Non-profit';
+
+    $temp['03-00'] = 'Comedy';
+    $temp['03-01'] = 'Comedy Interviews';
+    $temp['03-02'] = 'Improv';
+    $temp['03-03'] = 'Stand-Up';
+
+    $temp['04-00'] = 'Education';
+    $temp['04-01'] = 'Courses';
+    $temp['04-02'] = 'How To';
+    $temp['04-03'] = 'Language Learning';
+    $temp['04-04'] = 'Self-Improvement';
+
+    $temp['05-00'] = 'Fiction';
+    $temp['05-01'] = 'Comedy Fiction';
+    $temp['05-02'] = 'Drama';
+    $temp['05-03'] = 'Science Fiction';
+
+    $temp['06-00'] = 'Government';
+
+    $temp['07-00'] = 'Health & Fitness';
+    $temp['07-01'] = 'Alternative Health';
+    $temp['07-02'] = 'Fitness';
+    $temp['07-03'] = 'Medicine';
+    $temp['07-04'] = 'Mental Health';
+    $temp['07-05'] = 'Nutrition';
+    $temp['07-06'] = 'Sexuality';
+
+    $temp['08-00'] = 'History';
+
+    $temp['09-00'] = 'Kids & Family';
+    $temp['09-01'] = 'Education for Kids';
+    $temp['09-02'] = 'Parenting';
+    $temp['09-03'] = 'Pets & Animals';
+    $temp['09-04'] = 'Stories for Kids';
+
+    $temp['10-00'] = 'Leisure';
+    $temp['10-01'] = 'Animation & Manga';
+    $temp['10-02'] = 'Automotive';
+    $temp['10-03'] = 'Aviation';
+    $temp['10-04'] = 'Crafts';
+    $temp['10-05'] = 'Games';
+    $temp['10-06'] = 'Hobbies';
+    $temp['10-07'] = 'Home & Garden';
+    $temp['10-08'] = 'Video Games';
+
+    $temp['11-00'] = 'Music';
+    $temp['11-01'] = 'Music Commentary';
+    $temp['11-02'] = 'Music History';
+    $temp['11-03'] = 'Music Interviews';
+
+    $temp['12-00'] = 'News';
+    $temp['12-01'] = 'Business News';
+    $temp['12-02'] = 'Daily News';
+    $temp['12-03'] = 'Entertainment News';
+    $temp['12-04'] = 'News Commentary';
+    $temp['12-05'] = 'Politics';
+    $temp['12-06'] = 'Sports News';
+    $temp['12-07'] = 'Tech News';
+
+    $temp['13-00'] = 'Religion & Spirituality';
+    $temp['13-01'] = 'Buddhism';
+    $temp['13-02'] = 'Christianity';
+    $temp['13-03'] = 'Hinduism';
+    $temp['13-04'] = 'Islam';
+    $temp['13-05'] = 'Judaism';
+    $temp['13-06'] = 'Religion';
+    $temp['13-07'] = 'Spirituality';
+
+    $temp['14-00'] = 'Science';
+    $temp['14-01'] = 'Astronomy';
+    $temp['14-02'] = 'Chemistry';
+    $temp['14-03'] = 'Earth Sciences';
+    $temp['14-04'] = 'Life Sciences';
+    $temp['14-05'] = 'Mathematics';
+    $temp['14-06'] = 'Natural Sciences';
+    $temp['14-07'] = 'Nature';
+    $temp['14-08'] = 'Physics';
+    $temp['14-09'] = 'Social Sciences';
+
+    $temp['15-00'] = 'Society & Culture';
+    $temp['15-01'] = 'Documentary';
+    $temp['15-02'] = 'Personal Journals';
+    $temp['15-03'] = 'Philosophy';
+    $temp['15-04'] = 'Places & Travel';
+    $temp['15-06'] = 'Relationships';
+
+    $temp['16-00'] = 'Sports';
+    $temp['16-01'] = 'Baseball';
+    $temp['16-02'] = 'Basketball';
+    $temp['16-03'] = 'Cricket';
+    $temp['16-04'] = 'Fantasy Sports';
+    $temp['16-05'] = 'Football';
+    $temp['16-06'] = 'Golf';
+    $temp['16-07'] = 'Hockey';
+    $temp['16-08'] = 'Rugby';
+    $temp['16-09'] = 'Running';
+    $temp['16-10'] = 'Soccer';
+    $temp['16-11'] = 'Swimming';
+    $temp['16-12'] = 'Tennis';
+    $temp['16-13'] = 'Volleyball';
+    $temp['16-15'] = 'Wilderness';
+    $temp['16-16'] = 'Wrestling';
+
+    $temp['17-00'] = 'Technology';
+
+    $temp['18-00'] = 'True Crime';
+
+    $temp['19-00'] = 'TV & Film';
+    $temp['19-01'] = 'After shows';
+    $temp['19-02'] = 'Film History';
+    $temp['19-03'] = 'Film Interviews';
+    $temp['19-04'] = 'Film Reviews';
+    $temp['19-05'] = 'TV Reviews';
+
+    if( $PrefixSubCategories )
+    {
+        foreach( $temp as $key=> $val )
+        {
+            $parts = explode('-', $key);
+            $cat = $parts[0];
+            $subcat = $parts[1];
+
+            if( $subcat != '00' )
+                $temp[$key] = $temp[$cat.'-00'].' > '.$val;
+        }
+        reset($temp);
+    }
+
+    return $temp;
+}
 
 function powerpress_googleplay_categories()
 {
@@ -2544,7 +2803,14 @@ function powerpress_get_the_exerpt($for_summary = false, $no_filters = false, $p
 			$post = get_post($post_id);
 			$subtitle = $post->post_excerpt;
 			if ( $subtitle == '') {
-				$subtitle = strip_shortcodes( $post->post_content );
+
+				$subtitle = $post->post_content;
+				$shortcodesTemp = $GLOBALS['shortcode_tags'];
+				$GLOBALS['shortcode_tags']['skipto'] = 'powerpress_shortcode_skipto';
+				$subtitle = do_shortcode($subtitle);
+				$GLOBALS['shortcode_tags'] = $shortcodesTemp;
+
+				$subtitle = strip_shortcodes( $subtitle );
 				$subtitle = str_replace(']]>', ']]&gt;', $subtitle);
 				$subtitle = strip_tags($subtitle);
 			}
@@ -2553,7 +2819,15 @@ function powerpress_get_the_exerpt($for_summary = false, $no_filters = false, $p
 		{
 			$subtitle = $GLOBALS['post']->post_excerpt;
 			if ( $subtitle == '') {
-				$subtitle = strip_shortcodes( $GLOBALS['post']->post_content );
+
+				$subtitle = $GLOBALS['post']->post_content;
+
+				$shortcodesTemp = $GLOBALS['shortcode_tags'];
+				$GLOBALS['shortcode_tags']['skipto'] = 'powerpress_shortcode_skipto';
+				$subtitle = do_shortcode($subtitle);
+				$GLOBALS['shortcode_tags'] = $shortcodesTemp;
+
+				$subtitle = strip_shortcodes( $subtitle );
 				$subtitle = str_replace(']]>', ']]&gt;', $subtitle);
 				$subtitle = strip_tags($subtitle);
 			}
@@ -2572,18 +2846,25 @@ function powerpress_get_the_content($for_summary = true, $no_filters = false, $n
 	if( $no_filters ) {
 		global $post;
 		$content_no_html = $post->post_content;
-		$content_no_html = strip_shortcodes( $content_no_html );
+
+		$shortcodesTemp = $GLOBALS['shortcode_tags'];
+		$GLOBALS['shortcode_tags']['skipto'] = 'powerpress_shortcode_skipto';
+		$content_no_html = do_shortcode($content_no_html);
+		$GLOBALS['shortcode_tags'] = $shortcodesTemp;
+
+		//$content_no_html = strip_shortcodes( $content_no_html );
 		$content_no_html = str_replace(']]>', ']]&gt;', $content_no_html);
 		$content_no_html = wp_staticize_emoji( _oembed_filter_feed_content( $content_no_html ) );
 	} else {
 		$content_no_html = get_the_content();
 	}
+
 	$content_no_html = strip_shortcodes( $content_no_html ); 
 	if( $no_strip_tags )
 		return $content_no_html;
 	
 	if( $for_summary ) {
-		return trim( strip_tags($content_no_html, '<a><p><br>') );
+		return trim( strip_tags($content_no_html, '<a><p><br><ul><li>') );
 	}
 	return trim( strip_tags($content_no_html) );
 }
@@ -2595,8 +2876,8 @@ function powerpress_enhanced_itunes_summary($no_filters = false)
 	} else {
 		$summary = apply_filters( 'the_content', powerpress_get_the_content(false, $no_filters, true) );
 	}
-	$summary = str_replace("<li>", '<li>* ', $summary);
-	$summary = strip_tags($summary, '<a><br>'); // We can leave a tags for itunes:summary, this will also strip CDATA tags
+	$summary = str_replace("<li>", '<li>* ', $summary); // Make sure our bullet lists stay nicely formatted.
+	$summary = strip_tags($summary, '<a>'); // We can leave a tags for itunes:summary, this will also strip CDATA tags
 	return $summary;
 }
 
@@ -3044,30 +3325,32 @@ function powerpress_raw_duration($duration)
 }
 
 // For grabbing data from Podpress data stored serialized, the strings for some values can sometimes get corrupted, so we fix it...
+
 function powerpress_repair_serialize($string)
 {
 	if( @unserialize($string) )
 		return $string; // Nothing to repair...
+	
 	$string = preg_replace_callback('/(s:(\d+):"([^"]*)")/', 
-			create_function(
-					'$matches',
-					'if( strlen($matches[3]) == $matches[2] ) return $matches[0]; return sprintf(\'s:%d:"%s"\', strlen($matches[3]), $matches[3]);'
-			), 
-			$string);
+		'powerpress_repair_serialize_callback', 
+		$string);
 	
 	if( substr($string, 0, 2) == 's:' ) // Sometimes the serialized data is double serialized, so we need to re-serialize the outside string
 	{
-		$string = preg_replace_callback('/(s:(\d+):"(.*)";)$/', 
-			create_function(
-					'$matches',
-					'if( strlen($matches[3]) == $matches[2] ) return $matches[0]; return sprintf(\'s:%d:"%s";\', strlen($matches[3]), $matches[3]);'
-			), 
+		$string = preg_replace_callback('/(s:(\d+):"(.*)"(;))$/', 
+			'powerpress_repair_serialize_callback', 
 			$string);
 	}
 	
 	return $string;
 }
 
+function powerpress_repair_serialize_callback($matches)
+{
+	if( strlen($matches[3]) == $matches[2] )
+		return $matches[0];
+	return sprintf('s:%d:"%s"', strlen($matches[3]), $matches[3]) . (!empty($matches[4])?';':'');
+}
 
 function powerpress_base64_encode($value)
 {
@@ -3411,6 +3694,10 @@ function powerpress_premium_content_authorized_filter($default, $feed_slug)
 	}
 	
 	$post_type = get_query_var('post_type');
+	if ( is_array( $post_type ) ) {
+		$post_type = reset( $post_type ); // get first element in array
+	}
+	
 	if( $post_type != 'post' )
 	{
 		$GeneralSettings = get_option('powerpress_general');
@@ -3441,6 +3728,10 @@ function powerpress_premium_content_message($post_id, $feed_slug, $EpisodeData =
 		return '';
 	$FeedSettings = get_option('powerpress_feed_'.$feed_slug);
 	$post_type = get_query_var('post_type');
+	if ( is_array( $post_type ) ) {
+		$post_type = reset( $post_type ); // get first element in array
+	}
+	
 	if( $post_type != 'post' )
 	{
 		$GeneralSettings = get_option('powerpress_general');

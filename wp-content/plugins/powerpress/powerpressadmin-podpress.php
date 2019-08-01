@@ -115,7 +115,7 @@ if( !function_exists('add_action') )
 					{
 						// display a warning here...
 						if( $hide_errors == false )
-							powerpress_page_message_add_error( sprintf( __('Error decoding PodPress data for post "%s"', 'powerpress'), est_attr($row['post_title']) ) );
+							powerpress_page_message_add_error( sprintf( __('Error decoding PodPress data for post "%s"', 'powerpress'), esc_attr($row['post_title']) ) );
 						continue;
 					}
 					

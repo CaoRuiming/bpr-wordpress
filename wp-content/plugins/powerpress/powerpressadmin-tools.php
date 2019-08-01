@@ -187,10 +187,10 @@
 	?>
 	<h4 style="margin-top: 8px;">Post to Social</h4>
 	<p>
-		Post to Social allows Blubrry podcast hosting customers to post to Twitter, Facebook and Google+ right from their WordPress site. Please go to https://www.blubrry.com, sign-in then go to the Post to Social settings in your blubrry account to setup.
+		Post to Social allows Blubrry podcast hosting customers to post to Twitter, Facebook and YouTube right from their WordPress site. Please go to https://www.blubrry.com, sign-in then go to the Post to Social settings in your blubrry account to setup.
 	</p>
 	<p>
-		This feature is currently in beta testing and planned for production use in January, 2018.
+		This feature is currently in beta testing.
 	</p>
 	<p style="margin-top: 5px;"><strong><a href="<?php echo $powerpress_beta_url; ?>&amp;feature=<?php echo (!empty($General['powerpress-beta-features'])?'0':'1'); ?>"><?php echo (!empty($General['powerpress-beta-features'])? __('Disable Beta Features', 'powerpress') : __('Enable Beta Features', 'powerpress') ); ?></a></strong></p>
 </td>

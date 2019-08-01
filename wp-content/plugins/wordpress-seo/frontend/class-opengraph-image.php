@@ -6,7 +6,7 @@
  */
 
 /**
- * Class WPSEO_OpenGraph_Image
+ * Class WPSEO_OpenGraph_Image.
  */
 class WPSEO_OpenGraph_Image {
 
@@ -37,7 +37,6 @@ class WPSEO_OpenGraph_Image {
 	private $image_tags = array(
 		'width'     => 'width',
 		'height'    => 'height',
-		'alt'       => 'alt',
 		'mime-type' => 'type',
 	);
 
@@ -289,7 +288,7 @@ class WPSEO_OpenGraph_Image {
 	 */
 	private function set_singular_image( $post_id = null ) {
 		if ( $post_id === null ) {
-			$post_id = $this->get_queried_object_id();
+			$post_id = WPSEO_Frontend_Page_Type::get_simple_page_id();
 		}
 
 		$this->set_user_defined_image( $post_id );
@@ -298,7 +297,7 @@ class WPSEO_OpenGraph_Image {
 			return;
 		}
 
-		$this->add_first_usable_content_image( get_post( $post_id ) );
+		$this->add_first_usable_content_image( $post_id );
 	}
 
 	/**
@@ -310,7 +309,7 @@ class WPSEO_OpenGraph_Image {
 	 */
 	private function set_user_defined_image( $post_id = null ) {
 		if ( $post_id === null ) {
-			$post_id = $this->get_queried_object_id();
+			$post_id = WPSEO_Frontend_Page_Type::get_simple_page_id();
 		}
 
 		$this->set_image_post_meta( $post_id );
@@ -361,7 +360,7 @@ class WPSEO_OpenGraph_Image {
 	 * @return void
 	 */
 	private function save_opengraph_image_id_meta( $attachment_id ) {
-		$post_id = $this->get_queried_object_id();
+		$post_id = WPSEO_Frontend_Page_Type::get_simple_page_id();
 
 		WPSEO_Meta::set_value( 'opengraph-image-id', (string) $attachment_id, $post_id );
 	}
@@ -410,7 +409,7 @@ class WPSEO_OpenGraph_Image {
 	 * @return void
 	 */
 	private function set_attachment_page_image() {
-		$post_id = $this->get_queried_object_id();
+		$post_id = WPSEO_Frontend_Page_Type::get_simple_page_id();
 		if ( wp_attachment_is_image( $post_id ) ) {
 			$this->add_image_by_id( $post_id );
 		}
@@ -421,7 +420,8 @@ class WPSEO_OpenGraph_Image {
 	 *
 	 * @param string $url The given URL.
 	 *
-	 * @return null|number Returns the found attachment ID if it exists. Otherwise -1. If the URL is empty we return null.
+	 * @return null|number Returns the found attachment ID if it exists. Otherwise -1.
+	 *                     If the URL is empty we return null.
 	 */
 	public function add_image_by_url( $url ) {
 		if ( empty( $url ) ) {
@@ -456,7 +456,7 @@ class WPSEO_OpenGraph_Image {
 		 *
 		 * Use the `wpseo_image_sizes` filter if you want to use our logic. That filter
 		 * can be used to add an image size that needs to be taken into consideration
-		 * within our own logic
+		 * within our own logic.
 		 *
 		 * @api string $size Size string.
 		 */
@@ -545,7 +545,7 @@ class WPSEO_OpenGraph_Image {
 			case is_attachment():
 				$this->set_attachment_page_image();
 				break;
-			case is_singular():
+			case WPSEO_Frontend_Page_Type::is_simple_page():
 				$this->set_singular_image();
 				break;
 			case is_category():
@@ -654,31 +654,16 @@ class WPSEO_OpenGraph_Image {
 	}
 
 	/**
-	 * Gets the queried object ID.
-	 *
-	 * @return int The queried object ID.
-	 */
-	protected function get_queried_object_id() {
-		return get_queried_object_id();
-	}
-
-	/**
 	 * Adds the first usable attachment image from the post content.
 	 *
-	 * @param WP_Post $post The post object.
+	 * @param int $post_id The post id.
 	 *
 	 * @return void
 	 */
-	private function add_first_usable_content_image( $post ) {
-		$image_finder = new WPSEO_Content_Images();
-		$images       = $image_finder->get_images( $post->ID, $post );
+	private function add_first_usable_content_image( $post_id ) {
+		$image_url = WPSEO_Image_Utils::get_first_usable_content_image_for_post( $post_id );
 
-		if ( ! is_array( $images ) || $images === array() ) {
-			return;
-		}
-
-		$image_url = reset( $images );
-		if ( ! $image_url ) {
+		if ( $image_url === null || empty( $image_url ) ) {
 			return;
 		}
 

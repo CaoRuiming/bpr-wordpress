@@ -13,12 +13,12 @@ $title = $wpdb->get_var("SELECT `name` FROM `{$wpdb->prefix}adrotate_groups` WHE
 $stats = $wpdb->get_row("SELECT SUM(`clicks`) as `clicks`, SUM(`impressions`) as `impressions` FROM `{$wpdb->prefix}adrotate_stats` WHERE `group` = {$id};", ARRAY_A);
 $stats_today = $wpdb->get_row("SELECT `clicks`, `impressions` FROM `{$wpdb->prefix}adrotate_stats` WHERE `group` = {$id} AND `thetime` = {$today};", ARRAY_A);
 
-$start_last_month = mktime(0, 0, 0, date("m")-1, 1, date("Y"));
-$end_last_month = mktime(0, 0, 0, date("m")-1, date("t"), date("Y"));
+$start_last_month = gmmktime(0, 0, 0, gmdate("m")-1, 1, gmdate("Y"));
+$end_last_month = gmmktime(0, 0, 0, gmdate("m")-1, gmdate("t"), gmdate("Y"));
 $stats_last_month = $wpdb->get_row("SELECT SUM(`clicks`) as `clicks`, SUM(`impressions`) as `impressions` FROM `{$wpdb->prefix}adrotate_stats` WHERE `group` = {$id} AND `thetime` >= {$start_last_month} AND `thetime` <= {$end_last_month};", ARRAY_A);
 
-$start_this_month = mktime(0, 0, 0, date("m"), 1, date("Y"));
-$end_this_month = mktime(0, 0, 0, date("m"), date("t"), date("Y"));
+$start_this_month = gmmktime(0, 0, 0, gmdate("m"), 1, gmdate("Y"));
+$end_this_month = gmmktime(0, 0, 0, gmdate("m"), gmdate("t"), gmdate("Y"));
 $stats_this_month = $wpdb->get_row("SELECT SUM(`clicks`) as `clicks`, SUM(`impressions`) as `impressions` FROM `{$wpdb->prefix}adrotate_stats` WHERE `group` = {$id} AND `thetime` >= {$start_this_month} AND `thetime` <= {$end_this_month};", ARRAY_A);
 
 $stats_graph_month = $wpdb->get_row("SELECT SUM(`clicks`) as `clicks`, SUM(`impressions`) as `impressions` FROM `{$wpdb->prefix}adrotate_stats` WHERE `group` = {$id} AND `thetime` >= {$monthstart} AND `thetime` <= {$monthend};", ARRAY_A);

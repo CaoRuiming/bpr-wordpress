@@ -6,7 +6,7 @@
  */
 
 /**
- * @class WPSEO_MyYoast_Proxy Loads the MyYoast proxy.
+ * Loads the MyYoast proxy.
  *
  * This class registers a proxy page on `admin.php`. Which is reached with the `page=PAGE_IDENTIFIER` parameter.
  * It will read external files and serves them like they are located locally.
@@ -144,7 +144,7 @@ class WPSEO_MyYoast_Proxy implements WPSEO_WordPress_Integration {
 	/**
 	 * Tries to load the given url.
 	 *
-	 * @see https://php.net/manual/en/function.readfile.php
+	 * @link https://php.net/manual/en/function.readfile.php
 	 *
 	 * @codeCoverageIgnore
 	 *
@@ -162,8 +162,8 @@ class WPSEO_MyYoast_Proxy implements WPSEO_WordPress_Integration {
 	 * When the file is known it returns an array like this:
 	 * <code>
 	 * $array = array(
-	 * 	'content_type' => 'the content type'
-	 * 	'url'          => 'the url, possibly with the plugin version'
+	 *  'content_type' => 'the content type'
+	 *  'url'          => 'the url, possibly with the plugin version'
 	 * )
 	 * </code>
 	 *
@@ -185,7 +185,7 @@ class WPSEO_MyYoast_Proxy implements WPSEO_WordPress_Integration {
 	 *
 	 * @codeCoverageIgnore
 	 *
-	 * @see https://php.net/manual/en/filesystem.configuration.php#ini.allow-url-fopen
+	 * @link https://php.net/manual/en/filesystem.configuration.php#ini.allow-url-fopen
 	 *
 	 * @return bool True when the PHP configuration allows for url loading via readfile.
 	 */

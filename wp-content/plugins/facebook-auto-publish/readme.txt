@@ -1,17 +1,17 @@
-=== WP Facebook Auto Publish ===
+=== WP2Social Auto Publish ===
 Contributors: f1logic
 Donate link: https://xyzscripts.com/donate/
-Tags:  facebook, facebook auto publish,wp facebook auto publish,publish post to facebook, add link to facebook, facebook publishing, post to facebook, post to fb, social media auto publish, social media publishing, social network auto publish, social media, social network
+Tags:  facebook, facebook auto publish,wp2fb auto publish,wp2social,wp2social auto publish,wp facebook auto publish,publish post to facebook, add link to facebook, facebook publishing, post to facebook, post to fb, social media auto publish, social media publishing, social network auto publish, social media, social network
 Requires at least: 3.0																				
-Tested up to: 5.0
-Stable tag: 2.1
+Tested up to: 5.2.2
+Stable tag: 2.2.1
 License: GPLv2 or later
 
-Publish posts automatically to Facebook page or profile.
+Publish posts automatically to Facebook page.
 
 == Description ==
 
-A quick look into WP Facebook Auto Publish :
+A quick look into WP2Social Auto Publish :
 
 	★ Publish message to Facebook with image
 	★ Attach post or share link  to Facebook
@@ -21,11 +21,11 @@ A quick look into WP Facebook Auto Publish :
 	★ Customizable  message formats for Facebook
 
 
-= WP Facebook Auto Publish Features in Detail =
+= WP2Social Auto Publish Features in Detail =
 
-The WP Facebook Auto Publish lets you publish posts automatically from your blog to Facebook. You can publish your posts to Facebook as simple text message, text message with image or as attached link to your blog. The plugin supports filtering posts based on  custom post-types as well as categories.
+The WP2Social Auto Publish lets you publish posts automatically from your blog to Facebook. You can publish your posts to Facebook as simple text message, text message with image or as attached link to your blog. The plugin supports filtering posts based on  custom post-types as well as categories.
 
-The prominent features of  the WP Facebook Auto Publish plugin are highlighted below.
+The prominent features of  the WP2Social Auto Publish plugin are highlighted below.
 
 = Supported Mechanisms =
 
@@ -35,7 +35,6 @@ The various mechanisms of posting to Facebook are listed below.
     Text message with image
     Share a link to your blog post
     Attach your blog post
-    Post to Facebook profile page
     Post to specific pages on Facebook
 
 = Filter Settings =
@@ -58,35 +57,36 @@ The supported post elements which can be published are given below.
     User nicename
     Post ID
     Post publish date
+    User display name
 
 
 = About =
 
-WP Facebook Auto Publish is developed and maintained by [XYZScripts](https://xyzscripts.com/ "xyzscripts.com"). For any support, you may [contact us](https://xyzscripts.com/support/ "XYZScripts Support").
+WP2Social Auto Publish is developed and maintained by [XYZScripts](https://xyzscripts.com/ "xyzscripts.com"). For any support, you may [contact us](https://xyzscripts.com/support/ "XYZScripts Support").
 
-★ [WP Facebook Auto Publish User Guide](http://help.xyzscripts.com/docs/facebook-auto-publish/user-guide/ "WP Facebook Auto Publish User Guide")
-★ [WP Facebook Auto Publish FAQ](http://help.xyzscripts.com/docs/facebook-auto-publish/faq/ "WP Facebook Auto Publish FAQ")
+★ [WP2Social Auto Publish User Guide](http://help.xyzscripts.com/docs/facebook-auto-publish/user-guide/ "WP2Social Auto Publish User Guide")
+★ [WP2Social Auto Publish FAQ](http://help.xyzscripts.com/docs/facebook-auto-publish/faq/ "WP2Social Auto Publish FAQ")
 
 == Installation ==
 
-★ [WP Facebook Auto Publish User Guide](http://help.xyzscripts.com/docs/facebook-auto-publish/user-guide/ "WP Facebook Auto Publish User Guide")
-★ [WP Facebook Auto Publish FAQ](http://help.xyzscripts.com/docs/facebook-auto-publish/faq/ "WP Facebook Auto Publish FAQ")
+★ [WP2Social Auto Publish User Guide](http://help.xyzscripts.com/docs/facebook-auto-publish/user-guide/ "WP2Social Auto Publish User Guide")
+★ [WP2Social Auto Publish FAQ](http://help.xyzscripts.com/docs/facebook-auto-publish/faq/ "WP2Social Auto Publish FAQ")
 
 1. Extract `facebook-auto-publish.zip` to your `/wp-content/plugins/` directory.
-2. In the admin panel under plugins activate WP Facebook Auto Publish.
-3. You can configure the settings from WP Facebook Auto Publish menu. (Make sure to Authorize Facebook application after saving the settings.)
+2. In the admin panel under plugins activate WP2Social Auto Publish.
+3. You can configure the settings from WP2Social Auto Publish menu. (Make sure to Authorize Facebook application after saving the settings.)
 4. Once these are done, posts should get automatically published based on your filter settings.
 
 If you need any further help, you may contact our [support desk](https://xyzscripts.com/support/ "XYZScripts Support").
 
 == Frequently Asked Questions ==
 
-★ [WP Facebook Auto Publish User Guide](http://help.xyzscripts.com/docs/facebook-auto-publish/user-guide/ "WP Facebook Auto Publish User Guide")
-★ [WP Facebook Auto Publish FAQ](http://help.xyzscripts.com/docs/facebook-auto-publish/faq/ "WP Facebook Auto Publish FAQ")
+★ [WP2Social Auto Publish User Guide](http://help.xyzscripts.com/docs/facebook-auto-publish/user-guide/ "WP2Social Auto Publish User Guide")
+★ [WP2Social Auto Publish FAQ](http://help.xyzscripts.com/docs/facebook-auto-publish/faq/ "WP2Social Auto Publish FAQ")
 
-= 1. The WP Facebook Auto Publish is not working properly. =
+= 1. The WP2Social Auto Publish is not working properly. =
 
-Please check the wordpress version you are using. Make sure it meets the minimum version recommended by us. Make sure all files of the `wp facebook auto publish` plugin are uploaded to the folder `wp-content/plugins/`
+Please check the wordpress version you are using. Make sure it meets the minimum version recommended by us. Make sure all files of the `wp2social auto publish` plugin are uploaded to the folder `wp-content/plugins/`
 
 
 = 2. Can I post to Facebook pages instead of profile ? =
@@ -122,9 +122,19 @@ SSL peer verification may not be functioning in your server. Please turn off SSL
 == Screenshots ==
 
 1. This is the Facebook configuration section.
-2. Publishing options while creating a post.
+2. This is the general settings section.
+3. Publishing options while creating a post.
+4. Auto publish logs.
 
 == Changelog ==
+
+= WP2Social Auto Publish 2.2.1 =
+* Plugin name changed to WP2Social Auto Publish
+
+= WP2FB Auto Publish 2.2 =
+* Plugin name changed to WP2FB Auto Publish, as per Facebook guidelines 
+* Fixed bug in specific category selection on edit posts
+* Option to reuse last used auto publish settings on edit posts
 
 = WP Facebook Auto Publish 2.1 =
 * Added page for managing authorizations of smapsolutions app
@@ -254,8 +264,8 @@ First official launch.
 
 == More Information ==
 
-★ [WP Facebook Auto Publish User Guide](http://help.xyzscripts.com/docs/facebook-auto-publish/ "WP Facebook Auto Publish User Guide")
-★ [WP Facebook Auto Publish FAQ](http://help.xyzscripts.com/docs/facebook-auto-publish/faq/ "WP Facebook Auto Publish FAQ")
+★ [WP2Social Auto Publish User Guide](http://help.xyzscripts.com/docs/facebook-auto-publish/ "WP2Social Auto Publish User Guide")
+★ [WP2Social Auto Publish FAQ](http://help.xyzscripts.com/docs/facebook-auto-publish/faq/ "WP2Social Auto Publish FAQ")
 
 = Troubleshooting =
 
@@ -268,4 +278,4 @@ Please read the FAQ first if you are having problems.
 
 = Feedback =
 
-We would like to receive your feedback and suggestions about WP Facebook Auto Publish plugin. You may submit them at our [support desk](https://xyzscripts.com/support/ "XYZScripts Support").
+We would like to receive your feedback and suggestions about WP2Social Auto Publish plugin. You may submit them at our [support desk](https://xyzscripts.com/support/ "XYZScripts Support").

@@ -6,7 +6,7 @@
  */
 
 /**
- * Class WPSEO_Config_Factory_Post_Type
+ * Class WPSEO_Config_Factory_Post_Type.
  */
 class WPSEO_Config_Factory_Post_Type {
 
@@ -18,6 +18,8 @@ class WPSEO_Config_Factory_Post_Type {
 	protected static $fields = array();
 
 	/**
+	 * Retrieves a list of fields.
+	 *
 	 * @return WPSEO_Config_Field_Choice_Post_Type[] List of fields.
 	 */
 	public function get_fields() {
@@ -47,7 +49,7 @@ class WPSEO_Config_Factory_Post_Type {
 	}
 
 	/**
-	 * Add custom properties for specific post types
+	 * Add custom properties for specific post types.
 	 *
 	 * @param string             $post_type Post type of field that is being added.
 	 * @param WPSEO_Config_Field $field     Field that corresponds to the post type.

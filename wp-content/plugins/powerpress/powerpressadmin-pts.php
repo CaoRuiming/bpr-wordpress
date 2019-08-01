@@ -2,6 +2,17 @@
 /**
  * Class PowerPressPostToSocial
  */
+
+define('POWERPRESS_POSTED_STATUS_NOT_POSTED_YET', 0);
+define('POWERPRESS_POSTED_STATUS_SUCCESS', 1);
+define('POWERPRESS_POSTED_STATUS_FAILED', 2);
+define('POWERPRESS_POSTED_STATUS_INVALID_CREDENTIALS', 3);
+define('POWERPRESS_POSTED_STATUS_NO_CREDENTIALS', 4);
+define('POWERPRESS_POSTED_STATUS_NOT_AUDIO', 5);
+define('POWERPRESS_POSTED_STATUS_CONVERSION_FAILED', 6);
+define('POWERPRESS_POSTED_STATUS_PROGRAM_ID_NOT_MATCHED', 7);
+define('POWERPRESS_POSTED_STATUS_NOT_SCHEDULED', 8);
+
 class PowerPressPostToSocial {
 	// member variables
 
@@ -53,7 +64,7 @@ class PowerPressPostToSocial {
 			$guid = urlencode( get_the_guid() );
 			
 			$EpisodeData = powerpress_get_enclosure_data($post_id);
-			if( !empty($EpisodeData) ) {
+			if( !empty($EpisodeData) && parse_url($EpisodeData['url'], PHP_URL_HOST) == 'media.blubrry.com' ) {
 				add_thickbox();
 				echo "<strong styleX='font-size: 115%; display: block; text-align: center;'><a class='thickbox button button-primary button-large' href='admin.php?action=powerpress-jquery-pts&width=600&height=550&post_id={$post_id}&guid={$guid}&TB_iframe=true' target='blank' title='Post to Social'>Post to Social</a></strong>";
 				$can_post = true;
@@ -72,11 +83,14 @@ class PowerPressPostToSocial {
 			else if( $can_post == false ) {
 			
 				_e( 'No podcast episode available in this post to send to social sites.', 'powerpress' );
-			} else {
+			} else if (parse_url($EpisodeData['url'], PHP_URL_HOST) == 'media.blubrry.com') {
 				_e( 'Nothing posted yet.', 'powerpress' );
 				echo ' ';
 				echo "<a class='thickbox' href='admin.php?action=powerpress-jquery-pts&width=600&height=550&post_id={$post_id}&guid={$guid}&TB_iframe=true' target='blank'>Post Now!</a>";
 			}
+			else {
+			    _e('The media file must be hosted on Blubrry to post to social sites.', 'powerpress');
+            }
 		}
 		else {
 			echo "This post must be published before you can post to social sharing sites.";
@@ -88,15 +102,14 @@ class PowerPressPostToSocial {
 	}
 
 	function do_pings() {
-		$Settings = powerpress_get_settings( 'powerpress_general' );
+		$Settings = get_option( 'powerpress_general' );
 
 		$post_id = get_the_ID();
-		$program_keyword = $Settings['blubrry_program_keyword'];
 		$guid = get_the_guid();
 
 		$enclosure_data = powerpress_get_enclosure_data( $post_id );
 		if ( !empty( $enclosure_data ) ) {
-			$results = callUpdateListing($post_id, $program_keyword, $guid);
+			$results = callUpdateListing($post_id, $guid);
 			$podcast_id = $results['podcast-id'];
 
 			add_post_meta( $post_id, 'podcast-id', $podcast_id, true );
@@ -110,9 +123,16 @@ class PowerPressPostToSocial {
  * @param string $guid
  * @return array|mixed|object|string
  */
-function callUpdateListing( $post_id, $program_keyword, $guid ) {
-	$Settings = powerpress_get_settings('powerpress_general');
+function callUpdateListing( $post_id, $guid ) {
+	$Settings = get_option('powerpress_general');
 	$episodeData = powerpress_get_enclosure_data( $post_id );
+	if(!empty($episodeData['program_keyword'])) {
+	    //for multi account support, if empty then fallback to
+	    $program_keyword = $episodeData['program_keyword'];
+    }
+	else {
+        $program_keyword = $Settings['blubrry_program_keyword'];
+    }
 	if( empty($episodeData['duration']) )
 		$episodeData['duration'] = '';
 	
@@ -130,7 +150,7 @@ function callUpdateListing( $post_id, $program_keyword, $guid ) {
 		$subtitle = substr( get_the_content( $post_id ), 0, 255 );
 	}
 
-	$FeedSettings = powerpress_get_settings( 'powerpress_feed' );
+	$FeedSettings = get_option( 'powerpress_feed' );
 
 	$post_params = array(
 		'feed-url'  => '',                                           // required
@@ -150,8 +170,7 @@ function callUpdateListing( $post_id, $program_keyword, $guid ) {
 
 	foreach ( $api_url_array as $api_url ) {
 		$response = powerpress_remote_fopen( "{$api_url}social/{$program_keyword}/update-listing.json", $Settings['blubrry_auth'], json_encode( $post_params ) );
-		
-		//mail('cio@rawvoice.com', 'update listing response', $response);
+
 		if ( $response ) {
 			break;
 		}
@@ -173,14 +192,12 @@ function callUpdateListing( $post_id, $program_keyword, $guid ) {
  * @param string $program_keyword
  * @return array|mixed|object|string
  */
-function callGetSocialOptions( $program_keyword ) {
-	$Settings = powerpress_get_settings( 'powerpress_general' );
+function callGetSocialOptions( $program_keyword, $podcast_id ) {
+	$Settings = get_option( 'powerpress_general' );
 
 	$api_url_array = powerpress_get_api_array();
-
 	foreach ( $api_url_array as $api_url ) {
-		$response = powerpress_remote_fopen("{$api_url}social/{$program_keyword}/get-social-options.json", $Settings['blubrry_auth'] );
-
+		$response = powerpress_remote_fopen("{$api_url}social/{$program_keyword}/get-social-options.json?podcast_id={$podcast_id}", $Settings['blubrry_auth'] );
 		if ( $response ) {
 			break;
 		}
@@ -272,9 +289,56 @@ function generate_radio( $label, $name, $value, $checked='' ) {
 	return $checkbox;
 }
 
+function displayStatus($isPostedArray)
+{
+    $tempStatusArray = $isPostedArray;
+
+    if (sizeof($tempStatusArray) > 1){
+        if (end($tempStatusArray) == 0){
+            $tempStatusArray = array($tempStatusArray[0], end($tempStatusArray));
+        }
+        else {
+            $tempStatusArray = array($tempStatusArray[0]);
+        }
+    }
+    foreach($tempStatusArray as $isPosted){
+
+        if ($isPosted == POWERPRESS_POSTED_STATUS_SUCCESS) { ?>
+            <span class="label label-success">Posted!</span>
+            <?php return;
+
+        } else if ($isPosted == POWERPRESS_POSTED_STATUS_NOT_POSTED_YET) { ?>
+            <script>post_scheduled_notification.style.display = "block";</script>
+
+            <?php if (sizeof($isPostedArray) > 1) {?>
+                <span class="label label-primary"> Post Rescheduled</span>
+
+            <?php } else { ?>
+                <span class="label label-primary"> Post Scheduled</span>
+            <?php } return;
+
+        } else if ($isPosted == POWERPRESS_POSTED_STATUS_NOT_SCHEDULED) { ?>
+
+        <?php } else if ($isPosted == POWERPRESS_POSTED_STATUS_CONVERSION_FAILED) { ?>
+            <span class="label label-danger">Error occurred: Video creation failed</span>
+
+        <?php } else if($isPosted == POWERPRESS_POSTED_STATUS_NOT_AUDIO) { ?>
+            <span class="label label-danger">Error occurred: Mp3 file required for posting to Youtube</span>
+
+        <?php } else if ($isPosted == POWERPRESS_POSTED_STATUS_INVALID_CREDENTIALS || $isPosted == POWERPRESS_POSTED_STATUS_NO_CREDENTIALS) { ?>
+            <span class="label label-danger">Error occurred: Please re-link your account</span>
+
+        <?php } else if ($isPosted > POWERPRESS_POSTED_STATUS_SUCCESS) { ?>
+            <span class="label label-danger">Error occurred</span>
+
+            <?php
+        }
+    }
+
+}
+
 function powerpress_ajax_pts($Settings)
 {
-	//$Settings = powerpress_get_settings('powerpress_general');
 	powerpress_admin_jquery_header( __( 'Post to Social', 'powerpress' ) );
 
 	if ( !current_user_can('publish_posts' ) ) {
@@ -298,7 +362,7 @@ function powerpress_ajax_pts($Settings)
 	}
 
 	// Make API calls here //
-	$program_keyword = $Settings['blubrry_program_keyword'];
+
 	$post_id = (int) $_GET['post_id'];
 	$guid    = urldecode( $_GET['guid'] );
 
@@ -307,13 +371,12 @@ function powerpress_ajax_pts($Settings)
 		$response = array( 'podcast-id' => get_post_meta( $post_id, 'podcast-id', true ) );
 	}
 	else {
-		$response = callUpdateListing( $post_id, $program_keyword, $guid );
+		$response = callUpdateListing( $post_id, $guid );
 	}
-
 	if ( !is_array( $response ) ) { // an error occurred\	
 		echo "<br /><br />";
 		echo $response;
-		//var_dump($response);
+
 		exit;
 	}
 	
@@ -335,12 +398,18 @@ function powerpress_ajax_pts($Settings)
 	}
 
 	$podcast_id = $response['podcast-id'];
-	add_post_meta( $post_id, 'podcast-id', $podcast_id, true );
-
+    $EpisodeData = powerpress_get_enclosure_data($post_id);
+    if(!empty($EpisodeData['program_keyword'])) {
+        $program_keyword = $EpisodeData['program_keyword'];
+    }
+    else {
+        $program_keyword = $Settings['blubrry_program_keyword'];
+    }
+    add_post_meta( $post_id, 'podcast-id', $podcast_id, true );
 	// get the info necessary to create the post to social form using the `get-social-options` api call
-	$response = callGetSocialOptions( $program_keyword );
+	$response = callGetSocialOptions( $program_keyword, $podcast_id );
 
-	if ( !is_array( $response ) ) { // a cURL error occurred
+    if ( !is_array( $response ) ) { // a cURL error occurred
 		echo $response;
 		exit;
 	}
@@ -361,47 +430,108 @@ function powerpress_ajax_pts($Settings)
 	//else
 		//var_dump($response);
 	?>
+
+    <script language=JavaScript>
+
+        function check_length(pts_form)
+        {
+            maxLen = 280 - (pts_form.twitter_link.value.length+1); // max number of characters allowed
+            if (pts_form.twitter_content.value.length > maxLen) {
+                var msg = "You have reached your maximum limit of characters allowed";
+                alert(msg);
+                pts_form.twitter_content.value = pts_form.twitter_content.value.substring(0, maxLen);
+
+            } else {
+
+                document.getElementById('text_length').innerHTML = maxLen - pts_form.twitter_content.value.length;
+            }
+        }
+
+    </script>
+
 	<script>var linkel = document.createElement('link'); linkel.rel = 'stylesheet'; linkel.href = 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'; document.head.appendChild(linkel);</script>
 	<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
 
-	<form action="admin.php?action=powerpress-jquery-pts-post" method="POST">
+	<form action="admin.php?action=powerpress-jquery-pts-post" method="POST" id="pts_form" name="pts_form">
 		<input type="hidden" name="podcast-id" value="<?php echo $podcast_id; ?>">
 						<input type="hidden" name="post-id" value="<?php echo $post_id; ?>">
 	<?php
-	foreach ( $response['social-options'] as $option ) {
-		echo '<h4>' ."<img src='{$option['social-image']}'>" .$option['social-title'] .'</h4>';
+        if (empty($response['accounts'])) {
+            echo '<h2>No social accounts linked</h2>';
+            echo '<p>Visit the <a href="https://publish.blubrry.com/social/" target="_blank">Podcaster Dashboard</a> to link your social accounts</p>';
+        }
+        if (!empty($response['accounts']['Twitter'])){
+            echo '<h2>' ."<img src='{$response['settings']['twitter_image']}'>" ." Twitter" .'</h2>'; ?>
 
-		foreach ( $option['form-data'] as $form_field ) {
-			if( !isset($form_field['value']) )
-				$form_field['value'] = '';
-			if( !isset($form_field['placeholder']) )
-				$form_field['placeholder'] = '';	
-			if( !isset($form_field['help-text']) )
-				$form_field['help-text'] = '';	
-			if( !isset($form_field['maxlength']) )
-				$form_field['maxlength'] = '';
-			if( !isset($form_field['checked']) )	
-				$form_field['checked'] = '';
-				
-			$label = htmlspecialchars( $form_field['label'] );
+            <label>Check the accounts where you want this episode to be posted</label> <br> <?php
+            foreach ($response['accounts']['Twitter'] as $meta_id => $account){
+                $isPostedToTwitter = $account['status']; ?>
+                <label  class="checkbox-inline"><input type="checkbox" name="twitter_meta[]"
+                        value="<?php echo $meta_id ?>" <?php echo ($isPostedToTwitter[0] < POWERPRESS_POSTED_STATUS_FAILED || $isPostedToTwitter[0] == POWERPRESS_POSTED_STATUS_NOT_SCHEDULED) ? 'checked' : '';?> <?php echo ($isPostedToTwitter[0] == POWERPRESS_POSTED_STATUS_SUCCESS) ? 'disabled' : '';?>> <?php echo "@" . $account['twitter_handle']?></label>
+                <?php displayStatus($isPostedToTwitter)?><br>
 
-			if ( $form_field['field-type'] == 'input-text' ) {
-				$rows = (!empty($form_field['rows']) ? $form_field['rows'] : 1);
-				echo generate_text_field( $label, $option['social-type'] . '-' . $form_field['name'], $form_field['value'], htmlspecialchars( $form_field['placeholder'] ), htmlspecialchars( $form_field['help-text'] ), $rows, $form_field['maxlength'] );
-			}
-			elseif  ( $form_field['field-type'] == 'input-checkbox' ) {
-				echo generate_checkbox( $label, $option['social-type'] . '-' . $form_field['name'], $form_field['value'], $form_field['checked'] );
-			}
-			elseif  ( $form_field['field-type'] == 'input-radio' ) {
-				echo generate_radio( $label, $option['social-type'] . '-' . $form_field['name'], $form_field['value'], $form_field['checked'] );
-			}
-		}
-	}
+            <?php } ?>
+            <br>
+            <input type="hidden" id="twitter_link" name="twitter_link" value="<?php echo $response['settings']['link'] ?>" />
+            <textarea onKeyUp=check_length(this.form); class="form-control" rows="2" name="twitter_content" id="twitter_content"
+                      size="<?php echo 280 - (strlen($response['settings']['link'])); ?>" placeholder="What's happening?" <?php echo ($isPostedToTwitter[0] == POWERPRESS_POSTED_STATUS_SUCCESS || $isPostedToTwitter[0] == POWERPRESS_POSTED_STATUS_NOT_POSTED_YET) ? 'readonly' : '';?>
+            ><?php echo (isset($response['accounts']['twitter_posted_array']['content']) ? $response['accounts']['twitter_posted_array']['content'] : '')?></textarea>
+            <b>Characters Left: </b><label id="text_length"> <?php echo 280 - (strlen($response['settings']['link'])); ?></label>
+            Player URL: <?php echo $response['settings']['link']; ?>
+        <?php }
+
+        if (!empty($response['accounts']['Youtube'])){
+            echo '<h2>' ."<img src='{$response['settings']['youtube_image']}'>" ." Youtube" .'</h2>'; ?>
+
+            <label>Check the accounts where you want this episode to be posted</label> <br> <?php
+            foreach ($response['accounts']['Youtube'] as $meta_id => $account){ ?>
+                <?php $isPostedToYoutube = $account['status']; ?>
+                <label class="checkbox-inline"><input type="checkbox" name="youtube_meta[]"
+                        value="<?php echo $meta_id ?>" <?php echo ($isPostedToYoutube[0] < POWERPRESS_POSTED_STATUS_FAILED || $isPostedToYoutube[0] == POWERPRESS_POSTED_STATUS_NOT_SCHEDULED) ? 'checked' : '';?> <?php echo ($isPostedToYoutube[0] == POWERPRESS_POSTED_STATUS_SUCCESS) ? 'disabled' : '';?>> <?php echo "as " . $account['youtube_name']?></label>
+                <?php displayStatus($isPostedToYoutube); ?><br>
+            <?php } ?>
+            <br>
+            <label for="youtube_title">Video Title</label>
+            <textarea class="form-control" rows="1" id="youtube_title" name="youtube_title"
+                      placeholder="Video title" <?php echo ($isPostedToYoutube[0] == POWERPRESS_POSTED_STATUS_SUCCESS || $isPostedToYoutube[0] == POWERPRESS_POSTED_STATUS_NOT_POSTED_YET) ? 'readonly' : '';?>><?php echo (isset($response['accounts']['youtube_posted_array']['youtube_title']) ? $response['accounts']['youtube_posted_array']['youtube_title'] : '')?></textarea>
+            <label for="youtube_description">Youtube description</label>
+            <textarea class="form-control" rows="3" id="youtube_description" name="youtube_description"
+                      placeholder="Youtube description" <?php echo ($isPostedToYoutube[0] == POWERPRESS_POSTED_STATUS_SUCCESS || $isPostedToYoutube[0] == POWERPRESS_POSTED_STATUS_NOT_POSTED_YET) ? 'readonly' : '';?>><?php echo (isset($response['accounts']['youtube_posted_array']['youtube_description']) ? $response['accounts']['youtube_posted_array']['youtube_description'] : '')?></textarea>
+        <?php }
+
+        if (!empty($response['accounts']['Facebook'])){
+            echo '<h2>' ."<img src='{$response['settings']['facebook_image']}'>" ." Facebook" .'</h2>'; ?>
+
+            <label>Check the pages where you want this episode to be posted</label> <br> <?php
+            foreach ($response['accounts']['Facebook'] as $meta_id => $account){
+                foreach ($account['pages'] as $page){ ?>
+                    <?php $isPostedToFacebook = $page['status']; ?>
+                    <label  class="checkbox-inline"><input type="checkbox" name="facebook_meta[<?php echo $meta_id ?>][]"
+                           value="<?php echo $page['name'] ?>" <?php echo ($isPostedToFacebook[0] < POWERPRESS_POSTED_STATUS_FAILED || $isPostedToFacebook[0] == POWERPRESS_POSTED_STATUS_NOT_SCHEDULED) ? 'checked' : '';?> <?php echo ($isPostedToFacebook[0] == POWERPRESS_POSTED_STATUS_SUCCESS) ? 'disabled' : '';?>> <?php echo $page['name'] . " (as " . $account['social_name'] . ")"?></label>
+                    <?php displayStatus($isPostedToFacebook); ?><br>
+            <?php }
+            } ?>
+            <br>
+            <label for="facebook_link">Link to Podcast</label>
+            <textarea class="form-control" rows="1" id="facebook_link" name="facebook_link"
+                      placeholder="Link your podcast here" <?php echo ($isPostedToFacebook[0] == POWERPRESS_POSTED_STATUS_SUCCESS || $isPostedToFacebook[0] == POWERPRESS_POSTED_STATUS_NOT_POSTED_YET) ? 'readonly' : '';?>><?php echo (isset($response['accounts']['facebook_posted_array']['link_to_podcast']) ? $response['accounts']['facebook_posted_array']['link_to_podcast'] : $response['settings']['link']) ?></textarea>
+            <br>
+            <label for="facebook_description">Post to Facebook</label>
+            <textarea class="form-control" rows="3" id="facebook_description" name="facebook_description"
+                      placeholder="What's on your mind?" <?php echo ($isPostedToFacebook[0] == POWERPRESS_POSTED_STATUS_SUCCESS || $isPostedToFacebook[0] == POWERPRESS_POSTED_STATUS_NOT_POSTED_YET) ? 'readonly' : '';?>><?php echo (isset($response['accounts']['facebook_posted_array']['facebook_description']) ? $response['accounts']['facebook_posted_array']['facebook_description'] : '')?></textarea>
+
+        <?php }
 	?>
-		<br>
-		<button type="submit">Submit</button>
-	</form>
-	<p style="text-align: center;"><a href="#" onclick="self.parent.tb_remove();"><?php echo __( 'Close', 'powerpress' ); ?></a></p>
+		<hr>
+        <small>Disclaimer: By hitting "Post to Selected Media Accounts" you are agreeing to allow Blubrry to post the
+            above content on the selected Social Media Accounts.
+        </small><br><br>
+        <input class="btn btn-sm btn-primary" name="do_update" type="submit"
+               value="Post To Selected social media accounts"
+               id="post_button" />
+    <a href="#" class="btn btn-sm btn-default"
+       onclick="self.parent.tb_remove();"><?php echo __( 'Cancel', 'powerpress' ); ?></a>
+    </form>
 	<?php
 	powerpress_admin_jquery_footer();
 }
@@ -410,50 +540,81 @@ function powerpress_ajax_pts_post($Settings)
 {
 	powerpress_admin_jquery_header( __( 'Post to Social', 'powerpress' ) );
 
-	//$Settings = powerpress_get_settings('powerpress_general');
+	//$Settings = get_option('powerpress_general');
 
 	$api_url_array = powerpress_get_api_array();
 
-	$program_keyword = $Settings['blubrry_program_keyword'];
 	$podcast_id = $_POST['podcast-id'];
 	$post_id = $_POST['post-id'];
+	$EpisodeData = powerpress_get_enclosure_data($post_id);
+	if(!empty($EpisodeData['program_keyword'])) {
+        $program_keyword = $EpisodeData['program_keyword'];
+    }
+	else {
+        $program_keyword = $Settings['blubrry_program_keyword'];
+    }
 
 	unset( $_POST['podcast-id'] );
 	unset( $_POST['post-id'] );
 
 	$post_data = array();
 
-	foreach ( $_POST as $key => $value ) {
-		if ( $value ) { // we don't allow empty messages to be posted to social media
+    /*foreach ( $_POST as $key => $value ) {
+        if ( $value ) { // we don't allow empty messages to be posted to social media
 
-			preg_match("/-(\d+)-?/", $key, $matches);
-			$social_id = $matches[1];
+            preg_match("/-(\d+)-?/", $key, $matches);
+            $social_id = $matches[1];
 
-			preg_match("/^(\w+)-/i", $key, $matches);
-			$social_type = strtolower($matches[1]);
+            preg_match("/^(\w+)-/i", $key, $matches);
+            $social_type = strtolower($matches[1]);
 
-			if ( !isset( $post_data[ $social_id ] ) ) {
-				$post_data[ $social_id ] = array(
-					'social-id' => $social_id,
-					'social-type' => $social_type,
-				);
-			}
+            if ( !isset( $post_data[ $social_id ] ) ) {
+                $post_data[ $social_id ] = array(
+                    'social-id' => $social_id,
+                    'social-type' => $social_type,
+                );
+            }
 
-			if ( !isset( $post_data[ $social_id ]['social-data'] ) ) {
-				$post_data[ $social_id ]['social-data'] = array();
-			}
+            if ( !isset( $post_data[ $social_id ]['social-data'] ) ) {
+                $post_data[ $social_id ]['social-data'] = array();
+            }
 
-			$field_name = preg_replace( "/^\w+-/i", "", $key );
+            $field_name = preg_replace( "/^\w+-/i", "", $key );
 
-			$post_data[ $social_id ]['social-data'][ $field_name ] = $value;
-		}
-	}
+            $post_data[ $social_id ]['social-data'][ $field_name ] = $value;
+        }
 
-	$post_params = array( 'podcast-id' => $podcast_id, 'post-data' => $post_data );
+    }*/
+
+	if (!empty($_POST['twitter_content'])){
+	    $post_data['twitter']['accounts'] = $_POST['twitter_meta'];
+	    $post_data['twitter']['content'] = $_POST['twitter_content'];
+	    $post_data['twitter']['link'] = $_POST['twitter_link'];
+    }
+
+	if (!empty($_POST['facebook_description'])){
+	    $post_data['facebook']['accounts'] = $_POST['facebook_meta'];
+	    $post_data['facebook']['description'] = $_POST['facebook_description'];
+
+	    if (!empty($_POST['facebook_link'])){
+	        $post_data['facebook']['link'] = $_POST['facebook_link'];
+        }
+	    else {
+            $post_data['facebook']['link'] = $_POST['twitter_link'];
+        }
+    }
+
+	if (!empty($_POST['youtube_description'])){
+	    $post_data['youtube']['accounts'] = $_POST['youtube_meta'];
+	    $post_data['youtube']['description'] = $_POST['youtube_description'];
+	    $post_data['youtube']['title'] = $_POST['youtube_title'];
+    }
+
+
+	$post_params = array( 'podcast-id' => $podcast_id, 'post-data' => $post_data, '' );
 
 	foreach ( $api_url_array as $api_url ) {
 		$response = powerpress_remote_fopen( "{$api_url}social/{$program_keyword}/post.json", $Settings['blubrry_auth'], json_encode( $post_params ) );
-
 		if ( $response ) {
 			break;
 		}
@@ -462,7 +623,7 @@ function powerpress_ajax_pts_post($Settings)
 	$response = json_decode( $response, true );
 
 	if ( $response['status'] == 'success' ) {
-		powerpress_page_message_add_notice( __( 'Post to social has been scheduled.', 'powerpress' ) );
+		powerpress_page_message_add_notice( __( 'Posting to social been scheduled! Please allow up to an hour to post.', 'powerpress' ) );
 		powerpress_page_message_print();
 
 		add_post_meta( $post_id, 'pts_scheduled', 1, true );

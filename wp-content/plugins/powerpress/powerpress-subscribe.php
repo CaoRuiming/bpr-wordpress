@@ -142,9 +142,38 @@ function powerpresssubscribe_get_settings($ExtraData, $detect_category=true)
 	// Taxonomy
 	if( $ExtraData['subscribe_type'] == 'ttid' )
 	{
-		if( !empty($GeneralSettings['taxonomy_podcasting']) )
+		if( !empty($GeneralSettings['taxonomy_podcasting']) && !empty($taxonomy_term_id) )
 		{
-			// TODO! Taxonomy Podcasting subscription options
+			$term_ID = '';
+			$taxonomy_type = '';
+			$Settings = get_option('powerpress_taxonomy_'. intval($taxonomy_term_id) );
+			if( !empty($Settings) ) {
+				global $wpdb;
+				$term_info = $wpdb->get_results("SELECT term_id, taxonomy FROM {$wpdb->term_taxonomy} WHERE term_taxonomy_id = {$taxonomy_term_id} LIMIT 1",  ARRAY_A);
+				if( !empty( $term_info[0]['term_id']) ) {
+					$term_ID = $term_info[0]['term_id'];
+					$taxonomy_type = $term_info[0]['taxonomy'];
+				}
+			}
+			
+			if( empty($term_ID) || empty($taxonomy_type) )
+				return false;
+			
+			if( !empty($Settings['feed_redirect_url']) )
+				$Settings['feed_url'] = $Settings['feed_redirect_url'];
+			if( empty($General['feed_url']) )
+				$Settings['feed_url'] = get_term_feed_link($term_ID, $taxonomy_type, 'rss2');
+			
+			$Settings['subscribe_page_url'] = powerpresssubscribe_get_subscribe_page($Settings);
+			$Settings['itunes_url'] = powerpresssubscribe_get_itunes_url($Settings);
+			$Settings['image_url'] = $Settings['itunes_image'];
+			$Settings['subscribe_feature_rss'] = (!empty($GeneralSettings['subscribe_feature_rss']) || !isset($GeneralSettings['subscribe_feature_rss']) );
+			$Settings['subscribe_feature_email'] = (!empty($GeneralSettings['subscribe_feature_email']) );
+			$Settings['subscribe_feature_gp'] = (!empty($GeneralSettings['subscribe_feature_gp']) );
+			$Settings['subscribe_feature_stitcher'] = (!empty($GeneralSettings['subscribe_feature_stitcher']) );
+			$Settings['subscribe_feature_tunein'] = (!empty($GeneralSettings['subscribe_feature_tunein']) );
+			$Settings['subscribe_feature_spotify'] = (!empty($GeneralSettings['subscribe_feature_spotify']) );
+			return $Settings;
 		}
 		return false;
 	}
@@ -353,6 +382,7 @@ function powerpress_subscribe_shortcode( $attr ) {
 	
 	// Only works on pages...
 	if ( !is_singular() ) {
+		if( empty($attr['archive']) )
 		return '';
 	}
 

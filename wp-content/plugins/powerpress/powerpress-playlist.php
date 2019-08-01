@@ -2,37 +2,17 @@
 	// powerpress-playlist.php
 	
 	
-function powerpress_get_term_by_ttid($ttid, $output = OBJECT, $filter = 'raw')
+function powerpress_get_term_by_ttid($ttid)
 {
 	global $wpdb;
-
-	$value = intval($ttid);
-	$field = 'tt.term_taxonomy_id';
-	
-	$term = $wpdb->get_row( $wpdb->prepare( "SELECT t.*, tt.* FROM $wpdb->terms AS t INNER JOIN $wpdb->term_taxonomy AS tt ON t.term_id = tt.term_id WHERE $field = %s LIMIT 1", $value) );
-	if ( !$term )
+	$ttid = intval($ttid);
+	$term_info = $wpdb->get_results("SELECT term_id, taxonomy FROM {$wpdb->term_taxonomy} WHERE term_taxonomy_id = {$ttid} LIMIT 1",  ARRAY_A);
+	if( empty( $term_info[0]['term_id']) )
 		return false;
-	
-	$taxonomy = $term->taxonomy;
-	wp_cache_add($term->term_id, $term, $taxonomy);
 
-	/** This filter is documented in wp-includes/taxonomy.php */
-	$term = apply_filters( 'get_term', $term, $taxonomy );
-
-	/** This filter is documented in wp-includes/taxonomy.php */
-	$term = apply_filters( "get_$taxonomy", $term, $taxonomy );
-
-	$term = sanitize_term($term, $taxonomy, $filter);
-
-	if ( $output == OBJECT ) {
-		return $term;
-	} elseif ( $output == ARRAY_A ) {
-		return get_object_vars($term);
-	} elseif ( $output == ARRAY_N ) {
-		return array_values(get_object_vars($term));
-	} else {
-		return $term;
-	}
+	$term_ID = $term_info[0]['term_id'];
+	$taxonomy_type = $term_info[0]['taxonomy'];
+	return get_term_by('id', $term_ID, $taxonomy_type);
 }
 	
 function powepress_get_program_title_by_term_taxonomy_id($ttid)
@@ -118,7 +98,8 @@ function powerpress_playlist_episodes($args)
 		'taxonomy'=>'',
 		'tax_term'=>'',
 		'term_taxonomy_id'=>'',
-		'ids'=>''
+		'ids'=>'',
+		'order'=>''
 	);
 	$args = wp_parse_args( $args, $defaults );
 	
@@ -182,6 +163,8 @@ function powerpress_playlist_episodes($args)
 	$query .= "GROUP BY p.ID ";
 	if( !empty($for_query) ) {
 		$query .= "ORDER BY FIELD('id', $for_query) ";
+	} else if ( !empty($args['order']) && strtolower($args['order']) == 'asc' ) {
+		$query .= "ORDER BY p.post_date ASC ";
 	} else {
 		$query .= "ORDER BY p.post_date DESC ";
 	}
@@ -321,7 +304,8 @@ function powerpress_playlist_shortcode( $attr ) {
 		'channel'=>'', // Used for PowerPress Playlist
 		'post_type' => 'post', // Used for PowerPress Playlist
 		'limit'=>10, // Used for PowerPress Playlist
-		'ids'=>'' // Used to specify specific post ids to assemble a player with specific episodes
+		'ids'=>'', // Used to specify specific post ids to assemble a player with specific episodes
+		'order'=>'' // Order of episodes, descending by default
 	), $attr, 'powerpressplaylist' ) );
 	
 			
@@ -355,7 +339,8 @@ function powerpress_playlist_shortcode( $attr ) {
 		'term_id'=>'',
 		'taxonomy'=>'',
 		'term_taxonomy_id'=>$term_taxonomy_id,
-		'ids'=>$ids
+		'ids'=>$ids,
+		'order'=>$order
 	);
 	
 	$episodes = powerpress_playlist_episodes( $args );

@@ -68,7 +68,7 @@
 		{
 ?>
 	<h3><a href="#" id="powerpress_create_subscribe_page"><?php echo __('Create a subscribe page from Template', 'powerpress'); ?></a></h3> 
-	<p><?php echo __('Creates a page from a template with the [powerpress_subscribe] shortcode. We encourage you to edit this page in your own words. Depending on your SEO stratigy, you may want to configure the meta robots content to noindex.', 'powerpress'); ?>
+	<p><?php echo __('Creates a page from a template with the [powerpress_subscribe] shortcode. We encourage you to edit this page in your own words. Depending on your SEO strategy, you may want to configure the meta robots content to noindex.', 'powerpress'); ?>
 	</p>
 <?php
 		}
@@ -110,7 +110,7 @@
 	}
 	if( !empty($FeedAttribs['term_taxonomy_id']) )
 	{
-		$shortcode['powerpress_playlist'] = '[powerpress_playlist term_taxonomy_id="'.$FeedAttribs['term_taxonomy_id'].'"]';
+		$shortcode['powerpress_playlist'] = '[powerpress_playlist term_taxonomy_id="'.$FeedAttribs['term_taxonomy_id'].'" post_type="post"]';
 		$shortcode['powerpress_subscribe'] = '[powerpress_subscribe term_taxonomy_id="'.$FeedAttribs['term_taxonomy_id'].'"]';
 	}
 	

@@ -8,6 +8,17 @@
 *  By using this code you agree to indemnify Arnan de Gans from any
 *  liability that might arise from it's use.
 ------------------------------------------------------------------------------------ */
+
+$stats = adrotate_prepare_fullreport();
+$stats_graph_month = $wpdb->get_row("SELECT SUM(`clicks`) as `clicks`, SUM(`impressions`) as `impressions` FROM `{$wpdb->prefix}adrotate_stats` WHERE `thetime` >= '{$monthstart}' AND `thetime` <= '{$monthend}';", ARRAY_A);
+if(empty($stats_graph_month['impressions'])) $stats_graph_month['impressions'] = 0;
+if(empty($stats_graph_month['clicks'])) $stats_graph_month['clicks'] = 0;
+
+// Get Click Through Rate
+$ctr_alltime = adrotate_ctr($stats['overall_clicks'], $stats['overall_impressions']);
+$ctr_last_month = adrotate_ctr($stats['last_month_clicks'], $stats['last_month_impressions']);
+$ctr_this_month = adrotate_ctr($stats['this_month_clicks'], $stats['this_month_impressions']);
+$ctr_graph_month = adrotate_ctr($stats_graph_month['clicks'], $stats_graph_month['impressions']);
 ?>
 <h2><?php _e('Statistics', 'adrotate'); ?></h2>
 

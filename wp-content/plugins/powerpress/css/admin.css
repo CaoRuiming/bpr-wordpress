@@ -472,3 +472,6 @@ a.pp-expand-section:visited {
 	border-color: #0D87E9;
 	color: #FFFFFF;
 }
+.pp-form-error {
+	border: red solid 1px;
+}

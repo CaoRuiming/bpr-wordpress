@@ -23,7 +23,7 @@
 			<select name="adrotate_enable_geo_disabled">
 				<option value="0"><?php _e('Disabled', 'adrotate'); ?></option>
 				<option value="0" disabled="1">AdRotate Geo</option>
-				<option value="0" disabled="1">FreegeoIP</option>
+				<option value="0" disabled="1">ipstack</option>
 				<option value="0" disabled="1">MaxMind City</option>
 				<option value="0" disabled="1">MaxMind Country</option>
 				<option value="0" disabled="1">CloudFlare</option>
@@ -31,7 +31,7 @@
 			<span class="description">
 				<p><strong>AdRotate Geo</strong> - <?php _e('20000 free lookups every day, uses GeoLite2 databases from MaxMind!', 'adrotate'); ?><br />
 				<em><strong><?php _e('Supports:', 'adrotate'); ?></strong> ipv4/ipv6, Countries, Cities, DMA codes, States and State ISO (3166-2) codes.</em><br />
-				<em><strong><?php _e('Scalability:', 'adrotate'); ?></strong> <?php _e('Suitable for small to medium websites.', 'adrotate'); ?></em><br /><br />
+				<em><strong><?php _e('Scalability:', 'adrotate'); ?></strong> <?php _e('Suitable for small to medium sized websites.', 'adrotate'); ?></em><br /><br />
 
 				<p><strong>ipstack</strong> - <?php _e('10000 free lookups per month, requires account.', 'adrotate'); ?><br />
 				<em><strong><?php _e('Supports:', 'adrotate'); ?></strong> ipv4, Countries, Cities, DMA codes, States and State ISO (3166-2) codes.</em><br />
@@ -41,7 +41,7 @@
 				<em><strong><?php _e('Supports:', 'adrotate'); ?></strong> ipv4/ipv6, Countries, States, State ISO (3166-2) codes, Cities and DMA codes.</em><br />
 				<em><strong><?php _e('Scalability:', 'adrotate'); ?></strong> <?php _e('Suitable for any size website as long as you have lookups.', 'adrotate'); ?></em><br /><br />
 				
-				<strong>CloudFlare</strong> - <?php _e('Basic geolocation included in every CloudFlare account.', 'adrotate'); ?><br />
+				<strong>CloudFlare IP Geolocation</strong> - <?php _e('Basic geolocation included in every CloudFlare account.', 'adrotate'); ?><br />
 				<em><strong><?php _e('Supports:', 'adrotate'); ?></strong> ipv4/ipv6, Countries.</em><br />
 				<em><strong><?php _e('Scalability:', 'adrotate'); ?></strong> <?php _e('Suitable for any size website.', 'adrotate'); ?></em>
 			</span>

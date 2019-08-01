@@ -150,4 +150,14 @@ class Ai1wm_Database_Utility {
 	public static function base64_decode( $data ) {
 		return base64_decode( $data );
 	}
+
+	/**
+	 * Validate base64 data
+	 *
+	 * @param  string  $data Data to validate
+	 * @return boolean
+	 */
+	public static function base64_validate( $data ) {
+		return base64_encode( base64_decode( $data ) ) === $data;
+	}
 }

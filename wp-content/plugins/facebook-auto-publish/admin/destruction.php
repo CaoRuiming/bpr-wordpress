@@ -37,7 +37,6 @@ function fbap_free_destroy()
 	delete_option('xyz_fbap_current_appln_token');
 	delete_option('xyz_fbap_af');
 	delete_option('xyz_fbap_pages_ids');
-	delete_option('xyz_fbap_future_to_publish');
 	delete_option('xyz_fbap_apply_filters');
 	
 	delete_option('xyz_fbap_free_version');

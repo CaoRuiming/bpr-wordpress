@@ -6,8 +6,7 @@ Author: Arnan de Gans
 Author URI: https://www.arnan.me/
 Description: AdRotate Banner Manager - Monetise your website with adverts while keeping things simple. Start making money today!
 Text Domain: adrotate
-Domain Path: /languages/
-Version: 4.15.2
+Version: 5.4.1
 License: GPLv3
 */
 
@@ -22,9 +21,9 @@ License: GPLv3
 ------------------------------------------------------------------------------------ */
 
 /*--- AdRotate values ---------------------------------------*/
-define("ADROTATE_DISPLAY", '4.15.2');
-define("ADROTATE_VERSION", 392);
-define("ADROTATE_DB_VERSION", 64);
+define("ADROTATE_DISPLAY", '5.4.1');
+define("ADROTATE_VERSION", 393);
+define("ADROTATE_DB_VERSION", 65);
 $plugin_folder = plugin_dir_path(__FILE__);
 /*-----------------------------------------------------------*/
 
@@ -39,7 +38,6 @@ include_once($plugin_folder.'/adrotate-widget.php');
 /*-----------------------------------------------------------*/
 
 /*--- Check and Load config ---------------------------------*/
-load_plugin_textdomain('adrotate', false, basename($plugin_folder) . '/language');
 $adrotate_config = get_option('adrotate_config');
 $adrotate_crawlers = get_option('adrotate_crawlers');
 $adrotate_version = get_option("adrotate_version");
@@ -60,8 +58,8 @@ add_filter('adrotate_apply_photon','adrotate_apply_jetpack_photon');
 /*--- Front end ---------------------------------------------*/
 if(!is_admin()) {
 	add_shortcode('adrotate', 'adrotate_shortcode');
-	add_action("wp_enqueue_scripts", 'adrotate_custom_scripts');
-	add_action('wp_head', 'adrotate_custom_css');
+	add_action('wp_head', 'adrotate_header');
+	add_action("wp_enqueue_scripts", 'adrotate_scripts');
 	add_filter('the_content', 'adrotate_inject_posts', 12);
 }
 
@@ -105,11 +103,12 @@ function adrotate_dashboard() {
 	add_menu_page('AdRotate', 'AdRotate', 'adrotate_ad_manage', 'adrotate', 'adrotate_info', plugins_url('/images/icon-menu.png', __FILE__), '25.8');
 	$adrotate_page = add_submenu_page('adrotate', 'AdRotate · '.__('General Info', 'adrotate'), __('General Info', 'adrotate'), 'adrotate_ad_manage', 'adrotate', 'adrotate_info');
 	$adrotate_pro = add_submenu_page('adrotate', 'AdRotate · '.__('AdRotate Pro', 'adrotate'), __('AdRotate Pro', 'adrotate'), 'adrotate_ad_manage', 'adrotate-pro', 'adrotate_pro');
-	$adrotate_adverts = add_submenu_page('adrotate', 'AdRotate · '.__('Adverts', 'adrotate'), __('Adverts', 'adrotate'), 'adrotate_ad_manage', 'adrotate-ads', 'adrotate_manage');
-	$adrotate_groups = add_submenu_page('adrotate', 'AdRotate · '.__('Groups', 'adrotate'), __('Groups', 'adrotate'), 'adrotate_group_manage', 'adrotate-groups', 'adrotate_manage_group');
-	$adrotate_schedules = add_submenu_page('adrotate', 'AdRotate · '.__('Schedules', 'adrotate'), __('Schedules', 'adrotate'), 'adrotate_ad_manage', 'adrotate-schedules', 'adrotate_manage_schedules');
+	$adrotate_adverts = add_submenu_page('adrotate', 'AdRotate · '.__('Manage Adverts', 'adrotate'), __('Manage Adverts', 'adrotate'), 'adrotate_ad_manage', 'adrotate-ads', 'adrotate_manage');
+	$adrotate_groups = add_submenu_page('adrotate', 'AdRotate · '.__('Manage Groups', 'adrotate'), __('Manage Groups', 'adrotate'), 'adrotate_group_manage', 'adrotate-groups', 'adrotate_manage_group');
+	$adrotate_schedules = add_submenu_page('adrotate', 'AdRotate · '.__('Manage Schedules', 'adrotate'), __('Manage Schedules', 'adrotate'), 'adrotate_ad_manage', 'adrotate-schedules', 'adrotate_manage_schedules');
 	$adrotate_statistics = add_submenu_page('adrotate', 'AdRotate · '.__('Statistics', 'adrotate'), __('Statistics', 'adrotate'), 'adrotate_ad_manage', 'adrotate-statistics', 'adrotate_statistics');
-	$adrotate_media = add_submenu_page('adrotate', 'AdRotate · '.__('Media', 'adrotate'), __('Media', 'adrotate'), 'adrotate_ad_manage', 'adrotate-media', 'adrotate_manage_media');
+	$adrotate_media = add_submenu_page('adrotate', 'AdRotate · '.__('Manage Media', 'adrotate'), __('Manage Media', 'adrotate'), 'adrotate_ad_manage', 'adrotate-media', 'adrotate_manage_media');
+	$adrotate_support = add_submenu_page('adrotate', 'AdRotate · '.__('Support', 'adrotate-pro'), __('Support', 'adrotate-pro'), 'manage_options', 'adrotate-support', 'adrotate_support');
 	$adrotate_settings = add_submenu_page('adrotate', 'AdRotate · '.__('Settings', 'adrotate'), __('Settings', 'adrotate'), 'manage_options', 'adrotate-settings', 'adrotate_options');
  
 	// Add help tabs
@@ -199,8 +198,8 @@ function adrotate_manage() {
 		$active = $disabled = $error = false;
 		foreach($allbanners as $singlebanner) {
 			$starttime = $stoptime = 0;
-			$starttime = $wpdb->get_var("SELECT `starttime` FROM `{$wpdb->prefix}adrotate_schedule`, `{$wpdb->prefix}adrotate_linkmeta` WHERE `ad` = '".$singlebanner->id."' AND `schedule` = `{$wpdb->prefix}adrotate_schedule`.`id` ORDER BY `starttime` ASC LIMIT 1;");
-			$stoptime = $wpdb->get_var("SELECT `stoptime` FROM `{$wpdb->prefix}adrotate_schedule`, `{$wpdb->prefix}adrotate_linkmeta` WHERE `ad` = '".$singlebanner->id."' AND `schedule` = `{$wpdb->prefix}adrotate_schedule`.`id` ORDER BY `stoptime` DESC LIMIT 1;");
+			$starttime = $wpdb->get_var("SELECT `starttime` FROM `{$wpdb->prefix}adrotate_schedule`, `{$wpdb->prefix}adrotate_linkmeta` WHERE `ad` = '{$singlebanner->id}' AND `schedule` = `{$wpdb->prefix}adrotate_schedule`.`id` ORDER BY `starttime` ASC LIMIT 1;");
+			$stoptime = $wpdb->get_var("SELECT `stoptime` FROM `{$wpdb->prefix}adrotate_schedule`, `{$wpdb->prefix}adrotate_linkmeta` WHERE `ad` = '{$singlebanner->id}' AND `schedule` = `{$wpdb->prefix}adrotate_schedule`.`id` ORDER BY `stoptime` DESC LIMIT 1;");
 			
 			$type = $singlebanner->type;
 			if($type == 'active' AND $stoptime <= $in7days) $type = '7days';
@@ -382,8 +381,8 @@ function adrotate_statistics() {
 		$month = date("m");
 		$year = date("Y");
 	}
-	$monthstart = mktime(0, 0, 0, $month, 1, $year);
-	$monthend = mktime(0, 0, 0, $month+1, 0, $year);
+	$monthstart = gmmktime(0, 0, 0, $month, 1, $year);
+	$monthend = gmmktime(0, 0, 0, $month+1, 0, $year);
 	$today = adrotate_date_start('day');
 	?>
 	<div class="wrap">
@@ -393,17 +392,6 @@ function adrotate_statistics() {
 
 		<?php
 	    if ($view == "") {
-			$stats = adrotate_prepare_fullreport();
-			$stats_graph_month = $wpdb->get_row("SELECT SUM(`clicks`) as `clicks`, SUM(`impressions`) as `impressions` FROM `{$wpdb->prefix}adrotate_stats` WHERE `thetime` >= {$monthstart} AND `thetime` <= {$monthend};", ARRAY_A);
-			if(empty($stats_graph_month['impressions'])) $stats_graph_month['impressions'] = 0;
-			if(empty($stats_graph_month['clicks'])) $stats_graph_month['clicks'] = 0;
-	
-			// Get Click Through Rate
-			$ctr_alltime = adrotate_ctr($stats['overall_clicks'], $stats['overall_impressions']);
-			$ctr_last_month = adrotate_ctr($stats['last_month_clicks'], $stats['last_month_impressions']);
-			$ctr_this_month = adrotate_ctr($stats['this_month_clicks'], $stats['this_month_impressions']);
-			$ctr_graph_month = adrotate_ctr($stats_graph_month['clicks'], $stats_graph_month['impressions']);
-
 			include("dashboard/publisher/statistics-main.php");
 		} else if($view == "advert") {
 			include("dashboard/publisher/statistics-advert.php");
@@ -453,6 +441,39 @@ function adrotate_manage_media() {
 		<br class="clear" />
 
 		<?php adrotate_credits(); ?>
+
+	</div>
+<?php
+}
+
+/*-------------------------------------------------------------
+ Name:      adrotate_support
+ Purpose:   Get help
+-------------------------------------------------------------*/
+function adrotate_support() {
+	global $wpdb, $adrotate_config;
+
+	$status = $file = '';
+	if(isset($_GET['status'])) $status = esc_attr($_GET['status']);
+	if(isset($_GET['file'])) $file = esc_attr($_GET['file']);
+
+	$current_user = wp_get_current_user();
+
+	if(adrotate_is_networked()) {
+		$a = get_site_option('adrotate_activate');
+	} else {
+		$a = get_option('adrotate_activate');
+	}
+	?>
+
+	<div class="wrap">
+		<h1><?php _e('Support', 'adrotate-pro'); ?></h1>
+
+		<?php if($status > 0) adrotate_status($status); ?>
+
+		<?php
+		include("dashboard/support.php");
+		?>
 
 	</div>
 <?php

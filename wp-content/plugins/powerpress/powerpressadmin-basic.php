@@ -398,7 +398,6 @@ jQuery(document).ready( function() {
 		<li><?php echo __('Tell the world about PowerPress by writing about it on your blog', 'powerpress'); ?>, 
 		<a href="https://twitter.com/home/?status=<?php echo urlencode( __('I\'m podcasting with Blubrry PowerPress (https://blubrry.com/powerpress/) #powerpress #wordpress', 'powerpress') ); ?>" target="_blank"><?php echo __('Twitter', 'powerpress'); ?></a>, 
 		<a href="https://www.facebook.com/share.php?u=<?php echo urlencode('https://www.blubrry.com/powerpress'); ?>&amp;t=<?php echo urlencode( __('I podcast with Blubrry PowerPress', 'powerpress')); ?>" target="_blank"><?php echo __('Facebook', 'powerpress'); ?></a>,
-		<a href="https://plus.google.com/share?url==<?php echo urlencode('https://www.blubrry.com/powerpress'); ?>" target="_blank"><?php echo __('Google+', 'powerpress'); ?></a>,
 		etc...</li>
 		<li><a href="http://www.blubrry.com/contact.php" target="_blank"><?php echo __('Send us feedback', 'powerpress'); ?></a> (<?php echo __('we love getting suggestions for new features!', 'powerpress'); ?>)</li>
 	</ul>
@@ -1006,6 +1005,9 @@ function powerpressadmin_edit_blubrry_services($General, $action_url = false, $a
 			echo __('Blubrry Statistics and Media Hosting Enabled!', 'powerpress');
 		?>
 	</p>
+	<?php if( !empty($General['blubrry_hosting']) && $General['blubrry_hosting'] !== 'false'  && !empty($General['blubrry_program_keyword']) ) { ?>
+	<p style="margin-left: 30px;"><?php echo __('Blubrry Program ID: ', 'powerpress'); ?> <i><?php echo $General['blubrry_program_keyword']; ?></i>
+	</p><?php } ?>
 	<?php
 		}
 		
@@ -1047,6 +1049,10 @@ function powerpressadmin_edit_blubrry_services($General, $action_url = false, $a
 	<p style="margin-top: 10px;">
 	<input name="DisableStatsInDashboard" type="checkbox" value="1"<?php if( $DisableStatsInDashboard == true ) echo ' checked'; ?> />
 	<?php echo __('Remove Statistics from WordPress Dashboard', 'powerpress'); ?></p>
+    <p>
+        <input type="checkbox" id="blubrry_network_mode" value="1" name="General[network_mode]" <?php echo $General['network_mode'] == '1' ? 'checked' : ''; ?> />
+        <label for="blubrry_network_mode"><?php echo __('Network mode (publish to multiple Blubrry Hosting Accounts)', 'powerpress') ?></label>
+    </p>
 </div>
 <?php
 }
@@ -1291,27 +1297,20 @@ function powerpressadmin_appearance($General=false, $Feed = false)
 	</li>
 	</ul>
 
-<p style="padding-top:10px;"><input type="checkbox" name="NULL[subscribe_feature_itunes]" value="1" checked disabled /> <label><?php echo __('Subscribe on iTunes', 'powerpress'); ?></label></p>
+<p style="padding-top:10px;"><input type="checkbox" name="NULL[subscribe_feature_itunes]" value="1" checked disabled /> <label><?php echo __('Subscribe on Apple Podcasts', 'powerpress'); ?></label></p>
 <div style="margin-left: 24px;">
-	<p><?php echo __('Link to your one click iTunes Subscription URL.', 'powerpress'); ?></p>
-	
 	<p><a href="<?php echo 'https://linkmaker.itunes.apple.com/?q='.urlencode( get_bloginfo('name') ); ?>&amp;media=podcasts" target="_blank"><?php echo __('Find your iTunes Subscription URL', 'powerpress'); ?></a></p>
 </div>
 
 <p><input type="checkbox" name="NULL[subscribe_feature_android]" value="1" checked disabled /> <label><?php echo __('Subscribe on Android', 'powerpress'); ?></label></p>
 <div style="margin-left: 24px;">
-	<p><?php echo __('Link to your one click Subscribe on Android URL.', 'powerpress'); ?></p>
 	<p><a href="http://subscribeonandroid.com/podcasters/" target="_blank"><?php echo __('Learn more about Subscribe on Android', 'powerpress'); ?></a></p>
 </div>
 
 <p><input type="hidden" name="General[subscribe_feature_rss]" value="0" /><input type="checkbox" name="General[subscribe_feature_rss]" value="1" id="subscribe_feature_rss" <?php if( !empty($General['subscribe_feature_rss']) || !isset($General['subscribe_feature_rss']) ) echo 'checked '; ?>/> <label for="subscribe_feature_rss"><?php echo __('Subscribe via RSS', 'powerpress'); ?></label></p>
-<div style="margin-left: 24px;">
-	<p><?php echo __('Link to your podcast RSS feed.', 'powerpress'); ?></p>
-</div>
 
 <p><input type="checkbox" id="subscribe_feature_email" name="General[subscribe_feature_email]" value="1" <?php if( !empty($General['subscribe_feature_email']) ) echo 'checked '; ?>/> <label for="subscribe_feature_email"><?php echo __('Subscribe By Email', 'powerpress'); ?></label> </p>
 <div style="margin-left: 24px;">
-	<p><?php echo __('Link to your one click Subscribe by Email URL.', 'powerpress'); ?></p>
 	<p>
 	<?php echo __('Subscribe By Email is a service that allows listeners to subscribe to their favorite podcasts by email.', 'powerpress'); ?>
 	</p>

@@ -176,9 +176,11 @@ if(!empty($result) && isset($result['status']))
 							 	<?php } ?>
 							 	<td> <?php
 							 	if($auth_entries_val['free_plugin_source']=='fbap')
-							 		echo 'WP FACEBOOK AUTO PUBLISH';
+							 		echo 'WP2SOCIAL AUTO PUBLISH';
 							 		elseif ($auth_entries_val['free_plugin_source']=='smap')
 							 		echo 'SOCIAL MEDIA AUTO PUBLISH';
+							 		elseif ($auth_entries_val['free_plugin_source']=='pls')
+							 		echo 'XYZ WP SMAP PREMIUM PLUS';
 							 		else echo 'XYZ-SMAP';
 							 		?></td>
 							 		<td> <?php if($auth_entries_val['smap_pre_account_id']!=0)echo $auth_entries_val['smap_pre_account_id'];

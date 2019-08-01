@@ -23,10 +23,18 @@ function xyz_link_fbap_future_to_publish($new_status, $old_status, $post){
 		$GLOBALS['fbap_dup_publish']=array();
 	$postid =$post->ID;
 	$get_post_meta=get_post_meta($postid,"xyz_fbap",true);
-	
 	$post_permissin=get_option('xyz_fbap_post_permission');
 	if(isset($_POST['xyz_fbap_post_permission']))
+	{
 		$post_permissin=intval($_POST['xyz_fbap_post_permission']);
+	    if ( (isset($_POST['xyz_fbap_post_permission']) && isset($_POST['xyz_fbap_po_method'])) )
+	    {
+    	 $futToPubDataArray=array( 'post_fb_permission'	=>	$post_permissin,
+    			'xyz_fbap_po_method'	=>	$_POST['xyz_fbap_po_method'],
+    			'xyz_fbap_message'	=>	$_POST['xyz_fbap_message']);
+    	 update_post_meta($postid, "xyz_fbap_future_to_publish", $futToPubDataArray);
+	    }
+	}
 	else 
 	{
 		if ($post_permissin == 1) {
@@ -57,10 +65,17 @@ function xyz_link_fbap_future_to_publish($new_status, $old_status, $post){
 function xyz_fbap_link_publish($post_ID) {
 	$_POST_CPY=$_POST;
 	$_POST=stripslashes_deep($_POST);
-	
+	$get_post_meta_future_data=get_post_meta($post_ID,"xyz_fbap_future_to_publish",true);
+	$xyz_fbap_po_method=$xyz_fbap_message='';
 	$post_permissin=get_option('xyz_fbap_post_permission');
 	if(isset($_POST['xyz_fbap_post_permission']))
 		$post_permissin=intval($_POST['xyz_fbap_post_permission']);
+	elseif(!empty($get_post_meta_future_data) && get_option('xyz_fbap_default_selection_edit')==2 )///select values from post meta
+	{
+		$post_permissin=$get_post_meta_future_data['post_fb_permission'];
+		$xyz_fbap_po_method=$get_post_meta_future_data['xyz_fbap_po_method'];
+		$xyz_fbap_message=$get_post_meta_future_data['xyz_fbap_message'];
+	}
 		
 	if ($post_permissin != 1) {
 		$_POST=$_POST_CPY;
@@ -71,9 +86,6 @@ function xyz_fbap_link_publish($post_ID) {
 		return;
 	}
 
-	$get_post_meta=get_post_meta($post_ID,"xyz_fbap",true);
-	if($get_post_meta!=1)
-		add_post_meta($post_ID, "xyz_fbap", "1");
 
 	global $current_user;
 	wp_get_current_user();
@@ -87,12 +99,16 @@ function xyz_fbap_link_publish($post_ID) {
 	$message=get_option('xyz_fbap_message');
 	if(isset($_POST['xyz_fbap_message']))
 		$message=$_POST['xyz_fbap_message'];
+	elseif($xyz_fbap_message !='')
+		$message=$xyz_fbap_message;
 	
 	//$fbid=get_option('xyz_fbap_fb_id');
 	
 	$posting_method=get_option('xyz_fbap_po_method');
 	if(isset($_POST['xyz_fbap_po_method']))
 		$posting_method=intval($_POST['xyz_fbap_po_method']);
+	elseif($xyz_fbap_po_method !='')
+		$posting_method=$xyz_fbap_po_method;
 	
 	$af=get_option('xyz_fbap_af');
 	
@@ -168,7 +184,10 @@ function xyz_fbap_link_publish($post_ID) {
 			}
 		
 		}
-
+		$get_post_meta=get_post_meta($post_ID,"xyz_fbap",true);
+		if($get_post_meta!=1)
+			add_post_meta($post_ID, "xyz_fbap", "1");
+		
 		include_once ABSPATH.'wp-admin/includes/plugin.php';
 		
 		$pluginName = 'bitly/bitly.php';

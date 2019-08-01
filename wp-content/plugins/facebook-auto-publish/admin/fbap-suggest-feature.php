@@ -44,7 +44,7 @@ if (isset($_POST) && isset($_POST['xyz_send_mail']))
 			$xyz_fbap_admin_username=$entry->display_name;
 		}
 		$xyz_fbap_recv_email='support@xyzscripts.com';
-		$xyz_fbap_mail_subject="WP FACEBOOK AUTO PUBLISH - FEATURE SUGGESTION";
+		$xyz_fbap_mail_subject="WP2SOCIAL AUTO PUBLISH - FEATURE SUGGESTION";
 		$xyz_fbap_headers = array('From: '.$xyz_fbap_admin_username.' <'. $xyz_fbap_sender_email .'>' ,'Content-Type: text/html; charset=UTF-8');
 		$wp_mail_processed=wp_mail( $xyz_fbap_recv_email, $xyz_fbap_mail_subject, $xyz_fbap_feature_content, $xyz_fbap_headers );
 		if ($wp_mail_processed==true){

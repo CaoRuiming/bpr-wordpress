@@ -52,7 +52,6 @@ function adrotate_export_ads($ids) {
 			'bannercode' => stripslashes($export['bannercode']),
 			'imagetype' => (empty($export['imagetype'])) ? null : $export['imagetype'],
 			'image' => (empty($export['image'])) ? null : $export['image'],
-			'paid' => $export['paid'],
 			'tracker' => $export['tracker'],
 			'desktop' => $export['desktop'],
 			'mobile' => $export['mobile'],
@@ -78,7 +77,7 @@ function adrotate_export_ads($ids) {
 		
 		if($fp) {
 			$generated = array('Generated', date_i18n("M d Y, H:i:s"));
-			$keys = array('id', 'name', 'bannercode', 'imagetype', 'image_url', 'is_paid', 'enable_stats', 'show_desktop', 'show_mobile', 'show_tablet', 'show_ios', 'show_android', 'show_otheros', 'weight', 'budget', 'click_rate', 'impression_rate', 'geo_cities', 'geo_countries', 'schedule_start', 'schedule_end');
+			$keys = array('id', 'name', 'bannercode', 'imagetype', 'image_url', 'enable_stats', 'show_desktop', 'show_mobile', 'show_tablet', 'show_ios', 'show_android', 'show_otheros', 'weight', 'budget', 'click_rate', 'impression_rate', 'geo_cities', 'geo_countries', 'schedule_start', 'schedule_end');
 
 			fputcsv($fp, $generated);
 			fputcsv($fp, $keys);

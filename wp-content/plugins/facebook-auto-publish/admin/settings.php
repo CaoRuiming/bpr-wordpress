@@ -697,10 +697,10 @@ function dethide_fbap(id)
 				<tr valign="top">
 					<td scope="row" colspan="1" width="50%">Auto publish on editing posts/pages/custom post types
 					</td>
-					<td  class="switch-field">
-						<label id="xyz_fbap_default_selection_edit_yes"><input type="radio" name="xyz_fbap_default_selection_edit" value="1" <?php  if($xyz_fbap_default_selection_edit==1) echo 'checked';?>/>Enabled</label>
-						<label id="xyz_fbap_default_selection_edit_no"><input type="radio" name="xyz_fbap_default_selection_edit" value="0" <?php  if($xyz_fbap_default_selection_edit==0) echo 'checked';?>/>Disabled</label>
-			
+					<td >
+						<input type="radio" name="xyz_fbap_default_selection_edit" value="1" <?php  if($xyz_fbap_default_selection_edit==1) echo 'checked';?>/>Enabled<br/>
+						<input type="radio" name="xyz_fbap_default_selection_edit" value="0" <?php  if($xyz_fbap_default_selection_edit==0) echo 'checked';?>/>Disabled<br/>
+						<input type="radio" name="xyz_fbap_default_selection_edit" value="2" <?php  if($xyz_fbap_default_selection_edit==2) echo 'checked';?>/>Use settings from post creation or post updation
 					</td>
 				</tr>
 					
@@ -840,7 +840,7 @@ jQuery(document).ready(function() {
    XyzFbapToggleRadio(xyz_fbap_cat_all,'xyz_fbap_include_categories'); 
 
    var fbap_toggle_element_ids=['xyz_fbap_post_permission','xyz_fbap_include_pages',
-	   'xyz_fbap_include_posts','xyz_fbap_default_selection_edit',
+	   'xyz_fbap_include_posts',
 	   'xyz_fbap_peer_verification','xyz_fbap_premium_version_ads'];
    jQuery.each(fbap_toggle_element_ids, function( index, value ) {
 		   checkedval= jQuery("input[name='"+value+"']:checked").val();
@@ -941,7 +941,7 @@ jQuery("#select_all_pages").click(function(){
 });
 
 var fbap_toggle_element_ids=['xyz_fbap_post_permission','xyz_fbap_include_pages',
-	'xyz_fbap_include_posts','xyz_fbap_default_selection_edit',
+	'xyz_fbap_include_posts',
 	'xyz_fbap_peer_verification','xyz_credit_link','xyz_fbap_premium_version_ads','xyz_fbap_include_categories'];
 
 jQuery.each(fbap_toggle_element_ids, function( index, value ) {

@@ -176,6 +176,10 @@ function powerpress_shortcode_handler( $attributes, $content = null )
 		if( !empty($GeneralSettings['posttype_podcasting']) )
 		{
 			$post_type = get_query_var('post_type');
+			if ( is_array( $post_type ) ) {
+				$post_type = reset( $post_type ); // get first element in array
+			}
+			
 			// Get the feed slugs and titles for this post type
 			$PostTypeSettingsArray = get_option('powerpress_posttype_'.$post_type);
 			// Loop through this array...
@@ -763,8 +767,6 @@ function powerpressplayer_mediaobjects($type, $content, $media_url, $EpisodeData
 			if( $length > 250 ) {
 				$subtitle = (function_exists('mb_substr')?mb_substr($subtitle, 0, 250):substr($subtitle, 0, 250) ). '...';
 			}
-			
-			$addhtml .= '<meta itemprop="description" content="'.  htmlspecialchars($subtitle) .'" />'.PHP_EOL_WEB;
 		}
 		
 		if( empty($subtitle) )
@@ -1340,7 +1342,7 @@ function powerpressplayer_build_blubrryaudio($media_url, $EpisodeData=array(), $
 	$instance++;
 	
 	// media URL is all we need., as long as it's hosted at blubrry.com...
-	if( preg_match('/content\.blubrry\.com/', $media_url) )
+	if( preg_match('/(content|ins)\.blubrry\.com/', $media_url) )
 	{
 	    $playerSettings = get_option('powerpress_bplayer');
         $hash = '';
@@ -1724,13 +1726,18 @@ function powerpress_shortcode_skipto($attributes, $content = null)
 		
 	// Prepare data
 	$timeInSeconds = powerpress_raw_duration($pos);
-	$readableTime = powerpress_readable_duration($timeInSeconds);
+	$readableTime = $pos;
+	if( strpos($readableTime, ':') === false ) // If the time they entered is not in colon format, lets use a readable format with the colons...
+		$readableTime = powerpress_readable_duration($timeInSeconds);
 	if( empty($content) )
 		$content = $readableTime;
 	
 	// We can't add players to feeds
-	if( is_feed() )
+	if( is_feed() ) {
+		if( empty($content) ) // If no custom label is set, lets use this timestamp in a readable format with colons
+			return $readableTime;
 		return $content;
+	}
 	
 	$feedSlug = 'podcast';
 	if( !empty($attributes['channel']) )

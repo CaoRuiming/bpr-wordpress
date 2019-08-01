@@ -35,7 +35,7 @@ define( 'AI1WM_DEBUG', false );
 // ==================
 // = Plugin Version =
 // ==================
-define( 'AI1WM_VERSION', '6.86' );
+define( 'AI1WM_VERSION', '7.3' );
 
 // ===============
 // = Plugin Name =
@@ -168,6 +168,11 @@ define( 'AI1WM_FILEMAP_NAME', 'filemap.list' );
 define( 'AI1WM_MUPLUGINS_NAME', 'mu-plugins' );
 
 // =============================
+// = Less Cache Extension Name =
+// =============================
+define( 'AI1WM_LESS_CACHE_NAME', '.less.cache' );
+
+// =============================
 // = Endurance Page Cache Name =
 // =============================
 define( 'AI1WM_ENDURANCE_PAGE_CACHE_NAME', 'endurance-page-cache.php' );
@@ -188,9 +193,14 @@ define( 'AI1WM_ENDURANCE_BROWSER_CACHE_NAME', 'endurance-browser-cache.php' );
 define( 'AI1WM_GD_SYSTEM_PLUGIN_NAME', 'gd-system-plugin.php' );
 
 // =======================
-// = Wp Stack Cache Name =
+// = WP Stack Cache Name =
 // =======================
 define( 'AI1WM_WP_STACK_CACHE_NAME', 'wp-stack-cache.php' );
+
+// ===========================
+// = WP.com Site Helper Name =
+// ===========================
+define( 'AI1WM_WP_COMSH_LOADER_NAME', 'wpcomsh-loader.php' );
 
 // ===================
 // = Export Log Name =
@@ -262,6 +272,11 @@ define( 'AI1WM_ACTIVE_TEMPLATE', 'template' );
 // =====================
 define( 'AI1WM_ACTIVE_STYLESHEET', 'stylesheet' );
 
+// ===================
+// = Backups Labels  =
+// ===================
+define( 'AI1WM_BACKUPS_LABELS', 'ai1wm_backups_labels' );
+
 // ============
 // = Cron Key =
 // ============
@@ -311,6 +326,11 @@ define( 'AI1WM_MAX_TRANSACTION_QUERIES', 1000 );
 // = Max Select Records =
 // ======================
 define( 'AI1WM_MAX_SELECT_RECORDS', 1000 );
+
+// =======================
+// = Max Storage Cleanup =
+// =======================
+define( 'AI1WM_MAX_STORAGE_CLEANUP', 24 * 60 * 60 );
 
 // ===========================
 // = WP_CONTENT_DIR Constant =

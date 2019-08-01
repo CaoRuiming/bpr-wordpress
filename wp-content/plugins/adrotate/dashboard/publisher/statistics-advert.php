@@ -13,8 +13,8 @@ $banner = $wpdb->get_row("SELECT `title`, `tracker`, `type` FROM `{$wpdb->prefix
 
 $stats = adrotate_stats($id, false);
 $stats_today = adrotate_stats($id, false, adrotate_date_start('day'));
-$stats_last_month = adrotate_stats($id, false, mktime(0, 0, 0, date("m")-1, 1, date("Y")), mktime(0, 0, 0, date("m"), 0, date("Y")));
-$stats_this_month = adrotate_stats($id, false, mktime(0, 0, 0, date("m"), 1, date("Y")), mktime(0, 0, 0, date("m"), date("t"), date("Y")));
+$stats_last_month = adrotate_stats($id, false, gmmktime(0, 0, 0, gmdate("m")-1, 1, gmdate("Y")), gmmktime(0, 0, 0, gmdate("m"), 0, gmdate("Y")));
+$stats_this_month = adrotate_stats($id, false, gmmktime(0, 0, 0, gmdate("m"), 1, gmdate("Y")), gmmktime(0, 0, 0, gmdate("m"), gmdate("t"), gmdate("Y")));
 $stats_graph_month = adrotate_stats($id, false, $monthstart, $monthend);
 
 // Prevent gaps in display

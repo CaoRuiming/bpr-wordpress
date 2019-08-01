@@ -442,7 +442,7 @@ function adrotate_count_impression($ad, $group = 0, $blog_id = 0) {
 	if(($adrotate_config['enable_loggedin_impressions'] == 'Y' AND is_user_logged_in()) OR !is_user_logged_in()) {
 		$now = adrotate_now();
 		$today = adrotate_date_start('day');
-		$remote_ip 	= adrotate_get_remote_ip();
+		$remote_ip = adrotate_get_remote_ip();
 
 		if($blog_id > 0 AND adrotate_is_networked()) {
 			$current_blog = $wpdb->blogid;

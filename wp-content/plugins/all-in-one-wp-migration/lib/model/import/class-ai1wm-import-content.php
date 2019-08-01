@@ -157,8 +157,11 @@ class Ai1wm_Import_Content {
 				AI1WM_MUPLUGINS_NAME,
 			) );
 
+			// Exclude content extensions
+			$exclude_extensions = array( AI1WM_LESS_CACHE_NAME );
+
 			// Extract a file from archive to WP_CONTENT_DIR
-			if ( ( $completed = $archive->extract_one_file_to( WP_CONTENT_DIR, $exclude_files, $old_paths, $new_paths, $file_bytes_written, $file_bytes_offset ) ) ) {
+			if ( ( $completed = $archive->extract_one_file_to( WP_CONTENT_DIR, $exclude_files, $exclude_extensions, $old_paths, $new_paths, $file_bytes_written, $file_bytes_offset ) ) ) {
 				$file_bytes_offset = 0;
 			}
 

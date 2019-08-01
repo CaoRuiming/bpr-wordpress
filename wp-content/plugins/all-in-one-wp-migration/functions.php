@@ -280,7 +280,7 @@ function ai1wm_multisite_bytes( $params ) {
  * @return string
  */
 function ai1wm_archive_size( $params ) {
-	return size_format( filesize( ai1wm_archive_path( $params ) ) );
+	return ai1wm_size_format( filesize( ai1wm_archive_path( $params ) ) );
 }
 
 /**
@@ -290,7 +290,7 @@ function ai1wm_archive_size( $params ) {
  * @return string
  */
 function ai1wm_backup_size( $params ) {
-	return size_format( filesize( ai1wm_backup_path( $params ) ) );
+	return ai1wm_size_format( filesize( ai1wm_backup_path( $params ) ) );
 }
 
 /**
@@ -314,6 +314,23 @@ function ai1wm_parse_size( $size, $default = null ) {
 	}
 
 	return $default;
+}
+
+/**
+ * Format file size into human-readable string
+ *
+ * Fixes the WP size_format bug: size_format( '0' ) => false
+ *
+ * @param  int|string   $bytes            Number of bytes. Note max integer size for integers.
+ * @param  int          $decimals         Optional. Precision of number of decimal places. Default 0.
+ * @return string|false False on failure. Number string on success.
+ */
+function ai1wm_size_format( $bytes, $decimals = 0 ) {
+	if ( strval( $bytes ) === '0' ) {
+		return size_format( 0, $decimals );
+	}
+
+	return size_format( $bytes, $decimals );
 }
 
 /**
@@ -485,7 +502,7 @@ function ai1wm_archive_share( $blog_id = null ) {
 	// Add domain
 	if ( ( $domain = explode( '.', parse_url( get_site_url( $blog_id ), PHP_URL_HOST ) ) ) ) {
 		foreach ( $domain as $subdomain ) {
-			if ( $subdomain ) {
+			if ( $subdomain = strtolower( preg_replace( '/[^A-Za-z0-9\-]/', '', $subdomain ) ) ) {
 				$name[] = $subdomain;
 			}
 		}
@@ -494,7 +511,7 @@ function ai1wm_archive_share( $blog_id = null ) {
 	// Add path
 	if ( ( $path = explode( '/', parse_url( get_site_url( $blog_id ), PHP_URL_PATH ) ) ) ) {
 		foreach ( $path as $directory ) {
-			if ( $directory ) {
+			if ( $directory = strtolower( preg_replace( '/[^A-Za-z0-9\-]/', '', $directory ) ) ) {
 				$name[] = $directory;
 			}
 		}
@@ -1408,4 +1425,25 @@ function ai1wm_setup_environment() {
 
 	// Set shutdown handler
 	@register_shutdown_function( 'Ai1wm_Handler::shutdown' );
+}
+
+/**
+ * Get WordPress time zone string
+ *
+ * @return string
+ */
+function ai1wm_get_timezone_string() {
+	if ( ( $timezone_string = get_option( 'timezone_string' ) ) ) {
+		return $timezone_string;
+	}
+
+	if ( ( $gmt_offset = get_option( 'gmt_offset' ) ) ) {
+		if ( $gmt_offset > 0 ) {
+			return sprintf( 'UTC+%s', abs( $gmt_offset ) );
+		} elseif ( $gmt_offset < 0 ) {
+			return sprintf( 'UTC-%s', abs( $gmt_offset ) );
+		}
+	}
+
+	return 'UTC';
 }

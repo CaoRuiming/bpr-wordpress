@@ -21,16 +21,16 @@ class SEO_Meta extends Yoast_Model {
 	/**
 	 * Overwrites the default ID column name.
 	 *
-	 * @var string $_id_column
+	 * @var string
 	 */
-	public static $_id_column = 'object_id';
+	public static $id_column = 'object_id';
 
 	/**
 	 * Finds the SEO meta for given post.
 	 *
-	 * @param int $post_id The post id.
+	 * @param int $post_id The post ID.
 	 *
-	 * @return SEO_Meta The SEO meta.
+	 * @return \Yoast\WP\Free\Models\SEO_Meta The SEO meta.
 	 */
 	public static function find_by_post_id( $post_id ) {
 		return Yoast_Model::of_type( 'SEO_Meta' )

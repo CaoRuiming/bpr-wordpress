@@ -26,6 +26,7 @@ function powerpress_languages()
 	$langs['zh-tw'] = __('Chinese (Traditional)', 'powerpress');
 	$langs['hr'] = __('Croatian', 'powerpress');
 	$langs['cs'] = __('Czech', 'powerpress');
+	$langs['cr'] = __('Cree', 'powerpress');
 	$langs['da'] = __('Danish', 'powerpress');
 	$langs['nl'] = __('Dutch', 'powerpress');
 	$langs['nl-be'] = __('Dutch (Belgium)', 'powerpress');
@@ -113,8 +114,15 @@ function powerpress_languages()
 	$langs['sv'] = __('Swedish', 'powerpress');
 	$langs['sv-fi'] = __('Swedish (Finland)', 'powerpress');
 	$langs['sv-se'] = __('Swedish (Sweden)', 'powerpress');
+	$langs['ta'] = __('Tamil', 'powerpress');
+	$langs['th'] = __('Thai', 'powerpress');
+	$langs['bo'] = __('Tibetan', 'powerpress');
 	$langs['tr'] = __('Turkish', 'powerpress');
 	$langs['uk'] = __('Ukranian', 'powerpress');
+	$langs['ve'] = __('Venda', 'powerpress');
+	$langs['vi'] = __('Vietnamese', 'powerpress');
+	$langs['zu'] = __('Zulu', 'powerpress');
+	
 	return $langs;
 }
 
@@ -426,6 +434,15 @@ function powerpressadmin_edit_feed_general($FeedSettings, $General)
 <td>
 <p style="margin-top: 10px;"><label><input type="checkbox" name="General[feed_links]" value="1" <?php if( !empty($General['feed_links']) && $General['feed_links'] == 1 ) echo 'checked '; ?>/> <?php echo __('Include podcast feed links in HTML headers.', 'powerpress'); ?></label></p>
 <p><?php echo __('Adds "feed discovery" links to your web site\'s headers allowing web browsers and feed readers to auto-detect your podcast feeds.', 'powerpress'); ?></p>
+</td>
+</tr>
+
+<tr valign="top">
+<th scope="row">
+<?php echo __('WebSub', 'powerpress'); ?> <?php echo powerpressadmin_new(); ?></th>
+<td>
+<p style="margin-top: 10px;"><label><input type="checkbox" name="General[websub_enabled]" value="1" <?php if( !empty($General['websub_enabled']) && $General['websub_enabled'] == 1 ) echo 'checked '; ?>/> <?php echo __('Enable WebSub', 'powerpress'); ?></label></p>
+<p><?php echo __('Notifies web subscription hub to push notifications to subscribers. Currently supported by the Blubrry Podcast Directory and Google Podcasts.', 'powerpress'); ?></p>
 </td>
 </tr>
 
@@ -774,6 +791,12 @@ function powerpressadmin_edit_itunes_feed($FeedSettings, $General, $FeedAttribs 
 		$FeedSettings['itunes_cat_2'] = '';
 	if( !isset($FeedSettings['itunes_cat_3']) )
 		$FeedSettings['itunes_cat_3'] = '';
+    if( !isset($FeedSettings['apple_cat_1']) )
+        $FeedSettings['apple_cat_1'] = '';
+	if( !isset($FeedSettings['apple_cat_2']) )
+        $FeedSettings['apple_cat_2'] = '';
+	if( !isset($FeedSettings['apple_cat_3']) )
+        $FeedSettings['apple_cat_3'] = '';
 	if( !isset($FeedSettings['itunes_explicit']) )
 		$FeedSettings['itunes_explicit'] = 0;
 	if( !isset($FeedSettings['itunes_talent_name']) )
@@ -790,7 +813,47 @@ function powerpressadmin_edit_itunes_feed($FeedSettings, $General, $FeedAttribs 
 	$AdvancediTunesSettings = !empty($FeedSettings['itunes_summary']);
 	if( !empty($FeedSettings['itunes_subtitle']) )
 		$AdvancediTunesSettings = true;
-
+    //Logic to convert old iTunes categories to 2019 ones.
+    $CatArray = array('cat_1' => $FeedSettings['itunes_cat_1'], 'cat_2' => $FeedSettings['itunes_cat_2'], 'cat_3' => $FeedSettings['itunes_cat_3']);
+    $mappings = array('01-00' => '01-00', '01-01' => '01-02', '01-02' => '01-03', '01-03' => '01-04', '01-04' => '01-01',
+                      '01-05' => '01-05', '01-06' => '01-06', '02-00' => '02-00', '02-02' => '02-01', '02-03' => '02-03',
+                      '03-00' => '03-00', '04-00' => '04-00', '04-04' => '04-03', '07-00' => '07-00', '07-01' => '07-01', '07-04' => '07-06',
+                      '08-00' => '09-00', '09-00' => '11-00', '11-00' => '13-00', '11-01' => '13-01', '11-02' => '13-02',
+                      '11-03' => '13-03', '11-04' => '13-04', '11-05' => '13-05', '11-07' => '13-07', '12-02' => '14-06',
+                      '12-03' => '14-09', '13-00' => '15-00', '13-02' => '15-02', '13-03' => '15-03', '13-04' => '15-04','14-03' => '16-15',
+                      '15-00' => '17-00', '16-00' => '19-00');
+    foreach($CatArray as $key => $value) {
+        if(empty($FeedSettings['apple_'.$key])) {
+            if ($value === '02-01') {
+                // Business > Business News (02-01) to News > Business News (11-01)
+                $FeedSettings['apple_' . $key] = '12-01';
+            } else if ($value === '15-02') {
+                // Technology > Tech News (15-02) to News > Tech News (11-07)
+                $FeedSettings['apple_' . $key] = '12-07';
+            } else if ($value === '13-01') {
+                // Society & Culture > History (13-01) to History (08-00)
+                $FeedSettings['apple_' . $key] = '08-00';
+            } else if ($value === '12-01') {
+                // Science & Medicine > Medicine (12-01) to Health > Medicine (07-03)
+                $FeedSettings['apple_' . $key] = '07-03';
+            } else if($value === '05-01') {
+                // Games & Hobbies > Automotive (05-01) to Leisure > Automotive (10-02)
+                $FeedSettings['apple_'. $key] = '10-02';
+            } else if($value === '05-02') {
+                // Games & Hobbies > Aviation (05-02) to Leisure > Aviation (10-03)
+                $FeedSettings['apple_'. $key] = '10-03';
+            } else if($value == '05-03') {
+                // Games & Hobbies > Hobbies (05-03) to Leisure > Hobbies (10-06)
+                $FeedSettings['apple_'. $key] = '10-06';
+            } else if($value == '05-05') {
+                // Games & Hobbies > Video Games (05-05) to Leisure > Video Games (10-08)
+                $FeedSettings['apple_'. $key] = '10-08';
+            } else if (array_key_exists($value, $mappings)) {
+                //Category has a 1:1 mapping
+                $FeedSettings['apple_'. $key] = $mappings[$value];
+            }
+        }
+    }
 ?>
 
 <h3><?php echo __('Apple Settings', 'powerpress'); ?></h3>
@@ -858,11 +921,18 @@ function powerpressadmin_edit_itunes_feed($FeedSettings, $General, $FeedAttribs 
 ?>
 
 <tr valign="top">
+    <fieldset style="border: 1px dashed #333333;">
+        <legend style="margin: 0 20px; padding: 0 5px; font-weight: bold;"><?php echo __('Notice', 'powerpress');  ?></legend>
+        <div style="margin-left: 218px; margin-bottom: 10px;">
+            <strong>Apple Categories are changing in August, 2019. Please verify your primary and secondary categories are correct.</strong>
+        </div>
+    </fieldset>
 <th scope="row">
 <?php echo __('iTunes Category', 'powerpress'); ?> 
 <span class="powerpress-required"><?php echo __('Required', 'powerpress'); ?></span>
 </th>
-<td>
+<td style="width: 30%;">
+    <p><?php echo __('Up to July, 2019', 'powerpress') ?></p>
 <select name="Feed[itunes_cat_1]" class="bpp_input_med">
 <?php
 
@@ -873,6 +943,7 @@ else if( !empty($FeedSettings['itunes_cat_3']) )
 	$MoreCategories = true;
 
 $Categories = powerpress_itunes_categories(true);
+$AppleCategories = powerpress_apple_categories(true);
 
 echo '<option value="">'. __('Select Category', 'powerpress') .'</option>';
 
@@ -886,10 +957,42 @@ reset($Categories);
 	if( !$MoreCategories && empty($General['seo_itunes']) ) { ?>
 	<a href="#" onclick="document.getElementById('more_itunes_cats').style.display='block';return false;"><?php echo __('more', 'powerpress'); ?></a>
 <?php } ?>
-	<p>
+	<p style="width: 250px;">
 		<?php echo __('The category above is where you will appear when browsing iTunes.', 'powerpress'); ?>
 	</p>
 </td>
+    <td>
+        <p><?php echo __('August, 2019 +', 'powerpress') ?></p>
+        <?php
+            $errorClass = null;
+            if(empty($FeedSettings['itunes_cat_1'])) {
+                //don't show an error if there isn't a corresponding itunes category
+            }
+            else if(empty($FeedSettings['apple_cat_1'])) {
+                $errorClass = "class='pp-form-error'";
+            }
+        ?>
+        <select <?php echo $errorClass ?>  name="Feed[apple_cat_1]" class="bpp_input_med">
+            <?php
+
+            echo '<option value="">'. __('Select Category', 'powerpress') .'</option>';
+
+            foreach( $AppleCategories as $value=> $desc ) {
+                echo "\t<option value=\"$value\"" . ($FeedSettings['apple_cat_1'] == $value ? ' selected' : '') . ">" . htmlspecialchars($desc) . "</option>\n";
+            }
+            reset($Categories);
+            ?>
+        </select>
+            <?php
+                if($errorClass == "class='pp-form-error'") {
+                    echo '<p style="width: 250px;">';
+                    echo __('Please enter an Apple Podcasts category to prepare yourself for the new 2019 categories', 'powerpress');
+                    echo '</p>';                }
+                else {
+                    echo '<p style="height: 42px;">&puncsp;</p>';
+                }
+            ?>
+    </td>
 </tr>
 </table>
 
@@ -901,8 +1004,9 @@ reset($Categories);
 <th scope="row">
 <?php echo __('iTunes Category 2', 'powerpress'); ?> 
 </th>
-<td>
-<select name="Feed[itunes_cat_2]" class="bpp_input_med">
+<td style="width: 30%;">
+    <p><?php echo __('Up to July, 2019', 'powerpress') ?></p>
+    <select name="Feed[itunes_cat_2]" class="bpp_input_med">
 <?php
 
 
@@ -914,13 +1018,53 @@ reset($Categories);
 
 ?>
 </select>
-<?php if( !empty($General['seo_itunes']) ) { ?>
+    <p style="height: 42px;">&puncsp;</p>
+    <?php if( !empty($General['seo_itunes']) ) { ?>
 			<p>
 				<em><?php echo __('Podcasting SEO Suggestion: Select a second category.', 'powerpress'); ?></em>
 			</p>
 <?php } ?>
 
 </td>
+<td>
+    <?php
+        $errorClass = null;
+        if(empty($FeedSettings['itunes_cat_2'])) {
+            //don't show an error if there isn't a corresponding itunes caregory
+        }
+        else if(empty($FeedSettings['apple_cat_2'])) {
+            $errorClass = "class='pp-form-error'";
+        }
+    ?>
+    <p><?php echo __('August, 2019 +', 'powerpress') ?></p>
+    <select <?php echo $errorClass ?> name="Feed[apple_cat_2]" class="bpp_input_med">
+        <?php
+
+        echo '<option value="">'. __('Select Category', 'powerpress') .'</option>';
+
+        foreach( $AppleCategories as $value=> $desc ) {
+
+            echo "\t<option value=\"$value\"" . ($FeedSettings['apple_cat_2'] == $value ? ' selected' : '') . ">" . htmlspecialchars($desc) . "</option>\n";
+        }
+
+        reset($Categories);
+        ?>
+    </select>
+    <?php
+    if($errorClass == "class='pp-form-error'") {
+        echo '<p style="width: 250px;">';
+        echo __('Please enter an Apple Podcasts category to prepare yourself for the new 2019 categories', 'powerpress');
+        echo '</p>';    }
+    else {
+        echo '<p style="height: 42px;">&puncsp;</p>';
+    }
+    ?>
+    <?php if( !empty($General['seo_itunes']) ) { ?>
+        <p style="height: 42px;">&puncsp;</p>
+    <?php } ?>
+
+</td>
+
 </tr>
 
 <tr valign="top">
@@ -928,7 +1072,8 @@ reset($Categories);
 <?php echo __('iTunes Category 3', 'powerpress'); ?> 
 </th>
 <td>
-<select name="Feed[itunes_cat_3]" class="bpp_input_med">
+    <p><?php echo __('Up to July, 2019', 'powerpress') ?></p>
+    <select name="Feed[itunes_cat_3]" class="bpp_input_med">
 <?php
 
 echo '<option value="">'. __('Select Category', 'powerpress')  .'</option>';
@@ -938,11 +1083,47 @@ foreach( $Categories as $value=> $desc )
 reset($Categories);
 ?>
 </select>
-<?php if( !empty($General['seo_itunes']) ) { ?>
+    <p style="height: 42px;">&puncsp;</p>
+    <?php if( !empty($General['seo_itunes']) ) { ?>
 			<p>
 				<em><?php echo __('Podcasting SEO Suggestion: Select a third category.', 'powerpress'); ?></em>
 			</p>
 <?php } ?>
+</td>
+<td>
+    <?php
+        $errorClass = null;
+        if(empty($FeedSettings['itunes_cat_3'])) {
+            //don't show an error if there isn't a corresponding itunes caregory
+        }
+        else if(empty($FeedSettings['apple_cat_3'])) {
+            $errorClass = "class='pp-form-error'";
+        }
+    ?>
+    <p><?php echo __('August, 2019 +', 'powerpress') ?></p>
+    <select <?php echo $errorClass ?> name="Feed[apple_cat_3]" class="bpp_input_med">
+        <?php
+        echo '<option value="">'. __('Select Category', 'powerpress') .'</option>';
+        foreach( $AppleCategories as $value=> $desc ) {
+            echo "\t<option value=\"$value\"" . ($FeedSettings['apple_cat_3'] == $value ? ' selected' : '') . ">" . htmlspecialchars($desc) . "</option>\n";
+        }
+
+        reset($Categories);
+        ?>
+    </select>
+    <?php
+    if($errorClass == "class='pp-form-error'") {
+        echo '<p style="width: 250px;">';
+        echo __('Please enter an Apple Podcasts category to prepare yourself for the new 2019 categories', 'powerpress');
+        echo '</p>';
+    }
+    else {
+        echo '<p style="height: 42px;">&puncsp;</p>';
+    }
+    ?>
+    <?php if( !empty($General['seo_itunes']) ) { ?>
+        <p style="height: 42px;">&puncsp;</p>
+    <?php } ?>
 </td>
 </tr>
 </table>

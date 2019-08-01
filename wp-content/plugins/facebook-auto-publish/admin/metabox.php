@@ -51,13 +51,13 @@ if(isset($_GET['action']) && $_GET['action']=="edit" && !empty($_GET['post']))  
 	
 	
 	if((get_option('xyz_fbap_af')==0 && get_option('xyz_fbap_post_permission')==1 && ((get_option('xyz_fbap_fb_token')!=""&& (get_option('xyz_fbap_app_sel_mode')==0))|| (get_option('xyz_fbap_app_sel_mode')==1 && get_option('xyz_fbap_page_names')!=""))))
-		add_meta_box( 'xyz_fbap', '<strong>WP Facebook Auto Publish </strong>', 'xyz_fbap_addpostmetatags',
+		add_meta_box( 'xyz_fbap', '<strong>WP2Social Auto Publish </strong>', 'xyz_fbap_addpostmetatags',
 				null, 'normal', 'high',
 				array(
 						'__block_editor_compatible_meta_box' => true,
 				)
 				);
-	//add_meta_box( "xyz_fbap", '<strong>WP Facebook Auto Publish </strong>', 'xyz_fbap_addpostmetatags') ;
+	//add_meta_box( "xyz_fbap", '<strong>WP2Social Auto Publish </strong>', 'xyz_fbap_addpostmetatags') ;
 }
 function xyz_fbap_addpostmetatags()
 {
@@ -112,7 +112,7 @@ jQuery(document).ready(function() {
 		fbap_get_categorylist(1);
 		});
 	
-	fbap_get_categorylist(1);
+	fbap_get_categorylist(1);fbap_get_categorylist(2);
 	jQuery('#category-all').on("click",'input[name="post_category[]"]',function() {
 		fbap_get_categorylist(1);
 				});
@@ -120,28 +120,52 @@ jQuery(document).ready(function() {
 	jQuery('#category-pop').on("click",'input[type="checkbox"]',function() {
 		fbap_get_categorylist(2);
 				});
+	/////////gutenberg category selection
+	jQuery(document).on('change', 'input[type="checkbox"]', function() {
+		fbap_get_categorylist(2);
+				});
 });
 
 function fbap_get_categorylist(val)
 {
+	var flag=true;
 	var cat_list="";var chkdArray=new Array();var cat_list_array=new Array();
 	var posttype="<?php echo get_post_type() ;?>";
 	if(val==1){
 	 jQuery('input[name="post_category[]"]:checked').each(function() {
-		 cat_list+=this.value+",";
+		 cat_list+=this.value+",";flag=false;
 		});
 	}else if(val==2)
 	{
-		jQuery('#category-pop input[type="checkbox"]:checked').each(function() {
-			
-			cat_list+=this.value+",";
+		jQuery('#category-pop input[type="checkbox"]').each(function() {
+			 if(jQuery(this).is(":checked"))
+				cat_list+=this.value+",";
+				flag=false;
 		});
+		jQuery('.editor-post-taxonomies__hierarchical-terms-choice input[type="checkbox"]').each(function() { //gutenberg category checkbox
+			 if(jQuery(this).is(":checked"))
+				cat_list+=this.value+",";
+				flag=false;
+		});
+		if(flag){
+		<?php
+		if (isset($_GET['post']))
+			$postid=intval($_GET['post']);
+		if (isset($GLOBALS['edit_flag']) && $GLOBALS['edit_flag']==1 && !empty($postid)){
+			$defaults = array('fields' => 'ids');
+			$categ_arr=wp_get_post_categories( $postid, $defaults );
+			$categ_str=implode(',', $categ_arr);
+			?>
+			cat_list+='<?php echo $categ_str; ?>';
+		<?php }?>
+				flag=false;
+			
+		}
 	}
 	 if (cat_list.charAt(cat_list.length - 1) == ',') {
 		 cat_list = cat_list.substr(0, cat_list.length - 1);
 		}
 		jQuery('#cat_list').val(cat_list);
-		
 		var xyz_fbap_catlist="<?php echo $xyz_fbap_catlist;?>";
 		if(xyz_fbap_catlist!="All")
 		{
@@ -183,7 +207,25 @@ function inArray(needle, haystack) {
 <input type="hidden" name="cat_list" id="cat_list" value="">
 <input type="hidden" name="xyz_fbap_post" id="xyz_fbap_post" value="0" >
 <tr id="xyz_fbMetabox"><td colspan="2" >
-<?php  if(get_option('xyz_fbap_post_permission')==1) {?>
+<?php  if(get_option('xyz_fbap_post_permission')==1) {
+	$postid=0;
+	if (isset($_GET['post']))
+		$postid=intval($_GET['post']);
+	$post_permission=1;
+	$get_post_meta_future_data='';
+	if (get_option('xyz_fbap_default_selection_edit')==2 && isset($GLOBALS['edit_flag']) && $GLOBALS['edit_flag']==1 && !empty($postid))
+		$get_post_meta_future_data=get_post_meta($postid,"xyz_fbap_future_to_publish",true);
+		if (!empty($get_post_meta_future_data)&& isset($get_post_meta_future_data['post_fb_permission']))
+		{
+			$post_permission=$get_post_meta_future_data['post_fb_permission'];
+			$xyz_fbap_po_method=$get_post_meta_future_data['xyz_fbap_po_method'];
+			$xyz_fbap_message=$get_post_meta_future_data['xyz_fbap_message'];
+		}
+		else {
+			$xyz_fbap_po_method=get_option('xyz_fbap_po_method');
+			$xyz_fbap_message=get_option('xyz_fbap_message');
+		}
+	?>
 <table class="xyz_fbap_meta_acclist_table"><!-- FB META -->
 
 
@@ -199,8 +241,8 @@ function inArray(needle, haystack) {
 		<td class="xyz_fbap_pleft15" width="60%">Enable auto publish post to my facebook account
 		</td>
 		<td  class="switch-field">
-		<label id="xyz_fbap_post_permission_yes"><input type="radio" name="xyz_fbap_post_permission" id="xyz_fbap_post_permission_1" value="1" checked/>Yes</label>
-		<label id="xyz_fbap_post_permission_no"><input type="radio" name="xyz_fbap_post_permission" id="xyz_fbap_post_permission_0" value="0" />No</label>
+		<label id="xyz_fbap_post_permission_yes"><input type="radio" name="xyz_fbap_post_permission" id="xyz_fbap_post_permission_1" value="1" <?php if($post_permission==1) echo 'checked';?>/>Yes</label>
+		<label id="xyz_fbap_post_permission_no"><input type="radio" name="xyz_fbap_post_permission" id="xyz_fbap_post_permission_0" value="0" <?php if($post_permission==0) echo 'checked';?> />No</label>
 
 		</td>
 	</tr>
@@ -209,21 +251,21 @@ function inArray(needle, haystack) {
 		</td>
 		<td><select id="xyz_fbap_po_method" name="xyz_fbap_po_method">
 				<option value="3"
-				<?php  if(get_option('xyz_fbap_po_method')==3) echo 'selected';?>>Simple text message</option>
+				<?php  if($xyz_fbap_po_method==3) echo 'selected';?>>Simple text message</option>
 				
 				<optgroup label="Text message with image">
 					<option value="4"
-					<?php  if(get_option('xyz_fbap_po_method')==4) echo 'selected';?>>Upload image to app album</option>
+					<?php  if($xyz_fbap_po_method==4) echo 'selected';?>>Upload image to app album</option>
 					<option value="5"
-					<?php  if(get_option('xyz_fbap_po_method')==5) echo 'selected';?>>Upload image to timeline album</option>
+					<?php  if($xyz_fbap_po_method==5) echo 'selected';?>>Upload image to timeline album</option>
 				</optgroup>
 				
 				<optgroup label="Text message with attached link">
 					<option value="1"
-					<?php  if(get_option('xyz_fbap_po_method')==1) echo 'selected';?>>Attach
+					<?php  if($xyz_fbap_po_method==1) echo 'selected';?>>Attach
 						your blog post</option>
 					<option value="2"
-					<?php  if(get_option('xyz_fbap_po_method')==2) echo 'selected';?>>
+					<?php  if($xyz_fbap_po_method==2) echo 'selected';?>>
 						Share a link to your blog post</option>
 					</optgroup>
 		</select>
@@ -258,7 +300,7 @@ function inArray(needle, haystack) {
 		</select> </td></tr>
 		
 		<tr id="fpabpmftarea"><td>&nbsp;</td><td>
-		<textarea id="xyz_fbap_message"  name="xyz_fbap_message" style="height:80px !important;" ><?php echo esc_textarea(get_option('xyz_fbap_message'));?></textarea>
+		<textarea id="xyz_fbap_message"  name="xyz_fbap_message" style="height:80px !important;" ><?php echo esc_textarea($xyz_fbap_message);?></textarea>
 	</td></tr>
 	
 	</table>
@@ -280,7 +322,7 @@ function inArray(needle, haystack) {
 		var xyz_fbap_default_selection_edit="<?php echo esc_html(get_option('xyz_fbap_default_selection_edit'));?>";
 		if(xyz_fbap_default_selection_edit=="")
 			xyz_fbap_default_selection_edit=0;
-		if(xyz_fbap_default_selection_edit==1)
+		if(xyz_fbap_default_selection_edit==1 || xyz_fbap_default_selection_edit==2)
 			return;
 		jQuery('#xyz_fbap_post_permission_0').attr('checked',true);
 		displaycheck_fbap();

@@ -19,7 +19,7 @@ add_action("admin_enqueue_scripts","xyz_fbap_add_admin_scripts");
 
 function xyz_fbap_menu()
 {
-	add_menu_page('Facebook Auto Publish - Manage settings', 'WP Facebook Auto Publish', 'manage_options', 'facebook-auto-publish-settings', 'xyz_fbap_settings',plugin_dir_url( XYZ_FBAP_PLUGIN_FILE ) . 'images/fbap.png');
+	add_menu_page('Facebook Auto Publish - Manage settings', 'WP2Social Auto Publish', 'manage_options', 'facebook-auto-publish-settings', 'xyz_fbap_settings',plugin_dir_url( XYZ_FBAP_PLUGIN_FILE ) . 'images/fbap.png');
 	add_submenu_page('facebook-auto-publish-settings', 'Facebook Auto Publish - Manage settings', ' Settings', 'manage_options', 'facebook-auto-publish-settings' ,'xyz_fbap_settings'); // 8 for admin
 	if(get_option('xyz_fbap_xyzscripts_hash_val')!=''&& get_option('xyz_fbap_xyzscripts_user_id')!='')
 		add_submenu_page('facebook-auto-publish-settings', 'Facebook Auto Publish - Manage Authorizations', 'Manage Authorizations', 'manage_options', 'facebook-auto-publish-manage-authorizations' ,'xyz_fbap_manage_authorizations');

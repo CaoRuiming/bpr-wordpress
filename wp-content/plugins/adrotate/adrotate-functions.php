@@ -57,43 +57,6 @@ function adrotate_is_human() {
 }
 
 /*-------------------------------------------------------------
- Name:      adrotate_is_mobile
- Purpose:   Check if visitor is on a smartphone
- Since:		3.13.2
--------------------------------------------------------------*/
-function adrotate_is_mobile() {
-	if(!class_exists('Mobile_Detect')) {
-		require_once(WP_CONTENT_DIR.'/plugins/adrotate/library/mobile-detect.php');
-	}
-	$detect = new Mobile_Detect;
-	 
-	if($detect->isMobile() AND !$detect->isTablet()) {
-		return true;
-	}
-	return false;
-}
-
-/*-------------------------------------------------------------
- Name:      adrotate_is_tablet
-
- Purpose:   Check if visitor is on a tablet
- Receive:   -None-
- Return:    Boolean
- Since:		3.13.2
--------------------------------------------------------------*/
-function adrotate_is_tablet() {
-	if(!class_exists('Mobile_Detect')) {
-		require_once(WP_CONTENT_DIR.'/plugins/adrotate/library/mobile-detect.php');
-	}
-	$detect = new Mobile_Detect;
-	 
-	if($detect->isTablet()) {
-		return true;
-	}
-	return false;
-}
-
-/*-------------------------------------------------------------
  Name:      adrotate_filter_schedule
 
  Purpose:   Weed out ads that are over the limit of their schedule
@@ -386,7 +349,7 @@ function adrotate_evaluate_ad($ad_id) {
 	$in7days = $now + 604800;
 
 	// Fetch ad
-	$ad = $wpdb->get_row($wpdb->prepare("SELECT `id`, `bannercode`, `tracker`, `imagetype`, `image`, `responsive` FROM `{$wpdb->prefix}adrotate` WHERE `id` = %d;", $ad_id));
+	$ad = $wpdb->get_row($wpdb->prepare("SELECT `id`, `bannercode`, `tracker`, `imagetype`, `image` FROM `{$wpdb->prefix}adrotate` WHERE `id` = %d;", $ad_id));
 	$stoptime = $wpdb->get_var("SELECT `stoptime` FROM `{$wpdb->prefix}adrotate_schedule`, `{$wpdb->prefix}adrotate_linkmeta` WHERE `ad` = '{$ad->id}' AND `schedule` = `{$wpdb->prefix}adrotate_schedule`.`id` ORDER BY `stoptime` DESC LIMIT 1;");
 	$schedules = $wpdb->get_var("SELECT COUNT(`schedule`) FROM `{$wpdb->prefix}adrotate_linkmeta` WHERE `ad` = '".$ad->id."' AND `group` = 0 AND `user` = 0;");
 
@@ -397,7 +360,6 @@ function adrotate_evaluate_ad($ad_id) {
 		OR (!preg_match_all('/<(a|script|embed|iframe)[^>](.*?)>/i', $bannercode, $things) AND $ad->tracker == 'Y') // Clicktracking active but no valid link/tag present
 		OR (preg_match_all("/(%image%|%asset%)/i", $bannercode, $things) AND $ad->image == '' AND $ad->imagetype == '') // Did use %image% but didn't select an image
 		OR (!preg_match_all("/(%image%|%asset%)/i", $bannercode, $things) AND $ad->image != '' AND $ad->imagetype != '') // Didn't use %image% but selected an image
-		OR ($ad->responsive == 'Y') // Uses Responsive feature
 		OR (($ad->image == '' AND $ad->imagetype != '') OR ($ad->image != '' AND $ad->imagetype == '')) // Image and Imagetype mismatch
 		OR $schedules == 0 // No Schedules for this ad
 	) {

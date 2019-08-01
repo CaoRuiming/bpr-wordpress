@@ -595,6 +595,8 @@ function powerpress_admin_init()
 						$General['playlist_player'] = 0;	
 					if( !isset($General['metamarks'] ) )
 						$General['metamarks'] = 0;
+					if(!isset($General['network_mode']))
+					    $General['network_mode'] = 0;
 						
 						
 					// Media Presentation Settings
@@ -1325,7 +1327,7 @@ function powerpress_admin_init()
 					
 					delete_option('update_plugins'); // OLD method
 					delete_option('_site_transient_update_plugins'); // New method
-					powerpress_page_message_add_notice( sprintf( __('Plugins Update Cache cleared successfully. You may now to go the %s page to see the latest plugin versions.', 'powerpress'), '<a href="'. admin_url() .'plugins.php" title="'.  __('Manage Plugins', 'powerpress') .'">'.  __('Manage Plugins', 'powerpress') .'</a>') );
+					powerpress_page_message_add_notice( sprintf( __('Plugins Update Cache cleared successfully. You may now to go the %s page to see the latest plugin versions.', 'powerpress'), '<a href="'. admin_url() .'plugins.php" title="'.  __('Manage Plugins', 'powerpress') .'">'.  __('Manage Plugins', 'powerpress') .'</a>'), 'inline', false );
 					
 				}; break;
 				case 'powerpress-ios11-fields': {
@@ -1840,7 +1842,6 @@ function powerpress_edit_post($post_ID, $post)
 	}
 		
 	$Episodes = ( isset($_POST['Powerpress'])? $_POST['Powerpress'] : false);
-	
 	if( $Episodes )
 	{
 		foreach( $Episodes as $feed_slug => $Powerpress )
@@ -1912,7 +1913,7 @@ function powerpress_edit_post($post_ID, $post)
 					{
 						if( $Powerpress['set_size'] == 0 || $Powerpress['set_duration'] == 0 )
 						{
-							$MediaInfo = powerpress_get_media_info($Powerpress['url']);
+							$MediaInfo = powerpress_get_media_info($Powerpress['url'], $Powerpress['program_keyword']);
 							if( !isset($MediaInfo['error']) )
 							{
 								if( $Powerpress['set_size'] == 0 )
@@ -1963,7 +1964,6 @@ function powerpress_edit_post($post_ID, $post)
 				// If we made if this far, we have the content type and file size...
 				$EnclosureData = $MediaURL . "\n" . $FileSize . "\n". $ContentType;	
 				$ToSerialize = array();
-				
 				if( !empty($Powerpress['hosting']) )
 					$ToSerialize['hosting'] = 1;
 					
@@ -2030,6 +2030,8 @@ function powerpress_edit_post($post_ID, $post)
 					$ToSerialize['no_links'] = 1;
 				if( isset($Powerpress['ishd']) && $Powerpress['ishd'] )
 					$ToSerialize['ishd'] = 1;
+                if( isset($Powerpress['program_keyword']) && !empty($Powerpress['program_keyword']) )
+                    $ToSerialize['program_keyword'] = $Powerpress['program_keyword'];
 				if( isset($Powerpress['width']) && trim($Powerpress['width']) )
 					$ToSerialize['width'] =stripslashes( trim($Powerpress['width']));
 				if( isset($Powerpress['height']) && trim($Powerpress['height']) )
@@ -2123,14 +2125,57 @@ function powerpress_edit_post($post_ID, $post)
 			powerpress_metabox_save($post_ID);
 		}
 	}
-	
-	// Anytime the post is marked published, private or scheduled for the future we need to make sure we're making the media available for hosting
-	if( $post->post_status == 'publish' || $post->post_status == 'private' || $post->post_status == 'future' )
-	{
-		if( !empty($GeneralSettings['blubrry_hosting']) &&  $GeneralSettings['blubrry_hosting'] !== 'false' )
-			powerpress_process_hosting($post_ID, $post->post_title); // Call anytime blog post is in the published state
-	}
-		
+    // Anytime the post is marked published, private or scheduled for the future we need to make sure we're making the media available for hosting
+    if( $post->post_status == 'publish' || $post->post_status == 'private' || $post->post_status == 'future' )
+    {
+        if( !empty($GeneralSettings['blubrry_hosting']) &&  $GeneralSettings['blubrry_hosting'] !== 'false' )
+            powerpress_process_hosting($post_ID, $post->post_title); // Call anytime blog post is in the published state
+    }
+    //WebSub implementation
+    if($post->post_status == 'publish' && !empty($GeneralSettings['websub_enabled']) ) {
+        require_once( 'class.powerpresswebsub.php' );
+        $Websub = new PowerPressWebSub();
+        $feedUrls = array(); //feed urls that have been updated by this post and that the hub should be notified about.
+        $postType = get_post_type($post_ID);
+
+        if (!empty($GeneralSettings['cat_casting'])) {
+            foreach (wp_get_post_categories($post_ID) as $id) {
+                if (!empty($GeneralSettings['cat_casting_podcast_feeds'])) {
+                    array_push($feedUrls, get_category_feed_link($id, 'podcast'));
+                } else {
+                    array_push($feedUrls, get_category_feed_link($id));
+                }
+            }
+        }
+        foreach (get_post_meta($post_ID) as $key => $value) {
+            if ($key === 'enclosure') {
+                //main feed updated
+                array_push($feedUrls, get_feed_link('podcast'));
+            }
+            else if (!empty($GeneralSettings['channels']) && $postType == 'post' && preg_match("/_(\w{1,}):enclosure/i", $key, $matches) == 1) {
+                array_push($feedUrls, get_feed_link($matches[1]));
+            }
+        }
+        if (!empty($GeneralSettings['posttype_podcasting'])) {
+            if ($postType != "page" || $postType != "post") {
+                $PostTypeSettings = get_option('powerpress_posttype_' . $postType);
+                if (!empty($PostTypeSettings)) {
+                    foreach ($PostTypeSettings as $feed_slug => $setting) {
+                        array_push($feedUrls, get_post_type_archive_feed_link($postType, $feed_slug));
+                    }
+                }
+            }
+        }
+        foreach ($feedUrls as $url) {
+            try {
+                $Websub->publish($url);
+            } catch (Exception $e) {
+				if( defined('WP_DEBUG') && WP_DEBUG ) {
+					 powerpress_page_message_add_error( $e->getMessage() );
+				}
+            }
+        }
+    }
 	// And we're done!
 	return $post_ID;
 }
@@ -2515,6 +2560,7 @@ function powerpress_get_media_info(FeedSlug)
 	
 	var Value = jQuery('#powerpress_url_'+FeedSlug).val();
 	var Hosting = jQuery('#powerpress_hosting_'+FeedSlug).val();
+	var program_keyword = jQuery('#powerpress_program_keyword_'+FeedSlug).val();
 	if( Value )
 	{
 		if( powerpress_check_url(Value, 'powerpress_warning_'+FeedSlug ) )
@@ -2523,7 +2569,7 @@ function powerpress_get_media_info(FeedSlug)
 			jQuery.ajax( {
 				type: 'POST',
 				url: '<?php echo admin_url(); ?>admin-ajax.php', 
-				data: { action: 'powerpress_media_info', media_url : Value, feed_slug : encodeURIComponent(FeedSlug), hosting: Hosting },
+				data: { action: 'powerpress_media_info', media_url : Value, feed_slug : encodeURIComponent(FeedSlug), hosting: Hosting, program_keyword: program_keyword },
 				timeout: (30 * 1000),
 				success: function(response) {
 					
@@ -2822,6 +2868,13 @@ function powerpress_media_info_ajax()
 	$size = 0;
 	$duration = '';
 	$GeneralSettings = get_option('powerpress_general');
+	$program_keyword = false;
+	if( !empty($_POST['program_keyword']) ) {
+		$program_keyword = $_POST['program_keyword'];
+	}
+	if( !empty($GeneralSettings['blubrry_program_keyword']) ) {
+		$program_keyword = $GeneralSettings['blubrry_program_keyword'];
+	}
 
 	if( strpos($media_url, 'http://') !== 0 && strpos($media_url, 'https://') !== 0 && $hosting != 1 ) // If the url entered does not start with a http:// or https://
 	{
@@ -2846,7 +2899,7 @@ function powerpress_media_info_ajax()
 	
 	// Get media info here...
 	if( $hosting )
-		$MediaInfo = powerpress_get_media_info($media_url);
+		$MediaInfo = powerpress_get_media_info($media_url, $program_keyword );
 	else
 		$MediaInfo = powerpress_get_media_info_local($media_url, '', 0, '', true);
 	
@@ -3479,7 +3532,7 @@ function powerpress_remote_fopen($url, $basic_auth = false, $post_args = array()
 		}
 		else if( $http_code > 399 )
 		{
-			echo '40x';
+			//echo '40x';
 			$GLOBALS['g_powerpress_remote_error'] = "HTTP $http_code";
 			$GLOBALS['g_powerpress_remote_errorno'] = $http_code;
 			switch( $http_code )
@@ -3513,6 +3566,10 @@ function powerpress_remote_fopen($url, $basic_auth = false, $post_args = array()
 		$options['body'] = $post_args;
 		$response = wp_remote_post( $url, $options );
 	}
+	else if($custom_request) {
+	    $options['method'] = $custom_request;
+	    $response = wp_remote_request($url,$options);
+    }
 	else
 	{
 		$response = wp_remote_get( $url, $options );
@@ -3606,18 +3663,18 @@ function powerpress_process_hosting($post_ID, $post_title)
 			
 			if( strtolower(substr($EnclosureURL, 0, 7) ) != 'http://' && $EpisodeData && !empty($EpisodeData['hosting']) )
 			{
-				
+				$program_keyword = (!empty($EpisodeData['program_keyword']) ? $EpisodeData['program_keyword'] : $Settings['blubrry_program_keyword'] );
 				$error = false;
 				// First we need to get media information...
 				
 				// If we are working with an Mp3, we can write id3 tags and get the info returned...
 				if( ($EnclosureType == 'audio/mpg' || $EnclosureType == 'audio/mpeg') && !empty($Settings['write_tags']) )
 				{
-					$results = powerpress_write_tags($EnclosureURL, $post_title);
+					$results = powerpress_write_tags($EnclosureURL, $post_title, $program_keyword);
 				}
 				else
 				{
-					$results = powerpress_get_media_info($EnclosureURL);
+					$results = powerpress_get_media_info($EnclosureURL, $program_keyword);
 				}
 				
 				if( is_array($results) && !isset($results['error']) )
@@ -3651,7 +3708,7 @@ function powerpress_process_hosting($post_ID, $post_title)
 					$api_url_array = powerpress_get_api_array();
 					foreach( $api_url_array as $index => $api_url )
 					{
-						$req_url = sprintf('%s/media/%s/%s?format=json&publish=true', rtrim($api_url, '/'), urlencode($Settings['blubrry_program_keyword']), urlencode($EnclosureURL)  );
+						$req_url = sprintf('%s/media/%s/%s?format=json&publish=true', rtrim($api_url, '/'), urlencode($program_keyword), urlencode($EnclosureURL)  );
 						$req_url .= (defined('POWERPRESS_BLUBRRY_API_QSA')?'&'. POWERPRESS_BLUBRRY_API_QSA:'');
 						$req_url .= (defined('POWERPRESS_PUBLISH_PROTECTED')?'&protected=true':'');
 						$json_data = powerpress_remote_fopen($req_url, $Settings['blubrry_auth'], array(), 60*30); // give this up to 30 minutes, though 3 seocnds to 20 seconds is all one should need.
@@ -3955,7 +4012,7 @@ function powerpress_admin_episodes_per_feed($feed_slug, $post_type='post')
 	if( $feed_slug != 'podcast' )
 		$field = '_'. $feed_slug .':enclosure';
 	global $wpdb;
-	if ( $results = $wpdb->get_results("SELECT COUNT(post_id) AS episodes_total FROM $wpdb->postmeta WHERE meta_key = '$field'", ARRAY_A) ) {
+	if ( $results = $wpdb->get_results("SELECT COUNT(pm.post_id) AS episodes_total FROM $wpdb->posts AS p INNER JOIN $wpdb->postmeta AS pm ON pm.post_id = p.ID WHERE pm.meta_key = '$field' AND p.post_status <> 'auto-draft' AND p.post_status <> 'trash' AND p.post_status <> 'inherit' ", ARRAY_A) ) {
 		if( count($results) )
 		{
 			foreach( $results as $key => $row ) {
@@ -4031,12 +4088,15 @@ function powerpress_default_settings($Settings, $Section='basic')
 	return $Settings;
 }
 
-function powerpress_write_tags($file, $post_title)
+function powerpress_write_tags($file, $post_title, $program_keyword = false)
 {
 	// Use the Blubrry API to write ID3 tags. to the media...
 	
 	$Settings = get_option('powerpress_general');
-	
+	if( empty($program_keyword) && !empty($Settings['blubrry_program_keyword']) ) {
+		$program_keyword = $Settings['blubrry_program_keyword'];
+	}
+
 	$PostArgs = array();
 	$Fields = array('title','artist','album','genre','year','track','composer','copyright','url');
 	foreach( $Fields as $null => $field )
@@ -4092,7 +4152,7 @@ function powerpress_write_tags($file, $post_title)
 	$api_url_array = powerpress_get_api_array();
 	foreach( $api_url_array as $index => $api_url )
 	{
-		$req_url = sprintf('%s/media/%s/%s?format=json&id3=true', rtrim($api_url, '/'), urlencode($Settings['blubrry_program_keyword']), urlencode($file) );
+		$req_url = sprintf('%s/media/%s/%s?format=json&id3=true', rtrim($api_url, '/'), urlencode($program_keyword), urlencode($file) );
 		$req_url .= (defined('POWERPRESS_BLUBRRY_API_QSA')?'&'. POWERPRESS_BLUBRRY_API_QSA:'');
 		$content = powerpress_remote_fopen($req_url, $Settings['blubrry_auth'], $PostArgs );
 		if( !$content && $api_url == 'https://api.blubrry.com/' ) { // Lets force cURL and see if that helps...
@@ -4112,14 +4172,17 @@ function powerpress_write_tags($file, $post_title)
 	return array('error'=>__('Error occurred writing MP3 ID3 Tags.', 'powerpress') );
 }
 
-function powerpress_get_media_info($file)
+function powerpress_get_media_info($file, $program_Keyword = false)
 {
 	$Settings = get_option('powerpress_general');
+	if( empty($program_Keyword) && !empty($Settings['blubrry_program_keyword']) ) {
+		$program_Keyword = $Settings['blubrry_program_keyword'];
+	}
 	$content = false;
 	$api_url_array = powerpress_get_api_array();
 	foreach( $api_url_array as $index => $api_url )
 	{
-		$req_url = sprintf('%s/media/%s/%s?format=json&info=true', rtrim($api_url, '/'), urlencode($Settings['blubrry_program_keyword']), urlencode($file) );
+		$req_url = sprintf('%s/media/%s/%s?format=json&info=true', rtrim($api_url, '/'), urlencode($program_Keyword), urlencode($file) );
 		$req_url .= (defined('POWERPRESS_BLUBRRY_API_QSA')?'&'. POWERPRESS_BLUBRRY_API_QSA:'');
 		$content = powerpress_remote_fopen($req_url, $Settings['blubrry_auth']);
 		if( !$content && $api_url == 'https://api.blubrry.com/' ) { // Lets force cURL and see if that helps...
@@ -4615,9 +4678,12 @@ function powerpress_admin_get_page()
 	return 'powerpressadmin_basic';
 }
 
-function powerpress_review_message()
+function powerpress_review_message($type=0)
 {
-	return sprintf(__('Fan of PowerPress? Please show your appreciation by <a href="%s" target="_blank">leaving a review</a>.', 'powerpress'), 'https://wordpress.org/support/view/plugin-reviews/powerpress?rate=5#postform');
+	if( $type == 1 )
+		return sprintf(__('If you appreciate PowerPress and the features provided, we would greatly appreciate it if you could <a href="%s" target="_blank">leave a review on WordPress.org</a>.', 'powerpress'), 'https://wordpress.org/support/plugin/powerpress/reviews/?rate=5#new-post');
+	
+	return sprintf(__('Fan of PowerPress? Please show your appreciation by <a href="%s" target="_blank">leaving a review</a>.', 'powerpress'), 'https://wordpress.org/support/plugin/powerpress/reviews/?rate=5#new-post');
 }
 
 function powerpress_get_review_link()
