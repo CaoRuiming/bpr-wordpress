@@ -98,6 +98,9 @@ function register_scripts() {
 
     wp_register_script('slick', $path . 'slick.min.js', array('jquery'));
     wp_enqueue_script('slick');
+
+    wp_register_script('popper', $path . 'popper.min.js', array('jquery'));
+    wp_enqueue_script('popper');
 }
 add_action('wp_enqueue_scripts', 'register_scripts');
 

@@ -8,23 +8,26 @@
   }
 }
 
-/** For Slick carousels. Arrow elements are:
- * <div class="carousel-arrow carousel-prev">&#11139;</div>
- * <div class="carousel-arrow carousel-next">&#11137;</div>
- */
+// For Slick carousels.
 .carousel-wrapper {
   position: relative;
+
+  .img-40 {
+    margin-bottom: $spacing-md;
+  }
 
   .carousel-arrow {
     position: absolute;
     top: 33%;
-    font-size: 60px;
+    width: 40px;
+    height: 78px;
+    background-size: cover;
     cursor: pointer;
   
     &.carousel-prev { left: -40px; }
     &.carousel-next { right: -40px; }
   
-    @media all and (max-width: $width-lg) {
+    @media screen and (max-width: $website-max-width) {
       height: 0;
       width: 0;
     }

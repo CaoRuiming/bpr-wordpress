@@ -5,8 +5,8 @@
 
 .logo {
   @include background-default(cover);
-  width: 200px;
-  height: 75px;
+  width: $logo-width;
+  height: $logo-height;
 }
 
 .img-50 {
@@ -29,7 +29,7 @@
   max-height: 300px;
   width: 28vw;
   height: 21vw;
-  @media all and (max-width: $width-md) {
+  @media screen and (max-width: $width-md) {
     width: 100%;
     padding-bottom: 75%;
   }

@@ -9,8 +9,8 @@
         $slug = get_field('section_1', $page_id)[0]->slug;
         $category_object = get_category_by_slug($slug);
         $recent  = new WP_Query(array(
-            'category_name' => $category_object->slug,
-            'posts_per_page' => 3,
+          'category_name' => $category_object->slug,
+          'posts_per_page' => 3,
         ));
 
         while ($recent->have_posts()): ?>
@@ -19,16 +19,16 @@
           $pic_url = get_the_post_thumbnail_url();
           ?>
           <div class="row featured-post">
-            <div class="col-md-6">
+            <div class="col-lg-6">
               <a href="<?php echo get_permalink(); ?>">
-                  <div
-                      class="img-40"
-                      style="background-image: url(<?php echo $pic_url; ?>);">
-                  </div>
+                <div
+                  class="img-40"
+                  style="background-image: url(<?php echo $pic_url; ?>);">
+                </div>
               </a>
             </div>
 
-            <div class="col-md-6">
+            <div class="col-lg-6">
               <?php the_category(); ?>
 
               <div class="post-title-large">
@@ -51,8 +51,18 @@
           </div>
         <?php endwhile; ?>
       </div>
-      <div class="carousel-arrow carousel-prev">&#11139;</div>
-      <div class="carousel-arrow carousel-next">&#11137;</div>
+      <?php
+      $left_arrow = get_template_directory_uri() . '/resources/assets/images/carousel-left.png';
+      $right_arrow = get_template_directory_uri() . '/resources/assets/images/carousel-right.png';
+      ?>
+      <div
+        class="carousel-arrow carousel-prev"
+        style="background-image: url(<?php echo $left_arrow; ?>);">
+      </div>
+      <div
+        class="carousel-arrow carousel-next"
+        style="background-image: url(<?php echo $right_arrow; ?>);">
+      </div>
     </div>
     <script>
       $('.carousel').slick({

@@ -2,7 +2,7 @@
   max-width: $website-max-width;
   margin: $spacing-md auto;
 
-  @media all and (max-width: $width-lg) {
+  @media screen and (max-width: $width-lg) {
     margin: $spacing-sm;
   }
 
@@ -12,7 +12,10 @@
 
     a { font-size: 16px; }
 
-    &> .container { margin: 0 30px; }
+    &> .container {
+      margin: 0;
+      width: 100%;
+    }
 
     .navbar-toggler { display: none; }
 
@@ -23,6 +26,7 @@
       justify-content: space-between;
       margin-top: 55px;
       border-bottom: 2px solid black;
+      width: calc(100% - #{$logo-width});
 
       li {
         float: unset;
@@ -31,6 +35,12 @@
           color: black;
           padding-bottom: 5px;
           text-transform: uppercase;
+          background-color: unset;
+
+          &:hover, &:active {
+            background-color: unset;
+            color: black;
+          }
         }
 
         .dropdown-menu {

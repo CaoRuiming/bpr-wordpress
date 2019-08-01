@@ -74,8 +74,18 @@ if (is_single()) {
           </div>
         <?php endwhile; ?>
       </div>
-      <div class="carousel-arrow carousel-prev">&#11139;</div>
-      <div class="carousel-arrow carousel-next">&#11137;</div>
+      <?php
+      $left_arrow = get_template_directory_uri() . '/resources/assets/images/carousel-left.png';
+      $right_arrow = get_template_directory_uri() . '/resources/assets/images/carousel-right.png';
+      ?>
+      <div
+        class="carousel-arrow carousel-prev"
+        style="background-image: url(<?php echo $left_arrow; ?>);">
+      </div>
+      <div
+        class="carousel-arrow carousel-next"
+        style="background-image: url(<?php echo $right_arrow; ?>);">
+      </div>
     </div>
     <script>
       $('.carousel').slick({
