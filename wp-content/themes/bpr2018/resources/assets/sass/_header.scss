@@ -6,11 +6,48 @@
     margin: $spacing-sm;
   }
 
+  #header-search-wrapper {
+    float: right;
+    padding: 0;
+
+    &:focus-within:after {
+      content: "";
+      display: block;
+      margin-right: 0;
+      width: calc(100% - 15px);
+      padding-top: 2px;
+      margin-bottom: -3px;
+      border-bottom: 1px solid black;
+    }
+
+    #header-search-box {
+      outline: none;
+      border: none;
+      background-size: 20px 20px;
+      background-repeat: no-repeat;
+      background-position: 0 0;
+      height: 22px;
+      width: 22px;
+      font-size: 20px;
+      font-family: $body-font, sans-serif;
+      margin-right: 15px;
+      padding-left: 25px;
+
+      -webkit-transition: all 0.1s linear;
+      -moz-transition: all 0.1s linear;
+      -o-transition: all 0.1s linear;
+      -ms-transition: all 0.1s linear;
+      transition: all 0.1s linear;
+
+      &:focus { width: 300px; }
+    }
+  }
+
   nav#main-menu {
     padding-top: $spacing-sm;
     text-align: center;
 
-    a { font-size: 16px; }
+    a { font-size: 20px; }
 
     &> .container {
       margin: 0;

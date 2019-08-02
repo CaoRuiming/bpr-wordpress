@@ -43,9 +43,9 @@
             <div class="post-tags">
               <?php
               the_tags(
-                '<span class="post-tag uppercase font-size-16">',
-                '</span><span class="post-tag uppercase font-size-16">',
-                '</span>'
+                '<div class="post-tag uppercase font-size-16">',
+                '</div><div class="post-tag uppercase font-size-16">',
+                '</div>'
               );
               ?>
             </div>

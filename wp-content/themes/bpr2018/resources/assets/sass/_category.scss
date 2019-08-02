@@ -8,8 +8,5 @@
   .horizontal-rule:nth-child(3) { display: none; }
   .row.latest-post { margin-bottom: $spacing-sm; }
 
-  #popular-articles {
-    margin-bottom: $spacing-lg;
-    .featured-post { margin: 0; }
-  }
+  #popular-articles { margin-bottom: $spacing-lg; }
 }

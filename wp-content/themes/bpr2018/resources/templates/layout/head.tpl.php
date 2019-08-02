@@ -12,6 +12,29 @@
     <main id="app" class="app">
       <nav id="main-menu" class="navbar navbar-expand-md navbar-light bg-light" role="navigation">
         <div class="container">
+          <div id="header-search-wrapper">
+            <form
+              id="header-search"
+              name="header-search"
+              method="get"
+              action="<?php echo esc_url(home_url('/')); ?>"
+            >
+              <?php
+              $search_icon_url = get_template_directory_uri() . '/resources/assets/images/search-icon.png';
+              ?>
+              <!-- <div
+                id="header-search-icon"
+                style="background-image: url(<?php echo $search_icon_url ?>)">
+              </div> -->
+              <input
+                id="header-search-box"
+                type="text"
+                name="s"
+                placeholder="Search…"
+                style="background-image: url(<?php echo $search_icon_url ?>)"
+              >
+            </form>
+          </div>
           <!-- Brand and toggle get grouped for better mobile display -->
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="navbar-collapse-1" aria-controls="navbar-collapse-1" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -34,6 +57,7 @@
         </div>
       </nav>
       <script>
+        // Allows dropdown parent elements to be clickable links
         $('li.dropdown :first-child').on('click', function() {
           var $el = $(this).parent();
           if ($el.hasClass('open')) {

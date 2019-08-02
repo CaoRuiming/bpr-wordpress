@@ -1,12 +1,12 @@
 #front-page {
-  margin: $spacing-lg auto;
+  margin: $spacing-md auto;
 
   .post-title-large { margin: $spacing-sm 0; }
   .post-title-small { margin: $spacing-xxs 0 $spacing-xs 0; }
 
   #popular-articles {
     margin-bottom: $spacing-lg;
-    .featured-post { margin: 0; }
+    // .featured-post { margin: 0; }
   }
 
   .category-row {

@@ -24,8 +24,8 @@
     background-size: cover;
     cursor: pointer;
   
-    &.carousel-prev { left: -40px; }
-    &.carousel-next { right: -40px; }
+    &.carousel-prev { left: -50px; }
+    &.carousel-next { right: -50px; }
   
     @media screen and (max-width: $website-max-width) {
       height: 0;

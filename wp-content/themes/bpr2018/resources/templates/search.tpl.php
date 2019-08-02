@@ -14,7 +14,7 @@
       class="col-xs-12"
       role="search"
       method="get"
-      action="<?php echo esc_url( home_url( '/' ) ); ?>"
+      action="<?php echo esc_url(home_url('/')); ?>"
     >
       <input
         id="search-input"
