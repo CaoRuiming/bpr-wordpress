@@ -3,49 +3,45 @@
 <div id="front-page" class="container-fluid">
   <div id="popular-articles">
     <div class="section-title">Popular Articles</div>
-    <div class="carousel-wrapper">
+    <div class="carousel-wrapper row">
       <div class="carousel">
-        <?php
-        $slug = get_field('section_1', $page_id)[0]->slug;
-        $category_object = get_category_by_slug($slug);
-        $recent  = new WP_Query(array(
-          'category_name' => $category_object->slug,
-          'posts_per_page' => 3,
-        ));
-
-        while ($recent->have_posts()): ?>
+        <?php while (have_rows('featured_posts', $page_id)): the_row(); ?>
           <?php
-          $post = $recent->the_post();
-          $pic_url = get_the_post_thumbnail_url();
+          $post = get_sub_field('featured_post');
+          $id = $post->ID;
+          $pic_url = get_the_post_thumbnail_url($post);
           ?>
-          <div class="row featured-post">
-            <div class="col-lg-6">
-              <a href="<?php echo get_permalink(); ?>">
-                <div
-                  class="img-40"
-                  style="background-image: url(<?php echo $pic_url; ?>);">
-                </div>
-              </a>
-            </div>
-
-            <div class="col-lg-6">
-              <?php the_category(); ?>
-
-              <div class="post-title-large">
-                <a href="<?php echo get_permalink(); ?>">
-                  <?php the_title(); ?>
+          <div class="container-fluid featured-post">
+            <div class="row">
+              <div class="col-lg-6">
+                <a href="<?php echo get_permalink($id); ?>">
+                  <div
+                    class="img-40"
+                    style="background-image: url(<?php echo $pic_url; ?>);">
+                  </div>
                 </a>
               </div>
-
-              <p class="font-size-24">
-                <?php
-                $content = apply_filters('the_content', get_the_content());
-                echo substr(sanitize_text_field($content), 0, 250) . '...';
-                ?>
-              </p>
-
-              <div class="post-author post-date font-size-20">
-                <?php the_author(); ?><?php if (get_the_date()) { echo ' | ' . get_the_date(); } ?>
+  
+              <div class="col-lg-6">
+                <?php the_category(null, null, $id); ?>
+  
+                <div class="post-title-large">
+                  <a href="<?php echo get_permalink($id); ?>">
+                    <?php echo get_the_title($id); ?>
+                  </a>
+                </div>
+  
+                <p class="font-size-24">
+                  <?php
+                  $content = apply_filters('the_content', get_post_field('post_content', $id));
+                  echo substr(sanitize_text_field($content), 0, 250) . '...';
+                  ?>
+                </p>
+  
+                <div class="post-author post-date font-size-20">
+                  <?php echo get_the_author_meta('display_name', $post->post_author); ?>
+                  <?php if (get_the_date('', $id)) { echo ' | ' . get_the_date('', $id); } ?>
+                </div>
               </div>
             </div>
           </div>

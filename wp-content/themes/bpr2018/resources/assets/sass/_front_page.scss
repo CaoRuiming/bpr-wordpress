@@ -5,8 +5,8 @@
   .post-title-small { margin: $spacing-xxs 0 $spacing-xs 0; }
 
   #popular-articles {
-    margin-bottom: $spacing-lg;
-    // .featured-post { margin: 0; }
+    margin-bottom: $spacing-md;
+    .col-lg-6 { overflow: hidden; }
   }
 
   .category-row {

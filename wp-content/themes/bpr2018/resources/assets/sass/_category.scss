@@ -3,10 +3,11 @@
 
   .post-title-large { margin: $spacing-sm 0; }
   .post-title-small { margin-bottom: $spacing-sm; }
+  .carousel .col-md-6 { overflow: hidden; }
   .more-link { margin-top: $spacing-lg; }
   .category-title { margin-bottom: $spacing-xs; }
-  .horizontal-rule:nth-child(3) { display: none; }
-  .row.latest-post { margin-bottom: $spacing-sm; }
+  .horizontal-rule:nth-child(1) { display: none; }
+  .latest-post { margin-bottom: $spacing-sm; }
 
   #popular-articles { margin-bottom: $spacing-lg; }
 }

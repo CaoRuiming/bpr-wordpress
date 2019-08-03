@@ -22,10 +22,6 @@
               <?php
               $search_icon_url = get_template_directory_uri() . '/resources/assets/images/search-icon.png';
               ?>
-              <!-- <div
-                id="header-search-icon"
-                style="background-image: url(<?php echo $search_icon_url ?>)">
-              </div> -->
               <input
                 id="header-search-box"
                 type="text"

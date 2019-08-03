@@ -11,25 +11,23 @@ if (is_single()) {
 ?>
 
 <div id="category-page" class="container-fluid">
-  <div class="container-fluid">
-    <?php if ($category->parent > 0): ?>
-      <?php
-      $parent = get_category($category->parent);
-      $parent_link = get_category_link($parent);
-      ?>
-      <div class="parent-category-title post-categories">
-        <a href="<?php echo $parent_link; ?>"><?php echo $parent->name; ?></a>
-      </div>
-    <?php endif; ?>
+  <?php if ($category->parent > 0): ?>
+    <?php
+    $parent = get_category($category->parent);
+    $parent_link = get_category_link($parent);
+    ?>
+    <div class="parent-category-title post-categories">
+      <a href="<?php echo $parent_link; ?>"><?php echo $parent->name; ?></a>
+    </div>
+  <?php endif; ?>
 
-    <div class="category-title font-size-100"><?php echo $category->name; ?></div>
-    <div class="horizontal-rule"></div>
-    <div class="section-title">Popular Articles</div>
-  </div>
+  <div class="category-title font-size-100"><?php echo $category->name; ?></div>
+  <div class="horizontal-rule"></div>
+  <div class="section-title">Popular Articles</div>
 
-  <div id="popular-articles" class="row">
-    <div class="carousel-wrapper">
-      <div class="carousel container-fluid">
+  <div id="popular-articles" class="container-fluid">
+    <div class="carousel-wrapper row">
+      <div class="carousel">
         <?php
         $recent  = new WP_Query(array(
           'category_name' => $category->slug,
@@ -41,34 +39,38 @@ if (is_single()) {
           $post = $recent->the_post();
           $pic_url = get_the_post_thumbnail_url();
           ?>
-          <div class="row featured-post">
-            <div class="col-md-6">
-              <a href="<?php echo get_permalink(); ?>">
-                <div
-                  class="img-40"
-                  style="background-image: url(<?php echo $pic_url; ?>);">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="row featured-post">
+                <div class="col-lg-6">
+                  <a href="<?php echo get_permalink(); ?>">
+                    <div
+                      class="img-40"
+                      style="background-image: url(<?php echo $pic_url; ?>);">
+                    </div>
+                  </a>
                 </div>
-              </a>
-            </div>
-
-            <div class="col-md-6">
-              <?php the_category(); ?>
-
-              <h1 class="post-title-large">
-                <a href="<?php echo get_permalink(); ?>">
-                  <?php the_title(); ?>
-                </a>
-              </h1>
-
-              <p class="font-size-24">
-                <?php
-                $content = apply_filters('the_content', get_the_content());
-                echo substr(sanitize_text_field($content), 0, 250) . '...';
-                ?>
-              </p>
-
-              <div class="post-author post-date font-size-20">
-                <?php the_author(); ?><?php if (get_the_date()) { echo ' | ' . get_the_date(); } ?>
+    
+                <div class="col-lg-6">
+                  <?php the_category(); ?>
+    
+                  <h1 class="post-title-large">
+                    <a href="<?php echo get_permalink(); ?>">
+                      <?php the_title(); ?>
+                    </a>
+                  </h1>
+    
+                  <p class="font-size-24">
+                    <?php
+                    $content = apply_filters('the_content', get_the_content());
+                    echo substr(sanitize_text_field($content), 0, 250) . '...';
+                    ?>
+                  </p>
+    
+                  <div class="post-author post-date font-size-20">
+                    <?php the_author(); ?><?php if (get_the_date()) { echo ' | ' . get_the_date(); } ?>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -99,9 +101,10 @@ if (is_single()) {
     </script>
   </div>
 
+  <div class="horizontal-rule"></div>
+  <div class="section-title">Latest</div>
+
   <div class="container-fluid">
-    <div class="horizontal-rule"></div>
-    <div class="section-title">Latest</div>
     <?php
     $paged = get_query_var('paged') ? get_query_var('paged') : 1;
     $query  = new WP_Query(array(
