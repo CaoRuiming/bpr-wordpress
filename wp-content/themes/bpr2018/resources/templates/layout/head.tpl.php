@@ -12,24 +12,47 @@
     <main id="app" class="app">
       <nav id="main-menu" class="navbar navbar-expand-md navbar-light bg-light" role="navigation">
         <div class="container">
-          <div id="header-search-wrapper">
-            <form
-              id="header-search"
-              name="header-search"
-              method="get"
-              action="<?php echo esc_url(home_url('/')); ?>"
-            >
-              <?php
-              $search_icon_url = get_template_directory_uri() . '/resources/assets/images/search-icon.png';
-              ?>
-              <input
-                id="header-search-box"
-                type="text"
-                name="s"
-                placeholder="Search…"
-                style="background-image: url(<?php echo $search_icon_url ?>)"
+          <div id="header-icons">
+            <div id="header-search-wrapper">
+              <form
+                id="header-search"
+                name="header-search"
+                method="get"
+                action="<?php echo esc_url(home_url('/')); ?>"
               >
-            </form>
+                <?php
+                $search_icon_url = get_template_directory_uri() . '/resources/assets/images/search-icon.png';
+                ?>
+                <input
+                  id="header-search-box"
+                  type="text"
+                  name="s"
+                  placeholder="Search…"
+                  style="background-image: url(<?php echo $search_icon_url ?>)"
+                >
+              </form>
+            </div>
+            <?php
+            $images_directory = get_template_directory_uri() . '/resources/assets/images/';
+            $facebook_icon_url = $images_directory . 'facebook_icon.png';
+            $twitter_icon_url = $images_directory . 'twitter_icon.png';
+            ?>
+            <?php if (get_field('facebook_url', 'option')): ?>
+              <a href="<?php echo get_field('facebook_url', 'option'); ?>">
+                <div
+                  class="header-social"
+                  style="background-image: url(<?php echo $facebook_icon_url ?>)">
+                </div>
+              </a>
+            <?php endif; ?>
+            <?php if (get_field('twitter_url', 'option')): ?>
+              <a href="<?php echo get_field('twitter_url', 'option'); ?>">
+                <div
+                  class="header-social"
+                  style="background-image: url(<?php echo $twitter_icon_url ?>)">
+                </div>
+              </a>
+            <?php endif; ?>
           </div>
           <!-- Brand and toggle get grouped for better mobile display -->
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="navbar-collapse-1" aria-controls="navbar-collapse-1" aria-expanded="false" aria-label="Toggle navigation">

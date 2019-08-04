@@ -6,40 +6,54 @@
     margin: $spacing-sm;
   }
 
-  #header-search-wrapper {
+  #header-icons {
     float: right;
-    padding: 0;
+    margin-right: 15px;
 
-    &:focus-within:after {
-      content: "";
-      display: block;
-      margin-right: 0;
-      width: calc(100% - 15px);
-      padding-top: 2px;
-      margin-bottom: -3px;
-      border-bottom: 1px solid black;
-    }
-
-    #header-search-box {
-      outline: none;
-      border: none;
-      background-size: 20px 20px;
-      background-repeat: no-repeat;
-      background-position: 0 0;
+    .header-social {
+      @include img-common();
+      display: inline-block;
+      vertical-align: top;
       height: 22px;
       width: 22px;
-      font-size: 20px;
-      font-family: $body-font, sans-serif;
-      margin-right: 15px;
-      padding-left: 25px;
+      margin-left: $spacing-xs;
+    }
 
-      -webkit-transition: all 0.1s linear;
-      -moz-transition: all 0.1s linear;
-      -o-transition: all 0.1s linear;
-      -ms-transition: all 0.1s linear;
-      transition: all 0.1s linear;
-
-      &:focus { width: 300px; }
+    #header-search-wrapper {
+      display: inline-block;
+      vertical-align: top;
+      padding: 0;
+  
+      &:focus-within:after {
+        content: "";
+        display: block;
+        margin-right: 0;
+        width: calc(100% - 15px);
+        padding-top: 2px;
+        margin-bottom: -3px;
+        border-bottom: 1px solid black;
+      }
+  
+      #header-search-box {
+        outline: none;
+        border: none;
+        background-size: 22px 22px;
+        background-repeat: no-repeat;
+        background-position: 0 0;
+        height: 22px;
+        width: 22px;
+        font-size: 20px;
+        font-family: $body-font, sans-serif;
+        padding-left: 25px;
+  
+        -webkit-transition: all 0.1s linear;
+        -moz-transition: all 0.1s linear;
+        -o-transition: all 0.1s linear;
+        -ms-transition: all 0.1s linear;
+        transition: all 0.1s linear;
+  
+        &:focus { width: 300px; }
+      }
     }
   }
 
@@ -62,7 +76,7 @@
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
-      margin-top: 55px;
+      margin-top: 15px;
       border-bottom: 2px solid black;
       width: calc(100% - #{$logo-width});
 
@@ -71,7 +85,8 @@
 
         & > a {
           color: black;
-          padding-bottom: 5px;
+          padding: 15px 0 $spacing-xs 0;
+          // padding-bottom: $spacing-xs;
           text-transform: uppercase;
           background-color: unset;
 

@@ -17,6 +17,8 @@
 
   .category-cols {
     margin-bottom: $spacing-md;
+
+    .more-link { margin-bottom: $spacing-md; }
     .recent-article {
       padding: 0;
       margin-bottom: $spacing-md;

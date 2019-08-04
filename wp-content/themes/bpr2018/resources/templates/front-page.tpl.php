@@ -63,7 +63,7 @@
     <script>
       $('.carousel').slick({
         infinite: true,
-        autoplay: false,//true,
+        autoplay: true,
         autoplaySpeed: 10000,
         arrows: true,
         prevArrow: $('.carousel-prev'),

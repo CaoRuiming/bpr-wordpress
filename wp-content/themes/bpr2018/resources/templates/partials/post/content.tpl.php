@@ -24,7 +24,7 @@
       <div class="hline"></div>
     </div>
 
-    <div class="col-lg-1"></div> <!-- Padding -->
+    <div class="col-lg-2"></div> <!-- Padding -->
   </div>
 
   <div class="row">
@@ -68,7 +68,7 @@
       </div>
     </div>
 
-    <div class="col-lg-2"><?php the_category(); ?></div>
+    <div class="col-lg-2 d-none d-md-block"><?php the_category(); ?></div>
   </div>
   <div class="row suggested-articles">
     <?php 

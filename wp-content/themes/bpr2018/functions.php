@@ -104,5 +104,9 @@ function register_scripts() {
 }
 add_action('wp_enqueue_scripts', 'register_scripts');
 
+if(function_exists('acf_add_options_page')) {
+    acf_add_options_page();
+}
+
 // For enabling pagination in category template
 ini_set('mysql.trace_mode', 0);
