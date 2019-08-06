@@ -6,7 +6,7 @@ if (is_single()) {
   $categories =  get_the_category();
   $category = $cats[0];
 } else {
-  $category = get_category( get_query_var( 'cat' ) );
+  $category = get_category(get_query_var('cat'));
 }
 ?>
 

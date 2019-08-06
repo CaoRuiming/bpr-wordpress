@@ -33,3 +33,28 @@
     }
   }
 }
+
+#breadcrumbs {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0;
+  overflow: hidden;
+  color: #555555;
+  font-family: $body-font, sans-serif;
+  text-transform: uppercase;
+  font-size: 20px;
+  line-height: 1;
+
+  li {
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 15px;
+
+    a { color: #555555; }
+
+    // hide the page itself from the breadcrumbs
+    &:nth-last-child(2) { display: none; }
+    &:nth-last-child(1) { display: none; }
+  }
+
+}

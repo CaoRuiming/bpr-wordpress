@@ -108,5 +108,7 @@ if(function_exists('acf_add_options_page')) {
     acf_add_options_page();
 }
 
+require_once __DIR__ . '/breadcrumbs.php' ;
+
 // For enabling pagination in category template
 ini_set('mysql.trace_mode', 0);
