@@ -1420,6 +1420,11 @@ function ai1wm_setup_environment() {
 		@mb_internal_encoding( 'ISO-8859-1' );
 	}
 
+	// Clean (erase) the output buffer and turn off output buffering
+	if ( @ob_get_length() ) {
+		@ob_end_clean();
+	}
+
 	// Set error handler
 	@set_error_handler( 'Ai1wm_Handler::error' );
 
@@ -1446,4 +1451,30 @@ function ai1wm_get_timezone_string() {
 	}
 
 	return 'UTC';
+}
+
+/**
+ * Get WordPress filter hooks
+ *
+ * @param  string $tag The name of the filter hook
+ * @return array
+ */
+function ai1wm_get_filters( $tag ) {
+	global $wp_filter;
+
+	// Get WordPress filter hooks
+	$filters = array();
+	if ( isset( $wp_filter[ $tag ] ) ) {
+		if ( ( $filters = $wp_filter[ $tag ] ) ) {
+			// WordPress 4.7 introduces new class for working with filters/actions called WP_Hook
+			// which adds another level of abstraction and we need to address it.
+			if ( isset( $filters->callbacks ) ) {
+				$filters = $filters->callbacks;
+			}
+		}
+
+		ksort( $filters );
+	}
+
+	return $filters;
 }

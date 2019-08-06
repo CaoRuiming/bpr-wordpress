@@ -34,8 +34,6 @@ class Ai1wm_Import_Controller {
 	}
 
 	public static function import( $params = array() ) {
-		global $wp_filter;
-
 		ai1wm_setup_environment();
 
 		// Set params
@@ -61,17 +59,8 @@ class Ai1wm_Import_Controller {
 			exit;
 		}
 
-		// Get hook
-		if ( isset( $wp_filter['ai1wm_import'] ) && ( $filters = $wp_filter['ai1wm_import'] ) ) {
-			// WordPress 4.7 introduces new class for working with filters/actions called WP_Hook
-			// which adds another level of abstraction and we need to address it.
-			if ( isset( $filters->callbacks ) ) {
-				$filters = $filters->callbacks;
-			}
-
-			ksort( $filters );
-
-			// Loop over filters
+		// Loop over filters
+		if ( ( $filters = ai1wm_get_filters( 'ai1wm_import' ) ) ) {
 			while ( $hooks = current( $filters ) ) {
 				if ( intval( $params['priority'] ) === key( $filters ) ) {
 					foreach ( $hooks as $hook ) {

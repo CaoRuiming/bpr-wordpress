@@ -34,8 +34,6 @@ class Ai1wm_Export_Controller {
 	}
 
 	public static function export( $params = array() ) {
-		global $wp_filter;
-
 		ai1wm_setup_environment();
 
 		// Set params
@@ -61,17 +59,8 @@ class Ai1wm_Export_Controller {
 			exit;
 		}
 
-		// Get hook
-		if ( isset( $wp_filter['ai1wm_export'] ) && ( $filters = $wp_filter['ai1wm_export'] ) ) {
-			// WordPress 4.7 introduces new class for working with filters/actions called WP_Hook
-			// which adds another level of abstraction and we need to address it.
-			if ( isset( $filters->callbacks ) ) {
-				$filters = $filters->callbacks;
-			}
-
-			ksort( $filters );
-
-			// Loop over filters
+		// Loop over filters
+		if ( ( $filters = ai1wm_get_filters( 'ai1wm_export' ) ) ) {
 			while ( $hooks = current( $filters ) ) {
 				if ( intval( $params['priority'] ) === key( $filters ) ) {
 					foreach ( $hooks as $hook ) {

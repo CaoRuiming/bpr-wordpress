@@ -894,9 +894,13 @@ class Ai1wm_Main_Controller {
 
 		wp_localize_script( 'ai1wm_backups', 'ai1wm_backups', array(
 			'ajax'       => array(
-				'url'              => wp_make_link_relative( admin_url( 'admin-ajax.php?action=ai1wm_backups' ) ),
-				'add_backup_label' => wp_make_link_relative( admin_url( 'admin-ajax.php?action=ai1wm_add_backup_label' ) ),
-				'backup_list'      => wp_make_link_relative( admin_url( 'admin-ajax.php?action=ai1wm_backup_list' ) ),
+				'url' => wp_make_link_relative( admin_url( 'admin-ajax.php?action=ai1wm_backups' ) ),
+			),
+			'backups'    => array(
+				'url' => wp_make_link_relative( admin_url( 'admin-ajax.php?action=ai1wm_backup_list' ) ),
+			),
+			'labels'     => array(
+				'url' => wp_make_link_relative( admin_url( 'admin-ajax.php?action=ai1wm_add_backup_label' ) ),
 			),
 			'secret_key' => get_option( AI1WM_SECRET_KEY ),
 		) );
@@ -932,10 +936,6 @@ class Ai1wm_Main_Controller {
 			'want_to_delete_this_file'            => __( 'Are you sure you want to delete this file?', AI1WM_PLUGIN_NAME ),
 			'unlimited'                           => __( 'Restoring a backup is available via Unlimited extension. <a href="https://servmask.com/products/unlimited-extension" target="_blank">Get it here</a>', AI1WM_PLUGIN_NAME ),
 			'restore_from_file'                   => __( '"Restore" functionality is available in a <a href="https://servmask.com/products/unlimited-extension" target="_blank">paid extension</a>.<br />You could also download the backup and then use "Import from file".', AI1WM_PLUGIN_NAME ),
-			'unable_to_add_backup_label'          => __( 'Unable to add label for backup because: ', AI1WM_PLUGIN_NAME ),
-			'click_to_set_backup_label'           => __( 'Click to set a label for this backup', AI1WM_PLUGIN_NAME ),
-			'unable_to_refresh_backups_list'      => __( 'Unable to refresh backups list because: ', AI1WM_PLUGIN_NAME ),
-			'refresh_backup_list'                 => __( 'Refreshing backup list...', AI1WM_PLUGIN_NAME ),
 		) );
 	}
 

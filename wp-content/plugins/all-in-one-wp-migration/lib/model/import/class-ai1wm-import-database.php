@@ -312,7 +312,7 @@ class Ai1wm_Import_Database {
 					if ( ! isset( $config['NoEmailReplace'] ) ) {
 						if ( ! in_array( sprintf( '@%s', $old_domain ), $old_replace_values ) ) {
 							$old_replace_values[] = sprintf( '@%s', $old_domain );
-							$new_replace_values[] = sprintf( '@%s', $new_domain );
+							$new_replace_values[] = str_ireplace( '@www.', '@', sprintf( '@%s', $new_domain ) );
 						}
 					}
 				}
@@ -410,7 +410,7 @@ class Ai1wm_Import_Database {
 					if ( ! isset( $config['NoEmailReplace'] ) ) {
 						if ( ! in_array( sprintf( '@%s', $old_domain ), $old_replace_values ) ) {
 							$old_replace_values[] = sprintf( '@%s', $old_domain );
-							$new_replace_values[] = sprintf( '@%s', $new_domain );
+							$new_replace_values[] = str_ireplace( '@www.', '@', sprintf( '@%s', $new_domain ) );
 						}
 					}
 				}
@@ -509,7 +509,7 @@ class Ai1wm_Import_Database {
 				if ( ! isset( $config['NoEmailReplace'] ) ) {
 					if ( ! in_array( sprintf( '@%s', $old_domain ), $old_replace_values ) ) {
 						$old_replace_values[] = sprintf( '@%s', $old_domain );
-						$new_replace_values[] = sprintf( '@%s', $new_domain );
+						$new_replace_values[] = str_ireplace( '@www.', '@', sprintf( '@%s', $new_domain ) );
 					}
 				}
 			}
@@ -607,7 +607,7 @@ class Ai1wm_Import_Database {
 				if ( ! isset( $config['NoEmailReplace'] ) ) {
 					if ( ! in_array( sprintf( '@%s', $old_domain ), $old_replace_values ) ) {
 						$old_replace_values[] = sprintf( '@%s', $old_domain );
-						$new_replace_values[] = sprintf( '@%s', $new_domain );
+						$new_replace_values[] = str_ireplace( '@www.', '@', sprintf( '@%s', $new_domain ) );
 					}
 				}
 			}
