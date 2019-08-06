@@ -61,7 +61,10 @@
     padding-top: $spacing-sm;
     text-align: center;
 
-    a { font-size: 20px; }
+    a {
+      font-size: 20px;
+      @include font-size-xl(16px);
+    }
 
     &> .container {
       margin: 0;
@@ -80,15 +83,19 @@
       border-bottom: 2px solid black;
       width: calc(100% - #{$logo-width});
 
+      // applies to items at top level of nav bar
+      & > li > a { padding: 15px 0 $spacing-xs 0; }
+
       li {
         float: unset;
 
         & > a {
           color: black;
-          padding: 15px 0 $spacing-xs 0;
-          // padding-bottom: $spacing-xs;
+          padding-bottom: $spacing-xs;
           text-transform: uppercase;
           background-color: unset;
+
+          
 
           &:hover, &:active {
             background-color: unset;

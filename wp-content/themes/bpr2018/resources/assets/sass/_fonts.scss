@@ -5,6 +5,15 @@
 @mixin font-size-sm($new-font-size: 20px) {
   @media screen and (max-width: $width-sm) { font-size: $new-font-size; }
 }
+@mixin font-size-md($new-font-size: 20px) {
+  @media screen and (max-width: $width-md) { font-size: $new-font-size; }
+}
+@mixin font-size-lg($new-font-size: 20px) {
+  @media screen and (max-width: $width-lg) { font-size: $new-font-size; }
+}
+@mixin font-size-xl($new-font-size: 20px) {
+  @media screen and (max-width: $width-xl) { font-size: $new-font-size; }
+}
 
 h1, .h1 {
   font-family: $header-font, serif;

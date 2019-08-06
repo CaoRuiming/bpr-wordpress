@@ -42,7 +42,7 @@ if (is_single()) {
           <div class="container-fluid">
             <div class="row">
               <div class="row featured-post">
-                <div class="col-lg-6">
+                <div class="col-md-6">
                   <a href="<?php echo get_permalink(); ?>">
                     <div
                       class="img-40"
@@ -51,7 +51,7 @@ if (is_single()) {
                   </a>
                 </div>
     
-                <div class="col-lg-6">
+                <div class="col-md-6">
                   <?php the_category(); ?>
     
                   <h1 class="post-title-large">

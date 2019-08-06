@@ -13,7 +13,7 @@
           ?>
           <div class="container-fluid featured-post">
             <div class="row">
-              <div class="col-lg-6">
+              <div class="col-md-6">
                 <a href="<?php echo get_permalink($id); ?>">
                   <div
                     class="img-40"
@@ -22,7 +22,7 @@
                 </a>
               </div>
   
-              <div class="col-lg-6">
+              <div class="col-md-6">
                 <?php the_category(null, null, $id); ?>
   
                 <div class="post-title-large">
