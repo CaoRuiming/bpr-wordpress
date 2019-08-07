@@ -9,6 +9,12 @@
   height: $logo-height;
 }
 
+.featured-image {
+  @include img-common();
+  width: 100%;
+  padding-bottom: 75%;
+}
+
 .img-50 {
   @include img-common();
   max-width: 1000px;
