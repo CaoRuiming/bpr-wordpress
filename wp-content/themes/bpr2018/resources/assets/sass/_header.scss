@@ -24,7 +24,10 @@
       vertical-align: top;
       padding: 0;
 
-      input { padding-bottom: 0 }
+      input {
+        padding-bottom: 0;
+        padding-top: 0;
+      }
   
       &:focus-within:after {
         content: "";
@@ -44,7 +47,7 @@
         background-position: 0 0;
         height: 22px;
         width: 22px;
-        font-size: 19px;
+        font-size: 18px;
         font-family: $body-font, sans-serif;
         padding-left: 25px;
   
