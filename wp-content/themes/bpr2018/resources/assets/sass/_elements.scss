@@ -1,3 +1,6 @@
+// utils
+.overflow-hidden { overflow: hidden; }
+
 .horizontal-rule {
   margin-bottom: 10px;
   width: 100%;
@@ -43,7 +46,7 @@
   font-family: $body-font, sans-serif;
   text-transform: uppercase;
   line-height: 1;
-  font-size: 20px;
+  font-size: 18px;
   @include font-size-sm(14px);
 
   li {

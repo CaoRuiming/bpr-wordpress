@@ -67,8 +67,8 @@
     text-align: center;
 
     a {
-      font-size: 20px;
-      @include font-size-xl(16px);
+      font-size: 14px;//20px;
+      // @include font-size-xl(16px);
     }
 
     &> .container {
@@ -84,7 +84,7 @@
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
-      margin-top: 15px;
+      margin-top: 45px;//15px;
       border-bottom: 2px solid black;
       width: calc(100% - #{$logo-width});
 
@@ -96,7 +96,8 @@
 
         & > a {
           color: black;
-          padding-bottom: $spacing-xs;
+          padding: 0;
+          // padding-bottom: $spacing-xs;
           text-transform: uppercase;
           background-color: unset;
 

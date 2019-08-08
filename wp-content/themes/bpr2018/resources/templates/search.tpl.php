@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-<div id="search-page" class="container=fluid">
+<div id="search-page" class="container-fluid">
   <div id="search-field" class="row">
     <?php
     $search_icon_url = get_template_directory_uri() . '/resources/assets/images/search-icon.png';
@@ -34,7 +34,7 @@
         <?php if (get_the_date()) { echo get_the_date(); } ?>
       </div>
 
-      <div class="col-sm-8">
+      <div class="col-sm-7">
         <div class="post-title-small">
           <a href="<?php echo get_permalink(); ?>">
             <?php the_title(); ?>
@@ -53,7 +53,7 @@
         <div class="post-author font-size-18"><?php the_author(); ?></div>
       </div>
 
-      <div class="col-sm-2">
+      <div class="col-sm-3 overflow-hidden">
         <a href="<?php echo get_permalink(); ?>">
           <div
             class="img-10"

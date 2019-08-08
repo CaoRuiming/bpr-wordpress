@@ -25,16 +25,20 @@
   @include img-common();
   max-width: 600px;
   max-height: 450px;
-  width: 600px;
-  height: 450px;
+  // width: 600px;
+  // height: 450px;
+  width: 100%;
+  padding-bottom: 75%;
 }
 
 .img-30 {
   @include img-common();
   max-width: 400px;
   max-height: 300px;
-  width: 28vw;
-  height: 21vw;
+  // width: 28vw;
+  // height: 21vw;
+  width: 100%;
+  padding-bottom: 75%;
   @media screen and (max-width: $width-md) {
     width: 100%;
     padding-bottom: 75%;
@@ -53,4 +57,8 @@
   max-height: 150px;
   width: 200px;
   height: 150px;
+  @media screen and (max-width: $width-md) {
+    width: 100%;
+    padding-bottom: 75%;
+  }
 }
