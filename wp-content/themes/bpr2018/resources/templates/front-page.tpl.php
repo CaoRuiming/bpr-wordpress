@@ -202,9 +202,9 @@
         ?>
         <div class="recent-article">
           <a href="<?php echo get_permalink(); ?>">
-            <div class="img-30-wrapper">
+            <div class="img-35-wrapper">
               <div
-                class="img-30"
+                class="img-35"
                 style="background-image: url(<?php echo $pic_url; ?>);">
               </div>
             </div>
@@ -251,9 +251,9 @@
         ?>
         <div class="recent-article">
           <a href="<?php echo get_permalink(); ?>">
-            <div class="img-30-wrapper">
+            <div class="img-35-wrapper">
               <div
-                class="img-30"
+                class="img-35"
                 style="background-image: url(<?php echo $pic_url; ?>);">
               </div>
             </div>
@@ -303,9 +303,9 @@
         ?>
         <div class="recent-article">
           <a href="<?php echo get_permalink(); ?>">
-            <div class="img-30-wrapper">
+            <div class="img-35-wrapper">
               <div
-                class="img-30"
+                class="img-35"
                 style="background-image: url(<?php echo $pic_url; ?>);">
               </div>
             </div>
