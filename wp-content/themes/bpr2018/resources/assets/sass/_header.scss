@@ -87,19 +87,19 @@
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
-      margin-top: 45px;//15px;
+      margin-top: 40px;
       border-bottom: 2px solid black;
       width: calc(100% - #{$logo-width});
 
       // applies to items at top level of nav bar
-      & > li > a { padding: 15px 0 $spacing-xs 0; }
+      & > li > a { padding: 0 0 $spacing-xxs 0; }
 
       li {
         float: unset;
 
         & > a {
           color: black;
-          padding: 0;
+          // padding: 0;
           // padding-bottom: $spacing-xs;
           text-transform: uppercase;
           background-color: unset;
