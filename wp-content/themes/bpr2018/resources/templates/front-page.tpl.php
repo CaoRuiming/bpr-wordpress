@@ -98,9 +98,11 @@
         ?>
         <div class="col-sm-4 recent-article">
           <a href="<?php echo get_permalink(); ?>">
-            <div
-              class="img-30"
-              style="background-image: url(<?php echo $pic_url; ?>);">
+            <div class="img-30-wrapper">
+              <div
+                class="img-30"
+                style="background-image: url(<?php echo $pic_url; ?>);">
+              </div>
             </div>
           </a>
 
@@ -148,9 +150,11 @@
         ?>
         <div class="col-sm-4 recent-article">
           <a href="<?php echo get_permalink(); ?>">
-            <div
-              class="img-30"
-              style="background-image: url(<?php echo $pic_url; ?>);">
+            <div class="img-30-wrapper">
+              <div
+                class="img-30"
+                style="background-image: url(<?php echo $pic_url; ?>);">
+              </div>
             </div>
           </a>
 
@@ -349,9 +353,11 @@
         <div class="recent-article row">
           <div class="col-sm-5">
             <a href="<?php echo get_permalink(); ?>">
-              <div
-                class="img-10"
-                style="background-image: url(<?php echo $pic_url; ?>);">
+              <div class="img-10-wrapper">
+                <div
+                  class="img-10"
+                  style="background-image: url(<?php echo $pic_url; ?>);">
+                </div>
               </div>
             </a>
           </div>

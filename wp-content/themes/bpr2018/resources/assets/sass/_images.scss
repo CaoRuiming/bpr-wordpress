@@ -43,8 +43,11 @@
   }
 }
 .img-30-wrapper {
-  @media screen and (min-width: $width-sm) {
+  @media screen and (min-width: $width-md) {
     width: 25vw;
+  }
+  @media screen and (min-width: $width-sm) and (max-width: $width-md) {
+    width: 50vw;
   }
 }
 
@@ -56,16 +59,8 @@
 
 .img-10 {
   @include img-common();
-  max-width: 200px;
-  max-height: 150px;
-  width: 200px;
-  height: 150px;
-  @media screen and (max-width: $width-md) {
-    max-width: unset;
-    max-height: unset;
-    width: 100%;
-    padding-bottom: 75%;
-  }
+  width: 100%;
+  padding-bottom: 75%;
 }
 .img-10-wrapper {
   @media screen and (min-width: $width-sm) and (max-width: $width-md) {
