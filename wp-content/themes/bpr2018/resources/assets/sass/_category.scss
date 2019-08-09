@@ -8,6 +8,11 @@
   .category-title { margin-bottom: $spacing-xs; }
   .horizontal-rule:nth-child(1) { display: none; }
   .latest-post { margin-bottom: $spacing-sm; }
+  .img-10-wrapper {
+    @media screen and (max-width: $width-md) {
+      padding-top: $spacing-sm;
+    }
+  }
 
   #popular-articles { margin-bottom: $spacing-lg; }
 }

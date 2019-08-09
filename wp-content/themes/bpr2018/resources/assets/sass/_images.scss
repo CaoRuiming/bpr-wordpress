@@ -35,13 +35,16 @@
   @include img-common();
   max-width: 400px;
   max-height: 300px;
-  // width: 28vw;
-  // height: 21vw;
   width: 100%;
   padding-bottom: 75%;
   @media screen and (max-width: $width-md) {
     width: 100%;
     padding-bottom: 75%;
+  }
+}
+.img-30-wrapper {
+  @media screen and (min-width: $width-sm) {
+    width: 25vw;
   }
 }
 
@@ -58,7 +61,14 @@
   width: 200px;
   height: 150px;
   @media screen and (max-width: $width-md) {
+    max-width: unset;
+    max-height: unset;
     width: 100%;
     padding-bottom: 75%;
+  }
+}
+.img-10-wrapper {
+  @media screen and (min-width: $width-sm) and (max-width: $width-md) {
+    width: 50vw;
   }
 }

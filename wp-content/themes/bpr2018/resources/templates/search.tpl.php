@@ -55,9 +55,11 @@
 
       <div class="col-sm-3 overflow-hidden">
         <a href="<?php echo get_permalink(); ?>">
-          <div
-            class="img-10"
-            style="background-image: url(<?php echo $pic_url; ?>);">
+          <div class="img-10-wrapper">
+            <div
+              class="img-10"
+              style="background-image: url(<?php echo $pic_url; ?>);">
+            </div>
           </div>
         </a>
       </div>

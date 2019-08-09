@@ -13,7 +13,7 @@
           ?>
           <div class="container-fluid featured-post">
             <div class="row">
-              <div class="col-md-6">
+              <div class="col-sm-6">
                 <a href="<?php echo get_permalink($id); ?>">
                   <div
                     class="img-40"
@@ -22,7 +22,7 @@
                 </a>
               </div>
   
-              <div class="col-md-6">
+              <div class="col-sm-6">
                 <?php the_category(null, null, $id); ?>
   
                 <div class="post-title-large">
@@ -96,7 +96,7 @@
         $post = $recent->the_post();
         $pic_url = get_the_post_thumbnail_url();
         ?>
-        <div class="col-md-4 recent-article">
+        <div class="col-sm-4 recent-article">
           <a href="<?php echo get_permalink(); ?>">
             <div
               class="img-30"
@@ -146,7 +146,7 @@
         $post = $recent->the_post();
         $pic_url = get_the_post_thumbnail_url();
         ?>
-        <div class="col-md-4 recent-article">
+        <div class="col-sm-4 recent-article">
           <a href="<?php echo get_permalink(); ?>">
             <div
               class="img-30"
@@ -173,7 +173,7 @@
   </div>
 
   <div class="row category-cols">
-    <div id="section-3" class="col-md-6 category-col">
+    <div id="section-3" class="col-sm-6 category-col">
       <?php
       $slug = get_field('section_3', $page_id)[0]->slug;
       $category_object = get_category_by_slug($slug);
@@ -198,9 +198,11 @@
         ?>
         <div class="recent-article">
           <a href="<?php echo get_permalink(); ?>">
-            <div
-              class="img-30"
-              style="background-image: url(<?php echo $pic_url; ?>);">
+            <div class="img-30-wrapper">
+              <div
+                class="img-30"
+                style="background-image: url(<?php echo $pic_url; ?>);">
+              </div>
             </div>
           </a>
 
@@ -220,7 +222,7 @@
         More from  <?php echo $category_object->name; ?> >
       </a>
     </div>
-    <div id="section-4" class="col-md-6 category-col">
+    <div id="section-4" class="col-sm-6 category-col">
       <?php
       $slug = get_field('section_4', $page_id)[0]->slug;
       $category_object = get_category_by_slug($slug);
@@ -245,9 +247,11 @@
         ?>
         <div class="recent-article">
           <a href="<?php echo get_permalink(); ?>">
-            <div
-              class="img-30"
-              style="background-image: url(<?php echo $pic_url; ?>);">
+            <div class="img-30-wrapper">
+              <div
+                class="img-30"
+                style="background-image: url(<?php echo $pic_url; ?>);">
+              </div>
             </div>
           </a>
 
@@ -270,7 +274,7 @@
   </div>
 
   <div class="row category-cols">
-    <div id="section-5" class="col-md-6 category-col">
+    <div id="section-5" class="col-sm-6 category-col">
       <?php
       $slug = get_field('section_5', $page_id)[0]->slug;
       $category_object = get_category_by_slug($slug);
@@ -295,9 +299,11 @@
         ?>
         <div class="recent-article">
           <a href="<?php echo get_permalink(); ?>">
-            <div
-              class="img-30"
-              style="background-image: url(<?php echo $pic_url; ?>);">
+            <div class="img-30-wrapper">
+              <div
+                class="img-30"
+                style="background-image: url(<?php echo $pic_url; ?>);">
+              </div>
             </div>
           </a>
 
@@ -317,7 +323,7 @@
         More from  <?php echo $category_object->name; ?> >
       </a>
     </div>
-    <div id="section-6" class="col-md-6 category-col-compact">
+    <div id="section-6" class="col-sm-6 category-col-compact">
       <?php
       $slug = get_field('section_6', $page_id)[0]->slug;
       $category_object = get_category_by_slug($slug);

@@ -30,7 +30,7 @@
     &.carousel-prev { left: -50px; }
     &.carousel-next { right: -50px; }
   
-    @media screen and (max-width: $website-max-width) {
+    @media screen and (max-width: $width-md) {
       height: 0;
       width: 0;
     }

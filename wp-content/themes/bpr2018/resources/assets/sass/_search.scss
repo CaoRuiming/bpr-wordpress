@@ -8,6 +8,12 @@
     margin-bottom: $spacing-sm;
     ul { padding: 0; }
 
+    .img-10-wrapper {
+      @media screen and (max-width: $width-md) {
+        padding-top: $spacing-sm;
+      }
+    }
+
     .post-categories a {
       border: none;
       font-size: 15px;

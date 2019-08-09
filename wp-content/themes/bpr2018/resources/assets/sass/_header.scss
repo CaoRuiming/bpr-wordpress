@@ -1,9 +1,12 @@
 .app {
   max-width: $website-max-width;
-  margin: $spacing-md auto;
+  @media screen and (min-width: $width-md) {
+    width: $website-width;
+  }
 
+  margin: $spacing-md auto;
   @media screen and (max-width: $width-lg) {
-    margin: $spacing-sm;
+    margin: $spacing-sm auto;
   }
 
   #header-icons {
