@@ -42,11 +42,11 @@
       </div>
 
       <section class="article-bottom">
-        <div class="post-tags">
+        <div class="post-tags" itemprop="keywords">
           <?php
           the_tags(
-            '<div class="post-tag uppercase font-size-16" itemprop="keywords">',
-            '</div><div class="post-tag uppercase font-size-16" itemprop="keywords">',
+            '<div class="post-tag uppercase font-size-16">',
+            '</div><span style="display: none;">,</span><div class="post-tag uppercase font-size-16">',
             '</div>'
           );
           ?>
