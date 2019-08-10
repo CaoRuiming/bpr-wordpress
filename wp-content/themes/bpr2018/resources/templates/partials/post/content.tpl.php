@@ -39,7 +39,7 @@
 
       <div class="article-bottom-wrapper container-fluid">
         <div class="article-bottom row">
-          <div class="tags-and-author col-sm-9">
+          <div class="tags-and-author col-sm-12">
             <div class="post-tags">
               <?php
               the_tags(
@@ -59,8 +59,6 @@
               </div>
             <?php endif; ?>
           </div>
-
-          <div class="social-and-sharing col-sm-3"></div>
         </div>
         <div class="row">
           <p class="suggested-articles-title">SUGGESTED ARTICLES</p>

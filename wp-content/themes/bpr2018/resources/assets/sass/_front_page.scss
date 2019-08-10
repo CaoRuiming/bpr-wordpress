@@ -12,14 +12,14 @@
   .category-row {
     margin: 0 0 $spacing-md 0;
     ul { padding: 0; }
-    .recent-article { padding-bottom: 30px; }
+    .post-block { padding-bottom: 30px; }
   }
 
   .category-cols {
     margin-bottom: $spacing-md;
 
     .more-link { margin-bottom: $spacing-md; }
-    .recent-article {
+    .post-block {
       padding: 0;
       margin-bottom: $spacing-md;
       overflow: hidden;

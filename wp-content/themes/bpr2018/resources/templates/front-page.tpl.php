@@ -91,32 +91,11 @@
         'posts_per_page' => 3,
       ));
 
-      while ($recent->have_posts()): ?>
-        <?php
-        $post = $recent->the_post();
-        $pic_url = get_the_post_thumbnail_url();
-        ?>
-        <div class="col-sm-4 recent-article">
-          <a href="<?php echo get_permalink(); ?>">
-            <div class="img-30-wrapper">
-              <div
-                class="img-30"
-                style="background-image: url(<?php echo $pic_url; ?>);">
-              </div>
-            </div>
-          </a>
-
-          <div class="post-title-small">
-            <a href="<?php echo get_permalink(); ?>">
-              <?php the_title(); ?>
-            </a>
-          </div>
-
-          <div class="post-author post-date font-size-18">
-            <?php the_author(); ?><?php if (get_the_date()) { echo ' | ' . get_the_date(); } ?>
-          </div>
-        </div>
-      <?php endwhile; ?>
+      while ($recent->have_posts()) {
+        $recent->the_post();
+        do_action('theme/single/row-block');
+      }
+      ?>
     </div>
 
     <a class="more-link" href="<?php echo get_category_link($category_object); ?>">
@@ -143,32 +122,11 @@
         'posts_per_page' => 3,
       ));
 
-      while ($recent->have_posts()): ?>
-        <?php
-        $post = $recent->the_post();
-        $pic_url = get_the_post_thumbnail_url();
-        ?>
-        <div class="col-sm-4 recent-article">
-          <a href="<?php echo get_permalink(); ?>">
-            <div class="img-30-wrapper">
-              <div
-                class="img-30"
-                style="background-image: url(<?php echo $pic_url; ?>);">
-              </div>
-            </div>
-          </a>
-
-          <div class="post-title-small">
-            <a href="<?php echo get_permalink(); ?>">
-              <?php the_title(); ?>
-            </a>
-          </div>
-
-          <div class="post-author post-date font-size-18">
-            <?php the_author(); ?><?php if (get_the_date()) { echo ' | ' . get_the_date(); } ?>
-          </div>
-        </div>
-      <?php endwhile; ?>
+      while ($recent->have_posts()) {
+        $recent->the_post();
+        do_action('theme/single/row-block');
+      }
+      ?>
     </div>
 
     <a class="more-link" href="<?php echo get_category_link($category_object); ?>">
@@ -195,32 +153,11 @@
         'posts_per_page' => 3,
       ));
 
-      while ($recent->have_posts()): ?>
-        <?php
-        $post = $recent->the_post();
-        $pic_url = get_the_post_thumbnail_url();
-        ?>
-        <div class="recent-article">
-          <a href="<?php echo get_permalink(); ?>">
-            <div class="img-35-wrapper">
-              <div
-                class="img-35"
-                style="background-image: url(<?php echo $pic_url; ?>);">
-              </div>
-            </div>
-          </a>
-
-          <div class="post-title-small">
-            <a href="<?php echo get_permalink(); ?>">
-              <?php the_title(); ?>
-            </a>
-          </div>
-
-          <div class="post-author post-date font-size-18">
-            <?php the_author(); ?><?php if (get_the_date()) { echo ' | ' . get_the_date(); } ?>
-          </div>
-        </div>
-      <?php endwhile; ?>
+      while ($recent->have_posts()) {
+        $recent->the_post();
+        do_action('theme/single/col-block');
+      }
+      ?>
 
       <a class="more-link" href="<?php echo get_category_link($category_object); ?>">
         More from  <?php echo $category_object->name; ?> >
@@ -244,32 +181,11 @@
         'posts_per_page' => 3,
       ));
 
-      while ($recent->have_posts()): ?>
-        <?php
-        $post = $recent->the_post();
-        $pic_url = get_the_post_thumbnail_url();
-        ?>
-        <div class="recent-article">
-          <a href="<?php echo get_permalink(); ?>">
-            <div class="img-35-wrapper">
-              <div
-                class="img-35"
-                style="background-image: url(<?php echo $pic_url; ?>);">
-              </div>
-            </div>
-          </a>
-
-          <div class="post-title-small">
-            <a href="<?php echo get_permalink(); ?>">
-              <?php the_title(); ?>
-            </a>
-          </div>
-
-          <div class="post-author post-date font-size-18">
-            <?php the_author(); ?><?php if (get_the_date()) { echo ' | ' . get_the_date(); } ?>
-          </div>
-        </div>
-      <?php endwhile; ?>
+      while ($recent->have_posts()) {
+        $recent->the_post();
+        do_action('theme/single/col-block');
+      }
+      ?>
 
       <a class="more-link" href="<?php echo get_category_link($category_object); ?>">
         More from  <?php echo $category_object->name; ?> >
@@ -296,32 +212,11 @@
         'posts_per_page' => 3,
       ));
 
-      while ($recent->have_posts()): ?>
-        <?php
-        $post = $recent->the_post();
-        $pic_url = get_the_post_thumbnail_url();
-        ?>
-        <div class="recent-article">
-          <a href="<?php echo get_permalink(); ?>">
-            <div class="img-35-wrapper">
-              <div
-                class="img-35"
-                style="background-image: url(<?php echo $pic_url; ?>);">
-              </div>
-            </div>
-          </a>
-
-          <div class="post-title-small">
-            <a href="<?php echo get_permalink(); ?>">
-              <?php the_title(); ?>
-            </a>
-          </div>
-
-          <div class="post-author post-date font-size-18">
-            <?php the_author(); ?><?php if (get_the_date()) { echo ' | ' . get_the_date(); } ?>
-          </div>
-        </div>
-      <?php endwhile; ?>
+      while ($recent->have_posts()) {
+        $recent->the_post();
+        do_action('theme/single/col-block');
+      }
+      ?>
 
       <a class="more-link" href="<?php echo get_category_link($category_object); ?>">
         More from  <?php echo $category_object->name; ?> >
@@ -345,36 +240,11 @@
         'posts_per_page' => 6,
       ));
 
-      while ($recent->have_posts()): ?>
-        <?php
-        $post = $recent->the_post();
-        $pic_url = get_the_post_thumbnail_url();
-        ?>
-        <div class="recent-article row">
-          <div class="col-sm-5">
-            <a href="<?php echo get_permalink(); ?>">
-              <div class="img-10-wrapper">
-                <div
-                  class="img-10"
-                  style="background-image: url(<?php echo $pic_url; ?>);">
-                </div>
-              </div>
-            </a>
-          </div>
-
-          <div class="text col-sm-7">
-            <div class="post-title-small">
-              <a href="<?php echo get_permalink(); ?>">
-                <?php the_title(); ?>
-              </a>
-            </div>
-
-            <div class="post-author post-date font-size-18">
-              <?php the_author(); ?><?php if (get_the_date()) { echo ' | ' . get_the_date(); } ?>
-            </div>
-          </div>
-        </div>
-      <?php endwhile; ?>
+      while ($recent->have_posts()) {
+        $recent->the_post();
+        do_action('theme/single/col-block-small');
+      }
+      ?>
 
       <a class="more-link" href="<?php echo get_category_link($category_object); ?>">
         More from  <?php echo $category_object->name; ?> >

@@ -73,3 +73,39 @@ function render_documentation_button()
     echo do_shortcode("[button href='https://github.com/tonik/tonik']Checkout documentation →[/button]");
 }
 add_action('theme/header/end', 'BPRWP\Theme\App\Structure\render_documentation_button');
+
+
+// Front Page content
+
+/**
+ * Renders a block preview of a post. Meant to be used in a row on front page.
+ *
+ * @see resources/templates/single.tpl.php
+ */
+function render_post_row_block()
+{
+    template(['partials/post/row-block', get_post_format()]);
+}
+add_action('theme/single/row-block', 'BPRWP\Theme\App\Structure\render_post_row_block');
+
+/**
+ * Renders a block preview of a post. Meant to be used in a column on front page.
+ *
+ * @see resources/templates/single.tpl.php
+ */
+function render_post_col_block()
+{
+    template(['partials/post/col-block', get_post_format()]);
+}
+add_action('theme/single/col-block', 'BPRWP\Theme\App\Structure\render_post_col_block');
+
+/**
+ * Renders a block preview of a post. Meant to be used in a column on front page.
+ *
+ * @see resources/templates/single.tpl.php
+ */
+function render_post_col_block_small()
+{
+    template(['partials/post/col-block-small', get_post_format()]);
+}
+add_action('theme/single/col-block-small', 'BPRWP\Theme\App\Structure\render_post_col_block_small');
