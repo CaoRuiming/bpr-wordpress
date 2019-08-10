@@ -92,6 +92,7 @@
     $suggested  = new WP_Query(array(
       'posts_per_page' => 3,
       'cat' => array_map(function($c) { return $c->cat_ID; }, get_the_category()),
+      'post__not_in' => array(get_the_ID()), // exclude current post
     ));
     $suggested_count = 0;
     while ($suggested->have_posts() && $suggested_count < 3): ?>
