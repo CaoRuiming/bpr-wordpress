@@ -72,37 +72,15 @@
     <?php 
     $suggested  = new WP_Query(array(
       'posts_per_page' => 3,
-      'meta_key' => 'post_views_count',
-      'orderby' => 'meta_value_num',
-      'order' => 'DESC'
+      'cat' => array_map(function($c) { return $c->cat_ID; }, get_the_category()),
     ));
     $suggested_count = 0;
     while ($suggested->have_posts() && $suggested_count < 3): ?>
       <?php
       $suggested_count += 1;
-      $post = $suggested->the_post();
-      $pic_url = get_the_post_thumbnail_url();
+      $suggested->the_post();
+      do_action('theme/single/row-block');
       ?>
-      <div class="col-md-4 suggested-article">
-        <a href="<?php echo get_permalink(); ?>">
-          <div
-            class="img-30"
-            style="background-image: url(<?php echo $pic_url; ?>);">
-          </div>
-        </a>
-
-        <?php the_category(); ?>
-        
-        <div class="post-title-small">
-          <a href="<?php echo get_permalink(); ?>">
-            <?php the_title(); ?>
-          </a>
-        </div>
-
-        <div class="post-author post-date font-size-18">
-          <?php the_author(); ?><?php if (get_the_date()) { echo ' | ' . get_the_date(); } ?>
-        </div>
-      </div>
     <?php endwhile; wp_reset_postdata(); ?>
   </div>
 

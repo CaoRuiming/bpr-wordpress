@@ -16,8 +16,7 @@
   }
 
   .category-cols {
-    margin-bottom: $spacing-md;
-
+    .category-col { margin-bottom: $spacing-md; }
     .more-link { margin-bottom: $spacing-md; }
     .post-block {
       padding: 0;

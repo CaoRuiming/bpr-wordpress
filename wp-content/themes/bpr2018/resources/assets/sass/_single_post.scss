@@ -40,7 +40,7 @@ article {
   }
 
   .post-categories {
-    @media screen and (max-width: $width-sm) { display: none; }
+    @media screen and (max-width: $width-xl) { display: none; }
   }
 
   .back-to-top {

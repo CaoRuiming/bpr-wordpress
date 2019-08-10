@@ -9,6 +9,8 @@
     </div>
   </a>
 
+  <?php if (!is_front_page()) the_category(); ?>
+
   <div class="post-title-small">
     <a href="<?php echo get_permalink(); ?>">
       <?php the_title(); ?>
