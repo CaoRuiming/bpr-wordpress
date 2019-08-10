@@ -10,4 +10,4 @@ use function BPRWP\Theme\App\template;
  *
  * @see resources/templates/author.tpl.php
  */
-template('author');
+template('archive');

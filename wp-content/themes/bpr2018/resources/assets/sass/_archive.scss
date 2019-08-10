@@ -1,0 +1,16 @@
+#archive-page {
+  margin: $spacing-lg auto;
+  .more-link { margin-top: $spacing-lg; }
+  .archive-title { margin-bottom: $spacing-xs; }
+  .post-row { margin-bottom: $spacing-sm; }
+  .img-10-wrapper {
+    @media screen and (max-width: $width-md) {
+      padding-top: $spacing-sm;
+    }
+  }
+  .post-categories a {
+    border: none;
+    font-size: 15px;
+    margin-bottom: $spacing-sm;
+  }
+}

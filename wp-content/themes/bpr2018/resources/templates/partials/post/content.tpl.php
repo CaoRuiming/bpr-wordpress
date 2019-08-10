@@ -6,7 +6,7 @@
       <h1><?php the_title(); ?></h1>
 
       <div class="post-author post-date font-size-24">
-        <a href="<?php get_author_posts_url(get_the_author_meta('ID')); ?>">
+        <a href="<?php echo get_author_posts_url(get_the_author_meta('ID')); ?>">
           <?php the_author(); ?>
         </a><?php if (get_the_date()) { echo ' | ' . get_the_date(); } ?>
       </div>

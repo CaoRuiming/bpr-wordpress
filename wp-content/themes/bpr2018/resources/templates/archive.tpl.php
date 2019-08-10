@@ -1,30 +1,15 @@
 <?php get_header(); ?>
 
-<div id="search-page" class="container-fluid">
-  <div id="search-field" class="row">
-    <?php
-    $search_icon_url = get_template_directory_uri() . '/resources/assets/images/search-icon.png';
-    ?>
-    <div
-      id="search-icon"
-      style="background-image: url(<?php echo $search_icon_url ?>)">
+<div id="archive-page" class="container-fluid">
+
+  <?php if (get_the_archive_title()): ?>
+    <div class="archive-title font-size-100">
+      <?php echo get_the_archive_title(); ?>
     </div>
-    <form
-      id="search-form"
-      class="col-xs-12"
-      role="search"
-      method="get"
-      action="<?php echo esc_url(home_url('/')); ?>"
-    >
-      <input
-        id="search-input"
-        type="search"
-        placeholder="Search…"
-        name="s"
-        value="<?php echo esc_attr( get_search_query() ); ?>"
-      />
-    </form>
-  </div>
+  <?php endif; ?>
+
+  <div class="horizontal-rule"></div>
+  <div class="section-title">Latest</div>
 
   <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
     <?php do_action('theme/single/row'); ?>
@@ -50,6 +35,13 @@
   <?php else: ?>
     <p><?php esc_html_e( 'Sorry, no posts matched your search.' ); ?></p>
   <?php endif; ?>
+
+  <script>
+    // hide first faint horizontal rule in results list
+    document.body
+      .querySelector('.horizontal-rule.faint')
+      .setAttribute('style', 'display: none;');
+  </script>
 </div>
 
 <?php get_footer(); ?>

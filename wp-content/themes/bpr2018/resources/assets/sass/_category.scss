@@ -6,8 +6,7 @@
   .carousel .col-md-6 { overflow: hidden; }
   .more-link { margin-top: $spacing-lg; }
   .category-title { margin-bottom: $spacing-xs; }
-  .horizontal-rule:nth-child(1) { display: none; }
-  .latest-post { margin-bottom: $spacing-sm; }
+  .post-row { margin-bottom: $spacing-sm; }
   .img-10-wrapper {
     @media screen and (max-width: $width-md) {
       padding-top: $spacing-sm;

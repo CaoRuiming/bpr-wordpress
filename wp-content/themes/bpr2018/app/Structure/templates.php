@@ -74,9 +74,6 @@ function render_documentation_button()
 }
 add_action('theme/header/end', 'BPRWP\Theme\App\Structure\render_documentation_button');
 
-
-// Front Page content
-
 /**
  * Renders a block preview of a post. Meant to be used in a row on front page.
  *
@@ -109,3 +106,14 @@ function render_post_col_block_small()
     template(['partials/post/col-block-small', get_post_format()]);
 }
 add_action('theme/single/col-block-small', 'BPRWP\Theme\App\Structure\render_post_col_block_small');
+
+/**
+ * Renders a row preview of a post. Meant to be used in archive templates.
+ *
+ * @see resources/templates/single.tpl.php
+ */
+function render_post_row()
+{
+    template(['partials/post/row', get_post_format()]);
+}
+add_action('theme/single/row', 'BPRWP\Theme\App\Structure\render_post_row');
