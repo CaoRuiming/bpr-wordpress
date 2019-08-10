@@ -1,22 +1,26 @@
-<article>
+<article itemscope itemtype="https://schema.org/Article">
   <div class="row">
     <div class="col-lg-2"></div> <!-- Padding -->
     <div class="content col-lg-8">
       <a id="article-top" name="article-top"></a> <!-- For back to top -->
-      <h1><?php the_title(); ?></h1>
+      <h1 itemprop="name"><?php the_title(); ?></h1>
 
       <div class="post-author post-date font-size-24">
-        <a href="<?php echo get_author_posts_url(get_the_author_meta('ID')); ?>">
+        <a
+          itemprop="author"
+          href="<?php echo get_author_posts_url(get_the_author_meta('ID')); ?>">
           <?php the_author(); ?>
         </a>
-        <?php if (get_the_date()) { echo ' | <time>' . get_the_date() . '</time>'; } ?>
+        <?php
+        if (get_the_date()) { echo ' | <time itemprop="datePublished">' . get_the_date() . '</time>'; }
+        ?>
       </div>
 
       <?php 
       $pic_url = wp_get_attachment_url(get_post_thumbnail_id(get_the_ID()));
       if ($pic_url):
       ?>
-        <figure>
+        <figure itemprop="image">
           <img class="featured-image" src="<?php echo $pic_url; ?>">
         </figure>
       <?php endif; ?>
@@ -31,7 +35,7 @@
     <div class="col-lg-2"></div>
 
     <div class="content col-lg-8">
-      <?php the_content(); ?>
+      <div itemprop="articleBody"><?php the_content(); ?></div>
 
       <div class="back-to-top text-center">
         <a href="#article-top" class="uppercase font-size-18">Back to Top</a>
@@ -41,8 +45,8 @@
         <div class="post-tags">
           <?php
           the_tags(
-            '<div class="post-tag uppercase font-size-16">',
-            '</div><div class="post-tag uppercase font-size-16">',
+            '<div class="post-tag uppercase font-size-16" itemprop="keywords">',
+            '</div><div class="post-tag uppercase font-size-16" itemprop="keywords">',
             '</div>'
           );
           ?>
