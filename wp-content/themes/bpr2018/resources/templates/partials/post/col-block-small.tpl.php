@@ -19,7 +19,9 @@
     </div>
 
     <div class="post-author post-date font-size-18">
-      <?php the_author(); ?><?php if (get_the_date()) { echo ' | ' . get_the_date(); } ?>
+      <a href="<?php echo get_author_posts_url(get_the_author_meta('ID')); ?>">
+        <?php the_author(); ?>
+      </a><?php if (get_the_date()) { echo ' | ' . get_the_date(); } ?>
     </div>
   </div>
 </div>

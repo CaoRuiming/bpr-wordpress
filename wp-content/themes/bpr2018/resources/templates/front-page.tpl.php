@@ -39,7 +39,10 @@
                 </p>
   
                 <div class="post-author post-date font-size-20">
-                  <?php echo get_the_author_meta('display_name', $post->post_author); ?>
+                  <?php $author_id = $post->post_author; ?>
+                  <a href="<?php echo get_author_posts_url($author_id); ?>">
+                    <?php echo get_the_author_meta('display_name', $author_id); ?>
+                  </a>
                   <?php if (get_the_date('', $id)) { echo ' | ' . get_the_date('', $id); } ?>
                 </div>
               </div>

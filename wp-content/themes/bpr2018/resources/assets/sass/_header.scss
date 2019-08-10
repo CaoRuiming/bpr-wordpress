@@ -92,7 +92,7 @@
       width: calc(100% - #{$logo-width});
 
       // applies to items at top level of nav bar
-      & > li > a { padding: 0 0 $spacing-xxs 0; }
+      & > li > a { padding: 0 2px $spacing-xxs 2px; }
 
       li {
         float: unset;
