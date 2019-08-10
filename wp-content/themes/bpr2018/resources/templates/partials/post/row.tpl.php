@@ -1,8 +1,8 @@
 <?php $pic_url = get_the_post_thumbnail_url(); global $TEMPLATE_IS_CATEGORY; ?>
 <div class="horizontal-rule faint"></div>
-<div class="row post-row">
+<article class="row post-row">
   <div class="col-sm-2 post-date font-size-18">
-    <?php if (get_the_date()) { echo get_the_date(); } ?>
+    <?php if (get_the_date()) { echo '<time>' . get_the_date() . '</time>'; } ?>
   </div>
 
   <div class="col-sm-7">
@@ -34,4 +34,4 @@
       </div>
     </a>
   </div>
-</div>
+</article>

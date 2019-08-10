@@ -1,89 +1,67 @@
-article {
-  h1 { margin-bottom: 25px; }
-
-  .post-author.post-date { margin: $spacing-sm 0 $spacing-md; }
-
-  .hline {
-    width: 50px;
-    height: 2px;
-    background: #000000;
-    margin: 50px 0 50px 0;
-  }
-
+#single-template {
   .post-categories a {
     font-family: $body-font;
     font-size: 18px;
     border: none;
     padding-bottom: 0;
   }
-
-  .pullquote {
-    font-family: $header-font;
-    font-style: italic;
-    font-weight: 700;
-    font-size: 2.0em;
-    color: #9F9F9F;
-    margin: 0 0 1.4em 0;
-
-    &.left {
-      text-align: left;
-      @media (min-width: $width-xl) {
-        margin: 0 8vw 1.4em -8vw;
+  .post-author.post-date { margin: $spacing-sm 0 $spacing-md; }
+  
+  article {
+    h1 { margin-bottom: 25px; }
+  
+    .hline {
+      width: 50px;
+      height: 2px;
+      background: #000000;
+      margin: 50px 0 50px 0;
+    }
+  
+    .post-categories {
+      @media screen and (max-width: $width-xl) { display: none; }
+    }
+  
+    .back-to-top {
+      margin: 100px 0 50px 0;
+      
+      a {
+        padding-bottom: 3px;
+        border-bottom: 2px solid #000000;
       }
     }
-    &.right {
-      text-align: right;
-      @media (min-width: $width-xl) {
-        margin: 0 -8vw 1.4em 8vw;
+  
+    .article-bottom {
+      border-top: 2px solid #D9D9D9;
+      border-bottom: 2px solid #D9D9D9;
+  
+      .post-tags {
+        margin-top: $spacing-md;
+        margin-bottom: $spacing-md;
+  
+        .post-tag {
+          display: inline-block;
+          color: #707070;
+          margin: $spacing-xs 25px $spacing-xs 0;
+          padding: 5px;
+          border: 2px solid #707070;
+          border-radius: 10px;
+        }
+      }
+  
+      .about-author {
+        margin-bottom: $spacing-md;
+        .about-author-title { font-weight: 700; }
       }
     }
   }
-
-  .post-categories {
-    @media screen and (max-width: $width-xl) { display: none; }
-  }
-
-  .back-to-top {
-    margin: 100px 0 50px 0;
-    
-    a {
-      padding-bottom: 3px;
-      border-bottom: 2px solid #000000;
-    }
-  }
-
-  .article-bottom {
-    border-top: 2px solid #D9D9D9;
-    border-bottom: 2px solid #D9D9D9;
-
-    .post-tags {
-      margin-top: $spacing-md;
-      margin-bottom: $spacing-md;
-
-      .post-tag {
-        display: inline-block;
-        color: #707070;
-        margin: $spacing-xs 25px $spacing-xs 0;
-        padding: 9px 9px 9px 9px;
-        border: 2px solid #707070;
-        border-radius: 10px;
-      }
-    }
-
-    .about-author {
-      margin-bottom: $spacing-md;
-      .about-author-title { font-weight: 700; }
-    }
-  }
-
+  
   .suggested-articles-title { margin: 25px 0 50px 0; }
-
   .suggested-articles {
     width: $website-width;
     margin-bottom: 15px;
     @media screen and (max-width: $width-sm) { margin: 0 0 15px 0; }
     ul { padding: 0; }
-
+  
     .post-categories {
       margin-top: 15px;
       text-transform: uppercase;

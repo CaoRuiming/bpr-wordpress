@@ -21,110 +21,120 @@ if (is_single()) {
     </div>
   <?php endif; ?>
 
-  <div class="category-title font-size-100"><?php echo $category->name; ?></div>
-  <div class="horizontal-rule"></div>
-  <div class="section-title">Popular Articles</div>
+  <h1 class="category-title font-size-100 header-font">
+    <?php echo $category->name; ?>
+  </h1>
 
-  <div id="popular-articles" class="container-fluid">
-    <div class="carousel-wrapper row">
-      <div class="carousel">
-        <?php
-        $recent  = new WP_Query(array(
-          'category_name' => $category->slug,
-          'posts_per_page' => 3,
-        ));
-
-        while ($recent->have_posts()): ?>
+  <section>
+    <div class="horizontal-rule"></div>
+    <h2 class="section-title header-font">Popular Articles</h2>
+  
+    <div id="popular-articles" class="container-fluid">
+      <div class="carousel-wrapper row">
+        <div class="carousel">
           <?php
-          $post = $recent->the_post();
-          $pic_url = get_the_post_thumbnail_url();
-          ?>
-          <div class="container-fluid">
-            <div class="row">
-              <div class="row featured-post">
-                <div class="col-sm-6">
-                  <a href="<?php echo get_permalink(); ?>">
-                    <div
-                      class="img-40"
-                      style="background-image: url(<?php echo $pic_url; ?>);">
-                    </div>
-                  </a>
-                </div>
-    
-                <div class="col-sm-6">
-                  <?php the_category(); ?>
-    
-                  <h1 class="post-title-large">
+          $recent  = new WP_Query(array(
+            'category_name' => $category->slug,
+            'posts_per_page' => 3,
+          ));
+  
+          while ($recent->have_posts()): ?>
+            <?php
+            $post = $recent->the_post();
+            $pic_url = get_the_post_thumbnail_url();
+            ?>
+            <div class="container-fluid">
+              <div class="row">
+                <article class="row featured-post">
+                  <div class="col-sm-6">
                     <a href="<?php echo get_permalink(); ?>">
-                      <?php the_title(); ?>
+                      <div
+                        class="img-40"
+                        style="background-image: url(<?php echo $pic_url; ?>);">
+                      </div>
                     </a>
-                  </h1>
-    
-                  <p class="font-size-24">
-                    <?php
-                    $content = apply_filters('the_content', get_the_content());
-                    echo substr(sanitize_text_field($content), 0, 250) . '...';
-                    ?>
-                  </p>
-    
-                  <div class="post-author post-date font-size-20">
-                    <a href="<?php echo get_author_posts_url(get_the_author_meta('ID')); ?>">
-                      <?php the_author(); ?>
-                    </a><?php if (get_the_date()) { echo ' | ' . get_the_date(); } ?>
                   </div>
-                </div>
+      
+                  <div class="col-sm-6">
+                    <?php the_category(); ?>
+      
+                    <h1 class="post-title-large">
+                      <a href="<?php echo get_permalink(); ?>">
+                        <?php the_title(); ?>
+                      </a>
+                    </h1>
+      
+                    <p class="font-size-24">
+                      <?php
+                      $content = apply_filters('the_content', get_the_content());
+                      echo substr(sanitize_text_field($content), 0, 250) . '...';
+                      ?>
+                    </p>
+      
+                    <div class="post-author post-date font-size-20">
+                      <a href="<?php echo get_author_posts_url(get_the_author_meta('ID')); ?>">
+                        <?php the_author(); ?>
+                      </a>
+                      <?php
+                      if (get_the_date()) { echo ' | <time>' . get_the_date() . '</time>'; }
+                      ?>
+                    </div>
+                  </div>
+                </article>
               </div>
             </div>
-          </div>
-        <?php endwhile; ?>
+          <?php endwhile; ?>
+        </div>
+        <?php
+        $left_arrow = get_template_directory_uri() . '/resources/assets/images/carousel-left.png';
+        $right_arrow = get_template_directory_uri() . '/resources/assets/images/carousel-right.png';
+        ?>
+        <div
+          class="carousel-arrow carousel-prev"
+          style="background-image: url(<?php echo $left_arrow; ?>);">
+        </div>
+        <div
+          class="carousel-arrow carousel-next"
+          style="background-image: url(<?php echo $right_arrow; ?>);">
+        </div>
       </div>
-      <?php
-      $left_arrow = get_template_directory_uri() . '/resources/assets/images/carousel-left.png';
-      $right_arrow = get_template_directory_uri() . '/resources/assets/images/carousel-right.png';
-      ?>
-      <div
-        class="carousel-arrow carousel-prev"
-        style="background-image: url(<?php echo $left_arrow; ?>);">
-      </div>
-      <div
-        class="carousel-arrow carousel-next"
-        style="background-image: url(<?php echo $right_arrow; ?>);">
-      </div>
+      <script>
+        $('.carousel').slick({
+          infinite: true,
+          autoplay: true,
+          autoplaySpeed: 10000,
+          arrows: true,
+          prevArrow: $('.carousel-prev'),
+          nextArrow: $('.carousel-next')
+        });
+      </script>
     </div>
-    <script>
-      $('.carousel').slick({
-        infinite: true,
-        autoplay: true,
-        autoplaySpeed: 10000,
-        arrows: true,
-        prevArrow: $('.carousel-prev'),
-        nextArrow: $('.carousel-next')
-      });
-    </script>
-  </div>
+  </section>
 
-  <div class="horizontal-rule"></div>
-  <div class="section-title">Latest</div>
+  <section>
+    <div class="horizontal-rule"></div>
+    <h2 class="section-title header-font">Latest</h2>
+  
+    <?php
+    $paged = get_query_var('paged') ? get_query_var('paged') : 1;
+    $query  = new WP_Query(array(
+      'category_name' => $category->slug,
+      'paged' => $paged,
+      'posts_per_page' => get_option('posts_per_page'),
+      'orderby' => 'date',
+      'order' => 'desc',
+      'post_type' => 'post',
+      'post_status' => 'publish',
+    ));
+  
+    while ($query->have_posts()) {
+      $query->the_post();
+      do_action('theme/single/row');
+    }
 
-  <?php
-  $paged = get_query_var('paged') ? get_query_var('paged') : 1;
-  $query  = new WP_Query(array(
-    'category_name' => $category->slug,
-    'paged' => $paged,
-    'posts_per_page' => get_option('posts_per_page'),
-    'orderby' => 'date',
-    'order' => 'desc',
-    'post_type' => 'post',
-    'post_status' => 'publish',
-  ));
-
-  while ($query->have_posts()) {
-    $query->the_post();
-    do_action('theme/single/row');
-  }
-  ?>
-
-  <?php wp_reset_postdata(); ?>
+    wp_reset_postdata();
+    ?>
+  </section>
   <?php if ($paged === 1): ?>
     <div class="more-link text-center">
       <?php next_posts_link('Show Older', $query->max_num_pages); ?>

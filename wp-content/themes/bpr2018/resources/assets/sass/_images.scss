@@ -15,6 +15,12 @@
   padding-bottom: 75%;
 }
 
+// used in single post views so that images show in reader modes
+img.featured-image {
+  width: 100%;
+  padding: 0;
+}
+
 .img-50 {
   @include img-common();
   max-width: 1000px;

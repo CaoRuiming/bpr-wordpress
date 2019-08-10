@@ -8,17 +8,17 @@
       <div class="post-author post-date font-size-24">
         <a href="<?php echo get_author_posts_url(get_the_author_meta('ID')); ?>">
           <?php the_author(); ?>
-        </a><?php if (get_the_date()) { echo ' | ' . get_the_date(); } ?>
+        </a>
+        <?php if (get_the_date()) { echo ' | <time>' . get_the_date() . '</time>'; } ?>
       </div>
 
       <?php 
       $pic_url = wp_get_attachment_url(get_post_thumbnail_id(get_the_ID()));
       if ($pic_url):
       ?>
-        <div
-          class="featured-image"
-          style="background-image: url(<?php echo $pic_url; ?>);">
-        </div>
+        <figure>
+          <img class="featured-image" src="<?php echo $pic_url; ?>">
+        </figure>
       <?php endif; ?>
 
       <div class="hline"></div>
@@ -37,37 +37,52 @@
         <a href="#article-top" class="uppercase font-size-18">Back to Top</a>
       </div>
 
-      <div class="article-bottom-wrapper container-fluid">
-        <div class="article-bottom row">
-          <div class="tags-and-author col-sm-12">
-            <div class="post-tags">
-              <?php
-              the_tags(
-                '<div class="post-tag uppercase font-size-16">',
-                '</div><div class="post-tag uppercase font-size-16">',
-                '</div>'
-              );
-              ?>
-            </div>
+      <section class="article-bottom">
+        <div class="post-tags">
+          <?php
+          the_tags(
+            '<div class="post-tag uppercase font-size-16">',
+            '</div><div class="post-tag uppercase font-size-16">',
+            '</div>'
+          );
+          ?>
+        </div>
 
-            <?php if (get_the_author_meta('user_description')): ?>
-              <div class="about-author">
-                <p class="about-author-title uppercase">About the Author</p>
-                <p class="about-author-bio">
-                  <?php echo get_the_author_meta('user_description'); ?>
-                </p>
-              </div>
-            <?php endif; ?>
+        <?php if (get_the_author_meta('user_description')): ?>
+          <div class="about-author">
+            <p class="about-author-title uppercase">About the Author</p>
+            <p class="about-author-bio">
+              <?php echo get_the_author_meta('user_description'); ?>
+            </p>
           </div>
-        </div>
-        <div class="row">
-          <p class="suggested-articles-title">SUGGESTED ARTICLES</p>
-        </div>
-      </div>
+        <?php endif; ?>
+      </section>
     </div>
 
     <div class="col-lg-2 d-none d-md-block"><?php the_category(); ?></div>
   </div>
+
+  <!-- Script to enable pull quotes on alternating sides -->
+  <script>
+    (function() {
+      var highlightedItems = document.querySelectorAll(".pullquote");
+      highlightedItems.forEach(function(el, index) {
+        el.className = "pullquote " + ((index % 2) ? "right" : "left");
+      });
+    })()
+  </script>
+</article>
+
+<!-- Suggested Aritcles -->
+<section>
+  <div class="row">
+    <div class="col-lg-2"></div>
+    <div class="col-lg-8">
+      <p class="suggested-articles-title">SUGGESTED ARTICLES</p>
+    </div>
+    <div class="col-lg-2"></div>
+  </div>
+
   <div class="row suggested-articles">
     <?php 
     $suggested  = new WP_Query(array(
@@ -83,14 +98,4 @@
       ?>
     <?php endwhile; wp_reset_postdata(); ?>
   </div>
-
-  <!-- Script to enable pull quotes on alternating sides -->
-  <script>
-    (function() {
-      var highlightedItems = document.querySelectorAll(".pullquote");
-      highlightedItems.forEach(function(el, index) {
-        el.className = "pullquote " + ((index % 2) ? "right" : "left");
-      });
-    })()
-  </script>
-</article>
+</section>

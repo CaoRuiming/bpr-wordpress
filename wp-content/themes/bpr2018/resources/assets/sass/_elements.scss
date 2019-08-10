@@ -1,6 +1,24 @@
 // utils
 .overflow-hidden { overflow: hidden; }
 
+.pullquote {
+  font-family: $header-font;
+  font-style: italic;
+  font-weight: 700;
+  font-size: 2.0em;
+  color: #9F9F9F;
+  margin: 0 0 1.4em 0;
+
+  &.left {
+    text-align: left;
+    @media (min-width: $width-xl) { margin: 0 8vw 1.4em -8vw; }
+  }
+  &.right {
+    text-align: right;
+    @media (min-width: $width-xl) { margin: 0 -8vw 1.4em 8vw; }
+  }
+}
+
 .horizontal-rule {
   margin-bottom: 10px;
   width: 100%;

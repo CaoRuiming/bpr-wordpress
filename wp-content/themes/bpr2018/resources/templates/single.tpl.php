@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-<div class="single-template content-wrapper container-fluid">
+<div id="single-template" class="content-wrapper container-fluid">
   <?php custom_breadcrumbs(); ?>
   <?php if (have_posts()) : ?>
     <?php while (have_posts()) : the_post() ?>

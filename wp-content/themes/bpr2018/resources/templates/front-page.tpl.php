@@ -1,8 +1,8 @@
 <?php get_header(); $page_id = get_option('page_on_front'); ?>
 
 <div id="front-page" class="container-fluid">
-  <div id="popular-articles">
-    <div class="section-title">Popular Articles</div>
+  <section id="popular-articles">
+    <h2 class="section-title header-font">Popular Articles</h2>
     <div class="carousel-wrapper row">
       <div class="carousel">
         <?php while (have_rows('featured_posts', $page_id)): the_row(); ?>
@@ -11,7 +11,7 @@
           $id = $post->ID;
           $pic_url = get_the_post_thumbnail_url($post);
           ?>
-          <div class="container-fluid featured-post">
+          <article class="container-fluid featured-post">
             <div class="row">
               <div class="col-sm-6">
                 <a href="<?php echo get_permalink($id); ?>">
@@ -43,11 +43,13 @@
                   <a href="<?php echo get_author_posts_url($author_id); ?>">
                     <?php echo get_the_author_meta('display_name', $author_id); ?>
                   </a>
-                  <?php if (get_the_date('', $id)) { echo ' | ' . get_the_date('', $id); } ?>
+                  <?php
+                  if (get_the_date('', $id)) { echo ' | <time>' . get_the_date('', $id) . '</time>'; }
+                  ?>
                 </div>
               </div>
             </div>
-          </div>
+          </article>
         <?php endwhile; ?>
       </div>
       <?php
@@ -73,9 +75,9 @@
         nextArrow: $('.carousel-next')
       });
     </script>
-  </div>
+  </section>
 
-  <div id="section-1" class="category-row">
+  <section id="section-1" class="category-row">
     <?php
     $slug = get_field('section_1', $page_id)[0]->slug;
     $category_object = get_category_by_slug($slug);
@@ -83,9 +85,9 @@
 
     <div class="horizontal-rule"></div>
 
-    <div class="section-title">
+    <h2 class="section-title header-font">
       <?php echo $category_object->name; ?>
-    </div>
+    </h2>
 
     <div class="row">
       <?php 
@@ -104,9 +106,9 @@
     <a class="more-link" href="<?php echo get_category_link($category_object); ?>">
       More from  <?php echo $category_object->name; ?> >
     </a>
-  </div>
+  </section>
 
-  <div id="section-2" class="category-row">
+  <section id="section-2" class="category-row">
     <?php
     $slug = get_field('section_2', $page_id)[0]->slug;
     $category_object = get_category_by_slug($slug);
@@ -114,9 +116,9 @@
 
     <div class="horizontal-rule"></div>
 
-    <div class="section-title">
+    <h2 class="section-title header-font">
       <?php echo $category_object->name; ?>
-    </div>
+    </h2>
 
     <div class="row">
       <?php 
@@ -135,10 +137,10 @@
     <a class="more-link" href="<?php echo get_category_link($category_object); ?>">
       More from  <?php echo $category_object->name; ?> >
     </a>
-  </div>
+  </section>
 
   <div class="row category-cols">
-    <div id="section-3" class="col-sm-6 category-col">
+    <section id="section-3" class="col-sm-6 category-col">
       <?php
       $slug = get_field('section_3', $page_id)[0]->slug;
       $category_object = get_category_by_slug($slug);
@@ -146,9 +148,9 @@
 
       <div class="horizontal-rule"></div>
 
-      <div class="section-title">
+      <h2 class="section-title header-font">
         <?php echo $category_object->name; ?>
-      </div>
+      </h2>
 
       <?php 
       $recent  = new WP_Query(array(
@@ -165,8 +167,8 @@
       <a class="more-link" href="<?php echo get_category_link($category_object); ?>">
         More from  <?php echo $category_object->name; ?> >
       </a>
-    </div>
-    <div id="section-4" class="col-sm-6 category-col">
+    </section>
+    <section id="section-4" class="col-sm-6 category-col">
       <?php
       $slug = get_field('section_4', $page_id)[0]->slug;
       $category_object = get_category_by_slug($slug);
@@ -174,9 +176,9 @@
 
       <div class="horizontal-rule"></div>
 
-      <div class="section-title">
+      <h2 class="section-title header-font">
         <?php echo $category_object->name; ?>
-      </div>
+      </h2>
 
       <?php 
       $recent  = new WP_Query(array(
@@ -193,11 +195,11 @@
       <a class="more-link" href="<?php echo get_category_link($category_object); ?>">
         More from  <?php echo $category_object->name; ?> >
       </a>
-    </div>
+    </section>
   </div>
 
   <div class="row category-cols">
-    <div id="section-5" class="col-sm-6 category-col">
+    <section id="section-5" class="col-sm-6 category-col">
       <?php
       $slug = get_field('section_5', $page_id)[0]->slug;
       $category_object = get_category_by_slug($slug);
@@ -205,9 +207,9 @@
 
       <div class="horizontal-rule"></div>
 
-      <div class="section-title">
+      <h2 class="section-title header-font">
         <?php echo $category_object->name; ?>
-      </div>
+      </h2>
 
       <?php 
       $recent  = new WP_Query(array(
@@ -224,8 +226,8 @@
       <a class="more-link" href="<?php echo get_category_link($category_object); ?>">
         More from  <?php echo $category_object->name; ?> >
       </a>
-    </div>
-    <div id="section-6" class="col-sm-6 category-col-compact">
+    </section>
+    <section id="section-6" class="col-sm-6 category-col-compact">
       <?php
       $slug = get_field('section_6', $page_id)[0]->slug;
       $category_object = get_category_by_slug($slug);
@@ -233,9 +235,9 @@
 
       <div class="horizontal-rule"></div>
 
-      <div class="section-title">
+      <h2 class="section-title header-font">
         <?php echo $category_object->name; ?>
-      </div>
+      </h2>
 
       <?php 
       $recent  = new WP_Query(array(
@@ -252,11 +254,11 @@
       <a class="more-link" href="<?php echo get_category_link($category_object); ?>">
         More from  <?php echo $category_object->name; ?> >
       </a>
-    </div>
+    </section>
   </div>
 
-  <div class="row bpradio-row"></div>
-  <div class="row magazine-row"></div>
+  <section class="row bpradio-row"></section>
+  <section class="row magazine-row"></section>
 </div>
 
 <?php get_footer(); ?>
