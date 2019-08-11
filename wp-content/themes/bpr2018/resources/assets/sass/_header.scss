@@ -94,6 +94,9 @@
       // applies to items at top level of nav bar
       & > li > a { padding: 0 2px $spacing-xxs 2px; }
 
+      // expand dropdown on hover
+      .dropdown:hover .dropdown-menu { display: block; }
+
       li {
         float: unset;
 

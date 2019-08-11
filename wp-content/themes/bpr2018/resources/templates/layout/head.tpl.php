@@ -76,8 +76,11 @@
       <script>
         // Allows dropdown parent elements to be clickable links
         $('li.dropdown :first-child').on('click', function() {
+          var $dropdown = $(this).find('+ ul.dropdown-menu');
           var $el = $(this).parent();
-          if ($el.hasClass('open')) {
+
+          // navigate to dropdown trigger url if dropdown menu expanded
+          if ($el.hasClass('open') || $dropdown.css('display') === 'block') {
             var $a = $el.children('a.dropdown-toggle');
             if ($a.length && $a.attr('href')) {
               location.href = $a.attr('href');
