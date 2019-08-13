@@ -2,7 +2,9 @@
 
 ## Initial Setup
 
-To run this website locally, installation of software like `MAMP` for macOS or `XAMP` for Windows will be required. Point to the software to the directory containing this repository and start the servers. You may need to create a new MySQL database for the WordPress installation process.
+To run this website locally, installation of software like `MAMP` for macOS or `WAMP` for Windows will be required. Point to the software to the directory containing this repository and start the servers. You may need to create a new MySQL database for the WordPress installation process.
+
+Full details can be found on the wiki (on GitHub).
 
 ## Startup
 
