@@ -1,5 +1,20 @@
 // utils
 .overflow-hidden { overflow: hidden; }
+@mixin set-display-up($width, $display: block) {
+  @media screen and (min-width: $width) { display: $display; }
+}
+.d-none { display: none; }
+.d-none-xs { @include set-display-up($width-xs, none); }
+.d-none-sm { @include set-display-up($width-sm, none); }
+.d-none-md { @include set-display-up($width-md, none); }
+.d-none-lg { @include set-display-up($width-lg, none); }
+.d-none-xl { @include set-display-up($width-xl, none); }
+.d-block { display: block; }
+.d-block-xs { @include set-display-up($width-xs, block); }
+.d-block-sm { @include set-display-up($width-sm, block); }
+.d-block-md { @include set-display-up($width-md, block); }
+.d-block-lg { @include set-display-up($width-lg, block); }
+.d-block-xl { @include set-display-up($width-xl, block); }
 
 .pullquote {
   font-family: $header-font;
@@ -52,6 +67,25 @@
       height: 0;
       width: 0;
     }
+  }
+}
+
+// post-rows are used in search, category, archive pages
+.row.post-row {
+  margin-bottom: $spacing-sm;
+  ul { padding: 0; }
+
+  .img-10-wrapper {
+    @media screen and (max-width: $width-md) {
+      padding-top: $spacing-sm;
+      padding-bottom: $spacing-sm;
+    }
+  }
+
+  .post-categories a {
+    border: none;
+    font-size: 15px;
+    margin-bottom: $spacing-sm;
   }
 }
 

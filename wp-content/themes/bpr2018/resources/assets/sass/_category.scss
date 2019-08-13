@@ -1,17 +1,9 @@
 #category-page {
   margin: $spacing-lg auto;
-
   .post-title-large { margin: $spacing-sm 0; }
   .post-title-small { margin-bottom: $spacing-sm; }
   .carousel .col-md-6 { overflow: hidden; }
   .more-link { margin-top: $spacing-lg; }
   .category-title { margin-bottom: $spacing-xs; }
-  .post-row { margin-bottom: $spacing-sm; }
-  .img-10-wrapper {
-    @media screen and (max-width: $width-md) {
-      padding-top: $spacing-sm;
-    }
-  }
-
   #popular-articles { margin-bottom: $spacing-lg; }
 }

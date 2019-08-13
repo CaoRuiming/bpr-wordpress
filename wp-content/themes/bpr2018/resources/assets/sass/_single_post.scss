@@ -57,7 +57,6 @@
   
   .suggested-articles-title { margin: 25px 0 50px 0; }
   .suggested-articles {
-    width: $website-width;
     margin-bottom: 15px;
     @media screen and (max-width: $width-sm) { margin: 0 0 15px 0; }
     ul { padding: 0; }
