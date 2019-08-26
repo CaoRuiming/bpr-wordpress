@@ -138,21 +138,21 @@ blockquote {
 }
 .post-title-large {
   font-family: $header-font, serif;
-  font-size: 40px;//60px;
+  font-size: 32px;
   font-weight: 500;
   line-height: 1;
   @include font-size-sm(40px);
 }
 .post-title-small {
   font-family: $body-font, sans-serif;
-  font-size: 20px;//24px;
+  font-size: 20px;
   font-weight: 400;
   line-height: 1;
 }
 .post-categories {
   padding: 0;
   text-transform: uppercase;
-  font-size: 18px;//25px;
+  font-size: 16px;
   @include font-size-sm(20px);
 
   li {

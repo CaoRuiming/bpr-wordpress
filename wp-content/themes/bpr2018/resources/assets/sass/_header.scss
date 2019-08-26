@@ -70,8 +70,10 @@
     text-align: center;
 
     a {
-      font-size: 14px;//20px;
-      // @include font-size-xl(16px);
+      font-size: 14px;
+      @include font-size-xl(12px);
+      @include font-size-lg(10px);
+      @include font-size-md(8px);
     }
 
     &> .container {

@@ -56,7 +56,7 @@
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="navbar-collapse-1" aria-controls="navbar-collapse-1" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
-          <a class="navbar-brand" href="<?= get_home_url(); ?>">
+          <a class="navbar-brand" tabindex="0" href="<?= get_home_url(); ?>">
             <div class="logo" style="background-image: url(<?php echo get_template_directory_uri() . '/resources/assets/images/BPR_logo_black.png' ?>)"></div>
           </a>
           <?php

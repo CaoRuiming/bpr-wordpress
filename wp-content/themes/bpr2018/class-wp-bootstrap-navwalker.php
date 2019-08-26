@@ -188,6 +188,7 @@ if ( ! class_exists( 'WP_Bootstrap_Navwalker' ) ) {
 				$atts['aria-expanded'] = 'false';
 				$atts['class']         = 'dropdown-toggle nav-link';
 				$atts['id']            = 'menu-item-dropdown-' . $item->ID;
+				$atts['tabindex']      = '0';
 			} else {
 				$atts['href'] = ! empty( $item->url ) ? $item->url : '#';
 				// Items in dropdowns use .dropdown-item instead of .nav-link.
@@ -195,6 +196,7 @@ if ( ! class_exists( 'WP_Bootstrap_Navwalker' ) ) {
 					$atts['class'] = 'dropdown-item';
 				} else {
 					$atts['class'] = 'nav-link';
+					$atts['tabindex'] = '0';
 				}
 			}
 

@@ -2,6 +2,8 @@
   <div class="row">
     <div class="col-lg-2"></div> <!-- Padding -->
     <div class="content col-lg-8">
+      <?php custom_breadcrumbs(); ?>
+
       <a id="article-top" name="article-top"></a> <!-- For back to top -->
       <h1 itemprop="name"><?php the_title(); ?></h1>
 
