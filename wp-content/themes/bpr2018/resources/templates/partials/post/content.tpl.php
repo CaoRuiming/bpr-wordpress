@@ -44,18 +44,43 @@
       </div>
 
       <section class="article-bottom">
-        <div class="post-tags" itemprop="keywords">
-          <?php
-          the_tags(
-            '<div class="post-tag uppercase font-size-16">',
-            '</div><span style="display: none;">,</span><div class="post-tag uppercase font-size-16">',
-            '</div>'
-          );
-          ?>
+        <div class="row">
+          <div class="post-tags col-sm-10" itemprop="keywords">
+            <?php
+            the_tags(
+              '<div class="post-tag uppercase font-size-16">',
+              '</div><span style="display: none;">,</span><div class="post-tag uppercase font-size-16">',
+              '</div>'
+            );
+            ?>
+          </div>
+          <div class="col-sm-2 social-icons d-none d-flex-md">
+            <?php
+            $images_directory = get_template_directory_uri() . '/resources/assets/images/';
+            $facebook_icon_url = $images_directory . 'facebook_icon.png';
+            $twitter_icon_url = $images_directory . 'twitter_icon.png';
+            ?>
+            <?php if (get_field('facebook_url', 'option')): ?>
+              <a href="<?php echo get_field('facebook_url', 'option'); ?>">
+                <div
+                  class="social-icon"
+                  style="background-image: url(<?php echo $facebook_icon_url ?>)">
+                </div>
+              </a>
+            <?php endif; ?>
+            <?php if (get_field('twitter_url', 'option')): ?>
+              <a href="<?php echo get_field('twitter_url', 'option'); ?>">
+                <div
+                  class="social-icon"
+                  style="background-image: url(<?php echo $twitter_icon_url ?>)">
+                </div>
+              </a>
+            <?php endif; ?>
+          </div>
         </div>
 
         <?php if (get_the_author_meta('user_description')): ?>
-          <div class="about-author">
+          <div class="about-author row">
             <p class="about-author-title uppercase">About the Author</p>
             <p class="about-author-bio">
               <?php echo get_the_author_meta('user_description'); ?>

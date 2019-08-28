@@ -9,6 +9,15 @@
   height: $logo-height;
 }
 
+.social-icon {
+  @include img-common();
+  display: inline-block;
+  vertical-align: top;
+  height: 22px;
+  width: 22px;
+  margin-left: $spacing-xs;
+}
+
 .featured-image {
   @include img-common();
   width: 100%;

@@ -38,7 +38,7 @@
             <?php if (get_field('facebook_url', 'option')): ?>
               <a href="<?php echo get_field('facebook_url', 'option'); ?>">
                 <div
-                  class="header-social"
+                  class="social-icon"
                   style="background-image: url(<?php echo $facebook_icon_url ?>)">
                 </div>
               </a>
@@ -46,7 +46,7 @@
             <?php if (get_field('twitter_url', 'option')): ?>
               <a href="<?php echo get_field('twitter_url', 'option'); ?>">
                 <div
-                  class="header-social"
+                  class="social-icon"
                   style="background-image: url(<?php echo $twitter_icon_url ?>)">
                 </div>
               </a>

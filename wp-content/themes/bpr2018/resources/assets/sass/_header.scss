@@ -13,15 +13,6 @@
     float: right;
     margin-right: 15px;
 
-    .header-social {
-      @include img-common();
-      display: inline-block;
-      vertical-align: top;
-      height: 22px;
-      width: 22px;
-      margin-left: $spacing-xs;
-    }
-
     #header-search-wrapper {
       display: inline-block;
       vertical-align: top;

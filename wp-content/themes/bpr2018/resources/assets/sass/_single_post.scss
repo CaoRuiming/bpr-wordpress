@@ -47,6 +47,20 @@
           border-radius: 10px;
         }
       }
+
+      .social-icons {
+        display: flex;
+        justify-content: flex-end;
+        margin-top: $spacing-md;
+        margin-bottom: $spacing-md;
+        padding-top: $spacing-xs;
+        padding-bottom: $spacing-xs;
+
+        .social-icon {
+          width: 30px;
+          height: 30px;
+        }
+      }
   
       .about-author {
         margin-bottom: $spacing-md;
