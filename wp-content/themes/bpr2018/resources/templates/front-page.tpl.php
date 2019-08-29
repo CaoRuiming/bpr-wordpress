@@ -52,17 +52,13 @@
           </article>
         <?php endwhile; ?>
       </div>
-      <?php
-      $left_arrow = get_template_directory_uri() . '/resources/assets/images/carousel-left.png';
-      $right_arrow = get_template_directory_uri() . '/resources/assets/images/carousel-right.png';
-      ?>
       <div
         class="carousel-arrow carousel-prev"
-        style="background-image: url(<?php echo $left_arrow; ?>);">
+        style="background-image: url(<?php echo get_image_asset('carousel-left.png'); ?>);">
       </div>
       <div
         class="carousel-arrow carousel-next"
-        style="background-image: url(<?php echo $right_arrow; ?>);">
+        style="background-image: url(<?php echo get_image_asset('carousel-right.png'); ?>);">
       </div>
     </div>
     <script>

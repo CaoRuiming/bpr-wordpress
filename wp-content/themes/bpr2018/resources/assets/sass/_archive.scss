@@ -1,5 +1,8 @@
-#archive-page {
+#archive-page, #author-page {
   margin: $spacing-lg auto;
   .more-link { margin-top: $spacing-lg; }
-  .archive-title { margin-bottom: $spacing-xs; }
+  .archive-title {
+    margin-bottom: $spacing-xs;
+    @include font-size-sm(35px);
+  }
 }

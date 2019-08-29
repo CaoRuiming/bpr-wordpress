@@ -18,9 +18,7 @@
                 method="get"
                 action="<?php echo esc_url(home_url('/')); ?>"
               >
-                <?php
-                $search_icon_url = get_template_directory_uri() . '/resources/assets/images/search-icon.png';
-                ?>
+                <?php $search_icon_url = get_image_asset('search-icon.png'); ?>
                 <input
                   id="header-search-box"
                   type="text"
@@ -31,9 +29,8 @@
               </form>
             </div>
             <?php
-            $images_directory = get_template_directory_uri() . '/resources/assets/images/';
-            $facebook_icon_url = $images_directory . 'facebook_icon.png';
-            $twitter_icon_url = $images_directory . 'twitter_icon.png';
+            $facebook_icon_url = get_image_asset('facebook_icon.png');
+            $twitter_icon_url = get_image_asset('twitter_icon.png');
             ?>
             <?php if (get_field('facebook_url', 'option')): ?>
               <a href="<?php echo get_field('facebook_url', 'option'); ?>">
@@ -57,7 +54,10 @@
             <span class="navbar-toggler-icon"></span>
           </button>
           <a class="navbar-brand" tabindex="0" href="<?= get_home_url(); ?>">
-            <div class="logo" style="background-image: url(<?php echo get_template_directory_uri() . '/resources/assets/images/BPR_logo_black.png' ?>)"></div>
+            <div
+              class="logo"
+              style="background-image: url(<?php echo get_image_asset('BPR_logo_black.png'); ?>)">
+            </div>
           </a>
           <?php
           wp_nav_menu(array(

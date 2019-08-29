@@ -56,9 +56,8 @@
           </div>
           <div class="col-sm-2 social-icons d-none d-flex-md">
             <?php
-            $images_directory = get_template_directory_uri() . '/resources/assets/images/';
-            $facebook_icon_url = $images_directory . 'facebook_icon.png';
-            $twitter_icon_url = $images_directory . 'twitter_icon.png';
+            $facebook_icon_url = get_image_asset('facebook_icon.png');
+            $twitter_icon_url = get_image_asset('twitter_icon.png');
             ?>
             <?php if (get_field('facebook_url', 'option')): ?>
               <a href="<?php echo get_field('facebook_url', 'option'); ?>">

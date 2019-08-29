@@ -36,41 +36,11 @@ if ($ok) {
 // Register Custom Navigation Walker
 require_once get_template_directory() . '/class-wp-bootstrap-navwalker.php';
 
-// Setting up tracking of post views
-function set_post_views($postID) {
-    $count_key = 'post_views_count';
-    $count = get_post_meta($postID, $count_key, true);
-    if ($count == '') {
-        $count = 0;
-        delete_post_meta($postID, $count_key);
-        add_post_meta($postID, $count_key, '0');
-    } else {
-        $count++;
-        update_post_meta($postID, $count_key, $count);
-    }
-}
-//To keep the count accurate, get rid of prefetching
-remove_action( 'wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0);
 
-function track_post_views($post_id) {
-    if (!is_single()) return;
-    if (empty($post_id)) {
-        global $post;
-        $post_id = $post->ID;    
-    }
-    set_post_views($post_id);
-}
-add_action( 'wp_head', 'track_post_views');
-
-function get_post_views($postID){
-    $count_key = 'post_views_count';
-    $count = get_post_meta($postID, $count_key, true);
-    if ($count == '') {
-        delete_post_meta($postID, $count_key);
-        add_post_meta($postID, $count_key, '0');
-        return "0 View";
-    }
-    return $count.' Views';
+// quick way to get url of images in the assets folder
+function get_image_asset($image_name = '') {
+    $images_directory = get_template_directory_uri() . '/resources/assets/images/';
+    return $images_directory . $image_name;
 }
 
 // Define custom shortcode callback functions
@@ -108,6 +78,7 @@ if(function_exists('acf_add_options_page')) {
     acf_add_options_page();
 }
 
+// enable breadcrumbs function (used in single post template)
 require_once __DIR__ . '/breadcrumbs.php' ;
 
 // For enabling pagination in category template
