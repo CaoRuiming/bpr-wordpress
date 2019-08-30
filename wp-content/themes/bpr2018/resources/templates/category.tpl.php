@@ -17,7 +17,7 @@ if (is_single()) {
     $parent_link = get_category_link($parent);
     ?>
     <div class="parent-category-title post-categories">
-      <a href="<?php echo $parent_link; ?>"><?php echo $parent->name; ?></a>
+      <a href="<?php echo esc_url($parent_link); ?>"><?php echo $parent->name; ?></a>
     </div>
   <?php endif; ?>
 
@@ -47,7 +47,7 @@ if (is_single()) {
               <div class="row">
                 <article class="row featured-post">
                   <div class="col-sm-6">
-                    <a href="<?php echo get_permalink(); ?>">
+                    <a href="<?php echo esc_url(get_permalink()); ?>">
                       <div
                         class="img-40"
                         style="background-image: url(<?php echo $pic_url; ?>);">
@@ -59,7 +59,7 @@ if (is_single()) {
                     <?php the_category(); ?>
       
                     <h1 class="post-title-large">
-                      <a href="<?php echo get_permalink(); ?>">
+                      <a href="<?php echo esc_url(get_permalink()); ?>">
                         <?php the_title(); ?>
                       </a>
                     </h1>
@@ -72,7 +72,7 @@ if (is_single()) {
                     </p>
       
                     <div class="post-author post-date font-size-20">
-                      <a href="<?php echo get_author_posts_url(get_the_author_meta('ID')); ?>">
+                      <a href="<?php echo esc_url(get_author_posts_url(get_the_author_meta('ID'))); ?>">
                         <?php the_author(); ?>
                       </a>
                       <?php
@@ -85,17 +85,13 @@ if (is_single()) {
             </div>
           <?php endwhile; ?>
         </div>
-        <?php
-        $left_arrow = get_template_directory_uri() . '/resources/assets/images/carousel-left.png';
-        $right_arrow = get_template_directory_uri() . '/resources/assets/images/carousel-right.png';
-        ?>
         <div
           class="carousel-arrow carousel-prev"
-          style="background-image: url(<?php echo $left_arrow; ?>);">
+          style="background-image: url(<?php echo get_image_asset('carousel-left.png'); ?>);">
         </div>
         <div
           class="carousel-arrow carousel-next"
-          style="background-image: url(<?php echo $right_arrow; ?>);">
+          style="background-image: url(<?php echo get_image_asset('carousel-right.png'); ?>);">
         </div>
       </div>
       <script>

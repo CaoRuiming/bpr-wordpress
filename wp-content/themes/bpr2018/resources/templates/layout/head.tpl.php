@@ -33,7 +33,7 @@
             $twitter_icon_url = get_image_asset('twitter_icon.png');
             ?>
             <?php if (get_field('facebook_url', 'option')): ?>
-              <a href="<?php echo get_field('facebook_url', 'option'); ?>">
+              <a href="<?php echo esc_url(get_field('facebook_url', 'option')); ?>">
                 <div
                   class="social-icon"
                   style="background-image: url(<?php echo $facebook_icon_url ?>)">
@@ -41,7 +41,7 @@
               </a>
             <?php endif; ?>
             <?php if (get_field('twitter_url', 'option')): ?>
-              <a href="<?php echo get_field('twitter_url', 'option'); ?>">
+              <a href="<?php echo esc_url(get_field('twitter_url', 'option')); ?>">
                 <div
                   class="social-icon"
                   style="background-image: url(<?php echo $twitter_icon_url ?>)">

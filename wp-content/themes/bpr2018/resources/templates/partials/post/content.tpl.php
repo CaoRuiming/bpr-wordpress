@@ -10,7 +10,7 @@
       <div class="post-author post-date font-size-24">
         <a
           itemprop="author"
-          href="<?php echo get_author_posts_url(get_the_author_meta('ID')); ?>">
+          href="<?php echo esc_url(get_author_posts_url(get_the_author_meta('ID'))); ?>">
           <?php the_author(); ?>
         </a>
         <?php
@@ -57,10 +57,19 @@
           <div class="col-sm-2 social-icons d-none d-flex-md">
             <?php
             $facebook_icon_url = get_image_asset('facebook_icon.png');
+            $facebook_share_url = add_query_arg( array(
+              'u' => get_post_permalink(),
+            ), 'https://www.facebook.com/sharer/sharer.php');
+
             $twitter_icon_url = get_image_asset('twitter_icon.png');
+            $twitter_share_url = add_query_arg( array(
+              'url' => get_post_permalink(),
+              'via' => 'BrownBPR',
+              'text' => get_the_title(),
+            ), 'https://twitter.com/intent/tweet');
             ?>
             <?php if (get_field('facebook_url', 'option')): ?>
-              <a href="<?php echo get_field('facebook_url', 'option'); ?>">
+              <a href="<?php echo esc_url($facebook_share_url); ?>">
                 <div
                   class="social-icon"
                   style="background-image: url(<?php echo $facebook_icon_url ?>)">
@@ -68,7 +77,7 @@
               </a>
             <?php endif; ?>
             <?php if (get_field('twitter_url', 'option')): ?>
-              <a href="<?php echo get_field('twitter_url', 'option'); ?>">
+              <a href="<?php echo esc_url($twitter_share_url); ?>">
                 <div
                   class="social-icon"
                   style="background-image: url(<?php echo $twitter_icon_url ?>)">

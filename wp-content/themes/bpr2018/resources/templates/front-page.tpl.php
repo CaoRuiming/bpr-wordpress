@@ -14,7 +14,7 @@
           <article class="container-fluid featured-post">
             <div class="row">
               <div class="col-sm-6">
-                <a href="<?php echo get_permalink($id); ?>">
+                <a href="<?php echo esc_url(get_permalink($id)); ?>">
                   <div
                     class="img-40"
                     style="background-image: url(<?php echo $pic_url; ?>);">
@@ -26,7 +26,7 @@
                 <?php the_category(null, null, $id); ?>
   
                 <div class="post-title-large">
-                  <a href="<?php echo get_permalink($id); ?>">
+                  <a href="<?php echo esc_url(get_permalink($id)); ?>">
                     <?php echo get_the_title($id); ?>
                   </a>
                 </div>
@@ -40,7 +40,7 @@
   
                 <div class="post-author post-date font-size-20">
                   <?php $author_id = $post->post_author; ?>
-                  <a href="<?php echo get_author_posts_url($author_id); ?>">
+                  <a href="<?php echo esc_url(get_author_posts_url($author_id)); ?>">
                     <?php echo get_the_author_meta('display_name', $author_id); ?>
                   </a>
                   <?php
@@ -99,7 +99,7 @@
       ?>
     </div>
 
-    <a class="more-link" href="<?php echo get_category_link($category_object); ?>">
+    <a class="more-link" href="<?php echo esc_url(get_category_link($category_object)); ?>">
       More from  <?php echo $category_object->name; ?> >
     </a>
   </section>
@@ -130,7 +130,7 @@
       ?>
     </div>
 
-    <a class="more-link" href="<?php echo get_category_link($category_object); ?>">
+    <a class="more-link" href="<?php echo esc_url(get_category_link($category_object)); ?>">
       More from  <?php echo $category_object->name; ?> >
     </a>
   </section>
@@ -160,7 +160,7 @@
       }
       ?>
 
-      <a class="more-link" href="<?php echo get_category_link($category_object); ?>">
+      <a class="more-link" href="<?php echo esc_url(get_category_link($category_object)); ?>">
         More from  <?php echo $category_object->name; ?> >
       </a>
     </section>
@@ -188,7 +188,7 @@
       }
       ?>
 
-      <a class="more-link" href="<?php echo get_category_link($category_object); ?>">
+      <a class="more-link" href="<?php echo esc_url(get_category_link($category_object)); ?>">
         More from  <?php echo $category_object->name; ?> >
       </a>
     </section>
@@ -219,7 +219,7 @@
       }
       ?>
 
-      <a class="more-link" href="<?php echo get_category_link($category_object); ?>">
+      <a class="more-link" href="<?php echo esc_url(get_category_link($category_object)); ?>">
         More from  <?php echo $category_object->name; ?> >
       </a>
     </section>
@@ -247,7 +247,7 @@
       }
       ?>
 
-      <a class="more-link" href="<?php echo get_category_link($category_object); ?>">
+      <a class="more-link" href="<?php echo esc_url(get_category_link($category_object)); ?>">
         More from  <?php echo $category_object->name; ?> >
       </a>
     </section>
