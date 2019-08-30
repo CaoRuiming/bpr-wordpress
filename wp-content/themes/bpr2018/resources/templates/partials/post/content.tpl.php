@@ -88,7 +88,7 @@
         </div>
 
         <?php if (get_the_author_meta('user_description')): ?>
-          <div class="about-author row">
+          <div class="about-author">
             <p class="about-author-title uppercase">About the Author</p>
             <p class="about-author-bio">
               <?php echo get_the_author_meta('user_description'); ?>
