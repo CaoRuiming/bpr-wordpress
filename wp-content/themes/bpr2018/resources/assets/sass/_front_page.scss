@@ -1,11 +1,11 @@
 #front-page {
   margin: $spacing-md auto;
 
-  .post-title-large { margin: $spacing-sm 0; }
-  .post-title-small { margin: $spacing-xxs 0 $spacing-xs 0; }
+  .post-title-large { margin-bottom: $spacing-sm; }
+  .post-title-small { margin: $spacing-xs 0 $spacing-xs 0; }
 
   #popular-articles {
-    margin-bottom: $spacing-md;
+    margin-bottom: $spacing-xs;
     .col-md-6 { overflow: hidden; }
   }
 
@@ -17,6 +17,7 @@
 
   .category-cols {
     .category-col { margin-bottom: $spacing-md; }
+    .category-col-compact .post-title-small { margin-top: 0; }
     .more-link { margin-bottom: $spacing-md; }
     .post-block {
       padding: 0;

@@ -12,4 +12,17 @@ footer {
     max-width: $website-max-width;
     color: white;
   }
+
+  .logo { margin-bottom: $spacing-md; }
+
+  #footer-menu {
+    li { list-style-type: none; }
+    a {
+      color: white;
+      font-size: 16px;
+      font-weight: 350;
+      font-family: $body-font;
+      @include font-size-md(14px);
+    }
+  }
 }

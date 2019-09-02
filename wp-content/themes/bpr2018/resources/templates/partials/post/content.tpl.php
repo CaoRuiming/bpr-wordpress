@@ -43,62 +43,10 @@
         <a href="#article-top" class="uppercase font-size-18">Back to Top</a>
       </div>
 
-      <section class="article-bottom">
-        <div class="row">
-          <div class="post-tags col-sm-10" itemprop="keywords">
-            <?php
-            the_tags(
-              '<div class="post-tag uppercase font-size-16">',
-              '</div><span style="display: none;">,</span><div class="post-tag uppercase font-size-16">',
-              '</div>'
-            );
-            ?>
-          </div>
-          <div class="col-sm-2 social-icons d-none d-flex-md">
-            <?php
-            $facebook_icon_url = get_image_asset('facebook_icon.png');
-            $facebook_share_url = add_query_arg( array(
-              'u' => get_post_permalink(),
-            ), 'https://www.facebook.com/sharer/sharer.php');
-
-            $twitter_icon_url = get_image_asset('twitter_icon.png');
-            $twitter_share_url = add_query_arg( array(
-              'url' => get_post_permalink(),
-              'via' => 'BrownBPR',
-              'text' => get_the_title(),
-            ), 'https://twitter.com/intent/tweet');
-            ?>
-            <?php if (get_field('facebook_url', 'option')): ?>
-              <a href="<?php echo esc_url($facebook_share_url); ?>">
-                <div
-                  class="social-icon"
-                  style="background-image: url(<?php echo $facebook_icon_url ?>)">
-                </div>
-              </a>
-            <?php endif; ?>
-            <?php if (get_field('twitter_url', 'option')): ?>
-              <a href="<?php echo esc_url($twitter_share_url); ?>">
-                <div
-                  class="social-icon"
-                  style="background-image: url(<?php echo $twitter_icon_url ?>)">
-                </div>
-              </a>
-            <?php endif; ?>
-          </div>
-        </div>
-
-        <?php if (get_the_author_meta('user_description')): ?>
-          <div class="about-author">
-            <p class="about-author-title uppercase">About the Author</p>
-            <p class="about-author-bio">
-              <?php echo get_the_author_meta('user_description'); ?>
-            </p>
-          </div>
-        <?php endif; ?>
-      </section>
+      
     </div>
 
-    <div class="col-lg-2 d-none d-md-block"><?php the_category(); ?></div>
+    <div class="col-lg-2 d-none"><?php the_category(); ?></div>
   </div>
 
   <!-- Script to enable pull quotes on alternating sides -->
@@ -112,14 +60,80 @@
   </script>
 </article>
 
-<!-- Suggested Aritcles -->
-<section>
+<section class="article-bottom container-fluid">
   <div class="row">
-    <div class="col-lg-2"></div>
-    <div class="col-lg-8">
+    <div class="col-sm-12"><div class="horizontal-rule"></div></div>
+  </div>
+
+  <?php if (get_the_author_meta('user_description')): ?>
+    <div class="row">
+      <!-- <div class="post-tags col-sm-10" itemprop="keywords">
+        <?php
+        the_tags(
+          '<div class="post-tag uppercase font-size-16">',
+          '</div><div class="post-tag uppercase font-size-16">',
+          '</div>'
+        );
+        ?>
+      </div> -->
+
+      <div class="col-sm-10">
+        <?php if (get_the_author_meta('user_description')): ?>
+          <div class="about-author">
+            <p class="about-author-title uppercase">About the Author</p>
+            <p class="about-author-bio">
+              <?php echo get_the_author_meta('user_description'); ?>
+            </p>
+          </div>
+        <?php endif; ?>
+      </div>
+
+      <div class="col-sm-2 social-icons d-none d-flex-md">
+        <?php
+        $facebook_icon_url = get_image_asset('facebook_icon.png');
+        $facebook_share_url = add_query_arg( array(
+          'u' => get_post_permalink(),
+        ), 'https://www.facebook.com/sharer/sharer.php');
+
+        $twitter_icon_url = get_image_asset('twitter_icon.png');
+        $twitter_share_url = add_query_arg( array(
+          'url' => get_post_permalink(),
+          'via' => 'BrownBPR',
+          'text' => get_the_title(),
+        ), 'https://twitter.com/intent/tweet');
+        ?>
+        <?php if (get_field('facebook_url', 'option')): ?>
+          <a href="<?php echo esc_url($facebook_share_url); ?>">
+            <div
+              class="social-icon"
+              style="background-image: url(<?php echo $facebook_icon_url ?>)">
+            </div>
+          </a>
+        <?php endif; ?>
+        <?php if (get_field('twitter_url', 'option')): ?>
+          <a href="<?php echo esc_url($twitter_share_url); ?>">
+            <div
+              class="social-icon"
+              style="background-image: url(<?php echo $twitter_icon_url ?>)">
+            </div>
+          </a>
+        <?php endif; ?>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-12"><div class="horizontal-rule"></div></div>
+    </div>
+  <?php endif; ?>
+
+</section>
+
+<!-- Suggested Aritcles -->
+<section class="container-fluid">
+  <div class="row">
+    <div class="col-sm-12">
       <p class="suggested-articles-title">SUGGESTED ARTICLES</p>
     </div>
-    <div class="col-lg-2"></div>
   </div>
 
   <div class="row suggested-articles">

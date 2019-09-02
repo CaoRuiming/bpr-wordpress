@@ -1,21 +1,21 @@
 // utils
 .overflow-hidden { overflow: hidden; }
 @mixin set-display-up($width, $display: block) {
-  @media screen and (min-width: $width) { display: $display !important; }
+  @media screen and (min-width: $width) { display: $display; }
 }
-.d-none { display: none !important; }
+.d-none { display: none; }
 .d-none-xs { @include set-display-up($width-xs, none); }
 .d-none-sm { @include set-display-up($width-sm, none); }
 .d-none-md { @include set-display-up($width-md, none); }
 .d-none-lg { @include set-display-up($width-lg, none); }
 .d-none-xl { @include set-display-up($width-xl, none); }
-.d-block { display: block !important; }
+.d-block { display: block; }
 .d-block-xs { @include set-display-up($width-xs, block); }
 .d-block-sm { @include set-display-up($width-sm, block); }
 .d-block-md { @include set-display-up($width-md, block); }
 .d-block-lg { @include set-display-up($width-lg, block); }
 .d-block-xl { @include set-display-up($width-xl, block); }
-.d-flex { display: flex !important; }
+.d-flex { display: flex; }
 .d-flex-xs { @include set-display-up($width-xs, flex); }
 .d-flex-sm { @include set-display-up($width-sm, flex); }
 .d-flex-md { @include set-display-up($width-md, flex); }
@@ -89,6 +89,7 @@
   }
 
   .post-categories a {
+    display: none;
     border: none;
     font-size: 15px;
     margin-bottom: $spacing-sm;

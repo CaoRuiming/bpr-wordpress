@@ -56,7 +56,7 @@ if (is_single()) {
                   </div>
       
                   <div class="col-sm-6">
-                    <?php the_category(); ?>
+                    <div class="d-none"><?php the_category(); ?></div>
       
                     <h1 class="post-title-large">
                       <a href="<?php echo esc_url(get_permalink()); ?>">

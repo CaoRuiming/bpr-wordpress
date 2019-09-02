@@ -51,6 +51,9 @@ function pullquote_shortcode_function($atts, $content=null) {
     return '<div class="pullquote right">"'.$content.'"</div>';
 }
 
+// register custom footer nav menu position
+register_nav_menu('footer', 'Footer (menu to show in the website footer)');
+
 // Register custom shortcodes
 function register_shortcodes() {
     add_shortcode('dropcap', 'dropcap_shortcode_function');

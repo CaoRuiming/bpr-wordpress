@@ -29,43 +29,44 @@
         border-bottom: 2px solid #000000;
       }
     }
-  
-    .article-bottom {
-      border-top: 2px solid #D9D9D9;
-      border-bottom: 2px solid #D9D9D9;
-  
-      .post-tags {
-        margin-top: $spacing-md;
-        margin-bottom: $spacing-md;
-  
-        .post-tag {
-          display: inline-block;
-          color: #707070;
-          margin: $spacing-xs 25px $spacing-xs 0;
-          padding: 5px;
-          border: 2px solid #707070;
-          border-radius: 10px;
-        }
-      }
+  }
 
-      .social-icons {
-        display: flex;
-        justify-content: flex-end;
-        margin-top: $spacing-md;
-        margin-bottom: $spacing-md;
-        padding-top: $spacing-xs;
-        padding-bottom: $spacing-xs;
+  .article-bottom {
+    .horizontal-rule { border-top: 2px solid #D9D9D9; }
+    // border-top: 2px solid #D9D9D9;
+    // border-bottom: 2px solid #D9D9D9;
 
-        .social-icon {
-          width: 30px;
-          height: 30px;
-        }
+    .post-tags {
+      margin-top: $spacing-md;
+      margin-bottom: $spacing-md;
+
+      .post-tag {
+        display: inline-block;
+        color: #707070;
+        margin: $spacing-xs 25px $spacing-xs 0;
+        padding: 5px;
+        border: 2px solid #707070;
+        border-radius: 10px;
       }
-  
-      .about-author {
-        margin-bottom: $spacing-md;
-        .about-author-title { font-weight: 700; }
+    }
+
+    .social-icons {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: $spacing-md;
+      margin-bottom: $spacing-md;
+      padding-top: $spacing-xs;
+      padding-bottom: $spacing-xs;
+
+      .social-icon {
+        width: 30px;
+        height: 30px;
       }
+    }
+
+    .about-author {
+      margin-bottom: $spacing-md;
+      .about-author-title { font-weight: 700; }
     }
   }
   
@@ -74,6 +75,7 @@
     margin-bottom: 15px;
     @media screen and (max-width: $width-sm) { margin: 0 0 15px 0; }
     ul { padding: 0; }
+    .post-title-small { margin-top: $spacing-sm; }
   
     .post-categories {
       margin-top: 15px;

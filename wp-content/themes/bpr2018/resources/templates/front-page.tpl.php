@@ -23,7 +23,7 @@
               </div>
   
               <div class="col-sm-6">
-                <?php the_category(null, null, $id); ?>
+                <div class="d-none"><?php the_category(null, null, $id); ?></div>
   
                 <div class="post-title-large">
                   <a href="<?php echo esc_url(get_permalink($id)); ?>">
