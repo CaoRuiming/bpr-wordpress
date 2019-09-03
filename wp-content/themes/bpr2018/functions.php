@@ -52,7 +52,7 @@ function pullquote_shortcode_function($atts, $content=null) {
 }
 
 // register custom footer nav menu position
-register_nav_menu('footer', 'Footer (menu to show in the website footer)');
+register_nav_menu('footer', 'Footer');
 
 // Register custom shortcodes
 function register_shortcodes() {

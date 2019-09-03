@@ -14,15 +14,24 @@ The primary theme of this installation is based on Tonik, so installation of dep
 cd wp-content/themes/bpr2018
 composer install
 npm install
-npm run dev
 ```
 
 To have assets automatically compile on save, run:
 ```
-npm run dev && npm run watch
+# must be run in `wp-content/themes/bpr2018`
+make dev
+```
+
+To compile assets for production:
+```
+# must be run in `wp-content/themes/bpr2018`
+make prod
 ```
 
 ## Setup After Startup
 
 To get the front page working properly, configure WordPress through the admin GUI to set the homepage to a static page (you will need to create a new page before this). This setting can be found in `Settings > Reading > Your homepage displays`.
 
+## More Info
+
+More detailed information on website setup, development, migration, and content management can be found in the wiki of this GitHub repository (look at the wiki tab near to top of the repo in github.com).
