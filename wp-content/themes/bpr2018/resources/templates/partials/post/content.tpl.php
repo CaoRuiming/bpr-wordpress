@@ -23,7 +23,11 @@
       if ($pic_url):
       ?>
         <figure itemprop="image">
-          <img class="featured-image" src="<?php echo $pic_url; ?>">
+          <img
+            class="featured-image"
+            src="<?php echo $pic_url; ?>"
+            onerror="this.style.display='none'"
+          >
         </figure>
       <?php endif; ?>
 
