@@ -72,6 +72,9 @@ function register_scripts() {
     wp_register_script('slick', $path . 'slick.min.js', array('jquery'));
     wp_enqueue_script('slick');
 
+    wp_register_script('d3', $path . 'd3.v5.min.js');
+    wp_enqueue_script('d3');
+
     // wp_register_script('popper', $path . 'popper.min.js', array('jquery'));
     // wp_enqueue_script('popper');
 }
