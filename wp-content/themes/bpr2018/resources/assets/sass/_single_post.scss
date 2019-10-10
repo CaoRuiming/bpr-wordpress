@@ -9,6 +9,13 @@
   
   article {
     h1 { margin-bottom: 25px; }
+
+    p, figcaption {
+      a {
+        text-decoration: underline;
+        color: #555555;
+      }
+    }
   
     .hline {
       width: 50px;
