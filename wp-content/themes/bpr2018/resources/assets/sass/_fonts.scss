@@ -20,29 +20,29 @@
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
-@mixin font-size-sm($new-font-size: 20px) {
+@mixin font-size-sm($new-font-size: 2rem) { //20px
   @media screen and (max-width: $width-sm) { font-size: $new-font-size; }
 }
-@mixin font-size-md($new-font-size: 20px) {
+@mixin font-size-md($new-font-size: 2rem) { //20px
   @media screen and (max-width: $width-md) { font-size: $new-font-size; }
 }
-@mixin font-size-lg($new-font-size: 20px) {
+@mixin font-size-lg($new-font-size: 2rem) { //20px
   @media screen and (max-width: $width-lg) { font-size: $new-font-size; }
 }
-@mixin font-size-xl($new-font-size: 20px) {
+@mixin font-size-xl($new-font-size: 2rem) { //20px
   @media screen and (max-width: $width-xl) { font-size: $new-font-size; }
 }
 
 h1, .h1 {
   font-family: $header-font, serif;
-  font-size: 3em/*60px*/;
+  font-size: 4rem/*40px*/;
   font-weight: 700;
-  @include font-size-sm(40px);
+  @include font-size-sm(4rem); //40px
 }
 
 h2, .h2 {
   font-family: $header-font, serif;
-  font-size: 2.65em;
+  font-size: 2.65em; //2.65em
   font-weight: 600;
   line-height: 1.4;
   color: $color-blue;
@@ -51,19 +51,19 @@ h2, .h2 {
 
 h3, .h3 {
   font-family: $header-font, serif;
-  font-size: 1.5em;
+  font-size: 2.15rem; //1.5em
   font-weight: 600;
   line-height: 1.4;
-  letter-spacing: 0.02em;
-  margin-bottom: 20px;
+  letter-spacing: 0.03rem; //0.02em
+  margin-bottom: 20px; 
   color: $color-green;
 }
 
 h4, .h4 {
   font-family: $body-font, sans-serif;
-  font-size: 1.125em;
+  font-size: 1.6rem; //1.125em
   line-height: 1.4;
-  letter-spacing: 0.03em;
+  letter-spacing: 0.043em; //0.03em
   margin-bottom: 10px;
 }
 
@@ -71,16 +71,16 @@ h5, .h5,
 h6, .h6 {
   font-family: $header-font, serif;
   font-size: 1.125em;
-  line-height: 1.4;
+  line-height: 1.4; 
   letter-spacing: 0.03em;
-  margin-bottom: 10px;
+  margin-bottom: 10px; 
 }
 
 body {
   p {
     font-family: $body-font, sans-serif;
-    font-size: 1.4em;
-    margin: 0 0 1.4em 0; // margin on bottom should equal font size
+    font-size: 2rem; //1.4em 
+    margin: 0 0 2rem 0; // margin on bottom should equal font size 
     line-height: calc(1.5em);
   }
 
@@ -98,54 +98,54 @@ body {
 }
 
 blockquote {
-  border-left: 5px solid $color-gray-light;
-  padding-left: 10px;
+  border-left: 5px solid $color-gray-light; 
+  padding-left: 10px; 
   font-size: 125%;
 }
 
 // Utils
 .header-font { font-family: $header-font, serif; }
 .body-font { font-family: $body-font, sans-serif; }
-.font-size-16 { font-size: 12px;/*16px;*/ }
-.font-size-18 { font-size: 12px;/*18px;*/ }
-.font-size-20 { font-size: 14px;/*20px;*/ }
-.font-size-24 { font-size: 18px;/*24px;*/ }
-.font-size-30 { font-size: 22px;/*30px;*/ }
-.font-size-100 { font-size: 50px;/*100px;*/ }
+.font-size-16 { font-size: 1.2rem;/*16px;*/ } //12px
+.font-size-18 { font-size: 1.2rem;/*18px;*/ } //12px
+.font-size-20 { font-size: 1.4rem;/*20px;*/ } //14px
+.font-size-24 { font-size: 1.8rem;/*24px;*/} //18px
+.font-size-30 { font-size: 2.2rem;/*30px;*/ } //22px
+.font-size-100 { font-size: 5rem;/*100px;*/ } //50px
 .text-center { text-align: center; }
 .text-left { text-align: left; }
 .text-right { text-align: right; }
 .uppercase { text-transform: uppercase; }
 
-// Eleements
+// Elements
 .section-title {
   font-family: $header-font, serif;
-  font-size: 30px;
-  margin-bottom: 25px;
+  font-size: 3rem; //30px
+  margin-bottom: 25px; 
   color: black;
 }
 .more-link {
   font-family: $body-font, sans-serif;
   text-transform: uppercase;
-  font-size: 18px;
+  font-size: 1.8rem; //18px
   color: black;
 }
 .post-author, .post-date {
   font-family: $body-font, sans-serif;
   text-transform: uppercase;
   color: #555555;
-  @include font-size-sm(16px);
+  @include font-size-sm(1.6rem); //16px
 }
 .post-title-large {
   font-family: $header-font, serif;
-  font-size: 32px;
+  font-size: 3.2rem; //32px
   font-weight: 500;
   line-height: 1;
-  @include font-size-sm(40px);
+  @include font-size-sm(4rem); //40px
 }
 .post-title-small {
   font-family: $body-font, sans-serif;
-  font-size: 17px;
+  font-size: 1.7rem; //17px
   font-weight: 400;
   line-height: 1;
 }
@@ -153,8 +153,8 @@ blockquote {
   display: none;
   padding: 0;
   text-transform: uppercase;
-  font-size: 16px;
-  @include font-size-sm(20px);
+  font-size: 1.6rem; //16px
+  @include font-size-sm(2rem); //20px
 
   li {
     list-style-type: none;
@@ -163,8 +163,8 @@ blockquote {
   }
 
   a {
-    padding: 0 0 3px 0;
-    border-bottom: 2px solid black;
+    padding: 0 0 3px 0; 
+    border-bottom: 2px solid black; 
     color: inherit;
   }
 }
