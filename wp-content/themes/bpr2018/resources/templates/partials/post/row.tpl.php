@@ -27,7 +27,7 @@
       ?>
     </p>
 
-    <div class="post-author ">
+    <div class="post-author font-size-18">
       <a 
         itemprop="author"
         href="<?php echo esc_url(get_author_posts_url(get_the_author_meta('ID'))); ?>">
