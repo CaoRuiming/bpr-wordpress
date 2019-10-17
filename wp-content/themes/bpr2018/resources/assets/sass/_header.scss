@@ -41,7 +41,7 @@
         border-bottom: 1px solid black;
       }
 
-      #header-search-box {
+      .header-search-box {
         outline: none;
         border: none;
         background-size: 22px 22px;
@@ -64,9 +64,19 @@
         }
       }
 
+      #dark {
+        background: $body-background-dark;
+      }
+
       @media (prefers-color-scheme: dark) {
-        #header-search-box {
-          background: $body-background-dark;
+        #light {
+          display: none;
+        }
+      }
+
+      @media (prefers-color-scheme: light) {
+        #dark {
+          display: none;
         }
       }
 

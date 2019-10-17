@@ -19,12 +19,22 @@
                 action="<?php echo esc_url(home_url('/')); ?>"
               >
                 <?php $search_icon_url = get_image_asset('search-icon.png'); ?>
+                <?php $search_icon_url_dark = get_image_asset('search-icon-dark.png'); ?>
                 <input
-                  id="header-search-box"
+                  id="light"
+                  class="header-search-box"
                   type="text"
                   name="s"
                   placeholder="Search…"
                   style="background-image: url(<?php echo $search_icon_url ?>)"
+                >
+                <input
+                  id="dark"
+                  class="header-search-box"
+                  type="text"
+                  name="s"
+                  placeholder="Search…"
+                  style="background-image: url(<?php echo $search_icon_url_dark ?>)"
                 >
               </form>
             </div>
