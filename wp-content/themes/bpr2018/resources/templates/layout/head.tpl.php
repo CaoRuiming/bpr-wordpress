@@ -50,8 +50,15 @@
             <?php endif; ?>
           </div>
           <!-- Brand and toggle get grouped for better mobile display -->
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="navbar-collapse-1" aria-controls="navbar-collapse-1" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapse-1" aria-controls="navbar-collapse-1" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon">
+            <div id="nav-icon3">
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+            </span>
           </button>
           <a class="navbar-brand" tabindex="0" href="<?= get_home_url(); ?>">
             <div
@@ -86,5 +93,20 @@
               location.href = $a.attr('href');
             }
           }
+        });
+        // On nav-icon click, displays animation and applies class open to all children.
+        $(document).ready(function(){
+          $('#nav-icon3').click(function(){
+            $(this).toggleClass('open');
+          });
+          $('menu-item').click(function(){
+            if ($(this).hasClass("open")) {
+              console.log("Yippeee")
+              //window.location.replace($(this).find('nav-link').attr('href'));
+            }
+            else {
+              $(this).toggleClass("open");
+            }
+          })
         });
       </script>
