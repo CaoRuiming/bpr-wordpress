@@ -55,8 +55,14 @@
           </button>
           <a class="navbar-brand" tabindex="0" href="<?= get_home_url(); ?>">
             <div
+              id="light"
               class="logo"
               style="background-image: url(<?php echo get_image_asset('BPR_logo_black.png'); ?>)">
+            </div>
+            <div
+              id="dark"
+              class="logo"
+              style="background-image: url(<?php echo get_image_asset('BPR_logo_white.png'); ?>)">
             </div>
           </a>
           <?php

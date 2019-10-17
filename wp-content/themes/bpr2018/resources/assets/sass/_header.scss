@@ -1,10 +1,18 @@
+@media (prefers-color-scheme: dark) {
+  body {
+    background: $body-background-dark;
+  }
+}
+
 .app {
   max-width: $website-max-width;
+
   @media screen and (min-width: $width-md) {
     width: $website-width;
   }
 
   margin: $spacing-md auto;
+
   @media screen and (max-width: $width-lg) {
     margin: $spacing-sm auto;
   }
@@ -22,7 +30,7 @@
         padding-bottom: 0;
         padding-top: 0;
       }
-  
+
       &:focus-within:after {
         content: "";
         display: block;
@@ -32,7 +40,7 @@
         margin-bottom: -3px;
         border-bottom: 1px solid black;
       }
-  
+
       #header-search-box {
         outline: none;
         border: none;
@@ -44,15 +52,24 @@
         font-size: 18px;
         font-family: $body-font, sans-serif;
         padding-left: 25px;
-  
+
         -webkit-transition: all 0.1s linear;
         -moz-transition: all 0.1s linear;
         -o-transition: all 0.1s linear;
         -ms-transition: all 0.1s linear;
         transition: all 0.1s linear;
-  
-        &:focus { width: 300px; }
+
+        &:focus {
+          width: 300px;
+        }
       }
+
+      @media (prefers-color-scheme: dark) {
+        #header-search-box {
+          background: $body-background-dark;
+        }
+      }
+
     }
   }
 
@@ -67,14 +84,31 @@
       @include font-size-md(8px);
     }
 
-    &> .container {
+    &>.container {
       margin: 0;
       width: 100%;
     }
 
-    .navbar-toggler { display: none; }
+    .navbar-toggler {
+      display: none;
+    }
 
-    a.navbar-brand { height: auto; }
+    a.navbar-brand {
+      height: auto;
+
+      @media (prefers-color-scheme: dark) {
+        #light {
+          display: none;
+        }
+      }
+
+      @media (prefers-color-scheme: light) {
+        #dark {
+          display: none;
+        }
+      }
+
+    }
 
     ul.nav.navbar-nav {
       display: flex;
@@ -85,24 +119,29 @@
       width: calc(100% - #{$logo-width});
 
       // applies to items at top level of nav bar
-      & > li > a { padding: 0 2px $spacing-xxs 2px; }
+      &>li>a {
+        padding: 0 2px $spacing-xxs 2px;
+      }
 
       // expand dropdown on hover
-      .dropdown:hover .dropdown-menu { display: block; }
+      .dropdown:hover .dropdown-menu {
+        display: block;
+      }
 
       li {
         float: unset;
 
-        & > a {
+        &>a {
           color: black;
           // padding: 0;
           // padding-bottom: $spacing-xs;
           text-transform: uppercase;
           background-color: unset;
 
-          
 
-          &:hover, &:active {
+
+          &:hover,
+          &:active {
             background-color: unset;
             color: black;
           }

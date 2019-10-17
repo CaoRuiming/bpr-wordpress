@@ -42,6 +42,19 @@ img.featured-image {
   max-height: 450px;
   width: 100%;
   padding-bottom: 75%;
+
+}
+
+@media (prefers-color-scheme: dark) {
+  #light {
+    display: none;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  #dark {
+    display: none;
+  }
 }
 
 .img-35 {

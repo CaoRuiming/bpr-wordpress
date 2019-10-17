@@ -12,7 +12,10 @@ $color-green: #53550a;
 $color-blue: #31506f;
 
 $color-background-mask: rgba(0, 0, 0, .6);
-$color-blue-background-mask: rgba(49,80,111, 0.85);
+$color-blue-background-mask: rgba(49, 80, 111, 0.85);
+
+$body-background: #f1f1f1 !default;
+$body-background-dark: #111 !default;
 
 $header-font: 'ITC Caslon 224', serif;
 $body-font: 'Work Sans', sans-serif;
