@@ -61,10 +61,10 @@
     text-align: center;
 
     a {
-      font-size: 14px;
-      @include font-size-xl(12px);
-      @include font-size-lg(10px);
-      @include font-size-md(8px);
+      font-size: 1.4rem; 
+      @include font-size-xl(1.2rem); 
+      @include font-size-lg(1rem); 
+      @include font-size-md(0.8rem); 
     }
 
     &> .container {

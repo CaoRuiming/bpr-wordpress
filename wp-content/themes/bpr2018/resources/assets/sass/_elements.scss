@@ -26,7 +26,7 @@
   font-family: $header-font;
   font-style: italic;
   font-weight: 700;
-  font-size: 2.0em;
+  font-size: 1.6em;
   color: #9F9F9F;
   margin: 0 0 1.4em 0;
 
@@ -91,7 +91,7 @@
   .post-categories a {
     display: none;
     border: none;
-    font-size: 15px;
+    font-size: 1.5rem; 
     margin-bottom: $spacing-sm;
   }
 }
@@ -105,8 +105,8 @@
   font-family: $body-font, sans-serif;
   text-transform: uppercase;
   line-height: 1;
-  font-size: 14px;
-  @include font-size-sm(14px);
+  font-size: 1.4rem;
+  @include font-size-sm(1.4rem);
 
   li {
     display: inline-block;
