@@ -107,12 +107,33 @@
   }
 }
 
+@media (prefers-color-scheme: dark) {
+  #breadcrumbs {
+    color: #AAA;
+    li {
+      a {
+        color: #AAA;
+      }
+    }
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  #breadcrumbs {
+    color: #555555;
+    li {
+      a {
+        color: #555555;
+      }
+    }
+  }
+}
+
 #breadcrumbs {
   list-style: none;
   padding: 0;
   margin: 10px 0;
   overflow: hidden;
-  color: #555555;
   font-family: $body-font, sans-serif;
   text-transform: uppercase;
   line-height: 1;
@@ -123,8 +144,6 @@
     display: inline-block;
     vertical-align: top;
     margin-right: 15px;
-
-    a { color: #555555; }
 
     // hide the page itself from the breadcrumbs
     &:nth-last-child(2) { display: none; }

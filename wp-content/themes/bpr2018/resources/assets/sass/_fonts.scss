@@ -55,6 +55,12 @@ h1,
   @include font-size-sm(40px);
 }
 
+@media (prefers-color-scheme: dark) {
+  h1 {
+    color: $color-white;
+  }
+}
+
 h2,
 .h2 {
   font-family: $header-font, serif;
@@ -230,7 +236,7 @@ blockquote {
 
 @media (prefers-color-scheme: dark) {
   .more-link {
-    color: white;
+    color: $color-white;
   }
 }
 
@@ -238,8 +244,21 @@ blockquote {
 .post-date {
   font-family: $body-font, sans-serif;
   text-transform: uppercase;
-  color: #555555;
   @include font-size-sm(16px);
+}
+
+@media (prefers-color-scheme: dark) {
+  .post-author,
+  .post-date {
+    color: #AAA;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  .post-author,
+  .post-date {
+    color: #555;
+  }
 }
 
 .post-title-large {

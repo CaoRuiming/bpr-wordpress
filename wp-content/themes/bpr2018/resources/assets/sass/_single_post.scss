@@ -16,16 +16,43 @@
         color: #555555;
       }
     }
+
+    @media (prefers-color-scheme: dark) {
+      .hline {
+        background: $color-white;
+      }
+    }
+
+    @media (prefers-color-scheme: light) {
+      .hline {
+        background: $color-black;
+      }
+    }
   
     .hline {
       width: 50px;
       height: 2px;
-      background: #000000;
       margin: 50px 0 50px 0;
     }
   
     .post-categories {
       @media screen and (max-width: $width-xl) { display: none; }
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .back-to-top {
+        a {
+          border-bottom: 2px solid $color-white;
+        }
+      }
+    }
+
+    @media (prefers-color-scheme: light) {
+      .back-to-top {
+        a {
+          border-bottom: 2px solid $color-black;
+        }
+      }
     }
   
     .back-to-top {
@@ -33,7 +60,6 @@
       
       a {
         padding-bottom: 3px;
-        border-bottom: 2px solid #000000;
       }
     }
   }
