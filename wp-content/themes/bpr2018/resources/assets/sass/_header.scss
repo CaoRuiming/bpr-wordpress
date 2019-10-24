@@ -98,7 +98,13 @@
       & > li > a { padding: 0 2px $spacing-xxs 2px; }
 
       // expand dropdown on hover
-      .dropdown:hover .dropdown-menu { display: block; }
+
+      @media (min-width: $width-md) {
+        .dropdown:hover .dropdown-menu {
+          display: block;
+        }
+      }
+      
       li {
         float: unset;
 
@@ -128,7 +134,7 @@
       @media (max-width: $width-md) {
         float: right;
         width: 100%;
-        margin-top: 120px;
+        margin-top: 0px;
         & > li {
           width: 100%;
           text-align: right;
@@ -143,7 +149,24 @@
           }
         }
       }
+
+      
     }
+  }
+}
+
+/* Navbar display breakpoints */
+#navbar-collapse-1 {
+  margin-right: 25px;
+  @media (min-width: $width-md) {
+    display:none !important;
+  }
+}
+
+#navbar-collapse-mobile {
+  display: ms-flexbox !important;
+  @media (max-width: $width-md) {
+    display:none !important;
   }
 }
 

@@ -72,16 +72,28 @@
             'depth'             => 2,
             'container'         => 'div',
             'container_class'   => 'collapse navbar-collapse',
-            'container_id'      => 'navbar-collapse-1',
+            'container_id'      => 'navbar-collapse-mobile',
             'menu_class'        => 'nav navbar-nav',
             'fallback_cb'       => 'WP_Bootstrap_Navwalker::fallback',
             'walker'            => new WP_Bootstrap_Navwalker(),
           ));
           ?>
         </div>
+        <?php
+          wp_nav_menu(array(
+            'theme_location'    => 'primary',
+            'depth'             => 2,
+            'container'         => 'div',
+            'container_class'   => 'collapse navbar-collapse',
+            'container_id'      => 'navbar-collapse-1',
+            'menu_class'        => 'nav navbar-nav',
+            'fallback_cb'       => 'WP_Bootstrap_Navwalker::fallback',
+            'walker'            => new WP_Bootstrap_Navwalker(),
+          ));
+          ?>
       </nav>
       <script>
-        // Allows dropdown parent elements to be clickable links
+        // Allows dropdown parent elements to be clickable links 
         $('li.dropdown :first-child').on('click', function() {
           var $dropdown = $(this).find('+ ul.dropdown-menu');
           var $el = $(this).parent();
@@ -90,7 +102,7 @@
           if ($el.hasClass('open') || $dropdown.css('display') === 'block') {
             var $a = $el.children('a.dropdown-toggle');
             if ($a.length && $a.attr('href')) {
-              location.href = $a.attr('href');
+              //location.href = $a.attr('href');
             }
           }
         });
@@ -99,9 +111,9 @@
           $('#nav-icon').click(function(){
             $(this).toggleClass('open');
           });
-          $('menu-item').click(function(){
-            if ($(this).hasClass("open")) {
-              //window.location.replace($(this).find('nav-link').attr('href'));
+          $('.dropdown-toggle').click(function(){
+           if ($(this).hasClass("open")) {
+              window.location.replace($(this).find('nav-link').attr('href'));
             }
             else {
               $(this).toggleClass("open");
