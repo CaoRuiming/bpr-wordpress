@@ -40,10 +40,21 @@
   }
 }
 
+@media (prefers-color-scheme: dark) {
+  .horizontal-rule {
+    border-top: 1px solid $color-white;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  .horizontal-rule {
+    border-top: 1px solid $color-black;
+  }
+}
+
 .horizontal-rule {
   margin-bottom: 20px;
   width: 100%;
-  border-top: 1px solid black;
 
   &.faint {
     border-top: 1px solid #D9D9D9;

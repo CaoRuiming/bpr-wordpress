@@ -65,7 +65,7 @@
       }
 
       #dark {
-        background: $body-background-dark;
+        background-color: $body-background-dark;
       }
 
       @media (prefers-color-scheme: dark) {
@@ -120,12 +120,29 @@
 
     }
 
+    @media (prefers-color-scheme: dark) {
+      ul.nav.navbar-nav {
+        border-bottom: 2px solid $color-white;
+        a {
+          color: $color-white
+        }
+      }
+    }
+      
+    @media (prefers-color-scheme: light) {
+      ul.nav.navbar-nav {
+        border-bottom: 2px solid $color-black;
+        a {
+          color: $color-black
+        }
+      }
+    }
+
     ul.nav.navbar-nav {
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
       margin-top: 40px;
-      border-bottom: 2px solid black;
       width: calc(100% - #{$logo-width});
 
       // applies to items at top level of nav bar
@@ -142,7 +159,6 @@
         float: unset;
 
         &>a {
-          color: black;
           // padding: 0;
           // padding-bottom: $spacing-xs;
           text-transform: uppercase;

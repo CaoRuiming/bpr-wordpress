@@ -104,10 +104,22 @@ body {
     line-height: calc(1.5em);
   }
 
+  @media (prefers-color-scheme: dark) {
+    #app a, p {
+      color: $color-white;
+    }
+  }
+
+  @media (prefers-color-scheme: light) {
+    #app a, p {
+      color: $color-black;
+    }
+  }
+
   #app a {
-    color: #000000;
     text-decoration: none;
   }
+  
 }
 
 .sidebar-wrapper,
@@ -195,12 +207,17 @@ blockquote {
   font-family: $header-font, serif;
   font-size: 30px;
   margin-bottom: 25px;
-  color: black;
 }
 
 @media (prefers-color-scheme: dark) {
   .section-title {
-    color: white;
+    color: $color-white;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  .section-title {
+    color: $color-black;
   }
 }
 
@@ -225,14 +242,18 @@ blockquote {
   @include font-size-sm(16px);
 }
 
-
-
 .post-title-large {
   font-family: $header-font, serif;
   font-size: 32px;
   font-weight: 500;
   line-height: 1;
   @include font-size-sm(40px);
+}
+
+@media (prefers-color-scheme: dark) {
+  .post-title-large {
+    color: $color-white;
+  }
 }
 
 .post-title-small {
