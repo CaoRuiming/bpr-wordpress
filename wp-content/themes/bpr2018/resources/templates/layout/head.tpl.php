@@ -50,13 +50,13 @@
             <?php endif; ?>
           </div>
           <!-- Brand and toggle get grouped for better mobile display -->
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapse-1" aria-controls="navbar-collapse-1" aria-expanded="false" aria-label="Toggle navigation">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon">
             <div id="nav-icon">
-              <span></span>
-              <span></span>
-              <span></span>
-              <span></span>
+              <span id="nav-icon-1"></span>
+              <span id="nav-icon-2"></span>
+              <span id="nav-icon-3"></span>
+              <span id="nav-icon-4"></span>
             </div>
             </span>
           </button>
@@ -85,7 +85,7 @@
             'depth'             => 2,
             'container'         => 'div',
             'container_class'   => 'collapse navbar-collapse',
-            'container_id'      => 'navbar-collapse-1',
+            'container_id'      => 'navbar-collapse',
             'menu_class'        => 'nav navbar-nav',
             'fallback_cb'       => 'WP_Bootstrap_Navwalker::fallback',
             'walker'            => new WP_Bootstrap_Navwalker(),
