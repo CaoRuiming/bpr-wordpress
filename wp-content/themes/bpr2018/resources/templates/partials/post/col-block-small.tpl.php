@@ -15,16 +15,14 @@
 
   <div class="text col-sm-7">
     <div class="post-title-small">
-      <a itemprop="name" href="<?php echo esc_url(get_permalink()); ?>">
-        <?php the_title(); ?>
+      <a itemprop="url" href="<?php echo esc_url(get_permalink()); ?>">
+      <span itemprop="headline"><?php the_title(); ?></span>
       </a>
     </div>
 
     <div class="post-author post-date font-size-18">
-      <a
-        itemprop="author"
-        href="<?php echo esc_url(get_author_posts_url(get_the_author_meta('ID'))); ?>">
-        <?php the_author(); ?>
+      <a href="<?php echo esc_url(get_author_posts_url(get_the_author_meta('ID'))); ?>">
+        <span itemprop="author"><?php the_author(); ?></span>
       </a>
       <?php
       if (get_the_date()) { echo ' | <time itemprop="datePublished">' . get_the_date() . '</time>'; }
