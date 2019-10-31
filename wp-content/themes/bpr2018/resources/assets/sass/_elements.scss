@@ -109,10 +109,10 @@
 
 @media (prefers-color-scheme: dark) {
   #breadcrumbs {
-    color: #AAA;
+    color: $color-grey-darkmode;
     li {
       a {
-        color: #AAA;
+        color: $color-grey-darkmode;
       }
     }
   }
@@ -120,10 +120,10 @@
 
 @media (prefers-color-scheme: light) {
   #breadcrumbs {
-    color: #555555;
+    color: $color-grey-lightmode;
     li {
       a {
-        color: #555555;
+        color: $color-grey-lightmode;
       }
     }
   }

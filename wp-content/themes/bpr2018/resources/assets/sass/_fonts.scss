@@ -43,7 +43,7 @@ h1,
 }
 
 @media (prefers-color-scheme: dark) {
-  h1 {
+  h1, h3, figcaption {
     color: $color-white;
   }
 }
@@ -99,7 +99,14 @@ body {
 
   @media (prefers-color-scheme: dark) {
     #app a, p {
-      color: $color-white;
+      color: $color-white; 
+    }
+    div#single-template {
+      p {
+        a {
+          color: $color-link-darkmode;
+        }
+      }
     }
   }
 
@@ -196,14 +203,14 @@ blockquote {
 @media (prefers-color-scheme: dark) {
   .post-author,
   .post-date {
-    color: #AAA;
+    color: $color-grey-darkmode;
   }
 }
 
 @media (prefers-color-scheme: light) {
   .post-author,
   .post-date {
-    color: #555;
+    color: $color-grey-lightmode;
   }
 }
 

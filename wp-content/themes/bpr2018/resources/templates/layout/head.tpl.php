@@ -40,21 +40,35 @@
             </div>
             <?php
             $facebook_icon_url = get_image_asset('facebook_icon.png');
+            $facebook_icon_inverted_url = get_image_asset('facebook_icon_inverted.png');
             $twitter_icon_url = get_image_asset('twitter_icon.png');
+            $twitter_icon_inverted_url = get_image_asset('twitter_icon_inverted.png');
             ?>
             <?php if (get_field('facebook_url', 'option')): ?>
               <a href="<?php echo esc_url(get_field('facebook_url', 'option')); ?>">
                 <div
+                  id="light"
                   class="social-icon"
                   style="background-image: url(<?php echo $facebook_icon_url ?>)">
+                </div>
+                <div
+                  id="dark"
+                  class="social-icon"
+                  style="background-image: url(<?php echo $facebook_icon_inverted_url ?>)">
                 </div>
               </a>
             <?php endif; ?>
             <?php if (get_field('twitter_url', 'option')): ?>
               <a href="<?php echo esc_url(get_field('twitter_url', 'option')); ?>">
                 <div
+                  id="light"
                   class="social-icon"
                   style="background-image: url(<?php echo $twitter_icon_url ?>)">
+                </div>
+                <div
+                  id="dark"
+                  class="social-icon"
+                  style="background-image: url(<?php echo $twitter_icon_inverted_url ?>)">
                 </div>
               </a>
             <?php endif; ?>
