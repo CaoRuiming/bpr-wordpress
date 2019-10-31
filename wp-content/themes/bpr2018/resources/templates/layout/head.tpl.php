@@ -132,7 +132,7 @@
           if ($el.hasClass('open') || $dropdown.css('display') === 'block') {
             var $a = $el.children('a.dropdown-toggle');
             if ($a.length && $a.attr('href')) {
-              //location.href = $a.attr('href');
+              location.href = $a.attr('href');
             }
           }
         });
@@ -142,8 +142,8 @@
             $(this).toggleClass('open');
           });
           $('.dropdown-toggle').click(function(){
-           if ($(this).hasClass("open")) {
-              window.location.replace($(this).find('nav-link').attr('href'));
+            if ($(this).hasClass("open")) {
+              location.href = $(this).attr('href');
             }
             else {
               $(this).toggleClass("open");
