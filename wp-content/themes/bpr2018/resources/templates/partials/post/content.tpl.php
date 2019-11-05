@@ -5,13 +5,11 @@
       <?php custom_breadcrumbs(); ?>
 
       <a id="article-top" name="article-top"></a> <!-- For back to top -->
-      <h1 itemprop="name"><?php the_title(); ?></h1>
+      <h1 itemprop="headline"><?php the_title(); ?></h1>
 
       <div class="post-author post-date font-size-24">
-        <a
-          itemprop="author"
-          href="<?php echo esc_url(get_author_posts_url(get_the_author_meta('ID'))); ?>">
-          <?php the_author(); ?>
+        <a href="<?php echo esc_url(get_author_posts_url(get_the_author_meta('ID'))); ?>">
+          <span itemprop="author"><?php the_author(); ?></span>
         </a>
         <?php
         if (get_the_date()) { echo ' | <time itemprop="datePublished">' . get_the_date() . '</time>'; }
