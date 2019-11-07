@@ -67,3 +67,6 @@ $RECYCLE.BIN/
 
 # htaccess
 .htaccess
+
+# vscode
+.vscode

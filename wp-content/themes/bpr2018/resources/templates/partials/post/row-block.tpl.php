@@ -3,10 +3,18 @@
   <a href="<?php echo esc_url(get_permalink()); ?>">
     <div class="img-30-wrapper">
       <?php $placeholder = get_image_asset('placeholder_dark.jpg'); ?>
+      <?php $placeholder_dark = get_image_asset('placeholder_bright.jpg'); ?>
       <div
+        id="light"
         class="img-30"
         itemprop="image"
         style="background-image: url(<?php echo $pic_url; ?>), url(<?php echo $placeholder; ?>);">
+      </div>
+      <div
+        id="dark"
+        class="img-30"
+        itemprop="image"
+        style="background-image: url(<?php echo $pic_url; ?>), url(<?php echo $placeholder_dark; ?>);">
       </div>
     </div>
   </a>

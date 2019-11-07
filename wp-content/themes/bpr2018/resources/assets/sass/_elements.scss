@@ -40,10 +40,21 @@
   }
 }
 
+@media (prefers-color-scheme: dark) {
+  .horizontal-rule {
+    border-top: 1px solid $color-white;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  .horizontal-rule {
+    border-top: 1px solid $color-black;
+  }
+}
+
 .horizontal-rule {
   margin-bottom: 20px;
   width: 100%;
-  border-top: 1px solid black;
 
   &.faint {
     border-top: 1px solid #D9D9D9;
@@ -96,12 +107,33 @@
   }
 }
 
+@media (prefers-color-scheme: dark) {
+  #breadcrumbs {
+    color: $color-grey-darkmode;
+    li {
+      a {
+        color: $color-grey-darkmode;
+      }
+    }
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  #breadcrumbs {
+    color: $color-grey-lightmode;
+    li {
+      a {
+        color: $color-grey-lightmode;
+      }
+    }
+  }
+}
+
 #breadcrumbs {
   list-style: none;
   padding: 0;
   margin: 10px 0;
   overflow: hidden;
-  color: #555555;
   font-family: $body-font, sans-serif;
   text-transform: uppercase;
   line-height: 1;
@@ -112,8 +144,6 @@
     display: inline-block;
     vertical-align: top;
     margin-right: 15px;
-
-    a { color: #555555; }
 
     // hide the page itself from the breadcrumbs
     &:nth-last-child(2) { display: none; }

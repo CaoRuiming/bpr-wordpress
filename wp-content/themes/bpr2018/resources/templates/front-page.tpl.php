@@ -15,10 +15,10 @@
             <div class="row">
               <div class="col-sm-6">
                 <a href="<?php echo esc_url(get_permalink($id)); ?>">
-                  <?php $placeholder = get_image_asset('placeholder_dark.jpg'); ?>
+                  <?php $placeholderLight = get_image_asset('placeholder_dark.jpg'); ?>
                   <div
                     class="img-40"
-                    style="background-image: url(<?php echo $pic_url; ?>), url(<?php echo $placeholder; ?>);">
+                    style="background-image: url(<?php echo $pic_url; ?>), url(<?php echo $placeholderLight; ?>);">
                   </div>
                 </a>
               </div>

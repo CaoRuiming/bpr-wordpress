@@ -19,32 +19,56 @@
                 action="<?php echo esc_url(home_url('/')); ?>"
               >
                 <?php $search_icon_url = get_image_asset('search-icon.png'); ?>
+                <?php $search_icon_url_dark = get_image_asset('search-icon-dark.png'); ?>
                 <input
-                  id="header-search-box"
+                  id="light"
+                  class="header-search-box"
                   type="text"
                   name="s"
                   placeholder="Search…"
                   style="background-image: url(<?php echo $search_icon_url ?>)"
                 >
+                <input
+                  id="dark"
+                  class="header-search-box"
+                  type="text"
+                  name="s"
+                  placeholder="Search…"
+                  style="background-image: url(<?php echo $search_icon_url_dark ?>)"
+                >
               </form>
             </div>
             <?php
             $facebook_icon_url = get_image_asset('facebook_icon.png');
+            $facebook_icon_inverted_url = get_image_asset('facebook_icon_inverted.png');
             $twitter_icon_url = get_image_asset('twitter_icon.png');
+            $twitter_icon_inverted_url = get_image_asset('twitter_icon_inverted.png');
             ?>
             <?php if (get_field('facebook_url', 'option')): ?>
               <a href="<?php echo esc_url(get_field('facebook_url', 'option')); ?>">
                 <div
+                  id="light"
                   class="social-icon"
                   style="background-image: url(<?php echo $facebook_icon_url ?>)">
+                </div>
+                <div
+                  id="dark"
+                  class="social-icon"
+                  style="background-image: url(<?php echo $facebook_icon_inverted_url ?>)">
                 </div>
               </a>
             <?php endif; ?>
             <?php if (get_field('twitter_url', 'option')): ?>
               <a href="<?php echo esc_url(get_field('twitter_url', 'option')); ?>">
                 <div
+                  id="light"
                   class="social-icon"
                   style="background-image: url(<?php echo $twitter_icon_url ?>)">
+                </div>
+                <div
+                  id="dark"
+                  class="social-icon"
+                  style="background-image: url(<?php echo $twitter_icon_inverted_url ?>)">
                 </div>
               </a>
             <?php endif; ?>
@@ -62,8 +86,14 @@
           </button>
           <a class="navbar-brand" tabindex="0" href="<?= get_home_url(); ?>">
             <div
+              id="light"
               class="logo"
               style="background-image: url(<?php echo get_image_asset('BPR_logo_black.png'); ?>)">
+            </div>
+            <div
+              id="dark"
+              class="logo"
+              style="background-image: url(<?php echo get_image_asset('BPR_logo_white.png'); ?>)">
             </div>
           </a>
           <?php
