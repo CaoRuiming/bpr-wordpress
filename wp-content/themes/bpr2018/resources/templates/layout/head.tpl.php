@@ -10,6 +10,17 @@
     <main id="app" class="app">
       <nav id="main-menu" class="navbar navbar-expand-md navbar-light bg-light" role="navigation">
         <div class="container">
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon">
+            <div id="nav-icon">
+              <span id="nav-icon-1"></span>
+              <span id="nav-icon-2"></span>
+              <span id="nav-icon-3"></span>
+              <span id="nav-icon-4"></span>
+            </div>
+            </span>
+          </button>
           <div id="header-icons">
             <div id="header-search-wrapper">
               <form
@@ -73,17 +84,6 @@
               </a>
             <?php endif; ?>
           </div>
-          <!-- Brand and toggle get grouped for better mobile display -->
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon">
-            <div id="nav-icon">
-              <span id="nav-icon-1"></span>
-              <span id="nav-icon-2"></span>
-              <span id="nav-icon-3"></span>
-              <span id="nav-icon-4"></span>
-            </div>
-            </span>
-          </button>
           <a class="navbar-brand" tabindex="0" href="<?= get_home_url(); ?>">
             <div
               id="light"
