@@ -282,7 +282,12 @@
     position: absolute;
     height: 5px;
     width: 50%;
-    background: black;
+    @media (prefers-color-scheme: light) {
+      background: black;
+    }
+    @media (prefers-color-scheme: dark) {
+      background: white;
+    }
     border-radius: 9px;
     opacity: 1;
     right: 0;
