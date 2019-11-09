@@ -1380,7 +1380,7 @@ function powerpressplayer_build_blubrryaudio($media_url, $EpisodeData=array(), $
 		if( empty($GLOBALS['powerpress_skipto_player'][ get_the_ID() ][ $feedSlug ] ) )
 			$GLOBALS['powerpress_skipto_player'][ get_the_ID() ][ $feedSlug ] = $playerID;
 		
-		return '<iframe src="'. $url .'" scrolling="no" width="100%" height="138px" frameborder="0" id="'. $playerID .'"></iframe>';
+		return '<iframe src="'. $url .'" scrolling="no" width="100%" height="138px" frameborder="0" id="'. $playerID .'" class="blubrryplayer"></iframe>';
 	}
 	
 	return powerpressplayer_build_mediaelementaudio($media_url, $EpisodeData, $embed);
@@ -1388,7 +1388,7 @@ function powerpressplayer_build_blubrryaudio($media_url, $EpisodeData=array(), $
 
 function powerpressplayer_build_blubrryaudio_by_id($directory_episode_id)
 {
-	return '<iframe src="//player.blubrry.com?podcast_id='. $directory_episode_id .'" id="playeriframe" scrolling="no" width="100%" height="138px" frameborder="0"></iframe>';
+	return '<iframe src="https://player.blubrry.com?podcast_id='. $directory_episode_id .'" id="playeriframe" class="blubrryplayer" scrolling="no" width="100%" height="138px" frameborder="0"></iframe>';
 }
 
 /*

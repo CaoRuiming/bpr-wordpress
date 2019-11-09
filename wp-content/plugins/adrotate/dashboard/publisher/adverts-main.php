@@ -56,22 +56,7 @@
 			$stats = adrotate_stats($banner['id']);
 			$stats_today = adrotate_stats($banner['id'], false, adrotate_date_start('day'));
 			$grouplist = adrotate_ad_is_in_groups($banner['id']);
-
 			$ctr = adrotate_ctr($stats['clicks'], $stats['impressions']);						
-			
-			if($adrotate_debug['publisher'] == true) {
-				echo "<tr><td>&nbsp;</td><td><strong>[DEBUG]</strong></td><td colspan='9'><pre>";
-				echo "Ad Specs: <pre>";
-				print_r($banner); 
-				echo "</pre>"; 
-				echo "Stats: <pre>";
-				print_r($stats); 
-				echo "</pre>"; 
-				echo "Stats today: <pre>";
-				print_r($stats_today); 
-				echo "</pre></td></tr>"; 
-			}
-						
 			$class = ($class != 'alternate') ? 'alternate' : '';
 			?>
 		    <tr id='adrotateindex' class='<?php echo $class; ?>'>

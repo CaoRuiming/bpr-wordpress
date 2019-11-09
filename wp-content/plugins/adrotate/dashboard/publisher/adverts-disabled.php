@@ -51,16 +51,6 @@
 			$ctr = adrotate_ctr($stats['clicks'], $stats['impressions']);
 
 			$class = ($class != 'alternate') ? 'alternate' : '';
-			
-			if($adrotate_debug['publisher'] == true) {
-				echo "<tr><td>&nbsp;</td><td><strong>[DEBUG]</strong></td><td colspan='9'><pre>";
-				echo "Ad Specs: <pre>";
-				print_r($banner); 
-				echo "</pre>"; 
-				echo "Stats: <pre>";
-				print_r($stats); 
-				echo "</pre></td></tr>"; 
-			}
 			?>
 		    <tr id='adrotateindex' class='<?php echo $class; ?>'>
 				<th class="check-column"><input type="checkbox" name="disabledbannercheck[]" value="<?php echo $banner['id']; ?>" /></th>

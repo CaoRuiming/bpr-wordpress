@@ -80,6 +80,7 @@ function fbap_install_free()
 	//add_option('xyz_fbap_api_calls_used','0');
 	add_option('xyz_fbap_xyzscripts_user_id','');
 	add_option('xyz_fbap_xyzscripts_hash_val','');
+	add_option('xyz_fbap_enforce_og_tags','1');
 }
 
 

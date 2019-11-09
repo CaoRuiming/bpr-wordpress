@@ -3,9 +3,9 @@ Contributors: hcabrera
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=hcabrerab%40gmail%2ecom&lc=GB&item_name=WordPress%20Popular%20Posts%20Plugin&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donateCC_LG_global%2egif%3aNonHosted
 Tags: popular, posts, widget, popularity, top
 Requires at least: 4.7
-Tested up to: 5.0
-Requires PHP: 5.3
-Stable tag: 4.2.2
+Tested up to: 5.3
+Requires PHP: 5.4
+Stable tag: 5.0.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -18,26 +18,27 @@ WordPress Popular Posts is a highly customizable widget that displays your most 
 = Main Features =
 * **Multi-widget capable** - You can have several widgets of WordPress Popular Posts on your blog, each with its own settings!
 * **Time Range** - List those posts of your blog that have been the most popular ones within a specific time range (eg. last 24 hours, last 7 days, last 30 days, etc)!
-* **Custom Post-type support** - Wanna show other stuff than just posts and pages?
-* **Thumbnails!** - Display a thumbnail of your posts! (*see the [FAQ section](http://wordpress.org/extend/plugins/wordpress-popular-posts/faq/) for technical requirements*.)
+* **Custom Post-type support** - Want to show other stuff than just posts and pages, eg. Popular *Products*? [You can](https://github.com/cabrerahector/wordpress-popular-posts/wiki/5.-FAQ#i-want-to-have-a-popular-list-of-my-custom-post-type-how-can-i-do-that)!
+* **Thumbnails!** - Display a thumbnail of your posts! (*see the [FAQ section](https://github.com/cabrerahector/wordpress-popular-posts/wiki/5.-FAQ#how-does-wordpress-popular-posts-pick-my-posts-thumbnails) for more details*.)
 * **Statistics dashboard** - See how your popular posts are doing directly from your admin area.
 * **Sorting options** - Order your popular list by comments, views (default) or average views per day!
+* **Custom themes** - Out of the box, WordPress Popular Posts includes some themes so you can style your popular posts list (see [Widget Themes](https://github.com/cabrerahector/wordpress-popular-posts/wiki/6.-Styling-the-list#themes) for more details).
 * **Use your own layout!** - WPP is flexible enough to let you customize the look and feel of your popular posts! (see [customizing WPP's HTML markup](https://github.com/cabrerahector/wordpress-popular-posts/wiki/5.-FAQ#how-can-i-use-my-own-html-markup-with-your-plugin) and [How to style WordPress Popular Posts](https://github.com/cabrerahector/wordpress-popular-posts/wiki/6.-Styling-the-list) for more.)
 * **Advanced caching features!** - WordPress Popular Posts includes a few options to make sure your site's performance stays as good as ever! (see [Performance](https://github.com/cabrerahector/wordpress-popular-posts/wiki/7.-Performance) for more details.)
 * **REST API Support** - Embed your popular posts in your (web) app! (see [REST API Endpoints](https://github.com/cabrerahector/wordpress-popular-posts/wiki/8.-REST-API-Endpoints) for more.)
 * **Disqus support** - Sort your popular posts by Disqus comments count!
 * **Polylang & WPML 3.2+ support** - Show the translated version of your popular posts!
-* **WordPress Multisite support** - Each site on the network can have its own popular posts!
+* **WordPress Multisite support** - Each site on the network can have its own popular posts list!
 
 = Other Features =
-* **Shortcode support** - Use the [wpp] shortcode to showcase your most popular posts on pages, too! For usage and instructions, please refer to the [installation section](http://wordpress.org/extend/plugins/wordpress-popular-posts/installation/).
-* **Template tags** - Don't feel like using widgets? No problem! You can still embed your most popular entries on your theme using the *wpp_get_mostpopular()* template tag. Additionally, the *wpp_get_views()* template tag allows you to retrieve the views count for a particular post. For usage and instructions, please refer to the [installation section](http://wordpress.org/extend/plugins/wordpress-popular-posts/installation/).
-* **Localization** - Translate WPP to your own language (*See the [FAQ section](http://wordpress.org/extend/plugins/wordpress-popular-posts/faq/) for more info*).
-* **[WP-PostRatings](http://wordpress.org/extend/plugins/wp-postratings/) support** - Show your visitors how your readers are rating your posts!
+* **Shortcode support** - Use the [wpp] shortcode to showcase your most popular posts on pages, too! For usage and instructions, please refer to the [Installation section](https://wordpress.org/plugins/wordpress-popular-posts/#installation).
+* **Template tags** - Don't feel like using widgets? No problem! You can still embed your most popular entries on your theme using the `wpp_get_mostpopular()` template tag. Additionally, the `wpp_get_views()` template tag allows you to retrieve the views count for a particular post. For usage and instructions, please refer to the [Installation section](https://wordpress.org/plugins/wordpress-popular-posts/#installation).
+* **Localization** - [Translate WPP into your own language](https://github.com/cabrerahector/wordpress-popular-posts/wiki/5.-FAQ#i-want-to-translate-your-plugin-into-my-language--help-you-update-a-translation-what-do-i-need-to-do).
+* **[WP-PostRatings](https://wordpress.org/plugins/wp-postratings/) support** - Show your visitors how your readers are rating your posts!
 
 **WordPress Popular Posts** is now also on [GitHub](https://github.com/cabrerahector/wordpress-popular-posts)!
 
-Looking for a Recent Posts widget just as featured-packed as WordPress Popular Posts? **Try [Recently](https://wordpress.org/plugins/recently/)**!
+Looking for a **Recent Posts** widget just as featured-packed as WordPress Popular Posts? **Try [Recently](https://wordpress.org/plugins/recently/)**!
 
 == Installation ==
 
@@ -70,8 +71,8 @@ That's it!
 
 WordPress Popular Posts can be used in three different ways:
 
-1. As a [widget](http://codex.wordpress.org/WordPress_Widgets): simply drag and drop it into your theme's sidebar and configure it.
-2. As a template tag: you can place it anywhere on your theme with [wpp_get_mostpopular()](https://github.com/cabrerahector/wordpress-popular-posts/wiki/2.-Template-tags#wpp_get_mostpopular).
+1. As a [widget](https://wordpress.org/support/article/wordpress-widgets/): simply drag and drop it into your theme's sidebar and configure it.
+2. As a template tag: you can place it anywhere on your theme with [`wpp_get_mostpopular()`](https://github.com/cabrerahector/wordpress-popular-posts/wiki/2.-Template-tags#wpp_get_mostpopular).
 3. Via [shortcode](https://github.com/cabrerahector/wordpress-popular-posts/wiki/1.-Using-WPP-on-posts-&-pages), so you can embed it inside a post or a page.
 
 Make sure to stop by the **[Wiki](https://github.com/cabrerahector/wordpress-popular-posts/wiki)** as well, you'll find even more info there!
@@ -82,25 +83,40 @@ The FAQ section has been moved [here](https://github.com/cabrerahector/wordpress
 
 == Screenshots ==
 
-1. Widgets Control Panel.
-2. WordPress Popular Posts Widget.
-3. WordPress Popular Posts Widget on theme's sidebar.
-4. WordPress Popular Posts Stats panel.
+1. The WordPress Popular Posts Widget.
+2. The WordPress Popular Posts Widget on theme's sidebar.
+3. Dashboard widget.
+4. Statistics panel.
 
 == Changelog ==
-= 4.2.2 =
+= 5.0.1 =
 
-- Hotfix: don't typehint scalars, breaks plugin on PHP 5.
+**If you're using a caching plugin, flushing its cache right after installing / upgrading to this version is recommended.**
 
-= 4.2.1 =
+- Fixed a compatibility issue with the newly introduced [widget themes](https://cabrerahector.com/wordpress/wordpress-popular-posts-5-0-multiple-taxonomy-support-themes-thumbnail-lazy-loading-and-more/#themes) feature. If you're using a theme with your popular posts widget you'll need to reapply it for it to get the latest changes (go to Appearance > Widgets > WordPress Popular Posts, select a different theme then hit Save, finally switch back to your preferred theme and hit Save again.)
+- Fixed two date related issues.
+- Minor styling improvements to widget themes Cards, Cards Compact, Cardview and Cardview Compact.
+- Removes bold styling from post title on the stock design (wpp.css).
+- Improves data caching logic.
 
-- Adds [filter to set thumbnail compression quality](https://github.com/cabrerahector/wordpress-popular-posts/wiki/3.-Filters#wpp_thumbnail_compression_quality).
-- Adds [filter to change the ending string of the excerpt](https://github.com/cabrerahector/wordpress-popular-posts/wiki/3.-Filters#wpp_excerpt_more) generated by WPP.
-- When using multilingual plugins, return the author of the translation instead of the author of the original post.
-- Fixes a PHP warning message generated by an unimplemented method in the REST API controller.
-- Minor code improvements.
+= 5.0.0 =
 
-See [full changelog](https://github.com/cabrerahector/wordpress-popular-posts/blob/master/changelog.md).
+**If you're using a caching plugin, flushing its cache right after installing / upgrading to this version is required.**
+
+- Code has been refactored to use more modern PHP practices! This will help make WordPress Popular Posts more maintainable and easier to extend.
+- WordPress Popular Posts now requires PHP 5.4 or newer and WordPress 4.7 or newer.
+- The `WPP_Query` class has been deprecated. Use `WordPressPopularPosts\Query` instead.
+- Added ability to filter posts by multiple taxonomies (thanks [blackWhitePanda](https://github.com/blackWhitePanda)!)
+- New Dashboard Widget: Trending Now.
+- Added 10 new themes for the widget!
+- Added ability to lazy load thumbnails (enabled by default).
+- Improved support for WPML and Polylang.
+- Authors and Editors can now access the Stats dashboard too!
+- Fixed translation issues affecting russian and similar languages.
+- New Content Tags: total_items and item_position.
+- Many minor bug fixes/improvements.
+
+[Release notes](https://cabrerahector.com/wordpress/wordpress-popular-posts-5-0-multiple-taxonomy-support-themes-thumbnail-lazy-loading-and-more/) | [Full Changelog](https://github.com/cabrerahector/wordpress-popular-posts/compare/4.2.2...5.0.0).
 
 == Credits ==
 

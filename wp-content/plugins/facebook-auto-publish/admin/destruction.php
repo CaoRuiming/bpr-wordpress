@@ -61,6 +61,7 @@ function fbap_free_destroy()
 	//delete_option('xyz_fbap_api_calls_used');
 	delete_option('xyz_fbap_xyzscripts_hash_val');
 	delete_option('xyz_fbap_xyzscripts_user_id');
+	delete_option('xyz_fbap_enforce_og_tags');
 }
 
 register_uninstall_hook(XYZ_FBAP_PLUGIN_FILE,'fbap_free_network_destroy');

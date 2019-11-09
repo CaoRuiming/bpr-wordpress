@@ -18,6 +18,7 @@ class PowerPressWebSub
 		$this->wp_remote_options['httpversion'] = '1.1';
 		$this->wp_remote_options['headers'] = array('Content-Type'=>'application/x-www-form-urlencoded');
 		$this->wp_remote_options['body'] = array('hub.mode'=>'publish');
+		$this->wp_remote_options['timeout'] = 3; // Do not allow this to block more than 3 seconds
     }
 
 

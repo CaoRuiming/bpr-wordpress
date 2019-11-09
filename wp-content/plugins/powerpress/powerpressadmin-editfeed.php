@@ -588,10 +588,7 @@ function powerpressadmin_edit_feed_settings($FeedSettings, $General, $FeedAttrib
 </td>
 </tr>
 
-<?php
-if( $FeedAttribs['type'] != 'general' ) // All types exept general settings
-{
-?>
+
 <tr valign="top">
 <th scope="row">
 <?php echo __('Feed Landing Page URL', 'powerpress'); ?> <br />
@@ -610,7 +607,6 @@ if( $FeedAttribs['type'] != 'general' ) // All types exept general settings
 <?php } ?>
 </td>
 </tr>
-<?php } // End not general settings ?>
 
 <tr valign="top">
 <th scope="row">
@@ -964,7 +960,7 @@ reset($Categories);
     <td>
         <p><?php echo __('August, 2019 +', 'powerpress') ?></p>
         <?php
-            $errorClass = null;
+            $errorClass = '';
             if(empty($FeedSettings['itunes_cat_1'])) {
                 //don't show an error if there isn't a corresponding itunes category
             }
@@ -1028,7 +1024,7 @@ reset($Categories);
 </td>
 <td>
     <?php
-        $errorClass = null;
+        $errorClass = '';
         if(empty($FeedSettings['itunes_cat_2'])) {
             //don't show an error if there isn't a corresponding itunes caregory
         }
@@ -1092,7 +1088,7 @@ reset($Categories);
 </td>
 <td>
     <?php
-        $errorClass = null;
+        $errorClass = '';
         if(empty($FeedSettings['itunes_cat_3'])) {
             //don't show an error if there isn't a corresponding itunes caregory
         }
@@ -1326,9 +1322,9 @@ foreach( $types as $value=> $desc )
 			else
 			{
 				echo '<a href="';
-				echo esc_attr( get_feed_link('feed') );
+				echo esc_attr( get_feed_link('') );
 				echo '" target="_blank">';
-				echo esc_html( get_feed_link('feed') );
+				echo esc_html( get_feed_link('') );
 				echo '</a>';
 				
 				if( empty($General['custom_feeds']['podcast']) )
@@ -1354,7 +1350,7 @@ foreach( $types as $value=> $desc )
 <span style="margin-left: 10px;"><?php echo __('iTunes Block', 'powerpress'); ?></span></th> 
 	<td>
 		<input type="checkbox" name="Feed[itunes_block]" value="1" <?php if( !empty($FeedSettings['itunes_block']) ) echo 'checked'; ?> />
-		<?php echo __('Prevent the entire podcast from appearing in the iTunes Podcast directory.', 'powerpress'); ?>
+		<?php echo __('Prevent the entire podcast from appearing in the Apple Podcast directory.', 'powerpress'); ?>
 	</td>
 	</tr>
 	
@@ -1364,7 +1360,7 @@ foreach( $types as $value=> $desc )
 <span style="margin-left: 10px;"><?php echo __('iTunes Complete', 'powerpress'); ?></span></th> 
 	<td>
 		<input type="checkbox" name="Feed[itunes_complete]" value="1" <?php if( !empty($FeedSettings['itunes_complete']) ) echo 'checked'; ?> />
-		<?php echo __('Indicate the completion of a podcast. iTunes will no longer update your listing in the iTunes Podcast directory.', 'powerpress'); ?>
+		<?php echo __('Indicate the completion of a podcast. iTunes will no longer update your listing in the Apple Podcast directory.', 'powerpress'); ?>
 	</td>
 	</tr>
 </table>

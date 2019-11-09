@@ -29,6 +29,7 @@ function xyz_fbap_ajax_backlink_call() {
 add_action('wp_ajax_xyz_fbap_selected_pages_auto_update', 'xyz_fbap_selected_pages_auto_update_fn');
 function xyz_fbap_selected_pages_auto_update_fn() {
 	global $wpdb;
+	if(current_user_can('administrator')){
 	if($_POST){
 		if (! isset( $_POST['_wpnonce'] )|| ! wp_verify_nonce( $_POST['_wpnonce'],'xyz_fbap_selected_pages_nonce' ))
 		{
@@ -36,21 +37,23 @@ function xyz_fbap_selected_pages_auto_update_fn() {
 		}
 		if(isset($_POST)){
 			$pages=stripslashes($_POST['pages']);
-			$smap_sec_key=$_POST['smap_secretkey'];
+			$fbap_sec_key=$_POST['smap_secretkey'];
 			$xyz_fbap_fb_numericid=$_POST['xyz_fb_numericid'];
 			$xyz_fbap_smapsoln_userid=$_POST['smapsoln_userid'];
 			update_option('xyz_fbap_page_names',$pages);
 			update_option('xyz_fbap_af', 0);
-			update_option('xyz_fbap_secret_key', $smap_sec_key);
+			update_option('xyz_fbap_secret_key', $fbap_sec_key);
 			update_option('xyz_fbap_fb_numericid', $xyz_fbap_fb_numericid);
 			update_option('xyz_fbap_smapsoln_userid', $xyz_fbap_smapsoln_userid);
 		}
 	}
+}
 	die();
 }
 add_action('wp_ajax_xyz_fbap_xyzscripts_accinfo_auto_update', 'xyz_fbap_xyzscripts_accinfo_auto_update_fn');
 function xyz_fbap_xyzscripts_accinfo_auto_update_fn() {
 	global $wpdb;
+	if(current_user_can('administrator')){
 	if($_POST){
 		if (! isset( $_POST['_wpnonce'] )|| ! wp_verify_nonce( $_POST['_wpnonce'],'xyz_fbap_xyzscripts_accinfo_nonce' ))
 		{
@@ -63,11 +66,13 @@ function xyz_fbap_xyzscripts_accinfo_auto_update_fn() {
 			update_option('xyz_fbap_xyzscripts_hash_val', $xyzscripts_hash_val);
 		}
 	}
+}
 	die();
 }
 add_action('wp_ajax_xyz_fbap_del_entries', 'xyz_fbap_del_entries_fn');
 function xyz_fbap_del_entries_fn() {
 	global $wpdb;
+	if(current_user_can('administrator')){
 	if($_POST){
 		if (! isset( $_POST['_wpnonce'] )|| ! wp_verify_nonce( $_POST['_wpnonce'],'xyz_fbap_del_entries_nonce' ))
 		{
@@ -97,9 +102,33 @@ function xyz_fbap_del_entries_fn() {
 				update_option('xyz_fbap_af', 1);
 				update_option('xyz_fbap_secret_key', '');
 				update_option('xyz_fbap_smapsoln_userid', 0);
+				update_option('xyz_fbap_fb_numericid','');
 			}
 		}
 	}
+}
+	die();
+}
+add_action('wp_ajax_xyz_fbap_del_fb_entries', 'xyz_fbap_del_fb_entries_fn');
+function xyz_fbap_del_fb_entries_fn() {
+	global $wpdb;
+	if(current_user_can('administrator')){
+	if($_POST){
+		if (! isset( $_POST['_wpnonce'] )|| ! wp_verify_nonce( $_POST['_wpnonce'],'xyz_fbap_del_fb_entries_nonce' ))
+		{
+			echo 1;die;
+		}
+		$fb_userid=$_POST['fb_userid'];
+		$xyz_fbap_xyzscripts_user_id = $_POST['xyzscripts_id'];
+		$xyz_fbap_xyzscripts_hash_val= $_POST['xyzscripts_user_hash'];
+		$tr_iterationid=$_POST['tr_iterationid'];
+		$delete_entry_details=array('fb_userid'=>$fb_userid,
+				'xyzscripts_user_id' =>$xyz_fbap_xyzscripts_user_id);
+		$url=XYZ_SMAP_SOLUTION_AUTH_URL.'authorize/delete-fb-auth.php';//save-selected-pages-test.php
+		$content=xyz_fbap_post_to_smap_api($delete_entry_details, $url,$xyz_fbap_xyzscripts_hash_val);
+		echo $content;
+	}
+}
 	die();
 }
 ?>

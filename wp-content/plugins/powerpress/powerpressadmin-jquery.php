@@ -858,6 +858,21 @@ foreach( $Programs as $value => $desc )
 			powerpress_admin_jquery_footer();
 			exit;
 		}; break;
+		case 'powerpress-jquery-subscribe-preview': {
+			
+			// Preview the current styling for the subscribe button
+            nocache_headers();
+			echo "<html>";
+            echo "<body>";
+            $style = (!empty($_GET['style']) && $_GET['style'] == 'modern') ? 'modern' : 'classic';
+            $shape = (!empty($_GET['shape']) && $_GET['shape'] == 'squared') ? '-sq' : '';
+            $css = plugins_url('css/subscribe.css', __FILE__);
+            echo "<link rel=\"stylesheet\" type=\"text/css\" href=\"$css\">";
+            echo '<div style="width:90%;margin:0 0;" class="pp-sub-widget pp-sub-widget-' . $style . '"><h3 style="margin:0">Preview:</h3><a href="#" class="pp-sub-btn' . $shape . ' pp-sub-itunes" title="'. esc_attr( __('Subscribe on Apple Podcasts', 'powerpress') ) .'" style="width: 90% !important;"><span class="pp-sub-ic"></span> '. esc_attr( __('Apple Podcasts', 'powerpress') ) .'</a></div>';
+            echo "</body>";
+			echo "</html>";
+            exit;
+		}; break;
 		case 'powerpress-jquery-upload': {
 			
 			if( !current_user_can('edit_posts') )
@@ -1031,12 +1046,7 @@ function powerpress_admin_jquery_header($title, $jquery = false)
 		}
 	}
 	
-	header( "Expires: Mon, 26 Jul 1997 05:00:00 GMT" );
-	header( "Last-Modified: " . gmdate( "D, d M Y H:i:s" ) . "GMT" );
-	header( 'Cache-Control: no-store, no-cache, must-revalidate' );
-	header( 'Cache-Control: post-check=0, pre-check=0', false );
-	header( 'Pragma: no-cache' );
-	
+	nocache_headers();
 	$other = false;
 	if( $jquery )
 		add_thickbox(); // we use the thckbox for some settings
