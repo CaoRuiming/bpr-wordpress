@@ -29,10 +29,13 @@
     </div>
 
     <div class="post-author post-date font-size-18">
-      <a href="<?php echo esc_url(get_author_posts_url(get_the_author_meta('ID'))); ?>">
-        <span itemprop="author"><?php the_author(); ?></span>
-      </a>
+      <span itemprop="author" hidden aria-hidden><?php the_author(); ?></span>
       <?php
+      if (function_exists('coauthors_posts_links')) {
+        coauthors_posts_links(', ', ', ', null, null, true);
+      } else {
+        the_author_posts_link();
+      }
       if (get_the_date()) { echo ' | <time itemprop="datePublished">' . get_the_date() . '</time>'; }
       ?>
     </div>

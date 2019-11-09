@@ -24,7 +24,7 @@
           <div id="header-icons">
             <div id="header-search-wrapper">
               <form
-                id="header-search"
+                id="header-search-light"
                 name="header-search"
                 method="get"
                 action="<?php echo esc_url(home_url('/')); ?>"
@@ -39,6 +39,15 @@
                   placeholder="Search…"
                   style="background-image: url(<?php echo $search_icon_url ?>)"
                 >
+              </form>
+              <form
+                id="header-search-dark"
+                name="header-search"
+                method="get"
+                action="<?php echo esc_url(home_url('/')); ?>"
+              >
+                <?php $search_icon_url = get_image_asset('search-icon.png'); ?>
+                <?php $search_icon_url_dark = get_image_asset('search-icon-dark.png'); ?>
                 <input
                   id="dark"
                   class="header-search-box"
