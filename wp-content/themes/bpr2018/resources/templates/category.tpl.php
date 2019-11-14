@@ -87,11 +87,16 @@ if (is_single()) {
         </div>
         <div
           class="carousel-arrow carousel-prev"
-          style="background-image: url(<?php echo get_image_asset('carousel-left.png'); ?>);">
+          style="background-image: url(<?php echo get_image_asset('carousel-left.png'); ?>);"
+          aria-controls="carousel"
+          aria-label="previous-slide">
+          <label id="arrows">
         </div>
         <div
           class="carousel-arrow carousel-next"
-          style="background-image: url(<?php echo get_image_asset('carousel-right.png'); ?>);">
+          style="background-image: url(<?php echo get_image_asset('carousel-right.png'); ?>);"
+          aria-controls="carousel"
+          aria-label="next-slide">
         </div>
       </div>
       <script>

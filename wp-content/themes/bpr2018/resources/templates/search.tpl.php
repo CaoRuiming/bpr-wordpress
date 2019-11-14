@@ -11,6 +11,7 @@
     </div>
     <form
       id="search-form"
+      aria-labelledby="search-field"
       class="col-xs-12"
       role="search"
       method="get"
@@ -18,6 +19,8 @@
     >
       <input
         id="search-input"
+        aria-labelledby="search-field"
+        aria-label="search text"
         type="search"
         placeholder="Search…"
         name="s"
@@ -31,19 +34,19 @@
       <?php do_action('theme/single/row'); ?>
     <?php endwhile; ?>
       <?php if (!get_previous_posts_link()): ?>
-        <div class="more-link text-center">
+        <div class="more-link text-center" aria-label="next-page">
           <?php next_posts_link('Next Page'); ?>
         </div>
       <?php elseif (!get_next_posts_link()): ?>
-        <div class="more-link text-center">
+        <div class="more-link text-center" aria-label="previous-page">
           <?php previous_posts_link('Previous Page'); ?>
         </div>
       <?php else: ?>
         <div class="row">
-          <div class="more-link col-xs-6 text-left">
+          <div class="more-link col-xs-6 text-left" aria-label="previous-page">
             <?php previous_posts_link('Previous Page'); ?>
           </div>
-          <div class="more-link col-xs-6 text-right">
+          <div class="more-link col-xs-6 text-right" aria-label="next-page">
             <?php next_posts_link('Next Page'); ?>
           </div>
         </div>

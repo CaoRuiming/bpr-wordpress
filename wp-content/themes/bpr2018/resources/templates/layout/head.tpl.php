@@ -21,6 +21,7 @@
                 <?php $search_icon_url = get_image_asset('search-icon.png'); ?>
                 <input
                   id="header-search-box"
+                  aria-label="search"
                   type="text"
                   name="s"
                   placeholder="Search…"
