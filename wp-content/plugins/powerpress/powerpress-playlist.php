@@ -129,17 +129,32 @@ function powerpress_playlist_episodes($args)
 	// Start the SQL query
 	$query = "SELECT p.ID, p.post_title, p.post_date, pm.meta_value ";
 	$query .= "FROM {$wpdb->posts} AS p ";
-	$query .= "INNER JOIN {$wpdb->postmeta} AS pm ON p.ID = pm.post_id ";
+    $query .= apply_filters( 'powerpress_join', "INNER JOIN {$wpdb->postmeta} AS pm ON p.ID = pm.post_id " );
 	
 	if( !empty($TaxonomyObj->term_taxonomy_id) )
 		$query .= "INNER JOIN {$wpdb->term_relationships} AS tr ON p.ID = tr.object_id ";
-	
-	$query .= "WHERE (pm.meta_key = %s) ";
+
+    $query .= apply_filters( 'powerpress_where', "WHERE (pm.meta_key = %s) " );
 	$query .= "AND p.post_type = %s ";
 	$query .= "AND p.post_status = 'publish' ";
 	if( !empty($TaxonomyObj->term_taxonomy_id) ) {
 		$query .= "AND tr.term_taxonomy_id = '". $TaxonomyObj->term_taxonomy_id ."' ";
 	}
+    if ( apply_filters( 'wpml_setting', false, 'setup_complete' ) ) {
+        add_filter( 'powerpress_join', function( $join ) {
+            global $wpdb;
+
+            $join .= "JOIN {$wpdb->prefix}icl_translations ON element_type = CONCAT('post_', p.post_type) AND element_id = p.ID ";
+
+            return $join;
+        } );
+        add_filter( 'powerpress_where', function( $where ) {
+            $lang = apply_filters( 'wpml_current_language', false );
+            $where .= "AND language_code = '$lang' ";
+
+            return $where;
+        } );
+    }
 	
 	$for_query = '';
 	if( !empty( $args['ids'] ) ) {

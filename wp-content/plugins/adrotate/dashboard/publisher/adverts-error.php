@@ -45,13 +45,6 @@
 		<?php foreach($error as $banner) {
 			$grouplist = adrotate_ad_is_in_groups($banner['id']);
 			
-			if($adrotate_debug['publisher'] == true) {
-				echo "<tr><td>&nbsp;</td><td><strong>[DEBUG]</strong></td><td colspan='9'>";
-				echo "Ad Specs: <pre>";
-				print_r($banner); 
-				echo "</pre></td></tr>"; 
-			}
-			
 			$class = '';
 			if($banner['type'] == 'error') $class = ' row_yellow'; 
 			if($banner['type'] == 'expired') $class = ' row_red';

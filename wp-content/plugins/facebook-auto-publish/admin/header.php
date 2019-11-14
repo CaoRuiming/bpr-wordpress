@@ -7,8 +7,8 @@ a.xyz_header_link:hover{text-decoration:underline;}
 <?php
 if($_POST && isset($_POST['xyz_credit_link']))
 {
-	if (! isset( $_REQUEST['_wpnonce'] ) || ! wp_verify_nonce( $_REQUEST['_wpnonce'], 'xyz_smap_basic_settings_form_nonce' )) {
-		wp_nonce_ays( 'xyz_smap_basic_settings_form_nonce' );
+	if (! isset( $_REQUEST['_wpnonce'] ) || ! wp_verify_nonce( $_REQUEST['_wpnonce'], 'xyz_fbap_basic_settings_form_nonce' )) {
+		wp_nonce_ays( 'xyz_fbap_basic_settings_form_nonce' );
 		exit;
 	}
 	$xyz_credit_link=$_POST['xyz_credit_link'];

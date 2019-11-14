@@ -4,7 +4,7 @@ if( !defined('ABSPATH') ){ exit();}
 <div >
 
 
-	<form method="post" name="xyz_smap_logs_form">
+	<form method="post" name="xyz_fbap_logs_form">
 		<fieldset
 			style="width: 99%; border: 1px solid #F7F7F7; padding: 10px 0px;">
 			
@@ -14,7 +14,7 @@ if( !defined('ABSPATH') ){ exit();}
 		<span>Last ten logs</span>
 		   <table class="widefat" style="width: 99%; margin: 0 auto; border-bottom:none;">
 				<thead>
-					<tr class="xyz_smap_log_tr">
+					<tr class="xyz_fbap_log_tr">
 						<th scope="col" width="1%">&nbsp;</th>
 						<th scope="col" width="12%">Post Id</th>
 						<th scope="col" width="12%">Post Title</th>

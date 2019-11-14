@@ -1,12 +1,12 @@
 <?php
 /*
-Plugin Name: AdRotate
+Plugin Name: AdRotate Banner Manager
 Plugin URI: https://ajdg.solutions/products/adrotate-for-wordpress/
 Author: Arnan de Gans
 Author URI: https://www.arnan.me/
 Description: AdRotate Banner Manager - Monetise your website with adverts while keeping things simple. Start making money today!
 Text Domain: adrotate
-Version: 5.4.1
+Version: 5.6
 License: GPLv3
 */
 
@@ -21,8 +21,8 @@ License: GPLv3
 ------------------------------------------------------------------------------------ */
 
 /*--- AdRotate values ---------------------------------------*/
-define("ADROTATE_DISPLAY", '5.4.1');
-define("ADROTATE_VERSION", 393);
+define("ADROTATE_DISPLAY", '5.6');
+define("ADROTATE_VERSION", 394);
 define("ADROTATE_DB_VERSION", 65);
 $plugin_folder = plugin_dir_path(__FILE__);
 /*-----------------------------------------------------------*/
@@ -38,6 +38,7 @@ include_once($plugin_folder.'/adrotate-widget.php');
 /*-----------------------------------------------------------*/
 
 /*--- Check and Load config ---------------------------------*/
+load_plugin_textdomain('adrotate', false, 'adrotate/language');
 $adrotate_config = get_option('adrotate_config');
 $adrotate_crawlers = get_option('adrotate_crawlers');
 $adrotate_version = get_option("adrotate_version");
@@ -108,7 +109,7 @@ function adrotate_dashboard() {
 	$adrotate_schedules = add_submenu_page('adrotate', 'AdRotate · '.__('Manage Schedules', 'adrotate'), __('Manage Schedules', 'adrotate'), 'adrotate_ad_manage', 'adrotate-schedules', 'adrotate_manage_schedules');
 	$adrotate_statistics = add_submenu_page('adrotate', 'AdRotate · '.__('Statistics', 'adrotate'), __('Statistics', 'adrotate'), 'adrotate_ad_manage', 'adrotate-statistics', 'adrotate_statistics');
 	$adrotate_media = add_submenu_page('adrotate', 'AdRotate · '.__('Manage Media', 'adrotate'), __('Manage Media', 'adrotate'), 'adrotate_ad_manage', 'adrotate-media', 'adrotate_manage_media');
-	$adrotate_support = add_submenu_page('adrotate', 'AdRotate · '.__('Support', 'adrotate-pro'), __('Support', 'adrotate-pro'), 'manage_options', 'adrotate-support', 'adrotate_support');
+	$adrotate_support = add_submenu_page('adrotate', 'AdRotate · '.__('Support', 'adrotate'), __('Support', 'adrotate'), 'manage_options', 'adrotate-support', 'adrotate_support');
 	$adrotate_settings = add_submenu_page('adrotate', 'AdRotate · '.__('Settings', 'adrotate'), __('Settings', 'adrotate'), 'manage_options', 'adrotate-settings', 'adrotate_options');
  
 	// Add help tabs
@@ -164,7 +165,7 @@ function adrotate_pro() {
  Purpose:   Admin management page
 -------------------------------------------------------------*/
 function adrotate_manage() {
-	global $wpdb, $userdata, $adrotate_config, $adrotate_debug;
+	global $wpdb, $userdata, $adrotate_config;
 
 	$status = $file = $view = $ad_edit_id = '';
 	if(isset($_GET['status'])) $status = esc_attr($_GET['status']);
@@ -286,7 +287,7 @@ function adrotate_manage() {
  Purpose:   Manage groups
 -------------------------------------------------------------*/
 function adrotate_manage_group() {
-	global $wpdb, $adrotate_config, $adrotate_debug;
+	global $wpdb, $adrotate_config;
 
 	$status = $view = $group_edit_id = '';
 	if(isset($_GET['status'])) $status = esc_attr($_GET['status']);
@@ -467,7 +468,7 @@ function adrotate_support() {
 	?>
 
 	<div class="wrap">
-		<h1><?php _e('Support', 'adrotate-pro'); ?></h1>
+		<h1><?php _e('Support', 'adrotate'); ?></h1>
 
 		<?php if($status > 0) adrotate_status($status); ?>
 

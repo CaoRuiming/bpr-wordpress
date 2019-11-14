@@ -55,7 +55,11 @@ if($edit_banner) {
 					<label for="adrotate_fullsize_dropdown">
 						<select tabindex="1" id="adrotate_fullsize_dropdown" name="adrotate_fullsize_dropdown" style="min-width: 300px;">
 	   						<option value=""><?php _e('Select advert image', 'adrotate'); ?></option>
-							<?php echo adrotate_folder_contents('', 'image'); ?>
+							<?php
+							foreach(adrotate_dropdown_folder_contents(WP_CONTENT_DIR."/".$adrotate_config['banner_folder'], array('jpg', 'jpeg', 'gif', 'png'), 0) as $key => $option) {
+								echo "<option value=\"$option\">$option</option>";
+							}
+							?>
 						</select> <?php _e('Is your file not listed? Upload it to the banners folder using (s)FTP.', 'adrotate'); ?>
 					</label>
 				</td>

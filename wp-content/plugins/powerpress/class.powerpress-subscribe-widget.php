@@ -12,7 +12,6 @@ class PowerPressSubscribe_Widget extends WP_Widget {
 			__( 'Subscribe to Podcast' , 'powerpress'),
 			array( 'description' => __( 'Display subscribe to podcast links.' , 'powerpress') )
 		);
-
 		if ( is_active_widget( false, false, $this->id_base ) ) {
 			add_action( 'wp_head', array( $this, 'css' ) );
 		}
@@ -33,7 +32,7 @@ class PowerPressSubscribe_Widget extends WP_Widget {
 	function css() {
 ?>
 
-<style type="text/css">
+<style type="text/css" xmlns="http://www.w3.org/1999/html">
 
 /*
 PowerPress subscribe sidebar widget
@@ -49,126 +48,28 @@ PowerPress subscribe sidebar widget
 	padding-bottom: 0;
 }
 <?php } ?>
-
-.pp-ssb-widget {
-	width: 100%;
-	margin: 0 auto;
-	font-family: Sans-serif;
-	color: #FFFFFF;
-}
-body .pp-ssb-widget a.pp-ssb-btn {
-	width: 100% !important;
-	height: 48px;
-	padding: 0;
-	color: #FFFFFF;
-	display: inline-block;
-	margin: 10px 0 10px 0;
-	text-decoration: none;
-	text-align:left;
-	vertical-align: middle;
-	line-height: 48px;
-	font-size: 90% !important;
-	font-weight: bold !important;
-	overflow: hidden;
-	border-radius: 1px;
-	box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2); 
-}
-
-body .sidebar .widget .pp-ssb-widget a:link,
-body .sidebar .widget .pp-ssb-widget a:visited,
-body .sidebar .widget .pp-ssb-widget a:active,
-body .sidebar .widget .pp-ssb-widget a:hover,
-body .pp-ssb-widget a.pp-ssb-btn:link,
-body .pp-ssb-widget a.pp-ssb-btn:visited,
-body .pp-ssb-widget a.pp-ssb-btn:active,
-body .pp-ssb-widget a.pp-ssb-btn:hover {
-	text-decoration: none !important;
-	color: #FFFFFF !important;
-}
-.pp-ssb-widget-dark a,
-.pp-ssb-widget-modern a {
-	background-color: #222222;
-}
-.pp-ssb-widget-modern a.pp-ssb-itunes {
-	background-color: #732BBE;
-}
-.pp-ssb-widget-modern a.pp-ssb-email {
-	background-color: #337EC9;
-}
-.pp-ssb-widget-modern a.pp-ssb-stitcher {
-	background-color: #197195;
-}
-.pp-ssb-widget-modern a.pp-ssb-tunein {
-	background-color: #2CB6A8;
-}
-.pp-ssb-widget-modern a.pp-ssb-gp {
-	background-color: #db3236;
-}
-.pp-ssb-widget-modern a.pp-ssb-spotify {
-	background-color: #84bd00;
-	background-color: #1db954;
-}
-.pp-ssb-widget-modern a.pp-ssb-android {
-	background-color: #6AB344;
-}
-.pp-ssb-widget-modern a.pp-ssb-rss {
-	background-color: #FF8800;
-}
-.pp-ssb-ic {
-	width: 48px;
-   height: 48px;
-	border: 0;
-	display: inline-block;
-	vertical-align: middle;
-	margin-right: 2px;
-	background-image: url(<?php echo powerpress_get_root_url(); ?>images/spriteStandard2.png);
-	background-repeat: no-repeat;
-	background-size: 294px;
-}
-.pp-ssb-itunes .pp-ssb-ic {
-    background-position: -49px 0;
-}
-.pp-ssb-rss .pp-ssb-ic {
-   background-position: 0 -49px;
-}
-.pp-ssb-email .pp-ssb-ic {
-  background-position: -196px -49px;
-}
-.pp-ssb-android .pp-ssb-ic {
-	background-position: -98px -98px;
-}
-.pp-ssb-stitcher .pp-ssb-ic {
-	background-position: -147px -98px;
-}
-.pp-ssb-tunein .pp-ssb-ic {
-	background-position: -245px -98px;
-}
-.pp-ssb-spotify .pp-ssb-ic {
-	background-position: -147px 0;
-}
-.pp-ssb-gp .pp-ssb-ic {
-	background-position: -196px 0;
-}
-.pp-ssb-more .pp-ssb-ic {
-  background-position: -49px -49px;
-}
-/* Retina-specific stuff here */
-@media only screen and (-webkit-min-device-pixel-ratio: 2.0),
-       only screen and (min--moz-device-pixel-ratio: 2.0),
-       only screen and (-o-min-device-pixel-ratio: 200/100),
-       only screen and (min-device-pixel-ratio: 2.0) {
-	.pp-sub-ic {
-		background-image: url(<?php echo powerpress_get_root_url(); ?>images/spriteRetina2.png);
-	}
-}
 </style>
 <?php
 	}
 
 	function form( $instance ) {
+        $General = powerpress_get_settings('powerpress_general');
 		if ( empty($instance['title']) ) {
 			$instance['title'] = __( 'Subscribe to Podcast' , 'powerpress');
 		}
+		if(empty($instance['style'])) {
+		    if (empty($General['timestamp']) || $General['timestamp'] > 1570366800) {
+                $instance['style'] = 'modern';
+            } else {
+                $instance['style'] = 'classic';
+            }
+        }
+        if(empty($instance['modern_style'])) {
+            $instance['modern_style'] = 'squared';
+        }
+        if(empty($instance['modern_direction'])) {
+            $instance['modern_direction'] = 'vertical';
+        }
 		if ( empty($instance['subscribe_type']) ) {
 			$instance['subscribe_type'] = '';
 		}
@@ -188,6 +89,29 @@ body .pp-ssb-widget a.pp-ssb-btn:hover {
 		<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php esc_html_e( 'Title:' , 'powerpress'); ?></label>
 		<input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo esc_attr( $instance['title'] ); ?>" />
 		</p>
+        <p>
+            <label for="<?php echo $this->get_field_id( 'style' ); ?>"><?php esc_html_e( 'Style:' , 'powerpress'); ?></label>
+            <select class="widefat" id="<?php echo $this->get_field_id( 'style' ); ?>" name="<?php echo $this->get_field_name( 'style' );  ?> ">
+                <option value="modern" <?php echo selected($instance['style'], 'modern')?> >Modern</option>
+                <option value="classic" <?php echo selected($instance['style'], 'classic') ?> >Classic</option>
+            </select>
+        </p>
+        <p class="pp-sub-widget-p-modern-styles">
+            <input type="radio" id="<?php echo $this->get_field_id('modern_style_square') ?>"
+                   name="<?php echo $this->get_field_name('modern_style') ?>" value="squared" <?php echo $instance['modern_style'] === 'squared' ? 'checked' : '' ?> />
+            <label for="<?php echo $this->get_field_id('modern_style_square') ?>"> <?php esc_html_e('Squared', 'powerpress'); ?></label>
+            <input type="radio" id="<?php echo $this->get_field_id('modern_style_rounded') ?>"
+                   name="<?php echo $this->get_field_name('modern_style') ?>" value="rounded" <?php echo $instance['modern_style'] === 'rounded' ? 'checked' : '' ?> />
+            <label for="<?php echo $this->get_field_id('modern_style_rounded') ?>"> <?php esc_html_e('Rounded', 'powerpress'); ?></label>
+        </p>
+        <p class="pp-sub-widget-p-modern-styles">
+            <input type="radio" id="<?php echo $this->get_field_id('modern_direction_vertical') ?>"
+                   name="<?php echo $this->get_field_name('modern_direction') ?>" value="vertical" <?php echo $instance['modern_direction'] === 'vertical' ? 'checked' : '' ?> />
+            <label for="<?php echo $this->get_field_id('modern_direction_vertical') ?>"> <?php esc_html_e('Vertical', 'powerpress'); ?></label>
+            <input type="radio" id="<?php echo $this->get_field_id('modern_direction_horizontal') ?>"
+                   name="<?php echo $this->get_field_name('modern_direction') ?>" value="horizontal" <?php echo $instance['modern_direction'] === 'horizontal' ? 'checked' : '' ?> />
+            <label for="<?php echo $this->get_field_id('modern_direction_horizontal') ?>"> <?php esc_html_e('Horizontal', 'powerpress'); ?></label>
+        </p>
 		<p class="pp-sub-widget-p-subscribe_type">
 		<label for="<?php echo $this->get_field_id('subscribe_type'); ?>"><?php _e( 'Select Podcast Type:', 'powerpress' ); ?></label>
 		<select class="widefat powerpress-subscribe-type" onchange="javascript: powerpress_subscribe_widget_change(this)" id="<?php echo $this->get_field_id('subscribe_type'); ?>" name="<?php echo $this->get_field_name('subscribe_type'); ?>">
@@ -245,7 +169,10 @@ body .pp-ssb-widget a.pp-ssb-btn:hover {
 
 	function update( $new_instance, $old_instance ) {
 		$instance['title'] = strip_tags( $new_instance['title'] );
-		$instance['subscribe_type'] = strip_tags( $new_instance['subscribe_type'] ); // general, channel, category, post_type, ttid
+		$instance['style'] = strip_tags( $new_instance['style']);
+		$instance['modern_style'] = strip_tags( $new_instance['modern_style']);
+        $instance['modern_direction'] = strip_tags( $new_instance['modern_direction']);
+        $instance['subscribe_type'] = strip_tags( $new_instance['subscribe_type'] ); // general, channel, category, post_type, ttid
 		$instance['subscribe_post_type'] = strip_tags( $new_instance['subscribe_post_type'] );; // eg sermons
 		$instance['subscribe_feed_slug'] = strip_tags( $new_instance['subscribe_feed_slug'] );; // e.g. podcast
 		$instance['subscribe_category_id'] = strip_tags( $new_instance['subscribe_category_id'] );; // e.g. 456
@@ -260,7 +187,6 @@ body .pp-ssb-widget a.pp-ssb-btn:hover {
 			$ExtraData['subscribe_type'] = $instance['subscribe_type'];
 		else
 			$ExtraData['subscribe_type'] =  '';
-			
 		switch( $ExtraData['subscribe_type'] )
 		{
 			case 'post_type': {
@@ -302,8 +228,26 @@ body .pp-ssb-widget a.pp-ssb-btn:hover {
 
 			};
 		}
-		
 		$Settings = powerpresssubscribe_get_settings( $ExtraData, false );
+        $Settings['modern_style'] = '-sq'; // Default to squared corners
+		$Settings['style'] = '';
+		if( isset($instance['style']) )
+			$Settings['style'] = $instance['style'];
+        if (defined('WP_DEBUG')) {
+            wp_enqueue_style('powerpress_subscribe_widget_modern', plugin_dir_url(__FILE__) . 'css/subscribe-widget.css');
+        } else {
+            wp_enqueue_style('powerpress_subscribe_widget_modern', plugin_dir_url(__FILE__) . 'css/subscribe-widget.min.css');
+        }
+        if( !empty($instance['modern_style']) && $instance['modern_style'] == 'squared') {
+            $Settings['modern_style'] = '-sq';
+        }
+		if( !empty($instance['modern_style']) && $instance['modern_style'] == 'rounded') {
+            $Settings['modern_style'] = ''; // Use new rounded corners
+        }
+
+        if( !empty($instance['modern_direction']) && $instance['modern_direction'] == 'horizontal') {
+            $Settings['modern_direction'] = 'horizontal';
+        }
 		if( empty($Settings) )
 			return;
 		
@@ -317,7 +261,6 @@ body .pp-ssb-widget a.pp-ssb-btn:hover {
 			echo esc_html( $instance['title'] );
 			echo $args['after_title'];
 		}
-		
 		echo  powerpress_do_subscribe_sidebar_widget( $Settings );
 		echo $args['after_widget'];
 		return;
