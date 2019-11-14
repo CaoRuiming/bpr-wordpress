@@ -102,7 +102,7 @@
       font-size: 1.4rem; 
       @include font-size-xl(1.2rem); 
       @include font-size-lg(1rem); 
-      @include font-size-md(0.8rem); 
+      @include font-size-md(2rem); 
     }
 
     &>.container {
@@ -276,7 +276,12 @@
     position: absolute;
     height: 5px;
     width: 50%;
-    background: black;
+    @media (prefers-color-scheme: light) {
+      background: black;
+    }
+    @media (prefers-color-scheme: dark) {
+      background: white;
+    }
     border-radius: 9px;
     opacity: 1;
     right: 0;
