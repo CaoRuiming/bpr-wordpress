@@ -34,6 +34,7 @@
                 <input
                   id="light"
                   class="header-search-box"
+                  aria-label="search"
                   type="text"
                   name="s"
                   placeholder="Search…"
@@ -50,6 +51,7 @@
                 <?php $search_icon_url_dark = get_image_asset('search-icon-dark.png'); ?>
                 <input
                   id="dark"
+                  aria-label="search"
                   class="header-search-box"
                   type="text"
                   name="s"

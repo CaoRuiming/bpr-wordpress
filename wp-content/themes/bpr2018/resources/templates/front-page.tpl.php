@@ -1,7 +1,8 @@
 <?php get_header(); $page_id = get_option('page_on_front'); ?>
 
 <div id="front-page" class="container-fluid">
-  <section id="popular-articles">
+  <section id="popular-articles"
+           aria-roledescription="carousel">
     <h2 class="section-title header-font">Popular Articles</h2>
     <div class="carousel-wrapper row">
       <div class="carousel">
@@ -11,7 +12,7 @@
           $id = $post->ID;
           $pic_url = get_the_post_thumbnail_url($post);
           ?>
-          <article class="container-fluid featured-post">
+          <article id="carousel-items" class="container-fluid featured-post">
             <div class="row">
               <div class="col-sm-6">
                 <a href="<?php echo esc_url(get_permalink($id)); ?>">
@@ -55,11 +56,15 @@
       </div>
       <div
         class="carousel-arrow carousel-prev"
-        style="background-image: url(<?php echo get_image_asset('carousel-left.png'); ?>);">
+        style="background-image: url(<?php echo get_image_asset('carousel-left.png'); ?>);"
+        aria-controls="carousel-items"
+        aria-label="previous-slide">
       </div>
       <div
         class="carousel-arrow carousel-next"
-        style="background-image: url(<?php echo get_image_asset('carousel-right.png'); ?>);">
+        style="background-image: url(<?php echo get_image_asset('carousel-right.png'); ?>);"
+        aria-controls="carousel-items"
+        aria-label="next-slide">
       </div>
     </div>
     <script>
