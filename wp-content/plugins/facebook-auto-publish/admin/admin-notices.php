@@ -57,7 +57,7 @@ if ($fbap_installed_date=="") {
 	$fbap_installed_date = time();
 }
 
-if($fbap_installed_date < ( time() - (30*24*60*60) ))
+if($fbap_installed_date < ( time() - (20*24*60*60) ))
 {
 	if (get_option('xyz_fbap_dnt_shw_notice') != "hide")
 	{

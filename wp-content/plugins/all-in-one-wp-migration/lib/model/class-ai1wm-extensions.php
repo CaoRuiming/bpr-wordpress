@@ -37,7 +37,7 @@ class Ai1wm_Extensions {
 	public static function get() {
 		$extensions = array();
 
-		// Add Microsoft Azure extension
+		// Add Microsoft Azure Extension
 		if ( defined( 'AI1WMZE_PLUGIN_NAME' ) ) {
 			$extensions[ AI1WMZE_PLUGIN_NAME ] = array(
 				'key'      => AI1WMZE_PLUGIN_KEY,
@@ -50,7 +50,7 @@ class Ai1wm_Extensions {
 			);
 		}
 
-		// Add Backblaze B2 extension
+		// Add Backblaze B2 Extension
 		if ( defined( 'AI1WMAE_PLUGIN_NAME' ) ) {
 			$extensions[ AI1WMAE_PLUGIN_NAME ] = array(
 				'key'      => AI1WMAE_PLUGIN_KEY,
@@ -86,6 +86,19 @@ class Ai1wm_Extensions {
 				'version'  => AI1WMIE_VERSION,
 				'requires' => '1.30',
 				'short'    => AI1WMIE_PLUGIN_SHORT,
+			);
+		}
+
+		// Add Direct Extension
+		if ( defined( 'AI1WMXE_PLUGIN_NAME' ) ) {
+			$extensions[ AI1WMXE_PLUGIN_NAME ] = array(
+				'key'      => AI1WMXE_PLUGIN_KEY,
+				'title'    => AI1WMXE_PLUGIN_TITLE,
+				'about'    => AI1WMXE_PLUGIN_ABOUT,
+				'basename' => AI1WMXE_PLUGIN_BASENAME,
+				'version'  => AI1WMXE_VERSION,
+				'requires' => '1.0',
+				'short'    => AI1WMXE_PLUGIN_SHORT,
 			);
 		}
 
@@ -154,7 +167,7 @@ class Ai1wm_Extensions {
 			);
 		}
 
-		// Add Amazon Glacier extension
+		// Add Amazon Glacier Extension
 		if ( defined( 'AI1WMRE_PLUGIN_NAME' ) ) {
 			$extensions[ AI1WMRE_PLUGIN_NAME ] = array(
 				'key'      => AI1WMRE_PLUGIN_KEY,
@@ -188,7 +201,7 @@ class Ai1wm_Extensions {
 				'about'    => AI1WMME_PLUGIN_ABOUT,
 				'basename' => AI1WMME_PLUGIN_BASENAME,
 				'version'  => AI1WMME_VERSION,
-				'requires' => '3.76',
+				'requires' => '3.82',
 				'short'    => AI1WMME_PLUGIN_SHORT,
 			);
 		}
@@ -232,7 +245,7 @@ class Ai1wm_Extensions {
 			);
 		}
 
-		// Add Amazon S3 extension
+		// Add Amazon S3 Extension
 		if ( defined( 'AI1WMSE_PLUGIN_NAME' ) ) {
 			$extensions[ AI1WMSE_PLUGIN_NAME ] = array(
 				'key'      => AI1WMSE_PLUGIN_KEY,
@@ -271,7 +284,7 @@ class Ai1wm_Extensions {
 			);
 		}
 
-		// Add WebDAV extension
+		// Add WebDAV Extension
 		if ( defined( 'AI1WMWE_PLUGIN_NAME' ) ) {
 			$extensions[ AI1WMWE_PLUGIN_NAME ] = array(
 				'key'      => AI1WMWE_PLUGIN_KEY,

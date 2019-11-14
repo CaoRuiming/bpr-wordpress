@@ -152,8 +152,7 @@ jQuery(document).ready(function($) {
 		<li><a href="#tab3"><span><?php echo htmlspecialchars(__('Website', 'powerpress')); ?></span></a></li>
 		<li><a href="#tab4"><span><?php echo htmlspecialchars(__('Feeds', 'powerpress')); ?></span></a></li>
 		<li><a href="#tab5"><span><?php echo htmlspecialchars(__('Apple', 'powerpress')); ?></span></a></li>
-		<li><a href="#tab6"><span><?php echo htmlspecialchars(__('Google', 'powerpress')); ?></span></a></li>
-		<li><a href="#tab7"><span><?php echo htmlspecialchars(__('Artwork', 'powerpress')); ?></span></a></li>
+        <li><a href="#tab7"><span><?php echo htmlspecialchars(__('Artwork', 'powerpress')); ?></span></a></li>
 		<li><a href="#tab-dest"><span><?php echo htmlspecialchars(__('Destinations', 'powerpress')); ?></span></a></li>
   </ul>
 	
@@ -200,11 +199,6 @@ jQuery(document).ready(function($) {
 	<div id="tab5" class="powerpress_tab">
 		<?php
 		powerpressadmin_edit_itunes_feed($FeedSettings, $General, $FeedAttribs);
-		?>
-	</div>
-	<div id="tab6" class="powerpress_tab">
-		<?php
-		powerpressadmin_edit_googleplay($FeedSettings, $General, $FeedAttribs);
 		?>
 	</div>
 	<div id="tab7" class="powerpress_tab">
@@ -1328,6 +1322,13 @@ function powerpressadmin_appearance($General=false, $Feed = false)
 
 <p><input type="hidden" name="General[subscribe_feature_spotify]" value="0" /><input type="checkbox" id="subscribe_feature_spotify" name="General[subscribe_feature_spotify]" value="1" <?php if( !empty($General['subscribe_feature_spotify']) ) echo 'checked '; ?>/> <label for="subscribe_feature_spotify"><?php echo __('Subscribe on Spotify', 'powerpress'); ?></label> <?php echo powerpressadmin_new(); ?></p>
 
+<p><input type="hidden" name="General[subscribe_feature_iheart]" value="0" /><input type="checkbox" id="subscribe_feature_iheart" name="General[subscribe_feature_iheart]" value="1" <?php if( !empty($General['subscribe_feature_iheart']) ) echo 'checked '; ?>/> <label for="subscribe_feature_iheart"><?php echo __('Subscribe on iHeartRadio', 'powerpress'); ?></label> <?php echo powerpressadmin_new(); ?></p>
+
+<p><input type="hidden" name="General[subscribe_feature_deezer]" value="0" /><input type="checkbox" id="subscribe_feature_deezer" name="General[subscribe_feature_deezer]" value="1" <?php if( !empty($General['subscribe_feature_deezer']) ) echo 'checked '; ?>/> <label for="subscribe_feature_deezer"><?php echo __('Subscribe on Deezer', 'powerpress'); ?></label> <?php echo powerpressadmin_new(); ?></p>
+
+<p><input type="hidden" name="General[subscribe_feature_pandora]" value="0" /><input type="checkbox" id="subscribe_feature_pandora" name="General[subscribe_feature_pandora]" value="1" <?php if( !empty($General['subscribe_feature_pandora']) ) echo 'checked '; ?>/> <label for="subscribe_feature_pandora"><?php echo __('Subscribe on Pandora', 'powerpress'); ?></label> <?php echo powerpressadmin_new(); ?></p>
+
+
 </td>
 </tr>
 </table>
@@ -1547,7 +1548,7 @@ function powerpressadmin_edit_artwork($FeedSettings, $General)
 <?php echo __('This image is for your listing on the Apple podcasts directory and may also be used by other directories like Blubrry. It is not the artwork that is displayed during episode playback. That artwork needs to be saved into the media file in the form of tags (ID3 tags for mp3) following the production of the media file.', 'powerpress'); ?>
 </p>
 
-<p class="description"><?php echo __('Note: If you change the iTunes image without changing the file name it may take some time (days or even months) for iTunes to update the image in the iTunes Podcast Directory.', 'powerpress'); ?> 
+<p class="description"><?php echo __('Note: If you change the iTunes image without changing the file name it may take some time (days or even months) for iTunes to update the image in the Apple Podcast Directory.', 'powerpress'); ?> 
 <?php echo sprintf( __('Please contact %s if you are having issues with your image changes not appearing in iTunes.', 'powerpress'), '<a href="https://create.blubrry.com/manual/podcast-promotion/submit-podcast-to-itunes/itunes-support/">'. __('Apple Podcasts Support', 'powerpress') .'</a>'); ?></p>
 <?php if( $SupportUploads ) { ?>
 
@@ -1582,30 +1583,6 @@ function powerpressadmin_edit_artwork($FeedSettings, $General)
 </tr>
 
 <table class="form-table">
-<tr valign="top">
-<th scope="row">
-<?php echo __('Google Play Image', 'powerpress'); ?>  
-</th>
-<td>
-<input type="text" id="googleplay_image" name="Feed[googleplay_image]" style="width: 60%; margin-top: 10px;" value="<?php echo esc_attr( !empty($FeedSettings['googleplay_image'])? $FeedSettings['googleplay_image']:''); ?>" maxlength="255" />
-<a href="#" onclick="javascript: window.open( document.getElementById('googleplay_image').value ); return false;"><?php echo __('preview', 'powerpress'); ?></a>
-
-<p><?php echo __('Google Play image must be at least 1200 x 1200 pixels in .jpg or .png format to be eligible for featuring. Image must not exceed 7000 x 7000 pixels.', 'powerpress'); ?> <?php echo __('Example', 'powerpress'); ?>: http://example.com/images/googleplay.jpg
- </p>
-
-<p><strong><?php echo __('Leave this setting blank to use the iTunes image (recommended).', 'powerpress'); ?></strong></p>
-
-<?php if( $SupportUploads ) { ?>
-
-<p><label class="powerpress-normal-font"><input name="googleplay_image_checkbox" type="checkbox" onchange="powerpress_show_field('googleplay_image_upload', this.checked)" value="1" /> <?php echo __('Upload new image', 'powerpress'); ?></label> &nbsp; 
-	<span style="font-size:85%;">(<?php echo __('Using this option should update your image on Google Play Music within 24 hours', 'powerpress'); ?>)</span>
-</p>
-<div style="display:none" id="googleplay_image_upload">
-	<label for="googleplay_image_file"><?php echo __('Choose file', 'powerpress'); ?>:</label><input type="file" id="googleplay_image_file" name="googleplay_image_file"  /><br />
-</div>
-<?php } ?>
-</td>
-</tr>
 
 <tr valign="top">
 <th scope="row">

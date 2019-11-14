@@ -3,8 +3,8 @@ Contributors: amandato, blubrry
 Tags: podcasting, podcast, podcaster, powerpress, itunes, apple, apple podcasts, google podcasts, google play, enclosure, professional, apple, apple tv, ipad, iphone, soundcloud, squarespace, youtube, viddler, ustream, podcasting, audio, video, rss2, feed, player, media, rss, mp3, music, embed, feedburner, statistics, stats, flv, flash, id3, episodes, blubrry, mp4, m4v, wordpressmu, mu, wordpress mu, multisite, multi site, mediacaster, post, plugin, posts, simple, social, dashboard, TSG, Buzzsprout, MTR, WP-boxCast, CastMyBlog, tgs podcasting,  simple podcasting, seriously simple podcasting, seriously-simple-podcasting, serious, seriously, ssp, podlove, podcast.de, clammr, clammr radio, audio player, stitcher, tunein, show, shows, series, docs, documentation, support, free, add-ons, extensions, addons, libsyn, libsyn-podcasting, podbean, podomatic, spreaker
 Requires at least: 3.6
 Requires PHP: 5.2
-Tested up to: 5.2.2
-Stable tag: 7.5.3
+Tested up to: 5.2.3
+Stable tag: 8.0.2
 Donate link: https://create.blubrry.com/resources/podcast-media-hosting/
 License: GPLv2 or later
 
@@ -229,10 +229,50 @@ To install Blubrry PowerPress manually, follow these steps:
 == Changelog ==
 
 = Next Major Release Announcements =
-* We are looking for beta testers! If you would like to beta test future versions of PowerPress, please [contact us](http://www.blubrry.com/contact.php#feedback) with your name and email.
+* We are looking for beta testers! If you would like to beta test future versions of PowerPress, please [contact us](http://blubrry.com/contact.php#feedback) with your name and email.
+
+* PowerPress 8.1 beta 1 will be available in mid October, 2019! Please visit the [PowerPress Beta]https://create.blubrry.com/resources/powerpress/powerpress-beta/) page for more information.
 
 = Fan of PowerPress and want to show your support? =
 If you are a fan of PowerPress, we would greatly appreciate it if you could take a moment and [leave us a review on WordPress.org](https://wordpress.org/support/plugin/powerpress/reviews/?rate=5#new-post). Your support is greatly appreciated!
+
+= 8.0.2 =
+* Released on 10/24/2019
+* Brought back the ability to render black subscribe buttons using [powerpress_subscribe style="dark"] (Thanks @vennstone for bringing to our attention!)
+* Improved custom CSS setting so that !important tags could be stripped from subscribe sidebar widgets (Thanks Bree @lifesgood for pointing out the problem)
+* Feed Landing Page URL setting can now be set for the default podcast feed (Thanks Daniel for the suggestion)
+* Next week, we will release an update to Blubrry's Media uploader to work better within PowerPress so that it is more accessible with text reading software such as JAWS and ZoomText (Thanks Gary for helping us!)
+* Added support for the WPML plugin (Thanks David and Bobby from WPML!)
+* Configured Websub publish API call timeout to 3 seconds.
+
+
+= 8.0.1 =
+* Released on 10/09/2019
+* Fixed submit links for iHeartRadio, Deezer, and Pandora
+* Deleted Google Play Image settings
+
+= 8.0 =
+* Released on 10/7/2019
+* New Subscribe Destinations added: 
+** Deezer - Anyone can now submit their podcast to Deezer with just a blubrry.com account. [Learn more](https://powerpresspodcast.com/2019/08/07/blubrry-podcasts-coming-deezer/)
+** Pandora - [Submit your podcast to Pandora](https://create.blubrry.com/manual/podcast-promotion/submit-podcast-to-pandora/)
+** iHeart - [Submit your podcast to iHeart radio](https://create.blubrry.com/manual/podcast-promotion/submit-podcast-to-iheartradio/).
+* New *Subscribe* button styling options!!!
+** Buttons now use an SVG sprite, providing a small footprint while being optimized for retina displays. Subscribe buttons have never been so crisp!
+** There is a new "Modern" color scheme, with the traditional square or new rounded corners.
+** Subscribe Widget can now be configured horizontally for use in horizontal widget areas.
+* Added an option to remove !important and text-align left styling to subscribe buttons.
+* Switched the `plugin_action_links` filter to use `array_push` function call to avoid notice messages when another plugin or theme converts the links array to a string.
+* Fixed bug since recent update to WordPress where the default feed had the word feed in the URL twice. (Thanks Daniel for pointing out the issue!)
+
+
+= 7.5.4 =
+* Released on 8/30/2019
+* Apple category "After Shows" updated.
+* Now using the https version for (castfeedvalidator.com)[https://castfeedlivadator.com] when clicking validate for feeds.
+* CastFeedValidator diagnoses problems with your feed that could be preventing your episodes from reaching listeners. There are four phases of testing, performing more than 100 checks on your feed�s various components.
+* Added class .blubrryplayer to the iframe for the Blubrry Player, for styling purposes.
+
 
 = 7.5.3 =
 * Released on 7/31/2019
@@ -476,7 +516,9 @@ Darcy Fiander, [Rooty Radio](http://rootyradio.com) - Fixed bug with category li
 
 Joel Haasnoot, [Personal Blog](http://waarisdetrein.nl/joelhaasnoot/) - Developed PodPress archive statistics.
 
-Nicolas Bouliane, [Personal Blog](http://nicolasbouliane.com/) - contributed code for `get_the_powerpress_all_players()` function.
+Nicolas Bouliane, [Personal Blog](http://nicolasbouliane.com/) - Contributed code for `get_the_powerpress_all_players()` function.
+
+Isiah Lloyd - Developed features in PowerPress 7.5, 7.6 and part of 8.0
 
 
 == Translators ==
@@ -493,7 +535,7 @@ Nicolas Bouliane, [Personal Blog](http://nicolasbouliane.com/) - contributed cod
 * [Using PowerPress outside the Loop](http://blog.nicolasbouliane.com/?p=1695) - by [Nicolas Bouliane](http://blog.nicolasbouliane.com/)
 * [The PowerPress Podcast](http://www.powerpresspodcast.com/) - by [Blubrry](http://www.blubrry.com/)
 
-Please [contact blubrry](http://www.blubrry.com/contact.php) with the link to your tips or tutorial for PowerPress and we'll add them to the list above.
+Please [contact blubrry](http://blubrry.com/contact/) with the link to your tips or tutorial for PowerPress and we'll add them to the list above.
 
 == Feedback == 
  [http://create.blubrry.com/resources/powerpress/](http://create.blubrry.com/resources/powerpress/)

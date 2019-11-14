@@ -29,9 +29,6 @@ if($edit_banner) {
 	$schedule = $wpdb->get_row("SELECT `{$wpdb->prefix}adrotate_schedule`.`id`, `starttime`, `stoptime`, `maxclicks`, `maximpressions` FROM `{$wpdb->prefix}adrotate_schedule`, `{$wpdb->prefix}adrotate_linkmeta` WHERE `ad` = '{$edit_banner->id}' AND `group` = 0 AND `user` = 0 AND `schedule` = `{$wpdb->prefix}adrotate_schedule`.`id` ORDER BY `{$wpdb->prefix}adrotate_schedule`.`id` ASC LIMIT 1;");
 	$linkmeta = $wpdb->get_results("SELECT `group` FROM `{$wpdb->prefix}adrotate_linkmeta` WHERE `ad` = '{$edit_banner->id}' AND `user` = 0 AND `schedule` = 0;");
 	
-	// Random banner for Media.net
-	$partner = mt_rand(1,3);
-	
 	wp_enqueue_media();
 	wp_enqueue_script('uploader-hook', plugins_url().'/adrotate/library/uploader-hook.js', array('jquery'));
 	
@@ -161,7 +158,14 @@ if($edit_banner) {
 					<label for="adrotate_image_dropdown">
 						<?php _e('Banner folder:', 'adrotate'); ?> <select tabindex="5" name="adrotate_image_dropdown" style="min-width: 200px;">
 	   						<option value=""><?php _e('No image selected', 'adrotate'); ?></option>
-							<?php echo adrotate_folder_contents($image_dropdown); ?>
+							<?php
+							$assets = adrotate_dropdown_folder_contents(WP_CONTENT_DIR."/".$adrotate_config['banner_folder'], array('jpg', 'jpeg', 'gif', 'png', 'html', 'htm'));
+							foreach($assets as $key => $option) {
+								echo "<option value=\"$option\"";
+								if($image_dropdown == WP_CONTENT_URL."/%folder%/".$option) { echo " selected"; }
+								echo ">$option</option>";
+							}
+							?>
 						</select><br />
 					</label>
 					<em><?php _e('Use %asset% in the adcode instead of the file path.', 'adrotate'); ?> <?php _e('Use either the text field or the dropdown. If the textfield has content that field has priority.', 'adrotate'); ?></em>
@@ -213,15 +217,11 @@ if($edit_banner) {
 	      	</tbody>
 		</table>
 	
-		<?php
-		$partner = mt_rand(1,4);
-		if($partner < 4) {
-		?>
-		<h2><?php _e('Get your adverts from Media.net', 'adrotate'); ?></h2>
+		<h2><?php _e('Get contextual adverts from Media.net', 'adrotate'); ?></h2>
 		<table class="widefat" style="margin-top: .5em">
 			<tbody>
 	      	<tr>
-		        <th width="40%"><center><a href="https://ajdg.solutions/go/medianet/" target="_blank"><img src="<?php echo plugins_url("../images/offers/medianet-large-$partner.jpg", dirname(__FILE__)); ?>" width="440" /></a></center></th>
+		        <th width="40%"><center><a href="https://ajdg.solutions/go/medianet/" target="_blank"><img src="<?php echo plugins_url("../images/offers/medianet.jpg", dirname(__FILE__)); ?>" width="440" /></a></center></th>
 		        <td>
 			        <p><a href="https://ajdg.solutions/go/medianet/" target="_blank">Media.net</a> is the <strong>#2 largest contextual ads platform</strong> in the world that provides its publishers with an <strong>exclusive access to the Yahoo! Bing Network of advertisers and $6bn worth of search demand.</strong></p>
 		        	<p><a href="https://ajdg.solutions/go/medianet/" target="_blank">Media.net</a> <strong>ads are contextual</strong> and hence always relevant to your content. They are also <strong>native by design</strong> and highly customizable, delivering a great user experience and higher CTRs.</p>
@@ -229,21 +229,6 @@ if($edit_banner) {
 	      	</tr>
 	      	</tbody>
 		</table>
-		<?php } else { ?>
-		<h2><?php _e('Sign up with Blind Ferret', 'adrotate'); ?></h2>
-		<table class="widefat" style="margin-top: .5em">
-			<tbody>
-	      	<tr>
-		        <th width="40%"><center><a href="https://ajdg.solutions/go/blindferret/" target="_blank"><img src="<?php echo plugins_url("../images/offers/blindferret.jpg", dirname(__FILE__)); ?>" width="440" /></a></center></th>
-		        <td>
-			        <p>At <a href="https://ajdg.solutions/go/blindferret/" target="_blank">Blind Ferret</a>, we are publishers too, which means we know what's needed to create successful campaigns! We know that advertising isn't just "set it and forget it" anymore. Our Publisher Network features a wide range of creative and comic sites, is simple to take advantage of and intensely UI/UX focused.</p>
-	
-					<p>With over 15 years of experience, <a href="https://ajdg.solutions/go/blindferret/" target="_blank">Blind Ferret</a> can offer great ads at top dollar via header bidding, ensuring advertisers vie for your ad space, which brings in higher quality ads and makes you more money!</p>
-				</td>
-	      	</tr>
-	      	</tbody>
-		</table>
-		<?php } ?>
 	
 		<h2><?php _e('Schedule your advert', 'adrotate'); ?></h2>
 		<p><em><?php _e('Time uses a 24 hour clock. When you\'re used to the AM/PM system keep this in mind: If the start or end time is after lunch, add 12 hours. 2PM is 14:00 hours. 6AM is 6:00 hours.', 'adrotate'); ?></em></p>
@@ -264,7 +249,7 @@ if($edit_banner) {
 		        <td>
 		        	<label for="adrotate_sday">
 					<input tabindex="11" name="adrotate_start_hour" class="ajdg-inputfield" type="text" size="2" maxlength="4" value="<?php echo $start_hour; ?>" autocomplete="off" /> :
-					<input tabindex="12" name="adrotate_start_minute" class="ajdg-inputfield" type="text" size="2" maxlength="4" value="<?php echo $start_hour; ?>" autocomplete="off" />
+					<input tabindex="12" name="adrotate_start_minute" class="ajdg-inputfield" type="text" size="2" maxlength="4" value="<?php echo $start_minute; ?>" autocomplete="off" />
 					</label>
 		        </td>
 		        <th><?php _e('End time', 'adrotate'); ?> (hh:mm)</th>
@@ -298,9 +283,9 @@ if($edit_banner) {
 	
 			<tbody>
 			<tr>
-		        <th width="15%" valign="top"><?php _e('Show to everyone', 'adrotate-pro'); ?></th>
+		        <th width="15%" valign="top"><?php _e('Show to everyone', 'adrotate'); ?></th>
 		        <td colspan="5">
-		        	<label for="adrotate_show_everyone"><input type="checkbox" name="adrotate_show_everyone" checked disabled /> <?php _e('Disable this option to hide the advert from logged-in visitors.', 'adrotate-pro'); ?>
+		        	<label for="adrotate_show_everyone"><input type="checkbox" name="adrotate_show_everyone" checked disabled /> <?php _e('Disable this option to hide the advert from logged-in visitors.', 'adrotate'); ?>
 			        </label>
 	 	        </td>
 			</tr>

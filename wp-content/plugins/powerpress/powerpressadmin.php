@@ -4081,7 +4081,20 @@ function powerpress_default_settings($Settings, $Section='basic')
 				$Settings['player_function'] = 1;
 			else if( $Settings['player_function'] == 4 )
 				$Settings['player_function'] = 2;
-			
+			if(!isset($Settings['subscribe_widget_style'])) {
+                $General = powerpress_get_settings('powerpress_general');
+                if ( empty($General['timestamp']) || $General['timestamp'] > 1570366800 ) {
+                    $Settings['subscribe_widget_style'] = 'modern';
+                } else {
+                    $Settings['subscribe_widget_style'] = 'classic';
+                }
+            }
+			if(!isset($Settings['subscribe_widget_shape'])) {
+                $Settings['subscribe_widget_shape'] = 'squared';
+            }
+			if(!isset($Settings['subscribe_no_important_styling'])) {
+			    $Settings['subscribe_no_important_styling'] = 'include';
+            }
 		}; break;
 	}
 	
@@ -4650,7 +4663,7 @@ function powerpressadmin_community_highlighted($items=8)
 function powerpress_admin_plugin_action_links( $links, $file )
 {
 	if( preg_match('/powerpress\.php$/', $file)  )
-		$links[] = '<a href="'. admin_url("admin.php?page=powerpressadmin_basic")  .'">'. __('Settings', 'powerpress') .'</a>' ;
+		array_push( $links, '<a href="'. admin_url("admin.php?page=powerpressadmin_basic")  .'">'. __('Settings', 'powerpress') .'</a>');
 	return $links;
 }
 add_filter( 'plugin_action_links', 'powerpress_admin_plugin_action_links', 10, 2 );

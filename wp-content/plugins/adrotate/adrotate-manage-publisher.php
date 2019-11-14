@@ -354,7 +354,7 @@ function adrotate_insert_group() {
 			$output_css = "";
 			if($modus == 0 AND ($admargin > 0 OR $align > 0)) { // Single ad group
 				if($align < 3) {
-					$output_css .= "\t.g".$adrotate_config['adblock_disguise']."-".$id." { margin:".$admargin."px ".$group_align." }\n";
+					$output_css .= "\t.g".$adrotate_config['adblock_disguise']."-".$id." { margin:".$admargin."px; ".$group_align." }\n";
 				} else {
 					$output_css .= "\t.g".$adrotate_config['adblock_disguise']."-".$id." { ".$group_align." }\n";	
 				}
@@ -374,7 +374,7 @@ function adrotate_insert_group() {
 				}
 
 				if($align < 3) {
-					$output_css .= "\t.g".$adrotate_config['adblock_disguise']."-".$id." { margin:".$admargin."px".$width.$height.$group_align." }\n";
+					$output_css .= "\t.g".$adrotate_config['adblock_disguise']."-".$id." { margin:".$admargin."px; ".$width.$height.$group_align." }\n";
 				} else {
 					$output_css .= "\t.g".$adrotate_config['adblock_disguise']."-".$id." {".$width.$height.$group_align." }\n";	
 				}
@@ -553,6 +553,7 @@ function adrotate_delete($id, $what) {
 		} else if ($what == 'group') {
 			$wpdb->query($wpdb->prepare("DELETE FROM `{$wpdb->prefix}adrotate_groups` WHERE `id` = %d;", $id));
 			$wpdb->query($wpdb->prepare("DELETE FROM `{$wpdb->prefix}adrotate_linkmeta` WHERE `group` = %d;", $id));
+			$wpdb->update($wpdb->prefix.'adrotate_groups', array('fallback' => 0), array('fallback' => $id));
 		} else if ($what == 'bannergroup') {
 			$linkmeta = $wpdb->get_results($wpdb->prepare("SELECT `ad` FROM `{$wpdb->prefix}adrotate_linkmeta` WHERE `group` = %d AND `user` = '0' AND `schedule` = '0';", $id));
 			foreach($linkmeta as $meta) {
@@ -757,7 +758,6 @@ function adrotate_options_submit() {
 			$debug = get_option('adrotate_debug');
 
 			$debug['general'] = (isset($_POST['adrotate_debug'])) ? true : false;
-			$debug['publisher'] = (isset($_POST['adrotate_debug_publisher'])) ? true : false;
 			$debug['timers'] = (isset($_POST['adrotate_debug_timers'])) ? true : false;
 			$debug['track'] = (isset($_POST['adrotate_debug_track'])) ? true : false;
 

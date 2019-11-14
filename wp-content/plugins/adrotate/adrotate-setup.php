@@ -40,9 +40,9 @@ function adrotate_activate($network_wide) {
 function adrotate_activate_setup() {
 	global $wpdb, $userdata;
 
-	if(version_compare(PHP_VERSION, '5.3.0', '<') == -1) { 
+	if(version_compare(PHP_VERSION, '5.6.0', '<') == -1) { 
 		deactivate_plugins(plugin_basename('adrotate/adrotate.php'));
-		wp_die('AdRotate 3.10.8 and newer requires PHP 5.3 or higher. Your server reports version '.PHP_VERSION.'. Contact your hosting provider about upgrading your server!<br /><a href="'. get_option('siteurl').'/wp-admin/plugins.php">Back to dashboard</a>.'); 
+		wp_die('AdRotate 5.0 and newer requires PHP 5.6 or higher. Your server reports version '.PHP_VERSION.'. Contact your hosting provider about upgrading your server!<br /><a href="'. get_option('siteurl').'/wp-admin/plugins.php">Back to dashboard</a>.'); 
 		return; 
 	} else {
 		if(!current_user_can('activate_plugins')) {
@@ -50,6 +50,8 @@ function adrotate_activate_setup() {
 			wp_die('You do not have appropriate access to activate this plugin! Contact your administrator!<br /><a href="'. get_option('siteurl').'/wp-admin/plugins.php">Back to dashboard</a>.'); 
 			return; 
 		} else {
+			deactivate_plugins(plugin_basename('adrotate-pro/adrotate-pro.php'));
+
 			// Set defaults for internal versions
 			add_option('adrotate_db_version', array('current' => ADROTATE_DB_VERSION, 'previous' => ''));
 			add_option('adrotate_version', array('current' => ADROTATE_VERSION, 'previous' => ''));
@@ -59,14 +61,14 @@ function adrotate_activate_setup() {
 			add_option('adrotate_notifications', array());
 			add_option('adrotate_crawlers', array());
 			add_option('adrotate_db_timer', date('U'));
-			add_option('adrotate_debug', array('general' => false, 'publisher' => false, 'timers' => false, 'track' => false));
+			add_option('adrotate_debug', array('general' => false, 'timers' => false, 'track' => false));
 			add_option('adrotate_advert_status', array('error' => 0, 'expired' => 0, 'expiressoon' => 0, 'normal' => 0, 'total' => 0));
 			add_option('adrotate_geo_required', 0);
 			add_option('adrotate_geo_requests', 0);
 			add_option('adrotate_dynamic_required', 0);
-			add_option('adrotate_hide_review', adrotate_now());
-			add_option('adrotate_hide_competition', adrotate_now());
-			add_option('adrotate_hide_translation', adrotate_now());
+			update_option('adrotate_hide_getpro', adrotate_now() + (14 * DAY_IN_SECONDS));
+			update_option('adrotate_hide_review', adrotate_now());
+			update_option('adrotate_hide_competition', adrotate_now());
 	
 			// Install new database
 			adrotate_database_install();
@@ -113,9 +115,9 @@ function adrotate_deactivate_setup() {
 		adrotate_prepare_roles('remove');
 	}
 
+	update_option('adrotate_hide_getpro', adrotate_now() + (14 * DAY_IN_SECONDS));
 	update_option('adrotate_hide_review', adrotate_now());
 	update_option('adrotate_hide_competition', adrotate_now());
-	update_option('adrotate_hide_translate', adrotate_now());
 
 	// Clean up capabilities from ALL users
 	adrotate_remove_capability("adrotate_ad_manage");
@@ -167,14 +169,20 @@ function adrotate_uninstall_setup() {
 	delete_option('adrotate_db_timer');
 	delete_option('adrotate_db_version');
 	delete_option('adrotate_debug');
+	delete_option('adrotate_hide_getpro');
 	delete_option('adrotate_hide_review');
 	delete_option('adrotate_hide_competition');
-	delete_option('adrotate_hide_translation');
 	delete_option('adrotate_notifications');
 	delete_option('adrotate_geo_required');
 	delete_option('adrotate_geo_requests');
 	delete_option('adrotate_dynamic_required');
 	delete_option('adrotate_version');
+
+	delete_option('adrotate_hide_translation'); // Obsolete
+	delete_option('adrotate_hide_premium'); // Obsolete
+	delete_option('adrotate_hide_premium_2'); // Obsolete
+	delete_option('adrotate_hide_premium_3'); // Obsolete
+	delete_option('adrotate_hide_banner'); // Obsolete
 
 	// Clear out userroles
 	remove_role('adrotate_advertiser');
@@ -208,7 +216,7 @@ function adrotate_network_propagate($pfunction, $network_wide) {
  Since:		3.12.5
 -------------------------------------------------------------*/
 function adrotate_check_schedules() {
-	$firstrun = adrotate_now();
+	$firstrun = adrotate_date_start('day');
 	if(!wp_next_scheduled('adrotate_evaluate_ads')) { // Periodically check ads
 		wp_schedule_event($firstrun + 900, 'twicedaily', 'adrotate_evaluate_ads');
 	}
@@ -253,12 +261,12 @@ function adrotate_check_config() {
 	if(!isset($config['enable_geo'])) $config['enable_geo'] = 0;
 	if(!isset($config['geo_email'])) $config['geo_email'] = '';
 	if(!isset($config['geo_pass'])) $config['geo_pass'] = '';
-	if(!isset($config['geo_cookie_life'])) $config['geo_cookie_life'] = 86400;
+	if(!isset($config['geo_cookie_life'])) $config['geo_cookie_life'] = DAY_IN_SECONDS;
 	if(!isset($config['enable_geo_advertisers'])) $config['enable_geo_advertisers'] = 0;
 	if(!isset($config['adblock_disguise'])) $config['adblock_disguise'] = '';
 	if(!isset($config['banner_folder'])) $config['banner_folder'] = "banners";
-	if(!isset($config['impression_timer']) OR $config['impression_timer'] < 10 OR $config['impression_timer'] > 3600) $config['impression_timer'] = 60;
-	if(!isset($config['click_timer']) OR $config['click_timer'] < 60 OR $config['click_timer'] > 86400) $config['click_timer'] = 86400;
+	if(!isset($config['impression_timer']) OR $config['impression_timer'] < 10 OR $config['impression_timer'] > HOUR_IN_SECONDS) $config['impression_timer'] = 60;
+	if(!isset($config['click_timer']) OR $config['click_timer'] < 60 OR $config['click_timer'] > DAY_IN_SECONDS) $config['click_timer'] = DAY_IN_SECONDS;
 	if(!isset($config['hide_schedules']) OR ($config['hide_schedules'] != 'Y' AND $config['hide_schedules'] != 'N')) $config['hide_schedules'] = 'N';
 	if(!isset($config['widgetalign']) OR ($config['widgetalign'] != 'Y' AND $config['widgetalign'] != 'N')) $config['widgetalign'] = 'N';
 	if(!isset($config['widgetpadding']) OR ($config['widgetpadding'] != 'Y' AND $config['widgetpadding'] != 'N')) $config['widgetpadding'] = 'N';
@@ -281,7 +289,6 @@ function adrotate_check_config() {
 	update_option('adrotate_crawlers', $crawlers);
 
 	if(!isset($debug['general'])) $debug['general'] = false;
-	if(!isset($debug['publisher'])) $debug['publisher'] = false;
 	if(!isset($debug['timers'])) $debug['timers'] = false;
 	if(!isset($debug['track'])) $debug['track'] = false;
 	update_option('adrotate_debug', $debug);
@@ -347,7 +354,7 @@ function adrotate_dummy_data() {
 
 	if(is_null($no_ads) AND is_null($no_schedules) AND is_null($no_linkmeta)) {
 		// Demo ad 1
-	    $wpdb->insert("{$wpdb->prefix}adrotate", array('title' => 'Demo ad 468x60', 'bannercode' => '&lt;a href=\&quot;https:\/\/ajdg.solutions\&quot;&gt;&lt;img src=\&quot;http://ajdg.solutions/assets/dummy-banners/adrotate-468x60.jpg\&quot; /&gt;&lt;/a&gt;', 'thetime' => $now, 'updated' => $now, 'author' => $current_user->user_login, 'imagetype' => '', 'image' => '', 'tracker' => 'N', 'show_everyone' => 'Y', 'desktop' => 'Y', 'mobile' => 'Y', 'tablet' => 'Y', 'os_ios' => 'Y', 'os_android' => 'Y', 'os_other' => 'Y', 'type' => 'active', 'weight' => 6, 'budget' => 0, 'crate' => 0, 'irate' => 0, 'cities' => serialize(array()), 'countries' => serialize(array())));
+	    $wpdb->insert("{$wpdb->prefix}adrotate", array('title' => 'Demo banner 468x60', 'bannercode' => '&lt;a href=\&quot;https:\/\/ajdg.solutions\&quot;&gt;&lt;img src=\&quot;http://ajdg.solutions/assets/banners/adrotate-468x60.jpg\&quot; /&gt;&lt;/a&gt;', 'thetime' => $now, 'updated' => $now, 'author' => $current_user->user_login, 'imagetype' => '', 'image' => '', 'tracker' => 'N', 'show_everyone' => 'Y', 'desktop' => 'Y', 'mobile' => 'Y', 'tablet' => 'Y', 'os_ios' => 'Y', 'os_android' => 'Y', 'os_other' => 'Y', 'type' => 'active', 'weight' => 6, 'budget' => 0, 'crate' => 0, 'irate' => 0, 'cities' => serialize(array()), 'countries' => serialize(array())));
 	    $ad_id = $wpdb->insert_id;
 		$wpdb->insert("{$wpdb->prefix}adrotate_schedule", array('name' => 'Schedule for ad '.$ad_id, 'starttime' => $now, 'stoptime' => $in84days, 'maxclicks' => 0, 'maximpressions' => 0, 'spread' => 'N', 'daystarttime' => '0000', 'daystoptime' => '0000', 'day_mon' => 'Y', 'day_tue' => 'Y', 'day_wed' => 'Y', 'day_thu' => 'Y', 'day_fri' => 'Y', 'day_sat' => 'Y', 'day_sun' => 'Y'));
 	    $schedule_id = $wpdb->insert_id;
@@ -355,7 +362,7 @@ function adrotate_dummy_data() {
 		unset($ad_id, $schedule_id);
 	
 		// Demo ad 2
-	    $wpdb->insert("{$wpdb->prefix}adrotate", array('title' => 'Demo ad 200x200', 'bannercode' => '&lt;a href=\&quot;https:\/\/ajdg.solutions\&quot;&gt;&lt;img src=\&quot;http://ajdg.solutions/assets/dummy-banners/adrotate-200x200.jpg\&quot; /&gt;&lt;/a&gt;', 'thetime' => $now, 'updated' => $now, 'author' => $current_user->user_login, 'imagetype' => '', 'image' => '', 'tracker' => 'N', 'show_everyone' => 'Y', 'desktop' => 'Y', 'mobile' => 'Y', 'tablet' => 'Y', 'os_ios' => 'Y', 'os_android' => 'Y', 'os_other' => 'Y', 'type' => 'active', 'weight' => 6, 'budget' => 0, 'crate' => 0, 'irate' => 0, 'cities' => serialize(array()), 'countries' => serialize(array())));
+	    $wpdb->insert("{$wpdb->prefix}adrotate", array('title' => 'Demo banner 728x90', 'bannercode' => '&lt;a href=\&quot;https:\/\/ajdg.solutions\&quot;&gt;&lt;img src=\&quot;http://ajdg.solutions/assets/banners/adrotate-728x90.jpg\&quot; /&gt;&lt;/a&gt;', 'thetime' => $now, 'updated' => $now, 'author' => $current_user->user_login, 'imagetype' => '', 'image' => '', 'tracker' => 'Y', 'show_everyone' => 'Y', 'desktop' => 'Y', 'mobile' => 'Y', 'tablet' => 'Y', 'os_ios' => 'Y', 'os_android' => 'Y', 'os_other' => 'Y', 'type' => 'active', 'weight' => 6, 'budget' => 0, 'crate' => 0, 'irate' => 0, 'cities' => serialize(array()), 'countries' => serialize(array())));
 	    $ad_id = $wpdb->insert_id;
 		$wpdb->insert("{$wpdb->prefix}adrotate_schedule", array('name' => 'Schedule for ad '.$ad_id, 'starttime' => $now, 'stoptime' => $in84days, 'maxclicks' => 0, 'maximpressions' => 0, 'spread' => 'N', 'daystarttime' => '0000', 'daystoptime' => '0000', 'day_mon' => 'Y', 'day_tue' => 'Y', 'day_wed' => 'Y', 'day_thu' => 'Y', 'day_fri' => 'Y', 'day_sat' => 'Y', 'day_sun' => 'Y'));
 	    $schedule_id = $wpdb->insert_id;
@@ -380,7 +387,6 @@ function adrotate_database_install() {
 	// Initial data
 	$charset_collate = $engine = '';
 	$now = adrotate_now();
-	$in84days = $now + 7257600;
 
 	if(!empty($wpdb->charset)) {
 		$charset_collate .= " DEFAULT CHARACTER SET {$wpdb->charset}";
@@ -394,144 +400,128 @@ function adrotate_database_install() {
 		$engine = ' ENGINE=InnoDB';
 	}
 
-	$found_tables = $wpdb->get_col("SHOW TABLES LIKE '{$wpdb->prefix}adrotate%';");
+	dbDelta("CREATE TABLE IF NOT EXISTS `{$wpdb->prefix}adrotate` (
+	  	`id` mediumint(8) unsigned NOT NULL auto_increment,
+	  	`title` varchar(255) NOT NULL DEFAULT '',
+	  	`bannercode` longtext NOT NULL,
+	  	`thetime` int(15) NOT NULL default '0',
+		`updated` int(15) NOT NULL,
+	  	`author` varchar(60) NOT NULL default '',
+	  	`imagetype` varchar(10) NOT NULL,
+	  	`image` varchar(255) NOT NULL,
+	  	`tracker` char(1) NOT NULL default 'N',
+	  	`show_everyone` char(1) NOT NULL default 'Y',
+	  	`desktop` char(1) NOT NULL default 'Y',
+	  	`mobile` char(1) NOT NULL default 'Y',
+	  	`tablet` char(1) NOT NULL default 'Y',
+	  	`os_ios` char(1) NOT NULL default 'Y',
+	  	`os_android` char(1) NOT NULL default 'Y',
+	  	`os_other` char(1) NOT NULL default 'Y',
+	  	`type` varchar(10) NOT NULL default '0',
+	  	`weight` int(3) NOT NULL default '6',
+	  	`autodelete` char(1) NOT NULL default 'N',
+	  	`budget` double NOT NULL default '0',
+	  	`crate` double NOT NULL default '0',
+	  	`irate` double NOT NULL default '0',
+		`cities` text NOT NULL,
+		`countries` text NOT NULL,
+		PRIMARY KEY  (`id`)
+	) ".$charset_collate.$engine.";");
 
-	if(!in_array("{$wpdb->prefix}adrotate", $found_tables)) {
-		dbDelta("CREATE TABLE `{$wpdb->prefix}adrotate` (
-		  	`id` mediumint(8) unsigned NOT NULL auto_increment,
-		  	`title` varchar(255) NOT NULL DEFAULT '',
-		  	`bannercode` longtext NOT NULL,
-		  	`thetime` int(15) NOT NULL default '0',
-			`updated` int(15) NOT NULL,
-		  	`author` varchar(60) NOT NULL default '',
-		  	`imagetype` varchar(10) NOT NULL,
-		  	`image` varchar(255) NOT NULL,
-		  	`tracker` char(1) NOT NULL default 'N',
-		  	`show_everyone` char(1) NOT NULL default 'Y',
-		  	`desktop` char(1) NOT NULL default 'Y',
-		  	`mobile` char(1) NOT NULL default 'Y',
-		  	`tablet` char(1) NOT NULL default 'Y',
-		  	`os_ios` char(1) NOT NULL default 'Y',
-		  	`os_android` char(1) NOT NULL default 'Y',
-		  	`os_other` char(1) NOT NULL default 'Y',
-		  	`type` varchar(10) NOT NULL default '0',
-		  	`weight` int(3) NOT NULL default '6',
-		  	`autodelete` char(1) NOT NULL default 'N',
-		  	`budget` double NOT NULL default '0',
-		  	`crate` double NOT NULL default '0',
-		  	`irate` double NOT NULL default '0',
-			`cities` text NOT NULL,
-			`countries` text NOT NULL,
-  		PRIMARY KEY  (`id`)
-		) ".$charset_collate.$engine.";");
-	}
+	dbDelta("CREATE TABLE IF NOT EXISTS `{$wpdb->prefix}adrotate_groups` (
+		`id` mediumint(8) unsigned NOT NULL auto_increment,
+		`name` varchar(255) NOT NULL default '',
+		`modus` tinyint(1) NOT NULL default '0',
+		`fallback` varchar(5) NOT NULL default '0',
+		`cat` longtext NOT NULL,
+		`cat_loc` tinyint(1) NOT NULL default '0',
+		`cat_par` tinyint(2) NOT NULL default '0',
+		`page` longtext NOT NULL,
+		`page_loc` tinyint(1) NOT NULL default '0',
+		`page_par` tinyint(2) NOT NULL default '0',
+		`mobile` tinyint(1) NOT NULL default '0',
+		`geo` tinyint(1) NOT NULL default '0',
+		`wrapper_before` longtext NOT NULL,
+		`wrapper_after` longtext NOT NULL,
+		`align` tinyint(1) NOT NULL default '0',
+		`gridrows` int(3) NOT NULL DEFAULT '2',
+		`gridcolumns` int(3) NOT NULL DEFAULT '2',
+		`admargin` int(2) NOT NULL DEFAULT '0',
+		`admargin_bottom` int(2) NOT NULL DEFAULT '0',
+		`admargin_left` int(2) NOT NULL DEFAULT '0',
+		`admargin_right` int(2) NOT NULL DEFAULT '0',
+		`adwidth` varchar(6) NOT NULL DEFAULT '125',
+		`adheight` varchar(6) NOT NULL DEFAULT '125',
+		`adspeed` int(5) NOT NULL DEFAULT '6000',
+	  	`repeat_impressions` char(1) NOT NULL default 'Y',
+		PRIMARY KEY  (`id`)
+	) ".$charset_collate.$engine.";");
 
-	if(!in_array("{$wpdb->prefix}adrotate_groups", $found_tables)) {
-		dbDelta("CREATE TABLE `{$wpdb->prefix}adrotate_groups` (
-			`id` mediumint(8) unsigned NOT NULL auto_increment,
-			`name` varchar(255) NOT NULL default '',
-			`modus` tinyint(1) NOT NULL default '0',
-			`fallback` varchar(5) NOT NULL default '0',
-			`cat` longtext NOT NULL,
-			`cat_loc` tinyint(1) NOT NULL default '0',
-			`cat_par` tinyint(2) NOT NULL default '0',
-			`page` longtext NOT NULL,
-			`page_loc` tinyint(1) NOT NULL default '0',
-			`page_par` tinyint(2) NOT NULL default '0',
-			`mobile` tinyint(1) NOT NULL default '0',
-			`geo` tinyint(1) NOT NULL default '0',
-			`wrapper_before` longtext NOT NULL,
-			`wrapper_after` longtext NOT NULL,
-			`align` tinyint(1) NOT NULL default '0',
-			`gridrows` int(3) NOT NULL DEFAULT '2',
-			`gridcolumns` int(3) NOT NULL DEFAULT '2',
-			`admargin` int(2) NOT NULL DEFAULT '0',
-			`admargin_bottom` int(2) NOT NULL DEFAULT '0',
-			`admargin_left` int(2) NOT NULL DEFAULT '0',
-			`admargin_right` int(2) NOT NULL DEFAULT '0',
-			`adwidth` varchar(6) NOT NULL DEFAULT '125',
-			`adheight` varchar(6) NOT NULL DEFAULT '125',
-			`adspeed` int(5) NOT NULL DEFAULT '6000',
-		  	`repeat_impressions` char(1) NOT NULL default 'Y',
-			PRIMARY KEY  (`id`)
-		) ".$charset_collate.$engine.";");
-	}
+	dbDelta("CREATE TABLE IF NOT EXISTS `{$wpdb->prefix}adrotate_linkmeta` (
+		`id` mediumint(8) unsigned NOT NULL auto_increment,
+		`ad` int(5) unsigned NOT NULL default '0',
+		`group` int(5) unsigned NOT NULL default '0',
+		`user` int(5) unsigned NOT NULL default '0',
+		`schedule` int(5) unsigned NOT NULL default '0',
+		PRIMARY KEY  (`id`)
+	) ".$charset_collate.$engine.";");
 
-	if(!in_array("{$wpdb->prefix}adrotate_linkmeta", $found_tables)) {
-		dbDelta("CREATE TABLE `{$wpdb->prefix}adrotate_linkmeta` (
-			`id` mediumint(8) unsigned NOT NULL auto_increment,
-			`ad` int(5) unsigned NOT NULL default '0',
-			`group` int(5) unsigned NOT NULL default '0',
-			`user` int(5) unsigned NOT NULL default '0',
-			`schedule` int(5) unsigned NOT NULL default '0',
-			PRIMARY KEY  (`id`)
-		) ".$charset_collate.$engine.";");
-	}
+	dbDelta("CREATE TABLE IF NOT EXISTS `{$wpdb->prefix}adrotate_schedule` (
+		`id` int(8) unsigned NOT NULL auto_increment,
+		`name` varchar(255) NOT NULL default '',
+		`starttime` int(15) unsigned NOT NULL default '0',
+		`stoptime` int(15) unsigned NOT NULL default '0',
+		`maxclicks` int(15) unsigned NOT NULL default '0',
+		`maximpressions` int(15) unsigned NOT NULL default '0',
+	  	`spread` char(1) NOT NULL default 'N',
+		`daystarttime` char(4) NOT NULL default '0000',
+		`daystoptime` char(4) NOT NULL default '0000',
+		`day_mon` char(1) NOT NULL default 'Y',
+		`day_tue` char(1) NOT NULL default 'Y',
+		`day_wed` char(1) NOT NULL default 'Y',
+		`day_thu` char(1) NOT NULL default 'Y',
+		`day_fri` char(1) NOT NULL default 'Y',
+		`day_sat` char(1) NOT NULL default 'Y',
+		`day_sun` char(1) NOT NULL default 'Y',
+	  	`autodelete` char(1) NOT NULL default 'N',
+		PRIMARY KEY  (`id`),
+	    KEY `starttime` (`starttime`)
+	) ".$charset_collate.$engine.";");
 
-	if(!in_array("{$wpdb->prefix}adrotate_schedule", $found_tables)) {
-		dbDelta("CREATE TABLE `{$wpdb->prefix}adrotate_schedule` (
-			`id` int(8) unsigned NOT NULL auto_increment,
-			`name` varchar(255) NOT NULL default '',
-			`starttime` int(15) unsigned NOT NULL default '0',
-			`stoptime` int(15) unsigned NOT NULL default '0',
-			`maxclicks` int(15) unsigned NOT NULL default '0',
-			`maximpressions` int(15) unsigned NOT NULL default '0',
-		  	`spread` char(1) NOT NULL default 'N',
-			`daystarttime` char(4) NOT NULL default '0000',
-			`daystoptime` char(4) NOT NULL default '0000',
-			`day_mon` char(1) NOT NULL default 'Y',
-			`day_tue` char(1) NOT NULL default 'Y',
-			`day_wed` char(1) NOT NULL default 'Y',
-			`day_thu` char(1) NOT NULL default 'Y',
-			`day_fri` char(1) NOT NULL default 'Y',
-			`day_sat` char(1) NOT NULL default 'Y',
-			`day_sun` char(1) NOT NULL default 'Y',
-		  	`autodelete` char(1) NOT NULL default 'N',
-			PRIMARY KEY  (`id`),
-		    KEY `starttime` (`starttime`)
-		) ".$charset_collate.$engine.";");
-	}
+	dbDelta("CREATE TABLE IF NOT EXISTS `{$wpdb->prefix}adrotate_stats` (
+		`id` bigint(9) unsigned NOT NULL auto_increment,
+		`ad` int(5) unsigned NOT NULL default '0',
+		`group` int(5) unsigned NOT NULL default '0',
+		`thetime` int(15) unsigned NOT NULL default '0',
+		`clicks` int(15) unsigned NOT NULL default '0',
+		`impressions` int(15) unsigned NOT NULL default '0',
+		PRIMARY KEY  (`id`),
+		INDEX `ad` (`ad`),
+		INDEX `thetime` (`thetime`)
+	) ".$charset_collate.$engine.";");
 
-	if(!in_array("{$wpdb->prefix}adrotate_stats", $found_tables)) {
-		dbDelta("CREATE TABLE `{$wpdb->prefix}adrotate_stats` (
-			`id` bigint(9) unsigned NOT NULL auto_increment,
-			`ad` int(5) unsigned NOT NULL default '0',
-			`group` int(5) unsigned NOT NULL default '0',
-			`thetime` int(15) unsigned NOT NULL default '0',
-			`clicks` int(15) unsigned NOT NULL default '0',
-			`impressions` int(15) unsigned NOT NULL default '0',
-			PRIMARY KEY  (`id`),
-			INDEX `ad` (`ad`),
-			INDEX `thetime` (`thetime`)
-		) ".$charset_collate.$engine.";");
-	}
+	dbDelta("CREATE TABLE IF NOT EXISTS `{$wpdb->prefix}adrotate_stats_archive` (
+		`id` bigint(9) unsigned NOT NULL auto_increment,
+		`ad` int(5) unsigned NOT NULL default '0',
+		`group` int(5) unsigned NOT NULL default '0',
+		`thetime` int(15) unsigned NOT NULL default '0',
+		`clicks` int(15) unsigned NOT NULL default '0',
+		`impressions` int(15) unsigned NOT NULL default '0',
+		PRIMARY KEY  (`id`),
+		INDEX `ad` (`ad`),
+		INDEX `thetime` (`thetime`)
+	) ".$charset_collate.$engine.";");
 
-	if(!in_array("{$wpdb->prefix}adrotate_stats_archive", $found_tables)) {
-		dbDelta("CREATE TABLE `{$wpdb->prefix}adrotate_stats_archive` (
-			`id` bigint(9) unsigned NOT NULL auto_increment,
-			`ad` int(5) unsigned NOT NULL default '0',
-			`group` int(5) unsigned NOT NULL default '0',
-			`thetime` int(15) unsigned NOT NULL default '0',
-			`clicks` int(15) unsigned NOT NULL default '0',
-			`impressions` int(15) unsigned NOT NULL default '0',
-			PRIMARY KEY  (`id`),
-			INDEX `ad` (`ad`),
-			INDEX `thetime` (`thetime`)
-		) ".$charset_collate.$engine.";");
-	}
-
-	if(!in_array("{$wpdb->prefix}adrotate_tracker", $found_tables)) {
-		dbDelta("CREATE TABLE `{$wpdb->prefix}adrotate_tracker` (
-			`id` bigint(9) unsigned NOT NULL auto_increment,
-			`ipaddress` varchar(15) NOT NULL default '0',
-			`timer` int(15) unsigned NOT NULL default '0',
-			`bannerid` int(15) unsigned NOT NULL default '0',
-			`stat` char(1) NOT NULL default 'c',
-			PRIMARY KEY  (`id`),
-		    KEY `ipaddress` (`ipaddress`),
-		    KEY `timer` (`timer`)
-		) ".$charset_collate.$engine.";");
-	}
+	dbDelta("CREATE TABLE IF NOT EXISTS `{$wpdb->prefix}adrotate_tracker` (
+		`id` bigint(9) unsigned NOT NULL auto_increment,
+		`ipaddress` varchar(15) NOT NULL default '0',
+		`timer` int(15) unsigned NOT NULL default '0',
+		`bannerid` int(15) unsigned NOT NULL default '0',
+		`stat` char(1) NOT NULL default 'c',
+		PRIMARY KEY  (`id`),
+	    KEY `ipaddress` (`ipaddress`),
+	    KEY `timer` (`timer`)
+	) ".$charset_collate.$engine.";");
 }
 
 /*-------------------------------------------------------------
@@ -650,7 +640,7 @@ function adrotate_database_upgrade() {
 function adrotate_core_upgrade() {
 	global $wp_roles, $wpdb;
 
-	$firstrun = date('U') + 3600;
+	$firstrun = date('U') + HOUR_IN_SECONDS;
 	$adrotate_version = get_option("adrotate_version");
 	$adrotate_config = get_option('adrotate_config');
 
@@ -770,6 +760,15 @@ function adrotate_core_upgrade() {
 		}
 	}
 
+	// 5.6
+	if($adrotate_version['current'] < 394) {
+		delete_option('adrotate_hide_translation');
+		delete_option('adrotate_hide_premium');
+		delete_option('adrotate_hide_premium_2');
+		delete_option('adrotate_hide_premium_3');
+		delete_option('adrotate_hide_banner');
+	}
+
 	update_option("adrotate_version", array('current' => ADROTATE_VERSION, 'previous' => $adrotate_version['current']));
 }
 
@@ -786,7 +785,7 @@ function adrotate_optimize_database() {
 	$adrotate_db_timer 	= get_option('adrotate_db_timer');
 	$now = adrotate_now();
 
-	if($adrotate_db_timer < ($now - 86400)) {
+	if($adrotate_db_timer < ($now - DAY_IN_SECONDS)) {
 		dbDelta("OPTIMIZE TABLE `{$wpdb->prefix}adrotate`, `{$wpdb->prefix}adrotate_groups`, `{$wpdb->prefix}adrotate_linkmeta`, `{$wpdb->prefix}adrotate_stats`, `{$wpdb->prefix}adrotate_stats_archive`, `{$wpdb->prefix}adrotate_tracker`, `{$wpdb->prefix}adrotate_schedule`, `{$wpdb->prefix}adrotate_transactions`;");
 		dbDelta("REPAIR TABLE `{$wpdb->prefix}adrotate`, `{$wpdb->prefix}adrotate_groups`, `{$wpdb->prefix}adrotate_linkmeta`, `{$wpdb->prefix}adrotate_stats`, `{$wpdb->prefix}adrotate_stats_archive`, `{$wpdb->prefix}adrotate_tracker`, `{$wpdb->prefix}adrotate_schedule`, `{$wpdb->prefix}adrotate_transactions`;");
 		update_option('adrotate_db_timer', $now);
@@ -808,7 +807,7 @@ function adrotate_cleanup_database() {
 	
 	// Delete old stats
 	if(isset($_POST['adrotate_db_cleanup_statistics'])) {
-		$lastyear = $now - 30758400;
+		$lastyear = $now - (DAY_IN_SECONDS * 365);
 		$wpdb->query("DELETE FROM `{$wpdb->prefix}adrotate_stats` WHERE `thetime` < $lastyear;");
 	}
 
@@ -818,7 +817,7 @@ function adrotate_cleanup_database() {
 	}
 
 	// Clean up Tracker data
-	$yesterday = $now - 86400;
+	$yesterday = $now - DAY_IN_SECONDS;
 	$wpdb->query("DELETE FROM `{$wpdb->prefix}adrotate_tracker` WHERE `timer` < $yesterday;");
 
 	// Delete empty ads, groups and schedules
@@ -868,8 +867,8 @@ function adrotate_empty_trackerdata() {
 	global $wpdb;
 
 	$now = adrotate_now();
-	$clicks = $now - 86400;
-	$impressions = $now - 3600;
+	$clicks = $now - DAY_IN_SECONDS;
+	$impressions = $now - HOUR_IN_SECONDS;
 
 	$wpdb->query("DELETE FROM `{$wpdb->prefix}adrotate_tracker` WHERE `timer` < {$impressions} AND `stat` = 'i';");
 	$wpdb->query("DELETE FROM `{$wpdb->prefix}adrotate_tracker` WHERE `timer` < {$clicks} AND `stat` = 'c';");

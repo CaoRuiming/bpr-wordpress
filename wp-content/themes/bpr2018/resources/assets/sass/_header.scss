@@ -76,23 +76,17 @@
       }
 
       @media (prefers-color-scheme: dark) {
-        #header-search {
+        #header-search-dark {
           color: $color-white;
+          input { background-color: $body-background-dark; }
         }
-      }
-
-      #dark {
-        background-color: $body-background-dark;
-      }
-
-      @media (prefers-color-scheme: dark) {
-        #light {
+        #header-search-light {
           display: none;
         }
       }
 
       @media (prefers-color-scheme: light) {
-        #dark {
+        #header-search-dark {
           display: none;
         }
       }
