@@ -227,12 +227,12 @@
         width: 100%;
         text-align: right;
         & > a {
-          font-size: 24px;
+          font-size: 2rem !important;
           margin-top: 10px;
         }
         & > ul > li > a {
           text-align: right;
-          font-size: 19px;
+          font-size: 1.6rem !important;
           margin-top: 8px;
         }
       }
