@@ -3,7 +3,7 @@
   .more-link { margin-top: $spacing-lg; }
   .archive-title {
     margin-bottom: $spacing-xs;
-    margin-top: 0px;
+    margin-top: 0;
     @include font-size-sm(35px);
   }
 }
