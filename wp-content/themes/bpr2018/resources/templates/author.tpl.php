@@ -3,19 +3,14 @@
 <div id="author-page" class="container-fluid">
   <div id="author-header" class="row">
     <div class="col-md-3 col-xs-12">
-    <!-- Change this to a div with the right size, cropped -->
-      <img src= <?php echo nl2br(get_avatar_url(get_the_author_meta('user_email'))); ?> >
-      <img src="https://scontent.fzty2-1.fna.fbcdn.net/v/t1.0-1/p240x240/55857544_786541738384415_6524938221871169536_n.jpg?_nc_cat=106&_nc_eui2=AeHUNJpb-gAiCutFawQ6chCMibH7mxiLiEhfLNR-MkPEYn6_8lfpfz7YOzIMC-rHJDhpPiNyrgYI-HrNipF8hMM9lggNz5t-1k7ZjddkXySESw&_nc_ohc=6Q9OkWSYSH8AQm0J93-0mxVsp1Xx2-F_OQkdsbHRGDckQLwhGOiR0ms8w&_nc_ht=scontent.fzty2-1.fna&oh=5b9b98b541abbd1c2260fce2ca846902&oe=5E3F8409" style="width: 20rem; margin: 10px 0">
+      <div id="author-avatar" style="background-image: url(<?php echo nl2br(get_avatar_url(get_the_author_meta('user_email'))); ?>); background-position: center; background-size: cover; width:175px; height:175px; margin: 10px">a</div>
     </div>
     <div class="col-md-9 col-xs-12">
-      <?php if (get_the_archive_title()): ?>
-        <h1 class="archive-title font-size-100 header-font">
-          <!-- <?php echo get_the_archive_title(); ?> -->
-          <?php the_author(); ?>
-        </h1>
-      <?php endif; ?>
+      <h1 class="archive-title font-size-100 header-font">
+        <?php the_author(); ?>
+      </h1>
       <p>
-      <?php echo nl2br(get_the_author_meta('description')); ?>
+        <?php echo nl2br(get_the_author_meta('description')); ?>
       </p>
     </div>
   </div>
