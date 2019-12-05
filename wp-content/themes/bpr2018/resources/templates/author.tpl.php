@@ -1,12 +1,21 @@
 <?php get_header(); ?>
 
 <div id="author-page" class="container-fluid">
-
-  <?php if (get_the_archive_title()): ?>
-    <h1 class="archive-title font-size-100 header-font">
-      <?php echo get_the_archive_title(); ?>
-    </h1>
-  <?php endif; ?>
+  <div id="author-header" class="container-fluid">
+  <div class="col-xs-3">
+    <img src="https://static01.nyt.com/images/2018/11/06/multimedia/author-nicholas-fandos/author-nicholas-fandos-thumbLarge-v2.png" style="width: 20rem; float:right">
+  </div>
+  <div class="col-xs-9">
+    <?php if (get_the_archive_title()): ?>
+      <h1 class="archive-title font-size-100 header-font">
+        <?php echo get_the_archive_title(); ?>
+      </h1>
+    <?php endif; ?>
+    <p>
+    Sloop gunwalls lanyard Corsair Spanish Main avast spyglass rum parrel Privateer. Sutler gabion rum boom weigh anchor scurvy draught gibbet ballast bowsprit. Prow poop deck tack Spanish Main barkadeer grog Shiver me timbers swing the lead Buccaneer nipperkin.
+    </p>
+  </div>
+  </div>
 
   <section>
     <div class="horizontal-rule"></div>
