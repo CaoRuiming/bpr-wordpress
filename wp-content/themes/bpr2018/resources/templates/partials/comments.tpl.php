@@ -6,4 +6,5 @@
       'avatar_size' => 50,
     ) );
   ?>
+  <?php comment_form(); ?>
 </ol>
