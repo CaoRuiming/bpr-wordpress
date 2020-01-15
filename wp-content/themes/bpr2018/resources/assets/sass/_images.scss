@@ -18,16 +18,12 @@
   margin-left: $spacing-xs;
 }
 
+// Darkmode
 @media (prefers-color-scheme: light) {
-  #dark {
-    display: none;
-  }
+  #dark { display: none; }
 }
-
 @media (prefers-color-scheme: dark) {
-  #light {
-    display: none;
-  }
+  #light { display: none; }
 }
 
 .featured-image {
@@ -55,18 +51,6 @@ img.featured-image {
   width: 100%;
   padding-bottom: 75%;
 
-}
-
-@media (prefers-color-scheme: dark) {
-  #light {
-    display: none;
-  }
-}
-
-@media (prefers-color-scheme: light) {
-  #dark {
-    display: none;
-  }
 }
 
 .img-35 {
@@ -99,18 +83,6 @@ img.featured-image {
     width: 100%;
     padding-bottom: 75%;
   } 
-}
-
-@media (prefers-color-scheme: dark) {
-  #light {
-    display: none;
-  }
-}
-
-@media (prefers-color-scheme: light) {
-  #dark {
-    display: none;
-  }
 }
 
 .img-30-wrapper {

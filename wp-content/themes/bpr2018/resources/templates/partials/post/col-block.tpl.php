@@ -5,17 +5,16 @@
     <?php $placeholder = get_image_asset('placeholder_dark.jpg'); ?>
       <?php $placeholder_dark = get_image_asset('placeholder_bright.jpg'); ?>
       <div
-        id="light"
         class="img-35"
         itemprop="image"
         style="background-image: url(<?php echo $pic_url; ?>), url(<?php echo $placeholder; ?>);">
       </div>
-      <div
+      <!-- <div
         id="dark"
         class="img-35"
         itemprop="image"
         style="background-image: url(<?php echo $pic_url; ?>), url(<?php echo $placeholder_dark; ?>);">
-      </div>
+      </div> -->
     </div>
   </a>
 
