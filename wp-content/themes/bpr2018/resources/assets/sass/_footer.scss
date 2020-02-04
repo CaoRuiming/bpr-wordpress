@@ -19,9 +19,9 @@ footer {
     li { list-style-type: none; }
     a {
       color: white;
-      font-size: 2rem; 
       font-weight: 350;
       font-family: $body-font;
+      @include font-size-md(2rem);
     }
   }
 }
