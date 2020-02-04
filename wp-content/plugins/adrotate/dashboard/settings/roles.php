@@ -14,7 +14,7 @@
 <?php wp_nonce_field('adrotate_settings','adrotate_nonce_settings'); ?>
 <input type="hidden" name="adrotate_settings_tab" value="<?php echo $active_tab; ?>" />
 
-<h2><?php _e('Roles', 'adrotate'); ?></h2>
+<h2><?php _e('Access Roles', 'adrotate'); ?></h2>
 <span class="description"><?php _e('Who has access to what?', 'adrotate'); ?></span>
 <table class="form-table">
 	<tr>

@@ -20,37 +20,11 @@
 		{
 			powerpress_page_message_add_notice(  __('No update services selected to add.', 'powerpress') );
 		}
-		if(!empty($_POST['PowerPressWebsub']['enable']) && $_POST['PowerPressWebsub']['enable'] == '1') {
-		    powerpress_save_settings(array('websub_enabled' => 1), 'powerpress_general');
-        }
-		else {
-            powerpress_save_settings(array('websub_enabled' => 0), 'powerpress_general');
-        }
-		if( !empty($_POST['PowerPressWebsub']['feed']) ) {
-		    require_once( 'class.powerpresswebsub.php' );
-		    $Websub = new PowerPressWebSub();
-			$success = false;
-            try {
-                $success = $Websub->publish($_POST['PowerPressWebsub']['feed']);
-            } catch (Exception $e) {
-				powerpress_page_message_add_error( $e->getMessage() );
-            }
-			if( $success ) {
-				powerpress_page_message_add_notice(  __('Google PubSubHubbub test successful.', 'powerpress') );
-			}
-        }
 	}
 	
 	function powerpress_admin_ping_sites()
 	{
 		$ping_sites = get_option('ping_sites');
-		$GeneralSettings = powerpress_get_settings('powerpress_general');
-		if(!empty($GeneralSettings['websub_enabled']) && $GeneralSettings['websub_enabled'] == 1) {
-		    $websub_enabled = true;
-        }
-		else {
-		    $websub_enabled = false;
-        }
 		$BlogSites = array('http://rpc.pingomatic.com/'=> __('Ping-o-Matic!', 'powerpress'),
 			'http://blogsearch.google.com/ping/RPC2'=> __('Google Blog Search', 'powerpress'),
 			'http://rssrpc.weblogs.com/RPC2'=> __('WebLogs', 'powerpress')  );
@@ -66,7 +40,7 @@
 
 <table class="form-table">
 <tr valign="top">
-<th scope="row"><?php echo __('Update Blog Searvices', 'powerpress'); ?></th> 
+<th scope="row"><?php echo __('Update Blog Services', 'powerpress'); ?></th>
 <td>
 	<p><?php echo __('Select the blog service you would like to notify.', 'powerpress'); ?></p>
 <?php
@@ -90,7 +64,7 @@
 </tr>
 
 <tr valign="top">
-<th scope="row"><?php echo __('Update Podcast Searvices', 'powerpress'); ?></th> 
+<th scope="row"><?php echo __('Update Podcast Services', 'powerpress'); ?></th>
 <td>
 	<p><?php echo __('Select the podcasting service you would like to notify.', 'powerpress'); ?></p>
 <?php
@@ -111,18 +85,6 @@
 	}
 ?>
 </td>
-</tr>
-<tr valign="top">
-    <th scope="row"><?php echo __('Websub', 'powerpress'); ?></th>
-    <td>
-        <p><?php echo __('Websub allows you to notify podcast directories such as Google Podcasts immediately when you post a new episode', 'powerpress'); ?></p>
-        <p><input name="PowerPressWebsub[enable]" id="PowerPressWebsub[enable]" type="checkbox" value="1" <?php echo $websub_enabled ? 'checked' : '' ?> /><label for="PowerPressWebsub[enable]">Enable? </label></p>
-        <p><?php echo __('You can also update the hub manually below. This is useful for testing purposes.', 'powerpress'); ?></p>
-        <p><label for="PowerPressWebsub[feed]">Feed URL: <input name="PowerPressWebsub[feed]" type="text" /></label><input type="submit" name="testWebsub" class="button-primary button-blubrry" value="Send Test"></p>
-        <?php
-
-        ?>
-    </td>
 </tr>
 
 </table>

@@ -3,9 +3,9 @@ Contributors: hcabrera
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=hcabrerab%40gmail%2ecom&lc=GB&item_name=WordPress%20Popular%20Posts%20Plugin&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donateCC_LG_global%2egif%3aNonHosted
 Tags: popular, posts, widget, popularity, top
 Requires at least: 4.7
-Tested up to: 5.3
+Tested up to: 5.3.2
 Requires PHP: 5.4
-Stable tag: 5.0.1
+Stable tag: 5.0.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -63,7 +63,7 @@ Please make sure your site meets the [minimum requirements](https://github.com/c
 2. If you have a caching plugin installed on your site, flush its cache now so WPP can start tracking your site.
 3. If you have a security / firewall plugin installed on your site, make sure you [allow WPP access to the REST API](https://wordpress.org/support/topic/wpp-does-not-count-properly/#post-10411163) so it can start tracking your site.
 4. Go to Appearance > Editor. Under "Templates", click on `header.php` and make sure that the `<?php wp_head(); ?>` tag is present (should be right before the closing `</head>` tag).
-5. (Optional, but highly recommended for large / high traffic sites) Enabling [Caching](https://github.com/cabrerahector/wordpress-popular-posts/wiki/7.-Performance#caching) and/or [Data Sampling](https://github.com/cabrerahector/wordpress-popular-posts/wiki/7.-Performance#data-sampling) might be a good idea if you're worried about performance. Check [here](https://github.com/cabrerahector/wordpress-popular-posts/wiki/7.-Performance) for more.
+5. (Optional but highly recommended) Are you running a medium/high traffic site? If so, it might be a good idea to check [these suggestions](https://github.com/cabrerahector/wordpress-popular-posts/wiki/7.-Performance) to make sure your site's performance stays up to par.
 
 That's it!
 
@@ -89,6 +89,13 @@ The FAQ section has been moved [here](https://github.com/cabrerahector/wordpress
 4. Statistics panel.
 
 == Changelog ==
+= 5.0.2 =
+
+- A performance notice will be displayed for mid/high traffic sites (see [#239](https://github.com/cabrerahector/wordpress-popular-posts/issues/239)).
+- Fixed an issue with text_title content tag not being shortened (see [#241](https://github.com/cabrerahector/wordpress-popular-posts/issues/241)).
+- Added a link to the Debug screen to the plugin's dashboard for ease of access.
+- Other minor improvements/changes.
+
 = 5.0.1 =
 
 **If you're using a caching plugin, flushing its cache right after installing / upgrading to this version is recommended.**

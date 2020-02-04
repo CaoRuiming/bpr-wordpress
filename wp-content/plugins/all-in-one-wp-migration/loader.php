@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright (C) 2014-2019 ServMask Inc.
+ * Copyright (C) 2014-2020 ServMask Inc.
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -296,6 +296,10 @@ require_once AI1WM_IMPORT_PATH .
 require_once AI1WM_IMPORT_PATH .
 			DIRECTORY_SEPARATOR .
 			'class-ai1wm-import-database.php';
+
+require_once AI1WM_IMPORT_PATH .
+			DIRECTORY_SEPARATOR .
+			'class-ai1wm-import-plugins.php';
 
 require_once AI1WM_IMPORT_PATH .
 			DIRECTORY_SEPARATOR .

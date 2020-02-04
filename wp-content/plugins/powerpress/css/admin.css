@@ -443,10 +443,12 @@ a.pp-expand-section:visited {
 .pp-expand-section:before {
 	content: ' \25C4'; /*	&#9668; */
 	content: '+';
+	line-height: 20px;
 }
 .pp-expand-section-expanded:before {
 	content: ' \25BC';
 	content: '-';
+	line-height: 16px;
 }
 .bbplayer_settings .form-table th{
 	padding-bottom: 0;

@@ -29,19 +29,19 @@
 				<option value="0" disabled>Piwik/Matomo Analytics (<?php _e('Advanced', 'adrotate'); ?>)</option>
 			</select><br />
 			<span class="description">
-				<strong>AdRotate Tracker</strong> - <?php _e('Tracks impressions and clicks locally', 'adrotate'); ?> - <a href="https://ajdg.solutions/support/adrotate-manuals/adrotate-statistics/" target="_blank"><?php _e('Setup guide', 'adrotate'); ?></a>.<br />
+				<strong>AdRotate Tracker</strong> - <?php _e('Tracks impressions and clicks locally', 'adrotate'); ?> - <a href="https://ajdg.solutions/support/adrotate-manuals/adrotate-statistics/?pk_campaign=adrotatefree&pk_keyword=settings_stats&pk_content=adrotate_tracker" target="_blank"><?php _e('Setup guide', 'adrotate'); ?></a>.<br />
 				<strong><?php _e('Supports:', 'adrotate'); ?></strong> <em><?php _e('Clicks and Impressions, Click and impression limits, impression spread for schedules. Javascript/HTML5 adverts will only track impressions.', 'adrotate'); ?></em><br /><br />
 
-				<strong>Google Global Tag</strong> - <?php _e('Requires Google Global Tag tracker installed in your sites footer!', 'adrotate'); ?> - <a href="https://ajdg.solutions/support/adrotate-manuals/google-analytics/installing-and-using-google-global-site-tag/" target="_blank"><?php _e('Setup guide', 'adrotate'); ?></a>.<br />
+				<strong>Google Global Tag</strong> - <?php _e('Requires Google Global Tag tracker installed in your sites footer!', 'adrotate'); ?> - <a href="https://ajdg.solutions/support/adrotate-manuals/google-analytics/installing-and-using-google-global-site-tag/?pk_campaign=adrotatefree&pk_keyword=settings_stats&pk_content=globaltag_tracker" target="_blank"><?php _e('Setup guide', 'adrotate'); ?></a>.<br />
 				<strong><?php _e('Supports:', 'adrotate'); ?></strong> <em><?php _e('Clicks and Impressions via events. Javascript/HTML5 adverts will only track impressions.', 'adrotate'); ?></em><br /><br />
 
-				<strong>Google Tag Manager</strong> - <?php _e('Requires Google Tag Manager installed in your sites head tag and a Google Analytics Account!', 'adrotate'); ?>  - <a href="https://ajdg.solutions/support/adrotate-manuals/google-analytics/installing-and-using-google-tag-manager/" target="_blank"><?php _e('Setup guide', 'adrotate'); ?></a>.<br />
+				<strong>Google Tag Manager</strong> - <?php _e('Requires Google Tag Manager installed in your sites head tag and a Google Analytics Account!', 'adrotate'); ?>  - <a href="https://ajdg.solutions/support/adrotate-manuals/google-analytics/installing-and-using-google-tag-manager/?pk_campaign=adrotatefree&pk_keyword=settings_stats&pk_content=tagmanager_tracker" target="_blank"><?php _e('Setup guide', 'adrotate'); ?></a>.<br />
 				<strong><?php _e('Supports:', 'adrotate'); ?></strong> <em><?php _e('Clicks and Impressions via custom events. Javascript/HTML5 adverts will only track impressions.', 'adrotate'); ?></em><br /><br />
 				
 				<strong>Google Universal Tracker</strong> - <?php _e('Maintained for backwards compatibility, please switch to Google Global Tag or Google Tag Manager.', 'adrotate'); ?>.<br />
 				<strong><?php _e('Supports:', 'adrotate'); ?></strong> <em><?php _e('Clicks and Impressions via events. Javascript/HTML5 adverts will only track impressions.', 'adrotate'); ?></em><br /><br />
 				
-				<strong>Piwik/Matomo Analytics</strong> - <?php _e('Requires a extended Piwik/Matomo tracker installed in your sites footer. See the manual for details.', 'adrotate'); ?> - <a href="https://ajdg.solutions/support/adrotate-manuals/piwik-analytics/" target="_blank"><?php _e('Setup guide', 'adrotate'); ?></a>.<br />
+				<strong>Piwik/Matomo Analytics</strong> - <?php _e('Requires the Matomo tracker installed in your sites footer.', 'adrotate'); ?> - <a href="https://ajdg.solutions/support/adrotate-manuals/matomo-analytics/?pk_campaign=adrotatefree&pk_keyword=settings_stats&pk_content=matomo_tracker" target="_blank"><?php _e('Setup guide', 'adrotate'); ?></a>.<br />
 				<strong><?php _e('Supports:', 'adrotate'); ?></strong> <em><?php _e('Click and Impression recording via Cookie. Javascript/HTML5 adverts will only track impressions.', 'adrotate'); ?></em>
 			</span>
 		</td>

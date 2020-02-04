@@ -55,30 +55,30 @@ $data = get_option("adrotate_advert_status");
 						<tr>
 							<td width="33%">
 								<div class="ajdg-sales-widget" style="display: inline-block; margin-right:2%;">
-									<a href="https://ajdg.solutions/product/adrotate-html5-setup-service/" target="_blank"><div class="header"><img src="<?php echo plugins_url("/images/offers/html5-service.jpg", dirname(__FILE__)); ?>" alt="HTML5 Advert setup" width="228" height="120"></div></a>
-									<a href="https://ajdg.solutions/product/adrotate-html5-setup-service/" target="_blank"><div class="title"><?php _e('HTML5 Advert setup', 'adrotate'); ?></div></a>
+									<a href="https://ajdg.solutions/product/adrotate-html5-setup-service/?pk_campaign=adrotatefree&pk_keyword=info_page&pk_content=service-6" target="_blank"><div class="header"><img src="<?php echo plugins_url("/images/offers/html5-service.jpg", dirname(__FILE__)); ?>" alt="HTML5 Advert setup" width="228" height="120"></div></a>
+									<a href="https://ajdg.solutions/product/adrotate-html5-setup-service/?pk_campaign=adrotatefree&pk_keyword=info_page&pk_content=service-6" target="_blank"><div class="title"><?php _e('HTML5 Advert setup', 'adrotate'); ?></div></a>
 									<div class="sub_title"><?php _e('Professional service', 'adrotate'); ?></div>
-									<div class="cta"><a role="button" class="cta_button" href="https://ajdg.solutions/product/adrotate-html5-setup-service/" target="_blank">Only &euro; 22,50 p/ad</a></div>
+									<div class="cta"><a role="button" class="cta_button" href="https://ajdg.solutions/product/adrotate-html5-setup-service/?pk_campaign=adrotatefree&pk_keyword=info_page&pk_content=service-6_buy" target="_blank">Only &euro; 22,50 p/ad</a></div>
 									<hr>
 									<div class="description"><?php _e('Did you get a HTML5 advert and can’t get it to work in AdRotate Pro? I’ll install and configure it for you.', 'adrotate'); ?></div>
 								</div>							
 							</td>
 							<td width="33%">
 								<div class="ajdg-sales-widget" style="display: inline-block; margin-right:2%;">
-									<a href="https://ajdg.solutions/product/wordpress-maintenance-and-updates/" target="_blank"><div class="header"><img src="<?php echo plugins_url("/images/offers/wordpress-maintenance.jpg", dirname(__FILE__)); ?>" alt="WordPress Maintenance" width="228" height="120"></div></a>
-									<a href="https://ajdg.solutions/product/wordpress-maintenance-and-updates/" target="_blank"><div class="title"><?php _e('WP Maintenance', 'adrotate'); ?></div></a>
+									<a href="https://ajdg.solutions/product/wordpress-maintenance-and-updates/?pk_campaign=adrotatefree&pk_keyword=info_page&pk_content=service-3" target="_blank"><div class="header"><img src="<?php echo plugins_url("/images/offers/wordpress-maintenance.jpg", dirname(__FILE__)); ?>" alt="WordPress Maintenance" width="228" height="120"></div></a>
+									<a href="https://ajdg.solutions/product/wordpress-maintenance-and-updates/?pk_campaign=adrotatefree&pk_keyword=info_page&pk_content=service-3" target="_blank"><div class="title"><?php _e('WP Maintenance', 'adrotate'); ?></div></a>
 									<div class="sub_title"><?php _e('Professional service', 'adrotate'); ?></div>
-									<div class="cta"><a role="button" class="cta_button" href="https://ajdg.solutions/product/wordpress-maintenance-and-updates/" target="_blank">Starting at &euro; 22,50</a></div>
+									<div class="cta"><a role="button" class="cta_button" href="https://ajdg.solutions/product/wordpress-maintenance-and-updates/?pk_campaign=adrotatefree&pk_keyword=info_page&pk_content=service-3_buy" target="_blank">Starting at &euro; 22,50</a></div>
 									<hr>								
 									<div class="description"><?php _e('Get all the latest updates for WordPress and plugins. Maintenance, delete spam and clean up files.', 'adrotate'); ?></div>
 								</div>
 							</td>
 							<td>
 								<div class="ajdg-sales-widget" style="display: inline-block;">
-									<a href="https://ajdg.solutions/product/woocommerce-single-page-checkout/" target="_blank"><div class="header"><img src="<?php echo plugins_url("/images/offers/single-page-checkout.jpg", dirname(__FILE__)); ?>" alt="WooCommerce Single Page Checkout" width="228" height="120"></div></a>
-									<a href="https://ajdg.solutions/product/woocommerce-single-page-checkout/" target="_blank"><div class="title"><?php _e('Single Page Checkout', 'adrotate'); ?></div></a>
+									<a href="https://ajdg.solutions/product/woocommerce-single-page-checkout/?pk_campaign=adrotatefree&pk_keyword=info_page&pk_content=woo-2" target="_blank"><div class="header"><img src="<?php echo plugins_url("/images/offers/single-page-checkout.jpg", dirname(__FILE__)); ?>" alt="WooCommerce Single Page Checkout" width="228" height="120"></div></a>
+									<a href="https://ajdg.solutions/product/woocommerce-single-page-checkout/?pk_campaign=adrotatefree&pk_keyword=info_page&pk_content=woo-2" target="_blank"><div class="title"><?php _e('Single Page Checkout', 'adrotate'); ?></div></a>
 									<div class="sub_title"><?php _e('WooCommerce Plugin', 'adrotate'); ?></div>
-									<div class="cta"><a role="button" class="cta_button" href="https://ajdg.solutions/product/woocommerce-single-page-checkout/" target="_blank">Only &euro; 10,-</a></div>
+									<div class="cta"><a role="button" class="cta_button" href="https://ajdg.solutions/product/woocommerce-single-page-checkout/?pk_campaign=adrotatefree&pk_keyword=info_page&pk_content=woo-2_buy" target="_blank">Only &euro; 10,-</a></div>
 									<hr>
 									<div class="description"><?php _e('Merge your cart and checkout pages into one single page in seconds with no setup required at all.', 'adrotate'); ?></div>
 								</div>
@@ -94,7 +94,7 @@ $data = get_option("adrotate_advert_status");
 			<div class="ajdg-postbox">
 				<h2 class="ajdg-postbox-title"><?php _e('News & Updates', 'adrotate'); ?></h2>
 				<div id="news" class="ajdg-postbox-content">
-					<p><center><a href="https://www.arnan.me" title="Visit Arnan's website" target="_blank"><img src="<?php echo plugins_url("/images/buttons/1.png", dirname(__FILE__)); ?>" alt="Arnan de Gans website" /></a><a href="https://ajdg.solutions" title="Visit the AJdG Solutions website" target="_blank"><img src="<?php echo plugins_url("/images/buttons/2.png", dirname(__FILE__)); ?>" alt="AJdG Solutions website" /></a><a href="https://www.twitter.com/arnandegans" title="Arnan de Gans on Twitter" target="_blank"><img src="<?php echo plugins_url("/images/buttons/4.png", dirname(__FILE__)); ?>" alt="Arnan de Gans on Twitter" /></a><a href="https://ajdgsolutions.tumblr.com" title="AJdG Solutions on Tumblr" target="_blank"><img src="<?php echo plugins_url("/images/buttons/3.png", dirname(__FILE__)); ?>" alt="AJdG Solutions on Tumblr" /></a></center></p>
+					<p><center><a href="https://www.arnan.me?pk_campaign=adrotatefree&pk_keyword=info_page&pk_content=news_link" title="Visit Arnan's website" target="_blank"><img src="<?php echo plugins_url("/images/buttons/1.png", dirname(__FILE__)); ?>" alt="Arnan de Gans website" /></a><a href="https://ajdg.solutions?pk_campaign=adrotatefree&pk_keyword=info_page&pk_content=news_link" title="Visit the AJdG Solutions website" target="_blank"><img src="<?php echo plugins_url("/images/buttons/2.png", dirname(__FILE__)); ?>" alt="AJdG Solutions website" /></a><a href="https://www.twitter.com/arnandegans" title="Arnan de Gans on Twitter" target="_blank"><img src="<?php echo plugins_url("/images/buttons/4.png", dirname(__FILE__)); ?>" alt="Arnan de Gans on Twitter" /></a><a href="https://arnandegans.tumblr.com" title="AJdG Solutions on Tumblr" target="_blank"><img src="<?php echo plugins_url("/images/buttons/3.png", dirname(__FILE__)); ?>" alt="AJdG Solutions on Tumblr" /></a></center></p>
 
 					<?php wp_widget_rss_output(array(
 						'url' => 'http://ajdg.solutions/feed/', 
@@ -109,12 +109,12 @@ $data = get_option("adrotate_advert_status");
 			<div class="ajdg-postbox">
 				<h2 class="ajdg-postbox-title"><?php _e('Buy AdRotate Professional', 'adrotate'); ?></h2>
 				<div id="get-pro" class="ajdg-postbox-content">
-					<p><a href="https://ajdg.solutions/plugins/adrotate-for-wordpress/" target="_blank"><img src="<?php echo plugins_url('/images/logo-60x60.png', dirname(__FILE__)); ?>" class="alignleft pro-image" /></a><?php _e('AdRotate Professional has a lot more functions for even better advertising management. Check out the feature comparison tab on any of the product pages to see what AdRotate Pro has to offer for you!', 'adrotate'); ?></p>
-					<a href="https://ajdg.solutions/plugins/adrotate-for-wordpress/"><img src="<?php echo plugins_url('/images/adrotate-product.png', dirname(__FILE__)); ?>" alt="adrotate-product" width="150" height="150" align="right" style="padding: 0 0 10px 10px;" /></a>
-					<p><a href="https://ajdg.solutions/product/adrotate-pro-single/" target="_blank"><strong><?php _e('Single License', 'adrotate'); ?> (&euro; 39.00)</strong></a><br /><em><?php _e('Use on ONE WordPress installation.', 'adrotate'); ?> <a href="https://ajdg.solutions/?add-to-cart=1124" target="_blank"><?php _e('Buy now', 'adrotate'); ?> &raquo;</a></em></p>
-					<p><a href="https://ajdg.solutions/product/adrotate-pro-duo/" target="_blank"><strong><?php _e('Duo License', 'adrotate'); ?> (&euro; 49.00)</strong></a><br /><em><?php _e('Use on TWO WordPress installations.', 'adrotate'); ?> <a href="https://ajdg.solutions/?add-to-cart=1126" target="_blank"><?php _e('Buy now', 'adrotate'); ?> &raquo;</a></em></p>
-					<p><a href="https://ajdg.solutions/product/adrotate-pro-multi/" target="_blank"><strong><?php _e('Multi License', 'adrotate'); ?> (&euro; 99.00)</strong></a><br /><em><?php _e('Use on up to FIVE WordPress installations.', 'adrotate'); ?> <a href="https://ajdg.solutions/?add-to-cart=1128" target="_blank"><?php _e('Buy now', 'adrotate'); ?> &raquo;</a></em></p>
-					<p><a href="https://ajdg.solutions/product/adrotate-pro-developer/" target="_blank"><strong><?php _e('Developer License', 'adrotate'); ?> (&euro; 199.00)</strong></a><br /><em><?php _e('Use on up to a HUNDRED WordPress installations and/or networks.', 'adrotate'); ?> <a href="https://ajdg.solutions/?add-to-cart=1130" target="_blank"><?php _e('Buy now', 'adrotate'); ?> &raquo;</a></em></p>
+					<p><a href="https://ajdg.solutions/plugins/adrotate-for-wordpress/?pk_campaign=adrotatefree&pk_keyword=info_page&pk_content=buy_pro" target="_blank"><img src="<?php echo plugins_url('/images/logo-60x60.png', dirname(__FILE__)); ?>" class="alignleft pro-image" /></a><?php _e('AdRotate Professional has a lot more functions for even better advertising management. Check out the feature comparison tab on any of the product pages to see what AdRotate Pro has to offer for you!', 'adrotate'); ?></p>
+					<a href="https://ajdg.solutions/plugins/adrotate-for-wordpress/?pk_campaign=adrotatefree&pk_keyword=info_page&pk_content=buy_pro"><img src="<?php echo plugins_url('/images/adrotate-product.png', dirname(__FILE__)); ?>" alt="adrotate-product" width="150" height="150" align="right" style="padding: 0 0 10px 10px;" /></a>
+					<p><a href="https://ajdg.solutions/product/adrotate-pro-single/?pk_campaign=adrotatefree&pk_keyword=info_page&pk_content=single" target="_blank"><strong><?php _e('Single License', 'adrotate'); ?> (&euro; 39.00)</strong></a><br /><em><?php _e('Use on ONE WordPress installation.', 'adrotate'); ?> <a href="https://ajdg.solutions/?add-to-cart=1124&pk_campaign=adrotatefree&pk_keyword=info_page&pk_content=single_buy" target="_blank"><?php _e('Buy now', 'adrotate'); ?> &raquo;</a></em></p>
+					<p><a href="https://ajdg.solutions/product/adrotate-pro-duo/?pk_campaign=adrotatefree&pk_keyword=info_page&pk_content=duo" target="_blank"><strong><?php _e('Duo License', 'adrotate'); ?> (&euro; 49.00)</strong></a><br /><em><?php _e('Use on TWO WordPress installations.', 'adrotate'); ?> <a href="https://ajdg.solutions/?add-to-cart=1126&pk_campaign=adrotatefree&pk_keyword=info_page&pk_content=duo_buy" target="_blank"><?php _e('Buy now', 'adrotate'); ?> &raquo;</a></em></p>
+					<p><a href="https://ajdg.solutions/product/adrotate-pro-multi/?pk_campaign=adrotatefree&pk_keyword=info_page&pk_content=" target="_blank"><strong><?php _e('Multi License', 'adrotate'); ?> (&euro; 99.00)</strong></a><br /><em><?php _e('Use on up to FIVE WordPress installations.', 'adrotate'); ?> <a href="https://ajdg.solutions/?add-to-cart=1128&pk_campaign=adrotatefree&pk_keyword=info_page&pk_content=multi_buy" target="_blank"><?php _e('Buy now', 'adrotate'); ?> &raquo;</a></em></p>
+					<p><a href="https://ajdg.solutions/product/adrotate-pro-developer/?pk_campaign=adrotatefree&pk_keyword=info_page&pk_content=developer" target="_blank"><strong><?php _e('Developer License', 'adrotate'); ?> (&euro; 199.00)</strong></a><br /><em><?php _e('Use on up to a HUNDRED WordPress installations and/or networks.', 'adrotate'); ?> <a href="https://ajdg.solutions/?add-to-cart=1130&pk_campaign=adrotatefree&pk_keyword=info_page&pk_content=developer_buy" target="_blank"><?php _e('Buy now', 'adrotate'); ?> &raquo;</a></em></p>
 				</div>
 			</div>
 

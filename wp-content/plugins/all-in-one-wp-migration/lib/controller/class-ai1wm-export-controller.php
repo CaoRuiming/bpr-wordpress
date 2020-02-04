@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright (C) 2014-2019 ServMask Inc.
+ * Copyright (C) 2014-2020 ServMask Inc.
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -128,7 +128,7 @@ class Ai1wm_Export_Controller {
 		$active_filters = array();
 		$static_filters = array();
 
-		// All in One WP Migration
+		// All-in-One WP Migration
 		if ( defined( 'AI1WM_PLUGIN_NAME' ) ) {
 			$active_filters[] = apply_filters( 'ai1wm_export_file', Ai1wm_Template::get_content( 'export/button-file' ) );
 		} else {

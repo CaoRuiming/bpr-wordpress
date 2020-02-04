@@ -125,7 +125,7 @@ function powerpress_admin_jquery_init()
 				// Congratulations you aleady have hosting!
 ?>
 <div style="line-height: 32px; height: 32px;">&nbsp;</div>
-<iframe src="//www.blubrry.com/pp/" frameborder="0" style="overflow:hidden; overflow-y: hidden;" width="100%" height="480" scrolling="no" seamless="seamless"></iframe>
+<iframe src="//www.blubrry.com/pp/" frameborder="0" title="<?php echo esc_attr(__('Blubrry Services Integration', 'powerpress')); ?>" style="overflow:hidden; overflow-y: hidden;" width="100%" height="480" scrolling="no" seamless="seamless"></iframe>
 <p><?php echo __('Already have a blubrry hosting account?', 'powerpress'); ?> 
 	<strong><a class="button-primary button-blubrry thickbox" title="<?php echo esc_attr(__('Blubrry Services Integration', 'powerpress')); ?>" href="<?php echo wp_nonce_url(admin_url('admin.php?action=powerpress-jquery-account'), 'powerpress-jquery-account'); ?>"><?php echo __('Click here to link Blubrry account', 'powerpress'); ?></a></strong>
 </p>
@@ -174,7 +174,7 @@ function powerpress_admin_jquery_init()
 ?>
 <h2><?php echo __('Select Media', 'powerpress'); ?></h2>
 <p><?php echo __('Wait a sec! This feature is only available to Blubrry Media Podcast Hosting customers.', 'powerpress'); ?></p>
-<iframe src="//www.blubrry.com/pp/" frameborder="0" style="overflow:hidden; overflow-y: hidden;" width="100%" height="480" scrolling="no" seamless="seamless"></iframe>
+<iframe src="//www.blubrry.com/pp/" frameborder="0" title="<?php echo esc_attr(__('Blubrry Services Integration', 'powerpress')); ?>" style="overflow:hidden; overflow-y: hidden;" width="100%" height="480" scrolling="no" seamless="seamless"></iframe>
 <p><?php echo __('Already have a blubrry hosting account?', 'powerpress'); ?> 
 	<strong><a class="button-primary button-blubrry thickbox" title="<?php echo esc_attr(__('Blubrry Services Integration', 'powerpress')); ?>" href="<?php echo wp_nonce_url(admin_url('admin.php?action=powerpress-jquery-account'), 'powerpress-jquery-account'); ?>"><?php echo __('Click here to link Blubrry account', 'powerpress'); ?></a></strong>
 </p>
@@ -593,8 +593,7 @@ window.onload = function() {
 			{
 				$Programs = array();
 				$ProgramHosting = array();
-					
-					// Anytime we change the password we need to test it...
+                // Anytime we change the password we need to test it...
 				$auth = base64_encode( $SaveSettings['blubrry_username'] . ':' . $Password );
 				$json_data = false;
 				$api_url_array = powerpress_get_api_array();
@@ -609,7 +608,8 @@ window.onload = function() {
 					if( $json_data != false )
 						break;
 				}
-				
+
+
 				if( $json_data )
 				{
 					$results =  powerpress_json_decode($json_data);
@@ -648,7 +648,7 @@ window.onload = function() {
 						if( count($Programs) > 0 )
 						{
 							$SaveSettings['blubrry_auth'] = $auth;
-							
+
 							if( !empty($SaveSettings['blubrry_program_keyword']) )
 							{
 								powerpress_add_blubrry_redirect($SaveSettings['blubrry_program_keyword']);

@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright (C) 2014-2019 ServMask Inc.
+ * Copyright (C) 2014-2020 ServMask Inc.
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -126,6 +126,11 @@ class Ai1wm_Export_Database {
 			foreach ( $mysql->get_tables() as $table_name ) {
 				$include_table_prefixes[] = $table_name;
 			}
+		}
+
+		// Include table prefixes (Webba Booking)
+		foreach ( array( 'wbk_services', 'wbk_days_on_off', 'wbk_locked_time_slots', 'wbk_appointments', 'wbk_cancelled_appointments', 'wbk_email_templates', 'wbk_service_categories', 'wbk_gg_calendars', 'wbk_coupons' ) as $table_name ) {
+			$include_table_prefixes[] = $table_name;
 		}
 
 		// Set database options

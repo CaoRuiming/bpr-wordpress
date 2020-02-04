@@ -5,7 +5,7 @@
  * @package Yoast\YoastSEO\Conditionals
  */
 
-namespace Yoast\WP\Free\Conditionals;
+namespace Yoast\WP\SEO\Conditionals;
 
 /**
  * Conditional that is only met when in the admin.
@@ -13,7 +13,9 @@ namespace Yoast\WP\Free\Conditionals;
 class Admin_Conditional implements Conditional {
 
 	/**
-	 * @inheritdoc
+	 * Returns whether or not this conditional is met.
+	 *
+	 * @return boolean Whether or not the conditional is met.
 	 */
 	public function is_met() {
 		return \is_admin();

@@ -56,12 +56,6 @@ function powerpress_admin_activate()
 		{
 			powerpress_admin_import_podcasting_settings();
 		}
-		// This is a new user
-		powerpress_save_settings(array('advanced_mode_2'=>'0'), 'powerpress_general'); // Defaut them to simple mode
-	}
-	else if( !isset($Settings['advanced_mode_2']) ) // this is not a new user, lets put them in advanced mode by default...
-	{
-		powerpress_save_settings(array('advanced_mode_2'=>'1'), 'powerpress_general'); // Defaut them to simple mode
 	}
 }
 	
@@ -1064,12 +1058,6 @@ function powerpress_admin_init()
 					powerpressadmin_podpress_delete_data();
 					
 				}; break;
-				case 'powerpress-save-mode': {
-					
-					//if( !isset($_POST['General']['advanced_mode']) )
-					//	powerpress_page_message_add_notice( __('You must select a Mode to continue.', 'powerpress') );
-					
-				}; break;
 				case 'powerpress-category-settings': {
 					// Save here!
 					check_admin_referer('powerpress-category-settings');
@@ -1770,57 +1758,63 @@ function powerpress_admin_menu()
 		}
 	}
 	
-	if( current_user_can(POWERPRESS_CAPABILITY_MANAGE_OPTIONS) )
-	{
-		$Powerpress = powerpress_default_settings($Powerpress, 'basic');
-		
-		if( isset($_GET['page']) && strstr($_GET['page'], 'powerpress' ) !== false && isset($_POST[ 'General' ]) )
-		{
-			$ToBeSaved = $_POST['General'];
-		
-			if( isset($ToBeSaved['channels']) )
-				$Powerpress['channels'] = $ToBeSaved['channels'];
-			if( isset($ToBeSaved['cat_casting']) )
-				$Powerpress['cat_casting'] = $ToBeSaved['cat_casting'];
-			if( isset($ToBeSaved['taxonomy_podcasting']) )
-				$Powerpress['taxonomy_podcasting'] = $ToBeSaved['taxonomy_podcasting'];
-			if( isset($ToBeSaved['posttype_podcasting']) )
-				$Powerpress['posttype_podcasting'] = $ToBeSaved['posttype_podcasting'];
-			if( isset($ToBeSaved['podpress_stats']) )
-				$Powerpress['podpress_stats'] = $ToBeSaved['podpress_stats'];
-			if( isset($ToBeSaved['blubrry_hosting']) )
-				$Powerpress['blubrry_hosting'] = $ToBeSaved['blubrry_hosting'];
-		}
-		$parent_slug = 'powerpressadmin_basic';
-		add_menu_page(__('PowerPress', 'powerpress'), __('PowerPress', 'powerpress'), POWERPRESS_CAPABILITY_EDIT_PAGES, 'powerpressadmin_basic', 'powerpress_admin_page_basic', powerpress_get_root_url() . 'powerpress_ico.png');
-			$parent_slug = apply_filters('powerpress_submenu_parent_slug', $parent_slug );
-			
-			add_submenu_page($parent_slug, __('PowerPress Settings', 'powerpress'), __('Settings', 'powerpress'), POWERPRESS_CAPABILITY_EDIT_PAGES, 'powerpressadmin_basic', 'powerpress_admin_page_basic' );
-			
-			add_options_page( __('PowerPress', 'powerpress'), __('PowerPress', 'powerpress'), POWERPRESS_CAPABILITY_EDIT_PAGES, 'powerpressadmin_basic', 'powerpress_admin_page_basic');
-			
-			add_submenu_page($parent_slug, __('Import podcast feed from SoundCloud, LibSyn, PodBean or other podcast service.', 'powerpress'), __('Import Podcast', 'powerpress'), POWERPRESS_CAPABILITY_EDIT_PAGES, 'powerpress/powerpressadmin_import_feed.php', 'powerpress_admin_page_import_feed');
-			add_submenu_page($parent_slug, __('Migrate media files to Blubrry Podcast Media Hosting with only a few clicks.', 'powerpress'), __('Migrate Media', 'powerpress'), POWERPRESS_CAPABILITY_EDIT_PAGES, 'powerpress/powerpressadmin_migrate.php', 'powerpress_admin_page_migrate');
-			add_submenu_page($parent_slug, __('PowerPress Podcasting SEO', 'powerpress'), '<span style="color:#f18500">'. __('Podcasting SEO', 'powerpress') .'</span> ', POWERPRESS_CAPABILITY_EDIT_PAGES, 'powerpress/powerpressadmin_search.php', 'powerpress_admin_page_search');
-			
-			add_submenu_page($parent_slug, __('PowerPress Audio Player Options', 'powerpress'), __('Audio Player', 'powerpress'), POWERPRESS_CAPABILITY_EDIT_PAGES, 'powerpress/powerpressadmin_player.php', 'powerpress_admin_page_players');
-			add_submenu_page($parent_slug, __('PowerPress Video Player Options', 'powerpress'), __('Video Player', 'powerpress'), POWERPRESS_CAPABILITY_EDIT_PAGES, 'powerpress/powerpressadmin_videoplayer.php', 'powerpress_admin_page_videoplayers');
-			
-			if( !empty($Powerpress['channels']) )
-				add_submenu_page($parent_slug, __('PowerPress Custom Podcast Channels', 'powerpress'), __('Podcast Channels', 'powerpress'), POWERPRESS_CAPABILITY_EDIT_PAGES, 'powerpress/powerpressadmin_customfeeds.php', 'powerpress_admin_page_customfeeds');
-			if( !empty($Powerpress['cat_casting']) )	
-				add_submenu_page($parent_slug, __('PowerPress Category Podcasting', 'powerpress'), __('Category Podcasting', 'powerpress'), POWERPRESS_CAPABILITY_EDIT_PAGES, 'powerpress/powerpressadmin_categoryfeeds.php', 'powerpress_admin_page_categoryfeeds');
-			if( defined('POWERPRESS_TAXONOMY_PODCASTING') || !empty($Powerpress['taxonomy_podcasting']) )	
-				add_submenu_page($parent_slug, __('PowerPress Taxonomy Podcasting', 'powerpress'), __('Taxonomy Podcasting', 'powerpress'), POWERPRESS_CAPABILITY_EDIT_PAGES, 'powerpress/powerpressadmin_taxonomyfeeds.php', 'powerpress_admin_page_taxonomyfeeds');
-			if( defined('POWERPRESS_POSTTYPE_PODCASTING') || !empty($Powerpress['posttype_podcasting']) )	
-				add_submenu_page($parent_slug, __('PowerPress Post Type Podcasting', 'powerpress'), __('Post Type Podcasting', 'powerpress'), POWERPRESS_CAPABILITY_EDIT_PAGES, 'powerpress/powerpressadmin_posttypefeeds.php', 'powerpress_admin_page_posttypefeeds');
-			if( !empty($Powerpress['podpress_stats']) )
-				add_submenu_page($parent_slug, __('PodPress Stats', 'powerpress'), __('PodPress Stats', 'powerpress'), POWERPRESS_CAPABILITY_EDIT_PAGES, 'powerpress/powerpressadmin_podpress-stats.php', 'powerpress_admin_page_podpress_stats');
-			//if( !empty($Powerpress['blubrry_hosting']) &&  $Powerpress['blubrry_hosting'] !== 'false' )
-			
-			add_submenu_page($parent_slug, __('PowerPress MP3 Tags', 'powerpress'), __('MP3 Tags', 'powerpress'), POWERPRESS_CAPABILITY_EDIT_PAGES, 'powerpress/powerpressadmin_tags.php', 'powerpress_admin_page_tags');
-			add_submenu_page($parent_slug, __('PowerPress Tools', 'powerpress'), __('Tools', 'powerpress'), POWERPRESS_CAPABILITY_EDIT_PAGES, 'powerpress/powerpressadmin_tools.php', 'powerpress_admin_page_tools');
-	}
+	if( current_user_can(POWERPRESS_CAPABILITY_MANAGE_OPTIONS) ) {
+        $Powerpress = powerpress_default_settings($Powerpress, 'basic');
+
+        if (isset($_GET['page']) && strstr($_GET['page'], 'powerpress') !== false && isset($_POST['General'])) {
+            $ToBeSaved = $_POST['General'];
+
+            if (isset($ToBeSaved['channels']))
+                $Powerpress['channels'] = $ToBeSaved['channels'];
+            if (isset($ToBeSaved['cat_casting']))
+                $Powerpress['cat_casting'] = $ToBeSaved['cat_casting'];
+            if (isset($ToBeSaved['taxonomy_podcasting']))
+                $Powerpress['taxonomy_podcasting'] = $ToBeSaved['taxonomy_podcasting'];
+            if (isset($ToBeSaved['posttype_podcasting']))
+                $Powerpress['posttype_podcasting'] = $ToBeSaved['posttype_podcasting'];
+            if (isset($ToBeSaved['podpress_stats']))
+                $Powerpress['podpress_stats'] = $ToBeSaved['podpress_stats'];
+            if (isset($ToBeSaved['blubrry_hosting']))
+                $Powerpress['blubrry_hosting'] = $ToBeSaved['blubrry_hosting'];
+        }
+        $Settings = get_option('powerpress_general');
+        if (!$Settings || (isset($Settings['pp_onboarding_incomplete']) && $Settings['pp_onboarding_incomplete'] == 1) && (isset($Settings['timestamp']) && $Settings['timestamp'] > 1576972800)) {
+            $parent_slug = 'powerpressadmin_onboarding.php';
+            $parent_slug = apply_filters('powerpress_submenu_parent_slug', $parent_slug);
+            add_menu_page(__('PowerPress', 'powerpress'), __('PowerPress', 'powerpress'), POWERPRESS_CAPABILITY_EDIT_PAGES, 'powerpressadmin_onboarding.php', 'powerpress_admin_page_onboarding', powerpress_get_root_url() . 'powerpress_ico.png');
+            add_submenu_page($parent_slug, __('Get Started', 'powerpress'), __('Get Started', 'powerpress'), POWERPRESS_CAPABILITY_EDIT_PAGES, 'powerpressadmin_onboarding.php', 'powerpress_admin_page_onboarding');
+        } else {
+            $parent_slug = 'powerpressadmin_basic';
+            $parent_slug = apply_filters('powerpress_submenu_parent_slug', $parent_slug);
+            add_menu_page(__('PowerPress', 'powerpress'), __('PowerPress', 'powerpress'), POWERPRESS_CAPABILITY_EDIT_PAGES, 'powerpressadmin_basic', 'powerpress_admin_page_basic', powerpress_get_root_url() . 'powerpress_ico.png');
+            add_submenu_page($parent_slug, __('PowerPress Settings', 'powerpress'), __('Settings', 'powerpress'), POWERPRESS_CAPABILITY_EDIT_PAGES, 'powerpressadmin_basic', 'powerpress_admin_page_basic');
+            add_submenu_page($parent_slug, __('Get Started', 'powerpress'), __('Get Started', 'powerpress'), POWERPRESS_CAPABILITY_EDIT_PAGES, 'powerpressadmin_onboarding.php', 'powerpress_admin_page_onboarding');
+            add_options_page(__('PowerPress', 'powerpress'), __('PowerPress', 'powerpress'), POWERPRESS_CAPABILITY_EDIT_PAGES, 'powerpressadmin_basic', 'powerpress_admin_page_basic');
+
+            add_submenu_page($parent_slug, __('Import podcast feed from SoundCloud, LibSyn, PodBean or other podcast service.', 'powerpress'), __('Import Podcast', 'powerpress'), POWERPRESS_CAPABILITY_EDIT_PAGES, 'powerpress/powerpressadmin_import_feed.php', 'powerpress_admin_page_import_feed');
+            add_submenu_page($parent_slug, __('Migrate media files to Blubrry Podcast Media Hosting with only a few clicks.', 'powerpress'), __('Migrate Media', 'powerpress'), POWERPRESS_CAPABILITY_EDIT_PAGES, 'powerpress/powerpressadmin_migrate.php', 'powerpress_admin_page_migrate');
+            add_submenu_page($parent_slug, __('PowerPress Podcasting SEO', 'powerpress'), '<span style="color:#f18500">' . __('Podcasting SEO', 'powerpress') . '</span> ', POWERPRESS_CAPABILITY_EDIT_PAGES, 'powerpress/powerpressadmin_search.php', 'powerpress_admin_page_search');
+
+            add_submenu_page($parent_slug, __('PowerPress Audio Player Options', 'powerpress'), __('Audio Player', 'powerpress'), POWERPRESS_CAPABILITY_EDIT_PAGES, 'powerpress/powerpressadmin_player.php', 'powerpress_admin_page_players');
+            add_submenu_page($parent_slug, __('PowerPress Video Player Options', 'powerpress'), __('Video Player', 'powerpress'), POWERPRESS_CAPABILITY_EDIT_PAGES, 'powerpress/powerpressadmin_videoplayer.php', 'powerpress_admin_page_videoplayers');
+
+            if (!empty($Powerpress['channels']))
+                add_submenu_page($parent_slug, __('PowerPress Custom Podcast Channels', 'powerpress'), __('Podcast Channels', 'powerpress'), POWERPRESS_CAPABILITY_EDIT_PAGES, 'powerpress/powerpressadmin_customfeeds.php', 'powerpress_admin_page_customfeeds');
+            if (!empty($Powerpress['cat_casting']))
+                add_submenu_page($parent_slug, __('PowerPress Category Podcasting', 'powerpress'), __('Category Podcasting', 'powerpress'), POWERPRESS_CAPABILITY_EDIT_PAGES, 'powerpress/powerpressadmin_categoryfeeds.php', 'powerpress_admin_page_categoryfeeds');
+            if (defined('POWERPRESS_TAXONOMY_PODCASTING') || !empty($Powerpress['taxonomy_podcasting']))
+                add_submenu_page($parent_slug, __('PowerPress Taxonomy Podcasting', 'powerpress'), __('Taxonomy Podcasting', 'powerpress'), POWERPRESS_CAPABILITY_EDIT_PAGES, 'powerpress/powerpressadmin_taxonomyfeeds.php', 'powerpress_admin_page_taxonomyfeeds');
+            if (defined('POWERPRESS_POSTTYPE_PODCASTING') || !empty($Powerpress['posttype_podcasting']))
+                add_submenu_page($parent_slug, __('PowerPress Post Type Podcasting', 'powerpress'), __('Post Type Podcasting', 'powerpress'), POWERPRESS_CAPABILITY_EDIT_PAGES, 'powerpress/powerpressadmin_posttypefeeds.php', 'powerpress_admin_page_posttypefeeds');
+            if (!empty($Powerpress['podpress_stats']))
+                add_submenu_page($parent_slug, __('PodPress Stats', 'powerpress'), __('PodPress Stats', 'powerpress'), POWERPRESS_CAPABILITY_EDIT_PAGES, 'powerpress/powerpressadmin_podpress-stats.php', 'powerpress_admin_page_podpress_stats');
+            //if( !empty($Powerpress['blubrry_hosting']) &&  $Powerpress['blubrry_hosting'] !== 'false' )
+
+            add_submenu_page($parent_slug, __('PowerPress MP3 Tags', 'powerpress'), __('MP3 Tags', 'powerpress'), POWERPRESS_CAPABILITY_EDIT_PAGES, 'powerpress/powerpressadmin_tags.php', 'powerpress_admin_page_tags');
+            add_submenu_page($parent_slug, __('PowerPress Tools', 'powerpress'), __('Tools', 'powerpress'), POWERPRESS_CAPABILITY_EDIT_PAGES, 'powerpress/powerpressadmin_tools.php', 'powerpress_admin_page_tools');
+
+        }
+    }
 }
 
 
@@ -2132,7 +2126,7 @@ function powerpress_edit_post($post_ID, $post)
             powerpress_process_hosting($post_ID, $post->post_title); // Call anytime blog post is in the published state
     }
     //WebSub implementation
-    if($post->post_status == 'publish' && !empty($GeneralSettings['websub_enabled']) ) {
+    if($post->post_status == 'publish' && !(defined('POWERPRESS_DISABLE_WEBSUB') && POWERPRESS_DISABLE_WEBSUB )) {
         require_once( 'class.powerpresswebsub.php' );
         $Websub = new PowerPressWebSub();
         $feedUrls = array(); //feed urls that have been updated by this post and that the hub should be notified about.
@@ -2289,6 +2283,7 @@ function powerpress_create_subscribe_page()
 		timeout: (30 * 1000),
 		success: function(response) {
 			
+			response = response.trim();
 			<?php
 			if( defined('POWERPRESS_AJAX_DEBUG') )
 				echo "\t\t\t\talert(response);\n";
@@ -2573,7 +2568,7 @@ function powerpress_get_media_info(FeedSlug)
 				timeout: (30 * 1000),
 				success: function(response) {
 					
-					
+					response = response.trim();
 					// This logic will parse beyond warning messages generated by the server that we don't know about
 					var foundAt = response.indexOf('VERIFY-OK');
 					if( foundAt > 0 )
@@ -3161,12 +3156,9 @@ function powerpress_admin_page_footer($SaveButton=true, $form=true)
 </p>
 <?php } ?>
 <p style="font-size: 85%; text-align: center; padding-bottom: 35px;">
-	<a href="http://create.blubrry.com/resources/powerpress/" title="Blubrry PowerPress" target="_blank"><?php echo __('Blubrry PowerPress', 'powerpress'); ?></a> <?php echo POWERPRESS_VERSION; ?> &#8212; 
-	<a href="http://create.blubrry.com/manual/" target="_blank" title="<?php echo __('Podcasting Manual', 'powerpress'); ?>"><?php echo __('Podcasting Manual', 'powerpress'); ?></a> |
-	<a href="http://create.blubrry.com/resources/" target="_blank" title="<?php echo __('Blubrry PowerPress and related Resources', 'powerpress'); ?>"><?php echo __('Resources', 'powerpress'); ?></a> |
-	<a href="http://create.blubrry.com/support/" target="_blank" title="<?php echo __('Blubrry Support', 'powerpress'); ?>"><?php echo __('Support', 'powerpress'); ?></a> |
-	<a href="https://wordpress.org/support/plugin/powerpress" target="_blank" title="<?php echo __('Blubrry PowerPress Forum', 'powerpress'); ?>"><?php echo __('Forum', 'powerpress'); ?></a> |
-	<a href="http://twitter.com/blubrry" target="_blank" title="<?php echo __('Follow Blubrry on Twitter', 'powerpress'); ?>"><?php echo __('Follow Blubrry on Twitter', 'powerpress'); ?></a>
+	<a href="http://create.blubrry.com/resources/powerpress/" title="Blubrry PowerPress" target="_blank"><?php echo __('Blubrry PowerPress', 'powerpress'); ?></a> <?php echo POWERPRESS_VERSION; ?> &#8212;
+	<a href="http://create.blubrry.com/resources/podcast-media-hosting/" target="_blank" title="<?php echo __('Blubrry PowerPress and related Resources', 'powerpress'); ?>"><?php echo __('Resources', 'powerpress'); ?></a> |
+	<a href="http://create.blubrry.com/support/" target="_blank" title="<?php echo __('Blubrry Support', 'powerpress'); ?>"><?php echo __('Support', 'powerpress'); ?></a>
 </p>
 <?php if( $form ) { ?>
 </form><?php } ?>
@@ -3177,20 +3169,6 @@ function powerpress_admin_page_footer($SaveButton=true, $form=true)
 // Admin page, advanced mode: basic settings
 function powerpress_admin_page_basic()
 {
-	$Settings = get_option('powerpress_general');
-	
-	if( isset($Settings['advanced_mode_2']) && empty($Settings['advanced_mode_2']) ) // Simple Mode
-	{
-		powerpress_admin_page_header();
-		require_once( POWERPRESS_ABSPATH .'/powerpressadmin-defaults.php');
-		
-		require_once( POWERPRESS_ABSPATH .'/powerpressadmin-basic.php');
-		require_once( POWERPRESS_ABSPATH .'/powerpressadmin-editfeed.php');
-		powerpress_admin_defaults();
-		powerpress_admin_page_footer(true);
-		return;
-	}
-	
 	powerpress_admin_page_header();
 	require_once( POWERPRESS_ABSPATH .'/powerpressadmin-basic.php');
 	require_once( POWERPRESS_ABSPATH .'/powerpressadmin-editfeed.php');
@@ -3256,6 +3234,13 @@ function powerpress_admin_page_import_feed()
 	require_once( POWERPRESS_ABSPATH .'/powerpressadmin-import-feed.php');
 	powerpress_admin_import_feed();
 	powerpress_admin_page_footer(false);
+}
+
+function powerpress_admin_page_onboarding() {
+    require_once( POWERPRESS_ABSPATH .'/class.powerpress_onboarding.php');
+    $onboardinClass = new PowerpressOnboarding();
+    $onboardinClass->router($_GET);
+    powerpress_admin_page_footer(false);
 }
 
 

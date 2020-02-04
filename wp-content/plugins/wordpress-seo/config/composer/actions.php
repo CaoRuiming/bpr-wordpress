@@ -5,10 +5,11 @@
  * @package Yoast\YoastSEO\Composer
  */
 
-namespace Yoast\WP\Free\Composer;
+namespace Yoast\WP\SEO\Composer;
 
 use Composer\Script\Event;
-use Yoast\WP\Free\Dependency_Injection\Container_Compiler;
+use Symfony\Component\DependencyInjection\ContainerBuilder;
+use Yoast\WP\SEO\Dependency_Injection\Container_Compiler;
 
 /**
  * Class to handle Composer actions and events.
@@ -30,7 +31,13 @@ class Actions {
 		$io = $event->getIO();
 
 		if ( ! $event->isDevMode() ) {
-			$io->write( 'Not prefixing dependencies.' );
+			$io->write( 'Not prefixing dependencies, due to not being in dev move.' );
+
+			return;
+		}
+
+		if ( ! \file_exists( __DIR__ . '/../../vendor/bin/php-scoper' ) ) {
+			$io->write( 'Not prefixing dependencies, due to PHP scoper not being installed' );
 
 			return;
 		}
@@ -54,6 +61,12 @@ class Actions {
 	 */
 	public static function compile_dependency_injection_container( Event $event ) {
 		$io = $event->getIO();
+
+		if ( ! \class_exists( ContainerBuilder::class ) ) {
+			$io->write( 'Not compiling dependency injection container, due to the container builder not being installed' );
+
+			return;
+		}
 
 		$io->write( 'Compiling the dependency injection container...' );
 
@@ -106,15 +119,19 @@ class Actions {
 	 * @return void
 	 */
 	private static function check_cs_for_changed_files( $compare ) {
-		\exec( 'git diff --name-only --diff-filter=d ' . escapeshellarg( $compare ), $files );
-		$files = array_filter( $files, function ( $file ) {
-			return substr( $file, -4 ) === '.php';
-		} );
+		\exec( 'git diff --name-only --diff-filter=d ' . \escapeshellarg( $compare ), $files );
+		$files = \array_filter(
+			$files,
+			function ( $file ) {
+				return \substr( $file, -4 ) === '.php';
+			}
+		);
+
 		if ( empty( $files ) ) {
 			echo 'No files to compare! Exiting.';
 			return;
 		}
 
-		\system( 'composer check-cs -- ' . implode( ' ', array_map( 'escapeshellarg', $files ) ) );
+		\system( 'composer check-cs -- ' . \implode( ' ', \array_map( 'escapeshellarg', $files ) ) );
 	}
 }

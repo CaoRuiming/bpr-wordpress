@@ -7,8 +7,6 @@ function powerpress_admin_basic()
 	
 	$General = powerpress_get_settings('powerpress_general');
 	$General = powerpress_default_settings($General, 'basic');
-	if( !isset($General['advanced_mode_2']) )
-		$General['advanced_mode_2'] = true;
 	
 	$FeedSettings = powerpress_get_settings('powerpress_feed');
 	$FeedSettings = powerpress_default_settings($FeedSettings, 'editfeed');
@@ -58,12 +56,7 @@ function SelectEmbedField(checked)
 }
 
 jQuery(document).ready(function($) {
-	
-	jQuery('#powerpress_advanced_mode_button').click( function(event) {
-		event.preventDefault();
-		jQuery('#powerpress_advanced_mode').val('0');
-		jQuery(this).closest("form").submit();
-	});
+
 	
 	jQuery('#episode_box_player_links_options').change(function () {
 		
@@ -133,15 +126,11 @@ jQuery(document).ready(function($) {
 
 <input type="hidden" name="action" value="powerpress-save-settings" />
 
-
-<input type="hidden" id="powerpress_advanced_mode" name="General[advanced_mode_2]" value="1" />
 <input type="hidden" id="save_tab_pos" name="tab" value="<?php echo (empty($_POST['tab'])?0: intval($_POST['tab']) ); ?>" />
 
 <div id="powerpress_admin_header">
 <h2><?php echo __('Blubrry PowerPress Settings', 'powerpress'); ?></h2> 
-	<span class="powerpress-mode"><?php echo __('Advanced Mode', 'powerpress'); ?>
-		&nbsp; <a href="<?php echo admin_url("admin.php?page=". urlencode(powerpress_admin_get_page()) ."&amp;mode=simple"); ?>" id="powerpress_advanced_mode_button" class="button-primary button-blubrry"><?php echo __('Switch to Simple Mode', 'powerpress'); ?></a>
-	</span>
+
 </div>
 
 <div id="powerpress_settings_page" class="powerpress_tabbed_content"> 
@@ -505,8 +494,7 @@ function powerpressadmin_edit_entry_options($General)
 						(<?php echo __('Override the default ordering of episodes on the Apple and Google Podcast directories', 'powerpress'); ?>)</p>
 						<em><strong><?php echo __('If conflicting values are present the directories will use the default ordering.', 'powerpress'); ?></strong></em><br />
 						<em><strong><?php echo __('This feature only applies to the default podcast feed and Custom Podcast Channel feeds added by PowerPress.', 'powerpress'); ?></strong></em>
-					
-					<?php  if( empty($General['ios11_fields']) || $General['ios11_fields'] == 2 ) { ?>
+
 					<p><label><select name="General[ebititle]" class="bpp_input_sm">
 <?php
 $linkoptions = array('false'=>__('Hide Field', 'powerpress'),
@@ -518,9 +506,8 @@ foreach( $linkoptions as $value => $desc )
 ?>
 </select> <?php echo __('iTunes Episode Title Field', 'powerpress'); ?></label> </p>
 						<em><strong><?php echo __('Specify iTunes episode title separate from podcast feed title.', 'powerpress'); ?></strong></em>
-					<?php } // end episode_box_itunes_title ?>
-					
-					<?php  if( empty($General['ios11_fields']) || $General['ios11_fields'] == 4 ) { ?>
+
+
 					<p><label><select name="General[ebinst]" class="bpp_input_sm">
 <?php
 $linkoptions = array('false'=>__('Hide Field', 'powerpress'),
@@ -531,8 +518,7 @@ foreach( $linkoptions as $value => $desc )
 	
 ?>
 </select> <?php echo __('iTunes Episode Number, Season and Type Fields', 'powerpress'); ?></label> </p>
-						<em><strong><?php echo __('Enter specifics about episode including episode number, season number and type (full, trailer, or bonus).', 'powerpress'); ?></strong></em>	
-				<?php } // end episode_box_itunes_title ?>
+						<em><strong><?php echo __('Enter specifics about episode including episode number, season number and type (full, trailer, or bonus).', 'powerpress'); ?></strong></em>
 				
 					<p style="margin-top: 15px;"><label><input id="episode_box_feature_in_itunes" class="episode_box_option" name="General[episode_box_feature_in_itunes]" type="checkbox" value="1"<?php if( !empty($General['episode_box_feature_in_itunes']) ) echo ' checked'; ?> /> <?php echo __('Feature Episode in Apple and Google Podcasts', 'powerpress'); ?></label>
 						(<?php echo __('Display selected episode at top of your Apple and Google Podcasts listings', 'powerpress'); ?>)</p>
@@ -1044,6 +1030,11 @@ function powerpressadmin_edit_blubrry_services($General, $action_url = false, $a
 	<input name="DisableStatsInDashboard" type="checkbox" value="1"<?php if( $DisableStatsInDashboard == true ) echo ' checked'; ?> />
 	<?php echo __('Remove Statistics from WordPress Dashboard', 'powerpress'); ?></p>
     <p>
+        <?php
+        if (!isset($General['network_mode'])) {
+            $General['network_mode'] = 0;
+        }
+        ?>
         <input type="checkbox" id="blubrry_network_mode" value="1" name="General[network_mode]" <?php echo $General['network_mode'] == '1' ? 'checked' : ''; ?> />
         <label for="blubrry_network_mode"><?php echo __('Network mode (publish to multiple Blubrry Hosting Accounts)', 'powerpress') ?></label>
     </p>
@@ -1172,8 +1163,7 @@ function powerpressadmin_appearance($General=false, $Feed = false)
 
 ?>
 
-<!-- start advanced features -->
-<?php if( !empty($General['advanced_mode_2']) ) { ?>
+
 <h3><?php echo __('Website Settings', 'powerpress'); ?></h3>
 <div id="enable_presentation_settings">
 <table class="form-table">
@@ -1199,8 +1189,7 @@ function powerpressadmin_appearance($General=false, $Feed = false)
 </div><!-- end enable_presentation_settings -->
 <div id="presentation_settings"<?php if($General['disable_appearance']) echo ' style="display: none;"'; ?>>
 <!-- start presentation_settings in advanced mode -->
-<!-- end advanced features -->
-<?php } ?>
+
 
 <h3><?php echo __('Blog Posts and Pages', 'powerpress'); ?></h3>
 
@@ -1234,8 +1223,7 @@ function powerpressadmin_appearance($General=false, $Feed = false)
 </tr>
 </table>
 
-<?php if( !empty($General['advanced_mode_2']) ) { ?>
-<!-- start advanced features -->
+
 <table class="form-table">
 <tr valign="top">
 <th scope="row">
@@ -1334,8 +1322,7 @@ function powerpressadmin_appearance($General=false, $Feed = false)
 </table>
 
 <?php powerpressadmin_settings_tab_appearance($General, $Feed, false); ?>
-<!-- end advanced features -->
-<?php } ?>
+
 
 
 <table class="form-table">
@@ -1360,17 +1347,13 @@ foreach( $linkoptions as $value => $desc )
 <p style="margin-top: 5px;">
 	<?php echo __('Use this option if you are having problems with the players not appearing on some or all of your pages.', 'powerpress'); ?>
 </p>
-<?php if( !empty($General['advanced_mode_2']) ) { ?>
 <p style="margin-top: 20px; margin-bottom:0;">
 	<?php echo __('If the above option fixes the player issues, then you most likely have a conflicting theme or plugin activated. You can verify your theme is not causing the problem by testing your site using the latest default WordPress theme (twentyfourteen). For plugins, disable them one by one until the player re-appears, which indicates the last plugin deactivated caused the conflict.', 'powerpress'); ?>
 </p>
-<?php } ?>
 </td>
 </tr>
 </table>
 
-<?php if( !empty($General['advanced_mode_2']) ) { ?>
-<!-- start advanced features -->
 <div id="new_window_settings" style="display: <?php echo ( $General['player_function']==1 || $General['player_function']==3 ?'block':'none'); ?>">
 <h3><?php echo __('Play in New Window Settings', 'powerpress'); ?></h3>
 <table class="form-table">
@@ -1412,8 +1395,7 @@ foreach( $linkoptions as $value => $desc )
 
 </div><!-- end presentation_settings in advanced mode -->
 <!-- end presentation settings -->
-<!-- end advanced features -->
-<?php } ?>
+
 <?php  
 } // End powerpress_admin_appearance()
 
@@ -1557,11 +1539,7 @@ function powerpressadmin_edit_artwork($FeedSettings, $General)
 </p>
 <div style="display:none" id="itunes_image_upload">
 	<label for="itunes_image_file"><?php echo __('Choose file', 'powerpress'); ?>:</label><input type="file" id="itunes_image_file" name="itunes_image_file"  /><br />
-	<?php if( !empty($General['advanced_mode_2']) ) { ?>
 	<div style="margin-left: 85px;"><label class="powerpress-normal-font"><input name="itunes_image_checkbox_as_rss" type="checkbox" value="1" onchange="powerpress_show_field('rss_image_upload_container', !this.checked)" /> <?php echo __('Also use as RSS image', 'powerpress'); ?></label></div>
-	<?php } else { ?>
-	<input type="hidden" name="itunes_image_checkbox_as_rss" value="1" />
-	<?php }  ?>
 </div>
 <?php } ?>
 </td>
@@ -1569,7 +1547,6 @@ function powerpressadmin_edit_artwork($FeedSettings, $General)
 </table>
 
 
-<?php if( !empty($General['advanced_mode_2']) ) { ?>
 <table class="form-table">
 <tr valign="top">
 <th scope="row">
@@ -1612,7 +1589,7 @@ function powerpressadmin_edit_artwork($FeedSettings, $General)
 </tr>
 </table>
 <?php
-	}
+
 }
 
 

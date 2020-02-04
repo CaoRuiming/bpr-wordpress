@@ -1,12 +1,12 @@
 <?php
 /*
 Plugin Name: AdRotate Banner Manager
-Plugin URI: https://ajdg.solutions/products/adrotate-for-wordpress/
+Plugin URI: https://ajdg.solutions/product/adrotate-banner-manager/?pk_campaign=adrotatefree&pk_keyword=plugin_info
 Author: Arnan de Gans
-Author URI: https://www.arnan.me/
+Author URI: https://www.arnan.me/?pk_campaign=adrotatefree&pk_keyword=plugin_info
 Description: AdRotate Banner Manager - Monetise your website with adverts while keeping things simple. Start making money today!
 Text Domain: adrotate
-Version: 5.6
+Version: 5.6.2
 License: GPLv3
 */
 
@@ -21,8 +21,8 @@ License: GPLv3
 ------------------------------------------------------------------------------------ */
 
 /*--- AdRotate values ---------------------------------------*/
-define("ADROTATE_DISPLAY", '5.6');
-define("ADROTATE_VERSION", 394);
+define("ADROTATE_DISPLAY", '5.6.2');
+define("ADROTATE_VERSION", 395);
 define("ADROTATE_DB_VERSION", 65);
 $plugin_folder = plugin_dir_path(__FILE__);
 /*-----------------------------------------------------------*/
@@ -500,11 +500,11 @@ function adrotate_options() {
 		<h2 class="nav-tab-wrapper">  
             <a href="?page=adrotate-settings&tab=general" class="nav-tab <?php echo $active_tab == 'general' ? 'nav-tab-active' : ''; ?>"><?php _e('General', 'adrotate'); ?></a>  
             <a href="?page=adrotate-settings&tab=notifications" class="nav-tab <?php echo $active_tab == 'notifications' ? 'nav-tab-active' : ''; ?>"><?php _e('Notifications', 'adrotate'); ?></a>  
-            <a href="?page=adrotate-settings&tab=stats" class="nav-tab <?php echo $active_tab == 'stats' ? 'nav-tab-active' : ''; ?>"><?php _e('Stats', 'adrotate'); ?></a>  
+            <a href="?page=adrotate-settings&tab=stats" class="nav-tab <?php echo $active_tab == 'stats' ? 'nav-tab-active' : ''; ?>"><?php _e('Statistics', 'adrotate'); ?></a>  
             <a href="?page=adrotate-settings&tab=geo" class="nav-tab <?php echo $active_tab == 'geo' ? 'nav-tab-active' : ''; ?>"><?php _e('Geo Targeting', 'adrotate'); ?></a>  
             <a href="?page=adrotate-settings&tab=advertisers" class="nav-tab <?php echo $active_tab == 'advertisers' ? 'nav-tab-active' : ''; ?>"><?php _e('Advertisers', 'adrotate'); ?></a>  
-            <a href="?page=adrotate-settings&tab=roles" class="nav-tab <?php echo $active_tab == 'roles' ? 'nav-tab-active' : ''; ?>"><?php _e('Roles', 'adrotate'); ?></a>  
-            <a href="?page=adrotate-settings&tab=misc" class="nav-tab <?php echo $active_tab == 'misc' ? 'nav-tab-active' : ''; ?>"><?php _e('Misc', 'adrotate'); ?></a>  
+            <a href="?page=adrotate-settings&tab=roles" class="nav-tab <?php echo $active_tab == 'roles' ? 'nav-tab-active' : ''; ?>"><?php _e('Access Roles', 'adrotate'); ?></a>  
+            <a href="?page=adrotate-settings&tab=misc" class="nav-tab <?php echo $active_tab == 'misc' ? 'nav-tab-active' : ''; ?>"><?php _e('Miscellaneous', 'adrotate'); ?></a>  
             <a href="?page=adrotate-settings&tab=maintenance" class="nav-tab <?php echo $active_tab == 'maintenance' ? 'nav-tab-active' : ''; ?>"><?php _e('Maintenance', 'adrotate'); ?></a>  
         </h2>		
 

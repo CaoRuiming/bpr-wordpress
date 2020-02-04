@@ -1,11 +1,11 @@
 === AdRotate Banner Manager ===
 Contributors: adegans
-Donate link: https://www.arnan.me/donate.html
+Donate link: https://www.arnan.me/donate.html?pk_campaign=adrotatefree&pk_keyword=readme
 Tags: adverts, ads, banners, advert manager, ad manager, banner manager, monetise, revenue, place banners, adsense, dfp, doubleclick, amazon, affiliate, referral
 Requires at least: 4.6
 Requires PHP: 5.6
 Tested up to: 5.3
-Stable tag: 5.6
+Stable tag: 5.6.2
 License: GPLv3
 
 Manage your advertisements the easy way! Monetise your website with AdRotate. AdRotate has everything you need and keeps management simple!
@@ -24,7 +24,7 @@ AdRotate Banner Manager looks and feels similar to the WordPress dashboard you a
 
 <strong>Getting started</strong>
 Get your ad campaigns online in minutes. Simply install the plugin, explore the dashboard pages and new options and start creating ads.
-If you need a hand installing AdRotate Banner Manager or you just want someone to handle the initial setup. Take a look at these [services](https://ajdg.solutions/services/?utm_source=wp-org&utm_medium=readme&utm_campaign=adrotate-free).
+If you need a hand installing AdRotate Banner Manager or you just want someone to handle the initial setup. Take a look at these [services](https://ajdg.solutions/services/?pk_campaign=adrotatefree&pk_keyword=readme).
 
 Getting started with AdRotate Banner Manager is not complex, but a little help or advise is never bad.
 
@@ -54,54 +54,50 @@ Getting started with AdRotate Banner Manager is not complex, but a little help o
 * AdRotate Geo, AJdG Solutions' exclusive Geo Targeting service
 * Export statistics to CSV
 
-AdRotate Banner Manager and AdRotate Professional share many features. But some features are available in AdRotate Professional only. Learn more about [AdRotate Professional](https://ajdg.solutions/product-category/adrotate-pro/?utm_source=wp-org&utm_medium=readme&utm_campaign=adrotate-free) on my website.
+AdRotate Banner Manager and AdRotate Professional share many features. But some features are available in AdRotate Professional only. Learn more about [AdRotate Professional](https://ajdg.solutions/product-category/adrotate-pro/?pk_campaign=adrotatefree&pk_keyword=readme) on my website.
 
 == Installation ==
 
 Installing the plugin is as easy as searching for "Arnan AdRotate" or simply "AdRotate" in your plugin dashboard and clicking "Install Now" from your dashboards plugin page. Just like every other plugin.
 Once activated, a new menu appears called "AdRotate" in the dashboard menu from which you manage everything in AdRotate Banner Manager.
 
-For more detailed instructions check out the [installation steps](https://ajdg.solutions/support/adrotate-manuals/installing-adrotate-on-your-website/?utm_source=wp-org&utm_medium=readme&utm_campaign=adrotate-free) on the AdRotate Banner Manager website.
+For more detailed instructions check out the [installation steps](https://ajdg.solutions/support/adrotate-manuals/installing-adrotate-on-your-website/?pk_campaign=adrotatefree&pk_keyword=readme) on the AdRotate Banner Manager website.
 
 == Upgrade Notice ==
 
-Better support for HTML5 adverts, dashboard fixes and a bit of a database clean-up.
+Fixing datepicker dates and some dashboard tweaks. Update today!
 
 == Changelog ==
 
-Be a Professional and go Pro. With [AdRotate Professional](https://ajdg.solutions/product-category/adrotate-pro/?utm_source=wp-org&utm_medium=readme&utm_campaign=adrotate-free)!
+Be a Pro and get [AdRotate Professional](https://ajdg.solutions/product-category/adrotate-pro/?pk_campaign=adrotatefree&pk_keyword=readme)!
 
-= 5.6 FREE =
-* [new] Support for HTML5 folder structures
-* [change] Asset dropdown menu no longer looks for flash files
-* [fix] Column width for Post Injection settings
-* [fix] Removed obsolete database options
+= AdRotate Banner Manager 5.6.2 =
+* [reversal] Date format (dd-mm-yyyy) for date pickers
+* [new] Datepicker months can be numbers (01-12) or names (Jan-Dec)
 
-= 5.6 PRO =
-* [new] Uploaded zip files are automatically extracted
-* [new] Support for HTML5 folder structures
-* [new] Support for Matomo Analytics Events tracking
-* [change] Piwik support removed
-* [change] Asset dropdown menu no longer looks for flash files
-* [change] Dashboard indicator if your license expired or not
-* [fix] Much improved API communications for updates
-* [fix] Advert generator adding srcset attribute for single image adverts
-* [fix] Correct display of license type in License tab
-* [fix] Correct dates when creating new schedules
-* [fix] Removed obsolete database options
-* [api] Update requests are now cached for 12 hours
-* [api] Faster and more reliable update checks
+= AdRotate Professional 5.6.4 =
+* [reversal] Date format (dd-mm-yyyy) for date pickers
+* [new] Datepicker months can be numbers (01-12) or names (Jan-Dec)
+* [new] Update data is cached for 6 hours and refreshed once a day
+* [change] Update checker no longer relies on WordPress schedule
+* [change] Update checker no longer uses transient filter
+* [fix] WordPress sending millions of update checks for some users
+* [fix] PHP Error when archiving adverts with no stats
 
-All recent changes are available on the [AdRotate Banner Manager Changelog](https://ajdg.solutions/support/adrotate-development/?utm_source=wp-org&utm_medium=readme&utm_campaign=adrotate-free).
+All recent changes are available on the [AdRotate Banner Manager Changelog](https://ajdg.solutions/support/adrotate-development/?pk_campaign=adrotatefree&pk_keyword=readme).
 
 == Frequently Asked Questions ==
 
 = Can I migrate my data from another plugin to AdRotate Banner Manager? =
-Maybe. Take a look at [AdRotate Switch](https://ajdg.solutions/product/adrotate-switch/?utm_source=wp-org&utm_medium=readme&utm_campaign=adrotate-free) and see if your current advertising plugin is compatible for migrating your data!
+Maybe. Take a look at [AdRotate Switch](https://ajdg.solutions/product/adrotate-switch/?pk_campaign=adrotatefree&pk_keyword=readme) and see if your current advertising plugin is compatible for migrating your data!
 
 = How do I use AdRotate Banner Manager =
-There are [user guides](https://ajdg.solutions/support/adrotate-manuals/?utm_source=wp-org&utm_medium=readme&utm_campaign=adrotate-free) with every popular feature explained.
-You can also post your questions on the [forum](https://ajdg.solutions/forums/?utm_source=wp-org&utm_medium=readme&utm_campaign=adrotate-free) or via my [Tumblr Page](https://ajdgsolutions.tumblr.com/ask).
+There are [user guides](https://ajdg.solutions/support/adrotate-manuals/?pk_campaign=adrotatefree&pk_keyword=readme) with every popular feature explained.
+You can also post your questions on the [forum](https://ajdg.solutions/forums/?pk_campaign=adrotatefree&pk_keyword=readme).
+
+= Why do some dashboard notifications look so ugly =
+If a dashboard notification misses it's layout or looks out of shape try clearing your browser cache.
+Some adblockers block parts of the AdRotate dashboard, check out this page to make an exception for your website in adblockers - [Whitelist your site](https://ajdg.solutions/support/adrotate-manuals/configure-adblockers-for-your-own-website/?pk_campaign=adrotatefree&pk_keyword=readme).
 
 = Is AdRotate Banner Manager compatible with Yoast SEO or other SEO plugins? =
 Yes, Yoast SEO, All in One SEO pack and all other SEO plugins work fine with AdRotate Banner Manager. 

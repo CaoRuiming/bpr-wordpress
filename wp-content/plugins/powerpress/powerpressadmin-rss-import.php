@@ -30,8 +30,10 @@ class PowerPress_RSS_Podcast_Import extends WP_Importer {
 	var $m_item_migrate_count = 0;
 	var $m_step = 0;
 	var $m_errors = array();
-	
-	function migrateCount() {
+	private $isHostedOnBlubrry = false; //used to show Blubrry signin during onboarding process
+
+
+    function migrateCount() {
 		return $this->m_item_migrate_count;
 	}
 	
@@ -54,69 +56,73 @@ class PowerPress_RSS_Podcast_Import extends WP_Importer {
 	function addError($msg) {
 		$this->m_errors[] = $msg;
 	}
-	
+
 
 	function header() {
-		echo '<div class="wrap" style="padding-left: 5%">';
-		
+        wp_enqueue_style('powerpress_onboarding_styles',plugin_dir_url( __FILE__ ) . 'css/onboarding.css' );
+        echo '<div class="wrap" style="min-height: 100vh">';
+		echo '<div class="pp_container" style="max-width: 100rem;">';
+        echo '<h2 class="pp_align-center">'.__('PowerPress', 'powerpress').'</h2>';
+    }
+
+
+	function greet() {
+		$General = powerpress_get_settings('powerpress_general');
+		if (isset($_GET['from']) && ($_GET['from'] == 'gs' || $_GET['from'] == 'onboarding')) {
+		    $from_onboarding = true;
+        } else {
+		    $from_onboarding = false;
+        }
 		if( !empty($_GET['import']) )
 		{
 			switch($_GET['import'] )
 			{
-				case 'powerpress-soundcloud-rss-podcast': echo '<h2>'.__('Import Podcast from SoundCloud', 'powerpress').'</h2>'; break;
-				case 'powerpress-libsyn-rss-podcast': echo '<h2>'.__('Import Podcast from LibSyn', 'powerpress').'</h2>'; break;
-				case 'powerpress-podbean-rss-podcast': echo '<h2>'.__('Import Podcast from PodBean', 'powerpress').'</h2>'; break;
-				case 'powerpress-squarespace-rss-podcast': echo '<h2>'.__('Import Podcast from Squarespace', 'powerpress').'</h2>'; break;
-				case 'powerpress-anchor-rss-podcast':  echo '<h2>'.__('Import Podcast from Anchor.fm', 'powerpress').'</h2>'; break;
-				case 'powerpress-rss-podcast': 
-				default: echo '<h2>'.__('Import Podcast RSS Feed', 'powerpress').'</h2>'; break;
+				case 'powerpress-soundcloud-rss-podcast': echo '<h2 class="pp_align-center">'.__('Import Podcast from SoundCloud', 'powerpress').'</h2>'; break;
+				case 'powerpress-libsyn-rss-podcast': echo '<h2 class="pp_align-center">'.__('Import Podcast from LibSyn', 'powerpress').'</h2>'; break;
+				case 'powerpress-podbean-rss-podcast': echo '<h2 class="pp_align-center">'.__('Import Podcast from PodBean', 'powerpress').'</h2>'; break;
+				case 'powerpress-squarespace-rss-podcast': echo '<h2 class="pp_align-center">'.__('Import Podcast from Squarespace', 'powerpress').'</h2>'; break;
+				case 'powerpress-anchor-rss-podcast':  echo '<h2 class="pp_align-center">'.__('Import Podcast from Anchor.fm', 'powerpress').'</h2>'; break;
+				case 'powerpress-rss-podcast':
+				default: echo '<h2 class="pp_align-center">'.__('Import Podcast RSS Feed', 'powerpress').'</h2>'; break;
 			}
 		}
 		else
 		{
-			echo '<h2>'.__('Podcast RSS Import', 'powerpress').'</h2>';
+			echo '<h2 class="pp_align-center">'.__('Podcast RSS Import', 'powerpress').'</h2>';
 		}
-	}
-
-	function footer() {
-		echo '</div>';
-	}
-
-	function greet() {
-		$General = powerpress_get_settings('powerpress_general');
 ?>
-<div class="wrap">
-
-<p><?php echo __('The following tool will import your podcast episodes to this website.', 'powerpress'); ?></p>
-
+<p class="pp_align-center"><?php echo __('The following tool will import your podcast episodes to this website.', 'powerpress'); ?></p>
+<section id="one" class="pp_wrapper">
+<div class="pp_inner">
 <form enctype="multipart/form-data" action="" method="post" name="import-podcast-feed">
 <?php wp_nonce_field('import-powerpress-rss') ?>
-
-<div style="width: 70%; margin: auto; height: 8em;">
 <input type="hidden" name="step" value="1" />
 <input type="hidden" name="import" value="<?php echo( !empty($_REQUEST['import']) ? htmlspecialchars($_REQUEST['import']) : ''); ?>" />
 <input type="hidden" name="MAX_FILE_SIZE" value="<?php echo wp_max_upload_size(); ?>" />
-<div style="width: 48%;" class="alignleft">
-<h3><label for="podcast_feed_url"><?php _e('Podcast Feed URL:', 'powerpress'); ?></label></h3>
-<?php
-	$placeholder = 'https://example.com/feed.xml';
-	switch($_GET['import']) {
-		case 'powerpress-soundcloud-rss-podcast': $placeholder = 'http://feeds.soundcloud.com/users/soundcloud:users:00000000/sounds.rss'; break;
-		case 'powerpress-libsyn-rss-podcast': $placeholder = 'http://yourshow.libsyn.com/rss'; break;
-		case 'powerpress-podbean-rss-podcast': $placeholder = 'http://yourshow.podbean.com/feed/'; break;
-		case 'powerpress-squarespace-rss-podcast': $placeholder = 'http://example.com/podcast/?format=rss'; break;
-		case 'powerpress-anchor-rss-podcast': $placeholder = 'https://anchor.fm/s/xxxxxx/podcast/rss'; break;
-	}
-?>
-<input type="text" name="podcast_feed_url" id="podcast_feed_url" size="50" class="code" style="width: 90%;" placeholder="<?php echo esc_attr($placeholder); ?>" />
+<div class="pp_flex-grid" style="padding-top:35px;">
+<div class="pp_col" style="flex-grow:6;">
+<div class="pp_form-group">
+    <label for="podcast_feed_url" ><?php _e('Podcast Feed URL:', 'powerpress'); ?></label>
+    <?php
+        $placeholder = 'https://example.com/feed.xml';
+        switch($_GET['import']) {
+            case 'powerpress-soundcloud-rss-podcast': $placeholder = 'http://feeds.soundcloud.com/users/soundcloud:users:00000000/sounds.rss'; break;
+            case 'powerpress-libsyn-rss-podcast': $placeholder = 'http://yourshow.libsyn.com/rss'; break;
+            case 'powerpress-podbean-rss-podcast': $placeholder = 'http://yourshow.podbean.com/feed/'; break;
+            case 'powerpress-squarespace-rss-podcast': $placeholder = 'http://example.com/podcast/?format=rss'; break;
+            case 'powerpress-anchor-rss-podcast': $placeholder = 'https://anchor.fm/s/xxxxxx/podcast/rss'; break;
+        }
+    ?>
+    <input type="text" name="podcast_feed_url" id="podcast_feed_url" class="pp_outlined" placeholder="<?php echo esc_attr($placeholder); ?>" />
 </div>
-
-<div style="width: 48%;" class="alignleft">
+</div>
+<div <?php if ($from_onboarding) { echo "style='display: none;'"; } ?>>
 <h3><label for="podcast_feed_file"><?php _e('Or choose from your local disk:', 'powerpress'); ?></label></h3>
 <input id="podcast_feed_file" name="podcast_feed_file" type="file" />
 </div>
 
 </div>
+<div class="pp_flex-grid">
 <!--
 <p><?php echo sprintf(__('Importing your feed does not migrate your media files. Please use the %s tool to migrate your media once your feed is imported.', 'powerpress'), '<strong><a href="'.admin_url('admin.php?page=powerpress/powerpressadmin_migrate.php') .'">'. __('Migrate Media', 'powerpress') .'</a></strong>'); ?></p>
 -->
@@ -132,20 +138,35 @@ class PowerPress_RSS_Podcast_Import extends WP_Importer {
 }
 
 </style>
-<div class="submit">
+    <?php if ($from_onboarding) { ?>
+<div class="import-to" id="import-to-default" style="display: none;">
+				<div style="display: none;">
+					<input type="checkbox" name="import_overwrite_program_info" value="1" checked>
+				</div>
+				<div style="display: none;">
+					<input type="checkbox" name="import_itunes_image" value="1" checked>
+				</div>
+			</div>
+			<?php if ($General['blubrry_hosting']) { ?>
+			<div style="display: none;" class="ppi-option">
+		        <input type="checkbox" name="migrate_to_blubrry" value="1" checked>
+	        </div>
+	        <?php }
+     } else { ?>
+<div class="pp_col">
 	
 	<div class="ppi-option">
 		<h3><?php echo __('Import Podcast To', 'powerpress'); ?></h3>
 	</div>
-	<div style="">
+	<div>
 		<div class="ppi-option">
 			<label><input type="radio" name="import_to" id="import_to_default" value="default" checked /> <?php echo __('Default podcast feed', 'powerpress'); ?></label><br />
 			<div class="import-to" id="import-to-default" style="display: none;">
 				<div style="margin: 10px 0 10px 24px;">
-					<label><input type="checkbox" name="import_overwrite_program_info" value="1"> <?php echo __('Import program information', 'powerpress'); ?></label>
+					<label><input type="checkbox" name="import_overwrite_program_info" value="1" <?php echo isset($_GET['from']) ? 'checked': '' ?> > <?php echo __('Import program information', 'powerpress'); ?></label>
 				</div>
 				<div style="margin: 10px 0 10px 24px;">
-					<label><input type="checkbox" name="import_itunes_image" value="1"> <?php echo __('Import iTunes artwork', 'powerpress'); ?></label>
+					<label><input type="checkbox" name="import_itunes_image" value="1" <?php echo isset($_GET['from']) ? 'checked': '' ?>> <?php echo __('Import iTunes artwork', 'powerpress'); ?></label>
 				</div>
 			</div>
 		</div>
@@ -290,7 +311,10 @@ if( !empty($PowerPressTaxonomies) ) { // If taxonomy podcasting feeds exist..
 	} // End if taxonomy podcasting enabled
 ?>
 </div>
-<div class="ppi-option">
+</div>
+</div>
+</div>
+<div class="pp_col">
 	<h3><?php echo __('Blubrry Podcast Media Hosting', 'powerpress'); ?></h3>
 <?php
 		if( empty($General['blubrry_hosting']) || $General['blubrry_hosting'] === 'false' ) {
@@ -307,7 +331,6 @@ if( !empty($PowerPressTaxonomies) ) { // If taxonomy podcasting feeds exist..
 <?php
 		}
 ?>
-</div>
 <link rel="stylesheet" href="<?php echo powerpress_get_root_url(); ?>css/admin.css" type="text/css" media="screen" />
 <script language="javascript"><!--
 
@@ -369,9 +392,17 @@ jQuery(document).ready( function() {
 		<input type="text" name="import_item_limit" id="import_item_limit" class="small-text" value="" /> (<?php echo __('leave blank for no limit', 'powerpress'); ?>)
 	</div>
 </div>
-<?php submit_button( __('Import Podcast', 'powerpress' ), 'button-blubrry'); ?>
+
 </div>
+</div>
+<?php } ?>
+<div class="pp_col" style="padding: 20px 0px;">
+                <hr class="pp_align-center">
+                <div class="pp_button-container" style="float: right;">
+                    <button name="submit" type="submit" class="pp_button" value="Import Podcast"><span><?php echo __('Import Podcast', 'powerpress'); ?></span></button>
+                </div>
 </form>
+</div>
 </div>
 <script>
 jQuery(document).ready( function() {
@@ -583,7 +614,7 @@ jQuery(document).ready( function() {
 		if( preg_match_all('|<itunes:category.*text="(.*?)"|is', $channel, $matches) ) {
 			$pos = 1;
 			$itunes_categories = $matches[1];
-			$Categories = powerpress_itunes_categories();
+			$Categories = powerpress_apple_categories();
 			$Categories = array_map('strtolower', $Categories);
 			$cats_by_title = array_flip( $Categories );
 			
@@ -624,7 +655,7 @@ jQuery(document).ready( function() {
 			foreach( $FinalCats as $field_no => $cat_id ) {
 				if( empty( $cat_id) )
 					continue;
-				$field = sprintf('itunes_cat_%d', $field_no);
+				$field = sprintf('apple_cat_%d', $field_no);
 				
 				if( $overwrite || empty($Feed[ $field  ]) ) {
 					$NewSettings[ $field ] = $cat_id;
@@ -733,7 +764,7 @@ jQuery(document).ready( function() {
 				$this->m_item_skipped_count++;
 				return false;
 			}
-			
+
 			echo ' - ';
 		}
 		if( !empty($enclosure_data[1]) ) {
@@ -761,7 +792,9 @@ jQuery(document).ready( function() {
 			}
 			$media_url = $enclosure['url'];
 		}
-			
+		if(preg_match('/https?:\/\/(www\.)?media\.blubrry\.com\//m', $media_url)) {
+            $this->isHostedOnBlubrry = true;
+        }
 		$post_date_gmt = false;
 		if( preg_match('|<pubdate>(.*?)</pubdate>|is', $post, $matches) ) {
 			$post_date_gmt = strtotime($matches[1]);
@@ -789,7 +822,11 @@ jQuery(document).ready( function() {
 		
 		if( !empty($exists) )
 		{
-			echo sprintf(__('<i>%s</i> already imported.', 'powerpress'), htmlspecialchars($post_title) );
+		    ?>
+              <td><?php echo htmlspecialchars($post_title) ?></td>
+              <td>Episode Already Imported</td>
+              <td>&#x274c;</td>
+		    <?php
 			$this->m_item_skipped_count++;
 			return false;
 		}
@@ -841,28 +878,24 @@ jQuery(document).ready( function() {
 		$this->m_item_inserted_count++;
 		
 		$post_id = $this->_import_post_to_db($post_to_save, $feed_slug);
-		if( empty($post_id) ) {
-			echo '<span style="color: red; font-weight: bold;">';
-			echo sprintf(__('<i>%s</i> import failed.', 'powerpress'), htmlspecialchars($post_title) );
-			echo '</span>';
+		if( empty($post_id) || is_wp_error($post_id) ) {
+		    ?>
+              <td><?php echo htmlspecialchars($post_title) ?></td>
+              <td>Import Failed</td>
+              <td>&#x274c;</td>
+		    <?php
 			return false;
 		}
-		
-		if ( is_wp_error( $post_id ) ) {
-			
-			echo '<span style="color: red; font-weight: bold;">';
-			echo sprintf(__('<i>%s</i> import failed: ' , 'powerpress'), htmlspecialchars($post_title) );
-			echo '</span>';
-			return false;
-		}
-		
-		echo '<span style="color: green; font-weight: bold;">';
-		echo sprintf(__('<i>%s</i> imported.', 'powerpress'), htmlspecialchars($post_title) );
-		echo '</span>';
+		$permalink = get_permalink($post_id);
+		?>
+          <td><?php echo "<a href='{$permalink} target='_blank'>" . htmlspecialchars($post_title) . "</a>" ?></td>
+          <td>Episode Imported</td>
+          <td>&#x2714;&#xFE0F;</td>
+		<?php
 		
 		// Display a link to the blog post
-		echo ' <a href="'. get_permalink($post_id) .'" target="_blank"><i class="wp-menu-image dashicons-before dashicons-admin-links"></i></a>';
-		
+		//echo ' <a href="'. get_permalink($post_id) .'" target="_blank"><i class="wp-menu-image dashicons-before dashicons-admin-links"></i></a>';
+
 		// Category strict
 		if( !empty($category_strict) )
 		{
@@ -929,7 +962,8 @@ jQuery(document).ready( function() {
 		
 		$item_count = substr_count( $this->m_content, '<item>');
 		$item_count += substr_count( $this->m_content, '<ITEM>');
-		
+		echo '<div class="pp_flex-grid">';
+		echo '<div class="pp_col" style="order: 2;">';
 		echo '<h3>Diagnostic information</h3>';
 		echo '<ul>';
 		if( !empty($ttid) )
@@ -946,21 +980,107 @@ jQuery(document).ready( function() {
 			echo sprintf( '<li>Category: %s</li>', $category);
 		
 		echo sprintf( '<li>Remove query string: %s</li>', ( !empty($remove_query_string)?'true':'false') );
-			
-		echo '</ul>';
-		
+		echo '</ul></div>'
+/*		echo '</ul>';
+
 		echo '<hr />';
 		echo '<p><strong>';
 		echo __('Importing Episodes...', 'powerpress');
 		echo '</strong></p>';
-		
+
 		echo '<p>';
 		echo sprintf( __('Items Found: %d', 'powerpress'), $item_count);
-		echo '</p>';
+		echo '</p>';*/
+        ?>
+        <style>
+        #table_header {
+          box-sizing: border-box;
+          width: 100%;
+          border-top: 1px solid rgba(144, 144, 144, 0.40);
+          border-left: 1px solid rgba(144, 144, 144, 0.40);
+          border-right: 1px solid rgba(144, 144, 144, 0.40);
+          padding: 20px;
+          padding-bottom: 40px;
+          border-radius: 5px 5px 0 0;
+        }
+        table {
+          width: 100%;
+          table-layout: fixed;
+          border-collapse: separate;
+          border: 1px solid rgba(144, 144, 144, 0.40);
+          border-bottom-left-radius: 10px;
+          border-bottom-right-radius: 10px;
+        }
+        .left {
+          float: left;
+        }
+        .right {
+          float: right;
+        }
+        /*thead th {
+          padding: 20px;
+          border-bottom: 1px solid rgba(144, 144, 144, 0.40);
+        }*/
+        thead th:nth-child(1) {
+          width: 3%
+        }
+        thead th:nth-child(2) {
+          width: 58%;
+        }
+        thead th:nth-child(3) {
+          width: 33%;
+        }
+        tbody td {
+          padding: 15px 20px;
+          border-bottom: 1px solid rgba(144, 144, 144, 0.40);
+        }
+        tbody td:nth-child(2) {
+          font-weight: bold;
+          text-align: left;
+        }
+        tbody td:nth-child(3) {
+          text-align: right;
+        }
+        tbody td:nth-child(4) {
+          text-align: right;
+        }
+        tbody tr:last-child td:first-child {
+            border-bottom-left-radius: 10px;
+        }
+        tbody tr:last-child td{
+            border: unset;
+        }
+        tbody tr:last-child td:last-child {
+            border-bottom-right-radius: 10px;
+        }
+        .green-text {
+          color: green;
+        }
+        .warning-text {
+          color: orange;
+        }
+        .subtle-text {
+
+        }
+        </style>
+        <div class="pp_col" style="flex: 5">
+        <div id="table_header">
+            <strong class="left">Imported Episodes</strong>
+            <span class="right"><?php echo  sprintf( __('%d Episodes Found', 'powerpress'), $item_count) ?></span>
+        </div>
+        <table>
+          <thead>
+            <tr>
+              <th></th>
+              <th></th>
+              <th></th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+        <?php
 		@flush();
 
-		echo '<ol>';
-		
 		$item_start_pos = 0;
 		$item_start_pos = (function_exists('mb_stripos')?mb_stripos($this->m_content, '<item>', $item_start_pos):stripos($this->m_content, '<item>', $item_start_pos) );
 		$item_end_pos = $item_start_pos;
@@ -969,16 +1089,17 @@ jQuery(document).ready( function() {
 		$count = 0;
 		while( $item_start_pos !== false && $item_end_pos !== false ) // If one were to return false, we stap!
 		{
+		    $count++;
 			// check item limit at the beginning of each iteration
 			if( $import_item_limit > 0 && $this->m_item_pos >= $import_item_limit ) {
 				break; // Item limit reached, stop!
 			}
 			
-			echo '<li>';
+			echo "<tr><td>{$count}</td>";
 			$new_start = $item_start_pos + mb_strlen('<item>');
 			$item_content = mb_substr($this->m_content, $new_start, $item_end_pos - $new_start);
 			$this->import_item($item_content, $MatchFilter, $import_blog_posts, $category, $feed_slug, $post_type, $taxonomy, $term, $remove_query_string, $post_status);
-			echo '</li>';
+			echo '</tr>';
 			
 			// Extra stop just in case...
 			if( $count > 3000 )
@@ -990,23 +1111,21 @@ jQuery(document).ready( function() {
 			$item_start_pos = (function_exists('mb_stripos')?mb_stripos($this->m_content, '<item>', $item_end_pos):stripos($this->m_content, '<item>', $item_end_pos) );
 			$item_end_pos = (function_exists('mb_stripos')?mb_stripos($this->m_content, '</item>', $item_start_pos):stripos($this->m_content, '</item>', $item_start_pos) );
 		}
-		echo '</ol>';
 	}
 
 	function import() {
-?>	
-<div class="wrap">
-<h3><?php _e('Importing Podcast', 'powerpress') ?></h3>
+?>
+<h5 class="pp_align-center"><?php _e('Importing Podcast', 'powerpress') ?>
 <?php
-		
+
 		$result = false;
 		if ( empty($_POST['podcast_feed_url']) ) {
-			?><p><?php _e('From Uploaded file...', 'powerpress'); ?></p><?php
+			?><?php _e(' from uploaded file...', 'powerpress'); ?></h5><?php
 			$result = $this->_import_handle_upload();
 		}
 		else
 		{
-			?><p><?php _e('From URL', 'powerpress'); ?> <?php echo esc_html($_POST['podcast_feed_url']); ?></p><?php
+			?><?php _e(' from URL: ', 'powerpress'); echo esc_html($_POST['podcast_feed_url']) ?></h5><?php
 			$result = $this->_import_handle_url();
 		}
 		
@@ -1149,14 +1268,14 @@ jQuery(document).ready( function() {
 					$add_urls .= $url;
 				}
 			}
-			
-			echo '<h3>';
-			echo __('Migration request...', 'powerpress');
-			echo '</h3>';
-			echo '<pre style="border: 1px solid #333; background-color: #FFFFFF; padding: 4px 8px;">';
-			echo $add_urls;
-			echo '</pre>';
-			
+            if (!isset($_GET['from']) || ($_GET['from'] != 'gs' || $_GET['from'] != 'onboarding')) {
+                echo '<h3>';
+                echo __('Migration request...', 'powerpress');
+                echo '</h3>';
+                echo '<pre style="border: 1px solid #333; background-color: #FFFFFF; padding: 4px 8px;">';
+                echo $add_urls;
+                echo '</pre>';
+            }
 			$UpdateResults = powepress_admin_migrate_add_urls($add_urls);
 			if( !empty($UpdateResults) )
 			{
@@ -1172,14 +1291,23 @@ jQuery(document).ready( function() {
 				echo '<p>Failed to request migration.</p>';
 			}
 		}
-		
 		powerpress_page_message_print();
-
-		echo '<h3>';
-		echo __('Import Completed!', 'powerpress');
-		echo '</h3>';
-		echo '<p>'. sprintf(__('Items Skipped: %d', 'powerpress'), $this->m_item_skipped_count).'</p>';
-		echo '<p>'. sprintf(__('Items Inserted: %d', 'powerpress'), $this->m_item_inserted_count).'</p>';
+		?>
+        <td colspan="4" style="text-align: right">
+        <?php
+        if ($this->m_item_inserted_count != 0) {
+            echo $this->m_item_inserted_count . " Episodes Imported";
+        }
+        if ($this->m_item_skipped_count != 0) {
+            if($this->m_item_inserted_count != 0) {
+                echo ' / ';
+            }
+            echo $this->m_item_skipped_count . " Episodes Skipped";
+        }
+        ?>
+        </td>
+		<?php
+		echo '</tbody></table></div></div>';
 		if( !empty( $this->m_item_migrate_count ) )
 			echo '<p>'. sprintf(__('Media files queued for migration: %d', 'powerpress'), $this->m_item_migrate_count).'</p>';
 		
@@ -1188,6 +1316,42 @@ jQuery(document).ready( function() {
 			echo '<p>'. sprintf(__('Visit %s to monitor the migration process.','powerpress'), '<strong><a href="'.admin_url('admin.php?page=powerpress/powerpressadmin_migrate.php') .'">'. __('Migrate Media', 'powerpress') .'</a></strong>' ). '</p>';
 		} else {
 			echo '<p>'. sprintf(__('You may now migrate your media manually or use the %s tool.','powerpress'), '<strong><a href="'.admin_url('admin.php?page=powerpress/powerpressadmin_migrate.php') .'">'. __('Migrate Media', 'powerpress') .'</a></strong>' ). '</p>';
+		}
+		$nextUrl = '';
+		$GeneralSettings = powerpress_get_settings('powerpress_general');
+		if(!empty($_GET['from']) && $_GET['from'] == 'onboarding') {
+		    if (isset($GeneralSettings['blubrry_hosting']) && $GeneralSettings['blubrry_hosting'] != null) {
+                $nextUrl = admin_url("admin.php?page=powerpressadmin_basic&step=createEpisode&import=true&migrate=true");
+            } else {
+                if ($this->isHostedOnBlubrry) {
+                    $nextUrl = admin_url("admin.php?page=powerpressadmin_basic&step=blubrrySignin&import=true");
+                } else {
+                    $nextUrl = admin_url("admin.php?page=powerpressadmin_basic&step=nohost&import=true&from=import");
+                }
+            }
+        }
+		else if (!empty($_GET['from']) && $_GET['from'] == 'gs') {
+            if (isset($GeneralSettings['blubrry_hosting']) && $GeneralSettings['blubrry_hosting'] != null) {
+                $nextUrl = admin_url("admin.php?page=powerpressadmin_onboarding.php&step=createEpisode&import=true&migrate=true");
+            } else {
+                if ($this->isHostedOnBlubrry) {
+                    $nextUrl = admin_url("admin.php?page=powerpressadmin_onboarding.php&step=blubrrySignin&import=true");
+                } else {
+                    $nextUrl = admin_url("admin.php?page=powerpressadmin_onboarding.php&step=nohost&import=true&from=import");
+                }
+            }
+		}
+		if(!empty($_GET['from'])) {
+        ?>
+
+            <div class="pp_col" style="padding: 20px 0px;">
+                <hr class="pp_align-center">
+                <div class="pp_button-container" style="float: right;">
+                    <a href="<?php echo $nextUrl ?>"><button name="submit" type="button" class="pp_button" value="Import Podcast"><span>Continue</span></button></a>
+                </div>
+
+            </div>
+        <?php
 		}
 	}
 
@@ -1222,7 +1386,6 @@ jQuery(document).ready( function() {
 				break;
 		}
 
-		$this->footer();
 	}
 
 	function get_step() {

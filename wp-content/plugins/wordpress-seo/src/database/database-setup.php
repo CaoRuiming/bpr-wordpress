@@ -5,12 +5,12 @@
  * @package Yoast\YoastSEO\Config
  */
 
-namespace Yoast\WP\Free\Database;
+namespace Yoast\WP\SEO\Database;
 
-use Yoast\WP\Free\Conditionals\No_Conditionals;
-use Yoast\WP\Free\Loggers\Logger;
-use Yoast\WP\Free\WordPress\Initializer;
-use Yoast\WP\Free\ORM\Yoast_Model;
+use Yoast\WP\SEO\Conditionals\No_Conditionals;
+use Yoast\WP\SEO\Loggers\Logger;
+use Yoast\WP\SEO\WordPress\Initializer;
+use Yoast\WP\SEO\ORM\Yoast_Model;
 use YoastSEO_Vendor\ORM;
 
 /**
@@ -20,6 +20,8 @@ class Database_Setup implements Initializer {
 	use No_Conditionals;
 
 	/**
+	 * The logger object.
+	 *
 	 * @var \YoastSEO_Vendor\Psr\Log\LoggerInterface
 	 */
 	protected $logger;
@@ -27,21 +29,21 @@ class Database_Setup implements Initializer {
 	/**
 	 * Database_Setup constructor.
 	 *
-	 * @param \Yoast\WP\Free\Loggers\Logger $logger The logger.
+	 * @param \Yoast\WP\SEO\Loggers\Logger $logger The logger.
 	 */
 	public function __construct( Logger $logger ) {
 		$this->logger = $logger;
 	}
 
 	/**
-	 * @inheritdoc
+	 * Initializes the database setup.
 	 */
 	public function initialize() {
 		ORM::configure( 'mysql:host=' . \DB_HOST . ';dbname=' . \DB_NAME );
 		ORM::configure( 'username', \DB_USER );
 		ORM::configure( 'password', \DB_PASSWORD );
 
-		Yoast_Model::$auto_prefix_models = '\\Yoast\\WP\\Free\\Models\\';
+		Yoast_Model::$auto_prefix_models = '\\Yoast\\WP\\SEO\\Models\\';
 		Yoast_Model::$logger             = $this->logger;
 	}
 }

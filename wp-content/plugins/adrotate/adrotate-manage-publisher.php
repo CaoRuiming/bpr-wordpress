@@ -129,6 +129,7 @@ function adrotate_insert_input() {
 			// Sort out start dates
 			if(strlen($start_date) > 0) {
 				list($start_day, $start_month, $start_year) = explode('-', $start_date); // dd/mm/yyyy
+				$start_month = (!is_numeric($start_month)) ? date("m", strtotime($start_month."-".$start_year)) : $start_month; // Convert month to number
 			} else {
 				$start_year = $start_month = $start_day = 0;
 			}
@@ -145,6 +146,7 @@ function adrotate_insert_input() {
 			// Sort out end dates
 			if(strlen($end_date) > 0) {
 				list($end_day, $end_month, $end_year) = explode('-', $end_date); // dd/mm/yyyy
+				$end_month = (!is_numeric($end_month)) ? date("m", strtotime($end_month."-".$end_year)) : $end_month; // Convert month to number
 			} else {
 				$end_year = $end_month = $end_day = 0;
 			}

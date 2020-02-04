@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright (C) 2014-2019 ServMask Inc.
+ * Copyright (C) 2014-2020 ServMask Inc.
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -30,10 +30,27 @@ if ( ! defined( 'ABSPATH' ) ) {
 class Ai1wm_Import_Clean {
 
 	public static function execute( $params ) {
+		global $wpdb;
+
+		// Get database client
+		if ( empty( $wpdb->use_mysqli ) ) {
+			$mysql = new Ai1wm_Database_Mysql( $wpdb );
+		} else {
+			$mysql = new Ai1wm_Database_Mysqli( $wpdb );
+		}
+
+		// Flush mainsite tables
+		$mysql->set_include_table_prefixes( array( ai1wm_table_prefix( 'mainsite' ) ) );
+		$mysql->flush();
+
+		// Delete storage files
 		Ai1wm_Directory::delete( ai1wm_storage_path( $params ) );
+
+		// Exit in console
 		if ( defined( 'WP_CLI' ) ) {
 			return $params;
 		}
+
 		exit;
 	}
 }

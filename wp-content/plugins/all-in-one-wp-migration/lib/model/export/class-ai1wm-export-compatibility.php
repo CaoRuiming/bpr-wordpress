@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright (C) 2014-2019 ServMask Inc.
+ * Copyright (C) 2014-2020 ServMask Inc.
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -41,9 +41,6 @@ class Ai1wm_Export_Compatibility {
 		if ( empty( $messages ) ) {
 			return $params;
 		}
-
-		// Enable notifications
-		add_filter( 'ai1wm_notification_error_toggle', '__return_true', 20 );
 
 		// Error message
 		throw new Ai1wm_Compatibility_Exception( implode( $messages ) );

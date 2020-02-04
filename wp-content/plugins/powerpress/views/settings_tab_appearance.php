@@ -119,7 +119,7 @@
                 <label for="subscribe_widget_shape_rounded"> <?php esc_html_e('Rounded', 'powerpress'); ?></label>
              </li>
             <li>
-                <iframe id="btnPreview" style="height: 127px;width: auto;" src="<?php echo admin_url('admin.php?action=powerpress-jquery-subscribe-preview&style='.$General['subscribe_widget_style'].'&shape='.$General['subscribe_widget_shape']) ?>"></iframe>
+                <iframe id="btnPreview" title="<?php echo esc_attr(__('Subscribe Button Preview', 'powerpress')); ?>" style="height: 127px;width: auto;" src="<?php echo admin_url('admin.php?action=powerpress-jquery-subscribe-preview&style='.$General['subscribe_widget_style'].'&shape='.$General['subscribe_widget_shape']) ?>"></iframe>
             </li>
 			<?php
 			if( empty($General['subscribe_no_important_styling']) )

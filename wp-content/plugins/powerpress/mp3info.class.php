@@ -779,7 +779,9 @@
 					define('GETID3_TEMP_DIR', $temp_dir);
 			}
 			
-			if( defined('POWERPRESS_GETID3_LIBRARY') && is_file(POWERPRESS_GETID3_LIBRARY) )
+			if( !empty($GLOBALS['wp_version']) && version_compare($GLOBALS['wp_version'], 5.2, '>' ) && file_exists(ABSPATH . WPINC . '/ID3/getid3.php') )
+				require_once( ABSPATH . WPINC . '/ID3/getid3.php' );
+			else if( defined('POWERPRESS_GETID3_LIBRARY') && is_file(POWERPRESS_GETID3_LIBRARY) )
 				require_once(POWERPRESS_GETID3_LIBRARY);
 			else if( defined('POWERPRESS_ABSPATH') )
 				require_once(POWERPRESS_ABSPATH.'/getid3/getid3.php');

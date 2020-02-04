@@ -235,11 +235,11 @@ if($edit_banner) {
 		<table class="widefat" style="margin-top: .5em">
 			<tbody>
 			<tr>
-		        <th width="15%"><?php _e('Start date', 'adrotate'); ?> (dd-mm-yyyy)</th>
+		        <th width="15%"><?php _e('Start date', 'adrotate'); ?> (dd-mmm-yyyy)</th>
 		        <td width="35%">
 					<input tabindex="9" type="text" id="startdate_picker" name="adrotate_start_date" value="<?php echo $start_date; ?>" class="datepicker ajdg-inputfield" autocomplete="off" />
 		        </td>
-		        <th width="15%"><?php _e('End date', 'adrotate'); ?> (dd-mm-yyyy)</th>
+		        <th width="15%"><?php _e('End date', 'adrotate'); ?> (dd-mmm-yyyy)</th>
 		        <td>
 					<input tabindex="10" type="text" id="enddate_picker" name="adrotate_end_date" value="<?php echo $end_date; ?>" class="datepicker ajdg-inputfield" autocomplete="off" />
 				</td>

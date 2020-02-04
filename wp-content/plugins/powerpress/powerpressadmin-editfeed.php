@@ -277,10 +277,8 @@ function powerpress_admin_editfeed($type='', $type_value = '', $feed_slug = fals
 	<div id="feed_tab_feed" class="powerpress_tab">
 		<?php
 		powerpressadmin_edit_feed_settings($FeedSettings, $General, $FeedAttribs );
-		if( !empty($General['advanced_mode_2']) ) {
-			powerpressadmin_edit_funding($FeedSettings, $feed_slug);
-			powerpressadmin_edit_tv($FeedSettings, $feed_slug);
-		}
+        powerpressadmin_edit_funding($FeedSettings, $feed_slug);
+        powerpressadmin_edit_tv($FeedSettings, $feed_slug);
 		?>
 	</div>
 	
@@ -374,16 +372,16 @@ function powerpressadmin_edit_feed_general($FeedSettings, $General)
 
 <?php echo __('Enhance Feeds', 'powerpress'); ?></th> 
 <td>
-	<ul>
-		<li><p><label><input type="radio" name="Feed[apply_to]" value="1" <?php if( $FeedSettings['apply_to'] == 1 ) echo 'checked'; ?> /> <?php echo __('Enhance All Feeds', 'powerpress'); ?></label> (<?php echo __('Recommended', 'powerpress'); ?>)</p>
-		<p style="font-size: 100%; margin: 0 0 0 30px;"><?php echo __('Adds podcasting support to all feeds', 'powerpress'); ?></p>
-		</li>
-		<li><p><label><input type="radio" name="Feed[apply_to]" value="2" <?php if( $FeedSettings['apply_to'] == 2 ) echo 'checked'; ?> /> <?php echo __('Enhance Main Feed Only', 'powerpress'); ?></label></p>
-		<p style="font-size: 100%; margin: 0 0 0 30px;"><?php echo __('Adds podcasting support to your main feed only', 'powerpress'); ?></p></li>
-		<li><p><label><input type="radio" name="Feed[apply_to]" value="0" <?php if( $FeedSettings['apply_to'] == 0 ) echo 'checked'; ?> /> <?php echo __('Do Not Enhance Feeds', 'powerpress'); ?></label></p>
-		<p style="font-size: 100%; margin: 0 0 0 30px;"><?php echo __('Feed Settings below will only apply to your podcast channel feeds', 'powerpress'); ?></p></li>
-	</ul>
-</td>
+        <ul>
+            <li><p><label><input type="radio" name="Feed[apply_to]" value="1" <?php if( $FeedSettings['apply_to'] == 1 ) echo 'checked'; ?> /> <?php echo __('Enhance All Feeds', 'powerpress'); ?></label> (<?php echo __('Recommended', 'powerpress'); ?>)</p>
+                <p style="font-size: 100%; margin: 0 0 0 30px;"><?php echo __('Adds podcasting support to all feeds', 'powerpress'); ?></p>
+            </li>
+            <li><p><label><input type="radio" name="Feed[apply_to]" value="2" <?php if( $FeedSettings['apply_to'] == 2 ) echo 'checked'; ?> /> <?php echo __('Enhance Main Feed Only', 'powerpress'); ?></label></p>
+                <p style="font-size: 100%; margin: 0 0 0 30px;"><?php echo __('Adds podcasting support to your main feed only', 'powerpress'); ?></p></li>
+            <li><p><label><input type="radio" name="Feed[apply_to]" value="0" <?php if( $FeedSettings['apply_to'] == 0 ) echo 'checked'; ?> /> <?php echo __('Do Not Enhance Feeds', 'powerpress'); ?></label></p>
+                <p style="font-size: 100%; margin: 0 0 0 30px;"><?php echo __('Feed Settings below will only apply to your podcast channel feeds', 'powerpress'); ?></p></li>
+        </ul>
+    </td>
 </tr>
 <tr valign="top">
 <th scope="row">
@@ -441,7 +439,7 @@ function powerpressadmin_edit_feed_general($FeedSettings, $General)
 <th scope="row">
 <?php echo __('WebSub', 'powerpress'); ?> <?php echo powerpressadmin_new(); ?></th>
 <td>
-<p style="margin-top: 10px;"><label><input type="checkbox" name="General[websub_enabled]" value="1" <?php if( !empty($General['websub_enabled']) && $General['websub_enabled'] == 1 ) echo 'checked '; ?>/> <?php echo __('Enable WebSub', 'powerpress'); ?></label></p>
+<p style="margin-top: 10px;"><label><input type="checkbox" value="1" disabled <?php if(!(defined('POWERPRESS_DISABLE_WEBSUB') && POWERPRESS_DISABLE_WEBSUB )) echo 'checked '; ?>/> <?php echo __('Enable WebSub', 'powerpress'); ?></label></p>
 <p><?php echo __('Notifies web subscription hub to push notifications to subscribers. Currently supported by the Blubrry Podcast Directory and Google Podcasts.', 'powerpress'); ?></p>
 </td>
 </tr>
@@ -572,8 +570,7 @@ function powerpressadmin_edit_feed_settings($FeedSettings, $General, $FeedAttrib
 </td>
 </tr>
 
-<?php if( !empty($General['advanced_mode_2']) ) { ?>
-<!-- start advanced features -->
+
 <tr valign="top">
 <th scope="row">
 <?php echo __('Feed Description', 'powerpress'); ?>
@@ -703,8 +700,6 @@ if( isset($Languages[ $rss_language ]) )
 </td>
 </tr>
 
-<!-- end advanced features -->
-<?php  } ?>
 </table>
 
 <!-- Location and frequency information -->
@@ -714,8 +709,7 @@ if( isset($Languages[ $rss_language ]) )
 	if( !isset($FeedSettings['frequency']) )
 		$FeedSettings['frequency'] = '';
 ?>
-<?php if( !empty($General['advanced_mode_2']) ) { ?>
-<!-- start advanced features -->
+
 <h3><?php echo __('Basic Show Information', 'powerpress'); ?></h3>
 <div id="rawvoice_basic_options">
 <table class="form-table">
@@ -735,9 +729,8 @@ if( isset($Languages[ $rss_language ]) )
 </tr>
 </table>
 </div>
-<!-- end advanced features -->
 <?php
-	}
+
 }
 
 
@@ -878,10 +871,7 @@ function powerpressadmin_edit_itunes_feed($FeedSettings, $General, $FeedAttribs 
 </td>
 </tr>
 
-<?php
-	if( !empty($General['advanced_mode_2']) ) 
-	{
-?>
+
 <tr valign="top">
 <th scope="row">
 
@@ -913,7 +903,6 @@ function powerpressadmin_edit_itunes_feed($FeedSettings, $General, $FeedAttribs 
 </tr>
 <?php
 		} // End iTunes keywords
-	} // end advanced mode
 ?>
 
 <tr valign="top">
@@ -949,10 +938,6 @@ foreach( $Categories as $value=> $desc )
 reset($Categories);
 ?>
 </select>
-<?php
-	if( !$MoreCategories && empty($General['seo_itunes']) ) { ?>
-	<a href="#" onclick="document.getElementById('more_itunes_cats').style.display='block';return false;"><?php echo __('more', 'powerpress'); ?></a>
-<?php } ?>
 	<p style="width: 250px;">
 		<?php echo __('The category above is where you will appear when browsing iTunes.', 'powerpress'); ?>
 	</p>
@@ -994,7 +979,7 @@ reset($Categories);
 
 
 <!-- start advanced features -->
-<div id="more_itunes_cats" style="display: <?php echo ( ($MoreCategories||!empty($General['seo_itunes']) )?'block':'none'); ?>;">
+<div id="more_itunes_cats" style="display: block;">
 <table class="form-table">
 <tr valign="top">
 <th scope="row">
@@ -1148,8 +1133,7 @@ foreach( $explicit as $value=> $desc )
 			</p>
 </td>
 </tr>
-<?php if( !empty($General['advanced_mode_2']) ) { ?>
-<!-- start advanced features -->
+
 <tr valign="top">
 <th scope="row">
 <?php echo __('iTunes Author Name', 'powerpress'); ?> 
@@ -1165,8 +1149,7 @@ foreach( $explicit as $value=> $desc )
 <?php } ?>
 </td>
 </tr>
-<!-- end advanced features -->
-<?php } ?>
+
 
 <tr valign="top">
 <th scope="row">
@@ -1179,7 +1162,7 @@ foreach( $explicit as $value=> $desc )
 </td>
 </tr>
 
-<?php  if( empty($General['ios11_fields']) || $General['ios11_fields'] == 1 ) {  ?>
+
 <tr valign="top">
 <th scope="row">
 <?php echo __('iTunes Type', 'powerpress'); ?> 
@@ -1202,11 +1185,10 @@ foreach( $types as $value=> $desc )
 			</p>
 </td>
 </tr>
-<?php } // end type ?>
+
 </table>
 
-<?php if( !empty($General['advanced_mode_2']) ) { ?>
-<!-- start advanced features -->
+
 <table class="form-table">
 	<tr valign="top">
 	<th scope="row" >
@@ -1366,8 +1348,7 @@ foreach( $types as $value=> $desc )
 </table>
 </div>
 </fieldset>
-<!-- end advanced features -->
-<?php } // end other advanced options ?>
+
 <?php
 }
 	

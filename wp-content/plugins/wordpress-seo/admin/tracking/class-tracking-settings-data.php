@@ -11,10 +11,12 @@
 class WPSEO_Tracking_Settings_Data implements WPSEO_Collection {
 
 	/**
-	 * @var array $anonymous_settings contains all of the option_names which need to be
-	 * anonimized before they can be sent elsewhere.
+	 * The options that need to be anonymized before they can be sent elsewhere.
+	 *
+	 * @var array $anonymous_settings All of the option_names which need to be
+	 * anonymized before they can be sent elsewhere.
 	 */
-	private $anonymous_settings = array(
+	private $anonymous_settings = [
 		'baiduverify',
 		'googleverify',
 		'msverify',
@@ -44,12 +46,14 @@ class WPSEO_Tracking_Settings_Data implements WPSEO_Collection {
 		'youtube_url',
 		'wikipedia_url',
 		'fbadminapp',
-	);
+	];
 
 	/**
-	 * @var array $include_list contains the option_names for the options we want to track.
+	 * The options we want to track.
+	 *
+	 * @var array $include_list The option_names for the options we want to track.
 	 */
-	private $include_list = array(
+	private $include_list = [
 		'ms_defaults_set',
 		'version',
 		'disableadvanced_meta',
@@ -155,7 +159,7 @@ class WPSEO_Tracking_Settings_Data implements WPSEO_Collection {
 		'youtube_url',
 		'wikipedia_url',
 		'fbadminapp',
-	);
+	];
 
 	/**
 	 * Returns the collection data.
@@ -174,9 +178,9 @@ class WPSEO_Tracking_Settings_Data implements WPSEO_Collection {
 		// Returns the settings of which the keys intersect with the values of the include list.
 		$options = array_intersect_key( $options, array_flip( $this->include_list ) );
 
-		return array(
+		return [
 			'settings' => $this->anonymize_settings( $options ),
-		);
+		];
 	}
 
 	/**
