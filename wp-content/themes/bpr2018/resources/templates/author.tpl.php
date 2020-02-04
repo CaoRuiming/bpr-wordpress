@@ -1,12 +1,19 @@
 <?php get_header(); ?>
 
 <div id="author-page" class="container-fluid">
-
-  <?php if (get_the_archive_title()): ?>
-    <h1 class="archive-title font-size-100 header-font">
-      <?php echo get_the_archive_title(); ?>
-    </h1>
-  <?php endif; ?>
+  <div id="author-header" class="row">
+    <div class="col-md-3 col-xs-12">
+      <div id="author-avatar" style="background-image: url(<?php echo nl2br(get_avatar_url(get_the_author_meta('user_email'))); ?>)">a</div>
+    </div>
+    <div class="col-md-9 col-xs-12">
+      <h1 class="archive-title font-size-100 header-font">
+        <span itemprop="author"><?php the_author(); ?></span>
+      </h1>
+      <p>
+        <?php echo nl2br(get_the_author_meta('description')); ?>
+      </p>
+    </div>
+  </div>
 
   <section>
     <div class="horizontal-rule"></div>

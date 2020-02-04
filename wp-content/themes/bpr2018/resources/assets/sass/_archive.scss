@@ -3,6 +3,15 @@
   .more-link { margin-top: $spacing-lg; }
   .archive-title {
     margin-bottom: $spacing-xs;
+    margin-top: 0;
     @include font-size-sm(35px);
+  }
+
+  #author-avatar {
+    background-position: center;
+    background-size: cover;
+    width:175px;
+    height:175px;
+    margin: 10px
   }
 }
