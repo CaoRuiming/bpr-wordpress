@@ -5,15 +5,16 @@
       <?php custom_breadcrumbs(); ?>
 
       <a id="article-top" name="article-top"></a> <!-- For back to top -->
-      <h1 itemprop="name"><?php the_title(); ?></h1>
+      <h1 itemprop="headline"><?php the_title(); ?></h1>
 
       <div class="post-author post-date font-size-24">
-        <a
-          itemprop="author"
-          href="<?php echo esc_url(get_author_posts_url(get_the_author_meta('ID'))); ?>">
-          <?php the_author(); ?>
-        </a>
+        <span itemprop="author" hidden aria-hidden><?php the_author(); ?></span>
         <?php
+        if (function_exists('coauthors_posts_links')) {
+          coauthors_posts_links(', ', ', ', null, null, true);
+        } else {
+          the_author_posts_link();
+        }
         if (get_the_date()) { echo ' | <time itemprop="datePublished">' . get_the_date() . '</time>'; }
         ?>
       </div>

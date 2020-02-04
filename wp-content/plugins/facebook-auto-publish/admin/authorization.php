@@ -20,10 +20,10 @@ $code = $_REQUEST["code"];
 if(isset($_POST['fb_auth']))
 {
 	if (! isset( $_REQUEST['_wpnonce'] )
-			|| ! wp_verify_nonce( $_REQUEST['_wpnonce'], 'xyz_smap_fb_auth_nonce' )
+			|| ! wp_verify_nonce( $_REQUEST['_wpnonce'], 'xyz_fbap_fb_auth_nonce' )
 			) {
 	
-				wp_nonce_ays( 'xyz_smap_fb_auth_nonce' );
+				wp_nonce_ays( 'xyz_fbap_fb_auth_nonce' );
 	
 				exit();
 	

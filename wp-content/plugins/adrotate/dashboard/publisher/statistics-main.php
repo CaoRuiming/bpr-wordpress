@@ -79,6 +79,6 @@ $ctr_graph_month = adrotate_ctr($stats_graph_month['clicks'], $stats_graph_month
 </table>
 
 <p><center>
-	<?php _e('Get more features with AdRotate Pro', 'adrotate'); ?> - <a href="admin.php?page=adrotate-pro"><?php _e('Upgrade now', 'adrotate'); ?></a>!<br />
 	<em><small><strong><?php _e('Note:', 'adrotate'); ?></strong> <?php _e('All statistics are indicative. They do not nessesarily reflect results counted by other parties.', 'adrotate'); ?></small></em>
+	<br /><?php _e('Get more features with AdRotate Pro', 'adrotate'); ?> - <a href="admin.php?page=adrotate-pro"><?php _e('Upgrade now', 'adrotate'); ?></a>!
 </center></p>

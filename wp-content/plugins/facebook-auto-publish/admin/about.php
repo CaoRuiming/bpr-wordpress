@@ -176,7 +176,7 @@ WP2Social Auto Publish is developed and maintained by <a href="https://xyzscript
 	
 	<tr>
 		<td>Save auto publish settings of individual posts</td>
-		<td><img src="<?php echo plugins_url("images/cross.png",XYZ_FBAP_PLUGIN_FILE);?>">
+		<td><img src="<?php echo plugins_url("images/tick.png",XYZ_FBAP_PLUGIN_FILE);?>">
 		</td>
 		<td><img src="<?php echo plugins_url("images/tick.png",XYZ_FBAP_PLUGIN_FILE);?>">
 		</td>
@@ -513,10 +513,10 @@ WP2Social Auto Publish is developed and maintained by <a href="https://xyzscript
 	</tr>
 	<tr>
 		<td rowspan="3"><h4>Other</h4></td>
-		<td>SMAP API package worth 10 USD per year (1 fb account ,10 api calls per hour)</td>
+		<td>SMAPSOLUTIONS API package for 1 year, worth 10 USD(1 fb account ,10 api calls per hour)</td>
 		<td><img src="<?php echo plugins_url("images/cross.png",XYZ_FBAP_PLUGIN_FILE);?>">
 		</td>
-		<td><img src="<?php echo plugins_url("images/cross.png",XYZ_FBAP_PLUGIN_FILE);?>">
+		<td>3 months free subscription
 		</td>
 		<td><img src="<?php echo plugins_url("images/tick.png",XYZ_FBAP_PLUGIN_FILE);?>">
 		</td>

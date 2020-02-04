@@ -42,6 +42,13 @@
 		$FeedSettings['spotify_url'] = '';
 	if( empty($FeedSettings['google_url']) )
 		$FeedSettings['google_url'] = '';
+	if(empty($FeedSettings['iheart_url']) )
+	    $FeedSettings['iheart_url'] = '';
+	if(empty($FeedSettings['deezer_url']) )
+	    $FeedSettings['deezer_url'] = '';
+	if(empty($FeedSettings['pandora_url']) )
+	    $FeedSettings['pandora_url'] = '';
+
 		
 	$googleUrl =  'https://www.google.com/podcasts?feed='.powerpress_base64_encode($feed_url);
 ?>
@@ -114,7 +121,7 @@ jQuery( document ).ready(function() {
 <tr valign="top">
 <th scope="row"><?php echo __('Blubrry Podcast Directory', 'powerpress'); ?></th>
 <td>
-	<p><strong><a href="https://www.blubrry.com/addpodcast.php?feed=<?php echo urlencode($feed_url); ?>" target="_blank"><?php echo  __('Submit podcast to Blubrry Podcast Directory', 'powerpress'); ?></a></strong></p>
+	<p><strong><a href="https://blubrry.com/addpodcast.php?feed=<?php echo urlencode($feed_url); ?>" target="_blank"><?php echo  __('Submit podcast to Blubrry Podcast Directory', 'powerpress'); ?></a></strong></p>
 	<p>
 		<?php echo __('The largest podcast directory in the World!', 'powerpress'); ?>
 	</p><p>
@@ -122,7 +129,7 @@ jQuery( document ).ready(function() {
 	</p>
 	<label for="blubrry_url" style="font-size: 120%; display: block; font-weight: bold;"><?php echo __('Blubrry Listing URL', 'powerpress'); ?></label>
 	<input type="text" class="bpp-input-normal" id="blubrry_url" name="Feed[blubrry_url]" value="<?php echo esc_attr($FeedSettings['blubrry_url']); ?>" maxlength="255" />
-	<p class="description"><?php echo sprintf(__('e.g. %s', 'powerpress'), 'https://www.blubrry.com/title_of_podcast/'); ?></p>
+	<p class="description"><?php echo sprintf(__('e.g. %s', 'powerpress'), 'https://blubrry.com/title_of_podcast/'); ?></p>
 </td>
 </tr>
 </table>
@@ -157,11 +164,41 @@ jQuery( document ).ready(function() {
 <th scope="row"><?php echo __('Spotify', 'powerpress'); ?> <?php echo powerpressadmin_new(); ?></th>
 <td>
 	<p><strong><a href="https://create.blubrry.com/manual/podcast-promotion/submit-podcast-to-spotify/?podcast-feed=<?php echo urlencode($feed_url); ?>" target="_blank"><?php echo  __('Submit podcast to Spotify', 'powerpress'); ?></a></strong></p>
-	<label for="tunein_url" style="font-size: 120%; display: block; font-weight: bold;"><?php echo __('Spotify Listing URL', 'powerpress'); ?></label>
+	<label for="spotify_url" style="font-size: 120%; display: block; font-weight: bold;"><?php echo __('Spotify Listing URL', 'powerpress'); ?></label>
 	<input type="text" class="bpp-input-normal" id="spotify_url" name="Feed[spotify_url]" value="<?php echo esc_attr($FeedSettings['spotify_url']); ?>" maxlength="255" />
 	<p class="description"><?php echo sprintf(__('e.g. %s', 'powerpress'), 'https://open.spotify.com/show/abcdefghijklmnopqrstu'); ?></p>
 	
 </td>
+</tr>
+<tr valign="top">
+    <th scope="row"><?php echo __('iHeartRadio', 'powerpress'); ?> <?php echo powerpressadmin_new(); ?></th>
+    <td>
+        <p><strong><a href="https://create.blubrry.com/manual/podcast-promotion/submit-podcast-to-iheartradio/?podcast-feed=<?php echo urlencode($feed_url); ?>" target="_blank"><?php echo  __('Submit podcast to iHeartRadio', 'powerpress'); ?></a></strong></p>
+        <label for="iheart_url" style="font-size: 120%; display: block; font-weight: bold;"><?php echo __('iHeartRadio Listing URL', 'powerpress'); ?></label>
+        <input type="text" class="bpp-input-normal" id="iheart_url" name="Feed[iheart_url]" value="<?php echo esc_attr($FeedSettings['iheart_url']); ?>" maxlength="255" />
+        <p class="description"><?php echo sprintf(__('e.g. %s', 'powerpress'), 'https://www.iheart.com/podcast/abcdefghijklmopqrstu/'); ?></p>
+
+    </td>
+</tr>
+<tr valign="top">
+    <th scope="row"><?php echo __('Deezer', 'powerpress'); ?> <?php echo powerpressadmin_new(); ?></th>
+    <td>
+        <p><strong><a href="https://powerpresspodcast.com/2019/08/07/blubrry-podcasts-coming-deezer/?podcast-feed=<?php echo urlencode($feed_url); ?>" target="_blank"><?php echo  __('Submit podcast to Deezer', 'powerpress'); ?></a></strong></p>
+        <label for="deezer_url" style="font-size: 120%; display: block; font-weight: bold;"><?php echo __('Deezer Listing URL', 'powerpress'); ?></label>
+        <input type="text" class="bpp-input-normal" id="deezer_url" name="Feed[deezer_url]" value="<?php echo esc_attr($FeedSettings['deezer_url']); ?>" maxlength="255" />
+        <p class="description"><?php echo sprintf(__('e.g. %s', 'powerpress'), 'https://www.deezer.com/us/show/1234'); ?></p>
+
+    </td>
+</tr>
+<tr valign="top">
+    <th scope="row"><?php echo __('Pandora', 'powerpress'); ?> <?php echo powerpressadmin_new(); ?></th>
+    <td>
+        <p><strong><a href="https://create.blubrry.com/manual/podcast-promotion/submit-podcast-to-pandora/?podcast-feed=<?php echo urlencode($feed_url); ?>" target="_blank"><?php echo  __('Submit podcast to Pandora', 'powerpress'); ?></a></strong></p>
+        <label for="pandora_url" style="font-size: 120%; display: block; font-weight: bold;"><?php echo __('Pandora Listing URL', 'powerpress'); ?></label>
+        <input type="text" class="bpp-input-normal" id="pandora_url" name="Feed[pandora_url]" value="<?php echo esc_attr($FeedSettings['pandora_url']); ?>" maxlength="255" />
+<!--        Unknown: <p class="description">--><?php //echo sprintf(__('e.g. %s', 'powerpress'), 'https://www.iheart.com/podcast/abcdefghijklmopqrstu/'); ?><!--</p>-->
+
+    </td>
 </tr>
 </table>
 

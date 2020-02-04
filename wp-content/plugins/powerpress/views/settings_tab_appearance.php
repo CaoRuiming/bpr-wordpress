@@ -85,6 +85,57 @@
 	</ul>
 </td>
 </tr>
+<tr valign="top">
+    <th scope="row">
+        <?php echo __('Subscribe Widget', 'powerpress'); ?></th>
+    <td>
+        <p><?php echo __('Select the appearance of the subscribe buttons used on your subscribe page', 'powerpress'); ?></p>
+        <ul>
+			<?php
+				// Set default based on when they installed PowerPress...
+				if( empty($General['subscribe_widget_style']) ) { 
+					
+					if( empty($General['timnestamp']) || $General['timestamp'] > 1570366800 ) { // On or after Oct 8, 2019
+						$General['subscribe_widget_style'] = 'modern'; // new
+					} else {
+						$General['subscribe_widget_style'] = 'classic'; // Before Oct 8, 2019
+					}
+				}
+				if( empty($General['subscribe_widget_shape']) ) {
+					$General['subscribe_widget_shape'] = 'squared'; // Default value
+				}
+			?>
+            <li>
+                <label for="subscribe_widget_style"><?php esc_html_e( 'Style:' , 'powerpress'); ?></label>
+                <select id="subscribe_widget_style" name="General[subscribe_widget_style]">
+                    <option value="modern" <?php echo selected($General['subscribe_widget_style'], 'modern'); ?> >Modern</option>
+                    <option value="classic" <?php echo selected($General['subscribe_widget_style'], 'classic'); ?> >Classic</option>
+                </select>
+                <input type="radio" id="subscribe_widget_shape_squared"
+                       name="General[subscribe_widget_shape]" value="squared" <?php echo $General['subscribe_widget_shape'] === 'squared' ? 'checked' : '' ?> />
+                <label for="subscribe_widget_shape_squared"> <?php esc_html_e('Squared', 'powerpress'); ?></label>
+                <input type="radio" id="subscribe_widget_shape_rounded"
+                       name="General[subscribe_widget_shape]" value="rounded" <?php echo $General['subscribe_widget_shape'] === 'rounded' ? 'checked' : '' ?> />
+                <label for="subscribe_widget_shape_rounded"> <?php esc_html_e('Rounded', 'powerpress'); ?></label>
+             </li>
+            <li>
+                <iframe id="btnPreview" style="height: 127px;width: auto;" src="<?php echo admin_url('admin.php?action=powerpress-jquery-subscribe-preview&style='.$General['subscribe_widget_style'].'&shape='.$General['subscribe_widget_shape']) ?>"></iframe>
+            </li>
+			<?php
+			if( empty($General['subscribe_no_important_styling']) )
+				$General['subscribe_no_important_styling'] = 'include';
+			
+			?>
+		<li>
+                <select id="subscribe_no_important_styling" name="General[subscribe_no_important_styling]">
+				<option value="include" <?php echo selected($General['subscribe_no_important_styling'], 'include') ?> ><?php esc_html_e( 'Include recommended styling (recommended)' , 'powerpress'); ?></option>
+				<option value="exclude" <?php echo selected($General['subscribe_no_important_styling'], 'exclude')?> ><?php esc_html_e( 'Exclude recommended styling' , 'powerpress'); ?></option>
+                </select>
+                <label><?php esc_html_e( 'Select Exclude to remove !important and text align left CSS styling.' , 'powerpress'); ?></label>
+            </li>
+        </ul>
+    </td>
+</tr>
 <?php
 	// Display the shortcodes!
 	$shortcode = array();
@@ -184,3 +235,29 @@
 </tr>
 
 </table>
+<script type="text/javascript">
+    document.addEventListener('DOMContentLoaded', ()=> {
+        let baserUrl = "<?php echo admin_url('admin.php?action=powerpress-jquery-subscribe-preview'); ?>";
+        const previewIframe = document.querySelector('#btnPreview');
+        const styleSelector = document.querySelector('#subscribe_widget_style');
+        const squaredRadio = document.querySelector('#subscribe_widget_shape_squared');
+        const roundedRadio = document.querySelector('#subscribe_widget_shape_rounded');
+        let selectedShape = '';
+        if (squaredRadio.checked) {
+            selectedShape = 'squared';
+        }
+        function refreshIframe() {
+            previewIframe.src = `${baserUrl}&style=${styleSelector.value}&shape=${selectedShape}`
+        }
+
+        styleSelector.addEventListener('change', refreshIframe);
+        squaredRadio.addEventListener('change', () => {
+            selectedShape = 'squared';
+            refreshIframe();
+        });
+        roundedRadio.addEventListener('change', () => {
+            selectedShape = '';
+            refreshIframe();
+        });
+    });
+</script>

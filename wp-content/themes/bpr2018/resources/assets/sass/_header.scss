@@ -19,7 +19,7 @@
 
   #header-icons {
     float: right;
-    margin-right: 15px;
+    margin-right: -65px;
 
     #header-search-wrapper {
       display: inline-block;
@@ -76,23 +76,17 @@
       }
 
       @media (prefers-color-scheme: dark) {
-        #header-search {
+        #header-search-dark {
           color: $color-white;
+          input { background-color: $body-background-dark; }
         }
-      }
-
-      #dark {
-        background-color: $body-background-dark;
-      }
-
-      @media (prefers-color-scheme: dark) {
-        #light {
+        #header-search-light {
           display: none;
         }
       }
 
       @media (prefers-color-scheme: light) {
-        #dark {
+        #header-search-dark {
           display: none;
         }
       }
@@ -108,7 +102,7 @@
       font-size: 1.4rem; 
       @include font-size-xl(1.2rem); 
       @include font-size-lg(1rem); 
-      @include font-size-md(0.8rem); 
+      @include font-size-md(2rem); 
     }
 
     &>.container {
@@ -124,7 +118,6 @@
       }
       background-color: rgba($color: #000000, $alpha: 0.0);
       border: none;
-      margin-right: -28px;
       margin-top: 50px;
     }
 
@@ -283,7 +276,12 @@
     position: absolute;
     height: 5px;
     width: 50%;
-    background: black;
+    @media (prefers-color-scheme: light) {
+      background: black;
+    }
+    @media (prefers-color-scheme: dark) {
+      background: white;
+    }
     border-radius: 9px;
     opacity: 1;
     right: 0;

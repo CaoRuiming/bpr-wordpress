@@ -200,15 +200,15 @@ if($edit_group) {
 				<td><p><em><?php _e('Do not forget to put at least one mobile advert in this group.', 'adrotate'); ?></em></p></td>
 			</tr>
 		    <tr>
-				<th valign="top"><?php _e('Fallback Group', 'adrotate-pro'); ?></th>
+				<th valign="top"><?php _e('Fallback Group', 'adrotate'); ?></th>
 				<td>
 					<label for="adrotate_fallback">
 					<select tabindex="16" name="adrotate_fallback" disabled>
-				        <option value="0"><?php _e('Available in AdRotate Pro', 'adrotate-pro'); ?></option>
+				        <option value="0"><?php _e('Available in AdRotate Pro', 'adrotate'); ?></option>
 					</select>
 				</td>
 		        <td>
-			        <em><?php _e('Select another group to fall back on when all adverts are expired, not in the visitors geographic area or are otherwise unavailable.', 'adrotate-pro'); ?></em>
+			        <em><?php _e('Select another group to fall back on when all adverts are expired, not in the visitors geographic area or are otherwise unavailable.', 'adrotate'); ?></em>
 				</td>
 			</tr>
 			</tbody>
@@ -217,7 +217,7 @@ if($edit_group) {
 		
 		<div id="dashboard-widgets-wrap">
 			<div id="dashboard-widgets" class="metabox-holder">
-				<div id="left-column" class="postbox-container">
+				<div id="left-column" class="ajdg-postbox-container">
 		
 					<div class="ajdg-postbox">				
 						<h2 class="ajdg-postbox-title"><?php _e('Post Injection', 'adrotate'); ?></h2>
@@ -254,7 +254,7 @@ if($edit_group) {
 					</div>
 		
 				</div>
-				<div id="right-column" class="postbox-container">
+				<div id="right-column" class="ajdg-postbox-container">
 		
 					<div class="ajdg-postbox">
 						<h2 class="ajdg-postbox-title"><?php _e('Page Injection', 'adrotate'); ?></h2>

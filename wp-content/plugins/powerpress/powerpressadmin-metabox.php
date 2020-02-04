@@ -190,6 +190,7 @@ function powerpress_meta_box($object, $box)
 	</div>
 <?php
 	}
+
 ?>
 	<div id="powerpress_podcast_edit_<?php echo $FeedSlug; ?>">
 		<div class="warning error below-h2" id="powerpress_warning_<?php echo $FeedSlug; ?>" style="display:none;"></div>
@@ -209,8 +210,8 @@ function powerpress_meta_box($object, $box)
 					(<a href="#" title="<?php echo __('Remove Blubrry.com hosted media file', 'powerpress'); ?>" onclick="powerpress_remove_hosting('<?php echo $FeedSlug; ?>');return false;"><?php echo __('remove', 'powerpress'); ?></a>)
 				</em></div>
                 <input type="hidden" id="powerpress_program_keyword_<?php echo $FeedSlug; ?>" name="Powerpress[<?php echo $FeedSlug; ?>][program_keyword]" value="<?php echo !empty($ExtraData['program_keyword']) ? $ExtraData['program_keyword']: '' ; ?>" />
-				
-				<div class="powerpress-hosting-buttons">
+
+                <div class="powerpress-hosting-buttons">
 					<a class="powerpress-hosting-button powerpress-button thickbox" href="<?php echo admin_url('admin.php'); ?>?action=powerpress-jquery-media&podcast-feed=<?php echo $FeedSlug; ?>&KeepThis=true&TB_iframe=true&modal=false" title="<?php echo esc_attr(__('Blubrry Podcast Hosting', 'powerpress')); ?>" class="thickbox">
 					<img src="<?php echo powerpress_get_root_url(); ?>images/button_icon_blubrry.png" class="powerpress-button-icon" alt="" />
 					<?php echo __('Link to Media hosted on Blubrry.com', 'powerpress'); ?></a> 

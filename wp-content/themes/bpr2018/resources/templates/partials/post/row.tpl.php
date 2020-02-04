@@ -12,9 +12,9 @@
   <div class="col-sm-7">
     <div class="post-title-small">
       <a
-        itemprop="name"
+        itemprop="url"
         href="<?php echo esc_url(get_permalink()); ?>">
-        <?php the_title(); ?>
+        <span itemprop="headline"><?php the_title(); ?></span>
       </a>
     </div>
 
@@ -28,11 +28,14 @@
     </p>
 
     <div class="post-author font-size-18">
-      <a 
-        itemprop="author"
-        href="<?php echo esc_url(get_author_posts_url(get_the_author_meta('ID'))); ?>">
-        <?php the_author(); ?>
-      </a>
+      <span itemprop="author" hidden aria-hidden><?php the_author(); ?></span>
+      <?php
+      if (function_exists('coauthors_posts_links')) {
+        coauthors_posts_links(', ', ', ', null, null, true);
+      } else {
+        the_author_posts_link();
+      }
+      ?>
     </div>
   </div>
 
@@ -90,11 +93,14 @@
     </p>
 
     <div class="post-author font-size-18">
-      <a 
-        itemprop="author"
-        href="<?php echo esc_url(get_author_posts_url(get_the_author_meta('ID'))); ?>">
-        <?php the_author(); ?>
-      </a>
+      <span itemprop="author" hidden aria-hidden><?php the_author(); ?></span>
+      <?php
+      if (function_exists('coauthors_posts_links')) {
+        coauthors_posts_links(', ', ', ', null, null, true);
+      } else {
+        the_author_posts_link();
+      }
+      ?>
     </div>
   </div>
 </article>

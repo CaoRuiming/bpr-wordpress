@@ -65,27 +65,14 @@ function adrotate_is_human() {
  Since:		3.6.11
 -------------------------------------------------------------*/
 function adrotate_filter_schedule($selected, $banner) { 
-	global $wpdb, $adrotate_config, $adrotate_debug;
+	global $wpdb, $adrotate_config;
 
 	$now = adrotate_now();
 
-	if($adrotate_debug['general'] == true) {
-		echo "<p><strong>[DEBUG][adrotate_filter_schedule()] Filtering banner</strong><pre>";
-		print_r($banner->id); 
-		echo "</pre></p>"; 
-	}
-	
 	// Get schedules for advert
 	$schedules = $wpdb->get_results("SELECT `{$wpdb->prefix}adrotate_schedule`.`id`, `starttime`, `stoptime`, `maxclicks`, `maximpressions` FROM `{$wpdb->prefix}adrotate_schedule`, `{$wpdb->prefix}adrotate_linkmeta` WHERE `schedule` = `{$wpdb->prefix}adrotate_schedule`.`id` AND `ad` = '".$banner->id."' ORDER BY `starttime` ASC LIMIT 1;");
 	$schedule = $schedules[0];
 	
-	if($adrotate_debug['general'] == true) {
-		echo "<p><strong>[DEBUG][adrotate_filter_schedule] Ad ".$banner->id." - Has schedule (id: ".$schedule->id.")</strong><pre>";
-		echo "<br />Start: ".$schedule->starttime." (".date("F j, Y, g:i a", $schedule->starttime).")";
-		echo "<br />End: ".$schedule->stoptime." (".date("F j, Y, g:i a", $schedule->stoptime).")";
-		echo "</pre></p>";
-	}
-
 	if($now < $schedule->starttime OR $now > $schedule->stoptime) {
 		unset($selected[$banner->id]);
 	} else {
@@ -588,53 +575,48 @@ function adrotate_dashboard_styles() {
 }
 
 /*-------------------------------------------------------------
- Name:      adrotate_folder_contents
- Purpose:   Populate dropdown menu for creating adverts with relevant assets
- Since:		0.4
+ Name:      adrotate_dropdown_folder_contents
+ Purpose:   List folder contents for dropdown menu
+ Since:		5.6
 -------------------------------------------------------------*/
-function adrotate_folder_contents($current, $kind = 'all') {
-	global $wpdb, $adrotate_config;
+function adrotate_dropdown_folder_contents($base_dir, $extensions = array('jpg', 'jpeg', 'gif', 'png', 'html', 'htm', 'js'), $max_level = 1, $level = 0, $parent = '') {
+	$index = array();
 
-	$output = '';
-	$asset_folder = WP_CONTENT_DIR."/".$adrotate_config['banner_folder'];
-	$files = array();
-
-	// Read Banner folder
-	if($handle = opendir($asset_folder)) {
-		if($kind == "image") {
-			$extensions = array('jpg', 'jpeg', 'gif', 'png');
-		} else if($kind == "html5") {
-			$extensions = array('swf', 'flv', 'html', 'htm');
+	// List the folders and files
+	foreach(scandir($base_dir) as $file) {
+		if($file == '.' || $file == '..' || $file == '.DS_Store' || $file == 'index.php') continue;
+		
+		$dir = $base_dir.'/'.$file;
+		if(is_dir($dir)) {
+			if($level >= $max_level) continue;
+			$index[]= adrotate_dropdown_folder_contents($dir, array('html', 'htm'), $max_level, $level+1, $file);
 		} else {
-			$extensions = array('jpg', 'jpeg', 'gif', 'png', 'swf', 'flv', 'html', 'htm');
-		}
-
-	    while (false !== ($file = readdir($handle))) {
-	        if($file != "." AND $file != ".." AND $file != "index.php" AND $file != ".DS_Store" AND !is_dir($asset_folder.'/'.$file)) {
-				$files[] = $file;
-	        }
-	    }
-	    closedir($handle);
-
-		$i = count($files);
-	    if($i > 0) {
-			sort($files);
-			foreach($files as $file) {
-				$fileinfo = pathinfo($file);
-				if(in_array($fileinfo['extension'], $extensions)) {
-				    $output .= "<option value='".$file."'";
-				    if(($current == WP_CONTENT_URL.'/banners/'.$file) OR ($current == WP_CONTENT_URL."/%folder%/".$file)) { $output .= "selected"; }
-				    $output .= ">".$file."</option>";
-				}
+			$fileinfo = pathinfo($file);
+			if(in_array($fileinfo['extension'], $extensions)) {
+				if($level > 0) $file = $parent.'/'.$file;
+				$index[]= $file;
 			}
-		} else {
-	    	$output .= "<option disabled>&nbsp;&nbsp;&nbsp;".__('No files found', 'adrotate')."</option>";
 		}
-	} else {
-    	$output .= "<option disabled>&nbsp;&nbsp;&nbsp;".__('Folder not found or not accessible', 'adrotate')."</option>";
 	}
+	unset($file);
 	
-	return $output;
+	// Clean up and sort ascending
+	$items = array();
+	foreach($index as $key => $item) {
+		if(is_array($item)) {
+			unset($index[$key]);
+			if(count($item) > 0) {
+				foreach($item as $k => $v) {
+					$index[] = $v;
+				}
+				unset($k, $v);
+			}
+		}
+	}
+	unset($key, $item);
+	sort($index);
+
+	return $index;
 }
 
 /*-------------------------------------------------------------
