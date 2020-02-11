@@ -1,0 +1,73 @@
+.comment-list {
+  h3 {
+    font-family: $body-font;
+  }
+
+  @media (prefers-color-scheme: light) {
+    h3 {
+      color: $color-black;
+    }
+  }
+
+  @media (prefers-color-scheme: dark) {
+    h3 {
+      color: $color-white;
+    }
+
+    textarea, input {
+      background: $color-carbon-darkmode;
+      outline: none;
+      border: 1px solid $color-black;
+    }
+  }
+  
+  .comment-respond > .comment-form {
+    input {
+      border-radius: 20px;
+      border: 1px solid rgb(169, 169, 169); // TODO: Make this color value a variable
+      padding: 3px 10px;
+    }
+
+    .comment-notes {
+      // Notes
+    }
+
+    .comment-form-comment {
+      // Comment form
+      textarea {
+        resize: none;
+        border-radius: 20px;
+        padding: 10px;
+        width: 100%;
+      }
+    }
+
+    .comment-form-author {
+      // Author
+    }
+
+    .comment-form-email {
+      // Email
+    }
+
+    .comment-form-url {
+      // URL
+      display: none;
+    }
+
+    .comment-form-cookies-consent {
+      // Cookies
+      display: none;
+    }
+
+    .form-submit {
+      input[type='submit'] {
+        margin: auto;
+        border-radius: 20px;
+        padding: 5px 15px;
+        background-color: $color-white;
+      }
+    }
+  }
+
+}

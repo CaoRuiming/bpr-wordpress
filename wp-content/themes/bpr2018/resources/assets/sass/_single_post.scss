@@ -117,33 +117,3 @@
   }
 
 }
-
-.comment-list {
-
-  h3 {
-    font-family: $body-font;
-  }
-
-  @media (prefers-color-scheme: light) {
-  
-    h3 {
-      color: $color-black;
-    }
-
-  }
-
-  @media (prefers-color-scheme: dark) {
-
-    h3 {
-      color: $color-white;
-    }
-
-    textarea, input {
-      background: $color-carbon-darkmode;
-      outline: none;
-      border: 1px solid $color-black;
-    }
-
-  }
-
-}
