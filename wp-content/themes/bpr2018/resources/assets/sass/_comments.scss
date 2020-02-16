@@ -1,4 +1,16 @@
 .comment-list {
+  // ***************************************
+  // Comment form
+  // ***************************************
+
+  padding: 20px;
+  box-sizing: border-box;
+  width: 100%;
+
+  p {
+    margin: 10px 0; // TODO: What to make this value?
+  }
+
   h3 {
     font-family: $body-font;
   }
@@ -25,38 +37,52 @@
     input {
       border-radius: 20px;
       border: 1px solid rgb(169, 169, 169); // TODO: Make this color value a variable
-      padding: 3px 10px;
+      padding: 3px 20px;
     }
 
+    // Title "Leave a Reply"
+    .comment-reply-title {
+    }
+
+    // Notes
     .comment-notes {
-      // Notes
+      display: none;
     }
 
+    // Comment form
     .comment-form-comment {
-      // Comment form
       textarea {
         resize: none;
         border-radius: 20px;
-        padding: 10px;
+        padding: 10px 20px;
+        width: 100%;
+        overflow: hidden;
+      }
+    }
+
+    // Author
+    .comment-form-author {
+      input {
+        box-sizing: border-box;
         width: 100%;
       }
     }
 
-    .comment-form-author {
-      // Author
-    }
-
+    // Email
     .comment-form-email {
-      // Email
+      input {
+        box-sizing: border-box;
+        width: 100%;
+      }
     }
 
+    // URL
     .comment-form-url {
-      // URL
       display: none;
     }
 
+    // Cookies
     .comment-form-cookies-consent {
-      // Cookies
       display: none;
     }
 
@@ -64,10 +90,71 @@
       input[type='submit'] {
         margin: auto;
         border-radius: 20px;
-        padding: 5px 15px;
+        padding: 5px 30px;
         background-color: $color-white;
+      }
+
+      @media (prefers-color-scheme: dark) {
+        input[type='submit'] {
+          outline: none;
+          border: 1px solid $color-black;
+          background: $color-carbon-darkmode;
+        }
       }
     }
   }
+  // ***************************************
+  // Comments list
+  // ***************************************
 
+  li {
+    list-style: none;
+  }
+
+  li > .comment-body {
+    border-radius: 20px;
+    border: 1px solid rgb(169, 169, 169); // TODO: Make this color value a variable
+    padding: 5px 15px 15px 15px;
+    margin: 15px 0;
+
+    // Comment metadata
+    .comment-meta {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+
+      .comment-author.vcard {
+        .avatar {
+          border-radius: 100%;
+          margin: 10px 0;
+        }
+
+        .fn {
+          font-family: "Work Sans", sans-serif, sans-serif;
+          font-size: 2rem;
+          margin-left: 10px;
+          line-height: calc(1.5em);
+        }
+
+        .says {
+          display: none;
+        }
+      }
+
+      .comment-metadata {
+        float: right;
+
+        .edit-link {
+          text-decoration: underline;
+          margin-left: 30px;
+        }
+      }
+    }
+
+    // Actual comment
+    .comment-content > p {
+    }
+  }
 }
+
+
