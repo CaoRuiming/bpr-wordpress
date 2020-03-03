@@ -4,10 +4,10 @@
     "fields": [
         {
             "key": "field_5d44e35597b13",
-            "label": "Featured Posts (Carousel)",
+            "label": "Featured Posts (deprecated)",
             "name": "featured_posts",
             "type": "repeater",
-            "instructions": "Add posts to be shown in the carousel at the top of the home page.",
+            "instructions": "Add posts to be shown in the carousel at the top of the home page.\r\nThis feature is currently deprecated.",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -42,6 +42,28 @@
                     "ui": 1
                 }
             ]
+        },
+        {
+            "key": "field_5e5ed8cedef60",
+            "label": "Featured Post Categories (Carousel)",
+            "name": "featured_post_categories_carousel",
+            "type": "taxonomy",
+            "instructions": "Select the categories that you want to pull featured articles from. One article is taken from each of the checked categories below.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "taxonomy": "category",
+            "field_type": "checkbox",
+            "add_term": 1,
+            "save_terms": 0,
+            "load_terms": 0,
+            "return_format": "object",
+            "multiple": 0,
+            "allow_null": 0
         },
         {
             "key": "field_5d3dea554d1c7",
@@ -198,5 +220,5 @@
     ],
     "active": 1,
     "description": "Custom fields for the front page (Home)",
-    "modified": 1564797085
+    "modified": 1583276132
 }
