@@ -75,6 +75,9 @@ function register_scripts() {
     wp_register_script('d3', $path . 'd3.v5.min.js');
     wp_enqueue_script('d3');
 
+    wp_register_script('custom', $path . 'custom.js');
+    wp_enqueue_script('custom');
+
     // wp_register_script('popper', $path . 'popper.min.js', array('jquery'));
     // wp_enqueue_script('popper');
 }

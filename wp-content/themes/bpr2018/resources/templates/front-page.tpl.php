@@ -1,5 +1,4 @@
 <?php get_header(); $page_id = get_option('page_on_front'); ?>
-
 <div id="front-page" class="container-fluid">
   <section id="popular-articles"
            aria-roledescription="carousel">
