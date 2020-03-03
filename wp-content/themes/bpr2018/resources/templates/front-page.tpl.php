@@ -1,58 +1,73 @@
 <?php get_header(); $page_id = get_option('page_on_front'); ?>
 
 <div id="front-page" class="container-fluid">
-  <section id="popular-articles"
-           aria-roledescription="carousel">
+  <section id="popular-articles" aria-roledescription="carousel">
     <h2 class="section-title header-font">Popular Articles</h2>
     <div class="carousel-wrapper row">
       <div class="carousel">
-        <?php while (have_rows('featured_posts', $page_id)): the_row(); ?>
-          <?php
-          $post = get_sub_field('featured_post');
-          $id = $post->ID;
-          $pic_url = get_the_post_thumbnail_url($post);
-          ?>
-          <article id="carousel-items" class="container-fluid featured-post">
-            <div class="row">
-              <div class="col-sm-6">
-                <a href="<?php echo esc_url(get_permalink($id)); ?>">
-                  <?php $placeholderLight = get_image_asset('placeholder_dark.jpg'); ?>
-                  <div
-                    class="img-40"
-                    style="background-image: url(<?php echo $pic_url; ?>), url(<?php echo $placeholderLight; ?>);">
+        <?php
+        $categories = get_field('featured_post_categories_carousel');
+        $do_not_duplicate = array();
+        foreach ( $categories as $category ):
+          $args = array(
+            'cat' => $category->term_id,
+            'post_type' => 'post',
+            'posts_per_page' => '1',
+            'post__not_in' => $do_not_duplicate,
+          );
+          $query = new WP_Query( $args );
+        ?>
+          <?php if ( $query->have_posts() ): ?>
+            <?php while ( $query->have_posts() ): $query->the_post(); ?>
+              <?php
+              $post = get_post();
+              $id = $post->ID;
+              $do_not_duplicate[] = $id;
+              $pic_url = get_the_post_thumbnail_url($post);
+              ?>
+              <article id="carousel-items" class="container-fluid featured-post">
+                <div class="row">
+                  <div class="col-sm-6">
+                    <a href="<?php echo esc_url(get_permalink($id)); ?>">
+                      <?php $placeholderLight = get_image_asset('placeholder_dark.jpg'); ?>
+                      <div
+                        class="img-40"
+                        style="background-image: url(<?php echo $pic_url; ?>), url(<?php echo $placeholderLight; ?>);">
+                      </div>
+                    </a>
                   </div>
-                </a>
-              </div>
-  
-              <div class="col-sm-6">
-                <div class="d-none"><?php the_category(null, null, $id); ?></div>
-  
-                <div class="post-title-large">
-                  <a href="<?php echo esc_url(get_permalink($id)); ?>">
-                    <?php echo get_the_title($id); ?>
-                  </a>
+      
+                  <div class="col-sm-6">
+                    <div class="d-none"><?php the_category(null, null, $id); ?></div>
+      
+                    <div class="post-title-large">
+                      <a href="<?php echo esc_url(get_permalink($id)); ?>">
+                        <?php echo get_the_title($id); ?>
+                      </a>
+                    </div>
+      
+                    <p class="font-size-24">
+                      <?php
+                      $content = apply_filters('the_content', get_post_field('post_content', $id));
+                      echo substr(sanitize_text_field($content), 0, 250) . '...';
+                      ?>
+                    </p>
+      
+                    <div class="post-author post-date font-size-20">
+                      <?php $author_id = $post->post_author; ?>
+                      <a href="<?php echo esc_url(get_author_posts_url($author_id)); ?>">
+                        <?php echo get_the_author_meta('display_name', $author_id); ?>
+                      </a>
+                      <?php
+                      if (get_the_date('', $id)) { echo ' | <time>' . get_the_date('', $id) . '</time>'; }
+                      ?>
+                    </div>
+                  </div>
                 </div>
-  
-                <p class="font-size-24">
-                  <?php
-                  $content = apply_filters('the_content', get_post_field('post_content', $id));
-                  echo substr(sanitize_text_field($content), 0, 250) . '...';
-                  ?>
-                </p>
-  
-                <div class="post-author post-date font-size-20">
-                  <?php $author_id = $post->post_author; ?>
-                  <a href="<?php echo esc_url(get_author_posts_url($author_id)); ?>">
-                    <?php echo get_the_author_meta('display_name', $author_id); ?>
-                  </a>
-                  <?php
-                  if (get_the_date('', $id)) { echo ' | <time>' . get_the_date('', $id) . '</time>'; }
-                  ?>
-                </div>
-              </div>
-            </div>
-          </article>
-        <?php endwhile; ?>
+              </article>
+            <?php endwhile; ?>
+          <?php endif; ?>
+        <?php endforeach; ?>
       </div>
       <div
         class="carousel-arrow carousel-prev"
