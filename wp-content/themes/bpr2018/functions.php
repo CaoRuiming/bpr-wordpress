@@ -106,8 +106,6 @@ function mo_comment_fields_custom_html( $fields ) {
         '<input id="email" name="email" ' . ( $html5 ? 'type="email"' : 'type="text"' ) . ' value="' . esc_attr(  $commenter['comment_author_email'] ) . '" size="30" maxlength="100" aria-describedby="email-notes"' . $aria_req . $html_req  . ' /></p>',
         'comment_field' => '<p class="comment-form-comment"><label for="comment">' . _x( 'Comment:', 'noun', 'textdomain' ) . '</label> ' .
             '<textarea id="comment" name="comment" cols="45" rows="8" maxlength="65525" aria-required="true" required="required" value="<?echo esc_html(comment[\'comment\']); ?>"></textarea></p>',
-        'url'    => '<p class="comment-form-url"><label for="url">' . __( 'A CUSTOM WEBSITE LABEL', 'textdomain'  ) . '</label> ' .
-            '<input id="url" name="url" ' . ( $html5 ? 'type="url"' : 'type="text"' ) . ' value="' . esc_attr( $commenter['comment_author_url'] ) . '" size="30" maxlength="200" /></p>',
     ];
     // done customizing, now return the fields:
     return $fields;
