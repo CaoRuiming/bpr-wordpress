@@ -23,6 +23,7 @@ function checkDate() {
                 "margin": "0 auto",
                 "border-radius": "6px",
                 "border": "1px solid #616161",
+                "background-color": "white",
                 "padding": "10px 15px",
                 "font-family": "Work Sans",
                 "cursor": "pointer",
@@ -35,7 +36,7 @@ function checkDate() {
                     $(this).css({"border": "1px solid #000000", "padding": "10px 15px"});
                 }
             );
-            
+
             changeFont("Hellvetica");
         } 
     });
