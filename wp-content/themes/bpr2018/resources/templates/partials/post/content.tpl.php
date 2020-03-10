@@ -47,7 +47,7 @@
 
     <div class="content col-lg-8">
       <div itemprop="articleBody"><?php the_content(); ?></div>
-
+      
       <div class="back-to-top text-center">
         <a href="#article-top" class="uppercase font-size-18">Back to Top</a>
       </div>
