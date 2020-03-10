@@ -10,8 +10,8 @@ function checkDate() {
     $(document).ready(function(){
         var time = new Date();    
 
-        if (time.getMonth() == 2 &&
-            time.getDate() == 3) {
+        if (time.getMonth() == 3 &&
+            time.getDate() == 1) {
 
             //add button to return font to normal
             $(".article-bottom").append("<button id='stop-hell'>Happy April Fool's Day! <br> Click to continue reading as normal.</button>");
@@ -35,11 +35,9 @@ function checkDate() {
                     $(this).css({"border": "1px solid #000000", "padding": "10px 15px"});
                 }
             );
-
+            
             changeFont("Hellvetica");
-        } else {
-            changeFont("Work Sans");
-        }
+        } 
     });
 }
 
