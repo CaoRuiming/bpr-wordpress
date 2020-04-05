@@ -3,7 +3,12 @@
 <div id="author-page" class="container-fluid">
   <div id="author-header" class="row">
     <div class="col-md-3 col-xs-12">
-      <div id="author-avatar" style="background-image: url(<?php echo nl2br(get_avatar_url(get_the_author_meta('user_email'))); ?>)">a</div>
+      <div id="author-avatar-placeholder">
+        <div id="author-avatar" style="background-image:
+          url(<?php echo nl2br(get_avatar_url(get_the_author_meta('user_email'))); ?>),
+          url(<?php echo $placeholderLight; ?>);">
+        </div>
+      </div>
     </div>
     <div class="col-md-9 col-xs-12">
       <h1 class="archive-title font-size-100 header-font">
