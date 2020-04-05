@@ -121,7 +121,7 @@
     // Comment metadata
     .comment-meta {
       display: flex;
-      flex-direction: row;
+      flex-direction: column;
       justify-content: space-between;
 
       @media screen and (max-width: $width-lg) {
@@ -152,10 +152,16 @@
 
       .comment-metadata {
         float: right;
-
+        display: block;
         .edit-link {
           text-decoration: underline;
           margin-left: 30px;
+        }
+      }
+
+      .comment-awaiting-moderation {
+        @media (prefers-color-scheme: dark) {
+          color: $color-gray-light;
         }
       }
     }
