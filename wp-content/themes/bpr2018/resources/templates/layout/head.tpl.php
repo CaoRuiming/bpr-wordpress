@@ -65,6 +65,8 @@
             $facebook_icon_inverted_url = get_image_asset('facebook_icon_inverted.png');
             $twitter_icon_url = get_image_asset('twitter_icon.png');
             $twitter_icon_inverted_url = get_image_asset('twitter_icon_inverted.png');
+            $instagram_icon_url = get_image_asset('instagram_icon.png');
+            $instagram_icon_inverted_url = get_image_asset('instagram_icon_inverted.png')
             ?>
             <?php if (get_field('facebook_url', 'option')): ?>
               <a href="<?php echo esc_url(get_field('facebook_url', 'option')); ?>">
@@ -91,6 +93,20 @@
                   id="dark"
                   class="social-icon"
                   style="background-image: url(<?php echo $twitter_icon_inverted_url ?>)">
+                </div>
+              </a>
+            <?php endif; ?>
+            <?php if (get_field('instagram_url', 'option')): ?>
+              <a href="<?php echo esc_url(get_field('instagram_url', 'option')); ?>">
+                <div
+                  id="light"
+                  class="social-icon"
+                  style="background-image: url(<?php echo $instagram_icon_url ?>)">
+                </div>
+                <div
+                  id="dark"
+                  class="social-icon"
+                  style="background-image: url(<?php echo $instagram_icon_inverted_url ?>)">
                 </div>
               </a>
             <?php endif; ?>
