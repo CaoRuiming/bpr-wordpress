@@ -92,3 +92,32 @@ require_once __DIR__ . '/breadcrumbs.php' ;
 
 // For enabling pagination in category template
 ini_set('mysql.trace_mode', 0);
+
+// comment form fields re-defined:
+add_filter( 'comment_form_default_fields', 'mo_comment_fields_custom_html' );
+function mo_comment_fields_custom_html( $fields ) {
+    // first unset the existing fields:
+    unset( $fields['comment'] );
+    unset( $fields['author'] );
+    unset( $fields['email'] );
+    unset( $fields['url'] );
+    // then re-define them as needed:
+    $fields = [
+        'author' => '<p class="comment-form-author"><label for="author">' . __( 'Name:', 'textdomain'  ) . ( ' <span class="required">*</span>' ) . '</label> ' .
+        '<input id="author" name="author" type="text" size="30" maxlength="245"' . ' /></p>',
+        'email'  => '<p class="comment-form-email"><label for="email">' . __( 'Email:', 'textdomain'  ) . ( ' <span class="required">*</span>' ) . '</label> ' .
+        '<input id="email" name="email" ' . ( 'type="email"' ) . ' size="30" maxlength="100" aria-describedby="email-notes"/></p>',
+        'comment_field' => '<p class="comment-form-comment"><label for="comment">' . _x( 'Comment:', 'noun', 'textdomain' ) . '</label> ' .
+            '<textarea id="comment" name="comment" cols="45" rows="8" maxlength="65525" aria-required="true" required="required" value="<?echo esc_html(comment[\'comment\']); ?>"></textarea></p>',
+    ];
+    // done customizing, now return the fields:
+    return $fields;
+}
+
+// remove default comment form so it won't appear twice
+add_filter( 'comment_form_defaults', 'mo_remove_default_comment_field', 10, 1 ); 
+function mo_remove_default_comment_field( $defaults ) { 
+    if (!is_user_logged_in()) {  
+        if ( isset( $defaults[ 'comment_field' ] ) ) { $defaults[ 'comment_field' ] = ''; } return $defaults;
+    }  
+}
