@@ -8,7 +8,7 @@
   width: 100%;
 
   p {
-    margin: 10px 0; // TODO: What to make this value?
+    margin: 1rem 0;
   }
 
   h3 {
@@ -36,12 +36,9 @@
   .comment-respond > .comment-form {
     input {
       border-radius: 20px;
-      border: 1px solid rgb(169, 169, 169); // TODO: Make this color value a variable
+      border: 1px solid $color-grey-darkmode;
       padding: 3px 20px;
     }
-
-    // Title "Leave a Reply"
-    // .comment-reply-title {}
 
     // Notes
     .comment-notes {
@@ -52,7 +49,7 @@
     .comment-form-comment {
       textarea {
         resize: none;
-        border: 1px solid darkgray;
+        border: 1px solid $color-grey-darkmode;
         border-radius: 20px;
         padding: 10px 20px;
         width: 100%;
@@ -113,7 +110,7 @@
 
   li > .comment-body  {
     border-radius: 20px;
-    border: 1px solid rgb(169, 169, 169); // TODO: Make this color value a variable
+    border: 1px solid $color-grey-darkmode;
     padding: 5px 15px 15px 15px;
     margin: 15px 0;
 
@@ -164,9 +161,6 @@
         }
       }
     }
-
-    // Actual comment
-    // .comment-content > p {}
   }
 }
 
