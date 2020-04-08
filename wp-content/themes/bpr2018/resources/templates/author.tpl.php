@@ -5,8 +5,7 @@
     <div class="col-md-3 col-xs-12">
       <div id="author-avatar-placeholder">
         <div id="author-avatar" style="background-image:
-          url(<?php echo nl2br(get_avatar_url(get_the_author_meta('user_email'))); ?>),
-          url(<?php echo $placeholderLight; ?>);">
+          url(<?php echo nl2br(get_avatar_url(get_the_author_meta('user_email'))); ?>)">
         </div>
       </div>
     </div>
