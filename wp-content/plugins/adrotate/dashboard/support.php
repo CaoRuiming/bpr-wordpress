@@ -1,7 +1,7 @@
 <?php
 /* ------------------------------------------------------------------------------------
 *  COPYRIGHT AND TRADEMARK NOTICE
-*  Copyright 2008-2019 Arnan de Gans. All Rights Reserved.
+*  Copyright 2008-2020 Arnan de Gans. All Rights Reserved.
 *  ADROTATE is a registered trademark of Arnan de Gans.
 
 *  COPYRIGHT NOTICES AND ALL THE COMMENTS SHOULD REMAIN INTACT.
@@ -35,17 +35,6 @@ $data = get_option("adrotate_advert_status");
 				</div>
 			</div>
 
-			<div class="ajdg-postbox">
-				<h2 class="ajdg-postbox-title"><?php _e('Additional Services', 'adrotate'); ?></h2>
-				<div id="get-pro" class="ajdg-postbox-content">
-					<p><img src="<?php echo plugins_url('/images/icon-services.png', dirname(__FILE__)); ?>" class="alignleft pro-image" /><?php _e('Have stuff done for you, by AJdG Solutions. If you need HTML5 Adverts set up. Or do not know how to update the plugin. Get me to do it for you! These professional services are available for every AdRotate  and AdRotate Pro user and are usually handled in less than 2 business days.', 'adrotate'); ?></p>
-
-					<p><a href="https://ajdg.solutions/product/adrotate-html5-setup-service/?pk_campaign=adrotatefree&pk_keyword=support_page&pk_content=service-6" target="_blank"><strong><?php _e('HTML5 Advert setup', 'adrotate'); ?> (&euro; 22.50/advert)</strong></strong></a><br /><em><?php _e('Got a HTML5 advert that needs to be set up?', 'adrotate'); ?> <a href="https://ajdg.solutions/product/adrotate-html5-setup-service/?pk_campaign=adrotatefree&pk_keyword=support_page&pk_content=service-6" target="_blank"><?php _e('Order now', 'adrotate'); ?> &raquo;</a></em></p>
-					<p><a href="https://ajdg.solutions/product/adrotate-update/?pk_campaign=adrotatefree&pk_keyword=support_page&pk_content=service-7" target="_blank"><strong><?php _e('Update AdRotate Banner Manager', 'adrotate'); ?> (&euro; 22.50)</strong></a><br /><em><?php _e('Get a newer version of AdRotate Banner Manager installed.', 'adrotate'); ?> <a href="https://ajdg.solutions/product/adrotate-update/?pk_campaign=adrotatefree&pk_keyword=support_page&pk_content=service-7" target="_blank"><?php _e('Order now', 'adrotate'); ?> &raquo;</a></em></p>
-					<p><strong><?php _e('AdRotate setup', 'adrotate'); ?> (&euro; 45/hr)</strong></strong><br /><em><?php _e('Contact AJdG Solutions and inquire about the possibilities to set up AdRotate for you.', 'adrotate'); ?></em></p>
-				</div>
-			</div>
-
 		</div>
 		<div id="right-column" class="ajdg-postbox-container">
 
@@ -59,8 +48,7 @@ $data = get_option("adrotate_advert_status");
 						<p><label for="ajdg_support_email"><strong><?php _e('Your Email Address:', 'adrotate'); ?></strong><br /><input tabindex="1" name="ajdg_support_email" type="text" class="search-input" style="width:100%;" value="<?php echo $current_user->user_email;?>" autocomplete="off" disabled /></label></p>
 						<p><label for="ajdg_support_subject"><strong><?php _e('Subject:', 'adrotate'); ?></strong><br /><input tabindex="2" name="ajdg_support_subject" type="text" class="search-input" style="width:100%;" value="" autocomplete="off" disabled /></label></p>
 						<p><label for="ajdg_support_message"><strong><?php _e('Problem description / Question:', 'adrotate'); ?></strong><br /><textarea tabindex="3" name="ajdg_support_message" style="width:100%; height:100px;" disabled></textarea></label></p>
-						<p><label for="ajdg_support_account"><input tabindex="4" name="ajdg_support_account" type="checkbox" disabled /> <?php _e('Please log in to my website and take a look.', 'adrotate'); ?> <span class="ajdg-tooltip">What's this?<span class="ajdg-tooltiptext ajdg-tooltip-top">Checking this option will create an account for Arnan to log in and take a look at your setup.</span>
-</span></label></p>
+						<p><label for="ajdg_support_account"><input tabindex="4" name="ajdg_support_account" type="checkbox" disabled /> <?php _e('Please log in to my website and take a look.', 'adrotate'); ?> <span class="ajdg-tooltip">What's this?<span class="ajdg-tooltiptext ajdg-tooltip-top">Checking this option will create an account for Arnan to log in and take a look at your setup.</span></span></label></p>
 					
 						<p><strong><?php _e('When you send this form the following data will be submitted:', 'adrotate'); ?></strong><br/>
 						<em><?php _e('Your name, Account email address, Your website url and some basic WordPress information will be included with the message.', 'adrotate'); ?><br /><?php _e('This information is treated as confidential and is mandatory.', 'adrotate'); ?></em></p>

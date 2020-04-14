@@ -70,7 +70,7 @@ function fbap_install_free()
 	add_option('xyz_fbap_premium_version_ads', '1');
 	add_option('xyz_fbap_default_selection_edit', '0');
 // 	add_option('xyz_fbap_utf_decode_enable', '0');
-	add_option('xyz_fbap_app_sel_mode','0');
+	add_option('xyz_fbap_app_sel_mode','1');
 	add_option('xyz_fbap_dnt_shw_notice','0');
 	if(get_option('xyz_fbap_credit_dismiss') == "")
 		add_option("xyz_fbap_credit_dismiss",'0');
@@ -81,6 +81,7 @@ function fbap_install_free()
 	add_option('xyz_fbap_xyzscripts_user_id','');
 	add_option('xyz_fbap_xyzscripts_hash_val','');
 	add_option('xyz_fbap_enforce_og_tags','1');
+	add_option('xyz_fbap_clear_fb_cache','0');
 }
 
 

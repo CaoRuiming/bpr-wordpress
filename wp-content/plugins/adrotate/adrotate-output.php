@@ -1,8 +1,8 @@
 <?php
 /* ------------------------------------------------------------------------------------
 *  COPYRIGHT AND TRADEMARK NOTICE
-*  Copyright 2008-2019 Arnan de Gans. All Rights Reserved.
-*  ADROTATE is a trademark of Arnan de Gans.
+*  Copyright 2008-2020 Arnan de Gans. All Rights Reserved.
+*  ADROTATE is a registered trademark of Arnan de Gans.
 
 *  COPYRIGHT NOTICES AND ALL THE COMMENTS SHOULD REMAIN INTACT.
 *  By using this code you agree to indemnify Arnan de Gans from any
@@ -66,7 +66,7 @@ function adrotate_group($group_ids, $fallback = 0, $weight = 0, $site = 0) {
 		$group_array = array_filter($group_array);
 
 		foreach($group_array as $key => $value) {
-			$group_select .= " `{$wpdb->prefix}adrotate_linkmeta`.`group` = {$value} OR";
+			$group_select .= " `{$wpdb->prefix}adrotate_linkmeta`.`group` = ".$wpdb->prepare('%d', $value)." OR";
 		}
 		$group_select = rtrim($group_select, " OR");
 
@@ -218,19 +218,21 @@ function adrotate_shortcode($atts, $content = null) {
 			$output .= 'echo adrotate_group('.$group_ids.');';
 		}
 		$output .= '<!-- /mfunc '.W3TC_DYNAMIC_SECURITY.' -->';
-	} else if($adrotate_config['borlabscache'] == "Y" AND function_exists('BorlabsCacheHelper') AND BorlabsCacheHelper()->willFragmentCachingPerform()) {
-		$borlabsphrase = BorlabsCacheHelper()->getFragmentCachingPhrase();
-
-		$output .= '<!--[borlabs cache start: '.$borlabsphrase.']--> ';
-		if($banner_id > 0 AND ($group_ids == 0 OR $group_ids > 0)) { // Show one Ad
-			$output .= 'echo adrotate_ad('.$banner_id.', true);';
-		}		
-		if($banner_id == 0 AND $group_ids > 0) { // Show group
-			$output .= 'echo adrotate_group('.$group_ids.');';
+	} else if($adrotate_config['borlabscache'] == "Y" AND function_exists('BorlabsCacheHelper')) {
+		if(BorlabsCacheHelper()->willFragmentCachingPerform()) {
+			$borlabsphrase = BorlabsCacheHelper()->getFragmentCachingPhrase();
+	
+			$output .= '<!--[borlabs cache start: '.$borlabsphrase.']--> ';
+			if($banner_id > 0 AND ($group_ids == 0 OR $group_ids > 0)) { // Show one Ad
+				$output .= 'echo adrotate_ad('.$banner_id.', true);';
+			}		
+			if($banner_id == 0 AND $group_ids > 0) { // Show group
+				$output .= 'echo adrotate_group('.$group_ids.');';
+			}
+			$output .= ' <!--[borlabs cache end: '.$borlabsphrase.']-->';
+	
+			unset($borlabsphrase);
 		}
-		$output .= ' <!--[borlabs cache end: '.$borlabsphrase.']-->';
-
-		unset($borlabsphrase);
 	} else {
 		if($banner_id > 0 AND ($group_ids == 0 OR $group_ids > 0)) { // Show one Ad
 			$output .= adrotate_ad($banner_id, true);
@@ -299,14 +301,16 @@ function adrotate_inject_posts($post_content) {
 					$advert_output = '<!-- mfunc '.W3TC_DYNAMIC_SECURITY.' -->';
 					$advert_output .= 'echo adrotate_group('.$group_id.');';
 					$advert_output .= '<!-- /mfunc '.W3TC_DYNAMIC_SECURITY.' -->';
-				} else if($adrotate_config['borlabscache'] == "Y" AND function_exists('BorlabsCacheHelper') AND BorlabsCacheHelper()->willFragmentCachingPerform()) {
-					$borlabsphrase = BorlabsCacheHelper()->getFragmentCachingPhrase();
-
-					$advert_output = '<!--[borlabs cache start: '.$borlabsphrase.']-->';
-					$advert_output .= 'echo adrotate_group('.$group_id.');';
-					$advert_output .= '<!--[borlabs cache end: '.$borlabsphrase.']-->';
-
-					unset($borlabsphrase);
+				} else if($adrotate_config['borlabscache'] == "Y" AND function_exists('BorlabsCacheHelper')) {
+					if(BorlabsCacheHelper()->willFragmentCachingPerform()) {
+						$borlabsphrase = BorlabsCacheHelper()->getFragmentCachingPhrase();
+	
+						$advert_output = '<!--[borlabs cache start: '.$borlabsphrase.']-->';
+						$advert_output .= 'echo adrotate_group('.$group_id.');';
+						$advert_output .= '<!--[borlabs cache end: '.$borlabsphrase.']-->';
+	
+						unset($borlabsphrase);
+					}
 				} else {
 					$advert_output = adrotate_group($group_id);
 				}
@@ -641,16 +645,15 @@ function adrotate_dashboard_error() {
 		$error['w3tc_no_hash'] = __('You have enable caching support but the W3TC_DYNAMIC_SECURITY definition is not set.', 'adrotate').' <a href="'.admin_url('/admin.php?page=adrotate-settings&tab=misc').'">'.__('How to configure W3 Total Cache', 'adrotate').'</a>.';
 	}
 
-	if($adrotate_config['borlabscache'] == "Y" AND !class_exists('\Borlabs\Factory') AND \Borlabs\Factory::get('Cache\Config')->get('cacheActivated') != 'yes') {
-		$error['borlabs_not_active'] = __('You have enable caching support but Borlabs Cache is not active on your site!', 'adrotate').' <a href="'.admin_url('/admin.php?page=adrotate-settings&tab=misc').'">'.__('Disable Borlabs Cache Support', 'adrotate').'</a>.';
+	if($adrotate_config['borlabscache'] == "Y" AND !is_plugin_active('borlabs-cache/borlabs-cache.php')) {
+		$error['borlabs_not_active'] = __('You have enable caching support but Borlabs Cache is not active on your site!', 'adrotate-pro').' <a href="'.admin_url('/admin.php?page=adrotate-settings&tab=misc').'">'.__('Disable Borlabs Cache Support', 'adrotate-pro').'</a>.';
 	}
-	if(class_exists('\Borlabs\Factory') AND \Borlabs\Factory::get('Cache\Config')->get('cacheActivated') == 'yes') {
-		$borlabscache = '';
-		if(class_exists('\Borlabs\Factory')) {
+	if($adrotate_config['borlabscache'] == "Y" AND is_plugin_active('borlabs-cache/borlabs-cache.php')) {
+		if(\Borlabs\Factory::get('Cache\Config')->get('cacheActivated') == 'yes') {
 			$borlabscache = \Borlabs\Factory::get('Cache\Config')->get('fragmentCaching');
-		}
-		if($adrotate_config['borlabscache'] == "Y" AND $borlabscache == '') {
-			$error['borlabs_fragment_error'] = __('You have enabled Borlabs Cache support but Fragment caching is not enabled!', 'adrotate').' <a href="'.admin_url('/admin.php?page=borlabs-cache-fragments').'">'.__('Enable Fragment Caching', 'adrotate').'</a>.';
+			if(strlen($borlabscache) < 1) {
+				$error['borlabs_fragment_error'] = __('You have enabled Borlabs Cache support but Fragment caching is not enabled!', 'adrotate-pro').' <a href="'.admin_url('/admin.php?page=borlabs-cache-fragments').'">'.__('Enable Fragment Caching', 'adrotate-pro').'</a>.';
+			}
 		}
 	}
 
@@ -673,14 +676,15 @@ function adrotate_notifications_dashboard() {
 	global $current_user;
 
 	if(current_user_can('adrotate_ad_manage')) {
-		if(isset($_GET['page'])) { $page = $_GET['page']; } else { $page = ''; }
+		$displayname = (strlen($current_user->user_firstname) > 0) ? $current_user->user_firstname : $current_user->display_name;
+		$page = (isset($_GET['page'])) ? $_GET['page'] : '';
 
+		// These only show on AdRotate pages
 		if(strpos($page, 'adrotate') !== false) {
 			if(isset($_GET['hide']) AND $_GET['hide'] == 0) update_option('adrotate_hide_getpro', adrotate_now() + (31 * DAY_IN_SECONDS));
 			if(isset($_GET['hide']) AND $_GET['hide'] == 1) update_option('adrotate_hide_review', 1);
 			if(isset($_GET['hide']) AND $_GET['hide'] == 2) update_option('adrotate_hide_competition', 1);
-
-			$displayname = (strlen($current_user->user_firstname) > 0) ? $current_user->user_firstname : $current_user->display_name;
+			if(isset($_GET['hide']) AND $_GET['hide'] == 3) update_option('adrotate_hide_birthday', adrotate_now() + (10 * MONTH_IN_SECONDS));
 			
 			// Get AdRotate Pro
 			$getpro_banner = get_option('adrotate_hide_getpro');
@@ -708,24 +712,17 @@ function adrotate_notifications_dashboard() {
 				echo '</div>';
 			}
 
-			// AdRotate Switch
-			$competition_banner = get_option('adrotate_hide_competition');
-			if($competition_banner != 1) {
-				$adrotate_has_competition = adrotate_check_competition();
-				if($adrotate_has_competition) {
-					echo '<div class="ajdg-notification notice" style="">';
-					echo '	<div class="ajdg-notification-logo" style="background-image: url(\''.plugins_url('/images/notification.png', __FILE__).'\');"><span></span></div>';
-					echo '	<div class="ajdg-notification-message"><strong>AdRotate Banner Manager</strong> found '._n('one plugin', 'several plugins', count($adrotate_has_competition), 'adrotate').' that can be imported:<br />';
-					foreach($adrotate_has_competition as $plugin) {
-						echo '&raquo; '.$plugin.'<br />';				
-					}
-					echo '	Configured plugins can be imported into AdRotate! What is <a target="_blank" href="https://ajdg.solutions/product/adrotate-switch/">AdRotate Switch</a>?</div>';
-					echo '	<div class="ajdg-notification-cta">';
-					echo '		<a href="'.admin_url('plugin-install.php?tab=search&s=adrotate+switch+arnan').'" class="ajdg-notification-act button-primary">Install AdRotate Switch</a>';
-					echo '		<a href="admin.php?page=adrotate&hide=2" class="ajdg-notification-dismiss">No thanks</a>';
-					echo '	</div>';
-					echo '</div>';
-				}
+			// Birthday
+			$birthday_banner = get_option('adrotate_hide_birthday');
+			if($birthday_banner < adrotate_now() AND date('M',adrotate_date_start('day')) == 'Feb') {
+				echo '<div class="ajdg-notification notice" style="">';
+				echo '	<div class="ajdg-notification-logo" style="background-image: url(\''.plugins_url('/images/birthday.png', __FILE__).'\');"><span></span></div>';
+				echo '	<div class="ajdg-notification-message">Hey <strong>'.$displayname.'</strong>! Did you know it is Arnan his birtyday this month? February 9th to be exact. Wish him a happy birthday via Twitter!<br />Who is Arnan? He made AdRotate for you - Check out his <a href="https://www.arnan.me/?pk_campaign=adrotatefree&pk_keyword=birthday_banner" target="_blank">website</a> or <a href="https://www.arnan.me/donate.html?pk_campaign=adrotatefree&pk_keyword=birthday_banner" target="_blank">send a gift</a>.</div>';
+				echo '	<div class="ajdg-notification-cta">';
+				echo '		<a href="https://twitter.com/intent/tweet?text=Happy%20Birthday%20@arnandegans!%20From%20'.$displayname.'%20at%20'.home_url().'&hashtags=birthday,adrotate" target="_blank" class="ajdg-notification-act button-primary">Wish Happy Birthday</a>';
+				echo '		<a href="admin.php?page=adrotate&hide=3" class="ajdg-notification-dismiss">Not now</a>';
+				echo '	</div>';
+				echo '</div>';
 			}
 		}
 
@@ -743,20 +740,19 @@ function adrotate_notifications_dashboard() {
 		}
 	}
 
-	if(isset($_GET['upgrade']) AND $_GET['upgrade'] == 1) adrotate_check_upgrade();
+	// Finish update
+	// Keep for manual updates
 	$adrotate_db_version = get_option("adrotate_db_version");
 	$adrotate_version = get_option("adrotate_version");
 	if($adrotate_db_version['current'] < ADROTATE_DB_VERSION OR $adrotate_version['current'] < ADROTATE_VERSION) {
 		echo '<div class="ajdg-notification notice" style="">';
 		echo '	<div class="ajdg-notification-logo" style="background-image: url(\''.plugins_url('/images/notification.png', __FILE__).'\');"><span></span></div>';
-		echo '	<div class="ajdg-notification-message">Thanks for updating <strong>'.$displayname.'</strong>! You have almost completed updating <strong>AdRotate Banner Manager</strong> to version <strong>'.ADROTATE_DISPLAY.'</strong>!<br />To complete the update <strong>click the button on the right</strong>. This may take a few seconds to complete!<br />For an overview of what has changed take a look at the <a href="https://ajdg.solutions/support/adrotate-development/" target="_blank">development page</a> and usually there is an article on <a href="https://ajdg.solutions/blog/" target="_blank">the blog</a> with more information as well.</div>';
+		echo '	<div class="ajdg-notification-message">Thanks for updating <strong>'.$displayname.'</strong>! You have almost completed updating <strong>AdRotate</strong> to version <strong>'.ADROTATE_DISPLAY.'</strong>!<br />To complete the update <strong>click the button on the right</strong>. This may take a few seconds to complete!<br />For an overview of what has changed take a look at the <a href="https://ajdg.solutions/support/adrotate-development/?pk_campaign=adrotatepro&pk_keyword=finish_update_notification" target="_blank">development page</a> and usually there is an article on <a href="https://ajdg.solutions/blog/" target="_blank">the blog</a> with more information as well.</div>';
 		echo '	<div class="ajdg-notification-cta">';
-		echo '		<a href="admin.php?page=adrotate&upgrade=1" class="ajdg-notification-act button-primary">Finish update</a>';
+		echo '		<a href="admin.php?page=adrotate-settings&tab=maintenance&action=update-db" class="ajdg-notification-act button-primary update-button">Finish update</a>';
 		echo '	</div>';
 		echo '</div>';
 	}
-
-	if(isset($_GET['tasks']) AND $_GET['tasks'] == 1) adrotate_check_schedules();
 }
 
 /*-------------------------------------------------------------
@@ -804,7 +800,7 @@ function adrotate_help_info() {
         '<p>AdRotate is becoming one of the most popular WordPress plugins for Advertising and is a household name for many companies and websites around the world. AdRotate wouldn\'t be possible without your support and my life wouldn\'t be what it is today without your help.</p><p><em>- Arnan</em></p>'.
 
         '<p><strong>Business:</strong> Visit <a href="https://ajdg.solutions/?pk_campaign=adrotatefree&pk_keyword=helptab" target="_blank">ajdg.solutions</a> website.<br />'.
-        '<strong>Personal:</strong> Take a look at the <a href="https://www.arnan.me/?pk_campaign=adrotatefree&pk_keyword=helptab" target="_blank">arnan.me website</a>, also Arnan has <a href="https://arnandegans.tumblr.com" target="_blank">Tumblr</a>, <a href="https://www.twitter.com/arnandegans/" target="_blank">Twitter</a> and he is on <a href="https://linkedin.com/in/arnandegans/" target="_blank">LinkedIn</a>.</p>'
+        '<strong>Personal:</strong> Take a look at the <a href="https://www.arnan.me/?pk_campaign=adrotatefree&pk_keyword=helptab" target="_blank">arnan.me website</a>, also Arnan has <a href="https://www.twitter.com/arnandegans/" target="_blank">Twitter</a> and he is on <a href="https://linkedin.com/in/arnandegans/" target="_blank">LinkedIn</a>.</p>'
 		)
     );
     $screen->add_help_tab(array(

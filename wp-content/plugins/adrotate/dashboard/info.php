@@ -1,8 +1,8 @@
 <?php
 /* ------------------------------------------------------------------------------------
 *  COPYRIGHT AND TRADEMARK NOTICE
-*  Copyright 2008-2018 Arnan de Gans. All Rights Reserved.
-*  ADROTATE is a trademark of Arnan de Gans.
+*  Copyright 2008-2020 Arnan de Gans. All Rights Reserved.
+*  ADROTATE is a registered trademark of Arnan de Gans.
 
 *  COPYRIGHT NOTICES AND ALL THE COMMENTS SHOULD REMAIN INTACT.
 *  By using this code you agree to indemnify Arnan de Gans from any
@@ -48,7 +48,7 @@ $data = get_option("adrotate_advert_status");
 				<div id="services" class="ajdg-postbox-content">
 					<p><strong><?php _e('Support AdRotate Banner Manager', 'adrotate'); ?></strong></p>
 					<p><?php _e('Consider writing a review or making a donation if you like the plugin or if you find the plugin useful. Thanks for your support!', 'adrotate'); ?></p>
-					<center><a class="button-primary" href="https://www.paypal.me/ajdgsolutions/10eur" target="_blank">Donate &euro;10 via Paypal</a> <a class="button" target="_blank" href="https://wordpress.org/support/plugin/adrotate/reviews/?rate=5#new-post">Write review on WordPress.org</a> <a class="button" target="_blank" href="https://translate.wordpress.org/projects/wp-plugins/adrotate/">Help translate</a></center></p>
+					<center><a class="button-primary" href="https://ajdg.solutions/go/donate" target="_blank">Donate via Paypal</a> <a class="button" target="_blank" href="https://wordpress.org/support/plugin/adrotate/reviews/?rate=5#new-post">Write review on WordPress.org</a> <a class="button" target="_blank" href="https://translate.wordpress.org/projects/wp-plugins/adrotate/">Help translate</a></center></p>
 
 					<p><strong><?php _e('Plugins and services', 'adrotate'); ?></strong></p>
 					<table width="100%">
@@ -94,11 +94,9 @@ $data = get_option("adrotate_advert_status");
 			<div class="ajdg-postbox">
 				<h2 class="ajdg-postbox-title"><?php _e('News & Updates', 'adrotate'); ?></h2>
 				<div id="news" class="ajdg-postbox-content">
-					<p><center><a href="https://www.arnan.me?pk_campaign=adrotatefree&pk_keyword=info_page&pk_content=news_link" title="Visit Arnan's website" target="_blank"><img src="<?php echo plugins_url("/images/buttons/1.png", dirname(__FILE__)); ?>" alt="Arnan de Gans website" /></a><a href="https://ajdg.solutions?pk_campaign=adrotatefree&pk_keyword=info_page&pk_content=news_link" title="Visit the AJdG Solutions website" target="_blank"><img src="<?php echo plugins_url("/images/buttons/2.png", dirname(__FILE__)); ?>" alt="AJdG Solutions website" /></a><a href="https://www.twitter.com/arnandegans" title="Arnan de Gans on Twitter" target="_blank"><img src="<?php echo plugins_url("/images/buttons/4.png", dirname(__FILE__)); ?>" alt="Arnan de Gans on Twitter" /></a><a href="https://arnandegans.tumblr.com" title="AJdG Solutions on Tumblr" target="_blank"><img src="<?php echo plugins_url("/images/buttons/3.png", dirname(__FILE__)); ?>" alt="AJdG Solutions on Tumblr" /></a></center></p>
-
 					<?php wp_widget_rss_output(array(
 						'url' => 'http://ajdg.solutions/feed/', 
-						'items' => 2, 
+						'items' => 4, 
 						'show_summary' => 1, 
 						'show_author' => 0, 
 						'show_date' => 1)
@@ -151,10 +149,18 @@ $data = get_option("adrotate_advert_status");
 		<div id="right-column" class="ajdg-postbox-container">
 
 			<div class="ajdg-postbox">				
-				<h2 class="ajdg-postbox-title"><?php _e('Namecheap SSL Certificates', 'adrotate'); ?></h2>
+				<h2 class="ajdg-postbox-title">Get a SSL Certificate from Namecheap</h2>
 				<div id="namecheap" class="ajdg-postbox-content">
-					<p>With the increasing risks on the internet it's smart to earn back the trust of your visitors by installing a SSL certificate on your website. Show them that you care about their privacy with a good and solid certificate. NameCheap has plenty of affordable options for all kinds of protection. I've been a customer of NameCheap for many years - So far no complaints.</p>
+					<p>With the increasing risks on the internet it's smart to keep the trust of your visitors by installing a SSL certificate on your website. Show them that you care about their privacy with a good and solid certificate. NameCheap has plenty of affordable options for all kinds of protection. I've been a satisfied customer of NameCheap for many years.</p>
 					<p><center><a rel="nofollow" href="https://ajdg.solutions/go/namecheap/"><img src="<?php echo plugins_url("/images/offers/namecheap-ssl.jpg", dirname(__FILE__)); ?>" width="440" alt="Namecheap.com"></a></center></p>
+				</div>
+			</div>
+
+			<div class="ajdg-postbox">				
+				<h2 class="ajdg-postbox-title">Give your websites a speed boost with a VPS from Inmotion Hosting</h2>
+				<div id="namecheap" class="ajdg-postbox-content">
+					<p>A VPS is a great step up from regular hosting and it gives you a lot more room to grow your website. Whether you host many websites to save money or put your bigger wedsites on it, Inmotion Hosting is up to the task. Get more control and speed with a VPS from Inmotion Hosting. I've been using their VPS servers for several years now and have no complaints!</p>
+					<p><center><a rel="nofollow" href="https://ajdg.solutions/go/imh-vps"><img src="<?php echo plugins_url("/images/offers/inmotionhosting-vps.jpg", dirname(__FILE__)); ?>" width="440" alt="inmotionhosting.com"></a></center></p>
 				</div>
 			</div>
 

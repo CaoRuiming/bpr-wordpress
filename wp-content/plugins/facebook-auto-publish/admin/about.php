@@ -247,7 +247,7 @@ WP2Social Auto Publish is developed and maintained by <a href="https://xyzscript
 		</td>
 	</tr>
 	<tr>
-		<td>Publish multiple images to facebook, tumblr and twitter along with post content</td>
+		<td>Publish multiple images to facebook, tumblr, linkedin and twitter along with post content</td>
 		<td><img src="<?php echo plugins_url("images/cross.png",XYZ_FBAP_PLUGIN_FILE);?>">
 		</td>
 		<td><img src="<?php echo plugins_url("images/tick.png",XYZ_FBAP_PLUGIN_FILE);?>">
@@ -307,7 +307,7 @@ WP2Social Auto Publish is developed and maintained by <a href="https://xyzscript
 	<!-- Filter Options  -->
 		
 	<tr>
-	<td rowspan="7"><h4>Filter Options</h4></td>
+	<td rowspan="9"><h4>Filter Options</h4></td>
 		<td>Filter posts to publish based on categories</td>
 		<td><img src="<?php echo plugins_url("images/tick.png",XYZ_FBAP_PLUGIN_FILE);?>">
 		</td>
@@ -320,6 +320,15 @@ WP2Social Auto Publish is developed and maintained by <a href="https://xyzscript
 	<tr>
 		<td>Filter posts to publish based on custom post types</td>
 		<td><img src="<?php echo plugins_url("images/tick.png",XYZ_FBAP_PLUGIN_FILE);?>">
+		</td>
+		<td><img src="<?php echo plugins_url("images/tick.png",XYZ_FBAP_PLUGIN_FILE);?>">
+		</td>
+		<td><img src="<?php echo plugins_url("images/tick.png",XYZ_FBAP_PLUGIN_FILE);?>">
+		</td>
+	</tr>
+	<tr>
+		<td>Filter posts to publish based on sticky posts</td>
+		<td><img src="<?php echo plugins_url("images/cross.png",XYZ_FBAP_PLUGIN_FILE);?>">
 		</td>
 		<td><img src="<?php echo plugins_url("images/tick.png",XYZ_FBAP_PLUGIN_FILE);?>">
 		</td>
@@ -375,7 +384,15 @@ WP2Social Auto Publish is developed and maintained by <a href="https://xyzscript
 		<td><img src="<?php echo plugins_url("images/tick.png",XYZ_FBAP_PLUGIN_FILE);?>">
 		</td>
 	</tr>
-	
+	<tr>
+		<td>Override auto publish based on sticky posts for individual accounts</td>
+		<td><img src="<?php echo plugins_url("images/cross.png",XYZ_FBAP_PLUGIN_FILE);?>">
+		</td>
+		<td><img src="<?php echo plugins_url("images/tick.png",XYZ_FBAP_PLUGIN_FILE);?>">
+		</td>
+		<td><img src="<?php echo plugins_url("images/tick.png",XYZ_FBAP_PLUGIN_FILE);?>">
+		</td>
+	</tr>
 	<!-- Scheduling  -->
 		
 	<tr>
@@ -514,7 +531,7 @@ WP2Social Auto Publish is developed and maintained by <a href="https://xyzscript
 	<tr>
 		<td rowspan="3"><h4>Other</h4></td>
 		<td>SMAPSOLUTIONS API package for 1 year, worth 10 USD(1 fb account ,10 api calls per hour)</td>
-		<td><img src="<?php echo plugins_url("images/cross.png",XYZ_FBAP_PLUGIN_FILE);?>">
+		<td>1 months free subscription
 		</td>
 		<td>3 months free subscription
 		</td>

@@ -100,6 +100,7 @@ if( !defined('ABSPATH') ){ exit();}
 		</fieldset>
 
 	</form>
-
+<div style="padding: 5px;color: #e67939;font-size: 14px;">For publishing a simple text message, it will take 1 API call,
+	 Upload image option will take 2-3 API calls and attach link option take 1 API call(2 api calls, if enabled option for clearing cache).</div>
 </div>
 				

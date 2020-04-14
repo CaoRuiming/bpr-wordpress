@@ -544,7 +544,11 @@ function powerpress_subscribe_shortcode( $attr ) {
 		return '';
 	$Settings['itunes_url'] = powerpresssubscribe_get_itunes_url($Settings);
     if (defined('WP_DEBUG')) {
-        wp_enqueue_style('powerpress-subscribe-style-modern', plugin_dir_url(__FILE__) . 'css/subscribe.css');
+        if (WP_DEBUG) {
+            wp_enqueue_style('powerpress-subscribe-style-modern', plugin_dir_url(__FILE__) . 'css/subscribe.css');
+        } else {
+            wp_enqueue_style('powerpress-subscribe-style-modern', plugin_dir_url(__FILE__) . 'css/subscribe.min.css');
+        }
     } else {
         wp_enqueue_style('powerpress-subscribe-style-modern', plugin_dir_url(__FILE__) . 'css/subscribe.min.css');
     }
@@ -701,21 +705,21 @@ function powerpress_do_subscribe_widget($settings, $PowerPressSettings)
                 $html .= '<a href="'.  esc_url( $settings['stitcher_url'] ) .'" class="pp-sub-btn'.$settings['subscribe_widget_shape'].' pp-sub-stitcher" title="'.  esc_attr( __('Subscribe on Stitcher', 'powerpress') ) .'"><span class="pp-sub-ic"></span>'.  esc_html( __('Stitcher', 'powerpress') ) .'</a>';
             }
 
-            if( !empty($settings['subscribe_feature_iheart']) ) {
+            if( !empty($settings['iheart_url']) ) {
                 $html .= '<a href="'.  esc_url( $settings['iheart_url'] ) .'" class="pp-sub-btn'.$settings['subscribe_widget_shape'].' pp-sub-iheartradio" title="'.  esc_attr( __('Subscribe on iHeartRadio', 'powerpress') ) .'"><span class="pp-sub-ic"></span>'.  esc_html( __('iHeartRadio', 'powerpress') ) .'</a>';
             }
 
-            if( !empty($settings['subscribe_feature_pandora']) ) {
+            if( !empty($settings['pandora_url']) ) {
                 $html .= '<a href="'.  esc_url( $settings['pandora_url'] ) .'" class="pp-sub-btn'.$settings['subscribe_widget_shape'].' pp-sub-pandora" title="'.  esc_attr( __('Subscribe on Pandora', 'powerpress') ) .'"><span class="pp-sub-ic"></span>'.  esc_html( __('Pandora', 'powerpress') ) .'</a>';
             }
 
-            if( !empty($settings['subscribe_feature_deezer']) ) {
+            if( !empty($settings['deezer_url']) ) {
                 $html .= '<a href="'.  esc_url( $settings['deezer_url'] ) .'" class="pp-sub-btn'.$settings['subscribe_widget_shape'].' pp-sub-deezer" title="'.  esc_attr( __('Subscribe on Deezer', 'powerpress') ) .'"><span class="pp-sub-ic"></span>'.  esc_html( __('Deezer', 'powerpress') ) .'</a>';
             }
 
             //TODO Radio.com goes here
 
-            if( preg_match('/^(https?:\/\/)(.*)$/i', $settings['feed_url'], $matches ) ) {
+            if( preg_match('/^(https?:\/\/)(.*)$/i', $settings['feed_url'], $matches )) {
                 $email_url =  $matches[1] . 'subscribebyemail.com/' . $matches[2];
                 $html .= '<a href="'.  esc_url( $email_url ) .'" class="pp-sub-btn'.$settings['subscribe_widget_shape'].' pp-sub-email" title="'.  esc_attr( __('Subscribe by Email', 'powerpress') ) .'"><span class="pp-sub-ic"></span>'.  esc_html( __('by Email', 'powerpress') ) .'</a>';
             }

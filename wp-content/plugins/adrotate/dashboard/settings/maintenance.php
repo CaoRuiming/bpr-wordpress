@@ -1,8 +1,8 @@
 <?php
 /* ------------------------------------------------------------------------------------
 *  COPYRIGHT AND TRADEMARK NOTICE
-*  Copyright 2008-2017 Arnan de Gans. All Rights Reserved.
-*  ADROTATE is a trademark of Arnan de Gans.
+*  Copyright 2008-2020 Arnan de Gans. All Rights Reserved.
+*  ADROTATE is a registered trademark of Arnan de Gans.
 
 *  COPYRIGHT NOTICES AND ALL THE COMMENTS SHOULD REMAIN INTACT.
 *  By using this code you agree to indemnify Arnan de Gans from any
@@ -89,7 +89,7 @@
 	<tr>
 		<th valign="top"><?php _e('Background tasks', 'adrotate'); ?></th>
 		<td colspan="3">
-			<a class="button" href="admin.php?page=adrotate&tasks=1"><?php _e('Reset background tasks', 'adrotate'); ?></a>
+			<a class="button" href="admin.php?page=adrotate-settings&tab=maintenance&action=reset-tasks"><?php _e('Reset background tasks', 'adrotate'); ?></a>
 		</td>
 	</tr>
 </table>
@@ -106,7 +106,7 @@
 	<tr>
 		<th valign="top"><?php _e('Manual upgrade', 'adrotate'); ?></th>
 		<td colspan="3">
-			<a class="button" href="admin.php?page=adrotate&upgrade=1" onclick="return confirm('<?php _e('YOU ARE ABOUT TO DO A MANUAL UPDATE FOR ADROTATE.', 'adrotate'); ?>\n<?php _e('Make sure you have a database backup!', 'adrotate'); ?>\n\n<?php _e('This might take a while and may slow down your site during this action!', 'adrotate'); ?>\n\n<?php _e('OK to continue, CANCEL to stop.', 'adrotate'); ?>')"><?php _e('Run updater', 'adrotate'); ?></a>
+			<a class="button" href="admin.php?page=adrotate-settings&tab=maintenance&action=update-db" onclick="return confirm('<?php _e('YOU ARE ABOUT TO DO A MANUAL UPDATE FOR ADROTATE.', 'adrotate'); ?>\n<?php _e('Make sure you have a database backup!', 'adrotate'); ?>\n\n<?php _e('This might take a while and may slow down your site during this action!', 'adrotate'); ?>\n\n<?php _e('OK to continue, CANCEL to stop.', 'adrotate'); ?>')"><?php _e('Run updater', 'adrotate'); ?></a>
 		</td>
 	</tr>
 </table>

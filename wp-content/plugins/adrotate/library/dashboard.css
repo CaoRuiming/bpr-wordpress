@@ -28,19 +28,13 @@
 .ajdg-notification-cta { border-left: 1px solid #E5E5E5; background: #F8F8F8; padding: 0 30px; position: relative; white-space: nowrap; }
 .wp-core-ui .ajdg-notification-cta a, .wp-core-ui .ajdg-notification-cta .button-primary:active { vertical-align: middle; }
 .ajdg-notification-dismiss { background: transparent; margin-left: 20px; border: 0; cursor: pointer; color: #BBB; text-decoration: none; }
-/* Old */
-.ajdg_notification { margin:12px 0; position:relative; overflow:hidden; }
-.ajdg_notification .text { color:#000; font-size:15px; line-height:26px; margin:18px 18px 14px; float:left; width:auto; max-width:80%; }
-.ajdg_notification .text span { font-size:12px; }
-.ajdg_notification .button { float:left; border:1px solid #e2f4d2; font-size:14px; margin:18px 0 18px 16px; padding:12px 0; color:#FFF; text-shadow:none; font-weight:bold; background:#86c351; -moz-border-radius:3px; border-radius:3px; -webkit-border-radius:3px; text-decoration:none; height:50px; text-align:center; text-transform:uppercase; width:147px; box-shadow:none; line-height:26px; box-shadow: 0 2px 2px 0 rgba(0,0,0,.3); }
-.ajdg_notification .button:hover { background:#5f9d28; color:#fff; border:1px solid #e2f4d2;}
-.ajdg_notification .button_premium { border:1px solid #95c5e9; background:#1fa4d1; }
-.ajdg_notification .button_premium:hover { background:#137292; color:#fff; border:1px solid #2085d1;}
-.ajdg_notification .button_large { width:200px; }
-.ajdg_notification .text_update { color:#fff; }
-.ajdg_notification .icon { float:right; margin:12px 8px 8px 8px; }
-.ajdg_notification .close_notification { float:right; margin:8px; cursor:pointer; }
-/* - */
+
+/* Update button */
+.update-button { -webkit-animation: glowing 1500ms infinite; -moz-animation: glowing 1500ms infinite; -o-animation: glowing 1500ms infinite; animation: glowing 1500ms infinite; }
+@-webkit-keyframes glowing { 0% { -webkit-box-shadow: 0 0 3px #1fa4d1; } 50% { -webkit-box-shadow: 0 0 40px #466f82; } 100% { -webkit-box-shadow: 0 0 3px #1fa4d1; } }
+@-moz-keyframes glowing { 0% { -moz-box-shadow: 0 0 3px #1fa4d1; } 50% { -moz-box-shadow: 0 0 40px #466f82; } 100% { -moz-box-shadow: 0 0 3px #1fa4d1; } }
+@-o-keyframes glowing { 0% { box-shadow: 0 0 3px #1fa4d1; } 50% { box-shadow: 0 0 40px #466f82; } 100% { box-shadow: 0 0 3px #1fa4d1; } }
+@keyframes glowing { 0% { box-shadow: 0 0 3px #1fa4d1; } 50% { box-shadow: 0 0 40px #466f82; } 100% { box-shadow: 0 0 3px #1fa4d1; } }
 
 /* Dashboard styles */
 .ajdg-postbox-container { width: 49.5%; float: left; }

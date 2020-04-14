@@ -1,19 +1,19 @@
 <?php
 /*
-Plugin Name: AdRotate Banner Manager
+Plugin Name: AdRotate
 Plugin URI: https://ajdg.solutions/product/adrotate-banner-manager/?pk_campaign=adrotatefree&pk_keyword=plugin_info
 Author: Arnan de Gans
 Author URI: https://www.arnan.me/?pk_campaign=adrotatefree&pk_keyword=plugin_info
-Description: AdRotate Banner Manager - Monetise your website with adverts while keeping things simple. Start making money today!
+Description: Monetise your website with adverts while keeping things simple. Start making money today!
 Text Domain: adrotate
-Version: 5.6.2
+Version: 5.7.1
 License: GPLv3
 */
 
 /* ------------------------------------------------------------------------------------
 *  COPYRIGHT AND TRADEMARK NOTICE
-*  Copyright 2008-2019 Arnan de Gans. All Rights Reserved.
-*  ADROTATE is a trademark of Arnan de Gans.
+*  Copyright 2008-2020 Arnan de Gans. All Rights Reserved.
+*  ADROTATE is a registered trademark of Arnan de Gans.
 
 *  COPYRIGHT NOTICES AND ALL THE COMMENTS SHOULD REMAIN INTACT.
 *  By using this code you agree to indemnify Arnan de Gans from any
@@ -21,7 +21,7 @@ License: GPLv3
 ------------------------------------------------------------------------------------ */
 
 /*--- AdRotate values ---------------------------------------*/
-define("ADROTATE_DISPLAY", '5.6.2');
+define("ADROTATE_DISPLAY", '5.7.1');
 define("ADROTATE_VERSION", 395);
 define("ADROTATE_DB_VERSION", 65);
 $plugin_folder = plugin_dir_path(__FILE__);
@@ -49,7 +49,6 @@ $adrotate_debug	= get_option("adrotate_debug");
 /*--- Core --------------------------------------------------*/
 register_activation_hook(__FILE__, 'adrotate_activate');
 register_deactivation_hook(__FILE__, 'adrotate_deactivate');
-register_uninstall_hook(__FILE__, 'adrotate_uninstall');
 add_action('adrotate_evaluate_ads', 'adrotate_evaluate_ads');
 add_action('adrotate_empty_trackerdata', 'adrotate_empty_trackerdata');
 add_action('widgets_init', 'adrotate_widget');
@@ -490,6 +489,11 @@ function adrotate_options() {
     $active_tab = (isset($_GET['tab'])) ? esc_attr($_GET['tab']) : 'general';
 	$status = (isset($_GET['status'])) ? esc_attr($_GET['status']) : '';
 	$error = (isset($_GET['error'])) ? esc_attr($_GET['error']) : '';
+
+
+	$action = (isset($_GET['action'])) ? esc_attr($_GET['action']) : '';
+	if($action == 'update-db') adrotate_check_upgrade();
+	if($action == 'reset-tasks') adrotate_check_schedules();
 	?>
 
 	<div class="wrap">

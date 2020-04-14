@@ -59,11 +59,17 @@ function powerpress_admin_migrate_get_files($clean=false, $exclude_blubrry=true)
 				
 				if( $exclude_blubrry && strstr($EpisodeData['url'], 'content.blubrry.com') )
 					continue; // Skip media hosted on blubrry in this case
-					
+
+                if( $exclude_blubrry && strstr($EpisodeData['url'], 'ins.blubrry.com') )
+                    continue; // Skip media hosted on blubrry in this case
+
+                if( $exclude_blubrry && strstr($EpisodeData['url'], 'protected.blubrry.com') )
+                    continue; // Skip media hosted on blubrry in this case
+
 				if( !$clean )
 					$return[$meta_id] = $row;
 				if( !$exclude_blubrry )
-					$return[$meta_id]['on_blubrry'] = ( strstr($EpisodeData['url'], 'content.blubrry.com') );
+					$return[$meta_id]['on_blubrry'] = ( preg_match('/(ins|protected|content)\.blubrry\.com/i',$EpisodeData['url']) == 1 );
 				$return[$meta_id]['src_url'] = $EpisodeData['url'];
 			}
 		}

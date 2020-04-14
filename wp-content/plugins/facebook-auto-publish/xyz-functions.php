@@ -62,11 +62,10 @@ if(!function_exists('xyz_fbap_links')){
 
 
 if(!function_exists('xyz_fbap_string_limit')){
-function xyz_fbap_string_limit($string, $limit) {
-
+	function xyz_fbap_string_limit($string, $limit) 
+	{
 	$space=" ";$appendstr=" ...";
-	
-	if (function_exists('mb_strlen')) {
+		if (function_exists('mb_strlen') && function_exists('mb_substr') && function_exists('mb_strripos')) {
 		if(mb_strlen($string) <= $limit) return $string;
 		if(mb_strlen($appendstr) >= $limit) return '';
 		$string = mb_substr($string, 0, $limit-mb_strlen($appendstr));
@@ -239,8 +238,39 @@ if(!function_exists('xyz_fbap_post_to_smap_api'))
 				curl_setopt ($ch, CURLOPT_SSL_VERIFYPEER,(get_option('xyz_fbap_peer_verification')=='1') ? true : false);
 				$content = curl_exec($ch);
 				curl_close($ch);
+				if (empty($content))
+				{
+					if ($url==XYZ_SMAP_SOLUTION_PUBLISH_URL.'api/facebook.php')
+					$response=array('status'=>0,'fb_api_count'=>0,'msg'=>'Error:unable to connect');
+					$content=json_encode($response);
+				}
 				return $content;
 			}
 		}
+}
+if (!function_exists("xyz_fbap_clear_open_graph_cache")) {
+	function xyz_fbap_clear_open_graph_cache($url,$access_tocken,$appid,$appsecret) {
+		$fb=new Facebook\Facebook(array(
+				'app_id'  => $appid,
+				'app_secret' => $appsecret,
+				'default_graph_version' => XYZ_FBAP_FB_API_VERSION,
+				'cookie' => true
+		));
+		try {
+			$params = array(
+					'id' => $url,
+					'scrape' => 'true',
+					'access_token' => $access_tocken
+			);
+			$response = $fb->post('/', $params);
+			return $response;
+		} catch(\Facebook\Exceptions\FacebookResponseException $e) {
+			// When Graph returns an error
+			return 'Graph returned an error: ' . $e->getMessage();
+		} catch(\Facebook\Exceptions\FacebookSDKException $e) {
+			// When validation fails or other local issues
+			return 'Facebook SDK returned an error: ' . $e->getMessage();
+		}
+	}
 }
 ?>

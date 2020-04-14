@@ -282,6 +282,7 @@ function xyz_fbap_link_publish($post_ID) {
 
 			$xyz_fbap_pages_ids1=explode(",",$xyz_fbap_pages_ids);
 			}
+			$xyz_fbap_clear_fb_cache=get_option('xyz_fbap_clear_fb_cache');
 
 			foreach ($xyz_fbap_pages_ids1 as $key=>$value)
 			{
@@ -299,6 +300,10 @@ function xyz_fbap_link_publish($post_ID) {
 						'app_secret' => $appsecret,
 						'cookie' => true
 				));
+				}
+				if($xyz_fbap_clear_fb_cache==1 && $xyz_fbap_app_sel_mode== 0 && ($posting_method==1 || $posting_method==2))
+				{
+					xyz_fbap_clear_open_graph_cache($link,$acces_token,$appid,$appsecret);
 				}
 				$message1=str_replace('{POST_TITLE}', $name, $message);
 				$message2=str_replace('{BLOG_TITLE}', $caption,$message1);
@@ -464,7 +469,8 @@ function xyz_fbap_link_publish($post_ID) {
 											'xyz_smap_app_name'=>$app_name,
 								    		//'xyz_smap_secret_key' =>$xyz_fbap_secret_key,
 								    		'xyz_fb_numericid' => $xyz_fbap_fb_numericid,
-					    					'xyz_smap_xyzscripts_userid'=>$xyz_fbap_xyzscripts_userid
+					    					'xyz_smap_xyzscripts_userid'=>$xyz_fbap_xyzscripts_userid,
+					    					'xyz_smap_clear_fb_cache'=>$xyz_fbap_clear_fb_cache
 						);
 					    $url=XYZ_SMAP_SOLUTION_PUBLISH_URL.'api/facebook.php';
 						$result_smap_solns=xyz_fbap_post_to_smap_api($post_details,$url,$xyz_fbap_secret_key);

@@ -3,7 +3,7 @@
  Plugin Name: WP2Social Auto Publish
 Plugin URI: https://xyzscripts.com/wordpress-plugins/facebook-auto-publish/
 Description:   Publish posts automatically from your blog to Facebook social media. You can publish your posts to Facebook as simple text message, text message with image or as attached link to your blog. The plugin supports filtering posts by custom post-types and categories.
-Version: 2.3
+Version: 2.3.1
 Author: xyzscripts.com
 Author URI: https://xyzscripts.com/
 License: GPLv2 or later
@@ -61,7 +61,7 @@ if(get_option('xyz_credit_link')=="fbap"){
 
 }
 function xyz_fbap_credit() {
-	$content = '<div style="clear:both;width:100%;text-align:center; font-size:11px; "><a target="_blank" title="WP2Social Auto Publish" href="https://xyzscripts.com/wordpress-plugins/facebook-auto-publish/details" >WP2Social Auto Publish</a> Powered By : <a target="_blank" title="PHP Scripts & Programs" href="http://www.xyzscripts.com" >XYZScripts.com</a></div>';
+	$content = '<div style="clear:both;width:100%;text-align:center; font-size:11px; "><a target="_blank" title="WP2Social Auto Publish" href="https://xyzscripts.com/wordpress-plugins/facebook-auto-publish/compare" >WP2Social Auto Publish</a> Powered By : <a target="_blank" title="PHP Scripts & Programs" href="http://www.xyzscripts.com" >XYZScripts.com</a></div>';
 	echo $content;
 }
 if(!function_exists('get_post_thumbnail_id'))

@@ -1,8 +1,8 @@
 <?php
 /* ------------------------------------------------------------------------------------
 *  COPYRIGHT AND TRADEMARK NOTICE
-*  Copyright 2008-2017 Arnan de Gans. All Rights Reserved.
-*  ADROTATE is a trademark of Arnan de Gans.
+*  Copyright 2008-2020 Arnan de Gans. All Rights Reserved.
+*  ADROTATE is a registered trademark of Arnan de Gans.
 
 *  COPYRIGHT NOTICES AND ALL THE COMMENTS SHOULD REMAIN INTACT.
 *  By using this code you agree to indemnify Arnan de Gans from any
@@ -68,7 +68,7 @@ function adrotate_activate_setup() {
 			add_option('adrotate_dynamic_required', 0);
 			update_option('adrotate_hide_getpro', adrotate_now() + (14 * DAY_IN_SECONDS));
 			update_option('adrotate_hide_review', adrotate_now());
-			update_option('adrotate_hide_competition', adrotate_now());
+			update_option('adrotate_hide_birthday', adrotate_now());
 	
 			// Install new database
 			adrotate_database_install();
@@ -84,9 +84,7 @@ function adrotate_activate_setup() {
 			$role->add_cap("adrotate_group_delete");
 	
 			// Switch additional roles off
-			if(is_object(get_role('adrotate_advertiser'))) {
-				adrotate_prepare_roles('remove');
-			}
+			remove_role('adrotate_advertiser');
 
 			// Attempt to make the some folders
 			if(!is_dir(WP_CONTENT_DIR.'/banners')) mkdir(WP_CONTENT_DIR.'/banners', 0755);
@@ -101,7 +99,21 @@ function adrotate_activate_setup() {
  Since:		2.0
 -------------------------------------------------------------*/
 function adrotate_deactivate($network_wide) {
-    adrotate_network_propagate('adrotate_deactivate_setup', $network_wide);
+	global $wpdb; 
+
+	if(is_multisite()) {
+		$blog_ids = $wpdb->get_col("SELECT blog_id FROM $wpdb->blogs");	
+	
+		if($blog_ids) {	
+			foreach($blog_ids as $blog_id) {
+				switch_to_blog($blog_id);
+				adrotate_deactivate_setup();
+				restore_current_blog();
+			}
+		}
+	} else {
+		adrotate_deactivate_setup();
+	}
 }
 
 /*-------------------------------------------------------------
@@ -110,112 +122,23 @@ function adrotate_deactivate($network_wide) {
  Since:		2.0
 -------------------------------------------------------------*/
 function adrotate_deactivate_setup() {
-	// Clear out roles
-	if(is_object(get_role('adrotate_advertiser'))) {
-		adrotate_prepare_roles('remove');
-	}
+	global $wp_roles;
 
 	update_option('adrotate_hide_getpro', adrotate_now() + (14 * DAY_IN_SECONDS));
 	update_option('adrotate_hide_review', adrotate_now());
-	update_option('adrotate_hide_competition', adrotate_now());
 
 	// Clean up capabilities from ALL users
-	adrotate_remove_capability("adrotate_ad_manage");
-	adrotate_remove_capability("adrotate_ad_delete");
-	adrotate_remove_capability("adrotate_group_manage");
-	adrotate_remove_capability("adrotate_group_delete");
+	$editable_roles = apply_filters('editable_roles', $wp_roles->roles);	
+	foreach($editable_roles as $role => $details) {
+		$wp_roles->remove_cap($details['name'], "adrotate_ad_manage");
+		$wp_roles->remove_cap($details['name'], "adrotate_ad_delete");
+		$wp_roles->remove_cap($details['name'], "adrotate_group_manage");
+		$wp_roles->remove_cap($details['name'], "adrotate_group_delete");
+	}
 
 	// Clear out wp_cron
-	wp_clear_scheduled_hook('adrotate_notification');
 	wp_clear_scheduled_hook('adrotate_evaluate_ads');
 	wp_clear_scheduled_hook('adrotate_empty_trackerdata');
-}
-
-/*-------------------------------------------------------------
- Name:      adrotate_uninstall
- Purpose:   Initiate uninstallation
- Since:		2.4.2
--------------------------------------------------------------*/
-function adrotate_uninstall($network_wide) {
-    adrotate_network_propagate('adrotate_uninstall_setup', $network_wide);
-}
-
-/*-------------------------------------------------------------
- Name:      adrotate_uninstall
- Purpose:   Delete the entire AdRotate database and remove the options on uninstall
- Since:		2.4.2
--------------------------------------------------------------*/
-function adrotate_uninstall_setup() {
-	global $wpdb, $wp_roles;
-
-	// Clean up roles and scheduled tasks
-	adrotate_deactivate_setup();
-
-	// Drop MySQL Tables
-	$wpdb->query("DROP TABLE IF EXISTS `{$wpdb->prefix}adrotate`");
-	$wpdb->query("DROP TABLE IF EXISTS `{$wpdb->prefix}adrotate_groups`");
-	$wpdb->query("DROP TABLE IF EXISTS `{$wpdb->prefix}adrotate_linkmeta`");
-	$wpdb->query("DROP TABLE IF EXISTS `{$wpdb->prefix}adrotate_stats`");
-	$wpdb->query("DROP TABLE IF EXISTS `{$wpdb->prefix}adrotate_stats_archive`");
-	$wpdb->query("DROP TABLE IF EXISTS `{$wpdb->prefix}adrotate_schedule`");
-	$wpdb->query("DROP TABLE IF EXISTS `{$wpdb->prefix}adrotate_transactions`");
-	$wpdb->query("DROP TABLE IF EXISTS `{$wpdb->prefix}adrotate_tracker`");
-
-	// Delete Options	
-	delete_option('adrotate_activate');
-	delete_option('adrotate_config');
-	delete_option('adrotate_crawlers');
-
-	delete_option('adrotate_version');
-	delete_option('adrotate_db_version');
-	delete_option('adrotate_db_timer');
-	delete_option('adrotate_debug');
-
-	delete_option('adrotate_geo_required');
-	delete_option('adrotate_geo_requests');
-	delete_option('adrotate_geo_reset');
-
-	delete_option('adrotate_group_css');
-	delete_option('adrotate_header_output');
-	delete_option('adrotate_dynamic_required');
-
-	delete_option('adrotate_hide_license');
-	delete_option('adrotate_hide_banner'); // Obsolete
-	delete_option('adrotate_hide_review');
-	delete_option('adrotate_hide_competition');
-	delete_option('adrotate_hide_getpro');
-	delete_option('adrotate_hide_premium'); // Obsolete
-	delete_option('adrotate_hide_premium_2'); // Obsolete
-	delete_option('adrotate_hide_premium_3'); // Obsolete
-	delete_option('adrotate_hide_translate'); // Obsolete
-	delete_option('adrotate_hide_translation'); // Obsolete
-	delete_option('adrotate_advert_status');
-	delete_option('adrotate_notifications');
-
-	// Clear out userroles
-	remove_role('adrotate_advertiser');
-}
-
-/*-------------------------------------------------------------
- Name:      adrotate_network_propagate
- Purpose:   Check how many sites use AdRotate
- Since:		3.9.9
--------------------------------------------------------------*/
-function adrotate_network_propagate($pfunction, $network_wide) {
-    global $wpdb;
- 
-    if(is_multisite() && $network_wide) {
-        $current_blog = $wpdb->blogid;
-        // Get all blog ids
-        $blogids = $wpdb->get_col("SELECT `blog_id` FROM $wpdb->blogs;");
-        foreach ($blogids as $blog_id) {
-            switch_to_blog($blog_id);
-            call_user_func($pfunction, $network_wide);
-        }
-        switch_to_blog($current_blog);
-        return;
-    } 
-    call_user_func($pfunction, $network_wide);
 }
 
 /*-------------------------------------------------------------
@@ -300,48 +223,6 @@ function adrotate_check_config() {
 	if(!isset($debug['timers'])) $debug['timers'] = false;
 	if(!isset($debug['track'])) $debug['track'] = false;
 	update_option('adrotate_debug', $debug);
-}
-
-/*-------------------------------------------------------------
- Name:      adrotate_check_competition
- Purpose:   Checks if WP has other advertising plugins installed
- Since:		3.21
--------------------------------------------------------------*/
-function adrotate_check_competition() {
-	
-	$compatible_plugins = array(
-		'ad-injection/ad-injection.php', 
-		'adkingpro/adkingpro.php', 
-//		'advanced-advertising-system/advanced_advertising_system.php',
-//		'advert/advert.php',
-		'advertising-manager/advertising-manager.php',
-		'bannerman/bannerman.php',
-//		'easy-ads-manager/easy-ads-manager.php',
-//		'easy-adsense-injection/easy-adsense-injection.php',
-//		'max-adsense/adsense.php',
-//		'random-banners/random-banners.php',
-		'simple-ads-manager/simple-ads-manager.php',
-		'useful-banner-manager/useful-banner-manager.php',
-		'wp-advertize-it/bootstrap.php',
-		'wp-bannerize/main.php',
-		'wp-ad-manager/ad-minister.php',
-		'wp125/wp125.php',
-	);
-
-	if(!function_exists('get_plugins')) {
-		require_once ABSPATH . 'wp-admin/includes/plugin.php';
-	}
-	$installed_plugins = get_plugins();
-
-	$compatible = array();
-	foreach($installed_plugins as $slug => $plugin) {
-		if(in_array($slug, $compatible_plugins)) {
-			$compatible[$slug] = $plugin['Title'].' v'.$plugin['Version'];
-		}
-	}
-	unset($installed_plugins, $compatible_plugins, $status);
-
-	return $compatible;
 }
 
 /*-------------------------------------------------------------

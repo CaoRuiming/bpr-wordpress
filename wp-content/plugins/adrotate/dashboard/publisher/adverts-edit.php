@@ -1,8 +1,8 @@
 <?php
 /* ------------------------------------------------------------------------------------
 *  COPYRIGHT AND TRADEMARK NOTICE
-*  Copyright 2008-2019 Arnan de Gans. All Rights Reserved.
-*  ADROTATE is a trademark of Arnan de Gans.
+*  Copyright 2008-2020 Arnan de Gans. All Rights Reserved.
+*  ADROTATE is a registered trademark of Arnan de Gans.
 
 *  COPYRIGHT NOTICES AND ALL THE COMMENTS SHOULD REMAIN INTACT.
 *  By using this code you agree to indemnify Arnan de Gans from any
@@ -135,7 +135,8 @@ if($edit_banner) {
 	      	<tr>
 		        <th valign="top"><?php _e('Useful tags', 'adrotate'); ?></th>
 		        <td colspan="2">
-			        <p><em><a href="#" title="<?php _e('Insert the advert ID Number.', 'adrotate'); ?>" onclick="textatcursor('adrotate_bannercode','%id%');return false;">%id%</a>, <a href="#" title="<?php _e('Required when selecting a asset below.', 'adrotate'); ?>" onclick="textatcursor('adrotate_bannercode','%asset%');return false;">%asset%</a>, <a href="#" title="<?php _e('Insert the advert name.', 'adrotate'); ?>" onclick="textatcursor('adrotate_bannercode','%title%');return false;">%title%</a>, <a href="#" title="<?php _e('Insert a random seed. Useful for DFP/DoubleClick type adverts.', 'adrotate'); ?>" onclick="textatcursor('adrotate_bannercode','%random%');return false;">%random%</a>, <a href="#" title="<?php _e('Add inside the <a> tag to open advert in a new window.', 'adrotate'); ?>" onclick="textatcursor('adrotate_bannercode','target=&quot;_blank&quot;');return false;">target="_blank"</a>, <a href="#" title="<?php _e('Add inside the <a> tag to tell crawlers to ignore this link', 'adrotate'); ?>" onclick="textatcursor('adrotate_bannercode','rel=&quot;nofollow&quot;');return false;">rel="nofollow"</a></em><br /><?php _e('Place the cursor in your AdCode where you want to add any of these tags and click to add it.', 'adrotate'); ?></p>
+			        <span class="description"><a href="#" onclick="textatcursor('adrotate_bannercode','%id%');return false;"><span class="ajdg-tooltip">%id%<span class="ajdg-tooltiptext ajdg-tooltip-top"><?php _e('Insert the advert ID Number.', 'adrotate-pro'); ?></span></span></a> <a href="#" onclick="textatcursor('adrotate_bannercode','%asset%');return false;"><span class="ajdg-tooltip">%asset%<span class="ajdg-tooltiptext ajdg-tooltip-top"><?php _e('Use this tag when selecting a image below.', 'adrotate-pro'); ?></span></span></a> <a href="#" onclick="textatcursor('adrotate_bannercode','%title%');return false;"><span class="ajdg-tooltip">%title%<span class="ajdg-tooltiptext ajdg-tooltip-top"><?php _e('Insert the advert name.', 'adrotate-pro'); ?></span></span></a> <a href="#" onclick="textatcursor('adrotate_bannercode','%random%');return false;"><span class="ajdg-tooltip">%random%<span class="ajdg-tooltiptext ajdg-tooltip-top"><?php _e('Insert a random string. Useful for DFP/DoubleClick type adverts.', 'adrotate-pro'); ?></span></span></a> <a href="#" onclick="textatcursor('adrotate_bannercode','target=&quot;_blank&quot;');return false;"><span class="ajdg-tooltip">target="_blank"<span class="ajdg-tooltiptext ajdg-tooltip-top"><?php _e('Add inside the &lt;a&gt; tag to open the advert in a new window.', 'adrotate-pro'); ?></span></span></a> <a href="#" onclick="textatcursor('adrotate_bannercode','rel=&quot;nofollow&quot;');return false;"><span class="ajdg-tooltip">rel="nofollow"<span class="ajdg-tooltiptext ajdg-tooltip-top"><?php _e('Add inside the &lt;a&gt; tag to tell crawlers to ignore this link.', 'adrotate-pro'); ?></span></span></a></em><br />
+			        <?php _e('Place the cursor where you want to add a tag and click to add it to your AdCode.', 'adrotate-pro'); ?></p>
 		        </td>
 	      	</tr>
 		  	<?php if($edit_banner->type != 'empty') { ?>
@@ -162,7 +163,7 @@ if($edit_banner) {
 							$assets = adrotate_dropdown_folder_contents(WP_CONTENT_DIR."/".$adrotate_config['banner_folder'], array('jpg', 'jpeg', 'gif', 'png', 'html', 'htm'));
 							foreach($assets as $key => $option) {
 								echo "<option value=\"$option\"";
-								if($image_dropdown == WP_CONTENT_URL."/%folder%/".$option) { echo " selected"; }
+								if($image_dropdown == WP_CONTENT_URL."/banners/".$option) { echo " selected"; }
 								echo ">$option</option>";
 							}
 							?>
@@ -235,11 +236,11 @@ if($edit_banner) {
 		<table class="widefat" style="margin-top: .5em">
 			<tbody>
 			<tr>
-		        <th width="15%"><?php _e('Start date', 'adrotate'); ?> (dd-mmm-yyyy)</th>
+		        <th width="15%"><?php _e('Start date', 'adrotate'); ?> (dd-mm-yyyy)</th>
 		        <td width="35%">
 					<input tabindex="9" type="text" id="startdate_picker" name="adrotate_start_date" value="<?php echo $start_date; ?>" class="datepicker ajdg-inputfield" autocomplete="off" />
 		        </td>
-		        <th width="15%"><?php _e('End date', 'adrotate'); ?> (dd-mmm-yyyy)</th>
+		        <th width="15%"><?php _e('End date', 'adrotate'); ?> (dd-mm-yyyy)</th>
 		        <td>
 					<input tabindex="10" type="text" id="enddate_picker" name="adrotate_end_date" value="<?php echo $end_date; ?>" class="datepicker ajdg-inputfield" autocomplete="off" />
 				</td>

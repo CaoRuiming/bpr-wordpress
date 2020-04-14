@@ -47,7 +47,7 @@ if(isset($_POST['fb']))
 	if(isset($_POST['fbap_pages_list']))
 	$ss=$_POST['fbap_pages_list'];
 	
-	$fbap_pages_list_ids="";$xyz_fbap_enforce_og_tags=0;
+	$fbap_pages_list_ids="";$xyz_fbap_enforce_og_tags=$xyz_fbap_clear_fb_cache=0;
 
 
 	if(!empty($ss))//$ss!="" && count($ss)>0
@@ -77,6 +77,7 @@ if(isset($_POST['fb']))
 	$appsecret=sanitize_text_field($_POST['xyz_fbap_application_secret']);
 	}
 	$xyz_fbap_enforce_og_tags=intval($_POST['xyz_fbap_enforce_og_tags']);
+	$xyz_fbap_clear_fb_cache=intval($_POST['xyz_fbap_clear_fb_cache']);
 	$messagetopost=$_POST['xyz_fbap_message'];
 	if($app_name=="" && $posting_permission==1)
 	{
@@ -118,6 +119,7 @@ if(isset($_POST['fb']))
 		update_option('xyz_fbap_po_method',$posting_method);
 		update_option('xyz_fbap_message',$messagetopost);
 		update_option('xyz_fbap_enforce_og_tags', $xyz_fbap_enforce_og_tags);
+		update_option('xyz_fbap_clear_fb_cache', $xyz_fbap_clear_fb_cache);
 	}
 }
 if(isset($_POST['fb']) && $erf==0)
@@ -401,6 +403,13 @@ function dethide_fbap(id)
 					</td>
 				</tr>
 				
+				<tr valign="top">
+					<td>Clear facebook cache before publishing to facebook</td>
+					<td  class="switch-field">
+						<label id="xyz_fbap_clear_fb_cache_yes" class="xyz_fbap_toggle_off"><input type="radio" name="xyz_fbap_clear_fb_cache" value="1" <?php  if(get_option('xyz_fbap_clear_fb_cache')==1) echo 'checked';?>/>Yes</label>
+						<label id="xyz_fbap_clear_fb_cache_no" class="xyz_fbap_toggle_on"><input type="radio" name="xyz_fbap_clear_fb_cache" value="0" <?php  if(get_option('xyz_fbap_clear_fb_cache')==0) echo 'checked';?>/>No</label>
+					</td>
+				</tr>
 				<tr valign="top">
 					<td>Message format for posting <img src="<?php echo $heimg?>"
 						onmouseover="detdisplay_fbap('xyz_fb')" onmouseout="dethide_fbap('xyz_fb')" style="width:13px;height:auto;">
@@ -869,7 +878,7 @@ jQuery(document).ready(function() {
 
    var fbap_toggle_element_ids=['xyz_fbap_post_permission','xyz_fbap_include_pages',
 	   'xyz_fbap_include_posts',
-	   'xyz_fbap_peer_verification','xyz_fbap_premium_version_ads','xyz_fbap_enforce_og_tags'];
+	   'xyz_fbap_peer_verification','xyz_fbap_premium_version_ads','xyz_fbap_enforce_og_tags','xyz_fbap_clear_fb_cache'];
    jQuery.each(fbap_toggle_element_ids, function( index, value ) {
 		   checkedval= jQuery("input[name='"+value+"']:checked").val();
 			   XyzFbapToggleRadio(checkedval,value); 
@@ -970,7 +979,7 @@ jQuery("#select_all_pages").click(function(){
 
 var fbap_toggle_element_ids=['xyz_fbap_post_permission','xyz_fbap_include_pages',
 	'xyz_fbap_include_posts',
-	'xyz_fbap_peer_verification','xyz_credit_link','xyz_fbap_premium_version_ads','xyz_fbap_include_categories','xyz_fbap_enforce_og_tags'];
+	'xyz_fbap_peer_verification','xyz_credit_link','xyz_fbap_premium_version_ads','xyz_fbap_include_categories','xyz_fbap_enforce_og_tags','xyz_fbap_clear_fb_cache'];
 
 jQuery.each(fbap_toggle_element_ids, function( index, value ) {
 	jQuery("#"+value+"_no").click(function(){
