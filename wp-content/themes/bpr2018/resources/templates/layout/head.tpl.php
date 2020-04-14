@@ -40,14 +40,6 @@
                   placeholder="Search…"
                   style="background-image: url(<?php echo $search_icon_url ?>)"
                 >
-                <input
-                  id="dark"
-                  class="header-search-box"
-                  type="text"
-                  name="s"
-                  placeholder="Search…"
-                  style="background-image: url(<?php echo $search_icon_url_dark ?>)"
-                >
               </form>
               <form
                 id="header-search-dark"
