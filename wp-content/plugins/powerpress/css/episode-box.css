@@ -67,6 +67,7 @@ div[class^="pp-tooltip"] .text-pp-tooltip::after {
     font-size: 16px;
     overflow: hidden;
     border-bottom: 1px solid #EFEFEF;
+    border-top: 1px solid #EFEFEF;
     width: 100%;
 }
 
@@ -186,7 +187,9 @@ div[id^="pp-pos-label"], div[id^="pp-type-label"] {
 
 div[id^="select-media-file"] {
     vertical-align: top;
-    padding-top: 2vh;
+    padding-top: 1vh;
+    padding-left: 10px;
+    float: right;
 }
 
 a[id^="pp-change-media-link"], div[id^="save-media"] {
@@ -200,7 +203,7 @@ select[id^="powerpress_category_"] {
 }
 
 div[id^="pp-category-dropdown-"] {
-    margin: 1em 1em 0 3em;
+    margin: 1em 1em 0 1em;
 }
 
 .pp-ep-box-input.pp-width {
@@ -214,7 +217,7 @@ div[id^="pp-category-dropdown-"] {
 
 div[id^="apple-podcast-opt"] {
     border-radius: 4px;
-    background-color: #F5F5F5;
+    background-color: #F1F4F9;
     padding: 3%;
     width: 90%;
     margin-bottom: 5vh;
@@ -233,7 +236,6 @@ div[id^="ep-info-not-apple"] {
     font-size: 16px;
     font-weight: 500;
     padding: 1ch 2em 1ch 2em;
-    margin-right: 1em;
     cursor: pointer;
     text-align: center;
 }
@@ -245,9 +247,9 @@ div[id^="ep-info-not-apple"] {
     display: inline-block;
     border-radius: 4px;
     font-family: Roboto, sans-serif;
-    font-size: 16px;
-    font-weight: bold;
-    padding: 1ch 2em 1ch 2em;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 0.5ch 1em 0.5ch 1em;
     margin-right: 1em;
     cursor: pointer;
     text-align: center;
@@ -302,22 +304,19 @@ h3[id^="pp-pp-selected-media-head"] {
     font-weight: bold;
     letter-spacing: -0.06px;
     line-height: 24px;
-    margin-left: 2em;
-    margin-bottom: 1ch;
+    margin: 0;
 }
 
 div[id^="pp-edit-media-button"] {
     text-align: center;
-    padding: 1ch 2em 1ch 2em;
 }
 
 div[id^="a-pp-selected-media"], .powerpress_remove_container {
-    padding: 0 2em 2em 2em;
-    background-color: #F5F5F5;
+    padding: 1em 2em 0 2em;
 }
 
 div[class="powerpress_remove_container"] {
-    padding: 0 4em;
+    padding: 0 2ch;
 }
 
 div[class^="metamark-preview-"] {
@@ -356,10 +355,8 @@ div[id^="explicit-switch-base"] {
 }
 
 div[id^="pp-selected-media-text"] {
-    max-width: 50%;
     width: 100%;
     display: inline-block;
-    margin: 0 1em 0 3em;
 }
 
 .powerpress_podcast_box, #episode-box-container {
@@ -368,7 +365,9 @@ div[id^="pp-selected-media-text"] {
 
 div[id^="pp-change-media-file"] {
     vertical-align: top;
-    margin-top: 3em;
+    margin-top: 1vh;
+    margin-left: 10px;
+    float: right;
 }
 
 div[class^="ep-box-line"] {
@@ -403,6 +402,33 @@ div[class="ep-box-line-bold"] {
     display: none;
 }
 
+div[id^="ep-box-blubrry-connect-"] {
+    background-color: #f1f4f9;
+    margin-top: 1em;
+    width: 98%;
+    padding: 1em 1ch;
+}
+
+div[id^="ep-box-blubrry-connected-"] {
+    margin-left: 1em;
+    margin-top: 1em;
+    width: 98%;
+    padding: 1em 1ch;
+}
+
+.ep-box-blubrry-icon {
+    display: inline-block;
+    width: 2em;
+    vertical-align: top;
+    margin-left: 1em;
+    margin-top: 1ch;
+}
+
+.ep-box-blubrry-info-container {
+    display: inline-block;
+    max-width: calc(100% - 320px);
+}
+
 img[id^="pp-image-preview"] {
     width: 16vh;
     height: 16vh;
@@ -426,6 +452,14 @@ img[id^="poster-pp-image-preview"] {
     display: inline-block;
 }
 
+div[id^="ep-box-filename-container"] {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 85%;
+    overflow: hidden;
+    display: inline-block;
+}
+
 p[id^="ep-box-filename"] {
     color: #6B6C6F;
     font-family: Roboto, sans-serif;
@@ -440,21 +474,73 @@ div[id^="pp-warning-messages"] {
     margin-left: 3em;
 }
 
-div[id^="media-details-container"] {
-    margin-top: 2ch;
-    margin-bottom: 2ch;
+div[id^="pp-connect-account-"], div[id^="pp-cancel-container"] {
+    display: inline-block;
+}
+
+div[id^="pp-cancel-container-"] {
+    float: right;
+    margin-right: 2em;
+}
+
+div[id^="hidden-media-details-"] {
+    padding: 1em;
+    margin-top: 2em;
+    background-color: #f1f4f9;
+}
+
+div[class^="details-"] {
+    display: inline-block;
+    font-family: Roboto, sans-serif;
+}
+
+.details-specify {
+    width: 45%;
+}
+
+.details-not-specified, .details-auto-detect {
+    width: 25%;
+}
+
+div[id^="media-input-"] {
+    margin-top: 1ch;
+}
+
+.pp-media-edit-details {
+    color: #2C65DB;
+    font-family: Roboto Medium, sans-serif;
+    font-size: 12px;
+    line-height: 22px;
+    cursor: pointer;
+    border: none;
+    box-shadow: none;
+    background-color: #F1F4F9;
+    text-decoration: none;
 }
 
 button.media-details, button.apple-advanced {
-    color: #0c74d5;
-    font-family: Roboto, sans-serif;
-    font-size: 14px;
-    font-weight: bold;
+    color: #2C65DB;
+    font-family: Roboto Medium, sans-serif;
+    font-size: 12px;
     line-height: 22px;
     cursor: pointer;
     border: none;
     box-shadow: none;
     background-color: #F5F5F5;
+    font-weight: bold;
+}
+
+button.media-details {
+    background-color: #ffffff;
+}
+
+.media-details-head {
+    color: #3e3f42;
+    font-weight: bold;
+    font-family: Roboto Medium, sans-serif;
+    font-size: 14px;
+    line-height: 22px;
+    margin: 0 1em;
 }
 
 input[id^="powerpress_size"] {
@@ -473,37 +559,60 @@ div[id^="media-file-details"] {
     width: 100%;
 }
 
-.media-details {
-    margin: 0 3em 0 3em;
-    font-weight: 500;
-}
-
 .pp-detail-section {
-    margin: 2ch 6em 2ch 6em;
+    margin: 0 1em 2ch 1em;
 }
 
 .details-auto-detect {
-    font-family: Roboto, sans-serif;
-    display: inline-block;
     width: 30%
 }
 
 .details-specify {
-    font-family: Roboto, sans-serif;
-    display: inline-block;
     width: 43%;
 }
 
 .details-not-specified {
-    font-family: Roboto, sans-serif;
-    display: inline-block;
     width: 25%;
 }
 
-a[id^="select-media-link"], a[id^="pp-change-media-link"] {
+.blubrry-connect-info {
+    margin: 0 1ch;
+}
+
+h4.blubrry-connect-info {
+    color: #3E3F42;
+    font-family: Roboto, sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 20px;
+}
+
+p.blubrry-connect-info {
+    font-size: 14px;
+    margin-bottom: 0;
+}
+
+a[id^="ep-box-connect-account"], a[id^="pp-change-media-link"] {
     text-decoration: none;
     display: inline-block;
-    width: 27ch;
+    width: 35ch;
+    margin-right: 1em;
+}
+
+div[id^="ep-box-connect-account-button-"], div[id^="change-media-button"] {
+    border-radius: 4px;
+    border: 1px solid #969696;
+    color: #0c74d5;
+    padding: 1ch 2em 1ch 2em;
+    margin-right: 1em;
+    text-align: center;
+    font-family: Roboto, sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+a[id^="ep-box-connect-account"], div[id^="ep-box-connect-account-button-"], a[id^="pp-change-media-link"], div[id^="change-media-button"] {
+    float: right;
 }
 
 input[class="media-details-radio"] {
@@ -593,16 +702,9 @@ div[id^="pp-url-input-container-"] {
     width: 100%;
 }
 
-label[id^="pp-url-input-above"] {
-    position: relative;
-    top: 8px;
-    background-color: #f5f5f5;
-    padding: 0 3px 0 3px;
-}
-
-.pp-url-input-label {
-    color: #0c74d5;
-    margin-left: 10px;
+div[id^="pp-url-input-label-container"] {
+    display: inline-block;
+    width: calc(100% - 175px);
 }
 
 input[id^="powerpress_url_"], div[id^="powerpress_url_"] {
@@ -612,10 +714,12 @@ input[id^="powerpress_url_"], div[id^="powerpress_url_"] {
     height: 56px;
 }
 
-input[id^="powerpress_url_"] {
-    box-shadow: inset 0 0 0 1px #0c74d5;
-    background: transparent;
-    border-color: #0c74d5;
+div[id^="powerpress_url_show_"] {
+    width: 100%;
+    background-color: #f1f4f9;
+    font-size: 14px;
+    height: 56px;
+    border-radius: 0;
 }
 
 input[id^="powerpress_itunes_image_"], input[id^="powerpress_image_"] {
@@ -711,16 +815,15 @@ div[id^="media-input"] {
     width: 100%;
 }
 
+div[id^="edit-media-file-"] {
+    float: right;
+}
+div[id^="ep-box-min-blubrry-connect-"] {
+    margin-top: 1ch;
+}
+
 /* Responsiveness with buttons, Apple Opt Section, and third option in media details */
 @media (max-width: 1152px) {
-    div[id^="pp-selected-media-text"] {
-        max-width: 80%;
-        margin-right: 3em;
-    }
-    div[id^="edit-media-file"], div[id^="pp-change-media-file"], div[id^="select-media-file"], div[id^="pp-category-dropdown"] {
-        width: 80%;
-        margin: 1em 3em 0 3em;
-    }
     .details-not-specified {
         margin-top: 1em;
         width: 100%
@@ -778,17 +881,6 @@ div[id^="media-input"] {
         width: 40%;
         margin-right: 0;
     }
-    .media-details {
-        margin-left: 1em;
-    }
-    div[id^="edit-media-file"], div[id^="pp-change-media-file"], div[id^="select-media-file"], div[id^="pp-category-dropdown"] {
-        margin: 1em 1em 0 1em;
-        width: 90%;
-    }
-    div[id^="pp-selected-media-text"] {
-        margin: 1em 1em 0 1em;
-        max-width: 90%;
-    }
     .powerpress-art-text, .powerpress-art-preview {
         width: 100%;
     }
@@ -797,9 +889,6 @@ div[id^="media-input"] {
     }
     input[type="checkbox"]:checked:before {
         font: normal 21px/1 dashicons;
-    }
-    h3[id^="pp-pp-selected-media-head"] {
-        margin-left: 1em;
     }
     .powerpress-art-preview {
         text-align: center;
@@ -811,12 +900,12 @@ div[id^="media-input"] {
 
 /* More responsiveness with buttons */
 @media (max-width: 592px) {
+    div[id^="ep-box-filename-container"] {
+        max-width: 70%;
+    }
     .pp-blue-button, .pp-gray-button {
         display: block;
         margin: 1ch 0 0 0;
-    }
-    div[id^="edit-media-file"], div[id^="pp-change-media-file"], div[id^="select-media-file"], div[id^="pp-category-dropdown"] {
-        max-width: 90%;
     }
     .pp-explicit-option, .explicit-selected {
         font-size: 12px;
@@ -837,9 +926,6 @@ div[id^="media-input"] {
         width: 36px;
         padding: 6px;
         height: 28px;
-    }
-    a[id^="select-media-link"] {
-        width: 100%;
     }
     select[id^="powerpress_category"] option {
         width: 100%;
@@ -875,14 +961,6 @@ div[id^="media-input"] {
 
 /* Responsiveness with buttons, Apple Opt Section, and third option in media details */
 @media (max-width: 1456px) {
-    .classic-editor div[id^="pp-selected-media-text"] {
-        max-width: 80%;
-        margin-right: 3em;
-    }
-    .classic-editor div[id^="edit-media-file"], .classic-editor div[id^="pp-change-media-file"], .classic-editor div[id^="select-media-file"], .classic-editor div[id^="pp-category-dropdown"] {
-        width: 80%;
-        margin: 1em 3em 0 5em;
-    }
     .classic-editor .details-not-specified {
         margin-top: 1em;
         width: 100%
@@ -899,9 +977,10 @@ div[id^="media-input"] {
 }
 
 @media (max-width: 1350px) {
-    .classic-editor div[id^="pp-explicit-container-"] {
+    .classic-editor div[id^="pp-explicit-container"] {
         width: 98%;
-        margin-top: 10px;
+        margin: 1em 0 3em 0;
+        float: left;
     }
 }
 
@@ -909,6 +988,7 @@ div[id^="media-input"] {
     .classic-editor div[class^="details-"] {
         width: 100%;
         margin-top: 1em;
+        margin-left: 1em;
     }
 }
 
@@ -920,11 +1000,6 @@ div[id^="media-input"] {
     }
     .classic-editor .pp-detail-section {
         margin: 2ch 1em 2ch 1em;
-    }
-    .classic-editor div[id^="pp-explicit-container"] {
-        width: 98%;
-        margin: 1em 0 3em 0;
-        float: left;
     }
     .classic-editor div[id^="apple-title-container"] {
         width: 100%;
@@ -954,17 +1029,6 @@ div[id^="media-input"] {
         width: 40%;
         margin-right: 0;
     }
-    .classic-editor .media-details {
-        margin-left: 1em;
-    }
-    .classic-editor div[id^="edit-media-file"], .classic-editor div[id^="pp-change-media-file"] .classic-editor div[id^="select-media-file"], .classic-editor div[id^="pp-category-dropdown"] {
-        margin: 1em 1em 0 1em;
-        width: 90%;
-    }
-    .classic-editor div[id^="pp-selected-media-text"] {
-        margin: 1em 1em 0 1em;
-        max-width: 90%;
-    }
     .classic-editor .powerpress-art-text, .classic-editor .powerpress-art-preview {
         width: 100%;
     }
@@ -974,9 +1038,6 @@ div[id^="media-input"] {
     .classic-editor input[type="checkbox"]:checked:before {
         font: normal 21px/1 dashicons;
     }
-    .classic-editor h3[id^="pp-pp-selected-media-head"] {
-        margin-left: 1em;
-    }
     .classic-editor .powerpress-art-preview {
         text-align: center;
     }
@@ -985,14 +1046,41 @@ div[id^="media-input"] {
     }
 }
 
+@media (max-width: 1050px) {
+    .classic-editor .ep-box-blubrry-info-container {
+        max-width: calc(100% - 50px);
+    }
+    .classic-editor a[id^="ep-box-connect-account-"], .classic-editor a[id^="pp-change-media-link-"] {
+        float: none;
+        width: 100%;
+    }
+    .classic-editor div[id^="ep-box-connect-account-button-"], .classic-editor div[id^="change-media-button-"] {
+        float: none;
+        margin: 1em 0 0 1em;
+    }
+}
+
+@media (max-width: 640px) {
+    .ep-box-blubrry-info-container {
+        max-width: calc(100% - 50px);
+    }
+    a[id^="ep-box-connect-account-"], a[id^="pp-change-media-link-"] {
+        float: none;
+        width: 100%;
+    }
+    div[id^="ep-box-connect-account-button-"] {
+        float: none;
+        margin: 1em 0 0 1ch;
+    }
+    div[id^="change-media-button-"] {
+        float: none;
+        margin-top: 1em;
+    }
+}
 /* More responsiveness with buttons */
 @media (max-width: 892px) {
     .classic-editor .pp-blue-button, .classic-editor .pp-gray-button {
         display: block;
-        margin: 1ch 0 0 0;
-    }
-    .classic-editor div[id^="edit-media-file"], .classic-editor div[id^="pp-change-media-file"], .classic-editor div[id^="select-media-file"], .classic-editor div[id^="pp-category-dropdown"] {
-        max-width: 90%;
     }
     .classic-editor .pp-explicit-option, .classic-editor .explicit-selected {
         font-size: 12px;

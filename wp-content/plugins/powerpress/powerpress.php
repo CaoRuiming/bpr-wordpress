@@ -3,7 +3,7 @@
 Plugin Name: Blubrry PowerPress
 Plugin URI: http://create.blubrry.com/resources/powerpress/
 Description: <a href="https://create.blubrry.com/resources/powerpress/" target="_blank">Blubrry PowerPress</a> is the No. 1 Podcasting plugin for WordPress. Developed by podcasters for podcasters; features include Simple and Advanced modes, multiple audio/video player options, subscribe to podcast tools, podcast SEO features, and more! Fully supports Apple Podcasts (previously iTunes), Google Podcasts, Spotify, Stitcher, and Blubrry Podcasting directories, as well as all podcast applications and clients.
-Version: 8.2.9
+Version: 8.2.10
 Author: Blubrry
 Author URI: https://blubrry.com/
 Requires at least: 3.6
@@ -36,7 +36,7 @@ if( !function_exists('add_action') ) {
 
 // WP_PLUGIN_DIR (REMEMBER TO USE THIS DEFINE IF NEEDED)
 
-define('POWERPRESS_VERSION', '8.2.9' );
+define('POWERPRESS_VERSION', '8.2.10' );
 
 // Translation support:
 if ( !defined('POWERPRESS_ABSPATH') )
@@ -730,7 +730,7 @@ function powerpress_rss2_head()
             list($Cat2, $SubCat2) = explode('-', $Feed['apple_cat_2']);
         if (!empty($Feed['apple_cat_3']))
             list($Cat3, $SubCat3) = explode('-', $Feed['apple_cat_3']);
-        $googleplay_category_mapping = [
+        $googleplay_category_mapping = array(
             '01-00'   => '01-00',
             '02-00'   => '02-00',
             '03-00'   => '03-00',
@@ -750,7 +750,7 @@ function powerpress_rss2_head()
             '17-00'   => '15-00',
             '18-00'   => '13-00',
             '19-00'   => '16-00',
-        ];
+        );
     }
 	else {
         $Categories = powerpress_itunes_categories();
@@ -760,7 +760,7 @@ function powerpress_rss2_head()
             list($Cat2, $SubCat2) = explode('-', $Feed['itunes_cat_2']);
         if (!empty($Feed['itunes_cat_3']))
             list($Cat3, $SubCat3) = explode('-', $Feed['itunes_cat_3']);
-        $googleplay_category_mapping = [
+        $googleplay_category_mapping = array(
             '01-00'   => '01-00',
             '02-00'   => '02-00',
             '03-00'   => '03-00',
@@ -777,7 +777,7 @@ function powerpress_rss2_head()
             '14-00'   => '14-00',
             '15-00'   => '15-00',
             '16-00'   => '16-00',
-        ];
+        );
     }
 
     $googleplay_categories = powerpress_googleplay_categories();

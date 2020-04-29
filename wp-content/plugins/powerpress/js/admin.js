@@ -4,6 +4,7 @@ function powerpress_verifyMedia(el) {
 }
 
 var interval = false;
+var verify_interval = false;
 
 function powerpress_openTab(evt, cityName) {
     // Declare all variables
@@ -111,16 +112,24 @@ function powerpress_toggleMetamarksSettings(el) {
     }
 }
 
+function powerpress_verifyButtonColor(feed_slug) {
+    let verify_button = jQuery("#save-media-" + feed_slug);
+    let other_v_button = jQuery("#continue-to-episode-settings-" + feed_slug);
+    if (jQuery("#powerpress_url_" + feed_slug).val().length > 0) {
+        verify_button.attr("style", "background-color: #0c74d5; color: white;");
+        other_v_button.attr("style", "background-color: #0c74d5; color: white;");
+    } else {
+        verify_button.attr("style", "background-color: #fafafa; color: #263238; border: 1px solid black;");
+        other_v_button.attr("style", "background-color: #fafafa; color: #263238; border: 1px solid black;");
+    }
+}
+
 function powerpress_showHideMediaDetails(el) {
     let feed_slug = el.id.replace("show-details-link-", "");
-    //feed_slug = feed_slug.replace("hide-details-link-", "");
     let show_det = jQuery("#show-details-link-" + feed_slug);
-    //let hide_det = jQuery("#hide-details-link-" + feed_slug);
     let div = jQuery("#hidden-media-details-" + feed_slug);
     show_det.toggleClass('pp-hidden-settings');
-    //hide_det.toggleClass('pp-hidden-settings');
     show_det.toggleClass('media-details');
-    //hide_det.toggleClass('media-details');
     div.toggleClass('pp-hidden-settings');
 }
 
@@ -146,7 +155,8 @@ function powerpress_showHideAppleAdvanced(el) {
     div.toggleClass('pp-hidden-settings');
 }
 
-function powerpress_changeMediaFile(el) {
+function powerpress_changeMediaFile(evt, el) {
+    evt.preventDefault();
     let feed_slug = el.id.replace("pp-edit-media-button-", "");
     let input = jQuery("#pp-url-input-container-" + feed_slug);
     input.removeAttr("style");
@@ -160,10 +170,65 @@ function powerpress_changeMediaFile(el) {
     let buttons = jQuery("#pp-change-media-file-" + feed_slug);
     buttons.removeAttr("style");
     buttons.attr("style", "display: inline-block");
-    let above_label = jQuery("#pp-url-input-above-" + feed_slug);
-    let below_label = jQuery("#pp-url-input-below-" + feed_slug);
-    above_label.removeAttr("style");
-    below_label.removeAttr("style");
+    let blubrry_info = jQuery("#ep-box-blubrry-service-" + feed_slug);
+    blubrry_info.removeAttr("style");
+    blubrry_info.attr("style", "display: block");
+    let container = jQuery("#pp-media-blubrry-container-" + feed_slug);
+    container.attr("style", "background-color: #f1f4f9; padding: 2ch;");
+    if(!verify_interval) {
+        verify_interval = setInterval(function() { powerpress_verifyButtonColor(feed_slug); })
+    }
+}
+
+//save button for edit media link
+function powerpress_cancelMediaEdit(el) {
+    let feed_slug = el.id.replace("cancel-media-edit-", "");
+    let player_size = jQuery("#pp-player-size-" + feed_slug);
+    let player_size_line = jQuery("#line-above-player-size-" + feed_slug);
+    let display_filename = jQuery("#ep-box-filename-" + feed_slug);
+    let link = display_filename.val();
+    let input = jQuery("#pp-url-input-container-" + feed_slug);
+    let url_field = jQuery("#powerpress_url_" + feed_slug + " > input");
+    let show_input = jQuery("#powerpress_url_show_" + feed_slug);
+    let edit_media = jQuery("#edit-media-file-" + feed_slug);
+    let buttons = jQuery("#pp-change-media-file-" + feed_slug);
+    let warning = jQuery("#file-change-warning-" + feed_slug);
+    let blubrry_info = jQuery("#ep-box-blubrry-service-" + feed_slug);
+    let container = jQuery("#pp-media-blubrry-container-" + feed_slug);
+    let video_types = [".mp4", ".m4v", ".webm", ".ogg", ".ogv"];
+    let video = false;
+    if(verify_interval) {
+        clearInterval(verify_interval);
+        verify_interval = false;
+    }
+    video_types.forEach(function(element) {
+        if (link.endsWith(element)) {
+            player_size.removeAttr("style");
+            player_size.attr("style", "display: block");
+            player_size_line.removeAttr("style");
+            player_size_line.attr("style", "display: block");
+            video = true;
+        }
+    });
+    if (!video) {
+        player_size.removeAttr("style");
+        player_size.attr("style", "display: none");
+        player_size_line.removeAttr("style");
+        player_size_line.attr("style", "display: none");
+    }
+    url_field.val(link);
+    warning.css('display', 'none');
+    input.removeAttr("style");
+    input.attr("style", "display: none");
+    show_input.removeAttr("style");
+    show_input.attr("style", "display: inline-block");
+    edit_media.removeAttr("style");
+    edit_media.attr("style", "display: inline-block");
+    buttons.removeAttr("style");
+    buttons.attr("style", "display: none");
+    blubrry_info.removeAttr("style");
+    blubrry_info.attr("style", "display: none");
+    container.removeAttr("style");
 }
 
 //save button for edit media link
@@ -172,17 +237,20 @@ function powerpress_saveMediaFile(el) {
     powerpress_get_media_info(feed_slug);
     let player_size = jQuery("#pp-player-size-" + feed_slug);
     let player_size_line = jQuery("#line-above-player-size-" + feed_slug);
-    let link = jQuery("#pp-url-input-container-" + feed_slug + " > input").val();
+    let link = jQuery("#pp-url-input-label-container-" + feed_slug + " > input").val();
     let display_filename = jQuery("#ep-box-filename-" + feed_slug);
-    let link_parts = "";
     let input = jQuery("#pp-url-input-container-" + feed_slug);
     let show_input = jQuery("#powerpress_url_show_" + feed_slug);
     let edit_media = jQuery("#edit-media-file-" + feed_slug);
     let buttons = jQuery("#pp-change-media-file-" + feed_slug);
     let warning = jQuery("#file-change-warning-" + feed_slug);
-    let above_label = jQuery("#pp-url-input-above-" + feed_slug);
-    let below_label = jQuery("#pp-url-input-below-" + feed_slug);
+    let blubrry_info = jQuery("#ep-box-blubrry-service-" + feed_slug);
+    let container = jQuery("#pp-media-blubrry-container-" + feed_slug);
     if (link !== '') {
+        if(verify_interval) {
+            clearInterval(verify_interval);
+            verify_interval = false;
+        }
         let video_types = [".mp4", ".m4v", ".webm", ".ogg", ".ogv"];
         let video = false;
         video_types.forEach(function(element) {
@@ -201,13 +269,7 @@ function powerpress_saveMediaFile(el) {
             player_size_line.attr("style", "display: none");
         }
         show_input.attr("title", link);
-        if (link.includes("/")) {
-            link_parts = link.split("/");
-        } else {
-            link_parts = link.split("\\");
-        }
-        let fname = link_parts.pop();
-        display_filename.html(fname);
+        display_filename.html(link);
         warning.css('display', 'none');
         input.removeAttr("style");
         input.attr("style", "display: none");
@@ -217,8 +279,9 @@ function powerpress_saveMediaFile(el) {
         edit_media.attr("style", "display: inline-block");
         buttons.removeAttr("style");
         buttons.attr("style", "display: none");
-        above_label.attr("style", "display: none");
-        below_label.attr("style", "display: none");
+        blubrry_info.removeAttr("style");
+        blubrry_info.attr("style", "display: none");
+        container.removeAttr("style");
     } else {
         warning.css('display', 'block');
         warning.addClass("error");
@@ -227,19 +290,17 @@ function powerpress_saveMediaFile(el) {
 
 //Continue button for adding media to a post
 function powerpress_skipToEpisodeSettings(feed_slug) {
-    console.log("Skipping");
     let file_input = jQuery("#pp-url-input-container-" + feed_slug);
     let file_show = jQuery("#powerpress_url_show_" + feed_slug);
     let tab_container = jQuery("#tab-container-" + feed_slug);
     let warning = jQuery("#file-select-warning-" + feed_slug);
     let edit_file = jQuery("#edit-media-file-" + feed_slug);
     let select_file = jQuery("#select-media-file-" + feed_slug);
-    let head = jQuery("#pp-pp-selected-media-head-" + feed_slug);
-    let above_label = jQuery("#pp-url-input-above-" + feed_slug);
-    let below_label = jQuery("#pp-url-input-below-" + feed_slug);
-    let container = jQuery("#a-pp-selected-media-" + feed_slug);
     let details = jQuery("#media-file-details-" + feed_slug);
-
+    let blubrry_info = jQuery("#ep-box-blubrry-service-" + feed_slug);
+    let blu_container = jQuery("#pp-media-blubrry-container-" + feed_slug);
+    let connect_info = jQuery("#ep-box-blubrry-connect-" + feed_slug);
+    let connect_info_small = jQuery("#ep-box-min-blubrry-connect-" + feed_slug);
     tab_container.removeAttr("style");
     tab_container.attr("style", "display: block");
     select_file.removeAttr("style");
@@ -252,13 +313,19 @@ function powerpress_skipToEpisodeSettings(feed_slug) {
     file_show.attr("style", "display: inline-block");
     warning.removeAttr("style");
     warning.attr("style", "display: none");
-    head.removeAttr("style");
-    head.attr("style", "display: none");
-    above_label.attr("style", "display: none");
-    below_label.attr("style", "display: none");
+    blubrry_info.removeAttr("style");
+    blubrry_info.attr("style", "display: none");
     details.removeAttr("style");
     details.attr("style", "display: inline-block");
-    container.removeAttr("style");
+    blu_container.removeAttr("style");
+    if(verify_interval) {
+        clearInterval(verify_interval);
+        verify_interval = false;
+    }
+    if (connect_info.length) {
+        connect_info.attr("style", "display: none");
+        connect_info_small.removeAttr("style");
+    }
 }
 
 //Continue button for adding media to a post
@@ -267,21 +334,24 @@ function powerpress_continueToEpisodeSettings(el) {
     powerpress_get_media_info(feed_slug);
     let player_size = jQuery("#pp-player-size-" + feed_slug);
     let player_size_line = jQuery("#line-above-player-size-" + feed_slug);
-    let link = jQuery("#pp-url-input-container-" + feed_slug + " > input").val();
+    let link = jQuery("#pp-url-input-label-container-" + feed_slug + " > input").val();
     let file_input = jQuery("#pp-url-input-container-" + feed_slug);
     let file_show = jQuery("#powerpress_url_show_" + feed_slug);
     let display_filename = jQuery("#ep-box-filename-" + feed_slug);
-    let link_parts = [];
     let tab_container = jQuery("#tab-container-" + feed_slug);
     let warning = jQuery("#file-select-warning-" + feed_slug);
     let edit_file = jQuery("#edit-media-file-" + feed_slug);
     let select_file = jQuery("#select-media-file-" + feed_slug);
-    let head = jQuery("#pp-pp-selected-media-head-" + feed_slug);
-    let above_label = jQuery("#pp-url-input-above-" + feed_slug);
-    let below_label = jQuery("#pp-url-input-below-" + feed_slug);
-    let container = jQuery("#a-pp-selected-media-" + feed_slug);
     let details = jQuery("#media-file-details-" + feed_slug);
+    let blubrry_info = jQuery("#ep-box-blubrry-service-" + feed_slug);
+    let blu_container = jQuery("#pp-media-blubrry-container-" + feed_slug);
+    let connect_info = jQuery("#ep-box-blubrry-connect-" + feed_slug);
+    let connect_info_small = jQuery("#ep-box-min-blubrry-connect-" + feed_slug);
     if (link.length > 0) {
+        if(verify_interval) {
+            clearInterval(verify_interval);
+            verify_interval = false;
+        }
         let video_types = [".mp4", ".m4v", ".webm", ".ogg", ".ogv"];
         let video = false;
         video_types.forEach(function(element) {
@@ -300,13 +370,7 @@ function powerpress_continueToEpisodeSettings(el) {
             player_size_line.attr("style", "display: none");
         }
         file_show.attr("title", link);
-        if (link.includes("/")) {
-            link_parts = link.split("/");
-        } else {
-            link_parts = link.split("\\");
-        }
-        let fname = link_parts.pop();
-        display_filename.html(fname);
+        display_filename.html(link);
         tab_container.removeAttr("style");
         tab_container.attr("style", "display: block");
         select_file.removeAttr("style");
@@ -319,13 +383,15 @@ function powerpress_continueToEpisodeSettings(el) {
         file_show.attr("style", "display: inline-block");
         warning.removeAttr("style");
         warning.attr("style", "display: none");
-        head.removeAttr("style");
-        head.attr("style", "display: none");
-        above_label.attr("style", "display: none");
-        below_label.attr("style", "display: none");
+        blubrry_info.removeAttr("style");
+        blubrry_info.attr("style", "display: none");
         details.removeAttr("style");
         details.attr("style", "display: inline-block");
-        container.removeAttr("style");
+        blu_container.removeAttr("style");
+        if (connect_info.length) {
+            connect_info.attr("style", "display: none");
+            connect_info_small.removeAttr("style");
+        }
     } else {
         warning.css('display', 'block');
         warning.addClass("error");
@@ -343,7 +409,7 @@ function powerpress_insertArtIntoPreview(el) {
     let poster_image = jQuery(poster_input);
     let poster_img_tag = jQuery("#poster-pp-image-preview-" + feed_slug);
     let poster_caption_tag = jQuery("#poster-pp-image-preview-caption-" + feed_slug);
-    if (poster_img_tag.attr("src") != poster_image.val()) {
+    if (poster_img_tag.attr("src") != poster_image.val() && poster_image.val().length > 0) {
         poster_img_tag.attr("src", poster_image.val());
         let filename = "";
         if (poster_image.val().includes("/")) {
@@ -355,7 +421,7 @@ function powerpress_insertArtIntoPreview(el) {
         }
         poster_caption_tag[0].innerHTML = filename;
     }
-    if (img_tag.attr("src") != episode_artwork.val()) {
+    if (img_tag.attr("src") != episode_artwork.val() && episode_artwork.val().length > 0) {
         img_tag.attr("src", episode_artwork.val());
         let filename = "";
         if (episode_artwork.val().includes("/")) {

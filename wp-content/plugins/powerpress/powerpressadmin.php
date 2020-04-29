@@ -2537,7 +2537,7 @@ function powerpress_check_url(url, DestDiv)
 			jQuery( '#'+DestDiv ).text('<?php echo esc_js( __('Media URL contains characters that may cause problems for some clients. For maximum compatibility, only use letters, numbers, dash - and underscore _ characters only.', 'powerpress')); ?>');
 			jQuery( '#'+DestDiv ).css('display', 'block');
             jQuery('#powerpress_fail_'+FeedSlug).css("display", 'inline-block');
-            jQuery( '#powerpress_url_show' ).css('background-color', '#eba2a2');
+            //jQuery( '#powerpress_url_show' ).css('background-color', '#eba2a2');
 			return false;
 		}
 	
@@ -2639,7 +2639,7 @@ function powerpress_get_media_info(FeedSlug)
 						else
 						{
 							jQuery( '#powerpress_success_'+FeedSlug ).css('display', 'inline-block');
-                            jQuery( '#powerpress_url_show_'+FeedSlug ).css('background-color', '#c1f2b8');
+                            //jQuery( '#powerpress_url_show_'+FeedSlug ).css('background-color', '#c1f2b8');
 							// setTimeout( function() { jQuery( '#powerpress_success_'+FeedSlug ).fadeOut(1000); }, 10000 );
 							<?php
 						if( defined('POWERPRESS_AJAX_DEBUG') )
@@ -2666,7 +2666,7 @@ function powerpress_get_media_info(FeedSlug)
 						?>
 						jQuery( '#powerpress_warning_'+FeedSlug ).css('display', 'block');
                         jQuery('#powerpress_fail_'+FeedSlug).css("display", 'inline-block');
-                        jQuery( '#powerpress_url_show_'+FeedSlug ).css('background-color', '#eba2a2');
+                        //jQuery( '#powerpress_url_show_'+FeedSlug ).css('background-color', '#eba2a2');
 					}
 				},
 				error: function(objAJAXRequest, textStatus, errorThrown) {
@@ -2681,7 +2681,7 @@ function powerpress_get_media_info(FeedSlug)
 					jQuery('#powerpress_check_'+FeedSlug).css("display", 'none');
                     jQuery( '#powerpress_warning_'+FeedSlug ).css('display', 'block');
                     jQuery('#powerpress_fail_'+FeedSlug).css("display", 'inline-block');
-                    jQuery( '#powerpress_url_show_'+FeedSlug ).css('background-color', '#eba2a2');
+                    //jQuery( '#powerpress_url_show_'+FeedSlug ).css('background-color', '#eba2a2');
 
 					if( textStatus == 'timeout' ) {
 						jQuery( '#powerpress_warning_'+FeedSlug ).text( '<?php echo __('Operation timed out.', 'powerpress'); ?>' );

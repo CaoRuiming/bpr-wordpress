@@ -63,7 +63,7 @@ function powerpress_meta_box($object, $box)
         $GeneralSettings['set_duration'] = 0;
     if (!isset($GeneralSettings['episode_box_embed']))
         $GeneralSettings['episode_box_embed'] = 0;
-    if (!empty($GeneralSettings['blubrry_hosting']) && $GeneralSettings['blubrry_hosting'] === 'false')
+    if ((!empty($GeneralSettings['blubrry_hosting']) && $GeneralSettings['blubrry_hosting'] === 'false') || empty($GeneralSettings['blubrry_hosting']))
         $GeneralSettings['blubrry_hosting'] = false;
     $ExtraData = array();
 
@@ -199,13 +199,6 @@ function powerpress_meta_box($object, $box)
         echo "<input style=\"display:none\" type=\"checkbox\" name=\"Powerpress[$FeedSlug][change_podcast]\"";
         echo "id=\"powerpress_change_$FeedSlug\" value=\"1\" checked/>";
         echo "</div>";
-        echo "<div class=\"powerpress_remove_container\">";
-        echo "<label><b>" .  esc_html(__('Remove', 'powerpress')) . "</b></label>";
-        echo "<div class=\"powerpress_row_content\">";
-        echo "<input type=\"checkbox\" class='ep-box-checkbox' name=\"Powerpress[$FeedSlug][remove_podcast]\" id=\"powerpress_remove_$FeedSlug\" value=\"1\"  onchange=\"javascript:document.getElementById('a-pp-selected-media-$FeedSlug').style.display=(this.checked?'none':'block');javascript:document.getElementById('tab-container-$FeedSlug').style.display=(this.checked?'none':'block');\" />";
-        echo esc_html(__('Podcast episode will be removed from this post upon save', 'powerpress'));
-        echo "</div>";
-        echo "</div>";
     }
     episode_box_top($EnclosureURL, $FeedSlug, $ExtraData, $GeneralSettings, $EnclosureLength, $DurationHH, $DurationMM, $DurationSS);
     echo "<div id=\"tab-container-$FeedSlug\" style=\"$style\">";
@@ -222,6 +215,19 @@ function powerpress_meta_box($object, $box)
     notes_tab($FeedSlug, $object);
     echo "</div>";
     echo "</div>";
+    if ($EnclosureURL) {
+        echo "<script type=\"text/javascript\">";
+        echo "jQuery(document).ready(function($) {";
+        echo "powerpress_verifyMedia({id: 'verify-button-$FeedSlug'});";
+        echo "});";
+        echo "</script>";
+    } else {
+        echo "<script type=\"text/javascript\">";
+        echo "jQuery(document).ready(function($) {";
+        echo "verify_interval = setInterval(function() { powerpress_verifyButtonColor('$FeedSlug'); })";
+        echo "});";
+        echo "</script>";
+    }
     if( !empty($GeneralSettings['episode_box_background_color'][$FeedSlug]) ) {
         echo "<script type=\"text/javascript\">";
         echo "jQuery(document).ready(function($) {";

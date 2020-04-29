@@ -952,7 +952,7 @@ foreach( $linkoptions as $value => $desc )
 	<?php echo __('Use this option if you are having problems with the players not appearing on some or all of your pages.', 'powerpress'); ?>
 </p>
 <p style="margin-top: 20px; margin-bottom:0;">
-	<?php echo __('If the above option fixes the player issues, then you most likely have a conflicting theme or plugin activated. You can verify your theme is not causing the problem by testing your site using the latest default WordPress theme (twentyfourteen). For plugins, disable them one by one until the player re-appears, which indicates the last plugin deactivated caused the conflict.', 'powerpress'); ?>
+	<?php echo __('If the above option fixes the player issues, then you most likely have a conflicting theme or plugin activated. You can verify your theme is not causing the problem by testing your site using the latest default WordPress theme (Twenty Nineteen). For plugins, disable them one by one until the player re-appears, which indicates the last plugin deactivated caused the conflict.', 'powerpress'); ?>
 </p>
 </td>
 </tr>
