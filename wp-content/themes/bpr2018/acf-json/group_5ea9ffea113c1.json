@@ -1,0 +1,93 @@
+{
+    "key": "group_5ea9ffea113c1",
+    "title": "Alert Banner",
+    "fields": [
+        {
+            "key": "field_5eaa016f08061",
+            "label": "Enable Alert",
+            "name": "enable_alert",
+            "type": "true_false",
+            "instructions": "Toggle for showing alert banner.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
+            "key": "field_5ea9ffea17adc",
+            "label": "Alert Message",
+            "name": "alert_message",
+            "type": "wysiwyg",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5eaa016f08061",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "tabs": "all",
+            "toolbar": "basic",
+            "media_upload": 0,
+            "delay": 0
+        },
+        {
+            "key": "field_5eaa00ea08060",
+            "label": "Alert Background Color",
+            "name": "alert_background_color",
+            "type": "color_picker",
+            "instructions": "Set the background color of the alert banner. This defaults to white. Note that background color will not support dark mode!",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5eaa016f08061",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "acf-options"
+            }
+        ]
+    ],
+    "menu_order": 1,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "Alert banner that appears at the top of all pages of the website. Good for emergency announcements.",
+    "modified": 1588199903
+}

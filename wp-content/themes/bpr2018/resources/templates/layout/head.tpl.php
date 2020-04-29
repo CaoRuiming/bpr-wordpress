@@ -7,6 +7,14 @@
     <?php wp_head(); ?>
   </head>
   <body <?php body_class(); ?>>
+    <?php if (get_field('enable_alert', 'option')): ?>
+      <header style="background-color:<?php the_field('alert_background_color', 'option');?>">
+        <!-- Alert Banner Scripts are written elsewhere -->
+        <div class="alert-banner">
+          <?php the_field('alert_message', 'option'); ?>
+        </div>
+      </header>
+    <?php endif; ?>
     <main id="app" class="app">
       <nav id="main-menu" class="navbar navbar-expand-md navbar-light bg-light" role="navigation">
         <div class="container">

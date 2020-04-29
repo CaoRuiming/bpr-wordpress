@@ -4,18 +4,22 @@
   }
 }
 
-.app {
+.app, .alert-banner {
   max-width: $website-max-width;
+  @media screen and (min-width: $width-md) { width: $website-width; }
+  @media screen and (max-width: $width-lg) { margin: $spacing-sm auto; }
+}
 
-  @media screen and (min-width: $width-md) {
-    width: $website-width;
-  }
+.alert-banner {
+  display: none;
+  margin: auto;
+  padding: $spacing-sm 15px;
+  p { margin-bottom: 0; }
+}
 
+
+.app {
   margin: $spacing-md auto;
-
-  @media screen and (max-width: $width-lg) {
-    margin: $spacing-sm auto;
-  }
 
   #header-icons {
     float: right;
