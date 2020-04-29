@@ -12,6 +12,7 @@
     },
     "dependencies": {
         "bootstrap-sass": "^3.4.1",
+        "node-sass": "^4.14.0",
         "stylelint": "^9.10.1"
     },
     "devDependencies": {
