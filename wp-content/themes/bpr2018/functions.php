@@ -124,3 +124,26 @@ function mo_remove_default_comment_field( $defaults ) {
         if ( isset( $defaults[ 'comment_field' ] ) ) { $defaults[ 'comment_field' ] = ''; } return $defaults;
     }  
 }
+
+
+// add custom role capabilities
+function add_theme_caps(){
+    global $pagenow;
+  
+    // gets the author role
+    $role = get_role( 'contributor' );
+  
+    if ( 'themes.php' == $pagenow && isset( $_GET['activated'] ) ){ // Test if theme is activated
+      // Theme is activated
+  
+      // This only works, because it accesses the class instance.
+      // would allow the contributor to edit own published posts and comments
+      $role->add_cap( 'edit_published_posts' ); 
+    }
+    else {
+      // Theme is deactivated
+      // Remove the capability when theme is deactivated
+      $role->remove_cap( 'edit_published_posts' ); 
+    }
+  }
+  add_action( 'load-themes.php', 'add_theme_caps' );
