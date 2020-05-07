@@ -2,9 +2,25 @@
 
 ## Initial Setup
 
-To run this website locally, installation of software like `MAMP` for macOS or `WAMP` for Windows will be required. Point to the software to the directory containing this repository and start the servers. You may need to create a new MySQL database for the WordPress installation process.
+To run this website locally, you will need to have `docker` and `docker-compose` installed.
 
-Full details can be found on the wiki (on GitHub).
+You can install [Docker](https://www.docker.com/products/docker-desktop) from the website or from your package manager of choice.
+
+Next, in the root directory of this project run this to start up the website.
+
+```bash
+docker-compose up -d
+```
+
+To shut down the website, run the following:
+
+```bash
+docker-compose down
+```
+
+Anything saved to the WordPress database will be persisted after container shutdown in a volume.
+
+More details can be found on the wiki (on GitHub).
 
 ## Startup
 
