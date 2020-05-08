@@ -27,9 +27,10 @@ services:
             WORDPRESS_DEBUG: "true"
 
         volumes:
-            - ./wp-content/themes/bpr2018:/var/www/html/wp-content/themes/bpr2018
-            - ./wp-content/plugins:/var/www/html/wp-content/plugins
-            - ./wp-content/uploads:/var/www/html/wp-content/uploads
+            # - ./wp-content/themes/bpr2018:/var/www/html/wp-content/themes/bpr2018
+            # - ./wp-content/plugins:/var/www/html/wp-content/plugins
+            # - ./wp-content/uploads:/var/www/html/wp-content/uploads
+            - .:/var/www/html
             - ./uploads.ini:/usr/local/etc/php/conf.d/uploads.ini
 
 volumes:
