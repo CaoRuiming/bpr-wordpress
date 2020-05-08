@@ -9,24 +9,13 @@ function powerpress_metabox_save($post_ID)
         foreach( $Episodes as $feed_slug => $Powerpress )
         {
             $field = '_'.$feed_slug.':metamarks';
+            delete_post_meta( $post_ID, $field);
 
-            if( !empty($Powerpress['remove_podcast']) )
-            {
-                delete_post_meta( $post_ID, $field);
-            }
-            else if( !empty($Powerpress['change_podcast']) || !empty($Powerpress['new_podcast']) )
+            if( !empty($Powerpress['change_podcast']) || !empty($Powerpress['new_podcast']) )
             {
                 // No URL specified, then it's not really a podcast to save
                 if( $Powerpress['url'] == '' )
                     continue; // go to the next media file
-
-                if (isset($Powerpress['season'])) {
-                    $new = array("current_season" => $Powerpress['season']);
-                    powerpress_save_settings($new, 'powerpress_general');
-                } else {
-                    $new = array("current_season" => null);
-                    powerpress_save_settings($new, 'powerpress_general');
-                }
 
                 if( !empty($MetaMarks[ $feed_slug ]) )
                 {
@@ -120,8 +109,8 @@ function powerpress_metamarks_editrow_html($feed_slug, $next_row, $data = null, 
     $html .= '<div class="metamark-top-section id="metamark-top-section-' . $feed_slug .'-'. $next_row . '">';
     $html .= '<div id="pp-metamark-preview-pos-' . $feed_slug .'-'. $next_row . '" class="pp-metamark-preview-pos-">' . $pos . '</div>';
     $html .= '<div id="pp-metamark-preview-type--' . $feed_slug .'-'. $next_row . '" class="pp-metamark-preview-type-">' . $type . '</div>';
-    $html .= '<div class="pp-metamark-delete"><a href="#" onclick="return powerpress_metamarks_deleterow(\'powerpress_metamarks_row_'. $feed_slug .'_'. $next_row .'\');" title="'. __('Delete', 'powerpress') .'">';
-    $html .= __('Delete', 'powerpress') . '</a></div><div class="pp-metamark-edit"><a href="#" id="pp-toggle-metamark-'. $next_row . '-' . $feed_slug . '" title="'. __($option, 'powerpress') .'" onclick="powerpress_toggleMetamarksSettings(this)">' . __($option, 'powerpress') . '</a></div>';
+    $html .= '<div class="pp-metamark-delete"><a href="" onclick="return powerpress_metamarks_deleterow(\'powerpress_metamarks_row_'. $feed_slug .'_'. $next_row .'\');" title="'. __('Delete', 'powerpress') .'">';
+    $html .= __('Delete', 'powerpress') . '</a></div><div class="pp-metamark-edit"><a href="" id="pp-toggle-metamark-'. $next_row . '-' . $feed_slug . '" title="'. __($option, 'powerpress') .'" onclick="powerpress_toggleMetamarksSettings(this); return false;">' . __($option, 'powerpress') . '</a></div>';
     $html .= '</div><div id="pp-hide-metamark-' . $feed_slug .'-'. $next_row . '"' . $class . '>';
     $html .= '<div class="pp-section-container"><div class="powerpress-label-container" id="pp-type-label' . $feed_slug .'-'. $next_row . '"><label class="pp-ep-box-label" style="width: 100%;" for="pp-metamark-type-'. $feed_slug .'_'. $next_row .'">' . __('Type', 'powerpress') . '</label><select id="pp-metamark-type-'. $feed_slug .'-'. $next_row .'" class="pp-ep-box-input" style="width: 100%;" type="text" title="'. __('Type', 'powerpress') .'" name="MetaMarks['.$feed_slug.']['.$next_row.'][type]">';
     $html .= powerpress_print_options( array(''=>'Select Type')+ $MarkTypes, $data['type'], true);

@@ -1035,6 +1035,43 @@ self.parent.tb_remove();
 			else
 				echo "Error";
 		}; break;
+        case 'powerpress-ep-box-options': {
+            if (defined('WP_DEBUG')) {
+                if (WP_DEBUG) {
+                    wp_register_style('powerpress-episode-box', powerpress_get_root_url() . 'css/episode-box.css', array(), POWERPRESS_VERSION);
+                } else {
+                    wp_register_style('powerpress-episode-box', powerpress_get_root_url() . 'css/episode-box.min.css', array(), POWERPRESS_VERSION);
+                }
+            } else {
+                wp_register_style('powerpress-episode-box', powerpress_get_root_url() . 'css/episode-box.min.css', array(), POWERPRESS_VERSION);
+            }
+            wp_enqueue_style( 'powerpress-episode-box' );
+            wp_enqueue_script('powerpress-admin', powerpress_get_root_url() . 'js/admin.js', array(), POWERPRESS_VERSION );
+
+            powerpress_admin_jquery_header( __('PowerPress Entry Box Settings','powerpress') );
+            require_once(dirname(__FILE__). '/views/ep-box-settings.php');
+            powerpressadmin_edit_entry_options($Settings);
+            powerpress_admin_jquery_footer();
+        }; break;
+        case 'powerpress-ep-box-options-save': {
+            if( !current_user_can(POWERPRESS_CAPABILITY_MANAGE_OPTIONS) )
+            {
+                powerpress_admin_jquery_header('PowerPress Entry Box Settings', 'powerpress');
+                powerpress_page_message_add_notice( __('You do not have sufficient permission to manage options.', 'powerpress') );
+                powerpress_page_message_print();
+                powerpress_admin_jquery_footer();
+                exit;
+            }
+
+            check_admin_referer('powerpress-edit');
+            $Settings = $_POST['General'];
+            powerpress_save_settings($Settings);
+            powerpress_admin_jquery_header('PowerPress Entry Box Settings', 'powerpress');
+            powerpress_page_message_add_notice( __('Settings will be applied on page refresh. If you\'ve already entered information into this post, simply finish the post and the settings will apply when you start your next one.', 'powerpress') );
+            powerpress_page_message_print();
+            powerpress_admin_jquery_footer();
+            exit;
+        }; break;
 	}
 	
 }

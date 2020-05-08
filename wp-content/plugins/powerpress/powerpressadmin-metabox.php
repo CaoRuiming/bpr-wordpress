@@ -34,7 +34,12 @@ function episode_box_top($EnclosureURL, $FeedSlug, $ExtraData, $GeneralSettings,
     }
     ?>
     <div id="a-pp-selected-media-<?php echo $FeedSlug; ?>" <?php echo $padding; ?>>
-        <h3 id="pp-pp-selected-media-head-<?php echo $FeedSlug; ?>"><?php echo esc_html(__('Media URL', 'powerpress')); ?></h3>
+        <h3 id="pp-pp-selected-media-head-<?php echo $FeedSlug; ?>">
+            <?php echo esc_html(__('Media URL', 'powerpress')); ?>
+            <a class="pp-ep-box-settings thickbox" title='Entry Box Settings' href="<?php echo admin_url('admin.php'); ?>?action=powerpress-ep-box-options&amp;KeepThis=true&amp;TB_iframe=true&amp;width=600&amp;height=400&amp;modal=false">
+                <img class="ep-box-settings-icon" src="<?php echo powerpress_get_root_url(); ?>images/outline_settings_24px.svg" alt="" />
+            </a>
+        </h3>
         <div id="pp-media-blubrry-container-<?php echo $FeedSlug; ?>" <?php echo $style_attr; ?>>
             <div id="pp-selected-media-text-<?php echo $FeedSlug; ?>">
                 <div id="media-input-<?php echo $FeedSlug; ?>">
@@ -46,11 +51,11 @@ function episode_box_top($EnclosureURL, $FeedSlug, $ExtraData, $GeneralSettings,
                         </div>
                         <div id="pp-change-media-file-<?php echo $FeedSlug; ?>" style="display: none;">
                             <div id="save-media-<?php echo $FeedSlug; ?>" class="pp-blue-button"
-                                 onclick="powerpress_saveMediaFile(this)"><?php echo esc_html(__('VERIFY', 'powerpress')); ?></div>
+                                 onclick="powerpress_saveMediaFile(this); return false;"><?php echo esc_html(__('VERIFY', 'powerpress')); ?></div>
                         </div>
                         <div id="select-media-file-<?php echo $FeedSlug; ?>" style="<?php echo $style1 ?>">
                             <div id="continue-to-episode-settings-<?php echo $FeedSlug; ?>" class="pp-blue-button"
-                             onclick="powerpress_continueToEpisodeSettings(this)"><?php echo esc_html(__('VERIFY', 'powerpress')); ?></div>
+                             onclick="powerpress_continueToEpisodeSettings(this); return false;"><?php echo esc_html(__('VERIFY', 'powerpress')); ?></div>
                         </div>
                     </div>
                     <div style="<?php echo $style3 ?>" title="<?php echo $EnclosureURL; ?>"
@@ -125,7 +130,7 @@ function episode_box_top($EnclosureURL, $FeedSlug, $ExtraData, $GeneralSettings,
             <div id="file-change-warning-<?php echo $FeedSlug; ?>"
                  style="background-color: #f5f5f5; box-shadow: none; margin-left: 0; padding-left: 3px; display:none; color: #dc3232;"><?php echo esc_html(__('You must have a media file selected to save.', 'powerpress')); ?></div>
             <div id="powerpress_warning_<?php echo $FeedSlug; ?>"
-                 style="background-color: #f5f5f5; box-shadow: none; margin-left: 0; padding-left: 3px; display:none; color: #dc3232;"></div>
+                 style="background-color: #f5f5f5; box-shadow: none; margin-left: 0; padding-left: 3px; display:none; color: #dc3232;"><?php echo esc_html(__('Error verifying media file.', 'powerpress')); ?></div>
             <input type="hidden" id="powerpress_hosting_<?php echo $FeedSlug; ?>"
                    name="Powerpress[<?php echo $FeedSlug; ?>][hosting]"
                    value="<?php echo(!empty($ExtraData['hosting']) ? '1' : '0'); ?>"/>
@@ -144,7 +149,7 @@ function episode_box_top($EnclosureURL, $FeedSlug, $ExtraData, $GeneralSettings,
             <div>
                 <div id="edit-media-file-<?php echo $FeedSlug; ?>" style="<?php echo $style3 ?>">
                     <button id="pp-edit-media-button-<?php echo $FeedSlug; ?>" class="media-details"
-                         onclick="powerpress_changeMediaFile(event, this)"><?php echo esc_html(__('Edit Media File', 'powerpress')); ?></button>
+                         onclick="powerpress_changeMediaFile(event, this); return false;"><?php echo esc_html(__('Edit Media File', 'powerpress')); ?></button>
                 </div>
                 <div id="show-hide-media-details-<?php echo $FeedSlug; ?>">
                     <!--<div class="ep-box-line-bold"></div>-->
@@ -264,7 +269,7 @@ function episode_box_top($EnclosureURL, $FeedSlug, $ExtraData, $GeneralSettings,
     <?php if($EnclosureURL) { ?>
     <div class="powerpress_remove_container">
         <div class="powerpress_row_content">
-            <input type="checkbox" class='ep-box-checkbox' name="Powerpress[$FeedSlug][remove_podcast]" id="powerpress_remove_$FeedSlug" value="1"  onchange="javascript:document.getElementById('a-pp-selected-media-<?php echo $FeedSlug; ?>').style.display=(this.checked?'none':'block');javascript:document.getElementById('tab-container-<?php echo $FeedSlug; ?>').style.display=(this.checked?'none':'block');" />
+            <input type="checkbox" class='ep-box-checkbox' name="Powerpress[<?php echo $FeedSlug; ?>][remove_podcast]" id="powerpress_remove_<?php echo $FeedSlug; ?>" value="1"  onchange="javascript:document.getElementById('a-pp-selected-media-<?php echo $FeedSlug; ?>').style.display=(this.checked?'none':'block');javascript:document.getElementById('tab-container-<?php echo $FeedSlug; ?>').style.display=(this.checked?'none':'block');" />
             <b><?php echo esc_html(__('Remove Episode', 'powerpress')); ?></b><?php echo esc_html(__(' - Podcast episode will be removed from this post upon save', 'powerpress')); ?>
         </div>
     </div>
@@ -293,6 +298,17 @@ function seo_tab($FeedSlug, $ExtraData, $iTunesExplicit, $seo_feed_title, $Gener
         }
         if (empty($ExtraData['feed_title'])) {
             $ExtraData['feed_title'] = '';
+        }
+        if ($GeneralSettings['new_episode_box_subtitle'] == 2 && $GeneralSettings['new_episode_box_summary'] == 2 && $GeneralSettings['new_episode_box_author'] == 2 && $GeneralSettings['new_episode_box_explicit'] == 2 && $GeneralSettings['new_episode_box_order'] == 2 && $GeneralSettings['new_episode_box_itunes_title'] == 2 && $GeneralSettings['new_episode_box_itunes_nst'] == 2 && $GeneralSettings['new_episode_box_feature_in_itunes'] == 2 && $GeneralSettings['new_episode_box_block'] == 2) {
+            $AppleOpt = false;
+            $AppleExtra = false;
+        } else {
+            $AppleOpt = true;
+            if ($GeneralSettings['new_episode_box_subtitle'] == 2 && $GeneralSettings['new_episode_box_summary'] == 2 && $GeneralSettings['new_episode_box_author'] == 2 && $GeneralSettings['new_episode_box_order'] == 2 && $GeneralSettings['new_episode_box_feature_in_itunes'] == 2 && $GeneralSettings['new_episode_box_block'] == 2) {
+                $AppleExtra = false;
+            } else {
+                $AppleExtra = true;
+            }
         }
 
         // episode title
@@ -326,12 +342,14 @@ function seo_tab($FeedSlug, $ExtraData, $iTunesExplicit, $seo_feed_title, $Gener
             </div>
             <p class="pp-ep-box-text"><?php echo esc_html(__("The episode description is pulled from your WordPress post content, which can be edited above.", 'powerpress')); ?></p>
         </div>
+        <?php if($AppleOpt) { ?>
         <div id="apple-podcast-opt-<?php echo $FeedSlug; ?>" class="pp-section-container">
             <div class="pp-section-container">
                 <h4 class="pp-section-title"><?php echo esc_html(__("Apple Podcasts Optimization (optional)", 'powerpress')); ?></h4>
                 <div class="pp-tooltip-right">i
                     <span class="text-pp-tooltip"><?php echo esc_html(__('Fill this section out thoroughly to optimize the exposure that your podcast gets on Apple.', 'powerpress')); ?></span>
                 </div>
+                <?php if( !isset($GeneralSettings['new_episode_box_explicit']) || $GeneralSettings['new_episode_box_explicit'] == 1 ) { ?>
                 <div id="pp-explicit-container-<?php echo $FeedSlug; ?>">
                     <input type="number" style="display: none" id="powerpress_explicit_<?php echo $FeedSlug; ?>"
                             name="Powerpress[<?php echo $FeedSlug; ?>][explicit]" value="<?php echo $iTunesExplicit ? $iTunesExplicit : 0; ?>">
@@ -351,8 +369,10 @@ function seo_tab($FeedSlug, $ExtraData, $iTunesExplicit, $seo_feed_title, $Gener
                         "><?php echo esc_html(__('EXPLICIT', 'powerpress')); ?></div>
                     </div>
                 </div>
+                <?php } ?>
             </div>
             <div class="pp-section-container">
+                <?php if(!isset($GeneralSettings['new_episode_box_itunes_title']) || $GeneralSettings['new_episode_box_itunes_title'] == 1) { ?>
                 <div class="powerpress-label-container" id="apple-title-container-<?php echo $FeedSlug; ?>">
                     <label class="pp-ep-box-label-apple"
                            for="powerpress_episode_apple_title_<?php echo $FeedSlug; ?>"><?php echo esc_html(__('Title', 'powerpress')); ?></label>
@@ -361,6 +381,9 @@ function seo_tab($FeedSlug, $ExtraData, $iTunesExplicit, $seo_feed_title, $Gener
                            name="Powerpress[<?php echo $FeedSlug; ?>][episode_title]"
                            value="<?php echo esc_attr($ExtraData['episode_title']); ?>" maxlength="255"/>
                 </div>
+                <?php }
+                if (!isset($GeneralSettings['new_episode_box_itunes_nst']) || $GeneralSettings['new_episode_box_itunes_nst'] == 1) {
+                ?>
                 <div class="powerpress-label-container" id="episode-no-container-<?php echo $FeedSlug; ?>">
                     <label class="pp-ep-box-label-apple"
                            for="powerpress_episode_episode_no_<?php echo $FeedSlug; ?>"><?php echo esc_html(__('Episode #', 'powerpress')); ?></label>
@@ -389,6 +412,7 @@ function seo_tab($FeedSlug, $ExtraData, $iTunesExplicit, $seo_feed_title, $Gener
                                    echo " />";
                                } ?>
                 </div>
+                <?php } ?>
             </div>
             <?php
             $iTunesFeatured = get_option('powerpress_itunes_featured');
@@ -402,6 +426,7 @@ function seo_tab($FeedSlug, $ExtraData, $iTunesExplicit, $seo_feed_title, $Gener
                 var hide_settings = "<?php echo esc_js(__("Hide Settings &#708;", "powerpress")); ?>";
             </script>
 
+            <?php if($AppleExtra) { ?>
             <div id="show-hide-apple-<?php echo $FeedSlug; ?>">
                 <div class="ep-box-line-margin" style="border-top: 2px solid #EFEFEF;"></div>
                 <div id="apple-advanced-container-<?php echo $FeedSlug; ?>">
@@ -409,7 +434,9 @@ function seo_tab($FeedSlug, $ExtraData, $iTunesExplicit, $seo_feed_title, $Gener
                             onclick="powerpress_showHideAppleAdvanced(this); return false;"><?php echo esc_html(__('See More Settings &#709;', 'powerpress')); ?></button>
                 </div>
             </div>
+            <?php } ?>
             <div id="apple-advanced-settings-<?php echo $FeedSlug; ?>" class="pp-hidden-settings">
+                <?php if( !isset($GeneralSettings['new_episode_box_summary']) || $GeneralSettings['new_episode_box_summary'] == 1 ) { ?>
                 <div class="apple-opt-section-container">
                     <div id="apple-summary-<?php echo $FeedSlug; ?>" class="powerpress-label-container" style="width: 100%;">
                         <label class="pp-ep-box-label-apple"
@@ -419,6 +446,8 @@ function seo_tab($FeedSlug, $ExtraData, $iTunesExplicit, $seo_feed_title, $Gener
                         <label class="pp-ep-box-label-under"><?php echo esc_html(__('Leave blank to use post content.', 'powerpress')); ?></label>
                     </div>
                 </div>
+                <?php }
+                if( !isset($GeneralSettings['new_episode_box_author']) || $GeneralSettings['new_episode_box_author'] == 1 ) { ?>
                 <div class="apple-opt-section-container">
                     <div class="powerpress-label-container" style="width: 100%;" id="apple-author-<?php echo $FeedSlug; ?>">
                         <label class="pp-ep-box-label" for="Powerpress[<?php echo $FeedSlug; ?>][author]"><?php echo esc_html(__('Author', 'powerpress')); ?></label>
@@ -426,6 +455,8 @@ function seo_tab($FeedSlug, $ExtraData, $iTunesExplicit, $seo_feed_title, $Gener
                         <label class="pp-ep-box-label-under"><?php echo esc_html(__('Leave blank to use default.', 'powerpress')); ?></label>
                     </div>
                 </div>
+                <?php }
+                if( !isset($GeneralSettings['new_episode_box_subtitle']) || $GeneralSettings['new_episode_box_subtitle'] == 1 ) { ?>
                 <div class="apple-opt-section-container">
                     <div class="powerpress-label-container" style="width: 100%;" id="apple-subtitle-<?php echo $FeedSlug; ?>">
                         <label class="pp-ep-box-label"
@@ -436,7 +467,10 @@ function seo_tab($FeedSlug, $ExtraData, $iTunesExplicit, $seo_feed_title, $Gener
                         <label class="pp-ep-box-label-under"><?php echo esc_html(__('Leave blank to use post excerpt.', 'powerpress')); ?></label>
                     </div>
                 </div>
+                <?php } ?>
                 <div class="apple-opt-section-container">
+                    <?php if (!isset($GeneralSettings['new_episode_box_itunes_nst']) || $GeneralSettings['new_episode_box_itunes_nst'] == 1) {
+                    ?>
                     <div class="powerpress-label-container">
                         <label class="pp-ep-box-label-apple"
                                for="powerpress_episode_type_<?php echo $FeedSlug; ?>"><?php echo esc_html(__('Type', 'powerpress')); ?></label>
@@ -450,7 +484,15 @@ function seo_tab($FeedSlug, $ExtraData, $iTunesExplicit, $seo_feed_title, $Gener
                             ?>
                         </select>
                     </div>
-                    <div class="powerpress-label-container" style="float: right;">
+                    <?php
+                        $float = "right";
+                    } elseif($GeneralSettings['new_episode_box_feature_in_itunes'] == 2 && $GeneralSettings['new_episode_box_order'] == 2) {
+                        $float = "none";
+                    } else {
+                        $float = "right";
+                    }
+                    if (!isset($GeneralSettings['new_episode_box_block']) || $GeneralSettings['new_episode_box_block'] == 1) { ?>
+                    <div class="powerpress-label-container" style="float: <?php echo $float; ?>">
                         <label class="pp-ep-box-label" for="Powerpress[<?php echo $FeedSlug; ?>][block]"><?php echo esc_html(__('Block', 'powerpress')); ?></label>
                         <select class="pp-ep-box-input" id="powerpress_block_<?php echo $FeedSlug; ?>" name="Powerpress[<?php echo $FeedSlug; ?>][block]" title="<?php echo esc_attr(__("Apple Podcasts block episode","powerpress")); ?>">
                             <?php
@@ -462,8 +504,10 @@ function seo_tab($FeedSlug, $ExtraData, $iTunesExplicit, $seo_feed_title, $Gener
                             ?>
                         </select>
                     </div>
+                    <?php } ?>
                 </div>
                 <div class="apple-opt-section-container">
+                    <?php if( !isset($GeneralSettings['new_episode_box_feature_in_itunes']) || $GeneralSettings['new_episode_box_feature_in_itunes'] == 1 ) { ?>
                     <div class="powerpress-label-container" id="apple-feature-<?php echo $FeedSlug; ?>" style="width: 65%;">
                         <h4 class="pp-section-title-block" style="width: 100%;"><?php echo esc_html(__("Feature Episode", 'powerpress')); ?></h4>
                         <?php if ($FeaturedChecked) { ?>
@@ -475,18 +519,26 @@ function seo_tab($FeedSlug, $ExtraData, $iTunesExplicit, $seo_feed_title, $Gener
                         <span for="powerpress_feature_<?php echo $FeedSlug; ?>"
                               style="font-size: 14px;"> <?php echo esc_html(__('Episode will appear at the top of your episode list in the Apple Podcast directory.', 'powerpress')); ?></span>
                     </div>
-                    <div class="powerpress-label-container" id="type-<?php echo $FeedSlug; ?>" style="float: right; width: 30%;">
+                    <?php
+                        $float = "right";
+                    } else {
+                        $float = "none";
+                    }
+                    if( !isset($GeneralSettings['new_episode_box_order']) || $GeneralSettings['new_episode_box_order'] == 1 ||  !isset($GeneralSettings['new_episode_box_feature_in_itunes']) || $GeneralSettings['new_episode_box_feature_in_itunes'] == 1 ) { ?>
+                    <div class="powerpress-label-container" id="type-<?php echo $FeedSlug; ?>" style="float: <?php echo $float; ?>; width: 30%;">
                         <label class="pp-ep-box-label" for="Powerpress[<?php echo $FeedSlug; ?>][order]"><?php echo esc_html(__('Order', 'powerpress')); ?></label>
                         <input class="pp-ep-box-input" type="number" id="powerpress_order_<?php echo $FeedSlug; ?>" title="<?php echo esc_attr(__("Apple Podcasts episode order","powerpress")); ?>" name="Powerpress[<?php echo $FeedSlug; ?>][order]" value="<?php echo esc_attr($iTunesOrder); ?>" />
                     </div>
+                    <?php } ?>
                 </div>
             </div>
         </div>
+    <?php } ?>
     </div>
     <?php
 }
 
-function artwork_tab($FeedSlug, $ExtraData, $object, $CoverImage)
+function artwork_tab($FeedSlug, $ExtraData, $object, $CoverImage, $GeneralSettings)
 {
     ?>
 
@@ -496,16 +548,22 @@ function artwork_tab($FeedSlug, $ExtraData, $object, $CoverImage)
 
         //Setting for itunes artwork
         if (!isset($ExtraData['itunes_image']) || !$ExtraData['itunes_image']) {
-            $itunes_image = powerpress_get_root_url() . 'images/pts_cover.jpg';
+            $itunes_image = '';
+            $itunes_image_preview = powerpress_get_root_url() . 'images/pts_cover.jpg';
         } else {
             $itunes_image = $ExtraData['itunes_image'];
+            $itunes_image_preview = $itunes_image;
         }
         if (!$CoverImage) {
             $CoverImage_preview = powerpress_get_root_url() . 'images/pts_cover.jpg';
         } else {
             $CoverImage_preview = $CoverImage;
         }
-        ?>
+        if ($GeneralSettings['new_episode_box_itunes_image'] == 2 && $GeneralSettings['new_episode_box_cover_image']) {
+            echo "<p class='pp-ep-box-text'>" . __('No artwork settings enabled', 'powerpress') . "</p></div>";
+            return;
+        }
+        if (!isset($GeneralSettings['new_episode_box_itunes_image']) || $GeneralSettings['new_episode_box_itunes_image'] == 1) { ?>
         <div class="pp-section-container">
             <div class="powerpress-art-text">
                 <h4 class="pp-section-title"
@@ -519,7 +577,7 @@ function artwork_tab($FeedSlug, $ExtraData, $object, $CoverImage)
                        id="powerpress_itunes_image_<?php echo $FeedSlug; ?>"
                        placeholder="<?php echo htmlspecialchars(__('e.g. http://example.com/path/to/image.jpg', 'powerpress')); ?>"
                        name="Powerpress[<?php echo $FeedSlug; ?>][itunes_image]"
-                       value="<?php echo esc_attr($ExtraData['itunes_image']); ?>"
+                       value="<?php echo esc_attr($itunes_image); ?>"
                        style="font-size: 90%;" size="250" oninput="powerpress_insertArtIntoPreview(this)"/>
                 <br/>
                 <br/>
@@ -532,12 +590,14 @@ function artwork_tab($FeedSlug, $ExtraData, $object, $CoverImage)
             <div class="powerpress-art-preview">
                 <p class="pp-section-subtitle" style="font-weight: bold;"><?php echo esc_html(__('PREVIEW', 'powerpress')); ?></p>
                 <img id="pp-image-preview-<?php echo $FeedSlug; ?>"
-                     src="<?php echo esc_attr($itunes_image); ?>" alt="No artwork selected"/>
+                     src="<?php echo esc_attr($itunes_image_preview); ?>" alt="No artwork selected"/>
                 <p id="pp-image-preview-caption-<?php echo $FeedSlug; ?>" class="pp-section-subtitle"
-                   style="font-weight: bold;margin: 3px;"><?php echo get_filename_from_path(esc_attr($itunes_image)); ?></p>
+                   style="font-weight: bold;margin: 3px;"><?php if ($itunes_image) { echo get_filename_from_path(esc_attr($itunes_image)); } ?></p>
             </div>
         </div>
         <div class="ep-box-line-margin"></div>
+        <?php }
+        if( !isset($GeneralSettings['new_episode_box_cover_image']) || $GeneralSettings['new_episode_box_cover_image'] == 1 ) { ?>
         <div id="powerpress_thumbnail_container_<?php echo $FeedSlug; ?>" class="pp-section-container">
             <div class="powerpress-art-text">
                 <h4 class="pp-section-title"><?php echo esc_html(__('Thumbnail Image', 'powerpress')); ?></h4>
@@ -566,46 +626,48 @@ function artwork_tab($FeedSlug, $ExtraData, $object, $CoverImage)
                 <img id="poster-pp-image-preview-<?php echo $FeedSlug; ?>"
                      src="<?php echo esc_attr($CoverImage_preview); ?>" alt="No thumbnail selected"/>
                 <p id="poster-pp-image-preview-caption-<?php echo $FeedSlug; ?>" class="pp-section-subtitle"
-                   style="font-weight: bold;margin: 3px;"><?php echo get_filename_from_path(esc_attr($CoverImage)); ?></p>
+                   style="font-weight: bold;margin: 3px;"><?php if ($CoverImage) { echo get_filename_from_path(esc_attr($CoverImage)); } ?></p>
             </div>
         </div>
+        <?php } ?>
     </div>
 
     <?php
 }
 
-function display_tab($FeedSlug, $IsVideo, $NoPlayer, $NoLinks, $Width, $Height, $Embed)
+function display_tab($FeedSlug, $IsVideo, $NoPlayer, $NoLinks, $Width, $Height, $Embed, $GeneralSettings)
 {
     ?>
 
     <div id="display-<?php echo $FeedSlug; ?>" class="pp-tabcontent">
+        <?php if( ( !isset($GeneralSettings['new_episode_box_no_player']) || $GeneralSettings['new_episode_box_no_player'] == 1) || (!isset($GeneralSettings['new_episode_box_no_links']) || $GeneralSettings['new_episode_box_no_links'] == 1) ) { ?>
         <div id="pp-display-player-<?php echo $FeedSlug; ?>" class="pp-section-container">
             <h4 class="pp-section-title-block"><?php echo esc_html(__('Episode Player', 'powerpress')); ?></h4>
-            <span style="font-size: 14px;">
+            <?php if( !isset($GeneralSettings['new_episode_box_no_player']) || $GeneralSettings['new_episode_box_no_player'] == 1) { ?>
+            <p style="font-size: 14px;" class="pp-ep-box-text">
                 <input id="powerpress_no_player_<?php echo $FeedSlug; ?>" title="<?php echo esc_attr(__("Do not display player","powerpress")); ?>"
                                                   class="ep-box-checkbox"
                                                   name="Powerpress[<?php echo $FeedSlug; ?>][no_player]" value="1"
                                                   type="checkbox" <?php echo($NoPlayer == 1 ? 'checked' : ''); ?> />
                 <?php echo esc_html(__('Do not display player', 'powerpress')); ?>
-            </span>
-            <br/>
-            <span style="font-size: 14px;">
+            </p>
+            <br/><?php }
+            if (!isset($GeneralSettings['new_episode_box_no_links']) || $GeneralSettings['new_episode_box_no_links'] == 1) { ?>
+            <p style="font-size: 14px; margin-top: 1ch;" class="pp-ep-box-text">
                 <input id="powerpress_no_links_<?php echo $FeedSlug; ?>" title="<?php echo esc_attr(__("Do not display media links","powerpress")); ?>"
                                                   class="ep-box-checkbox"
                                                   name="Powerpress[<?php echo $FeedSlug; ?>][no_links]" value="1"
                                                   type="checkbox" <?php echo($NoLinks == 1 ? 'checked' : ''); ?> />
                 <?php echo esc_html(__('Do not display media links', 'powerpress')); ?>
-            </span>
+            </p>
+            <?php } ?>
         </div>
 
-        <?php //Setting for audio player size
-        if ($IsVideo) {
-            $display = "block";
-        } else {
-            $display = "none";
-        } ?>
-        <div id="line-above-player-size-<?php echo $FeedSlug; ?>" style="display: <?php echo $display; ?>" class="ep-box-line"></div>
-        <div id="pp-player-size-<?php echo $FeedSlug; ?>" style="display: <?php echo $display; ?>" class="pp-section-container">
+        <div id="line-above-player-size-<?php echo $FeedSlug; ?>" class="ep-box-line"></div>
+        <?php } //Setting for audio player size
+
+        if (!isset($GeneralSettings['new_episode_box_player_size']) || $GeneralSettings['new_episode_box_player_size'] == 1) { ?>
+        <div id="pp-player-size-<?php echo $FeedSlug; ?>" class="pp-section-container">
             <h4 class="pp-section-title" style="width: 100%;"><?php echo esc_html(__('Video Player Size', 'powerpress')); ?></h4>
             <div class="powerpress-label-container">
                 <input type="text" id="powerpress_episode_player_width_<?php echo $FeedSlug; ?>" title="<?php echo esc_attr(__("Player width","powerpress")); ?>"
@@ -621,6 +683,7 @@ function display_tab($FeedSlug, $IsVideo, $NoPlayer, $NoLinks, $Width, $Height, 
             </div>
         </div>
         <div class="ep-box-line"></div>
+        <?php } ?>
         <div id="player-shortcode-<?php echo $FeedSlug; ?>" class="pp-section-container">
             <h4 class="pp-section-title-block"><?php echo esc_html(__('Display Player Anywhere on Page', 'powerpress')); ?></h4>
             <div style="display:inline-block"><p class="pp-shortcode-example" style="font-weight: bold;">
@@ -630,7 +693,9 @@ function display_tab($FeedSlug, $IsVideo, $NoPlayer, $NoLinks, $Width, $Height, 
                    target="_blank"><?php echo esc_html(__('Learn more about shortcodes here.', 'powerpress')); ?></a></p>
         </div>
         <div class="ep-box-line"></div>
-        <?php //Setting for media embed ?>
+        <?php //Setting for media embed
+         if( !isset($GeneralSettings['new_episode_box_embed']) || $GeneralSettings['new_episode_box_embed'] == 1 ) {
+        ?>
         <div class="pp-section-container">
             <h4 class="pp-section-title"><?php echo esc_html(__('Media Embed', 'powerpress')); ?></h4>
             <div class="pp-tooltip-right">i
@@ -644,11 +709,12 @@ function display_tab($FeedSlug, $IsVideo, $NoPlayer, $NoLinks, $Width, $Height, 
                           onfocus="this.select();"><?php echo esc_textarea($Embed); ?></textarea>
             </div>
         </div>
+        <?php } ?>
     </div>
     <?php
 }
 
-function notes_tab($FeedSlug, $object)
+function notes_tab($FeedSlug, $object, $GeneralSettings)
 {
     ?>
 

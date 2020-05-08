@@ -210,9 +210,9 @@ function powerpress_meta_box($object, $box)
     echo "<button class=\"tablinks\" id=\"3$FeedSlug\" title='{$titles['advanced']}' onclick=\"powerpress_openTab(event, 'notes-$FeedSlug')\">" . esc_html(__('Advanced', 'powerpress')) . "</button>";
     echo "</div>";
     seo_tab($FeedSlug, $ExtraData, $iTunesExplicit, $seo_feed_title, $GeneralSettings, $iTunesSubtitle, $iTunesSummary, $iTunesAuthor, $iTunesOrder, $iTunesBlock, $object);
-    artwork_tab($FeedSlug, $ExtraData, $object, $CoverImage);
-    display_tab($FeedSlug, $IsVideo, $NoPlayer, $NoLinks, $Width, $Height, $Embed);
-    notes_tab($FeedSlug, $object);
+    artwork_tab($FeedSlug, $ExtraData, $object, $CoverImage, $GeneralSettings);
+    display_tab($FeedSlug, $IsVideo, $NoPlayer, $NoLinks, $Width, $Height, $Embed, $GeneralSettings);
+    notes_tab($FeedSlug, $object, $GeneralSettings);
     echo "</div>";
     echo "</div>";
     if ($EnclosureURL) {

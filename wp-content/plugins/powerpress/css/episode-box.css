@@ -276,6 +276,14 @@ h4[class^="pp-section-title"] {
     font-size: 14px;
     margin-top: 2ch;
     margin-bottom: 0;
+    font-family: Roboto, sans-serif;
+}
+
+.pp-ep-box-settings-text {
+    font-size: 12px;
+    letter-spacing: 0.35px;
+    margin-top: 3ch;
+    margin-bottom: 0;
 }
 
 .pp-section-subtitle {
@@ -307,16 +315,24 @@ h3[id^="pp-pp-selected-media-head"] {
     margin: 0;
 }
 
+.pp-ep-box-settings {
+    float: right;
+}
+
+.ep-box-settings-icon {
+    cursor: pointer;
+}
+
 div[id^="pp-edit-media-button"] {
     text-align: center;
 }
 
-div[id^="a-pp-selected-media"], .powerpress_remove_container {
+div[id^="a-pp-selected-media"] {
     padding: 1em 2em 0 2em;
 }
 
 div[class="powerpress_remove_container"] {
-    padding: 0 2ch;
+    padding: 2ch 2ch;
 }
 
 div[class^="metamark-preview-"] {
@@ -378,14 +394,17 @@ div[class^="ep-box-line"] {
     border-top: 1px solid #EFEFEF;
 }
 
-div[class="ep-box-line-bold"] {
+div[class="ep-box-line-bold"], div[class="ep-box-line-margin-bold"] {
     border-top: 2px solid #EFEFEF;
     width: 92%;
+}
+
+div[class="ep-box-line-bold"] {
     margin-left: 4%;
     margin-right: 4%;
 }
 
-.ep-box-line-margin {
+.ep-box-line-margin, .ep-box-line-margin-bold {
     margin: 17px 0 17px 0;
 }
 
@@ -461,7 +480,7 @@ div[id^="ep-box-filename-container"] {
 }
 
 p[id^="ep-box-filename"] {
-    color: #6B6C6F;
+    color: #4b4c4e;
     font-family: Roboto, sans-serif;
     font-size: 14px;
     letter-spacing: 0.15px;
@@ -469,11 +488,11 @@ p[id^="ep-box-filename"] {
     margin: 0 5px 0 5px;
     display: inline;
 }
-
+/*
 div[id^="pp-warning-messages"] {
     margin-left: 3em;
 }
-
+*/
 div[id^="pp-connect-account-"], div[id^="pp-cancel-container"] {
     display: inline-block;
 }
@@ -736,7 +755,7 @@ input[id^="powerpress_feature_"] {
     width: 18px;
 }
 
-input[class="ep-box-checkbox"] {
+/*input[class="ep-box-checkbox"] {
     box-sizing: border-box;
     height: 16px;
     width: 16px;
@@ -745,6 +764,36 @@ input[class="ep-box-checkbox"] {
     background: linear-gradient(0deg, #F6F7F9 0%, #FFFFFF 100%);
     box-shadow: inset 0 2px 0 0 rgba(255,255,255,0.05), 0 1px 1px 0 rgba(22,29,37,0.05);
     margin: 1em 1ch 1em 1ch;
+}*/
+
+input.ep-box-checkbox {
+    border: 2px solid #d4d8e0;
+    border-radius: 3px;
+    height: 18px;
+    width: 18px;
+    box-shadow: none;
+    margin-right: 1em;
+}
+
+input.ep-box-checkbox:checked {
+    background-color: #2278cf;
+    border-color: #2278cf;
+}
+
+input.ep-box-checkbox:checked:disabled {
+    background-color: rgba(0,0,0,0.5);
+    border-color: rgba(0,0,0,0.2);
+}
+
+input.ep-box-checkbox:checked::before {
+    content: url('../images/check_white.svg');
+    height: 21px;
+    width: 21px;
+    margin: -3px 0 0 -4px;
+}
+
+input.ep-box-checkbox:checked + label.pp-checkbox-label {
+    color: #0c74d5;
 }
 
 .pp-section-container {
@@ -1056,7 +1105,7 @@ div[id^="ep-box-min-blubrry-connect-"] {
     }
     .classic-editor div[id^="ep-box-connect-account-button-"], .classic-editor div[id^="change-media-button-"] {
         float: none;
-        margin: 1em 0 0 1em;
+        margin-top: 1em;
     }
 }
 

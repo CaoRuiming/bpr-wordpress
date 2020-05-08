@@ -36,7 +36,13 @@ function powerpress_openTab(evt, cityName) {
     //Set/unset the interval for updating artwork previews
     if (cityName == 'artwork-' + feed_slug) {
         let el = jQuery("#powerpress_itunes_image_" + feed_slug);
-        interval = setInterval(function() { powerpress_insertArtIntoPreview(el[0]); }, 1000);
+        let el_a = jQuery("#powerpress_image_" + feed_slug);
+        jQuery.merge(el, el_a);
+        if (el.length > 0) {
+            interval = setInterval(function () {
+                powerpress_insertArtIntoPreview(el[0]);
+            }, 1000);
+        }
     }
     if (cityName != 'artwork-' + feed_slug && interval) {
         clearInterval(interval);
@@ -183,8 +189,8 @@ function powerpress_changeMediaFile(evt, el) {
 //save button for edit media link
 function powerpress_cancelMediaEdit(el) {
     let feed_slug = el.id.replace("cancel-media-edit-", "");
-    let player_size = jQuery("#pp-player-size-" + feed_slug);
-    let player_size_line = jQuery("#line-above-player-size-" + feed_slug);
+    //let player_size = jQuery("#pp-player-size-" + feed_slug);
+    //let player_size_line = jQuery("#line-above-player-size-" + feed_slug);
     let display_filename = jQuery("#ep-box-filename-" + feed_slug);
     let link = display_filename.val();
     let input = jQuery("#pp-url-input-container-" + feed_slug);
@@ -195,13 +201,13 @@ function powerpress_cancelMediaEdit(el) {
     let warning = jQuery("#file-change-warning-" + feed_slug);
     let blubrry_info = jQuery("#ep-box-blubrry-service-" + feed_slug);
     let container = jQuery("#pp-media-blubrry-container-" + feed_slug);
-    let video_types = [".mp4", ".m4v", ".webm", ".ogg", ".ogv"];
-    let video = false;
+    //let video_types = [".mp4", ".m4v", ".webm", ".ogg", ".ogv"];
+    //let video = false;
     if(verify_interval) {
         clearInterval(verify_interval);
         verify_interval = false;
     }
-    video_types.forEach(function(element) {
+    /*video_types.forEach(function(element) {
         if (link.endsWith(element)) {
             player_size.removeAttr("style");
             player_size.attr("style", "display: block");
@@ -215,13 +221,12 @@ function powerpress_cancelMediaEdit(el) {
         player_size.attr("style", "display: none");
         player_size_line.removeAttr("style");
         player_size_line.attr("style", "display: none");
-    }
+    }*/
     url_field.val(link);
     warning.css('display', 'none');
     input.removeAttr("style");
     input.attr("style", "display: none");
-    show_input.removeAttr("style");
-    show_input.attr("style", "display: inline-block");
+    show_input.css("display", "inline-block");
     edit_media.removeAttr("style");
     edit_media.attr("style", "display: inline-block");
     buttons.removeAttr("style");
@@ -235,8 +240,8 @@ function powerpress_cancelMediaEdit(el) {
 function powerpress_saveMediaFile(el) {
     let feed_slug = el.id.replace("save-media-", "");
     powerpress_get_media_info(feed_slug);
-    let player_size = jQuery("#pp-player-size-" + feed_slug);
-    let player_size_line = jQuery("#line-above-player-size-" + feed_slug);
+    //let player_size = jQuery("#pp-player-size-" + feed_slug);
+    //let player_size_line = jQuery("#line-above-player-size-" + feed_slug);
     let link = jQuery("#pp-url-input-label-container-" + feed_slug + " > input").val();
     let display_filename = jQuery("#ep-box-filename-" + feed_slug);
     let input = jQuery("#pp-url-input-container-" + feed_slug);
@@ -251,7 +256,7 @@ function powerpress_saveMediaFile(el) {
             clearInterval(verify_interval);
             verify_interval = false;
         }
-        let video_types = [".mp4", ".m4v", ".webm", ".ogg", ".ogv"];
+        /*let video_types = [".mp4", ".m4v", ".webm", ".ogg", ".ogv"];
         let video = false;
         video_types.forEach(function(element) {
             if (link.endsWith(element)) {
@@ -267,14 +272,13 @@ function powerpress_saveMediaFile(el) {
             player_size.attr("style", "display: none");
             player_size_line.removeAttr("style");
             player_size_line.attr("style", "display: none");
-        }
+        }*/
         show_input.attr("title", link);
         display_filename.html(link);
         warning.css('display', 'none');
         input.removeAttr("style");
         input.attr("style", "display: none");
-        show_input.removeAttr("style");
-        show_input.attr("style", "display: inline-block");
+        show_input.css("display", "inline-block");
         edit_media.removeAttr("style");
         edit_media.attr("style", "display: inline-block");
         buttons.removeAttr("style");
@@ -309,8 +313,7 @@ function powerpress_skipToEpisodeSettings(feed_slug) {
     edit_file.attr("style", "display: inline-block");
     file_input.removeAttr("style");
     file_input.attr("style", "display: none");
-    file_show.removeAttr("style");
-    file_show.attr("style", "display: inline-block");
+    file_show.css("display", "inline-block");
     warning.removeAttr("style");
     warning.attr("style", "display: none");
     blubrry_info.removeAttr("style");
@@ -332,8 +335,8 @@ function powerpress_skipToEpisodeSettings(feed_slug) {
 function powerpress_continueToEpisodeSettings(el) {
     let feed_slug = el.id.replace("continue-to-episode-settings-", "");
     powerpress_get_media_info(feed_slug);
-    let player_size = jQuery("#pp-player-size-" + feed_slug);
-    let player_size_line = jQuery("#line-above-player-size-" + feed_slug);
+    //let player_size = jQuery("#pp-player-size-" + feed_slug);
+    //let player_size_line = jQuery("#line-above-player-size-" + feed_slug);
     let link = jQuery("#pp-url-input-label-container-" + feed_slug + " > input").val();
     let file_input = jQuery("#pp-url-input-container-" + feed_slug);
     let file_show = jQuery("#powerpress_url_show_" + feed_slug);
@@ -352,7 +355,7 @@ function powerpress_continueToEpisodeSettings(el) {
             clearInterval(verify_interval);
             verify_interval = false;
         }
-        let video_types = [".mp4", ".m4v", ".webm", ".ogg", ".ogv"];
+        /*let video_types = [".mp4", ".m4v", ".webm", ".ogg", ".ogv"];
         let video = false;
         video_types.forEach(function(element) {
             if (link.endsWith(element)) {
@@ -368,7 +371,7 @@ function powerpress_continueToEpisodeSettings(el) {
             player_size.attr("style", "display: none");
             player_size_line.removeAttr("style");
             player_size_line.attr("style", "display: none");
-        }
+        }*/
         file_show.attr("title", link);
         display_filename.html(link);
         tab_container.removeAttr("style");
@@ -379,8 +382,7 @@ function powerpress_continueToEpisodeSettings(el) {
         edit_file.attr("style", "display: inline-block");
         file_input.removeAttr("style");
         file_input.attr("style", "display: none");
-        file_show.removeAttr("style");
-        file_show.attr("style", "display: inline-block");
+        file_show.css("display", "inline-block");
         warning.removeAttr("style");
         warning.attr("style", "display: none");
         blubrry_info.removeAttr("style");
@@ -401,6 +403,7 @@ function powerpress_continueToEpisodeSettings(el) {
 //keeps art previews up to date
 function powerpress_insertArtIntoPreview(el) {
     let feed_slug = el.id.replace("powerpress_itunes_image_", "");
+    feed_slug = feed_slug.replace("powerpress_image_", "");
     let art_input = "#powerpress_itunes_image_" + feed_slug;
     let poster_input = "#powerpress_image_" + feed_slug;
     let episode_artwork = jQuery(art_input);

@@ -519,55 +519,55 @@ function powerpress_admin_init()
 						$General['disable_dashboard_stats'] = 1;
 					if( !isset($General['disable_dashboard_news'] ) )
 						$General['disable_dashboard_news'] = 0;
+                    /*
+					if( !isset($General['new_episode_box_mode']) ) // Default not set, 1 = no duration/file size, 2 = yes duration/file size (default if not set)
+						$General['new_episode_box_mode'] = 1; // 1 = no duration/file size (unchecked)
+					if( !isset($General['new_episode_box_embed'] ) )
+						$General['new_episode_box_embed'] = 1;
+					if( !isset($General['new_embed_replace_player'] ) )
+						$General['new_embed_replace_player'] = 1;
+					if( !isset($General['new_episode_box_no_player'] ) )
+						$General['new_episode_box_no_player'] = 1;
+					if( !isset($General['new_episode_box_no_links'] ) )
+						$General['new_episode_box_no_links'] = 1;
+					if( !isset($General['new_episode_box_no_player_and_links'] ) )
+						$General['new_episode_box_no_player_and_links'] = 1;
+					if( !isset($General['new_episode_box_cover_image'] ) )
+						$General['new_episode_box_cover_image'] = 1;
+					if( !isset($General['new_episode_box_player_size'] ) )
+						$General['new_episode_box_player_size'] = 1;
+					if( !isset($General['new_episode_box_subtitle'] ) )
+						$General['new_episode_box_subtitle'] = 1;
+					if( !isset($General['new_episode_box_summary'] ) )
+						$General['new_episode_box_summary'] = 1;
+					if( !isset($General['new_episode_box_gp_desc'] ) )
+						$General['new_episode_box_gp_desc'] = 1;
+					if( !isset($General['new_episode_box_gp_explicit'] ) )
+						$General['new_episode_box_gp_explicit'] = 1;
+					if( !isset($General['new_episode_box_author'] ) )
+						$General['new_episode_box_author'] = 1;
+					if( !isset($General['new_episode_box_explicit'] ) )
+						$General['new_episode_box_explicit'] = 1;
+					if( !isset($General['new_episode_box_closed_captioned'] ) )
+						$General['new_episode_box_closed_captioned'] = 1;
+					if( !isset($General['new_episode_box_itunes_image'] ) )
+						$General['new_episode_box_itunes_image'] = 1;
 						
-					if( !isset($General['episode_box_mode']) ) // Default not set, 1 = no duration/file size, 2 = yes duration/file size (default if not set)
-						$General['episode_box_mode'] = 1; // 1 = no duration/file size (unchecked)
-					if( !isset($General['episode_box_embed'] ) )
-						$General['episode_box_embed'] = 0;
-					if( !isset($General['embed_replace_player'] ) )
-						$General['embed_replace_player'] = 0;
-					if( !isset($General['episode_box_no_player'] ) )
-						$General['episode_box_no_player'] = 0;
-					if( !isset($General['episode_box_no_links'] ) )
-						$General['episode_box_no_links'] = 0;
-					if( !isset($General['episode_box_no_player_and_links'] ) )
-						$General['episode_box_no_player_and_links'] = 0;
-					if( !isset($General['episode_box_cover_image'] ) )
-						$General['episode_box_cover_image'] = 0;	
-					if( !isset($General['episode_box_player_size'] ) )
-						$General['episode_box_player_size'] = 0;	
-					if( !isset($General['episode_box_subtitle'] ) )
-						$General['episode_box_subtitle'] = 0;
-					if( !isset($General['episode_box_summary'] ) )
-						$General['episode_box_summary'] = 0;
-					if( !isset($General['episode_box_gp_desc'] ) )
-						$General['episode_box_gp_desc'] = 0;
-					if( !isset($General['episode_box_gp_explicit'] ) )
-						$General['episode_box_gp_explicit'] = 0;
-					if( !isset($General['episode_box_author'] ) )
-						$General['episode_box_author'] = 0;	
-					if( !isset($General['episode_box_explicit'] ) )
-						$General['episode_box_explicit'] = 0;
-					if( !isset($General['episode_box_closed_captioned'] ) )
-						$General['episode_box_closed_captioned'] = 0;
-					if( !isset($General['episode_box_itunes_image'] ) )
-						$General['episode_box_itunes_image'] = 0;		
+					if( !isset($General['new_episode_box_order'] ) )
+						$General['new_episode_box_order'] = 1;
 						
-					if( !isset($General['episode_box_order'] ) )
-						$General['episode_box_order'] = 0;
-						
-					if( !isset($General['episode_box_feature_in_itunes'] ) )
-						$General['episode_box_feature_in_itunes'] = 0;	
+					if( !isset($General['new_episode_box_feature_in_itunes'] ) )
+						$General['new_episode_box_feature_in_itunes'] = 1;
 					else
-						$General['episode_box_order'] = 0;
+						$General['new_episode_box_order'] = 1;
 					
-					if( !isset($General['episode_box_block'] ) )
-						$General['episode_box_block'] = 0;
-					if( !isset($General['episode_box_gp_block'] ) )
-						$General['episode_box_gp_block'] = 0;
-					if( !isset($General['episode_box_gp_explicit'] ) )
-						$General['episode_box_gp_explicit'] = 0;
-						
+					if( !isset($General['new_episode_box_block'] ) )
+						$General['new_episode_box_block'] = 1;
+					if( !isset($General['new_episode_box_gp_block'] ) )
+						$General['new_episode_box_gp_block'] = 1;
+					if( !isset($General['new_episode_box_gp_explicit'] ) )
+						$General['new_episode_box_gp_explicit'] = 1;
+                    */
 					if( !isset($General['allow_feed_comments'] ) )
 						$General['allow_feed_comments'] = 0;
 						
@@ -1401,6 +1401,7 @@ function powerpress_save_settings($SettingsNew=false, $field = 'powerpress_gener
 	// Save general settings
 	if( $SettingsNew )
 	{
+
 		
 		$Settings = get_option($field);
 		if( !is_array($Settings) )
@@ -1420,65 +1421,73 @@ function powerpress_save_settings($SettingsNew=false, $field = 'powerpress_gener
 		// We can unset settings that are set to their defaults to save database size...
 		if( $field == 'powerpress_general' )
 		{
-			// Switch the settings over to the actual field name (to fix FCGI mode problem with older versions of PHP.
-			if( isset($Settings['ebititle']) ) {
-				if( $Settings['ebititle'] == 'false')
-					$Settings['ebititle'] = 0;
-				$Settings['episode_box_itunes_title'] = $Settings['ebititle'];
-				unset($Settings['ebititle']);
-			}
-			
-			if( isset($Settings['ebinst']) ) {
-			if( $Settings['ebinst'] == 'false')
-					$Settings['ebinst'] = 0;
-				$Settings['episode_box_itunes_nst'] = $Settings['ebinst'];
-				unset($Settings['ebinst']);
-			}
-			
-			if( isset($Settings['episode_box_embed'] ) && $Settings['episode_box_embed'] == 0 )
-				unset($Settings['episode_box_embed']);
-			if( isset($Settings['embed_replace_player'] ) && $Settings['embed_replace_player'] == 0 )
-				unset($Settings['embed_replace_player']);
-			if( isset($Settings['episode_box_no_player'] ) && $Settings['episode_box_no_player'] == 0 )
-				unset($Settings['episode_box_no_player']);
-			if( isset($Settings['episode_box_no_links'] ) && $Settings['episode_box_no_links'] == 0 )
-				unset($Settings['episode_box_no_links']);
-			if( isset($Settings['episode_box_no_player_and_links'] ) && $Settings['episode_box_no_player_and_links'] == 0 )
-				unset($Settings['episode_box_no_player_and_links']);
-			if( isset($Settings['episode_box_cover_image'] ) && $Settings['episode_box_cover_image'] == 0 )
-				unset($Settings['episode_box_cover_image']);
-			if( isset($Settings['episode_box_player_size'] ) && $Settings['episode_box_player_size'] == 0 )
-				unset($Settings['episode_box_player_size']);
-			if( isset($Settings['episode_box_subtitle'] ) && $Settings['episode_box_subtitle'] == 0 )
-				unset($Settings['episode_box_subtitle']);
-			if( isset($Settings['episode_box_summary'] ) && $Settings['episode_box_summary'] == 0 )
-				unset($Settings['episode_box_summary']);
-			if( isset($Settings['episode_box_gp_desc'] ) && $Settings['episode_box_gp_desc'] == 0 )
-				unset($Settings['episode_box_gp_desc']);
-			if( isset($Settings['episode_box_gp_block'] ) && $Settings['episode_box_gp_block'] == 0 )
-				unset($Settings['episode_box_gp_block']);
-			if( isset($Settings['episode_box_gp_explicit'] ) && $Settings['episode_box_gp_explicit'] == 0 )
-				unset($Settings['episode_box_gp_explicit']);	
-			if( isset($Settings['episode_box_closed_captioned'] ) && $Settings['episode_box_closed_captioned'] == 0 )
-				unset($Settings['episode_box_closed_captioned']);	
-			if( isset($Settings['episode_box_author'] ) && $Settings['episode_box_author'] == 0 )
-				unset($Settings['episode_box_author']);
-			if( isset($Settings['episode_box_explicit'] ) && $Settings['episode_box_explicit'] == 0 )
-				unset($Settings['episode_box_explicit']);
-			if( isset($Settings['episode_box_block'] ) && $Settings['episode_box_block'] == 0 )
-				unset($Settings['episode_box_block']);
-			if( isset($Settings['episode_box_itunes_image'] ) && $Settings['episode_box_itunes_image'] == 0 )
-				unset($Settings['episode_box_itunes_image']);	
-			if( isset($Settings['episode_box_order'] ) && $Settings['episode_box_order'] == 0 )
-				unset($Settings['episode_box_order']);
-			if( isset($Settings['episode_box_itunes_title'] ) && $Settings['episode_box_itunes_title'] == 0 )
-				unset($Settings['episode_box_itunes_title']);
-			if( isset($Settings['episode_box_itunes_nst'] ) && $Settings['episode_box_itunes_nst'] == 0 )
-				unset($Settings['episode_box_itunes_nst']);
-			if( isset($Settings['episode_box_gp_explicit'] ) && $Settings['episode_box_gp_explicit'] == 0 )
-				unset($Settings['episode_box_gp_explicit']);
-			if( isset($Settings['episode_box_feature_in_itunes'] ) && $Settings['episode_box_feature_in_itunes'] == 0 )
-				unset($Settings['episode_box_feature_in_itunes']);
+		    if( isset($SettingsNew['new_episode_box_flag'])) {
+                /* Switch the settings over to the actual field name (to fix FCGI mode problem with older versions of PHP.
+                if (isset($SettingsNew['ebititle'])) {
+                    if ($SettingsNew['ebititle'] == 'false') {
+                        $Settings['new_episode_box_itunes_title'] = 2;
+                    } else {
+                        $Settings['new_episode_box_itunes_title'] = 1;
+                        $SettingsNew['new_episode_box_itunes_title'] = 1;
+                    }
+                    unset($Settings['ebititle']);
+                }
+
+                if (isset($SettingsNew['ebinst'])) {
+                    if ($SettingsNew['ebinst'] == 'false') {
+                        $Settings['new_episode_box_itunes_nst'] = 2;
+                    } else {
+                        $Settings['new_episode_box_itunes_nst'] = 1;
+                        $SettingsNew['new_episode_box_itunes_nst'] = 1;
+                    }
+                    unset($Settings['ebinst']);
+                }*/
+
+                if (!isset($SettingsNew['new_episode_box_embed']))
+                    $Settings['new_episode_box_embed'] = 2;
+                if (!isset($SettingsNew['new_embed_replace_player']))
+                    $Settings['new_embed_replace_player'] = 2;
+                if (!isset($SettingsNew['new_episode_box_no_player']))
+                    $Settings['new_episode_box_no_player'] = 2;
+                if (!isset($SettingsNew['new_episode_box_no_links']))
+                    $Settings['new_episode_box_no_links'] = 2;
+                if (!isset($SettingsNew['new_episode_box_no_player_and_links']))
+                    $Settings['new_episode_box_no_player_and_links'] = 2;
+                if (!isset($SettingsNew['new_episode_box_cover_image']))
+                    $Settings['new_episode_box_cover_image'] = 2;
+                if (!isset($SettingsNew['new_episode_box_player_size']))
+                    $Settings['new_episode_box_player_size'] = 2;
+                if (!isset($SettingsNew['new_episode_box_subtitle']))
+                    $Settings['new_episode_box_subtitle'] = 2;
+                if (!isset($SettingsNew['new_episode_box_summary']))
+                    $Settings['new_episode_box_summary'] = 2;
+                /*if( isset($Settings['episode_box_gp_desc'] ) && $Settings['episode_box_gp_desc'] == 0 )
+                    unset($Settings['episode_box_gp_desc']);
+                if( isset($Settings['episode_box_gp_block'] ) && $Settings['episode_box_gp_block'] == 0 )
+                    unset($Settings['episode_box_gp_block']);
+                if( isset($Settings['episode_box_gp_explicit'] ) && $Settings['episode_box_gp_explicit'] == 0 )
+                    unset($Settings['episode_box_gp_explicit']);
+                if( isset($Settings['episode_box_closed_captioned'] ) && $Settings['episode_box_closed_captioned'] == 0 )
+                    unset($Settings['episode_box_closed_captioned']);	*/
+                if (!isset($SettingsNew['new_episode_box_author']))
+                    $Settings['new_episode_box_author'] = 2;
+                if (!isset($SettingsNew['new_episode_box_explicit']))
+                    $Settings['new_episode_box_explicit'] = 2;
+                if (!isset($SettingsNew['new_episode_box_block']))
+                    $Settings['new_episode_box_block'] = 2;
+                if (!isset($SettingsNew['new_episode_box_itunes_image']))
+                    $Settings['new_episode_box_itunes_image'] = 2;
+                if (!isset($SettingsNew['new_episode_box_order']))
+                    $Settings['new_episode_box_order'] = 2;
+                if (!isset($SettingsNew['new_episode_box_itunes_title']))
+                    $Settings['new_episode_box_itunes_title'] = 2;
+                if (!isset($SettingsNew['new_episode_box_itunes_nst']))
+                    $Settings['new_episode_box_itunes_nst'] = 2;
+                if (!isset($SettingsNew['new_episode_box_gp_explicit']))
+                    $Settings['new_episode_box_gp_explicit'] = 2;
+                if (!isset($SettingsNew['new_episode_box_feature_in_itunes']))
+                    $Settings['new_episode_box_feature_in_itunes'] = 2;
+            }
 			if( isset($Settings['videojs_css_class']) && empty($Settings['videojs_css_class']) )
 				unset($Settings['videojs_css_class']);
 			if( isset($Settings['cat_casting']) && empty($Settings['cat_casting']) )
@@ -2524,20 +2533,24 @@ function powerpress_check_url(url, DestDiv)
 {
 	if( powerpress_check_url.arguments.length > 1 )
 		DestDiv = powerpress_check_url.arguments[1];
-	
-	jQuery( '#'+DestDiv ).addClass("error");
-	jQuery( '#'+DestDiv ).removeClass("updated");
-			
+
+	let Div = jQuery( '#'+DestDiv );
+	console.log(Div[0]);
+    Div.addClass("pp-error");
+    Div.removeClass("updated");
+
+    let FeedSlug = DestDiv.replace("powerpress_warning_", "");
 	var validChars = ':0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ/-_.:';
 
 	for( var x = 0; x < url.length; x++ )
 	{
 		if( validChars.indexOf( url.charAt(x) ) == -1 )
 		{
-			jQuery( '#'+DestDiv ).text('<?php echo esc_js( __('Media URL contains characters that may cause problems for some clients. For maximum compatibility, only use letters, numbers, dash - and underscore _ characters only.', 'powerpress')); ?>');
-			jQuery( '#'+DestDiv ).css('display', 'block');
+            Div.html('<?php echo esc_js( __('Media URL contains characters that may cause problems for some clients. For maximum compatibility, only use letters, numbers, dash - and underscore _ characters only.', 'powerpress')); ?>');
+            Div.css('display', 'block');
             jQuery('#powerpress_fail_'+FeedSlug).css("display", 'inline-block');
-            //jQuery( '#powerpress_url_show' ).css('background-color', '#eba2a2');
+            jQuery( '#powerpress_url_show_'+FeedSlug ).css('background-color', '#eba2a2');
+            jQuery( '#powerpress_url_show_'+FeedSlug ).css('background-color');
 			return false;
 		}
 	
@@ -2545,7 +2558,7 @@ function powerpress_check_url(url, DestDiv)
 			validChars = validChars.substring(1); // remove the colon, should no longer appear in URLs
 	}
 
-	jQuery( '#'+DestDiv ).css('display', 'none');
+	Div.css('display', 'none');
 	return true;
 }
 
@@ -2559,7 +2572,7 @@ function powerpress_get_media_info(FeedSlug)
 	jQuery( '#powerpress_success_'+FeedSlug ).css('display', 'none');
 	//jQuery( '#powerpress_warning_'+FeedSlug ).text('');
 	jQuery( '#powerpress_warning_'+FeedSlug ).css('display', 'none');
-	jQuery( '#powerpress_warning_'+FeedSlug ).addClass("error");
+	jQuery( '#powerpress_warning_'+FeedSlug ).addClass("pp-error");
 	jQuery( '#powerpress_warning_'+FeedSlug ).removeClass("updated");
 	
 	var Value = jQuery('#powerpress_url_'+FeedSlug).val();
@@ -2639,7 +2652,7 @@ function powerpress_get_media_info(FeedSlug)
 						else
 						{
 							jQuery( '#powerpress_success_'+FeedSlug ).css('display', 'inline-block');
-                            //jQuery( '#powerpress_url_show_'+FeedSlug ).css('background-color', '#c1f2b8');
+                            jQuery( '#powerpress_url_show_'+FeedSlug ).css('background-color', '#c1f2b8');
 							// setTimeout( function() { jQuery( '#powerpress_success_'+FeedSlug ).fadeOut(1000); }, 10000 );
 							<?php
 						if( defined('POWERPRESS_AJAX_DEBUG') )
@@ -2666,7 +2679,7 @@ function powerpress_get_media_info(FeedSlug)
 						?>
 						jQuery( '#powerpress_warning_'+FeedSlug ).css('display', 'block');
                         jQuery('#powerpress_fail_'+FeedSlug).css("display", 'inline-block');
-                        //jQuery( '#powerpress_url_show_'+FeedSlug ).css('background-color', '#eba2a2');
+                        jQuery( '#powerpress_url_show_'+FeedSlug ).css('background-color', '#eba2a2');
 					}
 				},
 				error: function(objAJAXRequest, textStatus, errorThrown) {
@@ -2681,7 +2694,7 @@ function powerpress_get_media_info(FeedSlug)
 					jQuery('#powerpress_check_'+FeedSlug).css("display", 'none');
                     jQuery( '#powerpress_warning_'+FeedSlug ).css('display', 'block');
                     jQuery('#powerpress_fail_'+FeedSlug).css("display", 'inline-block');
-                    //jQuery( '#powerpress_url_show_'+FeedSlug ).css('background-color', '#eba2a2');
+                    jQuery( '#powerpress_url_show_'+FeedSlug ).css('background-color', '#eba2a2');
 
 					if( textStatus == 'timeout' ) {
 						jQuery( '#powerpress_warning_'+FeedSlug ).text( '<?php echo __('Operation timed out.', 'powerpress'); ?>' );

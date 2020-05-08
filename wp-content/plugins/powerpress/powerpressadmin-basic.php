@@ -47,14 +47,6 @@ function CheckRedirect(obj)
 	return true;
 }
 
-function SelectEmbedField(checked)
-{
-	if( checked )
-		jQuery('#embed_replace_player').removeAttr("disabled");
-	else
-		jQuery('#embed_replace_player').attr("disabled","disabled");
-}
-
 jQuery(document).ready(function($) {
 
 	
@@ -750,17 +742,7 @@ function powerpressadmin_appearance($General=false, $Feed = false)
 </table>
 
 
-    <table class="form-table">
-        <tr valign="top">
-            <th scope="row">
-                <?php echo __('Episode Box Appearance', 'powerpress'); ?></th>
-            <td>
 
-                <p><label><input type="checkbox" name="General[skip_to_episode_settings]" value="2" <?php if( isset($General['skip_to_episode_settings']) && $General['skip_to_episode_settings'] ) echo 'checked '; ?>/> <?php echo __('Skip Media Verification', 'powerpress'); ?></label></p>
-                <p><?php echo __('Check this box to display all episode settings before the media is verified. If this setting is selected, you risk losing all your entered data if you try to publish an episode that has no media attached. This setting should only be enabled by very experienced PowerPress users.', 'powerpress'); ?></p>
-            </td>
-        </tr>
-    </table>
 </div><!-- end enable_presentation_settings -->
 <div id="presentation_settings"<?php if($General['disable_appearance']) echo ' style="display: none;"'; ?>>
 <!-- start presentation_settings in advanced mode -->

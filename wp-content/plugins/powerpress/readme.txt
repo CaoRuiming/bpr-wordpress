@@ -4,7 +4,7 @@ Tags: podcasting, podcast, podcaster, powerpress, itunes, apple, apple podcasts,
 Requires at least: 3.6
 Requires PHP: 5.2
 Tested up to: 5.4
-Stable tag: 8.2.10
+Stable tag: 8.2.11
 Donate link: https://create.blubrry.com/resources/podcast-media-hosting/
 License: GPLv2 or later
 
@@ -235,6 +235,13 @@ To install Blubrry PowerPress manually, follow these steps:
 
 = Fan of PowerPress and want to show your support? =
 If you are a fan of PowerPress, we would greatly appreciate it if you could take a moment and [leave us a review on WordPress.org](https://wordpress.org/support/plugin/powerpress/reviews/?rate=5#new-post). Your support is greatly appreciated!
+
+= 8.2.11 =
+* Released 04/29/2020
+* Entry Box Settings are back--this time, find them by clicking the gear in the upper right of the entry box
+* The Permalinks setting has been moved from the Website tab in Settings to the new Entry Box Settings
+* Fixed a bug from 8.2.10 where media couldn't be removed from a post
+* Fixed a bug where "Verify" error messages were not showing up in the right spot
 
 = 8.2.10 =
 * Released 04/23/2020

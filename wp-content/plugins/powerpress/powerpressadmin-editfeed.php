@@ -622,7 +622,7 @@ else
 <?php echo __('Show the most recent', 'powerpress'); ?>
 </th>
 <td>
-<p><input type="text" name="Feed[posts_per_rss]" style="width: 50px;"  value="<?php echo ( !empty($FeedSettings['posts_per_rss'])? $FeedSettings['posts_per_rss']:''); ?>" maxlength="5" /> <?php echo sprintf(__('episodes / posts per feed (site default: %d, maximum: %d)', 'powerpress'), get_option('posts_per_rss'), 300); ?></p>
+<p><input type="text" name="Feed[posts_per_rss]" style="width: 50px;"  value="<?php echo ( !empty($FeedSettings['posts_per_rss'])? $FeedSettings['posts_per_rss']:''); ?>" maxlength="5" /> <?php echo sprintf(__('episodes / posts per feed (site default: %d, recommended: %d)', 'powerpress'), get_option('posts_per_rss'), 300); ?></p>
 <p style="margin-top: 5px; margin-bottom: 0; font-weight: bold;"><?php echo __('Please enable the <i>Feed Episode Maximizer</i> option to optimize your feed for more than 10 episodes.', 'powerpress'); ?></p>
 </td>
 </tr>
