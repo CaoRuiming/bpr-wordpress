@@ -2,6 +2,7 @@ version: '3.3'
 
 services:
     db:
+        container_name: bpr-mysql
         image: mysql:5.7
         volumes:
             - db_data:/var/lib/mysql
@@ -13,6 +14,7 @@ services:
             MYSQL_PASSWORD: wordpress
 
     wordpress:
+        container_name: bpr-wordpress
         depends_on:
             - db
         image: wordpress:latest
