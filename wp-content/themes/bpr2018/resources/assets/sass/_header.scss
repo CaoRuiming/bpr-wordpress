@@ -14,7 +14,10 @@
   display: none;
   margin: auto;
   padding: $spacing-sm 15px;
-  p { margin-bottom: 0; }
+  p {
+    margin-bottom: 0;
+    width: 90%; // to make room for close button
+  }
 }
 
 
