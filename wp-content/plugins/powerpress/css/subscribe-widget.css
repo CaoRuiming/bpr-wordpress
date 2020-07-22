@@ -292,6 +292,9 @@ body .pp-ssb-widget-classic.pp-ssb-widget-include a.pp-ssb-btn:hover {
 .pp-ssb-widget-classic a.pp-ssb-pandora {
     background-color: #3668ff;
 }
+.pp-ssb-widget-classic a.pp-ssb-blubrry {
+    background-color: #2278cf;
+}
 .pp-ssb-widget-classic a.pp-ssb-rss {
     background-color: #FF8800;
 }
@@ -355,6 +358,11 @@ body .pp-ssb-widget-classic.pp-ssb-widget-include a.pp-ssb-btn:hover {
 }
 .pp-ssb-widget-modern .pp-ssb-pandora.pp-ssb-btn:active, .pp-ssb-widget-modern .pp-ssb-pandora.pp-ssb-btn-sq:active {
     background-color: #3668ff;
+    background-size: 100%;
+    transition: background 0s;
+}
+.pp-ssb-widget-modern .pp-ssb-blubrry.pp-ssb-btn:active, .pp-ssb-widget-modern .pp-ssb-blubrry.pp-ssb-btn-sq:active {
+    background-color: #2278cf;
     background-size: 100%;
     transition: background 0s;
 }
@@ -457,6 +465,9 @@ a.pp-ssb-btn.horizontal {
 .pp-ssb-widget-classic .pp-ssb-pandora .pp-ssb-ic {
     background-position: 0 -560px;
 }
+.pp-ssb-widget-classic .pp-ssb-blubrry .pp-ssb-ic {
+    background-position: 0 -610px;
+}
 
 /*Sprite background positions for modern buttons*/
 .pp-ssb-widget-modern .pp-ssb-itunes.pp-ssb-btn-sq:not(.horizontal) {
@@ -533,6 +544,14 @@ a.pp-ssb-btn.horizontal {
 }
 .pp-ssb-widget-modern .pp-ssb-pandora .pp-ssb-ic {
     background-position: 0 -555px;
+}
+
+.pp-ssb-widget-modern .pp-ssb-blubrry.pp-ssb-btn-sq:not(.horizontal) {
+    border-left: 3px solid #2278cf;
+    padding-right: 10px;
+}
+.pp-ssb-widget-modern .pp-ssb-blubrry .pp-ssb-ic {
+    background-position: 0 -603px;
 }
 
 .pp-ssb-widget-modern .pp-ssb-rss.pp-ssb-btn-sq:not(.horizontal) {

@@ -155,13 +155,13 @@ select[id^="pp-metamark-type-"] {
     vertical-align: top;
 }
 
-input[id^="pp-metamark-pos-"], input[id^="pp-metamark-dur-"], input[id^="pp-metamark-link-"] {
+input[id^="pp-metamark-pos-"], input[id^="pp-metamark-dur-"], input[id^="pp-metamark-link-"], input[id^="pp-metamark-pos-"]:focus, input[id^="pp-metamark-dur-"]:focus, input[id^="pp-metamark-link-"]:focus {
     width: 100%;
     height: 58px;
     vertical-align: top;
 }
 
-textarea[id^="pp-metamark-val-"][class="pp-ep-box-input"] {
+textarea[id^="pp-metamark-val-"][class="pp-ep-box-input"], textarea[id^="pp-metamark-val-"][class="pp-ep-box-input"]:focus {
     height: 72px;
     width: 100%;
     margin: auto;
@@ -206,7 +206,7 @@ div[id^="pp-category-dropdown-"] {
     margin: 1em 1em 0 1em;
 }
 
-.pp-ep-box-input.pp-width {
+.pp-ep-box-input.pp-width, .pp-ep-box-input.pp-width:focus {
     width: 100%;
 }
 
@@ -562,13 +562,13 @@ button.media-details {
     margin: 0 1em;
 }
 
-input[id^="powerpress_size"] {
+input[id^="powerpress_size"], input[id^="powerpress_size"]:focus {
     width: 50%;
     text-align: center;
     height: 28px;
 }
 
-input[id^="powerpress_duration_"][class="pp-ep-box-input"]  {
+input[id^="powerpress_duration_"][class="pp-ep-box-input"], input[id^="powerpress_duration_"][class="pp-ep-box-input"]:focus {
     width: 48px;
     text-align: center;
     height: 34px;
@@ -686,7 +686,16 @@ input[class="pp-ep-box-input"], textarea[class="pp-ep-box-input"], select[class=
     width: 100%;
 }
 
-textarea[id^="powerpress_summary_"] {
+input[class="pp-ep-box-input"]:focus, textarea[class="pp-ep-box-input"]:focus, select[class="pp-ep-box-input"]:focus, div[class="pp-ep-box-input"]:focus {
+    border-radius: 4px;
+    background-color: white;
+    border: 1px solid #B1B1B1;
+    font-size: 14px;
+    height: 56px;
+    width: 100%;
+}
+
+textarea[id^="powerpress_summary_"], textarea[id^="powerpress_summary_"]:focus {
     height: 130px;
     resize: none;
     padding: 10px;
@@ -726,7 +735,7 @@ div[id^="pp-url-input-label-container"] {
     width: calc(100% - 175px);
 }
 
-input[id^="powerpress_url_"], div[id^="powerpress_url_"] {
+input[id^="powerpress_url_"], div[id^="powerpress_url_"], input[id^="powerpress_url_"]:focus {
     width: 100%;
     border-radius: 4px;
     box-sizing: border-box;
@@ -741,7 +750,7 @@ div[id^="powerpress_url_show_"] {
     border-radius: 0;
 }
 
-input[id^="powerpress_itunes_image_"], input[id^="powerpress_image_"] {
+input[id^="powerpress_itunes_image_"], input[id^="powerpress_image_"], input[id^="powerpress_itunes_image_"]:focus, input[id^="powerpress_image_"]:focus {
     width: 90%;
     border-radius: 4px;
     box-sizing: border-box;
@@ -942,7 +951,7 @@ div[id^="ep-box-min-blubrry-connect-"] {
     .powerpress-art-preview {
         text-align: center;
     }
-    input[id^="powerpress_itunes_image_"], input[id^="powerpress_image_"] {
+    input[id^="powerpress_itunes_image_"], input[id^="powerpress_image_"], input[id^="powerpress_itunes_image_"]:focus, input[id^="powerpress_image_"]:focus {
         width: 100%;
     }
 }
@@ -971,7 +980,7 @@ div[id^="ep-box-min-blubrry-connect-"] {
     div[id^="type-container"] {
          width: 100%;
     }
-    input[id^="powerpress_duration_"][class="pp-ep-box-input"] {
+    input[id^="powerpress_duration_"][class="pp-ep-box-input"], input[id^="powerpress_duration_"][class="pp-ep-box-input"]:focus {
         width: 36px;
         padding: 6px;
         height: 28px;
@@ -1001,7 +1010,7 @@ div[id^="ep-box-min-blubrry-connect-"] {
     a[id^="show-details-link"], a[id^="hide-details-link"] {
         font-size: 12px;
     }
-    input[id^="powerpress_duration_"][class="pp-ep-box-input"]  {
+    input[id^="powerpress_duration_"][class="pp-ep-box-input"], input[id^="powerpress_duration_"][class="pp-ep-box-input"]:focus {
         width: 28px;
         padding: 2px;
     }
@@ -1090,7 +1099,7 @@ div[id^="ep-box-min-blubrry-connect-"] {
     .classic-editor .powerpress-art-preview {
         text-align: center;
     }
-    .classic-editor input[id^="powerpress_itunes_image_"], .classic-editor input[id^="powerpress_image_"] {
+    .classic-editor input[id^="powerpress_itunes_image_"], .classic-editor input[id^="powerpress_image_"], .classic-editor input[id^="powerpress_itunes_image_"]:focus, .classic-editor input[id^="powerpress_image_"]:focus {
         width: 100%;
     }
 }
@@ -1146,7 +1155,7 @@ div[id^="ep-box-min-blubrry-connect-"] {
     .classic-editor div[id^="type-container"] {
         width: 100%;
     }
-    .classic-editor input[id^="powerpress_duration_"][class="pp-ep-box-input"]  {
+    .classic-editor input[id^="powerpress_duration_"][class="pp-ep-box-input"], .classic-editor input[id^="powerpress_duration_"][class="pp-ep-box-input"]:focus {
         width: 36px;
         padding: 6px;
         height: 28px;

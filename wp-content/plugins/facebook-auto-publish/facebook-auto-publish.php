@@ -3,7 +3,7 @@
  Plugin Name: WP2Social Auto Publish
 Plugin URI: https://xyzscripts.com/wordpress-plugins/facebook-auto-publish/
 Description:   Publish posts automatically from your blog to Facebook social media. You can publish your posts to Facebook as simple text message, text message with image or as attached link to your blog. The plugin supports filtering posts by custom post-types and categories.
-Version: 2.3.1
+Version: 2.3.2
 Author: xyzscripts.com
 Author URI: https://xyzscripts.com/
 License: GPLv2 or later
@@ -32,12 +32,15 @@ if ( !function_exists( 'add_action' ) ) {
 
 //error_reporting(E_ALL);
 define('XYZ_FBAP_PLUGIN_FILE',__FILE__);
-define('XYZ_FBAP_FB_API_VERSION','v3.0');
+define('XYZ_FBAP_FB_API_VERSION','v7.0');
 if (!defined('XYZ_SMAP_SOLUTION_AUTH_URL'))
 define('XYZ_SMAP_SOLUTION_AUTH_URL','https://authorize.smapsolutions.com/');
 if (!defined('XYZ_SMAP_SOLUTION_PUBLISH_URL'))
 define('XYZ_SMAP_SOLUTION_PUBLISH_URL','https://free-publish.smapsolutions.com/');
 
+include_once(ABSPATH.'wp-includes/version.php');
+global $wp_version;
+define('XYZ_WP_FBAP_WP_VERSION',$wp_version);
 global $wpdb;
 if(isset($_POST) && isset($_POST['fb_auth'] ) ||(isset($_GET['page']) && ($_GET['page']=='facebook-auto-publish-suggest-feature'))|| (isset($_GET['page']) && ($_GET['page']=='facebook-auto-publish-settings')) || (isset($_GET['page']) && ($_GET['page']=='facebook-auto-publish-manage-authorizations')))
 {

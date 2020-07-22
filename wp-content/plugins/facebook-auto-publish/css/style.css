@@ -295,7 +295,7 @@ a.xyz_fbap_link:hover{text-decoration:underline;}
 	.xyz_fbap_link{text-decoration:none;font-weight: bold;margin-left:8px;} 
 	
 .xyz_fbap_widefat_table input[type="text"], .xyz_fbap_widefat_table input[type="password"], .xyz_fbap_widefat_table input[type="email"], .xyz_fbap_widefat_table input[type="number"], .xyz_fbap_widefat_table input[type="search"], .xyz_fbap_widefat_table input[type="tel"], .xyz_fbap_widefat_table input[type="url"], .xyz_fbap_widefat_table select {
-    width: 200px;padding: 5px !important;height: 2.35em !important;
+    width: 200px;padding:3px !important;height: 2.35em !important;
 }
 .xyz_fbap_widefat_table textarea
 {
@@ -318,7 +318,7 @@ width: 100%;
 }
 
 .xyz_fbap_meta_acclist_table select ,.xyz_fbap_meta_acclist_table textarea{
-    width: 200px;padding: 5px !important;height: 2.35em !important;
+    width: 200px;padding: 3px !important;height: 2.35em !important;
 }
 
 a {

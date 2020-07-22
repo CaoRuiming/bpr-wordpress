@@ -108,6 +108,8 @@ jQuery(document).ready(function() {
 	displaycheck_fbap();
    var xyz_fbap_post_permission=jQuery("input[name='xyz_fbap_post_permission']:checked").val();
    XyzFbapToggleRadio(xyz_fbap_post_permission,'xyz_fbap_post_permission'); 
+	var wp_version='<?php echo XYZ_WP_FBAP_WP_VERSION; ?>';
+	 if (wp_version <= '5.3') {
 	jQuery('#category-all').bind("DOMSubtreeModified",function(){
 		fbap_get_categorylist(1);
 		});
@@ -124,6 +126,7 @@ jQuery(document).ready(function() {
 	jQuery(document).on('change', 'input[type="checkbox"]', function() {
 		fbap_get_categorylist(2);
 				});
+	 }
 });
 
 function fbap_get_categorylist(val)

@@ -4,7 +4,7 @@ Tags: podcasting, podcast, podcaster, powerpress, itunes, apple, apple podcasts,
 Requires at least: 3.6
 Requires PHP: 5.2
 Tested up to: 5.4
-Stable tag: 8.2.11
+Stable tag: 8.3.4
 Donate link: https://create.blubrry.com/resources/podcast-media-hosting/
 License: GPLv2 or later
 
@@ -231,10 +231,41 @@ To install Blubrry PowerPress manually, follow these steps:
 = Next Major Release Announcements =
 * We are looking for beta testers! If you would like to beta test future versions of PowerPress, please [contact us](http://blubrry.com/contact.php#feedback) with your name and email.
 
-* PowerPress 8.3 beta 1 will be available in April, 2020! Please visit the [PowerPress Beta]https://create.blubrry.com/resources/powerpress/powerpress-beta/) page for more information.
+* PowerPress 8.3 beta 1 will be available in May, 2020! Please visit the [PowerPress Beta]https://create.blubrry.com/resources/powerpress/powerpress-beta/) page for more information.
 
 = Fan of PowerPress and want to show your support? =
 If you are a fan of PowerPress, we would greatly appreciate it if you could take a moment and [leave us a review on WordPress.org](https://wordpress.org/support/plugin/powerpress/reviews/?rate=5#new-post). Your support is greatly appreciated!
+
+= 8.3.4 =
+* Released 07/01/2020
+* Added Farsi language
+* Small CSS fixes
+* Stopped showing general 'feeds' settings for custom feeds
+* Fixed a bug where the Subscription Links Under Player setting wasn't saving
+
+= 8.3.3 =
+* Released 06/03/2020
+* Styled news items in WP Dashboard
+* Fixed a bug where artwork settings weren't saving properly
+* Fxied bug where player link options would not save correctly
+
+
+= 8.3.2 =
+* Released 06/02/2020
+* Added a check in the welcome page so that if there are >1000 posts, powerpress won't query all of them
+* Added the Save button back to Audio Player, Video Player, and MP3 Tags Settings pages which it had been removed from
+* Started using WordPress functions to link JS code, as <script> tags were causing an issue
+
+= 8.3.1 =
+* Released 06/01/2020
+* Bug fix to artwork upload in Settings
+
+= 8.3 =
+* Released 06/01/2020
+* Fresh new appearance for PowerPress settings tabs
+* Now, helpful info about your show and its progress appear at the top of the Welcome tab
+* Destinations-related settings consolidated to the Destinations tab
+* Podcast SEO and Advanced Settings are now within the Settings tabs
 
 = 8.2.11 =
 * Released 04/29/2020
@@ -309,6 +340,7 @@ If you are a fan of PowerPress, we would greatly appreciate it if you could take
 * Fixed editor detection--now styling/responsiveness will accommodate for classic editor
 * Fixed a bug where the .js file wasn't getting loaded for everyone
 * Fixed a bug that would reload the page when a "View More"-type link was clicked
+
 
 = 8.2 =
 * Released 2/10/2020

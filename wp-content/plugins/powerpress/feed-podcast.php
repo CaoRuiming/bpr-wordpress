@@ -83,7 +83,7 @@
 	$iTunesOrderNumber = 0;
 	$FeaturedPodcastID = 0;
 	
-	if( !empty($GeneralSettings['episode_box_feature_in_itunes']) ) {
+	if( !empty($GeneralSettings['new_episode_box_feature_in_itunes']) ) {
 		$iTunesFeatured = get_option('powerpress_itunes_featured');
 		$feed_slug = get_query_var('feed');
 		if( !empty($iTunesFeatured[ $feed_slug ]) )

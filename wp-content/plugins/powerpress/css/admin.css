@@ -1,5 +1,15 @@
 /* admin.css */
 
+.powerpress_save_button_other {
+	float: right;
+	background-color: #2278CF;
+	color: white;
+	box-shadow: none;
+	border-radius: 4px;
+	border: none;
+	padding: 1ch 1em;
+}
+
 .powerpress-notice,
 div.powerpress-notice,
 .wrap div.powerpress-notice {
@@ -62,85 +72,6 @@ div.powerpress-error,
 	
 }
 
-.powerpress_tabbed_content  > ul {
-	margin-left:10px;
-	position:relative;
-	top:1px;
-	z-index:100;
-}
-
-.powerpress_tabbed_content > ul li { list-style:none; float:left; margin-bottom:0;}
-.powerpress_tabbed_content > ul a {
-text-decoration:none;
--moz-border-radius-bottomleft:0;
--moz-border-radius-bottomright:0;
--moz-border-radius-topleft:3px;
--moz-border-radius-topright:3px;
-border-radius-topleft:3px;
-border-radius-topright:3px;
-border-style:solid;
-border-width:1px;
-cursor:pointer;
-display:block;
-height:18px;
-margin:5px 5px 0 0;
-padding:4px 5px 2px;
-background-color:#F1F1F1;
-background-color:#E3E3E3;
-border-color:#DFDFDF;
-border-color:#B3B3B3;
-color:#999999;
-color:#666666;
-font-weight: bold;
-}
-.powerpress_tabbed_content ul a:hover {
-  }
-
-.powerpress_tabbed_content ul .ui-tabs-active a,
-.powerpress_tabbed_content ul .ui-tabs-selected a {
-	background-color:#FFFFFF;
-	border-bottom:0 none;
-	color:#333333;
-	cursor:default;
-	padding-bottom:3px;
-}
-
-
-
-.powerpress_tabbed_content > div {
-  padding: 0px 10px 10px 10px;
-  *padding-top:3px;
-  *margin-top:-15px;
-  clear:left;
-}
-.powerpress_tabbed_content .wrap {
-	padding:0;
-}
-
-.powerpress_tab {
--moz-border-radius-bottomleft:0;
--moz-border-radius-bottomright:0;
--moz-border-radius-topleft:6px;
--moz-border-radius-topright:6px;
-background: #FFF;
-border-collapse:separate;
-border-style:solid;
-border-width:1px;
-border-color:#DFDFDF;
-border-color:#B3B3B3;
-padding-bottom: 15px;
-}
-.powerpress_tab .form-table {
-	margin-top: 0;
-	margin-bottom: 0;
-}
-
-.powerpress_tab  .form-table td {
-	margin-bottom: 4px;
-	padding: 4px 10px 4px;
-	line-height: 20px;
-	font-size: 11px;
-}
 
 #powerpress_support {
 	
@@ -152,25 +83,17 @@ padding-bottom: 15px;
 	margin-bottom: 0;
 }
 
-.powerpress-welcome-news {
+/*.powerpress-welcome-news {
 	margin: 10px 0 0 0;
 	float: left;
 	width: 60%;
 	border-right: 1px solid #CCCCCC;
-}
+}*/
 .powerpress-welcome-news > div {
 	margin: 0 10px 0 0;
 }
 .powerpress-welcome-news a {
 	text-decoration: none;
-}
-.powerpress-welcome-news .rsswidget {
-	font-size: 110%;
-	font-weight: bold;
-}
-.powerpress-welcome-news  .rss-date {
-	font-size: 80%;
-	margin-left: 10px;
 }
 .powerpress-welcome-news .rssSummary {
 	font-size: 95%;

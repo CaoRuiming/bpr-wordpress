@@ -34,7 +34,7 @@ if(isset($_POST['fb_auth']))
 		
 		$dialog_url = "https://www.facebook.com/".XYZ_FBAP_FB_API_VERSION."/dialog/oauth?client_id="
 				. $app_id . "&redirect_uri=" . $my_url . "&state="
-				. $xyz_fbap_session_state . "&scope=email,public_profile,publish_pages,manage_pages";
+				. $xyz_fbap_session_state . "&scope=email,public_profile,pages_read_engagement,pages_manage_posts";
 		
 		header("Location: " . $dialog_url);
 }

@@ -248,6 +248,11 @@ body .pp-sub-widget-dark.pp-sub-widget-include a:hover {
 	background-size: 100%;
 	transition: background 0s;
 }
+.pp-sub-widget-modern .pp-sub-blubrry.pp-sub-btn:active, .pp-sub-widget-modern .pp-sub-blubrry.pp-sub-btn-sq:active {
+	background-color: #2278cf;
+	background-size: 100%;
+	transition: background 0s;
+}
 .pp-sub-widget-modern .pp-sub-rss.pp-sub-btn:active, .pp-sub-widget-modern .pp-sub-rss.pp-sub-btn-sq:active {
 	background-color: #FF6600;
 	background-size: 100%;
@@ -303,6 +308,9 @@ body .pp-sub-widget-dark.pp-sub-widget-include a:hover {
 }
 .pp-sub-widget-classic a.pp-sub-pandora {
 	background-color: #3668ff;
+}
+.pp-sub-widget-classic a.pp-sub-blubrry {
+	background-color: #2278cf;
 }
 
 .pp-sub-widget-classic  div.pp-sub-h,
@@ -432,6 +440,9 @@ body .pp-sub-widget-dark.pp-sub-widget-include a:hover {
 .pp-sub-widget-classic .pp-sub-pandora .pp-sub-ic, .pp-sub-widget-dark .pp-sub-pandora .pp-sub-ic {
 	background-position: 0 -555px;
 }
+.pp-sub-widget-classic .pp-sub-blubrry .pp-sub-ic, .pp-sub-widget-dark .pp-sub-blubrry .pp-sub-ic {
+	background-position: 0 -605px;
+}
 
 
 /*Sprite background positions for modern buttons*/
@@ -499,6 +510,13 @@ body .pp-sub-widget-dark.pp-sub-widget-include a:hover {
 }
 .pp-sub-widget-modern .pp-sub-pandora .pp-sub-ic {
 	background-position: 0 -555px;
+}
+
+.pp-sub-widget-modern .pp-sub-blubrry.pp-sub-btn-sq {
+	border-left: 3px solid #2278cf;
+}
+.pp-sub-widget-modern .pp-sub-blubrry .pp-sub-ic {
+	background-position: 0 -605px;
 }
 
 .pp-sub-widget-modern .pp-sub-rss.pp-sub-btn-sq {

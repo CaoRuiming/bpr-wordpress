@@ -7,8 +7,8 @@
 
 namespace Yoast\WP\SEO\Repositories;
 
-use Yoast\WP\Lib\ORM;
 use Yoast\WP\Lib\Model;
+use Yoast\WP\Lib\ORM;
 
 /**
  * Class SEO_Meta_Repository
@@ -33,7 +33,7 @@ class SEO_Meta_Repository {
 	 */
 	public function find_by_post_id( $post_id ) {
 		return $this->query()
-					->where( 'object_id', $post_id )
-					->find_one();
+			->where( 'object_id', $post_id )
+			->find_one();
 	}
 }

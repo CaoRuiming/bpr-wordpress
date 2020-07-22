@@ -4,7 +4,7 @@ if( !function_exists('add_action') )
 	die("access denied.");
 
 define('POWERPRESS_FEED_HIGHLIGHTED', 'https://blubrry.com/podcast-insider/category/highlighted/feed/?order=ASC');
-define('POWERPRESS_FEED_NEWS', 'https://blubrry.com/podcast-insider/feed/podcast/');
+define('POWERPRESS_FEED_NEWS', 'https://blubrry.com/podcast-insider/feed/');
 
 function powerpress_get_news($feed_url, $limit=10)
 {
@@ -233,9 +233,6 @@ function powerpress_dashboard_stats_content()
 function powerpress_dashboard_news_content()
 {
 	$Settings = get_option('powerpress_general');
-	
-	if( isset($Settings['disable_dashboard_news']) && $Settings['disable_dashboard_news'] == 1 )
-		return; // Lets not do anything to the dashboard for PowerPress News
 		
 	powerpressadmin_community_news();
 }
@@ -285,8 +282,8 @@ function powerpress_dashboard_setup()
 		return;
 	}
 	
-	if( $NewsDashboard )
-		wp_add_dashboard_widget( 'powerpress_dashboard_news', __( 'Podcast Insider by Blubrry', 'powerpress'), 'powerpress_dashboard_news_content' );
+	//if( $NewsDashboard )
+	wp_add_dashboard_widget( 'powerpress_dashboard_news', __( 'Podcast Insider by Blubrry', 'powerpress'), 'powerpress_dashboard_news_content' );
 	
 	if( !empty($_GET['powerpressdash']) && $_GET['powerpressdash'] == 3 ) {
 		return;

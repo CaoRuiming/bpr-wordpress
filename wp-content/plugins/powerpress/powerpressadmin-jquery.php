@@ -801,6 +801,58 @@ jQuery(document).ready(function($) {
 <input type="hidden" name="action" value="powerpress-jquery-account-save" />
 <div id="accountinfo">
 	<h2><?php echo __('Blubrry Services', 'powerpress'); ?></h2>
+    <?php
+
+    if( !empty($Settings['blubrry_program_keyword']) )
+    {
+        // Check that the redirect is in the settings...
+        $RedirectURL = 'http://media.blubrry.com/'.$Settings['blubrry_program_keyword'].'/';
+        $Error = true;
+        if( stripos($Settings['redirect1'], $RedirectURL ) !== false )
+            $Error = false;
+        else if( stripos($Settings['redirect2'], $RedirectURL ) !== false )
+            $Error = false;
+        else if( stripos($Settings['redirect3'], $RedirectURL ) !== false )
+            $Error = false;
+        if( $Error )
+        {
+            ?>
+            <p style="font-weight: bold; color: #CC0000;">
+                <?php
+                echo __('Statistics are not implemented correctly on this blog. Please click the link below to re-configure your services.', 'powerpress');
+                ?>
+            </p>
+            <?php
+        }
+        else
+        {
+            ?>
+            <p style="font-weight: bold;display: inline-block;width: 55%;margin: 0;">
+                <?php
+                if( empty($Settings['blubrry_hosting']) || $Settings['blubrry_hosting'] === 'false' )
+                    echo __('Blubrry Statistics Enabled!', 'powerpress');
+                else
+                    echo __('Blubrry Statistics and Media Hosting Enabled!', 'powerpress');
+                ?>
+            </p>
+            <?php if( !empty($Settings['blubrry_hosting']) && $Settings['blubrry_hosting'] !== 'false'  && !empty($Settings['blubrry_program_keyword']) ) { ?>
+            <p style="margin: 0;"><?php echo __('Blubrry Program ID: ', 'powerpress'); ?> <i><?php echo $Settings['blubrry_program_keyword']; ?></i>
+            </p>
+        <?php }
+        }
+
+        if( empty($Settings['blubrry_hosting']) || $Settings['blubrry_hosting'] === 'false' )
+        {
+            ?>
+            <!--<p>
+                <?php echo __('Recently upgraded to Blubrry Hosting?', 'powerpress'); ?>
+                <?php echo __('Please click the link below to update your login.', 'powerpress'); ?>
+            </p>-->
+            <?php
+        } ?>
+        <?php
+    }
+    ?>
 <?php if( $Step == 1 ) { ?>
 	<p>
 		<label for="blubrry_username"><?php echo __('Blubrry User Name (Email)', 'powerpress'); ?></label>
@@ -870,7 +922,7 @@ foreach( $Programs as $value => $desc )
             $shape = (!empty($_GET['shape']) && $_GET['shape'] == 'squared') ? '-sq' : '';
             $css = plugins_url('css/subscribe.css', __FILE__);
             echo "<link rel=\"stylesheet\" type=\"text/css\" href=\"$css\">";
-            echo '<div style="width:90%;margin:0 0;" class="pp-sub-widget pp-sub-widget-' . $style . '"><h3 style="margin:0">Preview:</h3><a href="#" class="pp-sub-btn' . $shape . ' pp-sub-itunes" title="'. esc_attr( __('Subscribe on Apple Podcasts', 'powerpress') ) .'" style="width: 90% !important;"><span class="pp-sub-ic"></span> '. esc_attr( __('Apple Podcasts', 'powerpress') ) .'</a></div>';
+            echo '<div style="width:90%;margin:0 0;" class="pp-sub-widget pp-sub-widget-' . $style . '"><a href="#" class="pp-sub-btn' . $shape . ' pp-sub-itunes" title="'. esc_attr( __('Subscribe on Apple Podcasts', 'powerpress') ) .'" style="width: 90% !important;"><span class="pp-sub-ic"></span> '. esc_attr( __('Apple Podcasts', 'powerpress') ) .'</a></div>';
             echo "</body>";
 			echo "</html>";
             exit;

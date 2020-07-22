@@ -8,30 +8,33 @@ var verify_interval = false;
 
 function powerpress_openTab(evt, cityName) {
     // Declare all variables
-    var i, tabcontent, tablinks;
+    var tabcontent, tablinks;
 
     let feed_slug = event.currentTarget.id.substring(1);
     evt.preventDefault();
 
+    let desired_tab = jQuery("#" + event.currentTarget.id);
+    let id = "#" + cityName;
+    let desired_tab_contents = jQuery(id);
+
     // Get all elements with class="pp-tabcontent" and hide them
-    tabcontent = document.getElementsByClassName("pp-tabcontent");
-    for (i = 0; i < tabcontent.length; i++) {
-        if (tabcontent[i].id.endsWith(feed_slug)) {
-            tabcontent[i].style.display = "none";
-        }
-    }
+    tabcontent = jQuery('.pp-tabcontent');
+    tabcontent.each(function(index, element) {
+        //jQuery(this).css("display", "none");
+        jQuery(this).attr("class", "pp-tabcontent has-sidenav");
+    });
 
     // Get all elements with class="tablinks" and remove the class "active"
-    tablinks = document.getElementsByClassName("tablinks");
-    for (i = 0; i < tablinks.length; i++) {
-        if (tablinks[i].id.endsWith(feed_slug)) {
-            tablinks[i].className = tablinks[i].className.replace(" active", "");
-        }
-    }
+    //tablinks = document.getElementsByClassName("tablinks");
+    tablinks = jQuery(".tablinks");
+    tablinks.each(function(index, element) {
+        jQuery(this).attr("class", "tablinks");
+    });
 
     // Show the current tab, and add an "active" class to the button that opened the tab
-    document.getElementById(cityName).style.display = "block";
-    evt.currentTarget.className += " active";
+    //desired_tab_contents.css("display", "block");
+    desired_tab_contents.attr("class", "pp-tabcontent has-sidenav active");
+    desired_tab.attr("class", "tablinks active");
 
     //Set/unset the interval for updating artwork previews
     if (cityName == 'artwork-' + feed_slug) {
@@ -48,6 +51,98 @@ function powerpress_openTab(evt, cityName) {
         clearInterval(interval);
         interval = false;
     }
+
+    //In Settings tabs, need to set the sidenav
+    if (cityName.includes("settings")) {
+        let settingsTab = cityName.replace("settings-", "");
+        switch(settingsTab) {
+            case "welcome":
+                document.getElementById("welcome-default-open").click();
+                break;
+            case "feeds":
+                document.getElementById("feeds-default-open").click();
+                break;
+            case "website":
+                document.getElementById("website-default-open").click();
+                break;
+            case "destinations":
+                document.getElementById("destinations-default-open").click();
+                break;
+            case "analytics":
+
+                break;
+            case "advanced":
+                document.getElementById("advanced-default-open").click();
+                break;
+            case "other":
+                document.getElementById("other-default-open").click();
+                break;
+            default:
+                break;
+        }
+    }
+}
+
+function sideNav(evt, cityName) {
+    // Declare all variables
+    var i, tabcontent, tablinks, tabs;
+    let target;
+    evt.preventDefault();
+
+    if (event.currentTarget.id == "pp-welcome-artwork-link") {
+        target = document.getElementById("feeds-artwork-tab");
+    } else if(event.currentTarget.id == "pp-welcome-applesubmit-link"){
+        target = document.getElementById("destinations-apple-tab");
+    } else if(event.currentTarget.id == "advanced-tab-seo-link"){
+        target = document.getElementById("feeds-seo-tab");
+    }
+    else {
+        target = event.currentTarget;
+    }
+    let desired_tab = jQuery("#" + target.id);
+    let id = "#" + cityName;
+    let desired_tab_contents = jQuery(id);
+
+    let icon = target.firstElementChild;
+
+    // Get all elements with class="pp-tabcontent" and hide them
+    //tabcontent = document.getElementsByClassName("pp-sidenav-tab");
+    tabcontent = jQuery(".pp-sidenav-tab");
+    //for (i = 0; i < tabcontent.length; i++) {
+    tabcontent.each(function(index, element) {
+        //jQuery(this).css("display", "none");
+        jQuery(this).attr("class", "pp-sidenav-tab");
+    });
+
+    // Get all elements with class="tablinks" and remove the class "active"
+    tabs = jQuery(".pp-sidenav-tablinks");
+    tabs.each(function(index, element) {
+        jQuery(this).attr("class", "pp-sidenav-tablinks");
+    });
+
+    tablinks = document.getElementsByClassName("pp-sidenav-tablinks");
+    if (!cityName.includes("destinations")) {
+        for (i = 0; i < tablinks.length; i++) {
+            //Set any icons that are blue back to gray
+            let img_file = tablinks[i].firstElementChild.getAttribute("src");
+            if (img_file && img_file.includes("blue")) {
+                let new_img_file = img_file.replace("blue", "gray");
+                tablinks[i].firstElementChild.setAttribute("src", new_img_file);
+            }
+        }
+
+        if (cityName != "feeds-apple") {
+            //Set the selected icon to blue
+            let img_file = icon.getAttribute("src");
+            let new_img_file = img_file.replace("gray", "blue");
+            icon.setAttribute("src", new_img_file);
+        }
+    }
+
+    // Show the current tab, and add an "active" class to the button that opened the tab
+    //desired_tab_contents.css("display", "inline-block");
+    desired_tab_contents.attr("class", "pp-sidenav-tab active");
+    desired_tab.attr("class", "pp-sidenav-tablinks active");
 }
 
 //Controls the three-way explicit setting switch

@@ -653,9 +653,9 @@ table.html5formats tr > td:first-child {
 			        <?php echo __('If the option is checked and an episode level iTunes image is set, it will be used for the player instead of the coverart. The URLs to the images must be https:// in order to appear on social networking sites.', 'powerpress'); ?>
                 </p>
 
-                <p><input name="General[episode_box_itunes_image]" type="hidden" value="0"/><input
-                            name="General[episode_box_itunes_image]" type="checkbox"
-                            value="1" <?php echo(!empty($General['episode_box_itunes_image']) ? 'checked' : ''); ?> /> <?php echo __('Display field for entering iTunes episode image ', 'powerpress'); ?>
+                <p><input name="General[new_episode_box_itunes_image]" type="hidden" value="0"/><input
+                            name="General[new_episode_box_itunes_image]" type="checkbox"
+                            value="1" <?php echo(!empty($General['new_episode_box_itunes_image']) ? 'checked' : ''); ?> /> <?php echo __('Display field for entering iTunes episode image ', 'powerpress'); ?>
                 </p>
                 <p><input name="General[bp_episode_image]" type="hidden" value="0"/><input
                             name="General[bp_episode_image]" type="checkbox"

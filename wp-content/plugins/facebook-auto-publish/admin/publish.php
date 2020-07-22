@@ -371,7 +371,7 @@ function xyz_fbap_link_publish($post_ID) {
 							if (isset($timeline_album) && isset($timeline_album["id"])) $page_id = $timeline_album["id"];
 							if($album_fount==0)
 							{
-								$attachment = array('name' => "Timeline Photos"
+								/*$attachment = array('name' => "Timeline Photos"
 								);
 								$attachment['access_token']=$acces_token;
 								try{
@@ -384,8 +384,8 @@ function xyz_fbap_link_publish($post_ID) {
 								{
 									$fb_publish_status[$page_id."/albums"]=$e->getMessage();
 										
-								}
-									
+								}*/
+									$fb_publish_status[$page_id."/albums"]='<span style=\"color:red\">Invalid album name<span>';
 							}
 						}
 						else
@@ -415,6 +415,7 @@ function xyz_fbap_link_publish($post_ID) {
 							if (isset($app_album) && isset($app_album["id"])) $page_id = $app_album["id"];
 							if($album_fount==0)
 							{
+							/*
 								$attachment = array('name' => $app_name,
 								);
 								$attachment['access_token']=$acces_token;
@@ -428,7 +429,9 @@ function xyz_fbap_link_publish($post_ID) {
 								{
 									$fb_publish_status[$page_id."/albums"]=$e->getMessage();
 								}
+								*/
 									
+									$fb_publish_status[$page_id."/albums"]='<span style=\"color:red\">Invalid album name<span>';
 							}
 						}
 					}
