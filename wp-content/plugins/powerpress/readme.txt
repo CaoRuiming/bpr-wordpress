@@ -3,8 +3,8 @@ Contributors: amandato, blubrry
 Tags: podcasting, podcast, podcaster, powerpress, itunes, apple, apple podcasts, google podcasts, google play, enclosure, professional, apple, apple tv, ipad, iphone, soundcloud, squarespace, youtube, viddler, ustream, podcasting, audio, video, rss2, feed, player, media, rss, mp3, music, embed, feedburner, statistics, stats, flv, flash, id3, episodes, blubrry, mp4, m4v, wordpressmu, mu, wordpress mu, multisite, multi site, mediacaster, post, plugin, posts, simple, social, dashboard, TSG, Buzzsprout, MTR, WP-boxCast, CastMyBlog, tgs podcasting,  simple podcasting, seriously simple podcasting, seriously-simple-podcasting, serious, seriously, ssp, podlove, podcast.de, clammr, clammr radio, audio player, stitcher, tunein, show, shows, series, docs, documentation, support, free, add-ons, extensions, addons, libsyn, libsyn-podcasting, podbean, podomatic, spreaker
 Requires at least: 3.6
 Requires PHP: 5.2
-Tested up to: 5.4
-Stable tag: 8.3.4
+Tested up to: 5.5
+Stable tag: 8.3.7
 Donate link: https://create.blubrry.com/resources/podcast-media-hosting/
 License: GPLv2 or later
 
@@ -235,6 +235,22 @@ To install Blubrry PowerPress manually, follow these steps:
 
 = Fan of PowerPress and want to show your support? =
 If you are a fan of PowerPress, we would greatly appreciate it if you could take a moment and [leave us a review on WordPress.org](https://wordpress.org/support/plugin/powerpress/reviews/?rate=5#new-post). Your support is greatly appreciated!
+
+= 8.3.7 =
+* Released 08/31/2020
+* Fixed a bug that was displaying subscribe links that had not been set
+* Fixed a couple bugs that were throwing PHP errors
+
+= 8.3.6 =
+* Released 08/24/2020
+* Fixed a bug in the player settings tab that was messing with episode artwork setting
+* Re-added 'Disable Blubrry Stats in Dasboard' option, into Advanced Settings
+* Fixed a jQuery bug
+
+= 8.3.5 =
+* Released 08/11/2020
+* Small bugfix
+* Tested with WordPress 5.5 beta
 
 = 8.3.4 =
 * Released 07/01/2020

@@ -2,7 +2,16 @@
 
 function powerpress_admin_basic()
 {
-    wp_enqueue_style("powerpress_episode_box",  powerpress_get_root_url() . 'css/settings.css');
+    if (defined('WP_DEBUG')) {
+        if (WP_DEBUG) {
+            wp_register_style('powerpress_settings_style',  powerpress_get_root_url() . 'css/settings.css', array(), POWERPRESS_VERSION);
+        } else {
+            wp_register_style('powerpress_settings_style',  powerpress_get_root_url() . 'css/settings.min.css', array(), POWERPRESS_VERSION);
+        }
+    } else {
+        wp_register_style('powerpress_settings_style',  powerpress_get_root_url() . 'css/settings.min.css', array(), POWERPRESS_VERSION);
+    }
+    wp_enqueue_style("powerpress_settings_style");
 
     $FeedAttribs = array('type'=>'general', 'feed_slug'=>'', 'category_id'=>0, 'term_taxonomy_id'=>0, 'term_id'=>0, 'taxonomy_type'=>'', 'post_type'=>'');
 	// feed_slug = channel
@@ -110,9 +119,9 @@ jQuery(document).ready(function($) {
 			objectChecked = jQuery('#episode_box_feature_in_itunes').prop('checked');
 		}
 		if( objectChecked ) {
-			$("#episode_box_order").attr("disabled", true);
+			jQuery("#episode_box_order").attr("disabled", true);
 		} else {
-			$("#episode_box_order").removeAttr("disabled");
+			jQuery("#episode_box_order").removeAttr("disabled");
 		}
 	});
 
@@ -727,20 +736,7 @@ function powerpressadmin_edit_blubrry_services($General, $action_url = false, $a
 	} // end not signed up for hosting
 	
 ?>
-<!--<div style="margin-left: 40px;">
-	<p style="margin-top: 10px;">
-	<input name="DisableStatsInDashboard" type="checkbox" value="1"<?php if( $DisableStatsInDashboard == true ) echo ' checked'; ?> />
-	<?php echo __('Remove Statistics from WordPress Dashboard', 'powerpress'); ?></p>
-    <p>
-        <?php
-        if (!isset($General['network_mode'])) {
-            $General['network_mode'] = 0;
-        }
-        ?>
-        <input type="checkbox" id="blubrry_network_mode" value="1" name="General[network_mode]" <?php echo $General['network_mode'] == '1' ? 'checked' : ''; ?> />
-        <label for="blubrry_network_mode"><?php echo __('Network mode (publish to multiple Blubrry Hosting Accounts)', 'powerpress') ?></label>
-    </p>
-</div>-->
+
 </div>
 <?php
 }
@@ -753,8 +749,12 @@ function powerpressadmin_edit_media_statistics($General)
 		$General['redirect2'] = '';
 	if( !isset($General['redirect3']) )
 		$General['redirect3'] = '';
-		
-	$StatsIntegrationURL = '';
+
+    $DisableStatsInDashboard = false;
+    if( !empty($General['disable_dashboard_stats']) )
+        $DisableStatsInDashboard = true;
+
+    $StatsIntegrationURL = '';
 	if( !empty($General['blubrry_program_keyword']) )
 		$StatsIntegrationURL = 'http://media.blubrry.com/'.$General['blubrry_program_keyword'].'/';
 ?>
@@ -773,6 +773,12 @@ function powerpressadmin_edit_media_statistics($General)
     </script>
 <div id="blubrry_stats_settings">
 <h2><?php echo __('Media Statistics', 'powerpress'); ?></h2>
+    <div>
+        <input name="DisableStatsInDashboard" class="pp-settings-checkbox" style="margin-top: 1em;" type="checkbox" value="1"<?php if( $DisableStatsInDashboard == true ) echo ' checked'; ?> />
+        <div class="pp-settings-subsection" style="border-bottom: none; margin-top: 0;">
+            <p class="pp-main"><?php echo __('Remove Statistics from WordPress Dashboard', 'powerpress'); ?></p>
+        </div>
+    </div>
 	<div>
         <h4><?php echo __('REDIRECT URL', 'powerpress'); ?></h4>
         <p class="pp-settings-text-no-margin">
@@ -972,12 +978,12 @@ function powerpressadmin_welcome($GeneralSettings, $FeedSettings)
 <div>
     <div class="pp-settings-program-summary">
         <div class="prog-sum-head">
-            <h2 class="pp-heading" id="welcome-title"><?php echo $FeedSettings['title']; ?></h2>
+            <h2 class="pp-heading" id="welcome-title"><?php echo isset($FeedSettings['title']) ? $FeedSettings['title'] : ''; ?></h2>
             <div class="pp-settings-recent-post">
                 <img id="welcome-preview-image" src="<?php echo $image; ?>" alt="Feed Image" />
                 <div class="pp-settings-welcome-text">
-                    <p class="pp-settings-text-no-margin" style="margin-bottom: 2ch;"><?php echo __('By', 'powerpress'); ?> <?php echo $FeedSettings['itunes_talent_name']; ?></p>
-                    <p class="pp-settings-text-no-margin"><?php echo $mostRecentEp['post_data']->post_content; ?></p>
+                    <p class="pp-settings-text-no-margin" style="margin-bottom: 2ch;"><?php echo __('By', 'powerpress'); ?> <?php echo isset($FeedSettings['itunes_talent_name']) ? $FeedSettings['itunes_talent_name'] : ''; ?></p>
+                    <p class="pp-settings-text-no-margin"><?php echo isset($mostRecentEp['post_data']) && isset($mostRecentEp['post_data']->post_content) ? $mostRecentEp['post_data']->post_content : ''; ?></p>
                 </div>
             </div>
             <div class="pp-settings-num-episodes">

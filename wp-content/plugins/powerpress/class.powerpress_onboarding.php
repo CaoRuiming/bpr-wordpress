@@ -5,12 +5,12 @@ class PowerpressOnboarding
     {
         if (defined('WP_DEBUG')) {
             if (WP_DEBUG) {
-                wp_enqueue_style('powerpress_onboarding_styles', plugin_dir_url(__FILE__) . 'css/onboarding.css');
+                wp_enqueue_style('powerpress_onboarding_styles', plugin_dir_url(__FILE__) . 'css/onboarding.css', array(), POWERPRESS_VERSION);
             } else {
-                wp_enqueue_style('powerpress_onboarding_styles', plugin_dir_url(__FILE__) . 'css/onboarding.min.css');
+                wp_enqueue_style('powerpress_onboarding_styles', plugin_dir_url(__FILE__) . 'css/onboarding.min.css', array(), POWERPRESS_VERSION);
             }
         } else {
-            wp_enqueue_style('powerpress_onboarding_styles', plugin_dir_url(__FILE__) . 'css/onboarding.min.css');
+            wp_enqueue_style('powerpress_onboarding_styles', plugin_dir_url(__FILE__) . 'css/onboarding.min.css', array(), POWERPRESS_VERSION);
         }
     }
 

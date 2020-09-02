@@ -158,7 +158,16 @@ function powerpress_admin_editfeed($type='', $type_value = '', $feed_slug = fals
 	$FeedAttribs = array('type'=>$type, 'feed_slug'=>'', 'category_id'=>0, 'term_taxonomy_id'=>0, 'term_id'=>0, 'taxonomy_type'=>'', 'post_type'=>'');
 	$cat_ID = false; $term_taxonomy_id = false;
 
-    wp_enqueue_style("powerpress_episode_box",  powerpress_get_root_url() . 'css/settings.css');
+    if (defined('WP_DEBUG')) {
+        if (WP_DEBUG) {
+            wp_register_style('powerpress_settings_style',  powerpress_get_root_url() . 'css/settings.css', array(), POWERPRESS_VERSION);
+        } else {
+            wp_register_style('powerpress_settings_style',  powerpress_get_root_url() . 'css/settings.min.css', array(), POWERPRESS_VERSION);
+        }
+    } else {
+        wp_register_style('powerpress_settings_style',  powerpress_get_root_url() . 'css/settings.min.css', array(), POWERPRESS_VERSION);
+    }
+    wp_enqueue_style("powerpress_settings_style");
 
     $MultiSiteServiceSettings = false;
     if( is_multisite() )

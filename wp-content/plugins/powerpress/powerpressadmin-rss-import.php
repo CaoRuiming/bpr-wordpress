@@ -61,12 +61,12 @@ class PowerPress_RSS_Podcast_Import extends WP_Importer {
 	function header() {
         if (defined('WP_DEBUG')) {
             if (WP_DEBUG) {
-                wp_enqueue_style('powerpress_onboarding_styles', plugin_dir_url(__FILE__) . 'css/onboarding.css');
+                wp_enqueue_style('powerpress_onboarding_styles', plugin_dir_url(__FILE__) . 'css/onboarding.css', array(), POWERPRESS_VERSION);
             } else {
-                wp_enqueue_style('powerpress_onboarding_styles', plugin_dir_url(__FILE__) . 'css/onboarding.min.css');
+                wp_enqueue_style('powerpress_onboarding_styles', plugin_dir_url(__FILE__) . 'css/onboarding.min.css', array(), POWERPRESS_VERSION);
             }
         } else {
-            wp_enqueue_style('powerpress_onboarding_styles', plugin_dir_url(__FILE__) . 'css/onboarding.min.css');
+            wp_enqueue_style('powerpress_onboarding_styles', plugin_dir_url(__FILE__) . 'css/onboarding.min.css', array(), POWERPRESS_VERSION);
         }
         echo '<div class="wrap" style="min-height: 100vh">';
 		echo '<div class="pp_container" style="max-width: 100rem;">';

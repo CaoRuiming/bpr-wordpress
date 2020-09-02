@@ -331,12 +331,16 @@ window.onload = function() {
     function reloadFrame() {
         window.location = "<?php echo admin_url('admin.php'); ?>?action=powerpress-jquery-media&blubrryProgramKeyword="+ program.value +"&podcast-feed=<?php echo $FeedSlug; ?>&KeepThis=true&TB_iframe=true&modal=false&remSel=" + remember.checked;
     }
-    program.addEventListener('change', function() {
-        reloadFrame();
-    });
-    remember.addEventListener('change', function() {
-        reloadFrame();
-    });
+    if (program) {
+        program.addEventListener('change', function () {
+            reloadFrame();
+        });
+    }
+    if (remember) {
+        remember.addEventListener('change', function () {
+            reloadFrame();
+        });
+    }
 }
 //-->
 </script>
@@ -349,8 +353,7 @@ window.onload = function() {
                 <select id="blubrry_program_keyword" name="Settings[blubrry_program_keyword]">
                     <option value="!selectPodcast"><?php echo __('Select Program', 'powerpress'); ?></option>
                     <?php
-                    //TODO: I THINK THIS LINE WILL SOLVE THE ISSUE OF NETWORK STUFF BEING IN THE WRONG ORDER
-                    //ksort($Programs);
+                    ksort($Programs);
                     foreach ($Programs as $value => $desc)
                         echo "\t<option value=\"$value\"" . ($blubrryProgramKeyword == $value ? ' selected' : '') . ">$desc</option>\n";
                     ?>

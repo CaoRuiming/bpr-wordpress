@@ -299,15 +299,16 @@ function seo_tab($FeedSlug, $ExtraData, $iTunesExplicit, $seo_feed_title, $Gener
         if (empty($ExtraData['feed_title'])) {
             $ExtraData['feed_title'] = '';
         }
-        if ($GeneralSettings['new_episode_box_subtitle'] == 2 && $GeneralSettings['new_episode_box_summary'] == 2 && $GeneralSettings['new_episode_box_author'] == 2 && $GeneralSettings['new_episode_box_explicit'] == 2 && $GeneralSettings['new_episode_box_order'] == 2 && $GeneralSettings['new_episode_box_itunes_title'] == 2 && $GeneralSettings['new_episode_box_itunes_nst'] == 2 && $GeneralSettings['new_episode_box_feature_in_itunes'] == 2 && $GeneralSettings['new_episode_box_block'] == 2) {
-            $AppleOpt = false;
-            $AppleExtra = false;
-        } else {
-            $AppleOpt = true;
-            if ($GeneralSettings['new_episode_box_subtitle'] == 2 && $GeneralSettings['new_episode_box_summary'] == 2 && $GeneralSettings['new_episode_box_author'] == 2 && $GeneralSettings['new_episode_box_order'] == 2 && $GeneralSettings['new_episode_box_feature_in_itunes'] == 2 && $GeneralSettings['new_episode_box_block'] == 2) {
+        $AppleOpt = true;
+        $AppleExtra = true;
+        if (isset($GeneralSettings['new_episode_box_subtitle']) && isset($GeneralSettings['new_episode_box_summary']) && isset($GeneralSettings['new_episode_box_author']) && isset($GeneralSettings['new_episode_box_explicit']) && isset($GeneralSettings['new_episode_box_order']) && isset($GeneralSettings['new_episode_box_itunes_title']) && isset($GeneralSettings['new_episode_box_itunes_nst']) && isset($GeneralSettings['new_episode_box_feature_in_itunes']) && isset($GeneralSettings['new_episode_box_block']) ) {
+            if ($GeneralSettings['new_episode_box_subtitle'] == 2 && $GeneralSettings['new_episode_box_summary'] == 2 && $GeneralSettings['new_episode_box_author'] == 2 && $GeneralSettings['new_episode_box_explicit'] == 2 && $GeneralSettings['new_episode_box_order'] == 2 && $GeneralSettings['new_episode_box_itunes_title'] == 2 && $GeneralSettings['new_episode_box_itunes_nst'] == 2 && $GeneralSettings['new_episode_box_feature_in_itunes'] == 2 && $GeneralSettings['new_episode_box_block'] == 2) {
+                $AppleOpt = false;
                 $AppleExtra = false;
             } else {
-                $AppleExtra = true;
+                if ($GeneralSettings['new_episode_box_subtitle'] == 2 && $GeneralSettings['new_episode_box_summary'] == 2 && $GeneralSettings['new_episode_box_author'] == 2 && $GeneralSettings['new_episode_box_order'] == 2 && $GeneralSettings['new_episode_box_feature_in_itunes'] == 2 && $GeneralSettings['new_episode_box_block'] == 2) {
+                    $AppleExtra = false;
+                }
             }
         }
 
@@ -559,7 +560,7 @@ function artwork_tab($FeedSlug, $ExtraData, $object, $CoverImage, $GeneralSettin
         } else {
             $CoverImage_preview = $CoverImage;
         }
-        if ($GeneralSettings['new_episode_box_itunes_image'] == 2 && $GeneralSettings['new_episode_box_cover_image']) {
+        if (isset($GeneralSettings['new_episode_box_itunes_image']) && $GeneralSettings['new_episode_box_itunes_image'] == 2 && isset($GeneralSettings['new_episode_box_cover_image']) && $GeneralSettings['new_episode_box_cover_image']) {
             echo "<p class='pp-ep-box-text'>" . __('No artwork settings enabled', 'powerpress') . "</p></div>";
             return;
         }
@@ -597,7 +598,7 @@ function artwork_tab($FeedSlug, $ExtraData, $object, $CoverImage, $GeneralSettin
         </div>
         <div class="ep-box-line-margin"></div>
         <?php }
-        if( !isset($GeneralSettings['new_episode_box_cover_image']) || $GeneralSettings['new_episode_box_cover_image'] == 1 ) { ?>
+        if( isset($GeneralSettings['new_episode_box_cover_image']) && $GeneralSettings['new_episode_box_cover_image'] == 1 ) { ?>
         <div id="powerpress_thumbnail_container_<?php echo $FeedSlug; ?>" class="pp-section-container">
             <div class="powerpress-art-text">
                 <h4 class="pp-section-title"><?php echo esc_html(__('Thumbnail Image', 'powerpress')); ?></h4>

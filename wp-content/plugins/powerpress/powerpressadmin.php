@@ -1348,7 +1348,6 @@ function powerpress_save_settings($SettingsNew=false, $field = 'powerpress_gener
 		update_option($field,  $SettingsNew);
 		return;
 	}
-		
 	// Save general settings
 	if( $SettingsNew )
 	{
@@ -1442,6 +1441,12 @@ function powerpress_save_settings($SettingsNew=false, $field = 'powerpress_gener
                     unset($Settings['subscribe_links']);
                 if (!isset($SettingsNew['new_window_no_factor']) || empty($SettingsNew['new_window_no_factor']))
                     unset($Settings['new_window_no_factor']);
+            } elseif( isset($SettingsNew['powerpress_bplayer_settings'])) {
+		        unset($Settings['powerpress_bplayer_settings']);
+                if (!isset($SettingsNew['new_episode_box_itunes_image']) || empty($SettingsNew['new_episode_box_itunes_image']))
+                    $Settings['new_episode_box_itunes_image'] = 2;
+                if (isset($SettingsNew['bp_episode_image']) && empty($SettingsNew['bp_episode_image']))
+                    unset($Settings['bp_episode_image']);
             }
 			if( isset($Settings['videojs_css_class']) && empty($Settings['videojs_css_class']) )
 				unset($Settings['videojs_css_class']);
@@ -3116,7 +3121,7 @@ function powerpress_edit_category_form($cat)
 <?php
 	}
 }
-add_action('edit_category_form', 'powerpress_edit_category_form');
+add_action('category_edit_form', 'powerpress_edit_category_form');
 
 // Admin page, header
 function powerpress_admin_page_header($page=false, $nonce_field = 'powerpress-edit', $page_type='')
