@@ -115,16 +115,7 @@ function powerpress_admin_init()
 		if( isset($_POST[ 'Feed' ]) || isset($_POST[ 'General' ])  )
 		{
 			check_admin_referer('powerpress-edit');
-			
-			$upload_path = false;
-			$upload_url = false;
-			$UploadArray = wp_upload_dir();
-			if( false === $UploadArray['error'] )
-			{
-				$upload_path =  $UploadArray['basedir'].'/powerpress/';
-				$upload_url =  $UploadArray['baseurl'].'/powerpress/';
-			}
-		
+
 			// Save the posted value in the database
 			$Feed = (isset($_POST['Feed'])?$_POST['Feed']:false);
 			$General = (isset($_POST['General'])?$_POST['General']:false);
@@ -132,346 +123,211 @@ function powerpress_admin_init()
 			$Category = (isset($_POST['cat'])?intval($_POST['cat']):false);
 			$term_taxonomy_id = (isset($_POST['ttid'])?intval($_POST['ttid']):false);
 			$podcast_post_type = (isset($_POST['podcast_post_type'])?esc_attr($_POST['podcast_post_type']):false);
-			
+            $acceptable_extensions = ['jpg', 'jpeg', 'png'];
+
 			// New iTunes image
 			if( !empty($_POST['itunes_image_checkbox']) )
 			{
-				$filename = str_replace(" ", "_", basename($_FILES['itunes_image_file']['name']) );
 				$temp = $_FILES['itunes_image_file']['tmp_name'];
-				
-				if( file_exists($upload_path . $filename ) )
-				{
-					$filenameParts = pathinfo($filename);
-					if( !empty($filenameParts['extension']) ) {
-						do {
-							$filename_no_ext = substr($filenameParts['basename'], 0, (strlen($filenameParts['extension'])+1) * -1 );
-							$filename = sprintf('%s-%03d.%s', $filename_no_ext, rand(0, 999), $filenameParts['extension'] );
-						} while( file_exists($upload_path . $filename ) );
-					}
-				}
-				
-				// Check the image...
-				if( file_exists($temp) )
-				{
-					$ImageData = @getimagesize($temp);
-					
-					$rgb = true; // We assume it is RGB
-					if( defined('POWERPRESS_IMAGICK') && POWERPRESS_IMAGICK )
-					{
-						if( $ImageData[2] == IMAGETYPE_PNG && extension_loaded('imagick') )
-						{
-							$image = new Imagick( $temp );
-							if( $image->getImageColorspace() != imagick::COLORSPACE_RGB )
-							{
-								$rgb = false;
-							}
-						}
-					}
-					
-					if( empty($ImageData['channels']) )
-						$ImageData['channels'] = 3; // Assume it's ok if we cannot detect it.
-				
-					if( $ImageData )
-					{
-						if( $rgb && ( $ImageData[2] == IMAGETYPE_JPEG || $ImageData[2] == IMAGETYPE_PNG ) && $ImageData[0] == $ImageData[1] && $ImageData[0] >= 1400  && $ImageData[0] <= 3000 && $ImageData['channels'] == 3 ) // Just check that it is an image, the correct image type and that the image is square
-						{
-							if( !move_uploaded_file($temp, $upload_path . $filename) )
-							{
-								powerpress_page_message_add_error( __('Error saving image', 'powerpress')  .':	' . htmlspecialchars($_FILES['itunes_image_file']['name']) .' - '. __('An error occurred saving the iTunes image on the server.', 'powerpress'). ' '. sprintf(__('Local folder: %s; File name: %s', 'powerpress'), $upload_path, $filename) );
-							}
-							else
-							{
-								$Feed['itunes_image'] = $upload_url . $filename;
-								if( !empty($_POST['itunes_image_checkbox_as_rss']) )
-								{
-									$Feed['rss2_image'] = $upload_url . $filename;
-								}
-								
-								//if( $ImageData[0] < 1400 || $ImageData[1] < 1400 )
-								//{
-								//	powerpress_page_message_add_error( __('iTunes image warning', 'powerpress')  .':	'. htmlspecialchars($_FILES['itunes_image_file']['name']) . __(' is', 'powerpress') .' '. $ImageData[0] .' x '.$ImageData[0]   .' - '. __('Image must be square 1400 x 1400 pixels or larger.', 'powerpress') );
-								//}
-							}
-						}
-						else if( $ImageData['channels'] != 3 || $rgb == false )
-						{
-							powerpress_page_message_add_error( __('Invalid image', 'powerpress')  .':	' . htmlspecialchars($_FILES['itunes_image_file']['name']) .' - '. __('Image must be in RGB color space (CMYK is not supported).', 'powerpress') );
-						}
-						else if( $ImageData[0] != $ImageData[1] )
-						{
-							powerpress_page_message_add_error( __('Invalid image', 'powerpress')  .':	' . htmlspecialchars($_FILES['itunes_image_file']['name']) .' - '. __('Image must be square, 1400 x 1400 is the required minimum size.', 'powerpress') );
-						}
-						else if( $ImageData[0] != $ImageData[1] || $ImageData[0] < 1400 )
-						{
-							powerpress_page_message_add_error( __('Invalid image', 'powerpress')  .':	' . htmlspecialchars($_FILES['itunes_image_file']['name']) .' - '. __('Image is too small, 1400 x 1400 is the required minimum size.', 'powerpress') );
-						}
-						else if( $ImageData[0] != $ImageData[1] || $ImageData[0] > 3000 )
-						{
-							powerpress_page_message_add_error( __('Invalid image', 'powerpress')  .':	' . htmlspecialchars($_FILES['itunes_image_file']['name']) .' - '. __('Image is too large, 3000 x 3000 is the maximum size allowed.', 'powerpress') );
-						}
-						else
-						{
-							powerpress_page_message_add_error( __('Invalid image', 'powerpress')  .':	' . htmlspecialchars($_FILES['itunes_image_file']['name']) );
-						}
-					}
-					else
-					{
-						powerpress_page_message_add_error( __('Invalid image', 'powerpress')  .':	' . htmlspecialchars($_FILES['itunes_image_file']['name']) );
-					}
-				}
+
+                //Make sure the file extension is alright
+                $name = $_FILES['itunes_image_file']['name'];
+                $ext = substr($name, strrpos($name, '.') + 1);
+
+                if (!in_array(strtolower($ext), $acceptable_extensions)) {
+                    powerpress_page_message_add_error(__('Apple Podcasts image has an invalid file type: ' . $ext, 'powerpress') );
+                } else {
+                    // Check the image...
+                    if (file_exists($temp)) {
+                        $ImageData = @getimagesize($temp);
+
+                        $rgb = true; // We assume it is RGB
+                        if (defined('POWERPRESS_IMAGICK') && POWERPRESS_IMAGICK) {
+                            if ($ImageData[2] == IMAGETYPE_PNG && extension_loaded('imagick')) {
+                                $image = new Imagick($temp);
+                                if ($image->getImageColorspace() != imagick::COLORSPACE_RGB) {
+                                    $rgb = false;
+                                }
+                            }
+                        }
+
+                        if (empty($ImageData['channels']))
+                            $ImageData['channels'] = 3; // Assume it's ok if we cannot detect it.
+
+                        if ($ImageData) {
+                            if ($rgb && ($ImageData[2] == IMAGETYPE_JPEG || $ImageData[2] == IMAGETYPE_PNG) && $ImageData[0] == $ImageData[1] && $ImageData[0] >= 1400 && $ImageData[0] <= 3000 && $ImageData['channels'] == 3) // Just check that it is an image, the correct image type and that the image is square
+                            {
+                                $upload_result = wp_handle_upload($_FILES['itunes_image_file'], array('action' => $_POST['action'], 'test_form' => false));
+                                if (is_array($upload_result) && isset($upload_result['error'])) {
+                                    powerpress_page_message_add_error(__('Error saving image', 'powerpress') . ':   ' . $upload_result['error']);
+                                } elseif (is_array($upload_result) && isset($upload_result['url'])) {
+                                    $Feed['itunes_image'] = $upload_result['url'];
+                                    if (!empty($_POST['itunes_image_checkbox_as_rss'])) {
+                                        $Feed['rss2_image'] = $upload_result['url'];
+                                    }
+                                } else {
+                                    powerpress_page_message_add_error(__('Error saving image', 'powerpress'));
+                                }
+                            } else if ($ImageData['channels'] != 3 || $rgb == false) {
+                                powerpress_page_message_add_error(__('Invalid image', 'powerpress') . ':	' . htmlspecialchars($_FILES['itunes_image_file']['name']) . ' - ' . __('Image must be in RGB color space (CMYK is not supported).', 'powerpress'));
+                            } else if ($ImageData[0] != $ImageData[1]) {
+                                powerpress_page_message_add_error(__('Invalid image', 'powerpress') . ':	' . htmlspecialchars($_FILES['itunes_image_file']['name']) . ' - ' . __('Image must be square, 1400 x 1400 is the required minimum size.', 'powerpress'));
+                            } else if ($ImageData[0] != $ImageData[1] || $ImageData[0] < 1400) {
+                                powerpress_page_message_add_error(__('Invalid image', 'powerpress') . ':	' . htmlspecialchars($_FILES['itunes_image_file']['name']) . ' - ' . __('Image is too small, 1400 x 1400 is the required minimum size.', 'powerpress'));
+                            } else if ($ImageData[0] != $ImageData[1] || $ImageData[0] > 3000) {
+                                powerpress_page_message_add_error(__('Invalid image', 'powerpress') . ':	' . htmlspecialchars($_FILES['itunes_image_file']['name']) . ' - ' . __('Image is too large, 3000 x 3000 is the maximum size allowed.', 'powerpress'));
+                            } else {
+                                powerpress_page_message_add_error(__('Invalid image', 'powerpress') . ':	' . htmlspecialchars($_FILES['itunes_image_file']['name']));
+                            }
+                        } else {
+                            powerpress_page_message_add_error(__('Invalid image', 'powerpress') . ':	' . htmlspecialchars($_FILES['itunes_image_file']['name']));
+                        }
+                    }
+                }
 			}
 			
 			// New RSS2 image
 			if( !empty($_POST['rss2_image_checkbox']) )
 			{
-				$filename = str_replace(" ", "_", basename($_FILES['rss2_image_file']['name']) );
 				$temp = $_FILES['rss2_image_file']['tmp_name'];
-				
-				if( file_exists($upload_path . $filename ) )
-				{
-					$filenameParts = pathinfo($filename);
-					if( !empty($filenameParts['basename']) && !empty($filenameParts['extension']) )
-					{
-						do {
-							$filename_no_ext = substr($filenameParts['basename'], 0, (strlen($filenameParts['extension'])+1) * -1 );
-							$filename = sprintf('%s-%03d.%s', $filename_no_ext, rand(0, 999), $filenameParts['extension'] );
-						} while( file_exists($upload_path . $filename ) );
-					}
-				}
-				
-				if( @getimagesize($temp) )  // Just check that it is an image, we may add more to this later
-				{
-					if( !move_uploaded_file($temp, $upload_path . $filename) )
-					{
-						powerpress_page_message_add_error( __('Error saving RSS image', 'powerpress')  .':	' . htmlspecialchars($_FILES['itunes_image_file']['name']) .' - '. __('An error occurred saving the RSS image on the server.', 'powerpress'). ' '. sprintf(__('Local folder: %s; File name: %s', 'powerpress'), $upload_path, $filename) );
-					}
-					else
-					{
-						$Feed['rss2_image'] = $upload_url . $filename;
-					}
-				}
-				else
-				{
-					powerpress_page_message_add_error( __('Invalid RSS image', 'powerpress') .': '. htmlspecialchars($_FILES['rss2_image_file']['name']) );
-				}
-			}
-			
-			// New Google Play image
-			if( !empty($_POST['googleplay_image_checkbox']) )
-			{
-				$filename = str_replace(" ", "_", basename($_FILES['googleplay_image_file']['name']) );
-				$temp = $_FILES['googleplay_image_file']['tmp_name'];
-				
-				if( file_exists($upload_path . $filename ) )
-				{
-					$filenameParts = pathinfo($filename);
-					if( !empty($filenameParts['extension']) ) {
-						do {
-							$filename_no_ext = substr($filenameParts['basename'], 0, (strlen($filenameParts['extension'])+1) * -1 );
-							$filename = sprintf('%s-%03d.%s', $filename_no_ext, rand(0, 999), $filenameParts['extension'] );
-						} while( file_exists($upload_path . $filename ) );
-					}
-				}
-				
-				// Check the image...
-				if( file_exists($temp) )
-				{
-					$ImageData = @getimagesize($temp);
-					
-					$rgb = true; // We assume it is RGB
-					if( defined('POWERPRESS_IMAGICK') && POWERPRESS_IMAGICK )
-					{
-						if( $ImageData[2] == IMAGETYPE_PNG && extension_loaded('imagick') )
-						{
-							$image = new Imagick( $temp );
-							if( $image->getImageColorspace() != imagick::COLORSPACE_RGB )
-							{
-								$rgb = false;
-							}
-						}
-					}
-					
-					if( empty($ImageData['channels']) )
-						$ImageData['channels'] = 3; // Assume it's ok if we cannot detect it.
-				
-					if( $ImageData )
-					{
-						if( $rgb && ( $ImageData[2] == IMAGETYPE_JPEG || $ImageData[2] == IMAGETYPE_PNG ) && $ImageData[0] == $ImageData[1] && $ImageData[0] >= 1200  && $ImageData[0] <= 7000 && $ImageData['channels'] == 3 ) // Just check that it is an image, the correct image type and that the image is square
-						{
-							if( !move_uploaded_file($temp, $upload_path . $filename) )
-							{
-								powerpress_page_message_add_error( __('Error saving Google Play Music image', 'powerpress')  .':	' . htmlspecialchars($_FILES['googleplay_image_file']['name']) .' - '. __('An error occurred saving the Google Play Music image on the server.', 'powerpress'). ' '. sprintf(__('Local folder: %s; File name: %s', 'powerpress'), $upload_path, $filename) );
-							}
-							else
-							{
-								$Feed['googleplay_image'] = $upload_url . $filename;
-								if( $ImageData[0] < 1200 || $ImageData[1] < 1200 )
-								{
-									powerpress_page_message_add_error( __('Google Play Music image warning', 'powerpress')  .':	'. htmlspecialchars($_FILES['googleplay_image_file']['name']) . __(' is', 'powerpress') .' '. $ImageData[0] .' x '.$ImageData[0]   .' - '. __('Image must be square 1200 x 1200 pixels or larger to be eligible for featuring.', 'powerpress') );
-								}
-							}
-						}
-						else if( $ImageData['channels'] != 3 || $rgb == false )
-						{
-							powerpress_page_message_add_error( __('Invalid Google Play Music image', 'powerpress')  .':	' . htmlspecialchars($_FILES['googleplay_image_file']['name']) .' - '. __('Image must be in RGB color space (CMYK is not supported).', 'powerpress') );
-						}
-						else if( $ImageData[0] != $ImageData[1] )
-						{
-							powerpress_page_message_add_error( __('Invalid Google Play Music image', 'powerpress')  .':	' . htmlspecialchars($_FILES['googleplay_image_file']['name']) .' - '. __('Image must be square, 1200 x 1200 is the required minimum size to be eligible for featuring.', 'powerpress') );
-						}
-						else if( $ImageData[0] != $ImageData[1] || $ImageData[0] < 600 )
-						{
-							powerpress_page_message_add_error( __('Invalid Google Play Music image', 'powerpress')  .':	' . htmlspecialchars($_FILES['googleplay_image_file']['name']) .' - '. __('Image is too small, 1200 x 1200 is the required minimum size to be eligible for featuring.', 'powerpress') );
-						}
-						else if( $ImageData[0] != $ImageData[1] || $ImageData[0] > 7000 )
-						{
-							powerpress_page_message_add_error( __('Invalid Google Play Music image', 'powerpress')  .':	' . htmlspecialchars($_FILES['googleplay_image_file']['name']) .' - '. __('Image is too large, 7000 x 7000 is the maximum size allowed.', 'powerpress') );
-						}
-						else
-						{
-							powerpress_page_message_add_error( __('Invalid Google Play Music image', 'powerpress')  .':	' . htmlspecialchars($_FILES['googleplay_image_file']['name']) );
-						}
-					}
-					else
-					{
-						powerpress_page_message_add_error( __('Invalid Google Play Music image', 'powerpress')  .':	' . htmlspecialchars($_FILES['googleplay_image_file']['name']) );
-					}
-				}
+
+                //Make sure the file extension is alright
+                $name = $_FILES['rss2_image_file']['name'];
+                $ext = substr($name, strrpos($name, '.') + 1);
+
+                if (!in_array(strtolower($ext), $acceptable_extensions)) {
+                    powerpress_page_message_add_error(__('RSS2 image has an invalid file type: ' . $ext, 'powerpress') );
+                } else {
+                    if (@getimagesize($temp))  // Just check that it is an image, we may add more to this later
+                    {
+                        $upload_result = wp_handle_upload($_FILES['rss2_image_file'], array('action' => $_POST['action'], 'test_form' => false));
+                        if (is_array($upload_result) && isset($upload_result['error'])) {
+                            powerpress_page_message_add_error(__('Error saving RSS image', 'powerpress') . ':   ' . $upload_result['error']);
+                        } elseif (is_array($upload_result) && isset($upload_result['url'])) {
+                            $Feed['rss2_image'] = $upload_result['url'];
+                        } else {
+                            powerpress_page_message_add_error(__('Error saving RSS image', 'powerpress'));
+                        }
+                    } else {
+                        powerpress_page_message_add_error(__('Invalid RSS image', 'powerpress') . ': ' . htmlspecialchars($_FILES['rss2_image_file']['name']));
+                    }
+                }
 			}
 			
 			// New mp3 coverart image
 			if( !empty($_POST['coverart_image_checkbox']) )
 			{
-				$filename = str_replace(" ", "_", basename($_FILES['coverart_image_file']['name']) );
 				$temp = $_FILES['coverart_image_file']['tmp_name'];
-				
-				if( file_exists($upload_path . $filename ) )
-				{
-					$filenameParts = pathinfo($filename);
-					do {
-						$filename_no_ext = substr($filenameParts['basename'], 0, (strlen($filenameParts['extension'])+1) * -1 );
-						$filename = sprintf('%s-%03d.%s', $filename_no_ext, rand(0, 999), $filenameParts['extension'] );
-					} while( file_exists($upload_path . $filename ) );
-				}
-				
-				if( @getimagesize($temp) )  // Just check that it is an image, we may add more to this later
-				{
-					if( !move_uploaded_file($temp, $upload_path . $filename) )
-					{
-						powerpress_page_message_add_error( __('Error saving Coverart image', 'powerpress')  .':	' . htmlspecialchars($_FILES['itunes_image_file']['name']) .' - '. __('An error occurred saving the coverart image on the server.', 'powerpress'). ' '. sprintf(__('Local folder: %s; File name: %s', 'powerpress'), $upload_path, $filename) );
-					}
-					else
-					{
-						$_POST['TagValues']['tag_coverart'] = $upload_url . $filename;
-						$General['tag_coverart'] = $upload_url . $filename;
-					}
-				}
-				else
-				{
-					powerpress_page_message_add_error( __('Invalid Coverat image', 'powerpress') .': ' . htmlspecialchars($_FILES['coverart_image_file']['name']) );
-				}
+
+                //Make sure the file extension is alright
+                $name = $_FILES['coverart_image_file']['name'];
+                $ext = substr($name, strrpos($name, '.') + 1);
+
+                if (!in_array(strtolower($ext), $acceptable_extensions)) {
+                    powerpress_page_message_add_error(__('Coverart image has an invalid file type: ' . $ext, 'powerpress') );
+                } else {
+                    if (@getimagesize($temp))  // Just check that it is an image, we may add more to this later
+                    {
+                        $upload_result = wp_handle_upload($_FILES['coverart_image_file'], array('action' => $_POST['action'], 'test_form' => false));
+                        if (is_array($upload_result) && isset($upload_result['error'])) {
+                            powerpress_page_message_add_error(__('Error saving Coverart image', 'powerpress') . ':	' . $upload_result['error']);
+                        } elseif (is_array($upload_result) && isset($upload_result['url'])) {
+                            $General['tag_coverart'] = $upload_result['url'];
+                        } else {
+                            powerpress_page_message_add_error(__('Error saving Coverart image', 'powerpress'));
+                        }
+                    } else {
+                        powerpress_page_message_add_error(__('Invalid Coverat image', 'powerpress') . ': ' . htmlspecialchars($_FILES['coverart_image_file']['name']));
+                    }
+                }
 			}
 			
 			// New poster image
 			if( !empty($_POST['poster_image_checkbox']) )
 			{
-				$filename = str_replace(" ", "_", basename($_FILES['poster_image_file']['name']) );
 				$temp = $_FILES['poster_image_file']['tmp_name'];
-				
-				if( file_exists($upload_path . $filename ) )
-				{
-					$filenameParts = pathinfo($filename);
-					do {
-						$filename_no_ext = substr($filenameParts['basename'], 0, (strlen($filenameParts['extension'])+1) * -1 );
-						$filename = sprintf('%s-%03d.%s', $filename_no_ext, rand(0, 999), $filenameParts['extension'] );
-					} while( file_exists($upload_path . $filename ) );
-				}
-				
-				if( @getimagesize($temp) )  // Just check that it is an image, we may add more to this later
-				{
-					if( !move_uploaded_file($temp, $upload_path . $filename) )
-					{
-						powerpress_page_message_add_error( __('Error saving Poster image', 'powerpress')  .':	' . htmlspecialchars($_FILES['itunes_image_file']['name']) .' - '. __('An error occurred saving the poster image on the server.', 'powerpress'). ' '. sprintf(__('Local folder: %s; File name: %s', 'powerpress'), $upload_path, $filename) );
-					}
-					else
-					{
-						$General['poster_image'] = $upload_url . $filename;
-					}
-				}
-				else
-				{
-					powerpress_page_message_add_error( __('Invalid poster image', 'powerpress') .': ' . htmlspecialchars($_FILES['poster_image_file']['name']) );
-				}
+
+                //Make sure the file extension is alright
+                $name = $_FILES['poster_image_file']['name'];
+                $ext = substr($name, strrpos($name, '.') + 1);
+
+                if (!in_array(strtolower($ext), $acceptable_extensions)) {
+                    powerpress_page_message_add_error(__('Poster image has an invalid file type: ' . $ext, 'powerpress') );
+                } else {
+                    if (@getimagesize($temp))  // Just check that it is an image, we may add more to this later
+                    {
+                        $upload_result = wp_handle_upload($_FILES['poster_image_file'], array('action' => $_POST['action'], 'test_form' => false));
+                        if (is_array($upload_result) && isset($upload_result['error'])) {
+                            powerpress_page_message_add_error(__('Error saving Poster image', 'powerpress') . ':	' . $upload_result['error']);
+                        } elseif (is_array($upload_result) && isset($upload_result['url'])) {
+                            $General['poster_image'] = $upload_result['url'];
+                        } else {
+                            powerpress_page_message_add_error(__('Error saving Poster image', 'powerpress'));
+                        }
+                    } else {
+                        powerpress_page_message_add_error(__('Invalid poster image', 'powerpress') . ': ' . htmlspecialchars($_FILES['poster_image_file']['name']));
+                    }
+                }
 			}
 			
 			
 			// New audio play icon image
 			if( !empty($_POST['audio_custom_play_button_checkbox']) )
 			{
-				$filename = str_replace(" ", "_", basename($_FILES['audio_custom_play_button_file']['name']) );
 				$temp = $_FILES['audio_custom_play_button_file']['tmp_name'];
-				
-				if( file_exists($upload_path . $filename ) )
-				{
-					$filenameParts = pathinfo($filename);
-					do {
-						$filename_no_ext = substr($filenameParts['basename'], 0, (strlen($filenameParts['extension'])+1) * -1 );
-						$filename = sprintf('%s-%03d.%s', $filename_no_ext, rand(0, 999), $filenameParts['extension'] );
-					} while( file_exists($upload_path . $filename ) );
-				}
-				
-				if( @getimagesize($temp) )  // Just check that it is an image, we may add more to this later
-				{
-					if( !move_uploaded_file($temp, $upload_path . $filename) )
-					{
-						powerpress_page_message_add_error( __('Error saving Play image', 'powerpress')  .':	' . htmlspecialchars($_FILES['itunes_image_file']['name']) .' - '. __('An error occurred saving the play image on the server.', 'powerpress'). ' '. sprintf(__('Local folder: %s; File name: %s', 'powerpress'), $upload_path, $filename) );
-					}
-					else
-					{
-						$General['audio_custom_play_button'] = $upload_url . $filename;
-					}
-				}
-				else
-				{
-					powerpress_page_message_add_error( __('Invalid play icon image', 'powerpress') .': ' . htmlspecialchars($_FILES['audio_custom_play_button_file']['name']) );
-				}
+
+                //Make sure the file extension is alright
+                $name = $_FILES['audio_custom_play_button_file']['name'];
+                $ext = substr($name, strrpos($name, '.') + 1);
+
+                if (!in_array(strtolower($ext), $acceptable_extensions)) {
+                    powerpress_page_message_add_error(__('Custom audio play button image has an invalid file type: ' . $ext, 'powerpress') );
+                } else {
+                    if (@getimagesize($temp))  // Just check that it is an image, we may add more to this later
+                    {
+                        $upload_result = wp_handle_upload($_FILES['audio_custom_play_button_file'], array('action' => $_POST['action'], 'test_form' => false));
+                        if (is_array($upload_result) && isset($upload_result['error'])) {
+                            powerpress_page_message_add_error(__('Error saving Play image', 'powerpress') . ':	' . $upload_result['error']);
+                        } elseif (is_array($upload_result) && isset($upload_result['url'])) {
+                            $General['audio_custom_play_button'] = $upload_result['url'];
+                        } else {
+                            powerpress_page_message_add_error(__('Error saving Play image', 'powerpress'));
+                        }
+                    } else {
+                        powerpress_page_message_add_error(__('Invalid play icon image', 'powerpress') . ': ' . htmlspecialchars($_FILES['audio_custom_play_button_file']['name']));
+                    }
+                }
 			}
 			
-			// New video play icon image
+			// New video play icon image powerpress-select-player
 			if( !empty($_POST['video_custom_play_button_checkbox']) )
 			{
-				$filename = str_replace(" ", "_", basename($_FILES['video_custom_play_button_file']['name']) );
 				$temp = $_FILES['video_custom_play_button_file']['tmp_name'];
-				
-				if( file_exists($upload_path . $filename ) )
-				{
-					$filenameParts = pathinfo($filename);
-					do {
-						$filename_no_ext = substr($filenameParts['basename'], 0, (strlen($filenameParts['extension'])+1) * -1 );
-						$filename = sprintf('%s-%03d.%s', $filename_no_ext, rand(0, 999), $filenameParts['extension'] );
-					} while( file_exists($upload_path . $filename ) );
-				}
-				
-				$imageInfo = @getimagesize($temp);
-				if( $imageInfo && $imageInfo[0] == $imageInfo[1] && $imageInfo[0] == 60 )  // Just check that it is an image, we may add more to this later
-				{
-					if( !move_uploaded_file($temp, $upload_path . $filename) )
-					{
-						powerpress_page_message_add_error( __('Error saving Video Play icon image', 'powerpress')  .':	' . htmlspecialchars($_FILES['itunes_image_file']['name']) .' - '. __('An error occurred saving the Video Play icon image on the server.', 'powerpress'). ' '. sprintf(__('Local folder: %s; File name: %s', 'powerpress'), $upload_path, $filename) );
-					}
-					else
-					{
-						$General['video_custom_play_button'] = $upload_url . $filename;
-					}
-				}
-				else if( $imageInfo )
-				{
-					powerpress_page_message_add_error( __('Invalid play icon image size', 'powerpress') .': ' . htmlspecialchars($_FILES['video_custom_play_button_file']['name']) );
-				}
-				else
-				{
-					powerpress_page_message_add_error( __('Invalid play icon image', 'powerpress') .': ' . htmlspecialchars($_FILES['video_custom_play_button_file']['name']) );
-				}
+
+                //Make sure the file extension is alright
+                $name = $_FILES['video_custom_play_button_file']['name'];
+                $ext = substr($name, strrpos($name, '.') + 1);
+
+                if (!in_array(strtolower($ext), $acceptable_extensions)) {
+                    powerpress_page_message_add_error(__('Custom video play button image has an invalid file type: ' . $ext, 'powerpress') );
+                } else {
+                    $imageInfo = @getimagesize($temp);
+                    if ($imageInfo && $imageInfo[0] == $imageInfo[1] && $imageInfo[0] == 60)  // Just check that it is an image, we may add more to this later
+                    {
+                        $upload_result = wp_handle_upload($_FILES['video_custom_play_button_file'], array('action' => $_POST['action'], 'test_form' => false));
+                        if (is_array($upload_result) && isset($upload_result['error'])) {
+                            powerpress_page_message_add_error(__('Error saving Video Play icon image', 'powerpress') . ':	' . $upload_result['error']);
+                        } elseif (is_array($upload_result) && isset($upload_result['url'])) {
+                            $General['video_custom_play_button'] = $upload_result['url'];
+                        } else {
+                            powerpress_page_message_add_error(__('Error saving Video Play icon image', 'powerpress'));
+                        }
+                    } else if ($imageInfo) {
+                        powerpress_page_message_add_error(__('Invalid play icon image size', 'powerpress') . ': ' . htmlspecialchars($_FILES['video_custom_play_button_file']['name']));
+                    } else {
+                        powerpress_page_message_add_error(__('Invalid play icon image', 'powerpress') . ': ' . htmlspecialchars($_FILES['video_custom_play_button_file']['name']));
+                    }
+                }
 			}
 			
 			if( isset($_POST['UpdateDisablePlayer']) )

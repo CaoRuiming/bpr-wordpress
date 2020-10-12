@@ -906,61 +906,26 @@ function powerpress_settings_tab_footer()
 }
 function powerpressadmin_welcome($GeneralSettings, $FeedSettings)
 {
-    $numPosts = wp_count_posts();
-    if ($numPosts->publish < 1000) {
-        $posts = get_posts(array('numberposts' => -1));
-        $tooMany = false;
+    if (isset($_GET['feed_slug'])) {
+        $feed_slug = $_GET['feed_slug'];
     } else {
-        $posts = get_posts(array('numberposts' => 100));
-        $tooMany = true;
+        $feed_slug = 'podcast';
     }
-    $numEp = 0;
-    $foundEp = false;
-    $mostRecentEp = array();
-    foreach ($posts as $idx => $post) {
-        $enclosureArray = get_post_meta($post->ID, 'enclosure', true);
-        if (!empty($enclosureArray)) {
-            $numEp += 1;
-            if (!$foundEp) {
-                $EnclosureURL = '';
-                $EnclosureLength = '';
-                $EnclosureType = '';
-                $EnclosureSerialized = false;
-                if ($enclosureArray) {
-                    // list($EnclosureURL, $EnclosureLength, $EnclosureType, $EnclosureSerialized) =  explode("\n", $enclosureArray, 4);
-                    $MetaParts = explode("\n", $enclosureArray, 4);
-                    if (count($MetaParts) > 0) {
-                        $EnclosureURL = $MetaParts[0];
-                    }
-                    if (count($MetaParts) > 3) {
-                        $EnclosureSerialized = $MetaParts[3];
-                    }
-
-                    if ($EnclosureSerialized && $EnclosureURL) {
-                        $mostRecentEp = @unserialize($EnclosureSerialized);
-                        $mostRecentEp['media_url'] = $EnclosureURL;
-                        $mostRecentEp['post_data'] = $post;
-                    }
-                }
-
-                if (!empty($mostRecentEp)) {
-                    $foundEp = true;
-                }
-            }
-        }
-    }
-
-    if ($tooMany) {
-        $numEp = "N/A";
-    }
-
-    if (isset($mostRecentEp['itunes_image'])) {
-        $image = $mostRecentEp['itunes_image'];
-    } elseif (isset($FeedSettings['itunes_image'])) {
+    if (isset($FeedSettings['itunes_image']) && !empty($FeedSettings['itunes_image'])) {
         $image = $FeedSettings['itunes_image'];
     } else {
         $image = powerpress_get_root_url() . 'images/pts_cover.jpg';
     }
+    if (isset($FeedSettings['itunes_summary'])) {
+        $description = $FeedSettings['itunes_summary'];
+    } elseif (isset($FeedSettings['itunes_subtitle'])) {
+        $description = $FeedSettings['itunes_subtitle'];
+    } elseif (isset($FeedSettings['description'])) {
+        $description = $FeedSettings['description'];
+    } else {
+        $description = '';
+    }
+    $numEp = powerpress_admin_episodes_per_feed($feed_slug);
 ?>
     <script>
         function goToArtworkSettings() {
@@ -983,7 +948,7 @@ function powerpressadmin_welcome($GeneralSettings, $FeedSettings)
                 <img id="welcome-preview-image" src="<?php echo $image; ?>" alt="Feed Image" />
                 <div class="pp-settings-welcome-text">
                     <p class="pp-settings-text-no-margin" style="margin-bottom: 2ch;"><?php echo __('By', 'powerpress'); ?> <?php echo isset($FeedSettings['itunes_talent_name']) ? $FeedSettings['itunes_talent_name'] : ''; ?></p>
-                    <p class="pp-settings-text-no-margin"><?php echo isset($mostRecentEp['post_data']) && isset($mostRecentEp['post_data']->post_content) ? $mostRecentEp['post_data']->post_content : ''; ?></p>
+                    <p class="pp-settings-text-no-margin"><?php echo $description; ?></p>
                 </div>
             </div>
             <div class="pp-settings-num-episodes">
