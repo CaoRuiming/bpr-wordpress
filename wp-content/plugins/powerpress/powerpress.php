@@ -3,11 +3,11 @@
 Plugin Name: Blubrry PowerPress
 Plugin URI: http://create.blubrry.com/resources/powerpress/
 Description: <a href="https://create.blubrry.com/resources/powerpress/" target="_blank">Blubrry PowerPress</a> is the No. 1 Podcasting plugin for WordPress. Developed by podcasters for podcasters; features include Simple and Advanced modes, multiple audio/video player options, subscribe to podcast tools, podcast SEO features, and more! Fully supports Apple Podcasts (previously iTunes), Google Podcasts, Spotify, Stitcher, and Blubrry Podcasting directories, as well as all podcast applications and clients.
-Version: 8.3.8
+Version: 8.4.7
 Author: Blubrry
 Author URI: https://blubrry.com/
 Requires at least: 3.6
-Tested up to: 5.5
+Tested up to: 5.6
 Text Domain: powerpress
 Change Log:
 	Please see readme.txt for detailed change log.
@@ -36,7 +36,7 @@ if( !function_exists('add_action') ) {
 
 // WP_PLUGIN_DIR (REMEMBER TO USE THIS DEFINE IF NEEDED)
 
-define('POWERPRESS_VERSION', '8.3.8' );
+define('POWERPRESS_VERSION', '8.4.7' );
 
 // Translation support:
 if ( !defined('POWERPRESS_ABSPATH') )
@@ -869,6 +869,22 @@ function powerpress_rss2_head()
 				echo " tunein=\"". htmlspecialchars( $Feed['tunein_url'] ) .'"';
 			if( !empty($Feed['spotify_url']) )
 				echo " spotify=\"". htmlspecialchars( $Feed['spotify_url'] ) .'"';
+            if( !empty($Feed['amazon_url']) )
+                echo " amazon=\"". htmlspecialchars( $Feed['amazon_url'] ) .'"';
+            if( !empty($Feed['pcindex_url']) )
+                echo " pcindex=\"". htmlspecialchars( $Feed['pcindex_url'] ) .'"';
+            if( !empty($Feed['iheart_url']) )
+                echo " iheart=\"". htmlspecialchars( $Feed['iheart_url'] ) .'"';
+            if( !empty($Feed['pandora_url']) )
+                echo " pandora=\"". htmlspecialchars( $Feed['pandora_url'] ) .'"';
+            if( !empty($Feed['deezer_url']) )
+                echo " deezer=\"". htmlspecialchars( $Feed['deezer_url'] ) .'"';
+            if( !empty($Feed['jiosaavn_url']) )
+                echo " jiosaavn=\"". htmlspecialchars( $Feed['jiosaavn_url'] ) .'"';
+            if( !empty($Feed['podchaser_url']) )
+                echo " podchaser=\"". htmlspecialchars( $Feed['podchaser_url'] ) .'"';
+            if( !empty($Feed['gaana_url']) )
+                echo " gaana=\"". htmlspecialchars( $Feed['gaana_url'] ) .'"';
 			echo "></rawvoice:subscribe>".PHP_EOL;
 		}
 	}
@@ -1700,6 +1716,49 @@ function powerpress_init()
     }
 
     add_filter( 'the_guid', 'powerpress_the_guid', 11 );
+
+
+
+    if (!isset($GeneralSettings)) {
+        $GeneralSettings = get_option('powerpress_general');
+    }
+
+    if (!empty($GeneralSettings['powerpress_network'])) {
+        require_once( POWERPRESS_ABSPATH .'/powerpress-network.php');
+        if (class_exists('PowerPressNetwork')) {
+            $GLOBALS['ppn_object'] = new PowerPressNetwork('powerpressadmin_basic');
+            $GLOBALS['ppn_object']->setDisplay();
+
+            if (is_admin()) {
+                if (defined('WP_DEBUG')) {
+                    if (WP_DEBUG) {
+                        wp_register_style('powerpress-network', powerpress_get_root_url() . 'css/style.css', array(), POWERPRESS_VERSION);
+                    } else {
+                        wp_register_style('powerpress-network', powerpress_get_root_url() . 'css/style.min.css', array(), POWERPRESS_VERSION);
+                    }
+                }
+                else {
+                    wp_register_style('powerpress-network', powerpress_get_root_url() . 'css/style.min.css', array(), POWERPRESS_VERSION);
+                }
+
+                wp_enqueue_style('powerpress-network');
+                //wp_enqueue_script('powerpress-network', $this::powerpress_network_plugin_url() . 'js/admin.js', array('jquery'));
+            }
+
+            $plugin_url = plugin_dir_url(__FILE__);
+            //wp_enqueue_style('style', $plugin_url . 'css/stylesheet.css');
+
+            if (defined('WP_DEBUG')) {
+                if (WP_DEBUG) {
+                    wp_enqueue_style('style', $plugin_url . 'css/blueprint.css', array(), POWERPRESS_VERSION);
+                } else {
+                    wp_enqueue_style('style', $plugin_url . 'css/blueprint.min.css', array(), POWERPRESS_VERSION);
+                }
+            } else {
+                wp_enqueue_style('style', $plugin_url . 'css/blueprint.min.css', array(), POWERPRESS_VERSION);
+            }
+        }
+    }
 }
 
 add_action('init', 'powerpress_init', -100); // We need to add the feeds before other plugins start screwing with them

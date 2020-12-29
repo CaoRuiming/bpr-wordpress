@@ -12,6 +12,7 @@ class PowerpressOnboarding
         } else {
             wp_enqueue_style('powerpress_onboarding_styles', plugin_dir_url(__FILE__) . 'css/onboarding.min.css', array(), POWERPRESS_VERSION);
         }
+        wp_enqueue_script('powerpress-admin', powerpress_get_root_url() . 'js/admin.js', array(), POWERPRESS_VERSION );
     }
 
     public function router($GET) {

@@ -6,6 +6,23 @@ function powerpress_verifyMedia(el) {
 var interval = false;
 var verify_interval = false;
 
+jQuery(window).on("load", function(){
+    let url = jQuery("#verify-account-url").val();
+    if (url) {
+        tb_show('Verify Blubrry Account', url + '&KeepThis=true&TB_iframe=true&width=600&height=400&modal=true', false);
+        jQuery('#adminmenuwrap, #adminmenuwrap > *, #wpadminbar, #wpadminbar > *').css('z-index', '200000');
+        let height = jQuery('#wpwrap').height();
+        jQuery('#TB_overlay').css('height', height.toString() + 'px');
+        jQuery('body.modal-open').css('overflow-y', 'scroll');
+        jQuery('#TB_window, #TB_window iframe').css('height', '400px');
+        jQuery('#TB_window, #TB_window iframe').css('width', '800px');
+        jQuery('#TB_window').css('margin-left', '-315px');
+        jQuery('#TB_window').css('margin-top', '-220px');
+        jQuery('#TB_window').css('top', '50%');
+    }
+    return false;
+});
+
 function powerpress_openTab(evt, cityName) {
     // Declare all variables
     var tabcontent, tablinks;
@@ -25,14 +42,12 @@ function powerpress_openTab(evt, cityName) {
     });
 
     // Get all elements with class="tablinks" and remove the class "active"
-    //tablinks = document.getElementsByClassName("tablinks");
     tablinks = jQuery(".tablinks");
     tablinks.each(function(index, element) {
         jQuery(this).attr("class", "tablinks");
     });
 
     // Show the current tab, and add an "active" class to the button that opened the tab
-    //desired_tab_contents.css("display", "block");
     desired_tab_contents.attr("class", "pp-tabcontent has-sidenav active");
     desired_tab.attr("class", "tablinks active");
 
@@ -106,11 +121,8 @@ function sideNav(evt, cityName) {
     let icon = target.firstElementChild;
 
     // Get all elements with class="pp-tabcontent" and hide them
-    //tabcontent = document.getElementsByClassName("pp-sidenav-tab");
     tabcontent = jQuery(".pp-sidenav-tab");
-    //for (i = 0; i < tabcontent.length; i++) {
     tabcontent.each(function(index, element) {
-        //jQuery(this).css("display", "none");
         jQuery(this).attr("class", "pp-sidenav-tab");
     });
 
@@ -140,7 +152,6 @@ function sideNav(evt, cityName) {
     }
 
     // Show the current tab, and add an "active" class to the button that opened the tab
-    //desired_tab_contents.css("display", "inline-block");
     desired_tab_contents.attr("class", "pp-sidenav-tab active");
     desired_tab.attr("class", "pp-sidenav-tablinks active");
 }
@@ -284,39 +295,21 @@ function powerpress_changeMediaFile(evt, el) {
 //save button for edit media link
 function powerpress_cancelMediaEdit(el) {
     let feed_slug = el.id.replace("cancel-media-edit-", "");
-    //let player_size = jQuery("#pp-player-size-" + feed_slug);
-    //let player_size_line = jQuery("#line-above-player-size-" + feed_slug);
     let display_filename = jQuery("#ep-box-filename-" + feed_slug);
     let link = display_filename.val();
     let input = jQuery("#pp-url-input-container-" + feed_slug);
     let url_field = jQuery("#powerpress_url_" + feed_slug + " > input");
     let show_input = jQuery("#powerpress_url_show_" + feed_slug);
     let edit_media = jQuery("#edit-media-file-" + feed_slug);
+    let select_file = jQuery("#select-media-file-" + feed_slug);
     let buttons = jQuery("#pp-change-media-file-" + feed_slug);
     let warning = jQuery("#file-change-warning-" + feed_slug);
     let blubrry_info = jQuery("#ep-box-blubrry-service-" + feed_slug);
     let container = jQuery("#pp-media-blubrry-container-" + feed_slug);
-    //let video_types = [".mp4", ".m4v", ".webm", ".ogg", ".ogv"];
-    //let video = false;
     if(verify_interval) {
         clearInterval(verify_interval);
         verify_interval = false;
     }
-    /*video_types.forEach(function(element) {
-        if (link.endsWith(element)) {
-            player_size.removeAttr("style");
-            player_size.attr("style", "display: block");
-            player_size_line.removeAttr("style");
-            player_size_line.attr("style", "display: block");
-            video = true;
-        }
-    });
-    if (!video) {
-        player_size.removeAttr("style");
-        player_size.attr("style", "display: none");
-        player_size_line.removeAttr("style");
-        player_size_line.attr("style", "display: none");
-    }*/
     url_field.val(link);
     warning.css('display', 'none');
     input.removeAttr("style");
@@ -324,6 +317,8 @@ function powerpress_cancelMediaEdit(el) {
     show_input.css("display", "inline-block");
     edit_media.removeAttr("style");
     edit_media.attr("style", "display: inline-block");
+    select_file.removeAttr("style");
+    select_file.attr("style", "display: none");
     buttons.removeAttr("style");
     buttons.attr("style", "display: none");
     blubrry_info.removeAttr("style");
@@ -335,8 +330,6 @@ function powerpress_cancelMediaEdit(el) {
 function powerpress_saveMediaFile(el) {
     let feed_slug = el.id.replace("save-media-", "");
     powerpress_get_media_info(feed_slug);
-    //let player_size = jQuery("#pp-player-size-" + feed_slug);
-    //let player_size_line = jQuery("#line-above-player-size-" + feed_slug);
     let link = jQuery("#pp-url-input-label-container-" + feed_slug + " > input").val();
     let display_filename = jQuery("#ep-box-filename-" + feed_slug);
     let input = jQuery("#pp-url-input-container-" + feed_slug);
@@ -351,23 +344,6 @@ function powerpress_saveMediaFile(el) {
             clearInterval(verify_interval);
             verify_interval = false;
         }
-        /*let video_types = [".mp4", ".m4v", ".webm", ".ogg", ".ogv"];
-        let video = false;
-        video_types.forEach(function(element) {
-            if (link.endsWith(element)) {
-                player_size.removeAttr("style");
-                player_size.attr("style", "display: block");
-                player_size_line.removeAttr("style");
-                player_size_line.attr("style", "display: block");
-                video = true;
-            }
-        });
-        if (!video) {
-            player_size.removeAttr("style");
-            player_size.attr("style", "display: none");
-            player_size_line.removeAttr("style");
-            player_size_line.attr("style", "display: none");
-        }*/
         show_input.attr("title", link);
         display_filename.html(link);
         warning.css('display', 'none');
@@ -387,35 +363,22 @@ function powerpress_saveMediaFile(el) {
     }
 }
 
-//Continue button for adding media to a post
+//Display all tabs along with an empty field for media
 function powerpress_skipToEpisodeSettings(feed_slug) {
-    let file_input = jQuery("#pp-url-input-container-" + feed_slug);
-    let file_show = jQuery("#powerpress_url_show_" + feed_slug);
     let tab_container = jQuery("#tab-container-" + feed_slug);
     let warning = jQuery("#file-select-warning-" + feed_slug);
-    let edit_file = jQuery("#edit-media-file-" + feed_slug);
-    let select_file = jQuery("#select-media-file-" + feed_slug);
     let details = jQuery("#media-file-details-" + feed_slug);
-    let blubrry_info = jQuery("#ep-box-blubrry-service-" + feed_slug);
     let blu_container = jQuery("#pp-media-blubrry-container-" + feed_slug);
     let connect_info = jQuery("#ep-box-blubrry-connect-" + feed_slug);
     let connect_info_small = jQuery("#ep-box-min-blubrry-connect-" + feed_slug);
     tab_container.removeAttr("style");
     tab_container.attr("style", "display: block");
-    select_file.removeAttr("style");
-    select_file.attr("style", "display: none");
-    edit_file.removeAttr("style");
-    edit_file.attr("style", "display: inline-block");
-    file_input.removeAttr("style");
-    file_input.attr("style", "display: none");
-    file_show.css("display", "inline-block");
     warning.removeAttr("style");
     warning.attr("style", "display: none");
-    blubrry_info.removeAttr("style");
-    blubrry_info.attr("style", "display: none");
     details.removeAttr("style");
     details.attr("style", "display: inline-block");
     blu_container.removeAttr("style");
+    blu_container.attr("style", "background-color: #f1f4f9; padding: 2ch;");
     if(verify_interval) {
         clearInterval(verify_interval);
         verify_interval = false;
@@ -430,8 +393,6 @@ function powerpress_skipToEpisodeSettings(feed_slug) {
 function powerpress_continueToEpisodeSettings(el) {
     let feed_slug = el.id.replace("continue-to-episode-settings-", "");
     powerpress_get_media_info(feed_slug);
-    //let player_size = jQuery("#pp-player-size-" + feed_slug);
-    //let player_size_line = jQuery("#line-above-player-size-" + feed_slug);
     let link = jQuery("#pp-url-input-label-container-" + feed_slug + " > input").val();
     let file_input = jQuery("#pp-url-input-container-" + feed_slug);
     let file_show = jQuery("#powerpress_url_show_" + feed_slug);
@@ -450,23 +411,6 @@ function powerpress_continueToEpisodeSettings(el) {
             clearInterval(verify_interval);
             verify_interval = false;
         }
-        /*let video_types = [".mp4", ".m4v", ".webm", ".ogg", ".ogv"];
-        let video = false;
-        video_types.forEach(function(element) {
-            if (link.endsWith(element)) {
-                player_size.removeAttr("style");
-                player_size.attr("style", "display: block");
-                player_size_line.removeAttr("style");
-                player_size_line.attr("style", "display: block");
-                video = true;
-            }
-        });
-        if (!video) {
-            player_size.removeAttr("style");
-            player_size.attr("style", "display: none");
-            player_size_line.removeAttr("style");
-            player_size_line.attr("style", "display: none");
-        }*/
         file_show.attr("title", link);
         display_filename.html(link);
         tab_container.removeAttr("style");
@@ -532,3 +476,157 @@ function powerpress_insertArtIntoPreview(el) {
         caption_tag[0].innerHTML = filename;
     }
 }
+
+function unlinkAccount(idForm)
+{
+    let unlinkInput = jQuery('<input name="unlinkAccount" hidden>');
+    jQuery(function($){ $('#' + idForm).append(unlinkInput) });
+    jQuery(function($){ $('#' + idForm).attr('action', '#/') });
+}
+
+function unlinkNetwork()
+{ //Add an input of unlink to form and submit
+    jQuery(function($){ $('#linkNetwork').attr('value', 'unlink') });
+}
+
+function directStatus (status, idForm, changeOrCreate = false)
+{
+    if (changeOrCreate){
+        let input = jQuery('<input name="changeOrCreate" value=true hidden>');
+        jQuery(function($){ $('#' + idForm).append(input) });
+    }
+    jQuery(function($){ $('#' + idForm).attr('action', '?page=network-plugin&status='+status) });
+    jQuery(function($){ $('#'+idForm).unbind('submit') });
+    jQuery(function($){ $('#'+idForm).submit() });
+}
+
+function toggle(id, subItem = '')
+{
+
+    if (document.getElementById(subItem + id).style.display === "none")
+        jQuery(function($){ $('#toggle' + subItem + id).html('more_vert') });
+    else {
+        ('#toggle' + subItem + id).html('more_horiz');
+        if (subItem === '') {
+            jQuery(function($){ $('#shortCode' + id).hide() });
+            jQuery(function($){ $('#toggle' + 'shortCode' + id).html('more_vert') });
+        }
+    }
+    jQuery(function($){ $('#'+ subItem + id).slideToggle() });
+}
+
+function showApplication (application)
+{
+    let x = document.getElementsByClassName("tabContent");
+    let i;
+    for (i = 0; i < x.length; i++) {
+        x[i].style.display = "none";
+    }
+    document.getElementById(application).style.display = "block";
+    jQuery(function($){ $(".tabActive").addClass("tabInactive") });
+    jQuery(function($){ $(".tabActive").removeClass("tabActive") });
+    jQuery(function($){ $("#" + application + "Tab").removeClass("tabInactive") });
+    jQuery(function($){ $("#" + application + "Tab").addClass("tabActive") });
+}
+
+function createPage(id, target, idForm, pageTitle = false)
+{
+    let content = '';
+    if (target === 'Program') {
+        if (pageTitle === false) {
+            pageTitle = 'program id = ' + id;
+        }
+        content = '[ppn-program id = ' + id + '] ';
+    } else if (target === 'List') {
+        if (pageTitle === false) {
+            pageTitle = 'list id = ' + id;
+        }
+        content = '[ppn-list id = ' + id + '] ';
+    }
+    let addElement = jQuery('<input name="target" value="' + target + '" hidden>' +
+        '<input name="targetId" value=' + id + ' hidden>' +
+        '<input name="content" value="' + content + '" hidden>'+
+        '<input name="pageTitle" value="' + pageTitle + '" hidden>');
+    jQuery(function($){ $('#' + idForm).append (addElement) });
+    directStatus('Manage ' + target, idForm);
+}
+
+function createApplicationPage(target, idForm, pageTitle = false)
+{
+    let content = '';
+    if (target === 'Application') {
+        if (pageTitle === false) {
+            pageTitle = 'Application Page';
+        }
+        content = '[ppn-application terms-url=]';
+    }
+
+    let addElement = jQuery('<input name="target" value="' + target + '" hidden>' +
+        '<input name="content" value="' + content + '" hidden>' +
+        '<input name="pageTitle" value="' + pageTitle + '" hidden>');
+    jQuery(function($) { $('#' + idForm).append (addElement) });
+    directStatus('Manage ' + target, idForm);
+}
+
+function confirmUnlink(idForm)
+{
+    let unlink = jQuery('<input name="pageAction" value="unlink" hidden>');
+    jQuery(function($){ $("#"+idForm).append(unlink) });
+}
+
+function refreshAndCallDirectAPI(currentPage, idForm)
+{
+    let refresh = jQuery('<input name = "needDirectAPI" value= "true" hidden>') ;
+    jQuery(function($){ $("#"+idForm).append(refresh) });
+    directStatus(currentPage, idForm, false);
+}
+
+function manageProgram(programId, linkPage)
+{
+    jQuery(function($){ $('#programId').attr('value', programId) });
+    jQuery(function($){ $('#linkPageProgram').attr('value', linkPage) });
+}
+
+function manageList(listId, linkPage = false)
+{
+    jQuery(function($){ $('#listId').attr('value', listId) });
+    jQuery(function($){ $('#linkPageList').attr('value', linkPage) });
+}
+
+function showSelectPage()
+{
+    jQuery(function($){ $(".selectPageBox").show() });
+    jQuery(function($){ $("#choiceBox").hide() });
+}
+function showSelectChoice()
+{
+    jQuery(function($){ $(".selectPageBox").hide() });
+    jQuery(function($){ $("#choiceBox").show() });
+}
+function showConfirmUnlink()
+{
+    jQuery(function($){ $("#choiceBox").hide() });
+    jQuery(function($){ $(".confirmUnlink").show() });
+}
+
+function approveProgram (applicantId, approve = true){
+    let addInfo = null;
+    if (approve === false)
+        addInfo = jQuery ('<input name ="appAction" value="disapprove" hidden>');
+    else
+        addInfo = jQuery ('<input name ="appAction" value="approve" hidden>');
+    let applicantInfo = jQuery ('<input name ="applicantId" value='+ applicantId+' hidden>');
+    jQuery(function($){ $('#createForm').append(addInfo).append(applicantInfo) });
+    directStatus('List Applicants', 'createForm', true);
+}
+
+function confirmRemovalOfProgram(programId)
+{
+    let url = window.location.href;
+    $.ajax({
+        type: "POST",
+        url: url,
+        data: {'program_id' : programId},
+    });
+}
+

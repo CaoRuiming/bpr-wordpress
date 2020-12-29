@@ -178,7 +178,8 @@ jQuery(document).ready(function($) {
             "&download-"+fontcolor2.substring(1)+"&downloadBackground-"+color2.substring(1)+"&subscribe-"+fontcolor3.substring(1)+"&subscribeBackground-"+color3.substring(1)+
             "&share-"+fontcolor4.substring(1)+"&shareBackground-"+color4.substring(1);
 
-        document.getElementById('player_iframe_div').innerHTML ='<iframe src="//player.blubrry.com?podcast_id=12559710' + addition + '" id="playeriframe" scrolling="no" width="100%" height="138px" frameborder="0"></iframe>';
+            document.getElementById('player_iframe_div').innerHTML = '<iframe src="//player.blubrry.com?podcast_id=12559710' + addition + '" id="playeriframe" scrolling="no" width="100%" height="138px" frameborder="0"></iframe>';
+        }
     }
 
     function restoreDefaultColors(){
@@ -201,8 +202,14 @@ jQuery(document).ready(function($) {
 //            }
         });
 
-    document.getElementById("previewButton").addEventListener ("click", generatePlayerHash);
-    document.getElementById("restoreDefaultsButton").addEventListener ("click", restoreDefaultColors);
+    const preview_btn = document.getElementById("previewButton");
+    const restore_btn = document.getElementById("restoreDefaultsButton");
+    if (preview_btn) {
+        document.getElementById("previewButton").addEventListener("click", generatePlayerHash);
+    }
+    if (restore_btn) {
+        document.getElementById("restoreDefaultsButton").addEventListener("click", restoreDefaultColors);
+    }
 
     jQuery('.color_preview').ColorPicker({
 		onSubmit: function(hsb, hex, rgb, el) {
@@ -281,7 +288,12 @@ table.html5formats tr > td:first-child {
 }
 </style>
 <?php
-	
+
+    // If we have powerpress credentials, check if the account has been verified
+    $creds = get_option('powerpress_creds');
+    powerpress_check_credentials($creds);
+    wp_enqueue_script('powerpress-admin', powerpress_get_root_url() . 'js/admin.js', array(), POWERPRESS_VERSION );
+
 	// mainly 2 pages, first page selects a player, second configures the player, if there are optiosn to configure for that player. If the user is on the second page,
 	// a link should be provided to select a different player.
 	if( $select_player )

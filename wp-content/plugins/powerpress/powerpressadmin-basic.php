@@ -153,13 +153,11 @@ jQuery(document).ready(function($) {
 	
 	<div id="settings-welcome" class="pp-tabcontent active">
         <div class="pp-sidenav">
-            <br />
-            <div class="pp-sidenav-extra" style="margin-top: 10%;"><a href="https://www.blubrry.com/support/" class="pp-sidenav-extra-text"><?php echo htmlspecialchars(__('DOCUMENTATION', 'powerpress')); ?></a></div>
-            <div class="pp-sidenav-extra"><a href="https://www.blubrry.com/podcast-insider/" class="pp-sidenav-extra-text"><?php echo htmlspecialchars(__('BLOG', 'powerpress')); ?></a></div>
-            <br />
             <?php
             powerpressadmin_edit_blubrry_services($General);
             ?>
+            <div class="pp-sidenav-extra" style="margin-top: 10%;"><a href="https://www.blubrry.com/support/" class="pp-sidenav-extra-text"><?php echo htmlspecialchars(__('POWERPRESS DOCUMENTATION', 'powerpress')); ?></a></div>
+            <div class="pp-sidenav-extra"><a href="https://www.blubrry.com/podcast-insider/" class="pp-sidenav-extra-text"><?php echo htmlspecialchars(__('PODCAST INSIDER BLOG', 'powerpress')); ?></a></div>
         </div>
         <button style="display: none;" id="welcome-default-open" class="pp-sidenav-tablinks active" onclick="sideNav(event, 'welcome-all')"><img class="pp-nav-icon" style="width: 22px;" alt="" src="<?php echo powerpress_get_root_url(); ?>images/settings_nav_icons/rss-symbol.svg"><?php echo htmlspecialchars(__('Hidden button', 'powerpress')); ?></button>
         <div id="welcome-all" class="pp-sidenav-tab active">
@@ -177,13 +175,11 @@ jQuery(document).ready(function($) {
             <button class="pp-sidenav-tablinks" id="feeds-basic-tab" onclick="sideNav(event, 'feeds-basic')"><img class="pp-nav-icon" alt="" src="<?php echo powerpress_get_root_url(); ?>images/settings_nav_icons/edit_gray.svg"><?php echo htmlspecialchars(__('Basic Show Information', 'powerpress')); ?></button>
             <button class="pp-sidenav-tablinks" id="feeds-rating-tab" onclick="sideNav(event, 'feeds-rating')"><img class="pp-nav-icon" alt="" src="<?php echo powerpress_get_root_url(); ?>images/settings_nav_icons/star_favorite_gray.svg"><?php echo htmlspecialchars(__('Rating Settings', 'powerpress')); ?></button>
             <button class="pp-sidenav-tablinks" id="feeds-apple-tab" onclick="sideNav(event, 'feeds-apple')"><span id="apple-icon-feed" class="destinations-side-icon" style="margin-left: 2px;"></span><span class="destination-side-text" style="margin-left: 6px;"><?php echo htmlspecialchars(__('Apple Settings', 'powerpress')); ?></span></button>
-            <br />
-            <div class="pp-sidenav-extra" style="margin-top: 120%;"><a href="https://www.blubrry.com/support/" class="pp-sidenav-extra-text"><?php echo htmlspecialchars(__('DOCUMENTATION', 'powerpress')); ?></a></div>
-            <div class="pp-sidenav-extra"><a href="https://www.blubrry.com/podcast-insider/" class="pp-sidenav-extra-text"><?php echo htmlspecialchars(__('BLOG', 'powerpress')); ?></a></div>
-            <br />
             <?php
             powerpressadmin_edit_blubrry_services($General);
             ?>
+            <div class="pp-sidenav-extra"><a href="https://www.blubrry.com/support/" class="pp-sidenav-extra-text"><?php echo htmlspecialchars(__('POWERPRESS DOCUMENTATION', 'powerpress')); ?></a></div>
+            <div class="pp-sidenav-extra"><a href="https://www.blubrry.com/podcast-insider/" class="pp-sidenav-extra-text"><?php echo htmlspecialchars(__('PODCAST INSIDER BLOG', 'powerpress')); ?></a></div>
         </div>
         <div id="feeds-feeds" class="pp-sidenav-tab active">
             <?php
@@ -238,13 +234,11 @@ jQuery(document).ready(function($) {
             <button class="pp-sidenav-tablinks" id="website-subscribe-tab" onclick="sideNav(event, 'website-subscribe')"><img class="pp-nav-icon" alt="" src="<?php echo powerpress_get_root_url(); ?>images/settings_nav_icons/profile_plus_round_gray.svg"><?php echo htmlspecialchars(__('Subscribe Page', 'powerpress')); ?></button>
             <button class="pp-sidenav-tablinks" id="website-shortcodes-tab" onclick="sideNav(event, 'website-shortcodes')"><img class="pp-nav-icon" alt="" src="<?php echo powerpress_get_root_url(); ?>images/settings_nav_icons/connection_pattern_gray.svg"><?php echo htmlspecialchars(__('PowerPress Shortcodes', 'powerpress')); ?></button>
             <button class="pp-sidenav-tablinks" id="website-new-window-tab" onclick="sideNav(event, 'website-new-window')"><img class="pp-nav-icon" alt="" src="<?php echo powerpress_get_root_url(); ?>images/settings_nav_icons/play_gray.svg"><?php echo htmlspecialchars(__('Play in New Window', 'powerpress')); ?></button>
-            <br />
-            <div class="pp-sidenav-extra"  style="margin-top: 90%;"><a href="https://www.blubrry.com/support/" class="pp-sidenav-extra-text"><?php echo htmlspecialchars(__('DOCUMENTATION', 'powerpress')); ?></a></div>
-            <div class="pp-sidenav-extra"><a href="https://www.blubrry.com/podcast-insider/" class="pp-sidenav-extra-text"><?php echo htmlspecialchars(__('BLOG', 'powerpress')); ?></a></div>
-            <br />
             <?php
             powerpressadmin_edit_blubrry_services($General);
             ?>
+            <div class="pp-sidenav-extra"><a href="https://www.blubrry.com/support/" class="pp-sidenav-extra-text"><?php echo htmlspecialchars(__('POWERPRESS DOCUMENTATION', 'powerpress')); ?></a></div>
+            <div class="pp-sidenav-extra"><a href="https://www.blubrry.com/podcast-insider/" class="pp-sidenav-extra-text"><?php echo htmlspecialchars(__('PODCAST INSIDER BLOG', 'powerpress')); ?></a></div>
         </div>
 
         <?php
@@ -334,13 +328,11 @@ jQuery(document).ready(function($) {
 
 	<div id="settings-advanced" class="pp-tabcontent">
         <div class="pp-sidenav">
-            <br />
-            <div class="pp-sidenav-extra" style="margin-top: 10%;"><a href="https://www.blubrry.com/support/" class="pp-sidenav-extra-text"><?php echo htmlspecialchars(__('DOCUMENTATION', 'powerpress')); ?></a></div>
-            <div class="pp-sidenav-extra"><a href="https://www.blubrry.com/podcast-insider/" class="pp-sidenav-extra-text"><?php echo htmlspecialchars(__('BLOG', 'powerpress')); ?></a></div>
-            <br />
             <?php
             powerpressadmin_edit_blubrry_services($General);
             ?>
+            <div class="pp-sidenav-extra" style="margin-top: 10%;"><a href="https://www.blubrry.com/support/" class="pp-sidenav-extra-text"><?php echo htmlspecialchars(__('POWERPRESS DOCUMENTATION', 'powerpress')); ?></a></div>
+            <div class="pp-sidenav-extra"><a href="https://www.blubrry.com/podcast-insider/" class="pp-sidenav-extra-text"><?php echo htmlspecialchars(__('PODCAST INSIDER BLOG', 'powerpress')); ?></a></div>
         </div>
 	<?php
     powerpressadmin_advanced_options($General, false);
@@ -353,7 +345,7 @@ jQuery(document).ready(function($) {
 <?php
 }
 
-function powerpressadmin_advanced_options($General, $link_account = true)
+function powerpressadmin_advanced_options($General, $link_account = false)
 {
 	// Break the bottom section here out into it's own function
 	$ChannelsCheckbox = '';
@@ -498,6 +490,15 @@ function goToPodcastSEO() {
                 </p>
             </div>
 		</div>
+        <div>
+            <input class="pp-settings-checkbox" style="margin-top: 3em;" type="checkbox" name="General[powerpress_network]" value="1" <?php echo ( !empty($General['powerpress_network']) ?' checked':''); ?> />
+            <div class="pp-settings-subsection" style="border-bottom: none; margin-top: 2em;">
+                <p class="pp-main"><?php echo __('PowerPress Network', 'powerpress'); ?></p>
+                <p class="pp-sub"><?php echo __('Create a network of podcasts.', 'powerpress'); ?>
+                    <b><a href="http://create.blubrry.com/professional-podcast-hosting/podcast-network-plugin/network-plugin-documentation/" target="_blank">(<?php echo __('learn more', 'powerpress'); ?>)</a></b>
+                </p>
+            </div>
+        </div>
         <?php
         powerpressadmin_edit_media_statistics($General);
         powerpress_settings_tab_footer(); ?>
@@ -505,79 +506,6 @@ function goToPodcastSEO() {
 </div>
 
 <?php
-	$link_action_url = admin_url('admin.php?action=powerpress-jquery-account');
-	$link_action = 'powerpress-jquery-account';
-	if ($link_account) {
-        ?>
-        <div style="margin-left: 10px;">
-            <h3><?php echo __('Link Blubrry Account', 'powerpress'); ?></h3>
-            <p style="font-size: 125%;">
-                <strong><a class="button-primary  button-blubrry thickbox"
-                           title="<?php echo esc_attr(__('Blubrry Services Integration', 'powerpress')); ?>"
-                           href="<?php echo wp_nonce_url($link_action_url, $link_action); ?>&amp;KeepThis=true&amp;TB_iframe=true&amp;width=600&amp;height=400&amp;modal=false"
-                           target="_blank"><?php echo __('Click here to link Blubrry account', 'powerpress'); ?></a></strong>
-            </p>
-            <p>
-                <?php echo __('Link your blubrry.com account if you have a Blubrry Podcast Hosting or Blubrry Podcast Statistics services.', 'powerpress'); ?>
-            </p>
-        </div>
-
-        <div style="margin-left: 10px;">
-            <h3 style="margin-bottom: 5px;"><?php echo __('Looking for Support, Consulting or Custom Development?', 'powerpress'); ?></h3>
-            <p style="margin: 0  0 0 50px;">
-                <?php echo __('Blubrry offers a variety of options, free and paid, to assist you with your podcasting and Internet media needs. Whether you need your theme customized for podcasting or you want consulting on what video format is best for your audience, we have the staff and knowledge to assist.', 'powerpress'); ?>
-            </p>
-            <p style="margin: 5px 0 0 50px;">
-                <strong><?php echo '<a href="http://create.blubrry.com/support/" target="_blank">' . __('Learn More about Blubrry Support Options', 'powerpress') . '</a>'; ?></strong>
-            </p>
-        </div>
-
-        <?php
-        return;
-
-        // We will not pester folks with this stuff in PowerPress 7.0+
-
-        if (isset($General['timestamp']) && $General['timestamp'] > 0 && $General['timestamp'] < (time() - (60 * 60 * 24 * 14))) // Lets wait 14 days before we annoy them asking for support
-        {
-            ?>
-            <div style="margin-left: 10px;">
-                <h3 style="margin-bottom: 5px;"><?php echo __('Like The Plugin?', 'powerpress'); ?></h3>
-                <p style="margin-top: 0;">
-                    <?php echo __('This plugin is great, don\'t you think? If you like the plugin we\'d be ever so grateful if you\'d give it your support. Here\'s how:', 'powerpress'); ?>
-                </p>
-                <ul id="powerpress_support">
-                    <li><?php echo sprintf(__('Rate this plugin 5 stars in the %s.', 'powerpress'),
-                            '<a href="http://wordpress.org/extend/plugins/powerpress/" target="_blank">' . __('WordPress Plugins Directory', 'powerpress') . '</a>');
-
-                        ?>
-                    </li>
-                    <li><?php echo __('Tell the world about PowerPress by writing about it on your blog', 'powerpress'); ?>
-                        ,
-                        <a href="https://twitter.com/home/?status=<?php echo urlencode(__('I\'m podcasting with Blubrry PowerPress (https://blubrry.com/powerpress/) #powerpress #wordpress', 'powerpress')); ?>"
-                           target="_blank"><?php echo __('Twitter', 'powerpress'); ?></a>,
-                        <a href="https://www.facebook.com/share.php?u=<?php echo urlencode('https://www.blubrry.com/powerpress'); ?>&amp;t=<?php echo urlencode(__('I podcast with Blubrry PowerPress', 'powerpress')); ?>"
-                           target="_blank"><?php echo __('Facebook', 'powerpress'); ?></a>,
-                        etc...
-                    </li>
-                    <li><a href="http://www.blubrry.com/contact.php"
-                           target="_blank"><?php echo __('Send us feedback', 'powerpress'); ?></a>
-                        (<?php echo __('we love getting suggestions for new features!', 'powerpress'); ?>)
-                    </li>
-                </ul>
-            </div>
-            <?php
-        }
-        ?>
-        <div style="margin-left: 10px;">
-            <h3 style="margin-bottom: 5px;"><?php echo __('Become a PowerPress Patron!', 'powerpress'); ?></h3>
-            <p style="margin: 0; padding-left: 50px;">
-                <?php echo __('Help support your favorite podcasting plugin via Patreon.', 'powerpress'); ?>
-            </p>
-            <p style="margin-top: 0; padding-left: 50px;"><?php echo '<a href="https://www.patreon.com/blubrry?ty=h" target="_blank">' . __('Visit Blubrry\'s Patreon page', 'powerpress') . '</a>'; ?>
-            </p>
-        </div>
-        <?php
-    }
 }
 
 
@@ -690,12 +618,7 @@ function powerpressadmin_edit_blubrry_services($General, $action_url = false, $a
 	$DisableStatsInDashboard = false;
 	if( !empty($General['disable_dashboard_stats']) )
 		$DisableStatsInDashboard = true;
-		
-	
-	if( $action_url == false )
-		$action_url = admin_url('admin.php?action=powerpress-jquery-account');
-	if( $action == false )
-		$action = 'powerpress-jquery-account';
+
 ?>
 <div id="connect-blubrry-services">
     <?php
@@ -705,7 +628,7 @@ function powerpressadmin_edit_blubrry_services($General, $action_url = false, $a
                 <span><img src="<?php echo powerpress_get_root_url(); ?>images/done_24px.svg" style="margin: 0 0 0 8%;vertical-align: text-bottom;"  alt="<?php echo __('Enabled!', 'powerpress'); ?>" /></span>
                 <p id="connected-blubrry-blurb"><?php echo __("Connected to <b>Blubrry</b>", 'powerpress'); ?></p>
             </div>
-            <a style="display: block;" class="thickbox" title="<?php echo esc_attr(__('Blubrry Services Integration', 'powerpress')); ?>" href="<?php echo admin_url(); echo wp_nonce_url( "admin.php?action=powerpress-jquery-account", 'powerpress-jquery-account'); ?>&amp;KeepThis=true&amp;TB_iframe=true&amp;width=600&amp;height=400&amp;modal=false" target="_blank"><?php echo __('Go to Blubrry Account', 'powerpress'); ?></a>
+            <a style="display: block;" class="thickbox" title="<?php echo esc_attr(__('Blubrry Services Integration', 'powerpress')); ?>" href="<?php echo admin_url(); echo wp_nonce_url( "admin.php?action=powerpress-jquery-account-edit", 'powerpress-jquery-account-edit'); ?>&amp;KeepThis=true&amp;TB_iframe=true&amp;width=600&amp;height=400&amp;modal=true" target="_blank"><?php echo __('Go to Blubrry Account', 'powerpress'); ?></a>
         </div>
     <?php
     }
@@ -724,12 +647,13 @@ function powerpressadmin_edit_blubrry_services($General, $action_url = false, $a
             </p>
         </div>
         <div id="connect-blubrry-button-container">
-            <p style="font-size: 10px; margin-top: 1ch;" class="pp-settings-text-no-margin"><?php echo __('Already have a Blubrry account?', 'powerpress'); ?></p>
+            <p style="margin-top: 1ch;" class="pp-settings-text-no-margin"><?php echo __('Already have a Blubrry account?', 'powerpress'); ?></p>
             <p style="font-size: 125%; margin-top: 5px;">
-                <strong><a class="button-primary  button-blubrry thickbox" id="connect-blubrry-button-options"
-                           title="<?php echo esc_attr(__('Blubrry Services Integration', 'powerpress')); ?>"
-                           href="<?php echo wp_nonce_url($action_url, $action); ?>&amp;KeepThis=true&amp;TB_iframe=true&amp;width=600&amp;height=400&amp;modal=false"
-                           target="_blank"><?php echo __('LET\'S CONNECT', 'powerpress'); ?></a></strong>
+                <strong><button class="button-primary  button-blubrry" id="connect-blubrry-button-options"
+                           type="submit" name="blubrry-login" value="1"
+                           title="<?php echo esc_attr(__('Blubrry Services Integration', 'powerpress')); ?>">
+                        <?php echo __('LET\'S CONNECT', 'powerpress'); ?></button></strong>
+
             </p>
         </div>
 <?php

@@ -156,6 +156,13 @@ abstract class Ai1wm_Database {
 	protected $optimize_press = false;
 
 	/**
+	 * Avada Fusion Builder
+	 *
+	 * @var boolean
+	 */
+	protected $avada_fusion_builder = false;
+
+	/**
 	 * Constructor
 	 *
 	 * @param object $wpdb WPDB instance
@@ -562,6 +569,27 @@ abstract class Ai1wm_Database {
 	}
 
 	/**
+	 * Set Avada Fusion Builder
+	 *
+	 * @param  boolean $active Is Avada Fusion Builder Active?
+	 * @return object
+	 */
+	public function set_avada_fusion_builder( $active ) {
+		$this->avada_fusion_builder = $active;
+
+		return $this;
+	}
+
+	/**
+	 * Get Avada Fusion Builder
+	 *
+	 * @return boolean
+	 */
+	public function get_avada_fusion_builder() {
+		return $this->avada_fusion_builder;
+	}
+
+	/**
 	 * Get views
 	 *
 	 * @return array
@@ -780,6 +808,9 @@ abstract class Ai1wm_Database {
 
 					// Replace create table name
 					$create_table = $this->replace_table_name( $create_table, $table_name, $new_table_name );
+
+					// Replace create table comments
+					$create_table = $this->replace_table_comments( $create_table );
 
 					// Replace create table constraints
 					$create_table = $this->replace_table_constraints( $create_table );
@@ -1409,8 +1440,8 @@ abstract class Ai1wm_Database {
 			$input = preg_replace_callback( '/\\\\"(code-php|code-css|code-js)\\\\":\\\\"([a-zA-Z0-9\/+]+={0,2})\\\\"/S', array( $this, 'replace_oxygen_builder_values_callback' ), $input );
 		}
 
-		// Replace base64 encoded values (BeTheme Responsive and Optimize Press)
-		if ( $this->get_betheme_responsive() || $this->get_optimize_press() ) {
+		// Replace base64 encoded values (BeTheme Responsive, Optimize Press and Avada Fusion Builder)
+		if ( $this->get_betheme_responsive() || $this->get_optimize_press() || $this->get_avada_fusion_builder() ) {
 			$input = preg_replace_callback( "/'([a-zA-Z0-9\/+]+={0,2})'/S", array( $this, 'replace_base64_values_callback' ), $input );
 		}
 
@@ -1550,6 +1581,16 @@ abstract class Ai1wm_Database {
 	 */
 	protected function replace_raw_values( $input ) {
 		return Ai1wm_Database_Utility::replace_values( $this->get_old_replace_raw_values(), $this->get_new_replace_raw_values(), $input );
+	}
+
+	/**
+	 * Replace table comments
+	 *
+	 * @param  string $input SQL statement
+	 * @return string
+	 */
+	protected function replace_table_comments( $input ) {
+		return preg_replace( '/\/\*(.+?)\*\//s', '', $input );
 	}
 
 	/**

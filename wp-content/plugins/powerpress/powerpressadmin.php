@@ -13,6 +13,10 @@ function powerpress_esc_html($escape)
 	}
 	return esc_html($escape);
 }
+
+function powerpress_login_create_nonce() {
+    return wp_create_nonce( 'powerpress-link-blubrry' );
+}
 	
 function powerpress_page_message_add_error($msg, $classes='inline', $escape=true)
 {
@@ -33,6 +37,37 @@ function powerpress_page_message_add_notice($msg, $classes='inline', $escape=tru
 		$g_powerpress_page_message = '<div class="updated fade powerpress-notice '.$classes.'">'. ($msg) . '</div>' . $g_powerpress_page_message;
 }
 
+
+function powerpress_getAccessToken()
+{
+    // Look at the creds and use the latest access token, if its not the latest refresh it...
+    $creds = get_option('powerpress_creds');
+    if( !empty($creds['access_token']) && !empty($creds['access_expires']) && $creds['access_expires'] > time() ) { // If access token did not expire
+        return $creds['access_token'];
+    }
+
+    if( !empty($creds['refresh_token']) && !empty($creds['client_id']) && !empty($creds['client_secret']) ) {
+
+        // Create new access token with refresh token here...
+        $auth = new PowerPressAuth();
+        $resultTokens = $auth->getAccessTokenFromRefreshToken($creds['refresh_token'], $creds['client_id'], $creds['client_secret']);
+
+        if( !empty($resultTokens['access_token']) && !empty($resultTokens['expires_in']) ) {
+            powerpress_save_settings( array('access_token'=>$resultTokens['access_token'], 'access_expires'=>( time() + $resultTokens['expires_in'] - 10 ) ), 'powerpress_creds');
+
+            return $resultTokens['access_token'];
+        } else {
+            //if their refresh token is expired, sign them out so they can re-authenticate
+            delete_option('powerpress_creds');
+            powerpress_page_message_add_error(__('Your account has been logged out due to inactivity with Blubrry services.', 'powerpress'));
+            powerpress_page_message_print();
+
+        }
+    }
+
+    // If we failed to get credentials, return false
+    return false;
+}
 
 function powerpress_page_message_print()
 {
@@ -71,7 +106,9 @@ function powerpress_admin_init()
 	if( isset($_GET['page']) && strstr($_GET['page'], 'powerpress' ) !== false )
 	{
 		wp_enqueue_script('jquery-ui-tabs');
-			
+        // If we have powerpress credentials, check if the account has been verified
+        $creds = get_option('powerpress_creds');
+        powerpress_check_credentials($creds);
 		//wp_enqueue_script('jquery-ui', 'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.7/jquery-ui.min.js');
 		if( preg_match('/powerpressadmin_(mobile|audio|video)player/', $_GET['page']) )
 		{
@@ -397,8 +434,8 @@ function powerpress_admin_init()
 						$General['posttype_podcasting'] = 0;
 					if( !isset($General['playlist_player'] ) )
 						$General['playlist_player'] = 0;
-					if(!isset($General['network_mode']))
-					    $General['network_mode'] = 0;
+					if(!isset($General['powerpress_network']))
+					    $General['powerpress_network'] = 0;
 
 
 					// Media Presentation Settings
@@ -456,6 +493,10 @@ function powerpress_admin_init()
 						$General['taxonomy_podcasting'] = 0;
 					if( !isset($General['posttype_podcasting'] ) )
 						$General['posttype_podcasting'] = 0;
+                    if( !isset($General['playlist_player'] ) )
+                        $General['playlist_player'] = 0;
+                    if(!isset($General['powerpress_network']))
+                        $General['powerpress_network'] = 0;
 				}
 				
 				if( !empty($_POST['action']) && $_POST['action'] == 'powerpress-save-settings' )
@@ -502,21 +543,30 @@ function powerpress_admin_init()
 						$GeneralSettingsTemp = powerpress_get_settings('powerpress_general', false);
 						if( !empty($GeneralSettingsTemp['blubrry_hosting']) && $GeneralSettingsTemp['blubrry_hosting'] !== 'false' )
 						{
+                            require_once(POWERPRESS_ABSPATH .'/powerpressadmin-auth.class.php');
+                            $auth = new PowerPressAuth();
 							$json_data = false;
 							$api_url_array = powerpress_get_api_array();
-							foreach( $api_url_array as $index => $api_url )
-							{
-								$req_url = sprintf('%s/media/%s/coverart.json?url=%s', rtrim($api_url, '/'), $GeneralSettingsTemp['blubrry_program_keyword'], urlencode($TagValues['tag_coverart']) );
-								$req_url .= (defined('POWERPRESS_BLUBRRY_API_QSA')?'&'. POWERPRESS_BLUBRRY_API_QSA:'');
-								$json_data = powerpress_remote_fopen($req_url, $GeneralSettingsTemp['blubrry_auth']);
-								if( !$template_content && $api_url == 'https://api.blubrry.com/' ) { // Lets force cURL and see if that helps...
-									$template_content = powerpress_remote_fopen($req_url, $GeneralSettingsTemp['blubrry_auth'], array(), 15, false, true);
-								}
-								if( $json_data != false )
-									break;
-							}
-							// Lets try to cache the image onto Blubrry's Server...
-							$results =  powerpress_json_decode($json_data);
+							$creds = get_option('powerpress_creds');
+							if ($creds) {
+                                $accessToken = powerpress_getAccessToken();
+                                $req_url = sprintf('/2/media/%s/coverart.json?url=%s', $GeneralSettingsTemp['blubrry_program_keyword'], urlencode($TagValues['tag_coverart']));
+                                $req_url .= (defined('POWERPRESS_BLUBRRY_API_QSA')?'?'. POWERPRESS_BLUBRRY_API_QSA:'');
+                                $results = $auth->api($accessToken, $req_url, false, 'DELETE');
+                            } else {
+                                foreach ($api_url_array as $index => $api_url) {
+                                    $req_url = sprintf('%s/media/%s/coverart.json?url=%s', rtrim($api_url, '/'), $GeneralSettingsTemp['blubrry_program_keyword'], urlencode($TagValues['tag_coverart']));
+                                    $req_url .= (defined('POWERPRESS_BLUBRRY_API_QSA') ? '&' . POWERPRESS_BLUBRRY_API_QSA : '');
+                                    $json_data = powerpress_remote_fopen($req_url, $GeneralSettingsTemp['blubrry_auth']);
+                                    if (!$template_content && $api_url == 'https://api.blubrry.com/') { // Lets force cURL and see if that helps...
+                                        $template_content = powerpress_remote_fopen($req_url, $GeneralSettingsTemp['blubrry_auth'], array(), 15, false, true);
+                                    }
+                                    if ($json_data != false)
+                                        break;
+                                }
+                                // Lets try to cache the image onto Blubrry's Server...
+                                $results = powerpress_json_decode($json_data);
+                            }
 								
 							if( is_array($results) && !isset($results['error']) )
 							{
@@ -613,7 +663,15 @@ function powerpress_admin_init()
 				$SaveEpisdoeBoxBGColor['episode_box_background_color'][ $feed_slug_temp ] = $background_color;
 				powerpress_save_settings($SaveEpisdoeBoxBGColor);
 			}
-			
+
+			if (isset($_POST['blubrry-login'])) {
+                check_admin_referer('powerpress-edit');
+                $pp_nonce = powerpress_login_create_nonce();
+                $tab_string = isset($_POST['tab']) ? "&tab={$_POST['tab']}" : "";
+                $sidenav_tab_string = isset($_POST['sidenav-tab']) ? "&sidenav-tab={$_POST['sidenav-tab']}" : "";
+                header("Location: " . add_query_arg( '_wpnonce', $pp_nonce, admin_url("admin.php?page=powerpressadmin_onboarding.php&step=blubrrySignin&from=powerpressadmin_basic{$tab_string}{$sidenav_tab_string}")));
+            }
+
 			// Anytime settings are saved lets flush the rewrite rules
 			$wp_rewrite->flush_rules();
 			
@@ -1634,6 +1692,9 @@ function powerpress_admin_menu()
             add_submenu_page($parent_slug, __('PowerPress Post Type Podcasting', 'powerpress'), __('Post Type Podcasting', 'powerpress'), POWERPRESS_CAPABILITY_EDIT_PAGES, 'powerpress/powerpressadmin_posttypefeeds.php', 'powerpress_admin_page_posttypefeeds');
         if (!empty($Powerpress['podpress_stats']))
             add_submenu_page($parent_slug, __('PodPress Stats', 'powerpress'), __('PodPress Stats', 'powerpress'), POWERPRESS_CAPABILITY_EDIT_PAGES, 'powerpress/powerpressadmin_podpress-stats.php', 'powerpress_admin_page_podpress_stats');
+        if (!empty($Powerpress['powerpress_network'])) {
+            add_submenu_page( $parent_slug,  __('PowerPress Network', 'powerpress'), __('PowerPress Network', 'powerpress'), 'manage_options', 'network-plugin', 'network_plugin' );
+        }
         //if( !empty($Powerpress['blubrry_hosting']) &&  $Powerpress['blubrry_hosting'] !== 'false' )
 
         add_submenu_page($parent_slug, __('PowerPress MP3 Tags', 'powerpress'), __('MP3 Tags', 'powerpress'), POWERPRESS_CAPABILITY_EDIT_PAGES, 'powerpress/powerpressadmin_tags.php', 'powerpress_admin_page_tags');
@@ -1645,6 +1706,11 @@ function powerpress_admin_menu()
 add_action('admin_menu', 'powerpress_admin_menu');
 
 
+function network_plugin() {
+    if (isset($GLOBALS['ppn_object'])) {
+        $GLOBALS['ppn_object']->display_plugin();
+    }
+}
 
 // Save episode information
 function powerpress_edit_post($post_ID, $post)
@@ -2164,11 +2230,15 @@ jQuery(document).ready(function($) {
 	if( jQuery("#powerpress_settings_page").length > 0 )
 	{
         <?php if (!empty($_POST['tab'])) { ?>
-        document.getElementById("<?php echo $_POST['tab']; ?>").click();
-        <?php } ?>
-        <?php if (!empty($_POST['sidenav-tab'])) { ?>
-        document.getElementById("<?php echo $_POST['sidenav-tab']; ?>").click();
-        <?php } ?>
+        document.getElementById("<?php echo esc_js($_POST['tab']); ?>").click();
+        <?php } elseif (!empty($_GET['tab'])) { ?>
+        document.getElementById("<?php echo esc_js($_GET['tab']); ?>").click();
+        <?php }
+        if (!empty($_POST['sidenav-tab'])) { ?>
+        document.getElementById("<?php echo esc_js($_POST['sidenav-tab']); ?>").click();
+        <?php }  elseif (!empty($_GET['sidenav-tab'])) { ?>
+        document.getElementById("<?php echo esc_js($_GET['sidenav-tab']); ?>").click();
+        <?php }?>
         jQuery('form').submit(function() {
             let selectedTemp = jQuery('.tablinks.active:first');
             jQuery('#save_tab_pos').val(selectedTemp.attr('id'));
@@ -2709,6 +2779,27 @@ function powerpress_send_to_poster_image(url)
 
 add_action('admin_head', 'powerpress_admin_head');
 
+function powerpress_check_account_verified_popup($no_signout_link = false) {
+    $link_action_url = admin_url('admin.php?action=powerpress-jquery-account-verify');
+    $link_action = 'powerpress-jquery-account-verify';
+    $url = wp_nonce_url($link_action_url, $link_action);
+    $url = str_replace("&amp;", "&", $url);
+    if ($no_signout_link) {
+        $no_signout = 'true';
+    } else {
+        $no_signout = 'false';
+    }
+    $url = $url . '&no_signout_link=' . $no_signout;
+    echo "<input type='hidden' id='verify-account-url' value='" . $url . "'/>";
+}
+
+function powerpress_check_credentials($creds) {
+    if (isset($creds['client_id'])) {
+        if (!isset($creds['account_verified']) || !$creds['account_verified']) {
+            powerpress_check_account_verified_popup();
+        }
+    }
+}
 
 function powerpress_media_info_ajax()
 {
@@ -3226,6 +3317,17 @@ function powerpress_admin_page_posttypefeeds()
 function powerpress_admin_page_tools()
 {
 	$Action = (!empty($_GET['action'])? $_GET['action'] : false);
+	if ($Action == 'powerpress-network-mode-off') {
+        $GeneralSettings = get_option('powerpress_general');
+        $GeneralSettings['network_mode'] = 0;
+        powerpress_save_settings($GeneralSettings);
+        $Action = '';
+    } elseif ($Action == 'powerpress-network-mode-on') {
+        $GeneralSettings = get_option('powerpress_general');
+	    $GeneralSettings['network_mode'] = 1;
+        powerpress_save_settings($GeneralSettings);
+        $Action = '';
+    }
 	switch( $Action )
 	{
 		case 'powerpress-podpress-epiosdes' : {
@@ -3460,7 +3562,11 @@ function powerpress_process_hosting($post_ID, $post_title)
 {
 	$errors = array();
 	$Settings = get_option('powerpress_general');
-	$CustomFeeds = array();
+    $creds = get_option('powerpress_creds');
+    require_once(POWERPRESS_ABSPATH .'/powerpressadmin-auth.class.php');
+    $auth = new PowerPressAuth();
+
+    $CustomFeeds = array();
 	if( !empty($Settings['custom_feeds']) && is_array($Settings['custom_feeds']) )
 		$CustomFeeds = $Settings['custom_feeds'];
 	if( !isset($CustomFeeds['podcast']) )
@@ -3561,21 +3667,28 @@ function powerpress_process_hosting($post_ID, $post_title)
 					set_time_limit(60*20); // give it 20 minutes just in case
 					$json_data = false;
 					$api_url_array = powerpress_get_api_array();
-					foreach( $api_url_array as $index => $api_url )
-					{
-						$req_url = sprintf('%s/media/%s/%s?format=json&publish=true', rtrim($api_url, '/'), urlencode($program_keyword), urlencode($EnclosureURL)  );
-						$req_url .= (defined('POWERPRESS_BLUBRRY_API_QSA')?'&'. POWERPRESS_BLUBRRY_API_QSA:'');
-						$req_url .= (defined('POWERPRESS_PUBLISH_PROTECTED')?'&protected=true':'');
-						$json_data = powerpress_remote_fopen($req_url, $Settings['blubrry_auth'], array(), 60*30); // give this up to 30 minutes, though 3 seocnds to 20 seconds is all one should need.
-						if( !$json_data && $api_url == 'https://api.blubrry.com/' ) { // Lets force cURL and see if that helps...
-							$json_data = powerpress_remote_fopen($req_url, $Settings['blubrry_auth'], array(), 60*30, false, true);
-						}
-						if( $json_data != false )
-							break;
-					}
-					
-					$results =  powerpress_json_decode($json_data);
-					
+                    if ($creds) {
+                        $accessToken = powerpress_getAccessToken();
+                        $req_url = sprintf('/2/media/%s/%s?format=json&publish=true&cache=' . md5( rand(0, 999) . time() ), urlencode($program_keyword), urlencode($EnclosureURL));
+                        $req_url .= (defined('POWERPRESS_BLUBRRY_API_QSA')?'?'. POWERPRESS_BLUBRRY_API_QSA:'');
+                        $req_url .= (defined('POWERPRESS_PUBLISH_PROTECTED') ? '&protected=true' : '');
+                        $results = $auth->api($accessToken, $req_url, false, false, 60 * 30);
+                    } else {
+                        foreach ($api_url_array as $index => $api_url) {
+                            $req_url = sprintf('%s/media/%s/%s?format=json&publish=true&cache=' . md5( rand(0, 999) . time() ), rtrim($api_url, '/'), urlencode($program_keyword), urlencode($EnclosureURL));
+                            $req_url .= (defined('POWERPRESS_BLUBRRY_API_QSA') ? '&' . POWERPRESS_BLUBRRY_API_QSA : '');
+                            $req_url .= (defined('POWERPRESS_PUBLISH_PROTECTED') ? '&protected=true' : '');
+                            $json_data = powerpress_remote_fopen($req_url, $Settings['blubrry_auth'], array(), 60 * 30); // give this up to 30 minutes, though 3 seocnds to 20 seconds is all one should need.
+                            if (!$json_data && $api_url == 'https://api.blubrry.com/') { // Lets force cURL and see if that helps...
+                                $json_data = powerpress_remote_fopen($req_url, $Settings['blubrry_auth'], array(), 60 * 30, false, true);
+                            }
+                            if ($json_data != false)
+                                break;
+                        }
+
+                        $results = powerpress_json_decode($json_data);
+                    }
+
 					if( is_array($results) && !isset($results['error']) )
 					{
 						$EnclosureURL = $results['media_url'];
@@ -3965,6 +4078,9 @@ function powerpress_write_tags($file, $post_title, $program_keyword = false)
 	// Use the Blubrry API to write ID3 tags. to the media...
 	
 	$Settings = get_option('powerpress_general');
+    $creds = get_option('powerpress_creds');
+    require_once(POWERPRESS_ABSPATH .'/powerpressadmin-auth.class.php');
+    $auth = new PowerPressAuth();
 	if( empty($program_keyword) && !empty($Settings['blubrry_program_keyword']) ) {
 		$program_keyword = $Settings['blubrry_program_keyword'];
 	}
@@ -4021,56 +4137,75 @@ function powerpress_write_tags($file, $post_title, $program_keyword = false)
 	}
 							
 	// Get meta info via API
+    $Results = false;
+	$content = false;
 	$api_url_array = powerpress_get_api_array();
-	foreach( $api_url_array as $index => $api_url )
-	{
-		$req_url = sprintf('%s/media/%s/%s?format=json&id3=true', rtrim($api_url, '/'), urlencode($program_keyword), urlencode($file) );
-		$req_url .= (defined('POWERPRESS_BLUBRRY_API_QSA')?'&'. POWERPRESS_BLUBRRY_API_QSA:'');
-		$content = powerpress_remote_fopen($req_url, $Settings['blubrry_auth'], $PostArgs );
-		if( !$content && $api_url == 'https://api.blubrry.com/' ) { // Lets force cURL and see if that helps...
-			$content = powerpress_remote_fopen($req_url, $Settings['blubrry_auth'], $PostArgs, 15, false, true);
-		}
-		if( $content != false )
-			break;
-	}
-	
-	if( $content )
-	{
-		$Results = powerpress_json_decode($content);
-		if( $Results && is_array($Results) )
-			return $Results;
-	}
+    if ($creds) {
+        $accessToken = powerpress_getAccessToken();
+        $req_url = sprintf('/2/media/%s/%s?format=json&id3=true&cache=' . md5( rand(0, 999) . time() ) , urlencode($program_keyword), urlencode($file));
+        $req_url .= (defined('POWERPRESS_BLUBRRY_API_QSA')?'?'. POWERPRESS_BLUBRRY_API_QSA:'');
+        $Results = $auth->api($accessToken, $req_url, $PostArgs);
+        //$Results['error'] = print_r($Results, true);
+    } else {
+        foreach ($api_url_array as $index => $api_url) {
+            $req_url = sprintf('%s/media/%s/%s?format=json&id3=true&cache=' . md5( rand(0, 999) . time() ), rtrim($api_url, '/'), urlencode($program_keyword), urlencode($file));
+            $req_url .= (defined('POWERPRESS_BLUBRRY_API_QSA') ? '&' . POWERPRESS_BLUBRRY_API_QSA : '');
+            $content = powerpress_remote_fopen($req_url, $Settings['blubrry_auth'], $PostArgs);
+            if (!$content && $api_url == 'https://api.blubrry.com/') { // Lets force cURL and see if that helps...
+                $content = powerpress_remote_fopen($req_url, $Settings['blubrry_auth'], $PostArgs, 15, false, true);
+            }
+            if ($content != false)
+                break;
+        }
+
+        if ($content) {
+            $Results = powerpress_json_decode($content);
+        }
+    }
+    if ($Results && is_array($Results))
+        return $Results;
+
 	
 	return array('error'=>__('Error occurred writing MP3 ID3 Tags.', 'powerpress') );
 }
 
 function powerpress_get_media_info($file, $program_Keyword = false)
 {
+    require_once(POWERPRESS_ABSPATH .'/powerpressadmin-auth.class.php');
+    $auth = new PowerPressAuth();
 	$Settings = get_option('powerpress_general');
+    $creds = get_option('powerpress_creds');
 	if( empty($program_Keyword) && !empty($Settings['blubrry_program_keyword']) ) {
 		$program_Keyword = $Settings['blubrry_program_keyword'];
 	}
 	$content = false;
-	$api_url_array = powerpress_get_api_array();
-	foreach( $api_url_array as $index => $api_url )
-	{
-		$req_url = sprintf('%s/media/%s/%s?format=json&info=true', rtrim($api_url, '/'), urlencode($program_Keyword), urlencode($file) );
-		$req_url .= (defined('POWERPRESS_BLUBRRY_API_QSA')?'&'. POWERPRESS_BLUBRRY_API_QSA:'');
-		$content = powerpress_remote_fopen($req_url, $Settings['blubrry_auth']);
-		if( !$content && $api_url == 'https://api.blubrry.com/' ) { // Lets force cURL and see if that helps...
-			$content = powerpress_remote_fopen($req_url, $Settings['blubrry_auth'], array(), 15, false, true);
-		}
-		
-		if( $content != false )
-			break;
-	}
-	
-	if( $content )
-	{
-		$Results = powerpress_json_decode($content);
-		if( $Results && is_array($Results) )
-			return $Results;
-	}
+    $Results = array();
+    $api_url_array = powerpress_get_api_array();
+    if ($creds) {
+        $accessToken = powerpress_getAccessToken();
+        $req_url = sprintf('/2/media/%s/%s?format=json&info=true', urlencode($program_Keyword), urlencode($file));
+        $req_url .= (defined('POWERPRESS_BLUBRRY_API_QSA')?'?'. POWERPRESS_BLUBRRY_API_QSA:'');
+        $Results = $auth->api($accessToken, $req_url, false);
+    } else {
+        foreach ($api_url_array as $index => $api_url) {
+            $req_url = sprintf('%s/media/%s/%s?format=json&info=true', rtrim($api_url, '/'), urlencode($program_Keyword), urlencode($file));
+            $req_url .= (defined('POWERPRESS_BLUBRRY_API_QSA') ? '&' . POWERPRESS_BLUBRRY_API_QSA : '');
+            $content = powerpress_remote_fopen($req_url, $Settings['blubrry_auth']);
+            if (!$content && $api_url == 'https://api.blubrry.com/') { // Lets force cURL and see if that helps...
+                $content = powerpress_remote_fopen($req_url, $Settings['blubrry_auth'], array(), 15, false, true);
+            }
+
+            if ($content != false)
+                break;
+        }
+
+        if ($content) {
+            $Results = powerpress_json_decode($content);
+        }
+    }
+
+    if ($Results && is_array($Results))
+        return $Results;
 	
 	return array('error'=>__('Error occurred obtaining media information.', 'powerpress') );
 }

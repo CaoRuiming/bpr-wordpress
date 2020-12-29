@@ -569,7 +569,7 @@ jQuery(document).ready( function() {
 						if( !empty($filenameParts['extension']) ) {
 							do {
 								$filename_no_ext = substr($filenameParts['basename'], 0, (strlen($filenameParts['extension'])+1) * -1 );
-								$filename = sprintf('%s-%03d.%s', $filename_no_ext, rand(0, 999), $filenameParts['extension'] );
+								$filename = sprintf('%s-%03d.%s', $filename_no_ext, md5( rand(0, 999) . time() ), $filenameParts['extension'] );
 							} while( file_exists($upload_path . $filename ) );
 						}
 					}
@@ -1334,7 +1334,8 @@ jQuery(document).ready( function() {
                 $nextUrl = admin_url("admin.php?page=powerpressadmin_basic&step=createEpisode&import=true&migrate=true");
             } else {
                 if ($this->isHostedOnBlubrry) {
-                    $nextUrl = admin_url("admin.php?page=powerpressadmin_basic&step=blubrrySignin&import=true");
+                    $pp_nonce = powerpress_login_create_nonce();
+                    $nextUrl = add_query_arg( '_wpnonce', $pp_nonce, admin_url("admin.php?page=powerpressadmin_basic&step=blubrrySignin&import=true"));
                 } else {
                     $nextUrl = admin_url("admin.php?page=powerpressadmin_basic&step=nohost&import=true&from=import");
                 }
@@ -1345,7 +1346,8 @@ jQuery(document).ready( function() {
                 $nextUrl = admin_url("admin.php?page=powerpressadmin_onboarding.php&step=createEpisode&import=true&migrate=true");
             } else {
                 if ($this->isHostedOnBlubrry) {
-                    $nextUrl = admin_url("admin.php?page=powerpressadmin_onboarding.php&step=blubrrySignin&import=true");
+                    $pp_nonce = powerpress_login_create_nonce();
+                    $nextUrl = add_query_arg( '_wpnonce', $pp_nonce, admin_url("admin.php?page=powerpressadmin_onboarding.php&step=blubrrySignin&import=true"));
                 } else {
                     $nextUrl = admin_url("admin.php?page=powerpressadmin_onboarding.php&step=nohost&import=true&from=import");
                 }
@@ -1376,7 +1378,8 @@ jQuery(document).ready( function() {
 		// Drop back down a step if not setup for hosting...
 		if( !empty($_POST['migrate_to_blubrry']) ) {
 			$Settings = get_option('powerpress_general');
-			if( empty($Settings['blubrry_auth']) ) {
+            $creds = get_option('powerpress_creds');
+			if( empty($Settings['blubrry_auth']) && !$creds ) {
 				echo '<div class="notice is-dismissible updated"><p>'. sprintf(__('You must have a blubrry Podcast Hosting account to continue.', 'powerpress')) .' '. '<a href="http://create.blubrry.com/resources/podcast-media-hosting/" target="_blank">'. __('Learn More', 'powerpress') .'</a>'. '</p></div>';
 				$this->m_step = 0; // Drop back a step
 			}

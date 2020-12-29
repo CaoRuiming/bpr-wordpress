@@ -92,8 +92,7 @@ function episode_box_top($EnclosureURL, $FeedSlug, $ExtraData, $GeneralSettings,
                         </a>
                     </div>
                     <?php } else {
-                        $link_action_url = admin_url('admin.php?action=powerpress-jquery-account');
-                        $link_action = 'powerpress-jquery-account';
+                        $pp_nonce = powerpress_login_create_nonce();
                     ?>
                         <div id="ep-box-blubrry-connect-<?php echo $FeedSlug; ?>" style="<?php echo $style4; ?>">
                             <img class="ep-box-blubrry-icon" src="<?php echo powerpress_get_root_url(); ?>images/blubrry_icon.png" alt="" />
@@ -101,23 +100,21 @@ function episode_box_top($EnclosureURL, $FeedSlug, $ExtraData, $GeneralSettings,
                                 <h4 class="blubrry-connect-info"><?php echo __('If you host with Blubrry', 'powerpress'); ?></h4>
                                 <p class="blubrry-connect-info"><?php echo __('You can select a media file from your computer by connecting your hosting account.', 'powerpress'); ?></p>
                             </div>
-                            <a class="button-blubrry thickbox" id="ep-box-connect-account-<?php echo $FeedSlug; ?>" title="<?php echo esc_attr(__('Blubrry Services Integration', 'powerpress')); ?>" href="<?php echo wp_nonce_url($link_action_url, $link_action); ?>&amp;KeepThis=true&amp;TB_iframe=true&amp;width=600&amp;height=400&amp;modal=false">
+                            <a class="button-blubrry" id="ep-box-connect-account-<?php echo $FeedSlug; ?>" title="<?php echo esc_attr(__('Blubrry Services Integration', 'powerpress')); ?>" href="<?php echo add_query_arg( '_wpnonce', $pp_nonce, admin_url("admin.php?page=powerpressadmin_onboarding.php&step=blubrrySignin&from=new_post")); ?>">
                                 <div id="ep-box-connect-account-button-<?php echo $FeedSlug; ?>"><?php echo __('Connect to Blubrry', 'powerpress'); ?></div>
                             </a>
                         </div>
                         <div id="ep-box-min-blubrry-connect-<?php echo $FeedSlug; ?>" style="<?php echo $style2; ?>">
                             <div id="pp-connect-account-<?php echo $FeedSlug; ?>">
-                                <a id="pp-connect-account-link-<?php echo $FeedSlug; ?>" class="pp-media-edit-details button-blubrry thickbox" title="<?php echo esc_attr(__("Blubrry Services Integration","powerpress")); ?>" href="<?php echo wp_nonce_url($link_action_url, $link_action); ?>&amp;KeepThis=true&amp;TB_iframe=true&amp;width=600&amp;height=400&amp;modal=false">
+                                <a id="pp-connect-account-link-<?php echo $FeedSlug; ?>" class="pp-media-edit-details button-blubrry" title="<?php echo esc_attr(__("Blubrry Services Integration","powerpress")); ?>" href="<?php echo add_query_arg( '_wpnonce', $pp_nonce, admin_url("admin.php?page=powerpressadmin_onboarding.php&step=blubrrySignin&from=new_post")); ?>">
                                     <b><?php echo esc_html(__('Connect Blubrry Account', 'powerpress')); ?></b>
                                 </a>
                             </div>
                             <div id="pp-cancel-container-<?php echo $FeedSlug; ?>">
-                                <!--<div class="ep-box-line-bold"></div>-->
                                 <div id="pp-cancel-media-<?php echo $FeedSlug; ?>">
                                     <button id="cancel-media-edit-<?php echo $FeedSlug; ?>" class="pp-media-edit-details"
                                             onclick="powerpress_cancelMediaEdit(this); return false;"><b><?php echo esc_html(__('CANCEL', 'powerpress')); ?></b></button>
-                                    <!--<a id="hide-details-link-<?php //echo $FeedSlug; ?>" class="pp-hidden-settings"
-                           onclick="showHideMediaDetails(this)"><?php //echo __('Hide File Size and Duration', 'powerpress'); ?>  &#708;</a>-->
+
                                 </div>
                             </div>
                         </div>

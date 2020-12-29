@@ -94,6 +94,10 @@
     line-height: 21px;
 }
 
+.powerpress_save_button {
+    border-width: 1px;
+}
+
 .powerpress_save_button:hover {
     cursor: pointer;
 }
@@ -204,7 +208,7 @@
 }
 
 .destinations-side-icon {
-    background-image: url('../images/modern_icon_sprite.svg');
+    background-image: url('../images/modern_icon_sprite_2020.svg');
     margin-right: 15px;
     display: inline-block;
     width: 36px;
@@ -225,47 +229,67 @@
 /*Sprite background positions for modern buttons*/
 
 span[id^="apple-icon"] {
-    background-position: -5px -5px;
+    background-position: -5px -10px;
 }
 
 span[id^="android-icon"] {
-    background-position: -5px -55px;
+    background-position: -5px -60px;
 }
 
 span[id^="email-icon"] {
-    background-position: -5px -106px;
+    background-position: -5px -111px;
 }
 
 span[id^="google-icon"] {
-    background-position: -5px -155px;
+    background-position: -5px -160px;
 }
 
 span[id^="stitcher-icon"] {
-    background-position: -7px -205px;
+    background-position: -7px -210px;
 }
 
 span[id^="tunein-icon"] {
-    background-position: -7px -255px;
+    background-position: -7px -260px;
 }
 
 span[id^="spotify-icon"] {
-    background-position: -5px -307px;
+    background-position: -5px -312px;
 }
 
 span[id^="iheart-icon"] {
-    background-position: -5px -456px;
+    background-position: -5px -461px;
 }
 
 span[id^="deezer-icon"] {
-    background-position: -5px -507px;
+    background-position: -5px -512px;
 }
 
 span[id^="pandora-icon"] {
-    background-position: -5px -555px;
+    background-position: -5px -560px;
+}
+
+span[id^="amazon-icon"] {
+    background-position: -5px -1010px;
+}
+
+span[id^="pcindex-icon"] {
+    background-position: -5px -1060px;
+}
+
+span[id^="jiosaavn-icon"] {
+    background-position: -5px -1110px;
+}
+
+span[id^="podchaser-icon"] {
+    background-position: -5px -1160px;
+}
+
+span[id^="gaana-icon"] {
+    background-position: -5px -1210px;
 }
 
 span[id^="all-icon"] {
-    background-position: -5px -355px;
+    background-position: -5px -360px;
 }
 
 
@@ -293,9 +317,8 @@ span[id^="all-icon"] {
 }
 
 #connect-blubrry-blurb {
-    font-size: 11px;
+    font-size: 12px;
     margin: 1ch 1ch 0 4ch;
-    text-align: left;
 }
 
 /* Style the tab */
@@ -435,12 +458,14 @@ p.pp-main {
     font-family: Roboto, sans-serif;
     font-weight: bold;
     margin: 0;
+    display: block;
 }
 
 p.pp-sub, a.pp-sub {
     font-size: 16px;
     font-family: Roboto, sans-serif;
     margin: 0;
+    display: block;
 }
 
 p.pp-sub {
@@ -455,11 +480,12 @@ p.pp-label-bottom {
 }
 
 p.pp-sidenav-extra-text, a.pp-sidenav-extra-text {
-    color: #9ea0a5;
+    color: #32373c;
     font-size: 12px;
     line-height: 18px;
     font-family: Roboto, sans-serif;
     text-decoration: none;
+    font-weight: bold;
 }
 
 .pp-sidenav-extra {
@@ -471,6 +497,7 @@ p.pp-sidenav-extra-text, a.pp-sidenav-extra-text {
     margin-bottom: 2em;
     font-family: Roboto, sans-serif;
     font-size: 14px;
+    display: block;
 }
 
 .pp-settings-text-smaller-margin {
@@ -478,6 +505,7 @@ p.pp-sidenav-extra-text, a.pp-sidenav-extra-text {
     margin-bottom: 1em;
     font-family: Roboto, sans-serif;
     font-size: 14px;
+    display: block;
 }
 
 .pp-settings-text-no-margin {
@@ -485,6 +513,7 @@ p.pp-sidenav-extra-text, a.pp-sidenav-extra-text {
     margin-bottom: 0;
     font-family: Roboto, sans-serif;
     font-size: 12px;
+    display: block;
 }
 
 .pp-show-subscribe {

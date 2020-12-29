@@ -136,6 +136,9 @@ jQuery(document).ready(function($) {
 function powerpress_dashboard_stats_content()
 {
 	$Settings = get_option('powerpress_general');
+    $creds = get_option('powerpress_creds');
+    require_once(POWERPRESS_ABSPATH .'/powerpressadmin-auth.class.php');
+    $auth = new PowerPressAuth();
 	
 	if( !empty($Settings['disable_dashboard_stats']) )
 		return; // Lets not do anythign to the dashboard for PowerPress Statistics
@@ -159,6 +162,37 @@ function powerpress_dashboard_stats_content()
     if( !empty($Settings['network_mode']) ) {
         $content = 'Network mode is enabled, please visit the <a href="https://stats.blubrry.com/" target="_blank">Blubrry.com</a> to see your statistics';
     }
+    else if ($creds) {
+        $success = false;
+        $api_url_array = powerpress_get_api_array();
+
+        $accessToken = powerpress_getAccessToken();
+        $req_url = sprintf('/2/stats/%s/summary.html?nobody=1', $Keyword);
+        $req_url .= (defined('POWERPRESS_BLUBRRY_API_QSA')?'?'. POWERPRESS_BLUBRRY_API_QSA:'');
+        $new_content = $auth->api($accessToken, $req_url, false, false, 2, false);
+
+        if( $new_content )
+        {
+            update_option('powerpress_stats', array('updated'=>time(), 'content'=>$new_content) );
+            $content = $new_content;
+            $success = true;
+        }
+
+        if( $success == false )
+        {
+            if( empty($StatsCached['retry_count']) )
+                $StatsCached['retry_count'] = 1;
+            else if( $StatsCached['retry_count'] < 24 )
+                $StatsCached['retry_count']++;
+
+            if( $StatsCached['retry_count'] > 12 ) // After 36 hours, if we keep failing to authenticate then lets clear the data and display the authentication notice.
+            {
+                $content = '';
+            }
+            // Update the updated flag so it will not try again for 3 hours...
+            update_option('powerpress_stats', array('updated'=>time(), 'content'=>$content, 'retry_count'=>$StatsCached['retry_count'] ) );
+        }
+    }
     else if( $UserPass && time() > ($StatsCached['updated']+(60*60*3)) )
 	{
 		$success = false;
@@ -172,7 +206,7 @@ function powerpress_dashboard_stats_content()
 			if( !$new_content && $api_url == 'https://api.blubrry.com/' ) { // Lets force cURL and see if that helps...
 				$new_content = powerpress_remote_fopen($req_url, $UserPass, array(), 2, false, true); // Only give this 2 seconds to return results
 			}
-				
+
 			if( $new_content )
 			{
 				update_option('powerpress_stats', array('updated'=>time(), 'content'=>$new_content) );
@@ -198,7 +232,7 @@ function powerpress_dashboard_stats_content()
 		}
 	}
 	
-	if( !$UserPass )
+	if( !$UserPass && !$creds )
 	{
 		$content = sprintf('<p>'. __('Wait a sec! This feature is only available to Blubrry Podcast Community members. Join our community to get %s and access to other valuable %s.', 'powerpress') .'</p>',
 			'<a href="http://create.blubrry.com/resources/podcast-media-download-statistics/basic-statistics/" target="_blank">'. __('Free Podcast Statistics') . '</a>',

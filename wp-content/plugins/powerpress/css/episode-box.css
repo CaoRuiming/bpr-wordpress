@@ -277,6 +277,7 @@ h4[class^="pp-section-title"] {
     margin-top: 2ch;
     margin-bottom: 0;
     font-family: Roboto, sans-serif;
+    display: block;
 }
 
 .pp-ep-box-settings-text {
@@ -284,6 +285,7 @@ h4[class^="pp-section-title"] {
     letter-spacing: 0.35px;
     margin-top: 3ch;
     margin-bottom: 0;
+    display: block;
 }
 
 .pp-section-subtitle {

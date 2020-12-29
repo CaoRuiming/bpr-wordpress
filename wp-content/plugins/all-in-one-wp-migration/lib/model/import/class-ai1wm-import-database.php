@@ -29,7 +29,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 class Ai1wm_Import_Database {
 
-	public static function execute( $params ) {
+	public static function execute( $params, Ai1wm_Database $mysql = null ) {
 		global $wpdb;
 
 		// Skip database import
@@ -276,27 +276,27 @@ class Ai1wm_Import_Database {
 						}
 
 						// Add plain Site URL
-						if ( ! in_array( ai1wm_url_scheme( $url, $old_schemes[ $i ] ), $old_replace_values ) ) {
-							$old_replace_values[] = ai1wm_url_scheme( $url, $old_schemes[ $i ] );
-							$new_replace_values[] = ai1wm_url_scheme( $blog['New']['SiteURL'], $new_schemes[ $i ] );
+						if ( ! in_array( ai1wm_url_scheme( untrailingslashit( $url ), $old_schemes[ $i ] ), $old_replace_values ) ) {
+							$old_replace_values[] = ai1wm_url_scheme( untrailingslashit( $url ), $old_schemes[ $i ] );
+							$new_replace_values[] = ai1wm_url_scheme( untrailingslashit( $blog['New']['SiteURL'] ), $new_schemes[ $i ] );
 						}
 
 						// Add URL encoded Site URL
-						if ( ! in_array( urlencode( ai1wm_url_scheme( $url, $old_schemes[ $i ] ) ), $old_replace_values ) ) {
-							$old_replace_values[] = urlencode( ai1wm_url_scheme( $url, $old_schemes[ $i ] ) );
-							$new_replace_values[] = urlencode( ai1wm_url_scheme( $blog['New']['SiteURL'], $new_schemes[ $i ] ) );
+						if ( ! in_array( urlencode( ai1wm_url_scheme( untrailingslashit( $url ), $old_schemes[ $i ] ) ), $old_replace_values ) ) {
+							$old_replace_values[] = urlencode( ai1wm_url_scheme( untrailingslashit( $url ), $old_schemes[ $i ] ) );
+							$new_replace_values[] = urlencode( ai1wm_url_scheme( untrailingslashit( $blog['New']['SiteURL'] ), $new_schemes[ $i ] ) );
 						}
 
 						// Add URL raw encoded Site URL
-						if ( ! in_array( rawurlencode( ai1wm_url_scheme( $url, $old_schemes[ $i ] ) ), $old_replace_values ) ) {
-							$old_replace_values[] = rawurlencode( ai1wm_url_scheme( $url, $old_schemes[ $i ] ) );
-							$new_replace_values[] = rawurlencode( ai1wm_url_scheme( $blog['New']['SiteURL'], $new_schemes[ $i ] ) );
+						if ( ! in_array( rawurlencode( ai1wm_url_scheme( untrailingslashit( $url ), $old_schemes[ $i ] ) ), $old_replace_values ) ) {
+							$old_replace_values[] = rawurlencode( ai1wm_url_scheme( untrailingslashit( $url ), $old_schemes[ $i ] ) );
+							$new_replace_values[] = rawurlencode( ai1wm_url_scheme( untrailingslashit( $blog['New']['SiteURL'] ), $new_schemes[ $i ] ) );
 						}
 
 						// Add JSON escaped Site URL
-						if ( ! in_array( addcslashes( ai1wm_url_scheme( $url, $old_schemes[ $i ] ), '/' ), $old_replace_values ) ) {
-							$old_replace_values[] = addcslashes( ai1wm_url_scheme( $url, $old_schemes[ $i ] ), '/' );
-							$new_replace_values[] = addcslashes( ai1wm_url_scheme( $blog['New']['SiteURL'], $new_schemes[ $i ] ), '/' );
+						if ( ! in_array( addcslashes( ai1wm_url_scheme( untrailingslashit( $url ), $old_schemes[ $i ] ), '/' ), $old_replace_values ) ) {
+							$old_replace_values[] = addcslashes( ai1wm_url_scheme( untrailingslashit( $url ), $old_schemes[ $i ] ), '/' );
+							$new_replace_values[] = addcslashes( ai1wm_url_scheme( untrailingslashit( $blog['New']['SiteURL'] ), $new_schemes[ $i ] ), '/' );
 						}
 					}
 
@@ -402,27 +402,27 @@ class Ai1wm_Import_Database {
 						}
 
 						// Add plain Home URL
-						if ( ! in_array( ai1wm_url_scheme( $url, $old_schemes[ $i ] ), $old_replace_values ) ) {
-							$old_replace_values[] = ai1wm_url_scheme( $url, $old_schemes[ $i ] );
-							$new_replace_values[] = ai1wm_url_scheme( $blog['New']['HomeURL'], $new_schemes[ $i ] );
+						if ( ! in_array( ai1wm_url_scheme( untrailingslashit( $url ), $old_schemes[ $i ] ), $old_replace_values ) ) {
+							$old_replace_values[] = ai1wm_url_scheme( untrailingslashit( $url ), $old_schemes[ $i ] );
+							$new_replace_values[] = ai1wm_url_scheme( untrailingslashit( $blog['New']['HomeURL'] ), $new_schemes[ $i ] );
 						}
 
 						// Add URL encoded Home URL
-						if ( ! in_array( urlencode( ai1wm_url_scheme( $url, $old_schemes[ $i ] ) ), $old_replace_values ) ) {
-							$old_replace_values[] = urlencode( ai1wm_url_scheme( $url, $old_schemes[ $i ] ) );
-							$new_replace_values[] = urlencode( ai1wm_url_scheme( $blog['New']['HomeURL'], $new_schemes[ $i ] ) );
+						if ( ! in_array( urlencode( ai1wm_url_scheme( untrailingslashit( $url ), $old_schemes[ $i ] ) ), $old_replace_values ) ) {
+							$old_replace_values[] = urlencode( ai1wm_url_scheme( untrailingslashit( $url ), $old_schemes[ $i ] ) );
+							$new_replace_values[] = urlencode( ai1wm_url_scheme( untrailingslashit( $blog['New']['HomeURL'] ), $new_schemes[ $i ] ) );
 						}
 
 						// Add URL raw encoded Home URL
-						if ( ! in_array( rawurlencode( ai1wm_url_scheme( $url, $old_schemes[ $i ] ) ), $old_replace_values ) ) {
-							$old_replace_values[] = rawurlencode( ai1wm_url_scheme( $url, $old_schemes[ $i ] ) );
-							$new_replace_values[] = rawurlencode( ai1wm_url_scheme( $blog['New']['HomeURL'], $new_schemes[ $i ] ) );
+						if ( ! in_array( rawurlencode( ai1wm_url_scheme( untrailingslashit( $url ), $old_schemes[ $i ] ) ), $old_replace_values ) ) {
+							$old_replace_values[] = rawurlencode( ai1wm_url_scheme( untrailingslashit( $url ), $old_schemes[ $i ] ) );
+							$new_replace_values[] = rawurlencode( ai1wm_url_scheme( untrailingslashit( $blog['New']['HomeURL'] ), $new_schemes[ $i ] ) );
 						}
 
 						// Add JSON escaped Home URL
-						if ( ! in_array( addcslashes( ai1wm_url_scheme( $url, $old_schemes[ $i ] ), '/' ), $old_replace_values ) ) {
-							$old_replace_values[] = addcslashes( ai1wm_url_scheme( $url, $old_schemes[ $i ] ), '/' );
-							$new_replace_values[] = addcslashes( ai1wm_url_scheme( $blog['New']['HomeURL'], $new_schemes[ $i ] ), '/' );
+						if ( ! in_array( addcslashes( ai1wm_url_scheme( untrailingslashit( $url ), $old_schemes[ $i ] ), '/' ), $old_replace_values ) ) {
+							$old_replace_values[] = addcslashes( ai1wm_url_scheme( untrailingslashit( $url ), $old_schemes[ $i ] ), '/' );
+							$new_replace_values[] = addcslashes( ai1wm_url_scheme( untrailingslashit( $blog['New']['HomeURL'] ), $new_schemes[ $i ] ), '/' );
 						}
 					}
 
@@ -598,27 +598,27 @@ class Ai1wm_Import_Database {
 				for ( $i = 0; $i < count( $old_schemes ); $i++ ) {
 
 					// Add plain Site URL
-					if ( ! in_array( ai1wm_url_scheme( $url, $old_schemes[ $i ] ), $old_replace_values ) ) {
-						$old_replace_values[] = ai1wm_url_scheme( $url, $old_schemes[ $i ] );
-						$new_replace_values[] = ai1wm_url_scheme( site_url(), $new_schemes[ $i ] );
+					if ( ! in_array( ai1wm_url_scheme( untrailingslashit( $url ), $old_schemes[ $i ] ), $old_replace_values ) ) {
+						$old_replace_values[] = ai1wm_url_scheme( untrailingslashit( $url ), $old_schemes[ $i ] );
+						$new_replace_values[] = ai1wm_url_scheme( untrailingslashit( site_url() ), $new_schemes[ $i ] );
 					}
 
 					// Add URL encoded Site URL
-					if ( ! in_array( urlencode( ai1wm_url_scheme( $url, $old_schemes[ $i ] ) ), $old_replace_values ) ) {
-						$old_replace_values[] = urlencode( ai1wm_url_scheme( $url, $old_schemes[ $i ] ) );
-						$new_replace_values[] = urlencode( ai1wm_url_scheme( site_url(), $new_schemes[ $i ] ) );
+					if ( ! in_array( urlencode( ai1wm_url_scheme( untrailingslashit( $url ), $old_schemes[ $i ] ) ), $old_replace_values ) ) {
+						$old_replace_values[] = urlencode( ai1wm_url_scheme( untrailingslashit( $url ), $old_schemes[ $i ] ) );
+						$new_replace_values[] = urlencode( ai1wm_url_scheme( untrailingslashit( site_url() ), $new_schemes[ $i ] ) );
 					}
 
 					// Add URL raw encoded Site URL
-					if ( ! in_array( rawurlencode( ai1wm_url_scheme( $url, $old_schemes[ $i ] ) ), $old_replace_values ) ) {
-						$old_replace_values[] = rawurlencode( ai1wm_url_scheme( $url, $old_schemes[ $i ] ) );
-						$new_replace_values[] = rawurlencode( ai1wm_url_scheme( site_url(), $new_schemes[ $i ] ) );
+					if ( ! in_array( rawurlencode( ai1wm_url_scheme( untrailingslashit( $url ), $old_schemes[ $i ] ) ), $old_replace_values ) ) {
+						$old_replace_values[] = rawurlencode( ai1wm_url_scheme( untrailingslashit( $url ), $old_schemes[ $i ] ) );
+						$new_replace_values[] = rawurlencode( ai1wm_url_scheme( untrailingslashit( site_url() ), $new_schemes[ $i ] ) );
 					}
 
 					// Add JSON escaped Site URL
-					if ( ! in_array( addcslashes( ai1wm_url_scheme( $url, $old_schemes[ $i ] ), '/' ), $old_replace_values ) ) {
-						$old_replace_values[] = addcslashes( ai1wm_url_scheme( $url, $old_schemes[ $i ] ), '/' );
-						$new_replace_values[] = addcslashes( ai1wm_url_scheme( site_url(), $new_schemes[ $i ] ), '/' );
+					if ( ! in_array( addcslashes( ai1wm_url_scheme( untrailingslashit( $url ), $old_schemes[ $i ] ), '/' ), $old_replace_values ) ) {
+						$old_replace_values[] = addcslashes( ai1wm_url_scheme( untrailingslashit( $url ), $old_schemes[ $i ] ), '/' );
+						$new_replace_values[] = addcslashes( ai1wm_url_scheme( untrailingslashit( site_url() ), $new_schemes[ $i ] ), '/' );
 					}
 				}
 
@@ -696,27 +696,27 @@ class Ai1wm_Import_Database {
 				for ( $i = 0; $i < count( $old_schemes ); $i++ ) {
 
 					// Add plain Home URL
-					if ( ! in_array( ai1wm_url_scheme( $url, $old_schemes[ $i ] ), $old_replace_values ) ) {
-						$old_replace_values[] = ai1wm_url_scheme( $url, $old_schemes[ $i ] );
-						$new_replace_values[] = ai1wm_url_scheme( home_url(), $new_schemes[ $i ] );
+					if ( ! in_array( ai1wm_url_scheme( untrailingslashit( $url ), $old_schemes[ $i ] ), $old_replace_values ) ) {
+						$old_replace_values[] = ai1wm_url_scheme( untrailingslashit( $url ), $old_schemes[ $i ] );
+						$new_replace_values[] = ai1wm_url_scheme( untrailingslashit( home_url() ), $new_schemes[ $i ] );
 					}
 
 					// Add URL encoded Home URL
-					if ( ! in_array( urlencode( ai1wm_url_scheme( $url, $old_schemes[ $i ] ) ), $old_replace_values ) ) {
-						$old_replace_values[] = urlencode( ai1wm_url_scheme( $url, $old_schemes[ $i ] ) );
-						$new_replace_values[] = urlencode( ai1wm_url_scheme( home_url(), $new_schemes[ $i ] ) );
+					if ( ! in_array( urlencode( ai1wm_url_scheme( untrailingslashit( $url ), $old_schemes[ $i ] ) ), $old_replace_values ) ) {
+						$old_replace_values[] = urlencode( ai1wm_url_scheme( untrailingslashit( $url ), $old_schemes[ $i ] ) );
+						$new_replace_values[] = urlencode( ai1wm_url_scheme( untrailingslashit( home_url() ), $new_schemes[ $i ] ) );
 					}
 
 					// Add URL raw encoded Home URL
-					if ( ! in_array( rawurlencode( ai1wm_url_scheme( $url, $old_schemes[ $i ] ) ), $old_replace_values ) ) {
-						$old_replace_values[] = rawurlencode( ai1wm_url_scheme( $url, $old_schemes[ $i ] ) );
-						$new_replace_values[] = rawurlencode( ai1wm_url_scheme( home_url(), $new_schemes[ $i ] ) );
+					if ( ! in_array( rawurlencode( ai1wm_url_scheme( untrailingslashit( $url ), $old_schemes[ $i ] ) ), $old_replace_values ) ) {
+						$old_replace_values[] = rawurlencode( ai1wm_url_scheme( untrailingslashit( $url ), $old_schemes[ $i ] ) );
+						$new_replace_values[] = rawurlencode( ai1wm_url_scheme( untrailingslashit( home_url() ), $new_schemes[ $i ] ) );
 					}
 
 					// Add JSON escaped Home URL
-					if ( ! in_array( addcslashes( ai1wm_url_scheme( $url, $old_schemes[ $i ] ), '/' ), $old_replace_values ) ) {
-						$old_replace_values[] = addcslashes( ai1wm_url_scheme( $url, $old_schemes[ $i ] ), '/' );
-						$new_replace_values[] = addcslashes( ai1wm_url_scheme( home_url(), $new_schemes[ $i ] ), '/' );
+					if ( ! in_array( addcslashes( ai1wm_url_scheme( untrailingslashit( $url ), $old_schemes[ $i ] ), '/' ), $old_replace_values ) ) {
+						$old_replace_values[] = addcslashes( ai1wm_url_scheme( untrailingslashit( $url ), $old_schemes[ $i ] ), '/' );
+						$new_replace_values[] = addcslashes( ai1wm_url_scheme( untrailingslashit( home_url() ), $new_schemes[ $i ] ), '/' );
 					}
 				}
 
@@ -928,10 +928,12 @@ class Ai1wm_Import_Database {
 		$new_table_prefixes[] = ai1wm_table_prefix();
 
 		// Get database client
-		if ( empty( $wpdb->use_mysqli ) ) {
-			$mysql = new Ai1wm_Database_Mysql( $wpdb );
-		} else {
-			$mysql = new Ai1wm_Database_Mysqli( $wpdb );
+		if ( is_null( $mysql ) ) {
+			if ( empty( $wpdb->use_mysqli ) ) {
+				$mysql = new Ai1wm_Database_Mysql( $wpdb );
+			} else {
+				$mysql = new Ai1wm_Database_Mysqli( $wpdb );
+			}
 		}
 
 		// Set database options
@@ -953,6 +955,9 @@ class Ai1wm_Import_Database {
 
 		// Set Optimize Press
 		$mysql->set_optimize_press( ai1wm_validate_plugin_basename( 'optimizePressPlugin/optimizepress.php' ) );
+
+		// Set Avada Fusion Builder
+		$mysql->set_avada_fusion_builder( ai1wm_validate_plugin_basename( 'fusion-builder/fusion-builder.php' ) );
 
 		// Set BeTheme Responsive
 		$mysql->set_betheme_responsive( ai1wm_validate_theme_basename( 'betheme/style.css' ) );
