@@ -156,19 +156,19 @@
     </a>
   </section>
 
-  <div class="row category-cols">
-    <section id="section-3" class="col-sm-6 category-col">
-      <?php
-      $slug = get_field('section_3', $page_id)[0]->slug;
-      $category_object = get_category_by_slug($slug);
-      ?>
+  <section id="section-3" class="category-row">
+    <?php
+    $slug = get_field('section_3', $page_id)[0]->slug;
+    $category_object = get_category_by_slug($slug);
+    ?>
 
-      <div class="horizontal-rule"></div>
+    <div class="horizontal-rule"></div>
 
-      <h2 class="section-title header-font">
-        <?php echo $category_object->name; ?>
-      </h2>
+    <h2 class="section-title header-font">
+      <?php echo $category_object->name; ?>
+    </h2>
 
+    <div class="row">
       <?php 
       $recent  = new WP_Query(array(
         'category_name' => $category_object->slug,
@@ -177,14 +177,17 @@
 
       while ($recent->have_posts()) {
         $recent->the_post();
-        do_action('theme/single/col-block');
+        do_action('theme/single/row-block');
       }
       ?>
+    </div>
 
-      <a class="more-link" href="<?php echo esc_url(get_category_link($category_object)); ?>">
-        More from  <?php echo $category_object->name; ?> >
-      </a>
-    </section>
+    <a class="more-link" href="<?php echo esc_url(get_category_link($category_object)); ?>">
+      More from  <?php echo $category_object->name; ?> >
+    </a>
+  </section>
+
+  <div class="row category-cols">
     <section id="section-4" class="col-sm-6 category-col">
       <?php
       $slug = get_field('section_4', $page_id)[0]->slug;
@@ -213,9 +216,6 @@
         More from  <?php echo $category_object->name; ?> >
       </a>
     </section>
-  </div>
-
-  <div class="row category-cols">
     <section id="section-5" class="col-sm-6 category-col">
       <?php
       $slug = get_field('section_5', $page_id)[0]->slug;
@@ -244,9 +244,40 @@
         More from  <?php echo $category_object->name; ?> >
       </a>
     </section>
-    <section id="section-6" class="col-sm-6 category-col-compact">
+  </div>
+
+  <div class="row category-cols">
+    <section id="section-6" class="col-sm-6 category-col">
       <?php
       $slug = get_field('section_6', $page_id)[0]->slug;
+      $category_object = get_category_by_slug($slug);
+      ?>
+
+      <div class="horizontal-rule"></div>
+
+      <h2 class="section-title header-font">
+        <?php echo $category_object->name; ?>
+      </h2>
+
+      <?php 
+      $recent  = new WP_Query(array(
+        'category_name' => $category_object->slug,
+        'posts_per_page' => 3,
+      ));
+
+      while ($recent->have_posts()) {
+        $recent->the_post();
+        do_action('theme/single/col-block');
+      }
+      ?>
+
+      <a class="more-link" href="<?php echo esc_url(get_category_link($category_object)); ?>">
+        More from  <?php echo $category_object->name; ?> >
+      </a>
+    </section>
+    <section id="section-7" class="col-sm-6 category-col-compact">
+      <?php
+      $slug = get_field('section_7', $page_id)[0]->slug;
       $category_object = get_category_by_slug($slug);
       ?>
 

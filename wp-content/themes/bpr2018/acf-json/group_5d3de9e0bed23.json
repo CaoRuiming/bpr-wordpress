@@ -196,6 +196,28 @@
             "return_format": "object",
             "multiple": 0,
             "allow_null": 0
+        },
+        {
+            "key": "field_5ffe32f0d2cff",
+            "label": "Section 7 Category",
+            "name": "section_7",
+            "type": "taxonomy",
+            "instructions": "Category or taxonomy of posts to show in this section.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "taxonomy": "category",
+            "field_type": "checkbox",
+            "add_term": 1,
+            "save_terms": 0,
+            "load_terms": 0,
+            "return_format": "object",
+            "multiple": 0,
+            "allow_null": 0
         }
     ],
     "location": [
@@ -218,7 +240,7 @@
         "comments",
         "author"
     ],
-    "active": 1,
+    "active": true,
     "description": "Custom fields for the front page (Home)",
-    "modified": 1583276132
+    "modified": 1610494735
 }
