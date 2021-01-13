@@ -275,7 +275,8 @@
         More from  <?php echo $category_object->name; ?> >
       </a>
     </section>
-    <section id="section-7" class="col-sm-6 category-col-compact">
+    <!-- <section id="section-7" class="col-sm-6 category-col-compact"> -->
+    <section id="section-7" class="col-sm-6 category-col">
       <?php
       $slug = get_field('section_7', $page_id)[0]->slug;
       $category_object = get_category_by_slug($slug);
@@ -290,12 +291,13 @@
       <?php 
       $recent  = new WP_Query(array(
         'category_name' => $category_object->slug,
-        'posts_per_page' => 6,
+        'posts_per_page' => 3,
       ));
 
       while ($recent->have_posts()) {
         $recent->the_post();
-        do_action('theme/single/col-block-small');
+        // do_action('theme/single/col-block-small');
+        do_action('theme/single/col-block');
       }
       ?>
 
