@@ -4,7 +4,7 @@ Tags: podcasting, podcast, podcaster, powerpress, itunes, apple, apple podcasts,
 Requires at least: 3.6
 Requires PHP: 5.2
 Tested up to: 5.6
-Stable tag: 8.4.7
+Stable tag: 8.4.8
 Donate link: https://create.blubrry.com/resources/podcast-media-hosting/
 License: GPLv2 or later
 
@@ -185,6 +185,10 @@ If you are a fan of PowerPress, we would greatly appreciate it if you could take
 
 
 == Changelog ==
+
+= 8.4.8 =
+* Released 01/13/2021
+* Fixed a bug in the Blubrry account linking
 
 = 8.4.7 =
 * Released 12/22/2020
