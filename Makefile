@@ -8,7 +8,7 @@ logs:
 	docker logs $(IMAGE_NAME)
 
 sql-backup:
-	docker exec -i bpr-mysql mysqldump -uwordpress -pwordpress --databases wordpress --skip-comments > backup.sql
+	docker exec -i bpr-mysql mysqldump -uwordpress -pwordpress --databases wordpress --skip-comments --no-tablespaces > backup.sql
 
 sql-restore:
 	docker cp backup.sql bpr-mysql:/backup.sql
