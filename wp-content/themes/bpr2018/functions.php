@@ -66,7 +66,7 @@ function register_scripts() {
     $path = get_template_directory_uri() . '/resources/assets/js/scripts/';
 
     wp_deregister_script('jquery');
-    wp_register_script('jquery', $path . 'jquery-3.4.1.min.js');
+    wp_register_script('jquery', $path . 'jquery-3.5.1.min.js');
     wp_enqueue_script('jquery');
 
     wp_register_script('slick', $path . 'slick.min.js', array('jquery'));
