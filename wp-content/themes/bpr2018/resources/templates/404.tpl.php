@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-<div class="page-template content-wrapper container-fluid">
+<div class="page-template content-wrapper container-fluid" style="margin-top:50px">
   <?php 
   $pic_url = get_template_directory_uri() . '/resources/assets/images/404.jpg';;
   if ($pic_url):
