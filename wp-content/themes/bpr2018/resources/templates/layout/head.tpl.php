@@ -7,6 +7,7 @@
     <?php wp_head(); ?>
   </head>
   <body <?php body_class(); ?>>
+    <a id='skip-nav' class ='sr-only' href='#top-of-content'> Skip Navigation </a> <!-- For screenreaders skipping nav -->
     <?php if (get_field('enable_alert', 'option')): ?>
       <header style="background-color:<?php the_field('alert_background_color', 'option');?>">
         <!-- Alert Banner Scripts are written elsewhere -->
@@ -186,3 +187,6 @@
           })
         });
       </script>
+
+<a id="top-of-content" name="top-of-content"></a>
+
