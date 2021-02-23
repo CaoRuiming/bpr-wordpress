@@ -13,8 +13,9 @@
     p, figcaption {
       a {
         text-decoration: underline;
-        word-break: break-word;
       }
+
+      word-break: break-word;
     }
 
     @media (prefers-color-scheme: dark) {
