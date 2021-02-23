@@ -83,11 +83,13 @@
                   id="light"
                   class="social-icon"
                   style="background-image: url(<?php echo $facebook_icon_url ?>)">
+                  <span role="img" aria-label="Facebook Icon"> </span>
                 </div>
                 <div
                   id="dark"
                   class="social-icon"
                   style="background-image: url(<?php echo $facebook_icon_inverted_url ?>)">
+                  <span role="img" aria-label="Facebook Icon"> </span>
                 </div>
               </a>
             <?php endif; ?>
@@ -97,11 +99,13 @@
                   id="light"
                   class="social-icon"
                   style="background-image: url(<?php echo $twitter_icon_url ?>)">
+                  <span role="img" aria-label="Twitter Icon"> </span>
                 </div>
                 <div
                   id="dark"
                   class="social-icon"
                   style="background-image: url(<?php echo $twitter_icon_inverted_url ?>)">
+                  <span role="img" aria-label="Twitter Icon"> </span>
                 </div>
               </a>
             <?php endif; ?>
@@ -111,11 +115,13 @@
                   id="light"
                   class="social-icon"
                   style="background-image: url(<?php echo $instagram_icon_url ?>)">
+                  <span role="img" aria-label="Instagram Icon"> </span>
                 </div>
                 <div
                   id="dark"
                   class="social-icon"
                   style="background-image: url(<?php echo $instagram_icon_inverted_url ?>)">
+                  <span role="img" aria-label="Instagram Icon"> </span>
                 </div>
               </a>
             <?php endif; ?>
@@ -125,11 +131,13 @@
               id="light"
               class="logo"
               style="background-image: url(<?php echo get_image_asset('BPR_logo_black.png'); ?>)">
+              <span role="img" aria-label="Brown Political Review Logo"> </span>
             </div>
             <div
               id="dark"
               class="logo"
               style="background-image: url(<?php echo get_image_asset('BPR_logo_white.png'); ?>)">
+              <span role="img" aria-label="Brown Political Review Logo"> </span>
             </div>
           </a>
           <?php
