@@ -447,18 +447,20 @@ $generated_i18n_strings = array(
 	// Reference: js/src/components/modals/SeoAnalysisModal.js:25
 	__( 'Close', 'wordpress-seo' ),
 
-	// Reference: js/src/components/modals/editorModals/EditorModal.js:68
+	// Reference: js/src/components/modals/editorModals/EditorModal.js:65
 	/* translators: %s translates to the Post Label in singular form */
 	__( 'Make sure to save your %s for changes to take effect', 'wordpress-seo' ),
 
-	// Reference: js/src/components/modals/editorModals/EditorModal.js:78
+	// Reference: js/src/components/modals/editorModals/EditorModal.js:75
 	/* translators: %s translates to the Post Label in singular form */
 	__( 'Return to your %s', 'wordpress-seo' ),
 
-	// Reference: js/src/components/modals/editorModals/FacebookPreviewModal.js:15
+	// Reference: js/src/components/modals/editorModals/FacebookPreviewModal.js:16
+	// Reference: js/src/elementor/components/modals/editorModals/FacebookPreviewModal.js:16
 	__( 'Facebook preview', 'wordpress-seo' ),
 
 	// Reference: js/src/components/modals/editorModals/TwitterPreviewModal.js:16
+	// Reference: js/src/elementor/components/modals/editorModals/TwitterPreviewModal.js:16
 	__( 'Twitter preview', 'wordpress-seo' ),
 
 	// Reference: js/src/components/social/SocialMetadata.js:31
@@ -475,11 +477,15 @@ $generated_i18n_strings = array(
 
 	// Reference: js/src/containers/FacebookEditor.js:76
 	// Reference: js/src/containers/TwitterEditor.js:81
+	// Reference: js/src/elementor/containers/FacebookEditor.js:76
+	// Reference: js/src/elementor/containers/TwitterEditor.js:81
 	/* translators: %s expands to the social medium name, i.e. Faceboook. */
 	__( 'Modify your %s title by editing it right here...', 'wordpress-seo' ),
 
 	// Reference: js/src/containers/FacebookEditor.js:83
 	// Reference: js/src/containers/TwitterEditor.js:88
+	// Reference: js/src/elementor/containers/FacebookEditor.js:83
+	// Reference: js/src/elementor/containers/TwitterEditor.js:88
 	/* translators: %s expands to the social medium name, i.e. Faceboook. */
 	__( 'Modify your %s description by editing it right here...', 'wordpress-seo' ),
 
@@ -496,6 +502,24 @@ $generated_i18n_strings = array(
 	// Reference: js/src/elementor/containers/SnippetEditor.js:90
 	__( 'Please provide a meta description by editing the snippet below.', 'wordpress-seo' ),
 
+	// Reference: js/src/dynamic-blocks.js:14
+	__( 'Yoast Breadcrumbs', 'wordpress-seo' ),
+
+	// Reference: js/src/dynamic-blocks.js:17
+	__( 'Adds the Yoast SEO breadcrumbs to your template or content.', 'wordpress-seo' ),
+
+	// Reference: js/src/dynamic-blocks.js:19
+	__( 'seo', 'wordpress-seo' ),
+
+	// Reference: js/src/dynamic-blocks.js:20
+	__( 'breadcrumbs', 'wordpress-seo' ),
+
+	// Reference: js/src/dynamic-blocks.js:21
+	__( 'internal linking', 'wordpress-seo' ),
+
+	// Reference: js/src/dynamic-blocks.js:22
+	__( 'site structure', 'wordpress-seo' ),
+
 	// Reference: js/src/elementor/initializers/introduction.js:19
 	__( 'New: Yoast SEO for Elementor', 'wordpress-seo' ),
 
@@ -505,7 +529,7 @@ $generated_i18n_strings = array(
 	// Reference: js/src/elementor/initializers/introduction.js:40
 	__( 'Got it', 'wordpress-seo' ),
 
-	// Reference: js/src/help-scout-beacon.js:208
+	// Reference: js/src/help-scout-beacon.js:231
 	__( 'When you click OK we will open our HelpScout beacon where you can find answers to your questions. This beacon will load our support data and also potentially set cookies.', 'wordpress-seo' ),
 
 	// Reference: js/src/initializers/block-editor-integration.js:151

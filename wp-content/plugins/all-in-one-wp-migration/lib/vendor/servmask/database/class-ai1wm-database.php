@@ -37,6 +37,27 @@ abstract class Ai1wm_Database {
 	protected $wpdb = null;
 
 	/**
+	 * WordPress database base tables
+	 *
+	 * @var array
+	 */
+	protected $base_tables = null;
+
+	/**
+	 * WordPress database views
+	 *
+	 * @var array
+	 */
+	protected $views = null;
+
+	/**
+	 * WordPress database tables
+	 *
+	 * @var array
+	 */
+	protected $tables = null;
+
+	/**
 	 * Old table prefixes
 	 *
 	 * @var array
@@ -93,11 +114,11 @@ abstract class Ai1wm_Database {
 	protected $new_replace_raw_values = array();
 
 	/**
-	 * Table where clauses
+	 * Table where query
 	 *
 	 * @var array
 	 */
-	protected $table_where_clauses = array();
+	protected $table_where_query = array();
 
 	/**
 	 * Table prefix columns
@@ -107,18 +128,11 @@ abstract class Ai1wm_Database {
 	protected $table_prefix_columns = array();
 
 	/**
-	 * Include table prefixes
+	 * Table prefix filters
 	 *
 	 * @var array
 	 */
-	protected $include_table_prefixes = array();
-
-	/**
-	 * Exclude table prefixes
-	 *
-	 * @var array
-	 */
-	protected $exclude_table_prefixes = array();
+	protected $table_prefix_filters = array();
 
 	/**
 	 * List all tables that should not be affected by the timeout of the current request
@@ -174,9 +188,12 @@ abstract class Ai1wm_Database {
 		if ( is_resource( $this->wpdb->dbh ) ) {
 			if ( get_resource_type( $this->wpdb->dbh ) === 'SQL Server Connection' ) {
 				throw new Ai1wm_Database_Exception(
-					'Your WordPress installation uses Microsoft SQL Server. ' .
-					'To use All-in-One WP Migration, please change your installation to MySQL and try again. ' .
-					'<a href="https://help.servmask.com/knowledgebase/microsoft-sql-server/" target="_blank">Technical details</a>',
+					__(
+						'Your WordPress installation uses Microsoft SQL Server. ' .
+						'To use All-in-One WP Migration, please change your installation to MySQL and try again. ' .
+						'<a href="https://help.servmask.com/knowledgebase/microsoft-sql-server/" target="_blank">Technical details</a>',
+						AI1WM_PLUGIN_NAME
+					),
 					501
 				);
 			}
@@ -366,41 +383,39 @@ abstract class Ai1wm_Database {
 	}
 
 	/**
-	 * Set table where clauses
+	 * Set table where query
 	 *
-	 * @param  string $table_name    Table name
-	 * @param  array  $where_clauses Table clauses
+	 * @param  string $table_name   Table name
+	 * @param  array  $where_$query Table query
 	 * @return object
 	 */
-	public function set_table_where_clauses( $table_name, $where_clauses ) {
-		$this->table_where_clauses[ strtolower( $table_name ) ] = $where_clauses;
+	public function set_table_where_query( $table_name, $where_query ) {
+		$this->table_where_query[ strtolower( $table_name ) ] = $where_query;
 
 		return $this;
 	}
 
 	/**
-	 * Get table where clauses
+	 * Get table where query
 	 *
 	 * @param  string $table_name Table name
-	 * @return array
+	 * @return string
 	 */
-	public function get_table_where_clauses( $table_name ) {
-		if ( isset( $this->table_where_clauses[ strtolower( $table_name ) ] ) ) {
-			return $this->table_where_clauses[ strtolower( $table_name ) ];
+	public function get_table_where_query( $table_name ) {
+		if ( isset( $this->table_where_query[ strtolower( $table_name ) ] ) ) {
+			return $this->table_where_query[ strtolower( $table_name ) ];
 		}
-
-		return array();
 	}
 
 	/**
 	 * Set table prefix columns
 	 *
-	 * @param  string $table_name     Table name
-	 * @param  array  $prefix_columns Table columns
+	 * @param  string $table_name   Table name
+	 * @param  array  $column_names Column names
 	 * @return object
 	 */
-	public function set_table_prefix_columns( $table_name, $prefix_columns ) {
-		foreach ( $prefix_columns as $column_name ) {
+	public function set_table_prefix_columns( $table_name, $column_names ) {
+		foreach ( $column_names as $column_name ) {
 			$this->table_prefix_columns[ strtolower( $table_name ) ][ strtolower( $column_name ) ] = true;
 		}
 
@@ -417,50 +432,29 @@ abstract class Ai1wm_Database {
 		if ( isset( $this->table_prefix_columns[ strtolower( $table_name ) ] ) ) {
 			return $this->table_prefix_columns[ strtolower( $table_name ) ];
 		}
-
-		return array();
 	}
 
 	/**
-	 * Set include table prefixes
+	 * Add table prefix filter
 	 *
-	 * @param  array  $prefixes List of table prefixes
+	 * @param  string $table_prefix   Table prefix
+	 * @param  string $exclude_prefix Exclude prefix
 	 * @return object
 	 */
-	public function set_include_table_prefixes( $prefixes ) {
-		$this->include_table_prefixes = $prefixes;
+
+	public function add_table_prefix_filter( $table_prefix, $exclude_prefix = null ) {
+		$this->table_prefix_filters[] = array( $table_prefix, $exclude_prefix );
 
 		return $this;
 	}
 
 	/**
-	 * Get include table prefixes
+	 * Get table prefix filter
 	 *
 	 * @return array
 	 */
-	public function get_include_table_prefixes() {
-		return $this->include_table_prefixes;
-	}
-
-	/**
-	 * Set exclude table prefixes
-	 *
-	 * @param  array  $prefixes List of table prefixes
-	 * @return object
-	 */
-	public function set_exclude_table_prefixes( $prefixes ) {
-		$this->exclude_table_prefixes = $prefixes;
-
-		return $this;
-	}
-
-	/**
-	 * Get exclude table prefixes
-	 *
-	 * @return array
-	 */
-	public function get_exclude_table_prefixes() {
-		return $this->exclude_table_prefixes;
+	public function get_table_prefix_filters() {
+		return $this->table_prefix_filters;
 	}
 
 	/**
@@ -595,17 +589,40 @@ abstract class Ai1wm_Database {
 	 * @return array
 	 */
 	protected function get_views() {
-		static $views = null;
+		if ( is_null( $this->views ) ) {
+			$where_query = array();
 
-		// Get views
-		if ( is_null( $views ) ) {
-			$views = array();
+			// Get lower case table names
+			$lower_case_table_names = $this->get_lower_case_table_names();
+
+			// Loop over table prefixes
+			if ( $this->get_table_prefix_filters() ) {
+				foreach ( $this->get_table_prefix_filters() as $prefix_filter ) {
+					if ( isset( $prefix_filter[0], $prefix_filter[1] ) ) {
+						if ( $lower_case_table_names ) {
+							$where_query[] = sprintf( "(`Tables_in_%s` REGEXP '^%s' AND `Tables_in_%s` NOT REGEXP '^%s')", $this->wpdb->dbname, $prefix_filter[0], $this->wpdb->dbname, $prefix_filter[1] );
+						} else {
+							$where_query[] = sprintf( "(CAST(`Tables_in_%s` AS BINARY) REGEXP BINARY '^%s' AND CAST(`Tables_in_%s` AS BINARY) NOT REGEXP BINARY '^%s')", $this->wpdb->dbname, $prefix_filter[0], $this->wpdb->dbname, $prefix_filter[1] );
+						}
+					} else {
+						if ( $lower_case_table_names ) {
+							$where_query[] = sprintf( "`Tables_in_%s` REGEXP '^%s'", $this->wpdb->dbname, $prefix_filter[0] );
+						} else {
+							$where_query[] = sprintf( "CAST(`Tables_in_%s` AS BINARY) REGEXP BINARY '^%s'", $this->wpdb->dbname, $prefix_filter[0] );
+						}
+					}
+				}
+			} else {
+				$where_query[] = 1;
+			}
+
+			$this->views = array();
 
 			// Loop over views
-			$result = $this->query( "SHOW FULL TABLES FROM `{$this->wpdb->dbname}` WHERE `Table_type` = 'VIEW'" );
+			$result = $this->query( sprintf( "SHOW FULL TABLES FROM `%s` WHERE `Table_type` = 'VIEW' AND (%s)", $this->wpdb->dbname, implode( ' OR ', $where_query ) ) );
 			while ( $row = $this->fetch_row( $result ) ) {
 				if ( isset( $row[0] ) ) {
-					$views[] = $row[0];
+					$this->views[] = $row[0];
 				}
 			}
 
@@ -613,7 +630,7 @@ abstract class Ai1wm_Database {
 			$this->free_result( $result );
 		}
 
-		return $views;
+		return $this->views;
 	}
 
 	/**
@@ -622,17 +639,40 @@ abstract class Ai1wm_Database {
 	 * @return array
 	 */
 	protected function get_base_tables() {
-		static $base_tables = null;
+		if ( is_null( $this->base_tables ) ) {
+			$where_query = array();
 
-		// Get base tables
-		if ( is_null( $base_tables ) ) {
-			$base_tables = array();
+			// Get lower case table names
+			$lower_case_table_names = $this->get_lower_case_table_names();
+
+			// Loop over table prefixes
+			if ( $this->get_table_prefix_filters() ) {
+				foreach ( $this->get_table_prefix_filters() as $prefix_filter ) {
+					if ( isset( $prefix_filter[0], $prefix_filter[1] ) ) {
+						if ( $lower_case_table_names ) {
+							$where_query[] = sprintf( "(`Tables_in_%s` REGEXP '^%s' AND `Tables_in_%s` NOT REGEXP '^%s')", $this->wpdb->dbname, $prefix_filter[0], $this->wpdb->dbname, $prefix_filter[1] );
+						} else {
+							$where_query[] = sprintf( "(CAST(`Tables_in_%s` AS BINARY) REGEXP BINARY '^%s' AND CAST(`Tables_in_%s` AS BINARY) NOT REGEXP BINARY '^%s')", $this->wpdb->dbname, $prefix_filter[0], $this->wpdb->dbname, $prefix_filter[1] );
+						}
+					} else {
+						if ( $lower_case_table_names ) {
+							$where_query[] = sprintf( "`Tables_in_%s` REGEXP '^%s'", $this->wpdb->dbname, $prefix_filter[0] );
+						} else {
+							$where_query[] = sprintf( "CAST(`Tables_in_%s` AS BINARY) REGEXP BINARY '^%s'", $this->wpdb->dbname, $prefix_filter[0] );
+						}
+					}
+				}
+			} else {
+				$where_query[] = 1;
+			}
+
+			$this->base_tables = array();
 
 			// Loop over base tables
-			$result = $this->query( "SHOW FULL TABLES FROM `{$this->wpdb->dbname}` WHERE `Table_type` = 'BASE TABLE'" );
+			$result = $this->query( sprintf( "SHOW FULL TABLES FROM `%s` WHERE `Table_type` = 'BASE TABLE' AND (%s)", $this->wpdb->dbname, implode( ' OR ', $where_query ) ) );
 			while ( $row = $this->fetch_row( $result ) ) {
 				if ( isset( $row[0] ) ) {
-					$base_tables[] = $row[0];
+					$this->base_tables[] = $row[0];
 				}
 			}
 
@@ -640,7 +680,19 @@ abstract class Ai1wm_Database {
 			$this->free_result( $result );
 		}
 
-		return $base_tables;
+		return $this->base_tables;
+	}
+
+	/**
+	 * Set tables
+	 *
+	 * @param  array  $tables List of tables
+	 * @return object
+	 */
+	public function set_tables( $tables ) {
+		$this->tables = $tables;
+
+		return $this;
 	}
 
 	/**
@@ -649,68 +701,11 @@ abstract class Ai1wm_Database {
 	 * @return array
 	 */
 	public function get_tables() {
-		$tables = array();
-
-		// Get lower case table names
-		$lower_case_table_names = $this->get_lower_case_table_names();
-
-		// Get base tables and views
-		foreach ( array_merge( $this->get_base_tables(), $this->get_views() ) as $table_name ) {
-
-			// Include table prefixes
-			if ( $this->get_include_table_prefixes() ) {
-				$include = false;
-
-				// Check table prefixes
-				foreach ( $this->get_include_table_prefixes() as $prefix ) {
-					if ( $lower_case_table_names ) {
-						if ( stripos( $table_name, $prefix ) === 0 ) {
-							$include = true;
-							break;
-						}
-					} else {
-						if ( strpos( $table_name, $prefix ) === 0 ) {
-							$include = true;
-							break;
-						}
-					}
-				}
-
-				// Skip current table
-				if ( $include === false ) {
-					continue;
-				}
-			}
-
-			// Exclude table prefixes
-			if ( $this->get_exclude_table_prefixes() ) {
-				$exclude = false;
-
-				// Check table prefixes
-				foreach ( $this->get_exclude_table_prefixes() as $prefix ) {
-					if ( $lower_case_table_names ) {
-						if ( stripos( $table_name, $prefix ) === 0 ) {
-							$exclude = true;
-							break;
-						}
-					} else {
-						if ( strpos( $table_name, $prefix ) === 0 ) {
-							$exclude = true;
-							break;
-						}
-					}
-				}
-
-				// Skip current table
-				if ( $exclude === true ) {
-					continue;
-				}
-			}
-
-			$tables[] = $table_name;
+		if ( is_null( $this->tables ) ) {
+			return array_merge( $this->get_base_tables(), $this->get_views() );
 		}
 
-		return $tables;
+		return $this->tables;
 	}
 
 	/**
@@ -733,7 +728,7 @@ abstract class Ai1wm_Database {
 		// Flag to hold if all tables have been processed
 		$completed = true;
 
-		// Set SQL Mode
+		// Set SQL mode
 		$this->query( "SET SESSION sql_mode = ''" );
 
 		// Get tables
@@ -851,29 +846,22 @@ abstract class Ai1wm_Database {
 
 							$table_keys = implode( ', ', $table_keys );
 
-							// Set table where clauses
-							$table_where = array( 1 );
-							foreach ( $this->get_table_where_clauses( $table_name ) as $clause ) {
-								$table_where[] = $clause;
+							// Set table where query
+							if ( ! ( $table_where = $this->get_table_where_query( $table_name ) ) ) {
+								$table_where = 1;
 							}
-
-							$table_where = implode( ' AND ', $table_where );
 
 							// Set query with offset and rows count
 							$query = sprintf( 'SELECT t1.* FROM `%s` AS t1 JOIN (SELECT %s FROM `%s` WHERE %s ORDER BY %s LIMIT %d, %d) AS t2 USING (%s)', $table_name, $table_keys, $table_name, $table_where, $table_keys, $table_offset, AI1WM_MAX_SELECT_RECORDS, $table_keys );
 
 						} else {
 
-							// Set table keys
 							$table_keys = 1;
 
-							// Set table where clauses
-							$table_where = array( 1 );
-							foreach ( $this->get_table_where_clauses( $table_name ) as $clause ) {
-								$table_where[] = $clause;
+							// Set table where query
+							if ( ! ( $table_where = $this->get_table_where_query( $table_name ) ) ) {
+								$table_where = 1;
 							}
-
-							$table_where = implode( ' AND ', $table_where );
 
 							// Set query with offset and rows count
 							$query = sprintf( 'SELECT * FROM `%s` WHERE %s ORDER BY %s LIMIT %d, %d', $table_name, $table_where, $table_keys, $table_offset, AI1WM_MAX_SELECT_RECORDS );
@@ -1054,30 +1042,42 @@ abstract class Ai1wm_Database {
 							if ( $this->errno() === 1226 ) {
 								if ( stripos( $this->error(), 'max_queries_per_hour' ) !== false ) {
 									throw new Ai1wm_Database_Exception(
-										'Your WordPress installation has reached the maximum allowed queries per hour set by your server admin or hosting provider. ' .
-										'To use All-in-One WP Migration, please increase MySQL max_queries_per_hour limit. ' .
-										'<a href="https://help.servmask.com/knowledgebase/mysql-error-codes/#max-queries-per-hour" target="_blank">Technical details</a>',
+										__(
+											'Your WordPress installation has reached the maximum allowed queries per hour set by your server admin or hosting provider. ' .
+											'To use All-in-One WP Migration, please increase MySQL max_queries_per_hour limit. ' .
+											'<a href="https://help.servmask.com/knowledgebase/mysql-error-codes/#max-queries-per-hour" target="_blank">Technical details</a>',
+											AI1WM_PLUGIN_NAME
+										),
 										503
 									);
 								} elseif ( stripos( $this->error(), 'max_updates_per_hour' ) !== false ) {
 									throw new Ai1wm_Database_Exception(
-										'Your WordPress installation has reached the maximum allowed updates per hour set by your server admin or hosting provider. ' .
-										'To use All-in-One WP Migration, please increase MySQL max_updates_per_hour limit. ' .
-										'<a href="https://help.servmask.com/knowledgebase/mysql-error-codes/#max-updates-per-hour" target="_blank">Technical details</a>',
+										__(
+											'Your WordPress installation has reached the maximum allowed updates per hour set by your server admin or hosting provider. ' .
+											'To use All-in-One WP Migration, please increase MySQL max_updates_per_hour limit. ' .
+											'<a href="https://help.servmask.com/knowledgebase/mysql-error-codes/#max-updates-per-hour" target="_blank">Technical details</a>',
+											AI1WM_PLUGIN_NAME
+										),
 										503
 									);
 								} elseif ( stripos( $this->error(), 'max_connections_per_hour' ) !== false ) {
 									throw new Ai1wm_Database_Exception(
-										'Your WordPress installation has reached the maximum allowed connections per hour set by your server admin or hosting provider. ' .
-										'To use All-in-One WP Migration, please increase MySQL max_connections_per_hour limit. ' .
-										'<a href="https://help.servmask.com/knowledgebase/mysql-error-codes/#max-connections-per-hour" target="_blank">Technical details</a>',
+										__(
+											'Your WordPress installation has reached the maximum allowed connections per hour set by your server admin or hosting provider. ' .
+											'To use All-in-One WP Migration, please increase MySQL max_connections_per_hour limit. ' .
+											'<a href="https://help.servmask.com/knowledgebase/mysql-error-codes/#max-connections-per-hour" target="_blank">Technical details</a>',
+											AI1WM_PLUGIN_NAME
+										),
 										503
 									);
 								} elseif ( stripos( $this->error(), 'max_user_connections' ) !== false ) {
 									throw new Ai1wm_Database_Exception(
-										'Your WordPress installation has reached the maximum allowed user connections set by your server admin or hosting provider. ' .
-										'To use All-in-One WP Migration, please increase MySQL max_user_connections limit. ' .
-										'<a href="https://help.servmask.com/knowledgebase/mysql-error-codes/#max-user-connections" target="_blank">Technical details</a>',
+										__(
+											'Your WordPress installation has reached the maximum allowed user connections set by your server admin or hosting provider. ' .
+											'To use All-in-One WP Migration, please increase MySQL max_user_connections limit. ' .
+											'<a href="https://help.servmask.com/knowledgebase/mysql-error-codes/#max-user-connections" target="_blank">Technical details</a>',
+											AI1WM_PLUGIN_NAME
+										),
 										503
 									);
 								}
