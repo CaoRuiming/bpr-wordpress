@@ -1,4 +1,9 @@
-<?php $pic_url = get_the_post_thumbnail_url(); ?>
+<?php 
+$pic_url = get_the_post_thumbnail_url(); 
+$pic_id = get_post_thumbnail_id();
+$pic_alt = get_post_meta($pic_id, '_wp_attachment_image_alt', true);
+$pic_title = get_the_title($pic_id);
+?>
 <article class="col-sm-4 post-block" itemscope itemtype="https://schema.org/Article">
   <a href="<?php echo esc_url(get_permalink()); ?>">
     <div class="img-30-wrapper">
@@ -8,13 +13,8 @@
         class="img-30"
         itemprop="image"
         style="background-image: url(<?php echo $pic_url; ?>), url(<?php echo $placeholder; ?>);">
+        <span role="img" aria-label="<?php echo $pic_alt; ?>"> </span>
       </div>
-      <!-- <div
-        id="dark"
-        class="img-30"
-        itemprop="image"
-        style="background-image: url(<?php echo $pic_url; ?>), url(<?php echo $placeholder_dark; ?>);">
-      </div> -->
     </div>
   </a>
 
