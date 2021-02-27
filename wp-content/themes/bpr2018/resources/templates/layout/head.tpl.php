@@ -35,6 +35,7 @@
               <form
                 id="header-search-light"
                 name="header-search"
+                role="search"
                 method="get"
                 action="<?php echo esc_url(home_url('/')); ?>"
               >
@@ -44,15 +45,17 @@
                   id="light"
                   class="header-search-box"
                   aria-label="search"
-                  type="text"
+                  type="search"
                   name="s"
                   placeholder="Search…"
+                  autocomplete="off"
                   style="background-image: url(<?php echo $search_icon_url ?>)"
                 >
               </form>
               <form
                 id="header-search-dark"
                 name="header-search"
+                role="search"
                 method="get"
                 action="<?php echo esc_url(home_url('/')); ?>"
               >
@@ -62,9 +65,10 @@
                   id="dark"
                   aria-label="search"
                   class="header-search-box"
-                  type="text"
+                  type="search"
                   name="s"
                   placeholder="Search…"
+                  autocomplete="off"
                   style="background-image: url(<?php echo $search_icon_url_dark ?>)"
                 >
               </form>
