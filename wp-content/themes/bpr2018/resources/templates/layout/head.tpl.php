@@ -78,7 +78,9 @@
             $instagram_icon_inverted_url = get_image_asset('instagram_icon_inverted.png')
             ?>
             <?php if (get_field('facebook_url', 'option')): ?>
-              <a href="<?php echo esc_url(get_field('facebook_url', 'option')); ?>">
+              <a
+                title="Facebook"
+                href="<?php echo esc_url(get_field('facebook_url', 'option')); ?>">
                 <div
                   id="light"
                   class="social-icon"
@@ -94,7 +96,9 @@
               </a>
             <?php endif; ?>
             <?php if (get_field('twitter_url', 'option')): ?>
-              <a href="<?php echo esc_url(get_field('twitter_url', 'option')); ?>">
+              <a
+                title="Twitter"
+                href="<?php echo esc_url(get_field('twitter_url', 'option')); ?>">
                 <div
                   id="light"
                   class="social-icon"
@@ -110,7 +114,9 @@
               </a>
             <?php endif; ?>
             <?php if (get_field('instagram_url', 'option')): ?>
-              <a href="<?php echo esc_url(get_field('instagram_url', 'option')); ?>">
+              <a
+                title="Instagram"
+                href="<?php echo esc_url(get_field('instagram_url', 'option')); ?>">
                 <div
                   id="light"
                   class="social-icon"
@@ -126,7 +132,10 @@
               </a>
             <?php endif; ?>
           </div>
-          <a class="navbar-brand" tabindex="0" href="<?= get_home_url(); ?>">
+          <a
+            title="Brown Political Review"
+            class="navbar-brand"
+            href="<?= get_home_url(); ?>">
             <div
               id="light"
               class="logo"
@@ -153,18 +162,6 @@
           ));
           ?>
         </div>
-        <?php
-          wp_nav_menu(array(
-            'theme_location'    => 'primary',
-            'depth'             => 2,
-            'container'         => 'div',
-            'container_class'   => 'collapse navbar-collapse',
-            'container_id'      => 'navbar-collapse',
-            'menu_class'        => 'nav navbar-nav',
-            'fallback_cb'       => 'WP_Bootstrap_Navwalker::fallback',
-            'walker'            => new WP_Bootstrap_Navwalker(),
-          ));
-          ?>
       </nav>
       <script>
         // Allows dropdown parent elements to be clickable links 
