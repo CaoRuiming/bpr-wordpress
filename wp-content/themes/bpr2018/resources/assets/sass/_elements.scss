@@ -107,6 +107,42 @@
   }
 }
 
+// alert banners, alert banner button
+.alert-banner{
+  position: relative;
+}
+
+//
+@media (prefers-color-scheme: dark) {
+  .alert-banner-close{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 0;
+    padding: 0;
+    border: none;
+    outline: none;
+    font: inherit;
+    color: $color-grey-darkmode;
+    background: none
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  .alert-banner-close{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 0;
+    padding: 0;
+    border: none;
+    outline: none;
+    font: inherit;
+    color: $color-grey-lightmode;
+    background: none
+  }
+}
+
 @media (prefers-color-scheme: dark) {
   #breadcrumbs {
     color: $color-grey-darkmode;
