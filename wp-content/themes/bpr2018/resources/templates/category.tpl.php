@@ -42,6 +42,9 @@ if (is_single()) {
             <?php
             $post = $recent->the_post();
             $pic_url = get_the_post_thumbnail_url();
+            $pic_id = get_post_thumbnail_id();
+            $pic_alt = get_post_meta($pic_id, '_wp_attachment_image_alt', true);
+            $pic_title = get_the_title($pic_id);
             ?>
             <div class="container-fluid">
               <div class="row">
@@ -51,6 +54,7 @@ if (is_single()) {
                       <div
                         class="img-40"
                         style="background-image: url(<?php echo $pic_url; ?>);">
+                        <span role="img" aria-label="<?php echo $pic_alt; ?>"> </span>
                       </div>
                     </a>
                   </div>

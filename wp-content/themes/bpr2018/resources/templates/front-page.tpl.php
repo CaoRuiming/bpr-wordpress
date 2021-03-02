@@ -24,6 +24,9 @@
               $id = $post->ID;
               $do_not_duplicate[] = $id;
               $pic_url = get_the_post_thumbnail_url($post);
+              $pic_id = get_post_thumbnail_id($post);
+              $pic_alt = get_post_meta($pic_id, '_wp_attachment_image_alt', true);
+              $pic_title = get_the_title($pic_id);
               ?>
               <article id="carousel-items" class="container-fluid featured-post">
                 <div class="row">
@@ -33,6 +36,7 @@
                       <div
                         class="img-40"
                         style="background-image: url(<?php echo $pic_url; ?>), url(<?php echo $placeholderLight; ?>);">
+                        <span role="img" aria-label="<?php echo $pic_alt; ?>"> </span>
                       </div>
                     </a>
                   </div>

@@ -1,4 +1,9 @@
-<?php $pic_url = get_the_post_thumbnail_url(); ?>
+<?php 
+$pic_url = get_the_post_thumbnail_url(); 
+$pic_id = get_post_thumbnail_id();
+$pic_alt = get_post_meta($pic_id, '_wp_attachment_image_alt', true);
+$pic_title = get_the_title($pic_id);
+?>
 <div class="horizontal-rule faint"></div>
 
 <!-- For desktop, laptop, and tablet view -->
@@ -47,6 +52,7 @@
           class="img-10"
           itemprop="image"
           style="background-image: url(<?php echo $pic_url; ?>), url(<?php echo $placeholder; ?>);">
+          <span role="img" aria-label="<?php echo $pic_alt; ?>"> </span>
         </div>
       </div>
     </a>
@@ -63,6 +69,7 @@
           class="img-10"
           itemprop="image"
           style="background-image: url(<?php echo $pic_url; ?>), url(<?php echo $placeholder; ?>);">
+          <span role="img" aria-label="<?php echo $pic_alt; ?>"> </span>
         </div>
       </div>
     </a>
