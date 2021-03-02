@@ -9,7 +9,7 @@
   <body <?php body_class(); ?>>
   <a id="skip-nav" class="sr-only" href="#top-of-content"> Skip Navigation </a> <!-- For screenreaders skipping nav -->
     <?php if (get_field('enable_alert', 'option')): ?>
-      <header style="background-color:<?php the_field('alert_background_color', 'option');?>">
+      <header>
         <!-- Alert Banner Scripts are written elsewhere -->
         <div class="alert-banner">
           <?php the_field('alert_message', 'option'); ?>
