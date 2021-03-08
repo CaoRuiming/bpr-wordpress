@@ -19,9 +19,11 @@ $pic_title = get_the_title($pic_id);
   </a>
 
   <div class="post-title-small">
-    <a itemprop="url" href="<?php echo esc_url(get_permalink()); ?>">
-      <span itemprop="headline"><?php the_title(); ?></span>
-    </a>
+    <div class="title-width-limiter">
+      <a itemprop="url" href="<?php echo esc_url(get_permalink()); ?>">
+        <span itemprop="headline"><?php the_title(); ?></span>
+      </a>
+    </div>
   </div>
 
   <div class="post-author post-date font-size-18">
