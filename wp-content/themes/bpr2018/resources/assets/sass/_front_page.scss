@@ -3,6 +3,9 @@
 
   .post-title-large { margin-bottom: $spacing-sm; }
   .post-title-small { margin: $spacing-xs 0 $spacing-xs 0; }
+
+  /* This limits the width of text in col-block.tpl.php so that text
+    does not go past the image it is associated with*/
   .title-width-limiter { width: 25vw; }
 
   #popular-articles {
