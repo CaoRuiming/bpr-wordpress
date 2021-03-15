@@ -27,7 +27,6 @@
   font-style: italic;
   font-weight: 700;
   font-size: 1.6em;
-  color: #9F9F9F;
   margin: 0 0 1.4em 0;
 
   &.left {
@@ -37,6 +36,14 @@
   &.right {
     text-align: right;
     @media (min-width: $width-xl) { margin: 0 -8vw 1.4em 8vw; }
+  }
+
+  @media (prefers-color-scheme: dark) {
+    color: #9F9F9F;
+  }
+  
+  @media (prefers-color-scheme: light) {
+    color: #727272;
   }
 }
 
@@ -121,17 +128,13 @@
   border: none;
   outline: none;
   font: inherit;
-  background: none
-}
+  background: none;
 
-@media (prefers-color-scheme: dark) {
-  .alert-banner-close{
+  @media (prefers-color-scheme: dark) {
     color: $color-grey-darkmode;
   }
-}
-
-@media (prefers-color-scheme: light) {
-  .alert-banner-close{
+  
+  @media (prefers-color-scheme: light) {
     color: $color-grey-lightmode;
   }
 }
