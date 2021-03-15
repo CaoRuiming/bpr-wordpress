@@ -19,7 +19,7 @@ $pic_title = get_the_title($pic_id);
   </a>
 
   <div class="post-title-small">
-    <div class="title-width-limiter">
+    <div class="img-35-wrapper">
       <a itemprop="url" href="<?php echo esc_url(get_permalink()); ?>">
         <span itemprop="headline"><?php the_title(); ?></span>
       </a>
