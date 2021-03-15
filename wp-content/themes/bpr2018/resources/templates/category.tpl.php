@@ -50,7 +50,7 @@ if (is_single()) {
               <div class="row">
                 <article class="row featured-post">
                   <div class="col-sm-6">
-                    <a href="<?php echo esc_url(get_permalink()); ?>" title="<?php echo get_the_title($id); ?>">
+                    <a href="<?php echo esc_url(get_permalink()); ?>" title="<?php echo htmlentities(get_the_title($id), ENT_QUOTES | ENT_SUBSTITUTE); ?>">
                       <div
                         class="img-40"
                         style="background-image: url(<?php echo $pic_url; ?>);">
