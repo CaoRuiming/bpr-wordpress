@@ -29,7 +29,7 @@
           <img
             class="featured-image"
             src="<?php echo $pic_url; ?>"
-            aria-label="<?php echo $pic_alt; ?>"
+            alt="<?php echo $pic_alt; ?>"
             onerror="this.style.display='none'"
           >
           <figcaption>

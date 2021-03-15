@@ -37,16 +37,12 @@
     text-align: right;
     @media (min-width: $width-xl) { margin: 0 -8vw 1.4em 8vw; }
   }
-}
 
-@media (prefers-color-scheme: dark) {
-  .pullquote {
+  @media (prefers-color-scheme: dark) {
     color: #9F9F9F;
   }
-}
-
-@media (prefers-color-scheme: light) {
-  .pullquote {
+  
+  @media (prefers-color-scheme: light) {
     color: #727272;
   }
 }
@@ -132,19 +128,16 @@
   border: none;
   outline: none;
   font: inherit;
-  background: none
-}
+  background: none;
 
-@media (prefers-color-scheme: dark) {
-  .alert-banner-close{
+  @media (prefers-color-scheme: dark) {
     color: $color-grey-darkmode;
   }
-}
-
-@media (prefers-color-scheme: light) {
-  .alert-banner-close{
+  
+  @media (prefers-color-scheme: light) {
     color: $color-grey-lightmode;
   }
+
 }
 
 @media (prefers-color-scheme: dark) {
