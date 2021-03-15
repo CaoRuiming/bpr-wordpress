@@ -47,29 +47,6 @@
             "toolbar": "basic",
             "media_upload": 0,
             "delay": 0
-        },
-        {
-            "key": "field_5eaa00ea08060",
-            "label": "Alert Background Color",
-            "name": "alert_background_color",
-            "type": "color_picker",
-            "instructions": "Set the background color of the alert banner. This defaults to white. Note that background color will not support dark mode!",
-            "required": 0,
-            "conditional_logic": [
-                [
-                    {
-                        "field": "field_5eaa016f08061",
-                        "operator": "==",
-                        "value": "1"
-                    }
-                ]
-            ],
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": ""
         }
     ],
     "location": [
@@ -87,7 +64,7 @@
     "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": "",
-    "active": 1,
+    "active": true,
     "description": "Alert banner that appears at the top of all pages of the website. Good for emergency announcements.",
-    "modified": 1588199903
+    "modified": 1614655213
 }
