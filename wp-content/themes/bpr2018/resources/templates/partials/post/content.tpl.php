@@ -21,12 +21,15 @@
 
       <?php 
       $pic_url = wp_get_attachment_url(get_post_thumbnail_id(get_the_ID()));
+      $pic_id = get_post_thumbnail_id();
+      $pic_alt = get_post_meta($pic_id, '_wp_attachment_image_alt', true);
       if ($pic_url):
       ?>
         <figure itemprop="image">
           <img
             class="featured-image"
             src="<?php echo $pic_url; ?>"
+            aria-label="<?php echo $pic_alt; ?>"
             onerror="this.style.display='none'"
           >
           <figcaption>
