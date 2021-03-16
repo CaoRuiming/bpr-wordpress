@@ -31,7 +31,7 @@
               <article id="carousel-items" class="container-fluid featured-post">
                 <div class="row">
                   <div class="col-sm-6">
-                    <a href="<?php echo esc_url(get_permalink($id)); ?>" title="<?php echo htmlentities(get_the_title($id), ENT_QUOTES | ENT_SUBSTITUTE); ?>">
+                    <a href="<?php echo esc_url(get_permalink($id)); ?>" title="<?php echo htmlentities(the_title(), ENT_QUOTES | ENT_SUBSTITUTE); ?>">
                       <?php $placeholderLight = get_image_asset('placeholder_dark.jpg'); ?>
                       <div
                         class="img-40"
