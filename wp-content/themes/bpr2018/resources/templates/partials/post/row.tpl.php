@@ -45,7 +45,7 @@ $pic_title = get_the_title($pic_id);
   </div>
 
   <div class="col-sm-3">
-    <a href="<?php echo esc_url(get_permalink()); ?>">
+    <a href="<?php echo esc_url(get_permalink()); ?>" title="<?php echo htmlentities(the_title(), ENT_QUOTES | ENT_SUBSTITUTE); ?>">
       <div class="img-10-wrapper">
         <?php $placeholder = get_image_asset('placeholder_dark.jpg'); ?>
         <div

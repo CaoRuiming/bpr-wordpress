@@ -26,8 +26,6 @@ $pic_title = get_the_title($pic_id);
 
   <?php if (!is_front_page()) the_category(); ?>
 
-  
-
   <div class="post-author post-date font-size-18">
     <span itemprop="author" hidden aria-hidden><?php the_author(); ?></span>
     <?php
