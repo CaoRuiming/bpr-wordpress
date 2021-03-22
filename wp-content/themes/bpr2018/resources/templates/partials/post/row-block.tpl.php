@@ -1,5 +1,5 @@
 <?php 
-$pic_url = get_the_post_thumbnail_url(); 
+$pic_url = get_the_post_thumbnail_url(get_the_ID(), 'medium_large', NULL); 
 $pic_id = get_post_thumbnail_id();
 $pic_alt = get_post_meta($pic_id, '_wp_attachment_image_alt', true);
 $pic_title = get_the_title($pic_id);
