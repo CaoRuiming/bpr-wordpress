@@ -48,7 +48,7 @@ function dropcap_shortcode_function($atts, $content=null) {
     return $content; // nothing special happens to dropcaps for now
 }
 function pullquote_shortcode_function($atts, $content=null) {
-    return '<div class="pullquote right">"'.$content.'"</div>';
+    return '<div class="pullquote right" role="presentation" aria-hidden="true">"'.$content.'"</div>';
 }
 
 // register custom footer nav menu position

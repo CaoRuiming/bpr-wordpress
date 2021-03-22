@@ -1,6 +1,7 @@
 <?php get_header(); ?>
 
 <div id="search-page" class="container-fluid">
+  <h1 class="sr-only">Search Results</h1>
   <div id="search-field" class="row">
     <?php
     $search_icon_url = get_template_directory_uri() . '/resources/assets/images/search-icon.png';

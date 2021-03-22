@@ -94,7 +94,6 @@ if (is_single()) {
           style="background-image: url(<?php echo get_image_asset('carousel-left.png'); ?>);"
           aria-controls="carousel"
           aria-label="previous-slide">
-          <label id="arrows">
         </div>
         <div
           class="carousel-arrow carousel-next"

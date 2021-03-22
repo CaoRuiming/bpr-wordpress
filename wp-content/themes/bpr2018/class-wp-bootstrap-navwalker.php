@@ -165,18 +165,20 @@ if ( ! class_exists( 'WP_Bootstrap_Navwalker' ) ) {
 			$id = apply_filters( 'nav_menu_item_id', 'menu-item-' . $item->ID, $item, $args, $depth );
 			$id = $id ? ' id="' . esc_attr( $id ) . '"' : '';
 
-			$output .= $indent . '<li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement"' . $id . $class_names . '>';
+			$output .= $indent . '<li role="menuitem" itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement"' . $id . $class_names . '>';
 
 			// initialize array for holding the $atts for the link item.
 			$atts = array();
 
-			// Set title from item to the $atts array - if title is empty then
-			// default to item title.
-			if ( empty( $item->attr_title ) ) {
-				$atts['title'] = ! empty( $item->title ) ? strip_tags( $item->title ) : '';
-			} else {
-				$atts['title'] = $item->attr_title;
-			}
+
+			// the following lines are commented out to prevent redundant titles
+			// // Set title from item to the $atts array - if title is empty then
+			// // default to item title.
+			// if ( empty( $item->attr_title ) ) {
+			// 	$atts['title'] = ! empty( $item->title ) ? strip_tags( $item->title ) : '';
+			// } else {
+			// 	$atts['title'] = $item->attr_title;
+			// }
 
 			$atts['target'] = ! empty( $item->target ) ? $item->target : '';
 			$atts['rel']    = ! empty( $item->xfn ) ? $item->xfn : '';
@@ -367,7 +369,7 @@ if ( ! class_exists( 'WP_Bootstrap_Navwalker' ) ) {
 				if ( $menu_class ) {
 					$fallback_output .= ' class="' . esc_attr( $menu_class ) . '"'; }
 				$fallback_output .= '>';
-				$fallback_output .= '<li><a href="' . esc_url( admin_url( 'nav-menus.php' ) ) . '" title="' . esc_attr__( 'Add a menu', 'wp-bootstrap-navwalker' ) . '">' . esc_html__( 'Add a menu', 'wp-bootstrap-navwalker' ) . '</a></li>';
+				$fallback_output .= '<li role="menuitem"><a href="' . esc_url( admin_url( 'nav-menus.php' ) ) . '">' . esc_html__( 'Add a menu', 'wp-bootstrap-navwalker' ) . '</a></li>';
 				$fallback_output .= '</ul>';
 				if ( $container ) {
 					$fallback_output .= '</' . esc_attr( $container ) . '>';
