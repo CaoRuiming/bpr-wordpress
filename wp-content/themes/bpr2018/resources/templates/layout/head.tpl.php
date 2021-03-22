@@ -33,43 +33,18 @@
           <div id="header-icons">
             <div id="header-search-wrapper">
               <form
-                id="header-search-light"
                 name="header-search"
                 role="search"
                 method="get"
                 action="<?php echo esc_url(home_url('/')); ?>"
               >
-                <?php $search_icon_url = get_image_asset('search-icon.png'); ?>
-                <?php $search_icon_url_dark = get_image_asset('search-icon-dark.png'); ?>
                 <input
-                  id="light"
                   class="header-search-box"
                   aria-label="search"
                   type="search"
-                  name="s"
+                  name="search"
                   placeholder="Search…"
                   autocomplete="off"
-                  style="background-image: url(<?php echo $search_icon_url ?>)"
-                >
-              </form>
-              <form
-                id="header-search-dark"
-                name="header-search"
-                role="search"
-                method="get"
-                action="<?php echo esc_url(home_url('/')); ?>"
-              >
-                <?php $search_icon_url = get_image_asset('search-icon.png'); ?>
-                <?php $search_icon_url_dark = get_image_asset('search-icon-dark.png'); ?>
-                <input
-                  id="dark"
-                  aria-label="search"
-                  class="header-search-box"
-                  type="search"
-                  name="s"
-                  placeholder="Search…"
-                  autocomplete="off"
-                  style="background-image: url(<?php echo $search_icon_url_dark ?>)"
                 >
               </form>
             </div>
