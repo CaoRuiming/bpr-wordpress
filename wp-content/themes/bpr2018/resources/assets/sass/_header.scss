@@ -80,24 +80,16 @@
         &:focus {
           width: 300px;
         }
-      }
 
-      @media (prefers-color-scheme: dark) {
-        #header-search-dark {
+        @media (prefers-color-scheme: dark) {
           color: $color-white;
-          input { background-color: $body-background-dark; }
+          background-image: url(../images/search-icon-dark.png);
+          background-color: $body-background-dark;
         }
-        #header-search-light {
-          display: none;
-        }
-      }
-
-      @media (prefers-color-scheme: light) {
-        #header-search-dark {
-          display: none;
+        @media (prefers-color-scheme: light) {
+          background-image: url(../images/search-icon.png);
         }
       }
-
     }
   }
 

@@ -23,7 +23,7 @@
               $post = get_post();
               $id = $post->ID;
               $do_not_duplicate[] = $id;
-              $pic_url = get_the_post_thumbnail_url($post);
+              $pic_url = get_the_post_thumbnail_url($post, 'large', NULL);
               $pic_id = get_post_thumbnail_id($post);
               $pic_alt = get_post_meta($pic_id, '_wp_attachment_image_alt', true);
               $pic_title = get_the_title($pic_id);

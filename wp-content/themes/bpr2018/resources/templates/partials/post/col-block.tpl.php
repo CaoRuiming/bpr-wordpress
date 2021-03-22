@@ -1,5 +1,5 @@
 <?php 
-$pic_url = get_the_post_thumbnail_url(); 
+$pic_url = get_the_post_thumbnail_url(get_the_ID(), 'medium_large', NULL); 
 $pic_id = get_post_thumbnail_id();
 $pic_alt = get_post_meta($pic_id, '_wp_attachment_image_alt', true);
 $pic_title = get_the_title($pic_id);
@@ -17,9 +17,12 @@ $pic_title = get_the_title($pic_id);
       </div>
     </div>
     <div class="post-title-small">
-      <span itemprop="headline"><?php the_title(); ?></span>
+      <div class="img-35-wrapper">
+        <span itemprop="headline"><?php the_title(); ?></span>
+      </div>
     </div>
   </a>
+
 
   <div class="post-author post-date font-size-18">
     <span itemprop="author" hidden aria-hidden><?php the_author(); ?></span>
