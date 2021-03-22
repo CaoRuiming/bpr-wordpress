@@ -17,15 +17,14 @@ $pic_title = get_the_title($pic_id);
           <span role="img" aria-label="<?php echo $pic_alt; ?>"> </span>
         </div>
       </div>
+      <div class="post-title-small">
+        <span itemprop="headline"><?php the_title(); ?></span>
+      </div>
     </a>
   </div>
 
   <div class="text col-sm-7">
-    <div class="post-title-small">
-      <a itemprop="url" href="<?php echo esc_url(get_permalink()); ?>">
-      <span itemprop="headline"><?php the_title(); ?></span>
-      </a>
-    </div>
+    
 
     <div class="post-author post-date font-size-18">
       <span itemprop="author" hidden aria-hidden><?php the_author(); ?></span>
