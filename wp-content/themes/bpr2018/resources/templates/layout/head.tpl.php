@@ -42,7 +42,7 @@
                   class="header-search-box"
                   aria-label="search"
                   type="search"
-                  name="search"
+                  name="s"
                   placeholder="Search…"
                   autocomplete="off"
                 >
