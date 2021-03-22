@@ -4,20 +4,6 @@
   .post-title-large { margin-bottom: $spacing-sm; }
   .post-title-small { margin: $spacing-xs 0 $spacing-xs 0; }
 
-<<<<<<< Updated upstream
-=======
-  /* This limits the width of text in col-block.tpl.php so that text
-    does not go past the image it is associated with*/
-  .title-width-limiter { 
-    @media screen and (min-width: $width-md) {
-      width: 25vw; 
-    }
-    @media screen and (min-width: $width-sm) and (max-width: $width-md) {
-      width: 50vw;
-    }
-  }
-
->>>>>>> Stashed changes
   #popular-articles {
     margin-bottom: $spacing-xs;
     .col-md-6 { overflow: hidden; }
