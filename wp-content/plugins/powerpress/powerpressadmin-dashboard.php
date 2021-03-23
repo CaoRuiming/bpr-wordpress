@@ -162,6 +162,10 @@ function powerpress_dashboard_stats_content()
     if( !empty($Settings['network_mode']) ) {
         $content = 'Network mode is enabled, please visit the <a href="https://stats.blubrry.com/" target="_blank">Blubrry.com</a> to see your statistics';
     }
+    //logged in but no program selected
+    else if (empty($Keyword) && ( $creds || $UserPass && time() > ($StatsCached['updated']+(60*60*3)) ) ) {
+        $content = "No program selected. Please visit the <a href=\"https://stats.blubrry.com/\" target=\"_blank\">Blubrry.com</a> to see your statistics";
+    }
     else if ($creds) {
         $success = false;
         $api_url_array = powerpress_get_api_array();

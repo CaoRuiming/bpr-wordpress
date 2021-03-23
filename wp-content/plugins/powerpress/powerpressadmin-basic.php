@@ -927,6 +927,10 @@ function powerpressadmin_edit_funding($FeedSettings = false, $feed_slug='podcast
 
     if( !isset($FeedSettings['location']) )
         $FeedSettings['location'] = '';
+    if( !isset($FeedSettings['pci_geo']) )
+        $FeedSettings['pci_geo'] = '';
+    if( !isset($FeedSettings['pci_osm']) )
+        $FeedSettings['pci_osm'] = '';
     if( !isset($FeedSettings['frequency']) )
         $FeedSettings['frequency'] = '';
     ?>
@@ -935,8 +939,18 @@ function powerpressadmin_edit_funding($FeedSettings = false, $feed_slug='podcast
     <div class="pp-settings-section">
         <h2><?php echo __('Location', 'powerpress'); ?></h2>
         <label for="Feed[location]" class="pp-settings-label"><?php echo __('Optional', 'powerpress'); ?></label>
-        <input class="pp-settings-text-input" type="text" name="Feed[location]" value="<?php echo esc_attr($FeedSettings['location']); ?>" maxlength="50" />
+        <input class="pp-settings-text-input" type="text" name="Feed[location]" oninput="powerpress_locationInput(event)" value="<?php echo esc_attr($FeedSettings['location']); ?>" maxlength="50" />
         <label for="Feed[location]" class="pp-settings-label-under"><?php echo __('e.g. Cleveland, Ohio', 'powerpress'); ?></label>
+        <div id="pp-location-details" class="pp-settings-subsection" <?php if (empty($FeedSettings['location'])) { echo "style=\"display: none;\""; } ?>>
+            <!-- Two text inputs for geo and osm, even listener on input for location so that pp-location-details appears when there is an input -->
+            <label for="Feed[pci_geo]" class="pp-settings-label"><?php echo __('Geo', 'powerpress'); ?></label>
+            <input class="pp-settings-text-input" type="text" name="Feed[pci_geo]" value="<?php echo esc_attr($FeedSettings['pci_geo']); ?>" maxlength="50" />
+            <label for="Feed[pci_geo]" class="pp-settings-label-under"><?php echo __('e.g. geo:-27.86159,153.3169', 'powerpress'); ?></label>
+            <br />
+            <label for="Feed[pci_osm]" class="pp-settings-label"><?php echo __('OSM', 'powerpress'); ?></label>
+            <input class="pp-settings-text-input" type="text" name="Feed[pci_osm]" value="<?php echo esc_attr($FeedSettings['pci_osm']); ?>" maxlength="50" />
+            <label for="Feed[pci_osm]" class="pp-settings-label-under"><?php echo __('e.g. W43678282', 'powerpress'); ?></label>
+        </div>
     </div>
     <div class="pp-settings-section">
         <h2><?php echo __('Episode Frequency', 'powerpress'); ?></h2>

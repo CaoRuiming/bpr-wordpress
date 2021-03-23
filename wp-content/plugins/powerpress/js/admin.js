@@ -23,6 +23,14 @@ jQuery(window).on("load", function(){
     return false;
 });
 
+function powerpress_toggle_lock_section(evt) {
+    if (evt.currentTarget.checked) {
+        jQuery('#pp-feed-lock-section').css('display', 'block');
+    } else {
+        jQuery('#pp-feed-lock-section').css('display', 'none');
+    }
+}
+
 function powerpress_openTab(evt, cityName) {
     // Declare all variables
     var tabcontent, tablinks;
@@ -474,6 +482,35 @@ function powerpress_insertArtIntoPreview(el) {
             filename = parts.pop();
         }
         caption_tag[0].innerHTML = filename;
+    }
+}
+
+//Display geo and osm settings if text is entered into the location setting
+function powerpress_locationInput(event){
+    let el = event.currentTarget;
+    let location_details = jQuery("#pp-location-details");
+    if (el.value.length == 0) {
+        location_details.removeAttr("style");
+        location_details.attr("style", "display: none");
+    } else if (el.value.length > 0) {
+        location_details.removeAttr("style");
+        location_details.attr("style", "display: block");
+    }
+}
+
+//Display inputs if users check a box to enable an episode-level podcast index setting
+function powerpress_epboxPCIToggle(el){
+    let id_array = el.id.split("_");
+    id_array[4] = id_array[3];
+    id_array[3] = "container";
+    let target_id = id_array.join("_");
+    let target_element = jQuery("#" + target_id);
+    if (el.checked) {
+        target_element.removeAttr("style");
+        target_element.attr("style", "display: block");
+    } else {
+        target_element.removeAttr("style");
+        target_element.attr("style", "display: none");
     }
 }
 

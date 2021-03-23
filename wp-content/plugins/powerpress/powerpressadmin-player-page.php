@@ -178,12 +178,12 @@ jQuery(document).ready(function($) {
             "&download-"+fontcolor2.substring(1)+"&downloadBackground-"+color2.substring(1)+"&subscribe-"+fontcolor3.substring(1)+"&subscribeBackground-"+color3.substring(1)+
             "&share-"+fontcolor4.substring(1)+"&shareBackground-"+color4.substring(1);
 
-            document.getElementById('player_iframe_div').innerHTML = '<iframe src="//player.blubrry.com?podcast_id=12559710' + addition + '" id="playeriframe" scrolling="no" width="100%" height="138px" frameborder="0"></iframe>';
-        }
+            document.getElementById('player_iframe_div').innerHTML = '<iframe src="https://player.blubrry.com?podcast_id=12559710' + addition + '" id="playeriframe" scrolling="no" width="100%" height="138px" frameborder="0"></iframe>';
+
     }
 
     function restoreDefaultColors(){
-        document.getElementById('player_iframe_div').innerHTML ='<iframe src="//player.blubrry.com?podcast_id=12559710" id="playeriframe" scrolling="no" width="100%" height="138px" frameborder="0"></iframe>';
+        document.getElementById('player_iframe_div').innerHTML ='<iframe src="https://player.blubrry.com?podcast_id=12559710" id="playeriframe" scrolling="no" width="100%" height="138px" frameborder="0"></iframe>';
 
         jQuery('input[name="BBPlayer[downloadbgcolor]"]').wpColorPicker('color',"#003366");
         jQuery('input[name="BBPlayer[downloadcolortext]"]').wpColorPicker('color',"#ffffff");
