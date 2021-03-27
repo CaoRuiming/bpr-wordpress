@@ -34,7 +34,7 @@
                     <a href="<?php echo esc_url(get_permalink($id)); ?>">
                       <?php $placeholderLight = get_image_asset('placeholder_dark.jpg'); ?>
                       <div
-                        class="img-40"
+                        class="img-40 lazy"
                         style="background-image: url(<?php echo $pic_url; ?>), url(<?php echo $placeholderLight; ?>);">
                         <span role="img" aria-label="<?php echo $pic_alt; ?>"> </span>
                       </div>

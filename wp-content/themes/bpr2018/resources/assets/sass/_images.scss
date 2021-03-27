@@ -18,6 +18,11 @@
   margin-left: $spacing-xs;
 }
 
+.lazy {
+  background-image: none !important;
+  background-color: #F1F1FA !important;
+}
+
 // Darkmode
 @media (prefers-color-scheme: light) {
   #dark { display: none; }

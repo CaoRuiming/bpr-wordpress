@@ -156,6 +156,7 @@
             }
           }
         });
+
         // On nav-icon click, displays animation and applies class open to all children.
         $(document).ready(function(){
           $('#nav-icon').click(function(){
@@ -169,6 +170,26 @@
               $(this).toggleClass("open");
             }
           })
+        });
+
+        // Lazy load images using Intersection Observer API
+        document.addEventListener("DOMContentLoaded", function() {
+          var lazyBackgrounds = [].slice.call(document.querySelectorAll(".lazy"));
+
+          if ("IntersectionObserver" in window) {
+            let lazyBackgroundObserver = new IntersectionObserver(function(entries, observer) {
+              entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                  entry.target.classList.remove("lazy");
+                  lazyBackgroundObserver.unobserve(entry.target);
+                }
+              });
+            });
+
+            lazyBackgrounds.forEach(function(lazyBackground) {
+              lazyBackgroundObserver.observe(lazyBackground);
+            });
+          }
         });
       </script>
 <div id="top-of-content" name="top-of-content"></div>

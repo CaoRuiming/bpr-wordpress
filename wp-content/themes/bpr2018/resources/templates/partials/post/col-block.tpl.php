@@ -10,7 +10,7 @@ $pic_title = get_the_title($pic_id);
     <?php $placeholder = get_image_asset('placeholder_dark.jpg'); ?>
       <?php $placeholder_dark = get_image_asset('placeholder_bright.jpg'); ?>
       <div
-        class="img-35"
+        class="img-35 lazy"
         itemprop="image"
         style="background-image: url(<?php echo $pic_url; ?>), url(<?php echo $placeholder; ?>);">
         <span role="img" aria-label="<?php echo $pic_alt; ?>"> </span>
