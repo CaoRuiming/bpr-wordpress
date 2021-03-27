@@ -1,11 +1,13 @@
 <?php get_header(); ?>
 
 <div id="author-page" class="container-fluid">
-  <div id="author-header" class="row">
+  <div id="author-header" class="row" style="display: flex; align-items: center">
     <div class="col-md-3 col-xs-12">
-      <div id="author-avatar-placeholder">
+      <?php $placeholder = get_image_asset('placeholder_dark.jpg'); ?>
+      <?php $placeholder_dark = get_image_asset('placeholder_bright.jpg'); ?>
+      <div id="author-avatar-placeholder" itemprop="image">
         <div id="author-avatar" style="background-image:
-          url(<?php echo nl2br(get_avatar_url(get_the_author_meta('user_email'), array("size" => 175))); ?>)">
+          url(<?php echo nl2br(get_avatar_url(get_the_author_meta('user_email'), array("size" => 175))); ?>), url(<?php echo $placeholder; ?>)">
         </div>
       </div>
     </div>
