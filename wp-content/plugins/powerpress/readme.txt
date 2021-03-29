@@ -3,8 +3,8 @@ Contributors: amandato, blubrry
 Tags: podcasting, podcast, podcaster, powerpress, itunes, apple, apple podcasts, google podcasts, google play, enclosure, professional, apple, apple tv, ipad, iphone, soundcloud, squarespace, youtube, viddler, ustream, podcasting, audio, video, rss2, feed, player, media, rss, mp3, music, embed, feedburner, statistics, stats, flv, flash, id3, episodes, blubrry, mp4, m4v, wordpressmu, mu, wordpress mu, multisite, multi site, mediacaster, post, plugin, posts, simple, social, dashboard, TSG, Buzzsprout, MTR, WP-boxCast, CastMyBlog, tgs podcasting,  simple podcasting, seriously simple podcasting, seriously-simple-podcasting, serious, seriously, ssp, podlove, podcast.de, clammr, clammr radio, audio player, stitcher, tunein, show, shows, series, docs, documentation, support, free, add-ons, extensions, addons, libsyn, libsyn-podcasting, podbean, podomatic, spreaker
 Requires at least: 3.6
 Requires PHP: 5.2
-Tested up to: 5.6
-Stable tag: 8.4.8
+Tested up to: 5.7
+Stable tag: 8.5.3
 Donate link: https://create.blubrry.com/resources/podcast-media-hosting/
 License: GPLv2 or later
 
@@ -185,6 +185,23 @@ If you are a fan of PowerPress, we would greatly appreciate it if you could take
 
 
 == Changelog ==
+
+= 8.5.3 =
+* Released 03/12/2021
+* Podcast Index namespace-related bugfix
+
+= 8.5.2 =
+* Released 03/12/2021
+* Podcast Index namespace-related bugfix
+
+= 8.5.1 =
+* Released 03/10/2021
+* Bugfix--added Podcast Index namespace
+
+= 8.5 =
+* Released 03/10/2021
+* Added settings for Podcast Index tags: locked, location, funding, transcript, chapters
+* Several small bug fixes
 
 = 8.4.8 =
 * Released 01/13/2021

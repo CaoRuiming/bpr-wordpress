@@ -151,6 +151,33 @@ function powerpress_metamarks_print_rss2($episode_data)
         }
         echo PHP_EOL;
     }
+    //If the user opted to use the podcast index soundbite tag, we need to print these as well
+    if (!empty($episode_data['pci_soundbites'])) {
+        foreach( $MetaRecords as $index => $MetaMark )
+        {
+            echo "\t\t";
+            echo '<podcast:soundbite';
+            if( !empty($MetaMark['position']) )
+                echo ' startTime="'. esc_attr($MetaMark['position']) .'"';
+            if( !empty($MetaMark['duration']) )
+                echo ' duration="'. esc_attr($MetaMark['duration']) .'"';
+
+            //For the node value, we'll first check the value, and if that's empty we'll check the link
+            $value = trim($MetaMark['value']);
+            if( !empty($value)) {
+                echo '>';
+                echo htmlspecialchars($value);
+                echo '</podcast:soundbite>';
+            } elseif (!empty($MetaMark['link'])) {
+                echo '>';
+                echo htmlspecialchars($MetaMark['link']);
+                echo '</podcast:soundbite>';
+            } else {
+                echo ' />';
+            }
+            echo PHP_EOL;
+        }
+    }
 }
 
 function powerpress_metamarks_get_types()

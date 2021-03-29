@@ -3,11 +3,11 @@
 Plugin Name: Blubrry PowerPress
 Plugin URI: http://create.blubrry.com/resources/powerpress/
 Description: <a href="https://create.blubrry.com/resources/powerpress/" target="_blank">Blubrry PowerPress</a> is the No. 1 Podcasting plugin for WordPress. Developed by podcasters for podcasters; features include Simple and Advanced modes, multiple audio/video player options, subscribe to podcast tools, podcast SEO features, and more! Fully supports Apple Podcasts (previously iTunes), Google Podcasts, Spotify, Stitcher, and Blubrry Podcasting directories, as well as all podcast applications and clients.
-Version: 8.4.8
+Version: 8.5.3
 Author: Blubrry
 Author URI: https://blubrry.com/
 Requires at least: 3.6
-Tested up to: 5.6
+Tested up to: 5.7
 Text Domain: powerpress
 Change Log:
 	Please see readme.txt for detailed change log.
@@ -36,7 +36,7 @@ if( !function_exists('add_action') ) {
 
 // WP_PLUGIN_DIR (REMEMBER TO USE THIS DEFINE IF NEEDED)
 
-define('POWERPRESS_VERSION', '8.4.8' );
+define('POWERPRESS_VERSION', '8.5' );
 
 // Translation support:
 if ( !defined('POWERPRESS_ABSPATH') )
@@ -502,6 +502,10 @@ function powerpress_rss2_ns()
 
 	// Okay, lets add the namespace
 	echo 'xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd"'.PHP_EOL;
+
+	// Add the Podcast Index namespace
+    echo 'xmlns:podcast="https://github.com/Podcastindex-org/podcast-namespace/blob/main/docs/1.0.md"'.PHP_EOL;
+
 	if( !defined('POWERPRESS_RAWVOICE_RSS') || POWERPRESS_RAWVOICE_RSS != false )
 	{
 		echo 'xmlns:rawvoice="http://www.rawvoice.com/rawvoiceRssModule/"'.PHP_EOL;
@@ -599,6 +603,23 @@ function powerpress_rss2_head()
 	// Websub!
 	if(!(defined('POWERPRESS_DISABLE_WEBSUB') && POWERPRESS_DISABLE_WEBSUB )) {
         echo "\t<atom:link rel=\"hub\" href=\"https://pubsubhubbub.appspot.com/\" />" . PHP_EOL;
+    }
+
+	// Podcast Index Locked Tag
+    if (!empty($Feed['pp_enable_feed_lock'])) {
+        $owner_email = '';
+        if ( !empty($Feed['owner_email']) ) {
+            $owner_email = $Feed['owner_email'];
+        } elseif( !empty($Feed['email']) ) {
+            $owner_email = $Feed['email'];
+        }
+        echo "\t<podcast:locked owner=\"" . esc_attr($owner_email) . "\">";
+        if (!empty($Feed['unlock_podcast'])) {
+            echo "no";
+        } else {
+            echo "yes";
+        }
+        echo "</podcast:locked>" . PHP_EOL;
     }
 
 	// add the itunes:new-feed-url tag to feed
@@ -837,13 +858,23 @@ function powerpress_rss2_head()
 	{
 		if( !empty($Feed['parental_rating']) )
 			echo "\t<rawvoice:rating>". $Feed['parental_rating'] ."</rawvoice:rating>".PHP_EOL;
-		if( !empty($Feed['location']) )
-			echo "\t<rawvoice:location>". htmlspecialchars($Feed['location']) ."</rawvoice:location>".PHP_EOL;
+		if( !empty($Feed['location']) ) {
+            echo "\t<rawvoice:location>" . htmlspecialchars($Feed['location']) . "</rawvoice:location>" . PHP_EOL;
+            echo "\t<podcast:location";
+            if( !empty($Feed['pci_geo']) ) {
+                echo " geo=\"" . htmlspecialchars($Feed['pci_geo']) . "\"";
+            }
+            if( !empty($Feed['pci_osm']) ) {
+                echo " osm=\"" . htmlspecialchars($Feed['pci_osm']) . "\"";
+            }
+            echo ">" . htmlspecialchars($Feed['location']) . "</podcast:location>" . PHP_EOL;
+        }
 		if( !empty($Feed['frequency']) )
 			echo "\t<rawvoice:frequency>". htmlspecialchars($Feed['frequency']) ."</rawvoice:frequency>".PHP_EOL;
-		if( !empty($Feed['donate_link']) && !empty($Feed['donate_url']) )
-			echo "\t<rawvoice:donate href=\"". htmlspecialchars( $Feed['donate_url'] ) ."\">". htmlspecialchars( (empty($Feed['donate_label'])?'':$Feed['donate_label']) ) ."</rawvoice:donate>".PHP_EOL;
-
+		if( !empty($Feed['donate_link']) && !empty($Feed['donate_url']) ) {
+            echo "\t<rawvoice:donate href=\"" . htmlspecialchars($Feed['donate_url']) . "\">" . htmlspecialchars((empty($Feed['donate_label']) ? '' : $Feed['donate_label'])) . "</rawvoice:donate>" . PHP_EOL;
+            echo "\t<podcast:funding url=\"" . htmlspecialchars($Feed['donate_url']) . "\">" . htmlspecialchars((empty($Feed['donate_label']) ? '' : $Feed['donate_label'])) . "</podcast:funding>" . PHP_EOL;
+        }
 		if( !empty($Feed['itunes_url']) || !empty($Feed['blubrry_url']) || !empty($Feed['stitcher_url']) || !empty($Feed['tunein_url']) || !empty($Feed['spotify_url']) ) {
 			echo "\t<rawvoice:subscribe feed=\"";
 			self_link();
@@ -1056,6 +1087,20 @@ function powerpress_rss2_item()
 		if( isset( $EpisodeData['order'] ) && is_numeric( $EpisodeData['order'] ) )
 			echo "\t\t<itunes:order>". $EpisodeData['order'] ."</itunes:order>".PHP_EOL;
 	}
+
+	// Podcast index tags:
+    if (!empty($EpisodeData['pci_transcript']) && !empty($EpisodeData['pci_transcript_url'])) {
+        echo "\t\t<podcast:transcript url=\"" . $EpisodeData['pci_transcript_url'] . "\"";
+        $transcript_type = powerpress_get_contenttype($EpisodeData['pci_transcript_url']);
+        if (!empty($transcript_type)) {
+            echo " type=\"" . $transcript_type . "\" />".PHP_EOL;
+        } else {
+            echo " type=\"text/plain\" />".PHP_EOL;
+        }
+    }
+    if (!empty($EpisodeData['pci_chapters']) && !empty($EpisodeData['pci_chapters_url'])) {
+        echo "\t\t<podcast:chapters url=\"" . $EpisodeData['pci_chapters_url'] . "\" type=\"application/json+chapters\" />".PHP_EOL;
+    }
 
 	// Google Play tags:
 	if( empty($powerpress_feed['feed_maximizer_on']) ) { // These tags for the most part replicate what is in the itunes tags, so lets not include them when we want to maximize the feed
@@ -1941,6 +1986,8 @@ function powerpress_load_general_feed_settings()
 					$powerpress_feed['podcast_embed_in_feed'] = true;
 				if( !empty($Feed['maximize_feed']) )
 					$powerpress_feed['maximize_feed'] = true;
+                if( !empty($Feed['unlock_podcast']) )
+                    $powerpress_feed['unlock_podcast'] = true;
 				if( !empty($Feed['episode_itunes_image']) && !empty($Feed['itunes_image']) )
 					$powerpress_feed['itunes_image'] = $Feed['itunes_image'];
 				return;
@@ -2002,6 +2049,8 @@ function powerpress_load_general_feed_settings()
 							$powerpress_feed['podcast_embed_in_feed'] = true;
 						if( !empty($Feed['maximize_feed']) )
 							$powerpress_feed['maximize_feed'] = true;
+                        if( !empty($Feed['unlock_podcast']) )
+                            $powerpress_feed['unlock_podcast'] = true;
 						if( !empty($Feed['episode_itunes_image']) && !empty($Feed['itunes_image']) )
 							$powerpress_feed['itunes_image'] = $Feed['itunes_image'];
 						return;
@@ -2078,6 +2127,8 @@ function powerpress_load_general_feed_settings()
 						$powerpress_feed['podcast_embed_in_feed'] = true;
 					if( !empty($Feed['maximize_feed']) )
 						$powerpress_feed['maximize_feed'] = true;
+                    if( !empty($Feed['unlock_podcast']) )
+                        $powerpress_feed['unlock_podcast'] = true;
 					if( !empty($Feed['episode_itunes_image']) && !empty($Feed['itunes_image']) )
 						$powerpress_feed['itunes_image'] = $Feed['itunes_image'];
 					return;
@@ -2592,6 +2643,14 @@ function powerpress_get_contenttype($file, $use_wp_check_filetype = true)
 			// Most recently added by Apple:
 			case 'epub':
 				return 'document/x-epub';
+
+			// Content type for transcript files
+            case 'srt':
+                return 'application/srt';
+            case 'json':
+                return 'application/json';
+            case 'html':
+                return 'text/html';
 
 			default: // Let it fall through
 		}
@@ -3881,8 +3940,7 @@ function powerpress_get_api_array()
 	else
 	{
 		$return[] = 'https://api.blubrry.com/'; // Use secure URL first when possible
-		$return[] = 'http://api.blubrry.net/';
-		$return[] = 'http://api.blubrry.com/';
+		$return[] = 'https://api.blubrry.net/';
 	}
 
 	return $return;

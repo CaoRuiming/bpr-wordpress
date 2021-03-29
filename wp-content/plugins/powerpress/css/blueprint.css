@@ -6,9 +6,6 @@
 html {
   box-sizing: border-box; }
 
-*, *::before, *::after {
-  box-sizing: inherit; }
-
 [bp~='container'] {
   width: 100%;
   margin: 0 auto;

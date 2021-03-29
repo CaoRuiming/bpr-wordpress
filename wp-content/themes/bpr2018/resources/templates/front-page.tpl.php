@@ -2,7 +2,7 @@
 
 <div id="front-page" class="container-fluid">
   <section id="popular-articles" aria-roledescription="carousel">
-    <h2 class="section-title header-font">Popular Articles</h2>
+    <h1 class="section-title header-font">Popular Articles</h1>
     <div class="carousel-wrapper row">
       <div class="carousel">
         <?php
@@ -23,7 +23,7 @@
               $post = get_post();
               $id = $post->ID;
               $do_not_duplicate[] = $id;
-              $pic_url = get_the_post_thumbnail_url($post);
+              $pic_url = get_the_post_thumbnail_url($post, 'large', NULL);
               $pic_id = get_post_thumbnail_id($post);
               $pic_alt = get_post_meta($pic_id, '_wp_attachment_image_alt', true);
               $pic_title = get_the_title($pic_id);
@@ -31,7 +31,7 @@
               <article id="carousel-items" class="container-fluid featured-post">
                 <div class="row">
                   <div class="col-sm-6">
-                    <a href="<?php echo esc_url(get_permalink($id)); ?>">
+                    <a href="<?php echo esc_url(get_permalink($id)); ?>" title="<?php echo htmlentities(the_title(), ENT_QUOTES | ENT_SUBSTITUTE); ?>">
                       <?php $placeholderLight = get_image_asset('placeholder_dark.jpg'); ?>
                       <div
                         class="img-40"
@@ -106,9 +106,9 @@
 
     <div class="horizontal-rule"></div>
 
-    <h2 class="section-title header-font">
+    <h1 class="section-title header-font">
       <?php echo $category_object->name; ?>
-    </h2>
+    </h1>
 
     <div class="row">
       <?php 
@@ -137,9 +137,9 @@
 
     <div class="horizontal-rule"></div>
 
-    <h2 class="section-title header-font">
+    <h1 class="section-title header-font">
       <?php echo $category_object->name; ?>
-    </h2>
+    </h1>
 
     <div class="row">
       <?php 
@@ -168,9 +168,9 @@
 
     <div class="horizontal-rule"></div>
 
-    <h2 class="section-title header-font">
+    <h1 class="section-title header-font">
       <?php echo $category_object->name; ?>
-    </h2>
+    </h1>
 
     <div class="row">
       <?php 
@@ -200,9 +200,9 @@
 
       <div class="horizontal-rule"></div>
 
-      <h2 class="section-title header-font">
+      <h1 class="section-title header-font">
         <?php echo $category_object->name; ?>
-      </h2>
+      </h1>
 
       <?php 
       $recent  = new WP_Query(array(
@@ -228,9 +228,9 @@
 
       <div class="horizontal-rule"></div>
 
-      <h2 class="section-title header-font">
+      <h1 class="section-title header-font">
         <?php echo $category_object->name; ?>
-      </h2>
+      </h1>
 
       <?php 
       $recent  = new WP_Query(array(
@@ -259,9 +259,9 @@
 
       <div class="horizontal-rule"></div>
 
-      <h2 class="section-title header-font">
+      <h1 class="section-title header-font">
         <?php echo $category_object->name; ?>
-      </h2>
+      </h1>
 
       <?php 
       $recent  = new WP_Query(array(
@@ -288,9 +288,9 @@
 
       <div class="horizontal-rule"></div>
 
-      <h2 class="section-title header-font">
+      <h1 class="section-title header-font">
         <?php echo $category_object->name; ?>
-      </h2>
+      </h1>
 
       <?php 
       $recent  = new WP_Query(array(

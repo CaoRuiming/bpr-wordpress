@@ -49,7 +49,7 @@ function powerpress_epbox_main_tab($General) {
 
             </div>
 
-            <p class="pp-ep-box-settings-text" style="margin-top: 3ch;"><input id="episode_box_cover_image" class="ep-box-checkbox" name="General[new_episode_box_cover_image]" type="checkbox" value="1"<?php if( !isset($General['new_episode_box_cover_image']) || $General['new_episode_box_cover_image'] == 1 ) echo ' checked'; ?> /> <?php echo __('Poster Image', 'powerpress'); ?>
+            <p class="pp-ep-box-settings-text" style="margin-top: 3ch;"><input id="episode_box_cover_image" class="ep-box-checkbox" name="General[new_episode_box_cover_image]" type="checkbox" value="1"<?php if( !isset($General['new_episode_box_cover_image']) || $General['new_episode_box_cover_image'] == 1 ) echo ' checked'; ?> /> <?php echo __('Thumbnail Image', 'powerpress'); ?>
                 (<?php echo __('Specify URL to poster artwork specific to each episode', 'powerpress'); ?>)</p>
 
             <p class="pp-ep-box-settings-text" style="margin-top: 3ch;"><input id="episode_box_player_size" class="ep-box-checkbox" name="General[new_episode_box_player_size]" type="checkbox" value="1"<?php if( !isset($General['new_episode_box_player_size']) || $General['new_episode_box_player_size'] == 1 ) echo ' checked'; ?> /> <?php echo __('Player Width and Height', 'powerpress'); ?>
@@ -160,7 +160,14 @@ function powerpress_epbox_advanced_tab($General) {
     ?>
     <h4 class="pp-section-title-block"><?php echo __('Advanced Options', 'powerpress'); ?></h4>
     <br />
+    <div class="pp-section-container" style="margin: 3em 0 0 2em;">
+        <p class="pp-ep-box-text"><b><?php echo __('Podcast Index Episode Settings', 'powerpress'); ?></b></p>
+        <div class="ep-box-line-margin-bold" style="width: 100%;"></div>
 
+        <p class="pp-ep-box-settings-text" style="margin: 0;"><label><input type="checkbox" class="ep-box-checkbox" name="General[new_episode_box_pci]" value="1" <?php if( !isset($General['new_episode_box_pci']) || $General['new_episode_box_pci'] == 1 ) echo ' checked'; ?>/> <?php echo __('Enable Podcast Index Settings', 'powerpress'); ?></label></p>
+        <p class="pp-ep-box-settings-text" style="margin: 0 0 0 3em;"><em><?php echo __('Check this box if you wish to add transcripts, chapters, and/or soundbites to your episodes using the new Podcast Index tags.', 'powerpress'); ?></em></p>
+
+    </div>
     <div class="pp-section-container" style="margin: 3em 0 0 2em;">
         <p class="pp-ep-box-text"><b><?php echo __('Episode Box Appearance', 'powerpress'); ?></b></p>
         <div class="ep-box-line-margin-bold" style="width: 100%;"></div>

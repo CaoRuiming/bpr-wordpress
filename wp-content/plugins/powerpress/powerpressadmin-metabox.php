@@ -557,7 +557,7 @@ function artwork_tab($FeedSlug, $ExtraData, $object, $CoverImage, $GeneralSettin
         } else {
             $CoverImage_preview = $CoverImage;
         }
-        if (isset($GeneralSettings['new_episode_box_itunes_image']) && $GeneralSettings['new_episode_box_itunes_image'] == 2 && isset($GeneralSettings['new_episode_box_cover_image']) && $GeneralSettings['new_episode_box_cover_image']) {
+        if (isset($GeneralSettings['new_episode_box_itunes_image']) && $GeneralSettings['new_episode_box_itunes_image'] == 2 && isset($GeneralSettings['new_episode_box_cover_image']) && $GeneralSettings['new_episode_box_cover_image'] == 2) {
             echo "<p class='pp-ep-box-text'>" . __('No artwork settings enabled', 'powerpress') . "</p></div>";
             return;
         }
@@ -712,7 +712,7 @@ function display_tab($FeedSlug, $IsVideo, $NoPlayer, $NoLinks, $Width, $Height, 
     <?php
 }
 
-function notes_tab($FeedSlug, $object, $GeneralSettings)
+function notes_tab($FeedSlug, $object, $GeneralSettings, $PCITranscript, $PCITranscriptURL, $PCIChapters, $PCIChaptersURL, $PCISoundbites)
 {
     ?>
 
@@ -801,6 +801,57 @@ function notes_tab($FeedSlug, $object, $GeneralSettings)
                 </div>
             </div>
         </div>
+        <br />
+        <?php if( !isset($GeneralSettings['new_episode_box_pci']) || $GeneralSettings['new_episode_box_pci'] == 1) { ?>
+        <div class="pp-section-container">
+            <h4 class="pp-section-title-block"> <?php echo esc_html(__('Podcast Index Settings', 'powerpress')); ?> </h4>
+                <p style="font-size: 14px;" class="pp-ep-box-text">
+                    <input id="powerpress_pci_transcript_<?php echo $FeedSlug; ?>" title="<?php echo esc_attr(__("Add a transcript","powerpress")); ?>"
+                                                      class="ep-box-checkbox" onclick="powerpress_epboxPCIToggle(this);"
+                                                      name="Powerpress[<?php echo $FeedSlug; ?>][pci_transcript]" value="1"
+                                                      type="checkbox" <?php echo($PCITranscript == 1 ? 'checked' : ''); ?> />
+                    <?php echo esc_html(__('Add a transcript', 'powerpress')); ?>
+                </p>
+                <div class="powerpress_row" id="powerpress_pci_transcript_container_<?php echo $FeedSlug; ?>" <?php if (empty($PCITranscript)) { echo "style=\"display: none;\""; } ?>>
+                    <div class="powerpress_row_content">
+                        <input type="text" id="powerpress_transcript_url_<?php echo $FeedSlug; ?>" title="<?php echo esc_attr(__("URL to transcript file","powerpress")); ?>"
+                               class="pp-ep-box-input"
+                               name="Powerpress[<?php echo $FeedSlug; ?>][pci_transcript_url]"
+                               value="<?php echo esc_attr($PCITranscriptURL); ?>"
+                               placeholder="<?php echo esc_attr(__('URL to transcript file', 'powerpress')); ?>"
+                               style="width: 96%; margin: 1em 4% 0 0;"/>
+                        <label class="pp-ep-box-label-under"><?php echo esc_html(__("Can be added later by editing this post", 'powerpress')); ?></label>
+                    </div>
+                </div>
+                <p style="font-size: 14px;" class="pp-ep-box-text">
+                    <input id="powerpress_pci_chapters_<?php echo $FeedSlug; ?>" title="<?php echo esc_attr(__("Add chapters","powerpress")); ?>"
+                           class="ep-box-checkbox" onclick="powerpress_epboxPCIToggle(this);"
+                           name="Powerpress[<?php echo $FeedSlug; ?>][pci_chapters]" value="1"
+                           type="checkbox" <?php echo($PCIChapters == 1 ? 'checked' : ''); ?> />
+                    <?php echo esc_html(__('Add chapters', 'powerpress')); ?>
+                </p>
+                <div class="powerpress_row" id="powerpress_pci_chapters_container_<?php echo $FeedSlug; ?>" <?php if (empty($PCIChapters)) { echo "style=\"display: none;\""; } ?>>
+                    <div class="powerpress_row_content">
+                        <input type="text" id="powerpress_chapters_url_<?php echo $FeedSlug; ?>" title="<?php echo esc_attr(__("URL to chapters file","powerpress")); ?>"
+                               class="pp-ep-box-input"
+                               name="Powerpress[<?php echo $FeedSlug; ?>][pci_chapters_url]"
+                               value="<?php echo esc_attr($PCIChaptersURL); ?>"
+                               placeholder="<?php echo esc_attr(__('URL to chapters file', 'powerpress')); ?>"
+                               style="width: 96%; margin: 1em 4% 0 0;"/>
+                        <label class="pp-ep-box-label-under"><?php echo esc_html(__("Must be the format application/json+chapters", 'powerpress')); ?></label>
+                    </div>
+                </div>
+                <!-- May be added in a future release; developed by accident
+                <p style="font-size: 14px;" class="pp-ep-box-text">
+                    <input id="powerpress_pci_soundbites_<?php echo $FeedSlug; ?>" title="<?php echo esc_attr(__("Print metamarks to feed as soundbite tags","powerpress")); ?>"
+                           class="ep-box-checkbox"
+                           name="Powerpress[<?php echo $FeedSlug; ?>][pci_soundbites]" value="1"
+                           type="checkbox" <?php echo($PCISoundbites == 1 ? 'checked' : ''); ?> />
+                    <?php echo esc_html(__('Print metamarks to feed as soundbite tags', 'powerpress')); ?>
+                </p>-->
+            <br/>
+        </div>
+        <?php } ?>
     </div>
 
     <?php

@@ -738,8 +738,8 @@ function powerpressplayer_mediaobjects($type, $content, $media_url, $EpisodeData
 	if( !empty($post_title) ) {
 		$addhtml .= '<meta itemprop="name" content="'.  htmlspecialchars($post_title) .'" />'.PHP_EOL_WEB;
 	}
-	
-	$addhtml .= '<meta itemprop="uploadDate" content="'. get_the_date('c') .'" />'.PHP_EOL_WEB;
+
+    $addhtml .= '<meta itemprop="uploadDate" content="'. esc_attr( get_the_date('c') ) .'" />'.PHP_EOL_WEB;
 	$addhtml .= '<meta itemprop="encodingFormat" content="'. powerpress_get_contenttype($media_url) .'" />'.PHP_EOL_WEB;
 	if( !empty($EpisodeData['duration']) ) {
 		$addhtml .= '<meta itemprop="duration" content="'. powerpress_iso8601_duration($EpisodeData['duration']) .'" />'.PHP_EOL_WEB; // http://en.wikipedia.org/wiki/ISO_8601#Durations

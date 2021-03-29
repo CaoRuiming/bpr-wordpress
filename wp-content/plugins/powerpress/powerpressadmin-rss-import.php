@@ -1220,7 +1220,15 @@ jQuery(document).ready( function() {
 				$ttid = '';
 			}; break;
 		}
-		
+
+		// Need to check for podcast:locked tag before importing anything
+		if (preg_match_all('/<podcast:locked\s*owner=["\'](.*)["\']\s*>([\s\S]*)<\/podcast:locked>/', $this->m_content, $matches)) {
+            if (strpos($matches[2][0], 'yes') !== false) {
+                echo '<p>Failed to import: podcast feed is locked.</p>';
+                return;
+            }
+        }
+
 		// First import program info...
 		if( preg_match('/^(.*)<item>/is', $this->m_content, $matches) )
 		{

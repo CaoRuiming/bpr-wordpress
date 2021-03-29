@@ -45,6 +45,11 @@ function powerpress_meta_box($object, $box)
     $iTunesCC = false;
     $iTunesOrder = false;
     $FeedAlways = false;
+    $PCITranscript = false;
+    $PCITranscriptURL = '';
+    $PCIChapters = false;
+    $PCIChaptersURL = '';
+    $PCISoundbites = false;
     $iTunesBlock = false;
     $NoPlayer = false;
     $NoLinks = false;
@@ -55,8 +60,6 @@ function powerpress_meta_box($object, $box)
     $FeedTitle = '';
     $PodcastCategory = '';
     $GeneralSettings = get_option('powerpress_general');
-    $FeedSettings = get_option('powerpress_feed');
-    $canSetSeason = $FeedSettings['itunes_type'] == 'serial' ? true : false;
     if (!isset($GeneralSettings['set_size']))
         $GeneralSettings['set_size'] = 0;
     if (!isset($GeneralSettings['set_duration']))
@@ -143,6 +146,16 @@ function powerpress_meta_box($object, $box)
                     $FeedTitle = $ExtraData['feed_title'];
                 if (!isset($ExtraData['itunes_image']))
                     $ExtraData['itunes_image'] = "";
+                if (isset($ExtraData['pci_transcript']))
+                    $PCITranscript = $ExtraData['pci_transcript'];
+                if (isset($ExtraData['pci_transcript_url']))
+                    $PCITranscriptURL = $ExtraData['pci_transcript_url'];
+                if (isset($ExtraData['pci_chapters']))
+                    $PCIChapters = $ExtraData['pci_chapters'];
+                if (isset($ExtraData['pci_chapters_url']))
+                    $PCIChaptersURL = $ExtraData['pci_chapters_url'];
+                if (isset($ExtraData['pci_soundbites']))
+                    $PCISoundbites = $ExtraData['pci_soundbites'];
             }
         }
 
@@ -212,7 +225,7 @@ function powerpress_meta_box($object, $box)
     seo_tab($FeedSlug, $ExtraData, $iTunesExplicit, $seo_feed_title, $GeneralSettings, $iTunesSubtitle, $iTunesSummary, $iTunesAuthor, $iTunesOrder, $iTunesBlock, $object);
     artwork_tab($FeedSlug, $ExtraData, $object, $CoverImage, $GeneralSettings);
     display_tab($FeedSlug, $IsVideo, $NoPlayer, $NoLinks, $Width, $Height, $Embed, $GeneralSettings);
-    notes_tab($FeedSlug, $object, $GeneralSettings);
+    notes_tab($FeedSlug, $object, $GeneralSettings, $PCITranscript, $PCITranscriptURL, $PCIChapters, $PCIChaptersURL, $PCISoundbites);
     echo "</div>";
     echo "</div>";
     if ($EnclosureURL) {

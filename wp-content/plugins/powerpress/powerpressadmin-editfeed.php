@@ -632,6 +632,8 @@ function powerpressadmin_edit_feed_settings($FeedSettings, $General, $FeedAttrib
 		$FeedSettings['title'] = '';
 	if( !isset($FeedSettings['rss_language']) )
 		$FeedSettings['rss_language'] = '';
+    if( !isset($FeedSettings['owner_email']) )
+        $FeedSettings['owner_email'] = '';
 		
 	$feed_link = '';
 	switch( $FeedAttribs['type'])
@@ -734,6 +736,36 @@ else
     <label for="Feed[posts_per_rss]" class="pp-settings-label-under">
         <?php echo sprintf(__('episodes / posts per feed (site default: %d, maximum: %d)', 'powerpress'), get_option('posts_per_rss'), 300); ?>
     </label>
+</div>
+
+    <div class="pp-settings-section">
+        <h2><?php echo __('Feed Lock', 'powerpress'); ?><br /></h2>
+        <input type="checkbox" onclick="powerpress_toggle_lock_section(event)" class="pp-settings-checkbox" name="Feed[pp_enable_feed_lock]" value="1" <?php echo ( !empty($FeedSettings['pp_enable_feed_lock']) || empty($FeedSettings['email']) ?'checked ':''); ?>/>
+        <div class="pp-settings-subsection" style="border: none;">
+            <p class="pp-sub"><?php echo __('Enable Feed Lock', 'powerpress'); ?></p>
+        </div>
+        <div id="pp-feed-lock-section"  style="display: <?php echo empty($FeedSettings['pp_enable_feed_lock']) ? "none" : "block"; ?>">
+            <label for="Feed[owner_email]" class="pp-settings-label"><?php echo __('Lock Owner email', 'powerpress'); ?></label>
+            <input class="pp-settings-text-input" type="text" name="Feed[owner_email]" value="<?php echo esc_attr(!empty($FeedSettings['owner_email'])? $FeedSettings['owner_email']:''); ?>" maxlength="100" />
+            <label for="Feed[owner_email]" class="pp-settings-label-under">
+                <?php echo __('Must be a valid email address that you have access to', 'powerpress'); ?>
+            </label>
+            <p style="margin: 1em 0;" class="pp-settings-text"><?php echo __('Leave Lock Owner email blank to use your Apple Podcast email.', 'powerpress'); ?></p>
+
+            <div>
+                <input class="pp-settings-radio-small" type="radio" style="margin: 2ch 8px 0 1em;vertical-align: top;" class="powerpress_lock_option" id="powerpress_lock_option_1" name="Feed[unlock_podcast]" value="0" <?php if( empty($FeedSettings['unlock_podcast']) ) echo 'checked'; ?> />
+                <div class="pp-settings-subsection-no-border" style="padding-bottom: 0;">
+                    <p class="pp-settings-text" style="margin: 0;"><?php echo __('Yes - Podcast cannot be imported to a new platform.', 'powerpress'); ?></p>
+                    <p class="pp-sub" style="font-size: 14px"><?php echo __('Default', 'powerpress'); ?></p>
+                </div>
+            </div>
+            <div>
+                <input class="pp-settings-radio-small" type="radio" style="margin: 2ch 8px 0 1em;vertical-align: top;" class="powerpress_lock_option" id="powerpress_lock_option_2" name="Feed[unlock_podcast]" value="1" <?php if( isset($FeedSettings['unlock_podcast']) && $FeedSettings['unlock_podcast'] == 1 ) echo 'checked'; ?> />
+                <div class="pp-settings-subsection-no-border">
+                    <p class="pp-settings-text" style="margin: 0;"><?php echo __('No - Podcast can be imported to a new platform.', 'powerpress'); ?></p>
+                </div>
+            </div>
+        </div>
     </div>
 
 <?php

@@ -612,6 +612,8 @@ function powerpress_admin_init()
 					$Feed['enhance_itunes_summary'] = false;
 				if( !isset($Feed['itunes_author_post']) )
 					$Feed['itunes_author_post'] = false;
+                if( !isset($Feed['pp_enable_feed_lock']) )
+                    $Feed['pp_enable_feed_lock'] = false;
 					
 				if( !isset($Feed['itunes_block']) )
 					$Feed['itunes_block'] = false;
@@ -619,6 +621,8 @@ function powerpress_admin_init()
 					$Feed['itunes_complete'] = false;
 				if( !isset($Feed['maximize_feed']) )
 					$Feed['maximize_feed'] = false;
+                if( !isset($Feed['unlock_podcast']) )
+                    $Feed['unlock_podcast'] = false;
 				if( !isset($Feed['donate_link']) )
 					$Feed['donate_link'] = false;
 				if( !isset($Feed['episode_itunes_image']) )
@@ -1328,6 +1332,8 @@ function powerpress_save_settings($SettingsNew=false, $field = 'powerpress_gener
                     $Settings['new_episode_box_author'] = 2;
                 if (!isset($SettingsNew['new_episode_box_explicit']))
                     $Settings['new_episode_box_explicit'] = 2;
+                if (!isset($SettingsNew['new_episode_box_pci']))
+                    $Settings['new_episode_box_pci'] = 2;
                 if (!isset($SettingsNew['new_episode_box_block']))
                     $Settings['new_episode_box_block'] = 2;
                 if (!isset($SettingsNew['new_episode_box_itunes_image']))
@@ -1392,6 +1398,8 @@ function powerpress_save_settings($SettingsNew=false, $field = 'powerpress_gener
 				unset($Settings['itunes_complete']);
 			if( isset($Settings['maximize_feed'] ) && $Settings['maximize_feed'] == 0 )
 				unset($Settings['maximize_feed']);
+            if( isset($Settings['unlock_podcast'] ) && $Settings['unlock_podcast'] == 0 )
+                unset($Settings['unlock_podcast']);
 			if( isset($Settings['donate_link'] ) && $Settings['donate_link'] == 0 )
 				unset($Settings['donate_link']);
 			if( empty($Settings['donate_url']) )
@@ -1924,6 +1932,20 @@ function powerpress_edit_post($post_ID, $post)
 					$ToSerialize['feed_title'] = stripslashes(trim($Powerpress['feed_title']));
 				if( !empty($Powerpress['category']) )
 					$ToSerialize['category'] = stripslashes($Powerpress['category']);
+                if( isset($Powerpress['pci_transcript']) && $Powerpress['pci_transcript'] ) {
+                    $ToSerialize['pci_transcript'] = 1;
+                    if (isset($Powerpress['pci_transcript_url']) && trim($Powerpress['pci_transcript_url']) != '') {
+                        $ToSerialize['pci_transcript_url'] = stripslashes($Powerpress['pci_transcript_url']);
+                    }
+                }
+                if( isset($Powerpress['pci_chapters']) && $Powerpress['pci_chapters'] ) {
+                    $ToSerialize['pci_chapters'] = 1;
+                    if (isset($Powerpress['pci_chapters_url']) && trim($Powerpress['pci_chapters_url']) != '') {
+                        $ToSerialize['pci_chapters_url'] = stripslashes($Powerpress['pci_chapters_url']);
+                    }
+                }
+                if( isset($Powerpress['pci_soundbites']) && $Powerpress['pci_soundbites'] )
+                    $ToSerialize['pci_soundbites'] = 1;
 					
 				if( isset($Powerpress['no_player_and_links']) && $Powerpress['no_player_and_links'] )
 				{

@@ -23,6 +23,9 @@ function powerpressadmin_edit_entry_options($General)
         $General['episode_box_order'] = 0;
     if( !isset($General['episode_box_feature_in_itunes']) )
         $General['episode_box_feature_in_itunes'] = 0;
+    if( !isset($GeneralSettings['new_episode_box_pci']) )
+        $GeneralSettings['new_episode_box_pci'] = 0;
+
 
     require_once(dirname(__FILE__) . "/../powerpressadmin-epbox-options.php");
     ?>

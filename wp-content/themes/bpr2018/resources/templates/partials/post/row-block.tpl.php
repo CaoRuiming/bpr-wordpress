@@ -1,5 +1,5 @@
 <?php 
-$pic_url = get_the_post_thumbnail_url(); 
+$pic_url = get_the_post_thumbnail_url(get_the_ID(), 'medium_large', NULL); 
 $pic_id = get_post_thumbnail_id();
 $pic_alt = get_post_meta($pic_id, '_wp_attachment_image_alt', true);
 $pic_title = get_the_title($pic_id);
@@ -17,17 +17,14 @@ $pic_title = get_the_title($pic_id);
         <span role="img" aria-label="<?php echo $pic_alt; ?>"> </span>
       </div>
     </div>
+    <div class="post-title-small">
+      <div class="img-30-wrapper">
+        <span itemprop="headline"><?php the_title(); ?></span>
+      </div>
+    </div>
   </a>
 
   <?php if (!is_front_page()) the_category(); ?>
-
-  <div class="post-title-small">
-    <div class="img-30-wrapper">
-      <a itemprop="url" href="<?php echo esc_url(get_permalink()); ?>">
-        <span itemprop="headline"><?php the_title(); ?></span>
-      </a>
-    </div>
-  </div>
 
   <div class="post-author post-date font-size-18">
     <span itemprop="author" hidden aria-hidden><?php the_author(); ?></span>
