@@ -174,16 +174,19 @@
 
         // Lazy load images using Intersection Observer API
         document.addEventListener("DOMContentLoaded", function() {
-          var lazyBackgrounds = [].slice.call(document.querySelectorAll(".lazy"));
+          let lazyBackgrounds = [].slice.call(document.querySelectorAll(".lazy-image"));
 
           if ("IntersectionObserver" in window) {
             let lazyBackgroundObserver = new IntersectionObserver(function(entries, observer) {
               entries.forEach(function(entry) {
                 if (entry.isIntersecting) {
-                  entry.target.classList.remove("lazy");
+                  entry.target.classList.remove("lazy-image");
                   lazyBackgroundObserver.unobserve(entry.target);
                 }
               });
+            }, {
+              root: null,
+              rootMargin: '0px 0px 200px 0px'
             });
 
             lazyBackgrounds.forEach(function(lazyBackground) {
