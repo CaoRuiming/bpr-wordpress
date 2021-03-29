@@ -7,11 +7,20 @@
     @include font-size-sm(35px);
   }
 
+  .author-title {
+    margin: 0;
+    @include font-size-sm(35px);
+  }
+
   #author-avatar {
     background-position: center;
     background-size: cover;
     width:175px;
     height:175px;
     margin: 10px
+  }
+
+  .author-description {
+    margin: 0;
   }
 }

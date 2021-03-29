@@ -4,7 +4,6 @@
   <div id="author-header" class="row" style="display: flex; align-items: center">
     <div class="col-md-3 col-xs-12">
       <?php $placeholder = get_image_asset('placeholder_dark.jpg'); ?>
-      <?php $placeholder_dark = get_image_asset('placeholder_bright.jpg'); ?>
       <div id="author-avatar-placeholder" itemprop="image">
         <div id="author-avatar" style="background-image:
           url(<?php echo nl2br(get_avatar_url(get_the_author_meta('user_email'), array("size" => 175))); ?>), url(<?php echo $placeholder; ?>)">
@@ -12,10 +11,10 @@
       </div>
     </div>
     <div class="col-md-9 col-xs-12">
-      <h1 class="archive-title font-size-100 header-font">
+      <h1 class="author-title font-size-100 header-font">
         <span itemprop="author"><?php the_author(); ?></span>
       </h1>
-      <p>
+      <p class="author-description">
         <?php echo nl2br(get_the_author_meta('description')); ?>
       </p>
     </div>

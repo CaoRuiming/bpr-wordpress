@@ -9,7 +9,6 @@ $pic_title = get_the_title($pic_id);
   title = "<?php echo htmlentities(the_title(), ENT_QUOTES | ENT_SUBSTITUTE)?>">
     <div class="img-30-wrapper">
       <?php $placeholder = get_image_asset('placeholder_dark.jpg'); ?>
-      <?php $placeholder_dark = get_image_asset('placeholder_bright.jpg'); ?>
       <div
         class="img-30"
         itemprop="image"
