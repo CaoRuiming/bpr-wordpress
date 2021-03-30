@@ -7,8 +7,7 @@ $pic_title = get_the_title($pic_id);
 <article class="post-block" itemscope itemtype="https://schema.org/Article">
   <a href="<?php echo esc_url(get_permalink()); ?>" title="<?php echo htmlentities(the_title(), ENT_QUOTES | ENT_SUBSTITUTE); ?>">
     <div class="img-35-wrapper">
-    <?php $placeholder = get_image_asset('placeholder_dark.jpg'); ?>
-      <?php $placeholder_dark = get_image_asset('placeholder_bright.jpg'); ?>
+      <?php $placeholder = get_image_asset('placeholder_dark.jpg'); ?>
       <div
         class="img-35"
         itemprop="image"

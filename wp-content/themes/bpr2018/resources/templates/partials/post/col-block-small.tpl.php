@@ -9,7 +9,6 @@ $pic_title = get_the_title($pic_id);
     <a href="<?php echo esc_url(get_permalink()); ?>">
       <div class="img-10-wrapper">
         <?php $placeholder = get_image_asset('placeholder_dark.jpg'); ?>
-        <?php $placeholder_dark = get_image_asset('placeholder_bright.jpg'); ?>
         <div
           class="img-10"
           itemprop="image"
