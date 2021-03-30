@@ -4,8 +4,8 @@
   <div id="author-header" class="row" style="display: flex; align-items: center">
     <div class="col-md-3 col-xs-12">
       <?php $placeholder = get_image_asset('placeholder_dark.jpg'); ?>
-      <div id="author-avatar-placeholder" itemprop="image">
-        <div id="author-avatar" style="background-image:
+      <div id="author-avatar-placeholder">
+        <div id="author-avatar" class="lazy-image" style="background-image:
           url(<?php echo nl2br(get_avatar_url(get_the_author_meta('user_email'), array("size" => 175))); ?>), url(<?php echo $placeholder; ?>)">
         </div>
       </div>
