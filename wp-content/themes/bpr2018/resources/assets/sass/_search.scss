@@ -31,10 +31,10 @@
         display: none;
       }
       @media (prefers-color-scheme: light) {
-        background-image: url(https://brownpoliticalreview.org/wp-content/themes/bpr2018/resources/assets/images/search-icon.png);
+        background-image: url(../images/search-icon.png);
       }
       @media (prefers-color-scheme: dark) {
-        background-image: url(https://brownpoliticalreview.org/wp-content/themes/bpr2018/resources/assets/images/search-icon-dark.png);
+        background-image: url(../images/search-icon-dark.png);
       }
     }
   }
