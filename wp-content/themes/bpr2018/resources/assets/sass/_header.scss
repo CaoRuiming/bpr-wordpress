@@ -91,6 +91,33 @@
         }
       }
     }
+
+    #facebook-icon {
+      @media (prefers-color-scheme: light) {
+        background-image: url(../images/facebook_icon.png);
+      }
+      @media (prefers-color-scheme: dark) {
+        background-image: url(../images/facebook_icon_inverted.png)
+      }
+    }
+
+    #twitter-icon {
+      @media (prefers-color-scheme: light) {
+        background-image: url(../images/twitter_icon.png);
+      }
+      @media (prefers-color-scheme: dark) {
+        background-image: url(../images/twitter_icon_inverted.png)
+      }
+    }
+
+    #instagram-icon {
+      @media (prefers-color-scheme: light) {
+        background-image: url(../images/instagram_icon.png);
+      }
+      @media (prefers-color-scheme: dark) {
+        background-image: url(../images/instagram_icon_inverted.png)
+      }
+    }
   }
 
   nav#main-menu {

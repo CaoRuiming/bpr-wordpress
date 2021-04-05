@@ -61,15 +61,8 @@
                 title="Facebook"
                 href="<?php echo esc_url(get_field('facebook_url', 'option')); ?>">
                 <div
-                  id="light"
-                  class="social-icon"
-                  style="background-image: url(<?php echo $facebook_icon_url ?>)">
-                  <span role="img" aria-label="Facebook Icon"> </span>
-                </div>
-                <div
-                  id="dark"
-                  class="social-icon"
-                  style="background-image: url(<?php echo $facebook_icon_inverted_url ?>)">
+                  id="facebook-icon"
+                  class="social-icon">
                   <span role="img" aria-label="Facebook Icon"> </span>
                 </div>
               </a>
@@ -79,15 +72,8 @@
                 title="Twitter"
                 href="<?php echo esc_url(get_field('twitter_url', 'option')); ?>">
                 <div
-                  id="light"
-                  class="social-icon"
-                  style="background-image: url(<?php echo $twitter_icon_url ?>)">
-                  <span role="img" aria-label="Twitter Icon"> </span>
-                </div>
-                <div
-                  id="dark"
-                  class="social-icon"
-                  style="background-image: url(<?php echo $twitter_icon_inverted_url ?>)">
+                  id="twitter-icon"
+                  class="social-icon">
                   <span role="img" aria-label="Twitter Icon"> </span>
                 </div>
               </a>
@@ -97,15 +83,8 @@
                 title="Instagram"
                 href="<?php echo esc_url(get_field('instagram_url', 'option')); ?>">
                 <div
-                  id="light"
-                  class="social-icon"
-                  style="background-image: url(<?php echo $instagram_icon_url ?>)">
-                  <span role="img" aria-label="Instagram Icon"> </span>
-                </div>
-                <div
-                  id="dark"
-                  class="social-icon"
-                  style="background-image: url(<?php echo $instagram_icon_inverted_url ?>)">
+                  id="instagram-icon"
+                  class="social-icon">
                   <span role="img" aria-label="Instagram Icon"> </span>
                 </div>
               </a>
