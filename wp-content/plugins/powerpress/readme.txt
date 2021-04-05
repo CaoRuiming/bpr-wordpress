@@ -4,7 +4,7 @@ Tags: podcasting, podcast, podcaster, powerpress, itunes, apple, apple podcasts,
 Requires at least: 3.6
 Requires PHP: 5.2
 Tested up to: 5.7
-Stable tag: 8.5.3
+Stable tag: 8.5.4
 Donate link: https://create.blubrry.com/resources/podcast-media-hosting/
 License: GPLv2 or later
 
@@ -13,8 +13,6 @@ No. 1 Podcasting plugin for WordPress, with simple & advanced modes, players, su
 == Description ==
 
 No. 1 Podcasting plugin for WordPress, with simple & advanced modes, players, subscribe tools, and more!
-
-[youtube https://www.youtube.com/watch?v=twqKrVehY3o]
 
 Publish and manage your podcast right from your WordPress website. Developed by podcasters for podcasters (Blubrry Podcasting), PowerPress features options supported by the top podcasting apps and directories, including Apple Podcasts, Google Podcasts, Spotify, Amazon Music and more. Best of all, it integrates with Blubrry’s hosting and statistics, providing convenient features such as easy uploads available only to Blubrry customers. Don’t worry though, we work with any hosting provider.
 
@@ -185,6 +183,10 @@ If you are a fan of PowerPress, we would greatly appreciate it if you could take
 
 
 == Changelog ==
+
+= 8.5.4 =
+* Released 03/26/2021
+* Remove broken YouTube link from readme
 
 = 8.5.3 =
 * Released 03/12/2021

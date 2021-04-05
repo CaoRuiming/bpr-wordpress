@@ -52,7 +52,7 @@ if (is_single()) {
                   <div class="col-sm-6">
                     <a href="<?php echo esc_url(get_permalink()); ?>" title="<?php echo htmlentities(the_title(), ENT_QUOTES | ENT_SUBSTITUTE); ?>">
                       <div
-                        class="img-40"
+                        class="img-40 lazy-image"
                         style="background-image: url(<?php echo $pic_url; ?>);">
                         <span role="img" aria-label="<?php echo $pic_alt; ?>"> </span>
                       </div>

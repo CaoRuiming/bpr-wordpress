@@ -14,7 +14,7 @@
             if ($pic_url):
             ?>
               <div
-                class="featured-image"
+                class="featured-image lazy-image"
                 style="background-image: url(<?php echo $pic_url; ?>);">
               </div>
             <?php endif; ?>

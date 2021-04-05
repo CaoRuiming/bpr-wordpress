@@ -9,9 +9,8 @@ $pic_title = get_the_title($pic_id);
   title = "<?php echo htmlentities(the_title(), ENT_QUOTES | ENT_SUBSTITUTE)?>">
     <div class="img-30-wrapper">
       <?php $placeholder = get_image_asset('placeholder_dark.jpg'); ?>
-      <?php $placeholder_dark = get_image_asset('placeholder_bright.jpg'); ?>
       <div
-        class="img-30"
+        class="img-30 lazy-image"
         itemprop="image"
         style="background-image: url(<?php echo $pic_url; ?>), url(<?php echo $placeholder; ?>);">
         <span role="img" aria-label="<?php echo $pic_alt; ?>"> </span>
