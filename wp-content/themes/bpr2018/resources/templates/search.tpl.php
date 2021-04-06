@@ -3,13 +3,7 @@
 <div id="search-page" class="container-fluid">
   <h1 class="sr-only">Search Results</h1>
   <div id="search-field" class="row">
-    <?php
-    $search_icon_url = get_template_directory_uri() . '/resources/assets/images/search-icon.png';
-    ?>
-    <div
-      id="search-icon"
-      style="background-image: url(<?php echo $search_icon_url ?>)">
-    </div>
+    <div id="search-icon"> </div>
     <form
       id="search-form"
       aria-labelledby="search-field"

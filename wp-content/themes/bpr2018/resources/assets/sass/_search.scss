@@ -30,6 +30,12 @@
       @media (max-width: $width-xl) {
         display: none;
       }
+      @media (prefers-color-scheme: light) {
+        background-image: url(../images/search-icon.png);
+      }
+      @media (prefers-color-scheme: dark) {
+        background-image: url(../images/search-icon-dark.png);
+      }
     }
   }
 }
