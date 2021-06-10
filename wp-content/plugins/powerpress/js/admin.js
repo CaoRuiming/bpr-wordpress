@@ -106,6 +106,33 @@ function powerpress_openTab(evt, cityName) {
     }
 }
 
+function powerpress_displaySideNav(el) {
+    let tab = el.id.replace("-toggle-sidenav", "");
+    let sidenav = jQuery('#settings-' + tab + ' .pp-sidenav');
+    if (sidenav.length > 0) {
+        sidenav.each(function(index, element) {
+            jQuery(this).attr('class', 'pp-sidenav-hidden');
+            el.innerText = ">";
+        });
+        let visible_tab_contents = jQuery('.pp-sidenav-tab.to-be-active');
+        visible_tab_contents.each(function(index, element) {
+            jQuery(this).removeClass('to-be-active');
+            jQuery(this).addClass('active')
+        });
+    } else {
+        sidenav = jQuery('#settings-' + tab + ' .pp-sidenav-hidden');
+        sidenav.each(function(index, element) {
+            jQuery(this).attr('class', 'pp-sidenav');
+            el.innerText = "<";
+        });
+        let visible_tab_contents = jQuery('.pp-sidenav-tab.active');
+        visible_tab_contents.each(function(index, element) {
+            jQuery(this).removeClass('active');
+            jQuery(this).addClass('to-be-active')
+        });
+    }
+}
+
 function sideNav(evt, cityName) {
     // Declare all variables
     var i, tabcontent, tablinks, tabs;
@@ -127,6 +154,15 @@ function sideNav(evt, cityName) {
     let desired_tab_contents = jQuery(id);
 
     let icon = target.firstElementChild;
+
+    // Check if we have the sidnav open
+    let toggle_id = target.id.split("-");
+    let to_be_active = jQuery('#settings-' + toggle_id[0] + ' .pp-sidenav');
+    //Hide the sidenav if necessary
+    let width = jQuery(window).width();
+    if (width < 650 && to_be_active.length > 0) {
+        jQuery('#' + toggle_id[0] + '-toggle-sidenav').click();
+    }
 
     // Get all elements with class="pp-tabcontent" and hide them
     tabcontent = jQuery(".pp-sidenav-tab");
@@ -162,6 +198,7 @@ function sideNav(evt, cityName) {
     // Show the current tab, and add an "active" class to the button that opened the tab
     desired_tab_contents.attr("class", "pp-sidenav-tab active");
     desired_tab.attr("class", "pp-sidenav-tablinks active");
+
 }
 
 //Controls the three-way explicit setting switch

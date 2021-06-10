@@ -44,7 +44,7 @@ function powerpressadmin_website_settings_custom_feed($General, $FeedSettings, $
         <?php
         }
         ?>
-        <p class="pp-settings-text"><a href="https://create.blubrry.com/resources/powerpress/advanced-tools-and-options/subscribe-page/" target="_blank"><?php echo __('Learn more about the PowerPress Subscribe Page', 'powerpress'); ?></a></p>
+        <p class="pp-settings-text"><a href="https://blubrry.com/support/powerpress-documentation/subscribe-page/" target="_blank"><?php echo __('Learn more about the PowerPress Subscribe Page', 'powerpress'); ?></a></p>
         <?php
         // TODO: use the $FeedAttribs to create a recommended shortcode for this particular channel, may be simple [powerpress_subscribe] or it may specify the category, taxonomy, and/or feed_slug/post tpe podcasting
         ?>
@@ -302,7 +302,7 @@ function powerpress_subscribe_settings($General, $FeedSettings) {
 <?php
 		//}
 ?>
-	<p class="pp-settings-text"><a href="https://create.blubrry.com/resources/powerpress/advanced-tools-and-options/subscribe-page/" target="_blank"><?php echo __('Learn more about the PowerPress Subscribe Page', 'powerpress'); ?></a></p>
+	<p class="pp-settings-text"><a href="https://blubrry.com/support/powerpress-documentation/subscribe-page/" target="_blank"><?php echo __('Learn more about the PowerPress Subscribe Page', 'powerpress'); ?></a></p>
 	<?php
 	// TODO: use the $FeedAttribs to create a recommended shortcode for this particular channel, may be simple [powerpress_subscribe] or it may specify the category, taxonomy, and/or feed_slug/post tpe podcasting
 	?>
@@ -441,7 +441,7 @@ function powerpress_shortcode_settings($GeneralSettings, $FeedAttribs) {
 <?php echo __('The Player shortcode is used to position your media presentation (player and download links) exactly where you want within your post or page content.', 'powerpress'); ?> 
 </p>
 <p class="pp-settings-text">
-<?php echo sprintf(__('Please visit the %s page for additional options.', 'powerpress'), '<a href="https://create.blubrry.com/resources/powerpress/advanced-tools-and-options/shortcode/" target="_blank">'. __('PowerPress Player Shortcode', 'powerpress') .'</a>' ); ?>
+<?php echo sprintf(__('Please visit the %s page for additional options.', 'powerpress'), '<a href="https://blubrry.com/support/powerpress-documentation/shortcode/" target="_blank">'. __('PowerPress Player Shortcode', 'powerpress') .'</a>' ); ?>
 </p>
 <p class="pp-label-bottom" style="font-size: 12px;">
 <?php echo __('Note: When specifying a URL to media in the powerpress shortcode, only the player is included. The Media Links will NOT be included since there is not enough meta information to display them.', 'powerpress'); ?>
@@ -461,7 +461,7 @@ function powerpress_shortcode_settings($GeneralSettings, $FeedAttribs) {
 <?php echo __('The Playlist shortcode is used to display a player with a playlist of your podcast episodes. It utilizes the default playlist built into WordPress.', 'powerpress'); ?> 
 </p>
 <p class="pp-settings-text">
-<?php echo sprintf(__('Please visit the %s page for additional options.', 'powerpress'), '<a href="https://create.blubrry.com/resources/powerpress/advanced-tools-and-options/powerpress-playlist-shortcode/" target="_blank">'. __('PowerPress Playlist Shortcode', 'powerpress') .'</a>' ); ?>
+<?php echo sprintf(__('Please visit the %s page for additional options.', 'powerpress'), '<a href="https://blubrry.com/support/powerpress-documentation/powerpress-playlist-shortcode/" target="_blank">'. __('PowerPress Playlist Shortcode', 'powerpress') .'</a>' ); ?>
 </p>
 
 <h1 class="pp-heading"><?php echo __('PowerPress Subscribe Shortcode', 'powerpress'); ?> </h1>
@@ -472,7 +472,7 @@ function powerpress_shortcode_settings($GeneralSettings, $FeedAttribs) {
 <?php echo __('The Subscribe shortcode is used to display a subscribe to podcast widget for your podcast. It is intended for use on a custom subscribe page. See the Subscribe Page section below for more details.', 'powerpress'); ?> 
 </p>
 <p class="pp-settings-text">
-<?php echo sprintf(__('Please visit the %s page for additional options.', 'powerpress'), '<a href="https://create.blubrry.com/resources/powerpress/advanced-tools-and-options/powerpress-subscribe-shortcode/" target="_blank">'. __('PowerPress Subscribe Shortcode', 'powerpress') .'</a>' ); ?>
+<?php echo sprintf(__('Please visit the %s page for additional options.', 'powerpress'), '<a href="https://blubrry.com/support/powerpress-documentation/powerpress-subscribe-shortcode/" target="_blank">'. __('PowerPress Subscribe Shortcode', 'powerpress') .'</a>' ); ?>
 </p>
 
 
@@ -492,7 +492,7 @@ function powerpress_shortcode_settings($GeneralSettings, $FeedAttribs) {
 <li>[skipto time="1:23:45"] <?php echo __('or', 'powerpress'); ?> [skipto time="83:45"] <?php echo __('or', 'powerpress'); ?> [skipto time="5025"] &#8212; <a href="#" onclick="return false;">1:23:45</a></li>
 </ul>
 <p class="pp-settings-text" style="margin-top: 2em;">
-<?php echo sprintf(__('Please visit the %s page for additional options.', 'powerpress'), '<a href="https://create.blubrry.com/resources/powerpress/advanced-tools-and-options/skip-to-position-in-player/" target="_blank">'. __('PowerPress Skip-to-Position in Player Shortcode', 'powerpress') .'</a>' ); ?>
+<?php echo sprintf(__('Please visit the %s page for additional options.', 'powerpress'), '<a href="https://blubrry.com/support/powerpress-documentation/skip-to-position-in-player/" target="_blank">'. __('PowerPress Skip-to-Position in Player Shortcode', 'powerpress') .'</a>' ); ?>
 </p>
     <h1 class="pp-heading"><?php echo __('Having Issues?', 'powerpress'); ?></h1>
     <div style="margin-top: 3ch;">
@@ -514,7 +514,7 @@ function powerpress_shortcode_settings($GeneralSettings, $FeedAttribs) {
                 <?php echo __('Use this option if you are having problems with the players not appearing on some or all of your pages.', 'powerpress'); ?>
             </label>
         </div>
-        <p class="pp-settings-text" style="margin-top: 3ch;"><a href="http://create.blubrry.com/resources/powerpress/powerpress-settings/media-appearance/resolving-plugin-theme-conflict-issues/" target="_blank"><?php echo __('Learn More', 'powerpress'); ?></a></p>
+        <p class="pp-settings-text" style="margin-top: 3ch;"><a href="https://blubrry.com/support/powerpress-documentation/media-appearance/resolving-plugin-theme-conflict-issues/" target="_blank"><?php echo __('Learn More', 'powerpress'); ?></a></p>
         <p class="pp-settings-text">
             <?php echo __('If the above option fixes the player issues, then you most likely have a conflicting theme or plugin activated. You can verify your theme is not causing the problem by testing your site using the latest default WordPress theme (twentyfourteen). For plugins, disable them one by one until the player re-appears, which indicates the last plugin deactivated caused the conflict.', 'powerpress'); ?>
         </p>

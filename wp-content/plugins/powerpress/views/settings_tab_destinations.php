@@ -312,30 +312,33 @@ function subscribeSetting($directory, $feed_url, $listing_url) {
     }
 ?>
 
-<div class="pp-sidenav">
-    <div class="pp-sidenav-extra"><p class="pp-sidenav-extra-text"><b><?php echo htmlspecialchars(__('DESTINATIONS SETTINGS', 'powerpress')); ?></b></p></div>
-    <button id="destinations-default-open" class="pp-sidenav-tablinks active" onclick="sideNav(event, 'destinations-all')"><img class="pp-nav-icon" alt="" src="<?php echo powerpress_get_root_url(); ?>images/settings_nav_icons/rss-symbol.svg" style="margin-left: 7px; margin-right: 20px;width: 22px;"><?php echo htmlspecialchars(__('Basic Info', 'powerpress')); ?></button>
-    <button class="pp-sidenav-tablinks" id="destinations-apple-tab" onclick="sideNav(event, 'destinations-apple')"><span id="apple-icon-side" class="destinations-side-icon"></span><span class="destination-side-text"><?php echo htmlspecialchars(__('Apple', 'powerpress')); ?></span></button>
-    <button class="pp-sidenav-tablinks" id="destinations-google-tab" onclick="sideNav(event, 'destinations-google')"><span id="google-icon-side" class="destinations-side-icon"></span><span class="destination-side-text"><?php echo htmlspecialchars(__('Google', 'powerpress')); ?></span></button>
-    <button class="pp-sidenav-tablinks" id="destinations-spotify-tab" onclick="sideNav(event, 'destinations-spotify')"><span id="spotify-icon-side" class="destinations-side-icon"></span><span class="destination-side-text"><?php echo htmlspecialchars(__('Spotify', 'powerpress')); ?></span></button>
-    <button class="pp-sidenav-tablinks" id="destinations-amazon-tab" onclick="sideNav(event, 'destinations-amazon')"><span id="amazon-icon-side" class="destinations-side-icon"></span><span class="destination-side-text"><?php echo htmlspecialchars(__('Amazon Music', 'powerpress')); ?></span></button>
-    <button class="pp-sidenav-tablinks" id="destinations-android-tab" onclick="sideNav(event, 'destinations-android')"><span id="android-icon-side" class="destinations-side-icon"></span><span class="destination-side-text"><?php echo htmlspecialchars(__('Android', 'powerpress')); ?></span></button>
-    <button class="pp-sidenav-tablinks" id="destinations-pandora-tab" onclick="sideNav(event, 'destinations-pandora')"><span id="pandora-icon-side" class="destinations-side-icon"></span><span class="destination-side-text"><?php echo htmlspecialchars(__('Pandora', 'powerpress')); ?></span></button>
-    <button class="pp-sidenav-tablinks" id="destinations-iheart-tab" onclick="sideNav(event, 'destinations-iheart')"><span id="iheart-icon-side" class="destinations-side-icon"></span><span class="destination-side-text"><?php echo htmlspecialchars(__('iHeartRadio', 'powerpress')); ?></span></button>
-    <button class="pp-sidenav-tablinks" id="destinations-stitcher-tab" onclick="sideNav(event, 'destinations-stitcher')"><span id="stitcher-icon-side" class="destinations-side-icon"></span><span class="destination-side-text"><?php echo htmlspecialchars(__('Stitcher', 'powerpress')); ?></span></button>
-    <button class="pp-sidenav-tablinks" id="destinations-blubrry-tab" onclick="sideNav(event, 'destinations-blubrry')"><img class="pp-nav-icon" alt="" src="<?php echo powerpress_get_root_url(); ?>images/settings_nav_icons/blubrry.svg" style="margin-left: 7px; margin-right: 20px;"><?php echo htmlspecialchars(__('Blubrry Directory', 'powerpress')); ?></button>
-    <button class="pp-sidenav-tablinks" id="destinations-jiosaavn-tab" onclick="sideNav(event, 'destinations-jiosaavn')"><span id="jiosaavn-icon-side" class="destinations-side-icon"></span><span class="destination-side-text"><?php echo htmlspecialchars(__('JioSaavn', 'powerpress')); ?></span></button>
-    <button class="pp-sidenav-tablinks" id="destinations-podchaser-tab" onclick="sideNav(event, 'destinations-podchaser')"><span id="podchaser-icon-side" class="destinations-side-icon"></span><span class="destination-side-text"><?php echo htmlspecialchars(__('Podchaser', 'powerpress')); ?></span></button>
-    <button class="pp-sidenav-tablinks" id="destinations-gaana-tab" onclick="sideNav(event, 'destinations-gaana')"><span id="gaana-icon-side" class="destinations-side-icon"></span><span class="destination-side-text"><?php echo htmlspecialchars(__('Gaana', 'powerpress')); ?></span></button>
-    <button class="pp-sidenav-tablinks" id="destinations-pcindex-tab" onclick="sideNav(event, 'destinations-pcindex')"><span id="pcindex-icon-side" class="destinations-side-icon"></span><span class="destination-side-text"><?php echo htmlspecialchars(__('Podcast Index', 'powerpress')); ?></span></button>
-    <button class="pp-sidenav-tablinks" id="destinations-email-tab" onclick="sideNav(event, 'destinations-email')"><span id="email-icon-side" class="destinations-side-icon"></span><span class="destination-side-text"><?php echo htmlspecialchars(__('Email', 'powerpress')); ?></span></button>
-    <button class="pp-sidenav-tablinks" id="destinations-tunein-tab" onclick="sideNav(event, 'destinations-tunein')"><span id="tunein-icon-side" class="destinations-side-icon"></span><span class="destination-side-text"><?php echo htmlspecialchars(__('TuneIn', 'powerpress')); ?></span></button>
-    <button class="pp-sidenav-tablinks" id="destinations-deezer-tab" onclick="sideNav(event, 'destinations-deezer')"><span id="deezer-icon-side" class="destinations-side-icon"></span><span class="destination-side-text"><?php echo htmlspecialchars(__('Deezer', 'powerpress')); ?></span></button>
-    <?php
-    powerpressadmin_edit_blubrry_services($General);
-    ?>
-    <div class="pp-sidenav-extra"><a href="https://www.blubrry.com/support/" class="pp-sidenav-extra-text"><?php echo htmlspecialchars(__('POWERPRESS DOCUMENTATION', 'powerpress')); ?></a></div>
-    <div class="pp-sidenav-extra"><a href="https://www.blubrry.com/podcast-insider/" class="pp-sidenav-extra-text"><?php echo htmlspecialchars(__('PODCAST INSIDER BLOG', 'powerpress')); ?></a></div>
+<div class="pp-sidenav-toggle-container">
+    <div id="destinations-toggle-sidenav" class="toggle-sidenav" title="Destinations Settings and Blubrry Services" onclick="powerpress_displaySideNav(this);">&lt;</div>
+    <div class="pp-sidenav">
+        <div class="pp-sidenav-extra"><p class="pp-sidenav-extra-text"><b><?php echo htmlspecialchars(__('DESTINATIONS SETTINGS', 'powerpress')); ?></b></p></div>
+        <button id="destinations-default-open" class="pp-sidenav-tablinks active" onclick="sideNav(event, 'destinations-all')"><img class="pp-nav-icon" alt="" src="<?php echo powerpress_get_root_url(); ?>images/settings_nav_icons/rss-symbol.svg" style="margin-left: 7px; margin-right: 20px;width: 22px;"><?php echo htmlspecialchars(__('Basic Info', 'powerpress')); ?></button>
+        <button class="pp-sidenav-tablinks" id="destinations-apple-tab" onclick="sideNav(event, 'destinations-apple')"><span id="apple-icon-side" class="destinations-side-icon"></span><span class="destination-side-text"><?php echo htmlspecialchars(__('Apple', 'powerpress')); ?></span></button>
+        <button class="pp-sidenav-tablinks" id="destinations-google-tab" onclick="sideNav(event, 'destinations-google')"><span id="google-icon-side" class="destinations-side-icon"></span><span class="destination-side-text"><?php echo htmlspecialchars(__('Google', 'powerpress')); ?></span></button>
+        <button class="pp-sidenav-tablinks" id="destinations-spotify-tab" onclick="sideNav(event, 'destinations-spotify')"><span id="spotify-icon-side" class="destinations-side-icon"></span><span class="destination-side-text"><?php echo htmlspecialchars(__('Spotify', 'powerpress')); ?></span></button>
+        <button class="pp-sidenav-tablinks" id="destinations-amazon-tab" onclick="sideNav(event, 'destinations-amazon')"><span id="amazon-icon-side" class="destinations-side-icon"></span><span class="destination-side-text"><?php echo htmlspecialchars(__('Amazon Music', 'powerpress')); ?></span></button>
+        <button class="pp-sidenav-tablinks" id="destinations-android-tab" onclick="sideNav(event, 'destinations-android')"><span id="android-icon-side" class="destinations-side-icon"></span><span class="destination-side-text"><?php echo htmlspecialchars(__('Android', 'powerpress')); ?></span></button>
+        <button class="pp-sidenav-tablinks" id="destinations-pandora-tab" onclick="sideNav(event, 'destinations-pandora')"><span id="pandora-icon-side" class="destinations-side-icon"></span><span class="destination-side-text"><?php echo htmlspecialchars(__('Pandora', 'powerpress')); ?></span></button>
+        <button class="pp-sidenav-tablinks" id="destinations-iheart-tab" onclick="sideNav(event, 'destinations-iheart')"><span id="iheart-icon-side" class="destinations-side-icon"></span><span class="destination-side-text"><?php echo htmlspecialchars(__('iHeartRadio', 'powerpress')); ?></span></button>
+        <button class="pp-sidenav-tablinks" id="destinations-stitcher-tab" onclick="sideNav(event, 'destinations-stitcher')"><span id="stitcher-icon-side" class="destinations-side-icon"></span><span class="destination-side-text"><?php echo htmlspecialchars(__('Stitcher', 'powerpress')); ?></span></button>
+        <button class="pp-sidenav-tablinks" id="destinations-blubrry-tab" onclick="sideNav(event, 'destinations-blubrry')"><img class="pp-nav-icon" alt="" src="<?php echo powerpress_get_root_url(); ?>images/settings_nav_icons/blubrry.svg" style="margin-left: 7px; margin-right: 20px;"><?php echo htmlspecialchars(__('Blubrry Directory', 'powerpress')); ?></button>
+        <button class="pp-sidenav-tablinks" id="destinations-jiosaavn-tab" onclick="sideNav(event, 'destinations-jiosaavn')"><span id="jiosaavn-icon-side" class="destinations-side-icon"></span><span class="destination-side-text"><?php echo htmlspecialchars(__('JioSaavn', 'powerpress')); ?></span></button>
+        <button class="pp-sidenav-tablinks" id="destinations-podchaser-tab" onclick="sideNav(event, 'destinations-podchaser')"><span id="podchaser-icon-side" class="destinations-side-icon"></span><span class="destination-side-text"><?php echo htmlspecialchars(__('Podchaser', 'powerpress')); ?></span></button>
+        <button class="pp-sidenav-tablinks" id="destinations-gaana-tab" onclick="sideNav(event, 'destinations-gaana')"><span id="gaana-icon-side" class="destinations-side-icon"></span><span class="destination-side-text"><?php echo htmlspecialchars(__('Gaana', 'powerpress')); ?></span></button>
+        <button class="pp-sidenav-tablinks" id="destinations-pcindex-tab" onclick="sideNav(event, 'destinations-pcindex')"><span id="pcindex-icon-side" class="destinations-side-icon"></span><span class="destination-side-text"><?php echo htmlspecialchars(__('Podcast Index', 'powerpress')); ?></span></button>
+        <button class="pp-sidenav-tablinks" id="destinations-email-tab" onclick="sideNav(event, 'destinations-email')"><span id="email-icon-side" class="destinations-side-icon"></span><span class="destination-side-text"><?php echo htmlspecialchars(__('Email', 'powerpress')); ?></span></button>
+        <button class="pp-sidenav-tablinks" id="destinations-tunein-tab" onclick="sideNav(event, 'destinations-tunein')"><span id="tunein-icon-side" class="destinations-side-icon"></span><span class="destination-side-text"><?php echo htmlspecialchars(__('TuneIn', 'powerpress')); ?></span></button>
+        <button class="pp-sidenav-tablinks" id="destinations-deezer-tab" onclick="sideNav(event, 'destinations-deezer')"><span id="deezer-icon-side" class="destinations-side-icon"></span><span class="destination-side-text"><?php echo htmlspecialchars(__('Deezer', 'powerpress')); ?></span></button>
+        <?php
+        powerpressadmin_edit_blubrry_services($General);
+        ?>
+        <div class="pp-sidenav-extra"><a href="https://www.blubrry.com/support/" class="pp-sidenav-extra-text"><?php echo htmlspecialchars(__('POWERPRESS DOCUMENTATION', 'powerpress')); ?></a></div>
+        <div class="pp-sidenav-extra"><a href="https://www.blubrry.com/podcast-insider/" class="pp-sidenav-extra-text"><?php echo htmlspecialchars(__('PODCAST INSIDER BLOG', 'powerpress')); ?></a></div>
+    </div>
 </div>
 
 <div id="destinations-all" class="pp-sidenav-tab active">
@@ -442,7 +445,10 @@ function subscribeSetting($directory, $feed_url, $listing_url) {
         <p class="pp-settings-text-smaller-margin"><input type="hidden" name="General[subscribe_feature_blubrry_shortcode]" value="0" /><input class="pp-settings-checkbox" type="checkbox" id="subscribe_feature_blubrry_shortcode" name="General[subscribe_feature_blubrry_shortcode]" value="1" <?php if( !empty($Settings['subscribe_feature_blubrry_shortcode']) ) echo 'checked '; ?>/> <label for="subscribe_feature_blubrry_shortcode"><?php echo __('Show link on subscribe page', 'powerpress'); ?></label></p>
         <p class="pp-settings-text-smaller-margin"><input type="hidden" name="General[subscribe_feature_blubrry]" value="0" /><input class="pp-settings-checkbox" type="checkbox" id="subscribe_feature_blubrry" name="General[subscribe_feature_blubrry]" value="1" <?php if( !empty($Settings['subscribe_feature_blubrry']) ) echo 'checked '; ?>/> <label for="subscribe_feature_blubrry"><?php echo __('Show link under media player', 'powerpress'); ?></label></p>
     </div>
-    <?php powerpress_settings_tab_footer(); ?>
+    <?php
+    marketing_footer();
+    powerpress_settings_tab_footer();
+    ?>
 </div>
 
 <div id="destinations-jiosaavn" class="pp-sidenav-tab">

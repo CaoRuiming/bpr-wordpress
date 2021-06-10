@@ -325,11 +325,60 @@ span[id^="all-icon"] {
 .pp-sidenav {
     overflow: hidden;
     background-color: white;
-    width: 23%;
-    display: inline-block;
     float: left;
     min-height: 70vh;
     height: 100%;
+    z-index: 10000;
+    opacity: 1.0;
+}
+
+.pp-sidenav-container {
+    display: inline-block;
+}
+
+.pp-sidenav-hidden {
+    display: none;
+}
+
+.toggle-sidenav {
+    display: none;
+}
+
+/* Style the tab content */
+.pp-sidenav-tab {
+    background-color: #ffffff;
+    display: none;
+    border-top: none;
+    padding: 3vh 3vw;
+    width: 75%;
+    border-left: 1px solid #ddd;
+}
+
+.pp-sidenav-tab.active {
+    display: inline-block;
+}
+
+@media (min-width: 651px) {
+    .pp-sidenav-toggle-container {
+        width: 23%;
+    }
+}
+@media (max-width: 650px) {
+    .pp-sidenav {
+        width: 100%;
+        overflow: visible;
+    }
+    .pp-sidenav-tab {
+        border-left: none;
+    }
+    .toggle-sidenav {
+        color: #1a6deb;
+        font-weight: bold;
+        font-size: 24px;
+        cursor: pointer;
+        padding: 0.5ch;
+        display: block;
+    }
 }
 
 /* Style the buttons that are used to open the tab content */
@@ -372,20 +421,6 @@ span[id^="all-icon"] {
 #powerpress_settings_page {
     min-height: 100vh;
     margin-top: 1em;
-}
-
-/* Style the tab content */
-.pp-sidenav-tab {
-    background-color: #ffffff;
-    display: none;
-    border-top: none;
-    padding: 3vh 3vw;
-    width: 75%;
-    border-left: 1px solid #ddd;
-}
-
-.pp-sidenav-tab.active {
-    display: inline-block;
 }
 
 #connect-blubrry-services {
@@ -741,4 +776,35 @@ select.pp-settings-select-inline {
 
 .pp-shortcode-container {
     margin: 4ch 0;
+}
+
+.blubrry-stats-marketing-message {
+    background-image: url('../images/Blubrry_stats_hero_2a.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 0 25%;
+    padding: 1em;
+    border-radius: 4px;
+    margin-bottom: 1em;
+    width: 100%;
+}
+
+.blubrry-stats-marketing-text, .blubrry-stats-marketing-text:hover {
+    color: white;
+    margin-top: 0;
+}
+
+a.blubrry-stats-marketing-text {
+    display: inline-block;
+    text-decoration: none;
+}
+
+h5.blubrry-stats-marketing-text {
+    margin: 0;
+}
+
+.pp_white-button-container {
+    padding: 0.5ch 3em;
+    border: 2px solid white;
+    border-radius: 4px;
 }

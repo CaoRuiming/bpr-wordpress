@@ -9,21 +9,21 @@ $pagename = get_query_var('pagename');
 ?>
 
 <head>
-    <link href="https://assets2.blubrry.com/css/blubrryicons.css" rel="stylesheet" type="text/css"/>
-    <link href="https://assets2.blubrry.com/tests/colorbox.css" rel="stylesheet" type="text/css"/>
-    <link href="https://assets2.blubrry.com/css/ekko-lightbox.css" rel="stylesheet" type="text/css"/>
-    <link href="https://assets2.blubrry.com/css/ekko-lightbox.min.css" rel="stylesheet" type="text/css"/>
-    <link href="https://assets2.blubrry.com/css/blubrryicons.css" rel="stylesheet" type="text/css"/>
+    <link href="https://assets.blubrry.com/css/blubrryicons.css" rel="stylesheet" type="text/css"/>
+    <link href="https://assets.blubrry.com/tests/colorbox.css" rel="stylesheet" type="text/css"/>
+    <link href="https://assets.blubrry.com/css/ekko-lightbox.css" rel="stylesheet" type="text/css"/>
+    <link href="https://assets.blubrry.com/css/ekko-lightbox.min.css" rel="stylesheet" type="text/css"/>
+    <link href="https://assets.blubrry.com/css/blubrryicons.css" rel="stylesheet" type="text/css"/>
     <link href="<?php if (isset($_SERVER['HTTPS'])) {
         echo 'https://' . $_SERVER['SERVER_NAME'] . '/wp-content/plugins/powerpress-directory/js/mediaelement/build/mediaelementplayer.min.css';
     } else {
         echo 'http://' . $_SERVER['SERVER_NAME'] . '/wp-content/plugins/powerpress-directory/js/mediaelement/build/mediaelementplayer.min.css';
     } ?>" rel="stylesheet" type="text/css"/>
 
-    <script src="https://assets2.blubrry.com/js/ekko-lightbox.js"></script>
-    <script src="https://assets2.blubrry.com/js/ekko-lightbox.min.js"></script>
-    <script src="https://assets2.blubrry.com/js/jquery.colorbox.js"></script>
-    <script src="https://assets2.blubrry.com/js/jquery.colorbox-min.js"></script>
+    <script src="https://assets.blubrry.com/js/ekko-lightbox.js"></script>
+    <script src="https://assets.blubrry.com/js/ekko-lightbox.min.js"></script>
+    <script src="https://assets.blubrry.com/js/jquery.colorbox.js"></script>
+    <script src="https://assets.blubrry.com/js/jquery.colorbox-min.js"></script>
     <script src="<?php if (isset($_SERVER['HTTPS'])) {
         echo 'https://' . $_SERVER['SERVER_NAME'] . '/wp-content/plugins/powerpress-directory/js/mediaelement/build/mediaelement-and-player.js';
     } else {

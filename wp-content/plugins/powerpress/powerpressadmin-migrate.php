@@ -85,7 +85,7 @@ function powepress_admin_migrate_add_urls($urls)
     $auth = new PowerPressAuth();
 	if( empty($Settings['blubrry_auth']) && !$creds )
 	{
-		powerpress_page_message_add_error( sprintf(__('You must have a blubrry Podcast Hosting account to continue.', 'powerpress')) .' '. '<a href="http://create.blubrry.com/resources/podcast-media-hosting/" target="_blank">'. __('Learn More', 'powerpress') .'</a>', 'inline', false );
+		powerpress_page_message_add_error( sprintf(__('You must have a blubrry Podcast Hosting account to continue.', 'powerpress')) .' '. '<a href="https://blubrry.com/services/podcast-hosting/" target="_blank">'. __('Learn More', 'powerpress') .'</a>', 'inline', false );
 		return false;
 	}
 	
@@ -939,11 +939,7 @@ function powerpress_admin_migrate()
 	</div>
 	<div class="powerpress-step<?php echo ($Step >= 2? ' active-step':''); ?>">
 	<h3><?php echo __('Step 3', 'powerpress'); ?></h3>
-	
-	<p>
-	<a href="<?php echo admin_url("admin.php?page=powerpress/powerpressadmin_migrate.php&amp;action=powerpress-migrate-media&amp;migrate_step=3"); ?>"><?php echo __('Update your Episodes', 'powerpress'); ?></a>
-	</p>
-	<br />
+
 	<?php if( $CompletedCount ) { ?><p class="normal"><?php echo sprintf( __('%d episodes updated', 'powerpress'), $CompletedCount); ?></p><?php } ?>
 <!--	<p class="normal">0 episodes updated</p> -->
 	<p class="normal"><a href="<?php echo admin_url("admin.php?page=powerpress/powerpressadmin_migrate.php&amp;action=powerpress-migrate-media&amp;migrate_step=3"); ?>"><?php echo __('Update Episodes Now', 'powerpress'); ?></a></p>

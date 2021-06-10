@@ -16,7 +16,7 @@ $pp_nonce = powerpress_login_create_nonce();
 <div class="wrap">
     <div class="pp_container">
         <h2 class="pp_align-center"><?php echo __('Would you like to host with Blubrry?', 'powerpress'); ?></h2>
-        <h5 class="pp_align-center"><?php echo __('Don’t know what a podcast host is?', 'powerpress'); ?> <a style="color:blue" href="https://create.blubrry.com/manual/internet-media-hosting/"><?php echo __('Learn more', 'powerpress'); ?></a></h5>
+        <h5 class="pp_align-center"><?php echo __('Don’t know what a podcast host is?', 'powerpress'); ?> <a style="color:blue" href="https://blubrry.com/manual/internet-media-hosting/"><?php echo __('Learn more', 'powerpress'); ?></a></h5>
         <hr  class="pp_align-center" />
         <p class="pp_align-center"><?php echo __('A podcast media host is essential for your show. If you host your files and RSS feed on WordPress, it can be very fragile and break.', 'powerpress'); ?> </p>
 
@@ -55,7 +55,7 @@ $pp_nonce = powerpress_login_create_nonce();
                             <div class="pp_content">
                                 <!--<div class="pp_align-center">-->
                                     <div class="btn-caption-container">
-                                        <p class="pp_align-center"><?php echo __('Secure media storage, unlimited bandwidth, and pro stats included. Create an account or sign in.', 'powerpress'); ?></p>
+                                        <p class="pp_align-center"><?php echo __('Secure media storage, unlimited bandwidth, and Standard Statistics included. Create an account or sign in.', 'powerpress'); ?></p>
                                     </div>
                                     <div class="pp_button-container">
                                         <a href="<?php echo add_query_arg( '_wpnonce', $pp_nonce, admin_url("admin.php?page={$_GET['page']}&step=blubrrySignin$querystring_import")); ?>">

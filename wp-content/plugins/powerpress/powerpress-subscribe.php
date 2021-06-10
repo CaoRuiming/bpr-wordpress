@@ -918,7 +918,7 @@ function powerpress_do_subscribe_widget($settings, $PowerPressSettings)
 		
 		// Lets build the subscribe box...
 			$html .= '<div class="pp-sub-bx">';
-				$html .= '<img class="pp-sub-l" src="'. esc_url( $settings['image_url'] ) .'" '. (!empty($settings['title'])?' title="'.  esc_attr($settings['title']).'" ':'') .'/>';
+				$html .= '<img class="pp-sub-l" src="'. esc_url( $settings['image_url'] ) .'" '. (!empty($settings['title'])?' title="'.  esc_attr($settings['title']).'" alt="'.  esc_attr($settings['title']).'" ':' alt="No show image" ') .'/>';
 				$html .= '<div class="pp-sub-btns">';
 
 			if( !empty($settings['itunes_url']) &&  !empty($settings['subscribe_feature_apple_shortcode']) ) {

@@ -61,39 +61,6 @@ function powerpress_admin_jquery_init()
 	$DeleteFile = false;
 	switch($action)
 	{
-		case 'powerpress-jquery-stats': {
-		
-			// Make sure users have permission to access this
-			if( !empty($Settings['use_caps']) && !current_user_can('view_podcast_stats') )
-			{
-				powerpress_admin_jquery_header( __('Blubrry Media Statistics', 'powerpress') );
-?>
-<h2><?php echo __('Blubrry Media Statistics', 'powerpress'); ?></h2>
-<p><?php echo __('You do not have sufficient permission to manage options.', 'powerpress'); ?></p>
-<p style="text-align: center;"><a href="#" onclick="self.parent.tb_remove();"><?php echo __('Close', 'powerpress'); ?></a></p>
-<?php
-				powerpress_admin_jquery_footer();
-				exit;
-			}
-			else if( !current_user_can('edit_posts') )
-			{
-				powerpress_admin_jquery_header( __('Blubrry Media Statistics', 'powerpress') );
-				powerpress_page_message_add_notice( __('You do not have sufficient permission to view media statistics.', 'powerpress') );
-				powerpress_page_message_print();
-				powerpress_admin_jquery_footer();
-				exit;
-			}
-				
-			$StatsCached = get_option('powerpress_stats');
-			
-			powerpress_admin_jquery_header( __('Blubrry Media Statistics', 'powerpress') );
-?>
-<h2><?php echo __('Blubrry Media Statistics', 'powerpress'); ?></h2>
-<?php
-			echo $StatsCached['content'];
-			powerpress_admin_jquery_footer();
-			exit;
-		}; break;
 		case 'powerpress-jquery-media-disable': {
 			
 			if( !current_user_can('edit_posts') )
@@ -241,9 +208,14 @@ function powerpress_admin_jquery_init()
 			$json_data = false;
 			$json_data_programs = false;
 			$api_url_array = powerpress_get_api_array();
+			if (is_plugin_active('powerpress-hosting/powerpress-hosting.php')) {
+			    $website_detection_string = "&wp_blubrry_hosted=true";
+			} else {
+			    $website_detection_string = "&wp_admin_url=" . urlencode(admin_url('admin.php'));
+			}
             if ($creds) {
                 $accessToken = powerpress_getAccessToken();
-                $req_url = sprintf('/2/media/%s/index.json?quota=true&published=true&cache=' . md5( rand(0, 999) . time() ), $blubrryProgramKeyword);
+                $req_url = sprintf('/2/media/%s/index.json?quota=true%s&published=true&cache=' . md5( rand(0, 999) . time() ), $blubrryProgramKeyword, $website_detection_string);
                 $req_url .= (defined('POWERPRESS_BLUBRRY_API_QSA') ? '&' . POWERPRESS_BLUBRRY_API_QSA : '');
                 $req_url_programs = sprintf('/2/service/index.json?cache=' . md5( rand(0, 999) . time() ));
                 $req_url_programs .= (defined('POWERPRESS_BLUBRRY_API_QSA') ? '?' . POWERPRESS_BLUBRRY_API_QSA : '');
@@ -251,7 +223,7 @@ function powerpress_admin_jquery_init()
                 $results_programs = $auth->api($accessToken, $req_url_programs);
             } else {
                 foreach ($api_url_array as $index => $api_url) {
-                    $req_url = sprintf('%s/media/%s/index.json?quota=true&published=true&cache=' . md5( rand(0, 999) . time() ), rtrim($api_url, '/'), $blubrryProgramKeyword);
+                    $req_url = sprintf('%s/media/%s/index.json?quota=true%s&published=true&cache=' . md5( rand(0, 999) . time() ), rtrim($api_url, '/'), $blubrryProgramKeyword, $website_detection_string);
                     $req_url .= (defined('POWERPRESS_BLUBRRY_API_QSA') ? '&' . POWERPRESS_BLUBRRY_API_QSA : '');
                     $req_url_programs = sprintf('%s/service/index.json?cache=' . md5( rand(0, 999) . time() ), rtrim($api_url, '/'));
                     $req_url_programs .= (defined('POWERPRESS_BLUBRRY_API_QSA') ? '?' . POWERPRESS_BLUBRRY_API_QSA : '');
@@ -312,6 +284,30 @@ function powerpress_admin_jquery_init()
 }
 </style>
 <script language="JavaScript" type="text/javascript"><!--
+
+window.addEventListener('message', function(event) {
+    <?php
+    if (defined('POWERPRESS_BLUBRRY_API_URL')) {
+        $desired_origin = str_replace('api', 'publish', rtrim(POWERPRESS_BLUBRRY_API_URL, '/'));
+        $desired_origin = str_replace('https://', '', $desired_origin);
+        $desired_origin = str_replace('http://', '', $desired_origin);
+    } else {
+        $desired_origin = 'publish.blubrry.com';
+    }
+    ?>
+    let event_origin_host = event.origin.replace('https://', '');
+    event_origin_host = event_origin_host.replace('http://', '');
+      if(event_origin_host === '<?php echo $desired_origin; ?>')
+      {
+          if (event.data.message.includes("FILE: ")) {
+              let file = event.data.message.replace("FILE: ", "");
+              tb_remove();
+              SelectMedia(file);
+          } else if (event.data.message.includes("CLOSE")) {
+              tb_remove();
+          }
+      }
+    }, false);
 
 function SelectMedia(File)
 {
@@ -543,7 +539,7 @@ window.onload = function() {
 					 powerpress_byte_size($QuotaData['published']['no_fault_maximum']),
 					str_replace('.0', '', powerpress_byte_size($QuotaData['published']['total'])));
 				echo ' ';
-				echo '<a href="http://create.blubrry.com/resources/podcast-media-hosting/no-fault/" target="_blank">'. __('Learn More', 'powerpress') .'</a>';
+				echo '<a href="https://blubrry.com/support/nofault-documentation/" target="_blank">'. __('Learn More', 'powerpress') .'</a>';
 			?>
 			</p>
 			<p><?php
@@ -590,10 +586,19 @@ window.onload = function() {
             check_admin_referer('powerpress-jquery-account-verify');
 
             if (isset($_GET['logout']) && $_GET['logout']) {
-                $action_url = admin_url('admin.php?action=powerpress-jquery-account-save');
-                $action = 'powerpress-jquery-account-save';
-                $logout_url = wp_nonce_url($action_url, $action) . '&remove=true';
-                header("Location: " . $logout_url);
+				if ($creds) {
+				    $accessToken = powerpress_getAccessToken();
+                    $auth->revokeClient($accessToken, $creds['client_id'], $creds['client_secret']);
+                    delete_option('powerpress_creds');
+                }
+				?>
+                <script>
+                    jQuery(document).ready(function() {
+                        window.parent.tb_remove();
+                        parent.location.reload(1);
+                    });
+                </script>
+                 <?php
                 exit;
             }
 
@@ -850,7 +855,7 @@ window.onload = function() {
 
                 if( $Error )
                 {
-                    $Error .= '<p style="text-align: center;"><a href="http://create.blubrry.com/resources/powerpress/powerpress-settings/services-stats/" target="_blank">'. __('Click Here For Help','powerpress') .'</a></p>';
+                    $Error .= '<p style="text-align: center;"><a href="https://blubrry.com/support/powerpress-documentation/services-stats/" target="_blank">'. __('Click Here For Help','powerpress') .'</a></p>';
                 }
             }
 
@@ -1146,6 +1151,7 @@ jQuery(document).ready(function($) {
 			{
 				$RedirectURL .= '&ReturnURL=';
 				$RedirectURL .= urlencode( admin_url("admin.php?action=powerpress-jquery-upload-complete") );
+				$RedirectURL .= '&message=true';
 				header("Location: $RedirectURL");
 				exit;
 			}

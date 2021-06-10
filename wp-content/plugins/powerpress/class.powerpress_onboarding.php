@@ -18,6 +18,7 @@ class PowerpressOnboarding
     public function router($GET) {
         if(empty($GET['step'])) {
             include 'views/onboarding/start.php';
+            marketing_footer(true);
         }
         else {
             switch ($GET['step']) {
@@ -29,15 +30,18 @@ class PowerpressOnboarding
                     break;
                 case 'showBasics':
                     include 'views/onboarding/show_basics.php';
+                    marketing_footer();
                     break;
                 case 'createEpisode':
                     include 'views/onboarding/createepisode.php';
+                    marketing_footer(true);
                     break;
                 case 'wantStats':
                     include 'views/onboarding/want_stats.php';
                     break;
                 default:
                     include 'views/onboarding/start.php';
+                    marketing_footer(true);
                     break;
             }
         }

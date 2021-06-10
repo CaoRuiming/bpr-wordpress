@@ -32,7 +32,7 @@
         </table>
     </div>
 <?php } else {?>
-    <h2>Sorry, we couldn't find a Network associated with your account. Learn more about the Network feature <a href="https://create.blubrry.com/professional-podcast-hosting/podcast-network-plugin/">here</a>, or contact our support team <a href="https://blubrry.com/contact/">here.</a></h2>
+    <h2>Sorry, we couldn't find a Network associated with your account. Learn more about the Network feature <a href="https://blubrry.com/services/podcast-network-plugin/">here</a>, or contact our support team <a href="https://blubrry.com/contact/">here.</a></h2>
 <?php } ?>
     <br>
 	

@@ -25,9 +25,9 @@ function powerpressadmin_default_steps($Step = 0, $Heading = true, $ThisPage=tru
 	<?php } ?>
 		<li class="pp-step-2<?php echo ($Step >= 1? ' pp-step-active':''); ?>">
 			<h3 class="<?php echo ($Step >= 2? 'pp-step-h-completed':''); ?>"><a href="<?php echo admin_url( 'post-new.php' ); ?>"><?php echo __('Create a blog post with an episode', 'powerpress'); ?></a></h3>
-			<p><a href="http://create.blubrry.com/resources/powerpress/using-powerpress/creating-your-first-episode-with-powerpress/" target="_blank"><?php echo __('Need help?', 'powerpress'); ?></a>
+			<p><a href="https://blubrry.com/support/powerpress-documentation/creating-your-first-episode-with-powerpress/" target="_blank"><?php echo __('Need help?', 'powerpress'); ?></a>
 		</li>
-		<li class="pp-step-3<?php echo ($Step >= 2? ' pp-step-active':''); ?>"><h3 class="<?php echo ($Step >= 3? 'pp-step-h-completed':''); ?>"><a href="http://create.blubrry.com/manual/podcast-promotion/submit-podcast-to-itunes/?podcast-feed=<?php echo urlencode(get_feed_link('podcast')); ?>" target="_blank"><?php echo __('Submit your podcast to iTunes and other podcast directories', 'powerpress'); ?></a></h3></li>
+		<li class="pp-step-3<?php echo ($Step >= 2? ' pp-step-active':''); ?>"><h3 class="<?php echo ($Step >= 3? 'pp-step-h-completed':''); ?>"><a href="https://blubrry.com/manual/podcast-promotion/submit-podcast-to-itunes/?podcast-feed=<?php echo urlencode(get_feed_link('podcast')); ?>" target="_blank"><?php echo __('Submit your podcast to iTunes and other podcast directories', 'powerpress'); ?></a></h3></li>
 	</ul>
 </div><!-- end pp-getting-started-box -->
 <?php

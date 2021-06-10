@@ -59,7 +59,7 @@ jQuery(document).ready(function() {
 <h1 class="pp-heading"><?php echo __('Podcast SEO', 'powerpress'); ?></h1>
 <p class="pp-settings-text">
     <?php echo __('Enable features to help with podcasting search engine optimization (SEO). The following options can assist your web and podcasting SEO strategies.', 'powerpress'); ?>
-	<a href="http://create.blubrry.com/resources/powerpress/advanced-tools-and-options/podcasting-seo-settings/"  target="_blank"><?php echo __('Learn More', 'powerpress'); ?></a>
+	<a href="https://blubrry.com/support/powerpress-documentation/podcasting-seo-settings/"  target="_blank"><?php echo __('Learn More', 'powerpress'); ?></a>
 </p>
 
 

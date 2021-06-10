@@ -89,23 +89,34 @@
                         'modern_style'=>$props['ssb-shape']=="square"?"-sq":"" ,
                         'modern_direction'=>'horizontal',
                         'itunes_url'=>esc_url($props['subscribe_itunes'] ? $props['subscribe_itunes'] : $props['program_itunesurl']),
-                        'subscribe_feature_email'=>true,
-                        'subscribe_feature_gp'=>true,
-                        'subscribe_feature_stitcher'=>true,
+                        'subscribe_feature_email_sidebar'=>true,
+                        'subscribe_feature_android_sidebar'=>true,
+                        'subscribe_feature_gp_sidebar'=>true,
+                        'subscribe_feature_stitcher_sidebar'=>true,
                         'stitcher_url'=>esc_url($props['subscribe_stitcher']),
-                        'subscribe_feature_tunein'=>true,
+                        'subscribe_feature_tunein_sidebar'=>true,
                         'tunein_url'=>esc_url($props['subscribe_tunein']),
-                        'subscribe_feature_spotify'=>true,
+                        'subscribe_feature_spotify_sidebar'=>true,
                         'spotify_url'=>esc_url($props['subscribe_spotify']), //TODO make program meta have this value
-                        'subscribe_feature_iheart'=>false,
+                        'subscribe_feature_iheart_sidebar'=>false,
                         'iheart_url'=>esc_url($props['subscribe_iheart']), //For future use
-                        'subscribe_feature_deezer'=>false,
+                        'subscribe_feature_deezer_sidebar'=>false,
                         'deezer_url'=>esc_url($props['subscribe_deezer']), //For future use
-                        'subscribe_feature_radio_com'=>false,
-                        'radio_com_url'=>esc_url($props['subscribe_radio_com']), //For future use
-                        'subscribe_feature_pandora'=>false,
+                        'subscribe_feature_blubrry_sidebar'=>false,
+                        'blubrry_url'=>esc_url($props['subscribe_blubrry']), //For future use
+                        'subscribe_feature_podchaser_sidebar'=>false,
+                        'podchaser_url'=>esc_url($props['subscribe_podchaser']), //For future use
+                        'subscribe_feature_jiosaavn_sidebar'=>false,
+                        'jiosaavn_url'=>esc_url($props['subscribe_jiosaavn']), //For future use
+                        'subscribe_feature_gaana_sidebar'=>false,
+                        'gaana_url'=>esc_url($props['subscribe_gaana']), //For future use
+                        'subscribe_feature_pcindex_sidebar'=>false,
+                        'pcindex_url'=>esc_url($props['subscribe_pcindex']), //For future use
+                        'subscribe_feature_amazon_sidebar'=>false,
+                        'amazon_url'=>esc_url($props['subscribe_amazon_music']), //For future use
+                        'subscribe_feature_pandora_sidebar'=>false,
                         'pandora_url'=>esc_url($props['subscribe_pandora']), //For future use
-                        'subscribe_feature_rss'=>true,
+                        'subscribe_feature_rss_sidebar'=>true,
                         'subscribe_page_url'=>esc_url($props['subscribe_html'])
                     ]) ?>
         </div>

@@ -533,7 +533,7 @@ WP2Social Auto Publish is developed and maintained by <a href="https://xyzscript
 		<td>SMAPSOLUTIONS API package for 1 year, worth 10 USD(1 fb account ,10 api calls per hour)</td>
 		<td>1 months free subscription
 		</td>
-		<td>3 months free subscription
+		<td>1 year free subscription
 		</td>
 		<td><img src="<?php echo plugins_url("images/tick.png",XYZ_FBAP_PLUGIN_FILE);?>">
 		</td>

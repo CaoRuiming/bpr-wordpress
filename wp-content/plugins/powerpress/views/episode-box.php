@@ -23,6 +23,25 @@ function powerpress_admin_enqueue_scripts($hook) {
 }
 add_action('admin_enqueue_scripts', 'powerpress_admin_enqueue_scripts');
 
+/**
+ * Accept json files so that users can upload podcast chapters
+ * @param $mime_types
+ * @return mixed
+ */
+function powerpress_accept_json( $mime_types ) {
+    $mime_types['json'] = 'text/plain'; // Adding .json extension
+    return $mime_types;
+}
+
+$GeneralSettings = get_option('powerpress_general');
+
+//Use the upload_mimes filter to accept json uploads if necessary
+if (isset($GeneralSettings['powerpress_accept_json']) && $GeneralSettings['powerpress_accept_json']) {
+    add_filter( 'upload_mimes', 'powerpress_accept_json', 100000, 1);
+} else {
+    remove_filter( 'upload_mimes', 'powerpress_accept_json', 100000);
+}
+
 function powerpress_meta_box($object, $box)
 {
     $FeedSlug = esc_attr(str_replace('powerpress-', '', $box['id']));
@@ -69,6 +88,7 @@ function powerpress_meta_box($object, $box)
     if ((!empty($GeneralSettings['blubrry_hosting']) && $GeneralSettings['blubrry_hosting'] === 'false') || empty($GeneralSettings['blubrry_hosting']))
         $GeneralSettings['blubrry_hosting'] = false;
     $ExtraData = array();
+
 
     if ($object->ID) {
 

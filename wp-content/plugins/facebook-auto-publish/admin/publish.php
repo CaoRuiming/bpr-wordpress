@@ -254,7 +254,7 @@ function xyz_fbap_link_publish($post_ID) {
 		$caption = html_entity_decode($caption, ENT_QUOTES, get_bloginfo('charset'));
 		
 		if($tit_flag==1)
-		$name = apply_filters('the_title', $name);
+		$name = apply_filters('the_title', $name,$post_ID);
 		$name = html_entity_decode($name, ENT_QUOTES, get_bloginfo('charset'));
 
 		$name=strip_tags($name);

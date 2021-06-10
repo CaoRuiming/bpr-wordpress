@@ -43,13 +43,13 @@
 <tr valign="top">
 <th scope="row"><?php echo __('Podcasting Resources', 'powerpress'); ?></th> 
 <td>
-	<p style="margin-top: 5px;"><strong><a href="http://create.blubrry.com/manual/"><?php echo __('Podcasting Manual', 'powerpress'); ?></a></strong>
+	<p style="margin-top: 5px;"><strong><a href="https://blubrry.com/manual/"><?php echo __('Podcasting Manual', 'powerpress'); ?></a></strong>
 	- <?php echo __('Everything you need to know about podcasting.', 'powerpress'); ?></p>
 	
-	<p style="margin-top: 5px;"><strong><a href="http://create.blubrry.com/resources/"><?php echo __('Blubrry Resources', 'powerpress'); ?></a></strong>
+	<p style="margin-top: 5px;"><strong><a href="https://blubrry.com/services/"><?php echo __('Blubrry Resources', 'powerpress'); ?></a></strong>
 	- <?php echo __('Learn more about PowerPress and Blubrry services.', 'powerpress'); ?></p>
 	
-	<p style="margin-top: 5px;"><strong><a href="http://create.blubrry.com/support/"><?php echo __('Blubrry Support', 'powerpress'); ?></a></strong>
+	<p style="margin-top: 5px;"><strong><a href="https://blubrry.com/support/"><?php echo __('Blubrry Support', 'powerpress'); ?></a></strong>
 	- <?php echo __('Get support for your podcast!', 'powerpress'); ?></p>
 	
 	<p style="margin-top: 5px;"><strong><a href="https://wordpress.org/support/plugin/powerpress"><?php echo __('Blubrry PowerPress Forum', 'powerpress'); ?></a></strong>
@@ -182,7 +182,7 @@
 <th scope="row"><?php echo __('Translations', 'powerpress'); ?></th> 
 <td>
 	<p style="margin-top: 5px;"><strong>
-		<a href="https://create.blubrry.com/resources/powerpress/powerpress-language/translate-powerpress/" target="_blank"><?php echo __('Translate PowerPress to your language', 'powerpress'); ?></a>
+		<a href="https://blubrry.com/support/powerpress-documentation/powerpress-language/translate-powerpress/" target="_blank"><?php echo __('Translate PowerPress to your language', 'powerpress'); ?></a>
 	</strong></p>
 </td>
 </tr>

@@ -4,7 +4,7 @@ Tags: podcasting, podcast, podcaster, powerpress, itunes, apple, apple podcasts,
 Requires at least: 3.6
 Requires PHP: 5.2
 Tested up to: 5.7
-Stable tag: 8.5.4
+Stable tag: 8.6.6
 Donate link: https://create.blubrry.com/resources/podcast-media-hosting/
 License: GPLv2 or later
 
@@ -18,7 +18,7 @@ Publish and manage your podcast right from your WordPress website. Developed by 
 
 =  PowerPress Key Features  =
 - Integrated Players: PowerPress includes audio and video players with embed support from sites like YouTube.
-- NEW: [Skip to Position in Player](https://create.blubrry.com/resources/powerpress/advanced-tools-and-options/skip-to-position-in-player/) shortcode allows you to jump to a given time stamp from the episode, right in your player.
+- NEW: [Skip to Position in Player](https://blubrry.com/support/powerpress-documentation/skip-to-position-in-player/) shortcode allows you to jump to a given time stamp from the episode, right in your player.
 - Subscribe tools: Create subscribe page with our exclusive subscribe shortcode embed and subscribe sidebar widget optimized for responsive websites, high-resolution screens and Apple Retina displays.
 - Podcast Importing and Migration: Moving from another podcast host or publishing platform? You can import your podcast from SoundCloud, Libsyn, PodBean, Squarespace, Anchor, or any valid podcast RSS feed without losing episodes. Our Import Podcast tool paired with our Migrate Media tool can move your media to Blubrry Hosting without skipping a beat.
 - Multiple Podcast Feeds on One Website: Create separate podcasts by category or media format using our Category Podcasting or Podcast Channels features.
@@ -39,15 +39,15 @@ Blubrry PowerPress includes extensive player options to display your podcast aud
 * Audio Players: Pick from the Blubrry Player (available only to Blubrry Hosting customers), MediaElement.js, or the native HTML5 audio player. You can also use players from other themes and plugins.
 * Video players: Pick from MediaElement.js, VideoJS, or the native HTML5 video player.
 * Positioning: Move your player above or below your written content based on your needs and preferences.
-* [Player shortcode](http://create.blubrry.com/resources/powerpress/advanced-tools-and-options/shortcode/): Place the player exactly where you want by adding the `[powerpress]` shortcode directly into your post content.
-* [Playlist player shortcode](http://create.blubrry.com/resources/powerpress/advanced-tools-and-options/powerpress-playlist-shortcode/): Include a playlist of your latest podcast episodes utilizing the `[powerpress_playlist]` shortcode in any page or post.
+* [Player shortcode](https://blubrry.com/support/powerpress-documentation/shortcode/): Place the player exactly where you want by adding the `[powerpress]` shortcode directly into your post content.
+* [Playlist player shortcode](https://blubrry.com/support/powerpress-documentation/powerpress-playlist-shortcode/): Include a playlist of your latest podcast episodes utilizing the `[powerpress_playlist]` shortcode in any page or post.
 * Embeds: Add embeds from sites such as YouTube.
 * PowerPress Supports: MP3, M4A, OGA (ogg audio), and OPUS  audio files, though we highly recommend MP3. It also supports video formats like M4V, MP4, WEBM, and OGV.
 
 = Integrated Subscribe Tools =
 A Blubrry PowerPress exclusive! Our subscription tools help you convert website visitors into podcast subscribers. Subscribe options include:
 
-* [Subscribe page](http://create.blubrry.com/resources/powerpress/advanced-tools-and-options/subscribe-page/): Instantly create a subscribe page with simplified instructions on how to subscribe to your podcast using the [PowerPress subscribe page shortcode](http://create.blubrry.com/resources/powerpress/advanced-tools-and-options/powerpress-subscribe-shortcode/). It includes buttons to subscribe on Apple Podcasts, Google Podcasts, Spotify and many other platforms, like our [Subscribe on Android](http://www.subscribeonandroid.com) and [Subscribe by Email](https://www.subscribebyemail.com) services.
+* [Subscribe page](https://blubrry.com/support/powerpress-documentation/subscribe-page/): Instantly create a subscribe page with simplified instructions on how to subscribe to your podcast using the [PowerPress subscribe page shortcode](https://blubrry.com/support/powerpress-documentation/powerpress-subscribe-shortcode/). It includes buttons to subscribe on Apple Podcasts, Google Podcasts, Spotify and many other platforms, like our [Subscribe on Android](http://www.subscribeonandroid.com) and [Subscribe by Email](https://www.subscribebyemail.com) services.
 * Subscribe sidebar widget: Want to display your subscribe buttons neatly and simply on your website’s sidebar? Take advantage of our Subscribe Sidebar Widget, which will populate the same subscription buttons as the Subscribe Page. It’s also optimized for mobile!
 * Responsive: Our subscribe tools are designed for any screen by providing custom buttons optimized to industry standards (48 pixels in height optimized for touch screen use).
 * Retina enabled: Subscribe button images optimized for high resolution displays including Apple Retina displays.
@@ -58,12 +58,12 @@ Make your life easier by using our podcast hosting and statistics services to st
 * Publish media files directly from your own site.
 * View Blubrry hosting usage and overall monthly quota every time you upload a new file.
 * Configure how Blubrry writes media (ID3) tags within PowerPress settings.
-* Blubrry hosting customers can migrate media files at no additional cost to your Blubrry account with just a couple clicks. Check out Blubrry [hosting plans](http://create.blubrry.com/resources/podcast-media-hosting/).
+* Blubrry hosting customers can migrate media files at no additional cost to your Blubrry account with just a couple clicks. Check out Blubrry [hosting plans](https://blubrry.com/services/podcast-hosting/).
 
-All Blubrry statistics are [IAB Certified Compliant](http://create.blubrry.com/resources/podcast-media-download-statistics/rawvoice-certified/). Basic Statistics are FREE to anyone. Our Professional Statistics are included with Blubrry [hosting plans](http://create.blubrry.com/resources/podcast-media-hosting/). Or you can purchase [Advanced Statistics](https://create.blubrry.com/resources/podcast-media-hosting/advanced-podcast-statistics/) for $5 a month.
+All Blubrry statistics are [IAB Certified Compliant](https://blubrry.com/support/statistics-documentation/rawvoice-certified/). Free Statistics are FREE to anyone. Our Standard Statistics are included with Blubrry [hosting plans](https://blubrry.com/services/podcast-hosting//). Or you can purchase [Advanced Statistics](https://blubrry.com/services/podcast-statistics/advanced-statistics/) for $5 a month.
 
 = Migrating from other Podcast Plugins =
-Please see detailed instructions for migrating from [podPress](https://create.blubrry.com/resources/powerpress/advanced-tools-and-options/migrating-from-podpress-to-powerpress/), [TGS Podcasting Plugin](https://create.blubrry.com/resources/powerpress/advanced-tools-and-options/migrating-from-tgs-podcasting-plugin/) and [Seriously Simple Podcasting](https://create.blubrry.com/resources/powerpress/advanced-tools-and-options/migrating-from-seriously-simple-podcasting-plugin/).
+Please see detailed instructions for migrating from [podPress](https://blubrry.com/support/powerpress-documentation/migrating-from-podpress-to-powerpress/), [TGS Podcasting Plugin](https://blubrry.com/support/powerpress-documentation/migrating-from-tgs-podcasting-plugin/) and [Seriously Simple Podcasting](https://blubrry.com/support/powerpress-documentation/migrating-from-seriously-simple-podcasting-plugin/).
 
 Note: Advanced settings such as settings for podcast categories will need to be recreated in PowerPress.
 
@@ -71,16 +71,16 @@ Note: Advanced settings such as settings for podcast categories will need to be 
 Importing your podcast feed(s) into PowerPress is super easy! Simply paste your RSS feed URL into PowerPress’ Import Podcast tool. Importing your existing RSS feed into PowerPress pulls your episode posts into your site, then you can optionally migrate your media to your Blubrry Podcast Hosting account with only a couple of clicks.
 
 = PowerPress in Your Language =
-[PowerPress is available in a number of languages](https://create.blubrry.com/resources/powerpress/powerpress-language/). Starting with PowerPress 7.0, translations have been  managed through [translate.wordpress.org](https://translate.wordpress.org/projects/wp-plugins/powerpress/), making translations easier to set up  and update. If you’re interested in translating PowerPress, please [contact us](https://blubrry.com/contact/#translate).
+[PowerPress is available in a number of languages](https://blubrry.com/support/powerpress-documentation/powerpress-language/). Starting with PowerPress 7.0, translations have been  managed through [translate.wordpress.org](https://translate.wordpress.org/projects/wp-plugins/powerpress/), making translations easier to set up  and update. If you’re interested in translating PowerPress, please [contact us](https://blubrry.com/contact/#translate).
 
 Translators will receive the following from us as a thank you for contributing:
 
-* Free [Blubrry Professional podcast statistics](https://blubrry.com/services/podcast-statistics/) account for your podcast
+* Free [Blubrry Standard podcast statistics](https://blubrry.com/services/podcast-statistics/) account for your podcast
 * Credit for their contribution listed in the [PowerPress WordPress.org Translators list](https://wordpress.org/plugins/powerpress/#other_notes)
 * A link to your website or social media profile.
 
 = Need Help? =
-Contact the Blubrry Support team and look through the PowerPress [documentation](https://create.blubrry.com/resources/powerpress/powerpress-documentation/) we’ve created.
+Contact the Blubrry Support team and look through the PowerPress [documentation](https://blubrry.com/support/powerpress-documentation/powerpress-documentation/) we’ve created.
 
 = Contributors =
 * Angelo Mandato, CIO [Blubrry](http://www.blubrry.com) - Plugin founder, architect and lead developer
@@ -103,7 +103,7 @@ Contact the Blubrry Support team and look through the PowerPress [documentation]
 * Brazilian Portuguese translation for v6.0+ by [Leo Lopes from Radiofobia](http://radiofobia.com.br/)
 
 = Support =
- [http://create.blubrry.com/support/](http://create.blubrry.com/support/)
+ [https://blubrry.com/support/](https://blubrry.com/support/)
 
 = Blubrry Social =
 
@@ -125,9 +125,9 @@ Contact the Blubrry Support team and look through the PowerPress [documentation]
 = Compatible Themes and Plugins =
 Most themes and plugins are compatible with PowerPress. PowerPress is developed and tested using the default themes packaged with WordPress. These themes use WordPress best practices and adhere to theme rules set by WordPress.org. Any child theme based on these themes should also work without issue.
 
-If you are having a problem, try [Diagnosing Feed and/or Player Issues](http://create.blubrry.com/resources/powerpress/using-powerpress/diagnosing-feed-andor-player-issues-with-powerpress/).
+If you are having a problem, try [Diagnosing Feed and/or Player Issues](https://blubrry.com/support/powerpress-documentation/diagnosing-feed-andor-player-issues-with-powerpress/).
 
-If you are having a problem specifically with the player and links, try the "Having issues?" option under PowerPress Settings > Website > PowerPress Shortcodes tab. Visit [Resolving Plugin or Theme Conflicts](http://create.blubrry.com/resources/powerpress/powerpress-settings/media-appearance/plugin-theme-conflict-issues/) for details.
+If you are having a problem specifically with the player and links, try the "Having issues?" option under PowerPress Settings > Website > PowerPress Shortcodes tab. Visit [Resolving Plugin or Theme Conflicts](https://blubrry.com/support/powerpress-documentation/media-appearance/resolving-plugin-theme-conflict-issues/) for details.
 
 = Premium podcasting themes compatible with PowerPress =
 Second Line Themes are designed specifically to take advantage of built-in features, settings, and podcast episode metadata  in PowerPress. The Blubrry team works with the Appendipity team during beta testing and major WordPress releases to make sure the Podcast Pro theme and PowerPress work together seamlessly.
@@ -138,7 +138,7 @@ PowerPress does not allow you to include multiple media files for one feed item 
 As an alternative, PowerPress allows you to create additional custom podcast feeds and channels to associate any magnitude of media format and/or length in a blog post to specific custom feeds. For example, you can create one blog post associated with separate  video and audio podcast feeds, saving you time from entering your show notes twice.
 
 = Why doesn't Blubrry PowerPress include media statistics built-in? =
-Blubrry's PowerPress does not include media statistics built-in. This is not because Blubrry has its own statistics service, although that's a good reason by itself. Maintaining and calculating statistics is a resource and server intensive task that would detract from an otherwise efficient WordPress podcasting plugin. We recommend using your media hosting's web statistics to give you basic download numbers and, if you are seeking more granular measurements, such as client and geographical information for each episode, you're more than welcome to use the [Blubrry Statistics service](http://create.blubrry.com/resources/podcast-media-download-statistics/) as well.
+Blubrry's PowerPress does not include media statistics built-in. This is not because Blubrry has its own statistics service, although that's a good reason by itself. Maintaining and calculating statistics is a resource and server intensive task that would detract from an otherwise efficient WordPress podcasting plugin. We recommend using your media hosting's web statistics to give you basic download numbers and, if you are seeking more granular measurements, such as client and geographical information for each episode, you're more than welcome to use the [Blubrry Statistics service](https://blubrry.com/services/podcast-statistics/) as well.
 
  = How do you insert the player within a blog post? =
 You can insert the media player within your blog posts by using the WordPress shortcode feature. The shortcode for PowerPress is `[powerpress]` (all lowercase).
@@ -155,7 +155,7 @@ File uploads are tricky to handle because there are so many web hosting variatio
 Alternatively, you can sign up for a Blubrry [hosting plan](https://blubrry.com/services/podcast-hosting/), which makes file uploads in PowerPress easier.
 
 = The Media Player does not appear on my site (or the RSS feed is invalid) =
-This can happen when there is a theme or plugin conflict. Please visit our [Diagnosing Feed and/or Player Issues](http://create.blubrry.com/resources/powerpress/using-powerpress/diagnosing-feed-andor-player-issues-with-powerpress/) for instructions how to resolve such issues.
+This can happen when there is a theme or plugin conflict. Please visit our [Diagnosing Feed and/or Player Issues](https://blubrry.com/support/powerpress-documentation/diagnosing-feed-andor-player-issues-with-powerpress/) for instructions how to resolve such issues.
 
 
 == Installation ==
@@ -183,6 +183,61 @@ If you are a fan of PowerPress, we would greatly appreciate it if you could take
 
 
 == Changelog ==
+
+= 8.6.6 =
+* Released 06/09/2021
+* Added a setting to suppress itunes:author, itunes:isClosedCaptioned, itunes:summary, and itunes:subtitle inside item tags
+* Small bugfix in stats widget area
+* Stop caching list of applicants in network section
+
+= 8.6.5 =
+* Released 06/02/2021
+* Bypass caching in network-related API calls
+* Start sending website admin URL for Blubrry users
+
+= 8.6.4 =
+* Released 05/19/2021
+* Small bugfix from today's earlier release
+
+= 8.6.3 =
+* Released 05/19/2021
+* Small bugfixes
+
+= 8.6.2 =
+* Released 05/10/2021
+* Bugfixes in Blubrry uploader, network subscribe widget, and channel CSS
+* Fixed a vulnerability in the PowerPress Settings section pointed out by Darius Sveikauskas
+
+= 8.6.1 =
+* Released 05/04/2021
+* Fixed a bug related to the stats data cache
+
+= 8.6 =
+* Released 05/03/2021
+* Add Blubrry stats widget to WordPress dashboard and PowerPress settings
+* Remove deprecated Post to Social feature
+* Small bug fixes
+* Changes to links and Blubrry messages
+
+- 8.5.8 =
+* Released on 04/29/2021
+* Fixed a PowerPress uploader bug introduced in a chrome update
+
+= 8.5.7 =
+* Released 04/22/2021
+* Fixed a bug in the PowerPress Network area
+
+= 8.5.6 =
+* Released 04/14/2021
+* Fixed Create New Episode button for Post Type feeds
+* Fixed soon-to-be broken assets2.blubrry.com links
+* Small bugfixes
+
+= 8.5.5 =
+* Released 04/08/2021
+* Accept JSON uploads in episode box
+* Small bugfix for PHP strpos error in feed auth
+* Remove unnecessary link in migrate area
 
 = 8.5.4 =
 * Released 03/26/2021
@@ -435,8 +490,8 @@ If you are a fan of PowerPress, we would greatly appreciate it if you could take
 * Released on 10/7/2019
 * New Subscribe Destinations added: 
 ** Deezer - Anyone can now submit their podcast to Deezer with just a blubrry.com account. [Learn more](https://powerpresspodcast.com/2019/08/07/blubrry-podcasts-coming-deezer/)
-** Pandora - [Submit your podcast to Pandora](https://create.blubrry.com/manual/podcast-promotion/submit-podcast-to-pandora/)
-** iHeart - [Submit your podcast to iHeart radio](https://create.blubrry.com/manual/podcast-promotion/submit-podcast-to-iheartradio/).
+** Pandora - [Submit your podcast to Pandora](https://blubrry.com/manual/podcast-promotion/submit-podcast-to-pandora/)
+** iHeart - [Submit your podcast to iHeart radio](https://blubrry.com/manual/podcast-promotion/submit-podcast-to-iheartradio/).
 * New *Subscribe* button styling options!!!
 ** Buttons now use an SVG sprite, providing a small footprint while being optimized for retina displays. Subscribe buttons have never been so crisp!
 ** There is a new "Modern" color scheme, with the traditional square or new rounded corners.
@@ -520,8 +575,8 @@ If you are a fan of PowerPress, we would greatly appreciate it if you could take
 
 = 7.4 =
 * Released on 10/03/2018
-* NEW: [Skip to Position in Player](https://create.blubrry.com/resources/powerpress/advanced-tools-and-options/skip-to-position-in-player/) shortcode, quickly skip to a position in your audio episodes from your show notes. e.g. `[skipto time="2:34"]` [Learn more](https://create.blubrry.com/resources/powerpress/advanced-tools-and-options/skip-to-position-in-player/)
-* MEW: Emoji in show notes! You can now enter Emoji characters into the show notes to appear in podcast apps. Enable option in Feed settings tab. Previously WordPress converst Emoji to images which are not displayed in podcast apps. [Learn more](https://create.blubrry.com/resources/powerpress/powerpress-settings/feeds/#emoji)
+* NEW: [Skip to Position in Player](https://blubrry.com/support/powerpress-documentation/skip-to-position-in-player/) shortcode, quickly skip to a position in your audio episodes from your show notes. e.g. `[skipto time="2:34"]` [Learn more](https://blubrry.com/support/powerpress-documentation/skip-to-position-in-player/)
+* MEW: Emoji in show notes! You can now enter Emoji characters into the show notes to appear in podcast apps. Enable option in Feed settings tab. Previously WordPress converst Emoji to images which are not displayed in podcast apps. [Learn more](https://blubrry.com/support/powerpress-documentation/feeds/#emoji)
 * Added option to override the Google Podcasts subscribe URL.
 * Enhanced VideoObject, a feature in Podcasting SEO.
 * Improved base64 encoding Google Podcasts Subscribe URLs. (Thanks Daniel Lewis for the heads up!)
@@ -531,7 +586,7 @@ If you are a fan of PowerPress, we would greatly appreciate it if you could take
 = 7.3 =
 * Released on 07/10/2018
 * Spotify and Google Podcasts subscribe links added to Destinations.
-* PowerPress users using [Blubrry Podcast Hosting](https://create.blubrry.com/resources/podcast-media-hosting/) may now submit shows to Spotify!
+* PowerPress users using [Blubrry Podcast Hosting](https://blubrry.com/services/podcast-hosting/) may now submit shows to Spotify!
 * Added PodcastMirror setting, a modern alternative to FeedBurner. Learn more about [PodcastMirror](https://podcastmirror.com/) at [podcastmirror.com](https://podcastmirror.com/)
 * Converted loop logic from each() to foreach() for PHP 7.3+ / 8.0+ compatibility.
 * Improved logic for playlist player to appear better when certain settings are not set.
@@ -561,7 +616,7 @@ If you are a fan of PowerPress, we would greatly appreciate it if you could take
 = 7.1.1 =
 * Released on 08/24/2017
 * NOTE: There is no urgency to update to this version unless you can benefit from bug fixes listed.
-* BETA COMING SOON: PowerPress 7.2 Beta will be available within 24-72 hours. Please visit https://create.blubrry.com/resources/powerpress/powerpress-beta/ for more details.
+* BETA COMING SOON: PowerPress 7.2 Beta will be available within 24-72 hours. Please visit https://blubrry.com/support/powerpress-documentation/powerpress-beta/ for more details.
 * Added logic to prevent the W3 Total Cache plugin from minifying podcast feeds. (Thanks @allimaple for bringing to our attention)
 * Fixed warning messages in the getid3 library so they comply with PHP 7.1+. (Thanks @mahe for letting us know about the problem)
 * Fixed error verifying URLs for file formats not supported by iTunes.
@@ -679,7 +734,7 @@ If you are a fan of PowerPress, we would greatly appreciate it if you could take
 * Embed link now toggles embed box when clicked multiple times.
 
 = Additional PowerPress Version History =
-Please visit the [PowerPress Version History](http://create.blubrry.com/resources/powerpress/advanced-tools-and-options/powerpress-version-history/) page for history prior to version 6.0.
+Please visit the [PowerPress Version History](https://blubrry.com/support/powerpress-documentation/powerpress-version-history/) page for history prior to version 6.0.
 
 == Upgrade Notice ==
 None

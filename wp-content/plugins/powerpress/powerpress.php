@@ -3,7 +3,7 @@
 Plugin Name: Blubrry PowerPress
 Plugin URI: http://create.blubrry.com/resources/powerpress/
 Description: <a href="https://create.blubrry.com/resources/powerpress/" target="_blank">Blubrry PowerPress</a> is the No. 1 Podcasting plugin for WordPress. Developed by podcasters for podcasters; features include Simple and Advanced modes, multiple audio/video player options, subscribe to podcast tools, podcast SEO features, and more! Fully supports Apple Podcasts (previously iTunes), Google Podcasts, Spotify, Stitcher, and Blubrry Podcasting directories, as well as all podcast applications and clients.
-Version: 8.5.4
+Version: 8.6.6
 Author: Blubrry
 Author URI: https://blubrry.com/
 Requires at least: 3.6
@@ -36,7 +36,7 @@ if( !function_exists('add_action') ) {
 
 // WP_PLUGIN_DIR (REMEMBER TO USE THIS DEFINE IF NEEDED)
 
-define('POWERPRESS_VERSION', '8.5.4' );
+define('POWERPRESS_VERSION', '8.6.6' );
 
 // Translation support:
 if ( !defined('POWERPRESS_ABSPATH') )
@@ -225,13 +225,14 @@ function powerpress_content($content)
 				}; break;
 			}
 
-			foreach( $PostTypeSettingsArray as $feed_slug=> $postTypeSettings )
-			{
-				if( !empty( $postTypeSettings['title']) )
-					$GeneralSettings['custom_feeds'][ $feed_slug ] = $postTypeSettings['title'];
-				else
-					$GeneralSettings['custom_feeds'][ $feed_slug ] = $feed_slug;
-			}
+			if (is_array($PostTypeSettingsArray)) {
+                foreach ($PostTypeSettingsArray as $feed_slug => $postTypeSettings) {
+                    if (!empty($postTypeSettings['title']))
+                        $GeneralSettings['custom_feeds'][$feed_slug] = $postTypeSettings['title'];
+                    else
+                        $GeneralSettings['custom_feeds'][$feed_slug] = $feed_slug;
+                }
+            }
 		}
 	}
 
@@ -262,86 +263,76 @@ function powerpress_content($content)
 
 	if( preg_match_all('/(.?)\[(powerpress)\b(.*?)(?:(\/))?\](?:(.+?)\[\/\2\])?(.?)/s', $content, $matches) )
 	{
-		if( isset($matches[3]) )
+		if( isset($matches[3]) && is_array($matches[3]) )
 		{
-			foreach( $matches[3] as $key=> $row )
-			{
-				$attributes = shortcode_parse_atts($row);
-				if( isset($attributes['url']) )
-				{
-					// not a problem...
-				}
-				else if( isset($attributes['feed']) )
-				{
-					// we want to exclude this feed from the links aera...
-					$ExcludePlayers[ $attributes['feed'] ] = true;
-				}
-				else
-				{
-					// we don't want to include any players below...
-					$ExcludePlayers = $GeneralSettings['custom_feeds'];
-				}
-			}
+		    foreach ($matches[3] as $key => $row) {
+                $attributes = shortcode_parse_atts($row);
+                if (isset($attributes['url'])) {
+                    // not a problem...
+                } else if (isset($attributes['feed'])) {
+                    // we want to exclude this feed from the links aera...
+                    $ExcludePlayers[$attributes['feed']] = true;
+                } else {
+                    // we don't want to include any players below...
+                    $ExcludePlayers = $GeneralSettings['custom_feeds'];
+                }
+            }
 		}
 	}
 
-	// LOOP HERE TO DISPLAY EACH MEDIA TYPE
 	$new_content = '';
-	foreach( $GeneralSettings['custom_feeds'] as $feed_slug=> $feed_title )
-	{
-		// Get the enclosure data
-		$EpisodeData = powerpress_get_enclosure_data($post->ID, $feed_slug);
+    if ( is_array($GeneralSettings['custom_feeds']) ) {
+        // LOOP HERE TO DISPLAY EACH MEDIA TYPE
+        foreach ($GeneralSettings['custom_feeds'] as $feed_slug => $feed_title) {
+            // Get the enclosure data
+            $EpisodeData = powerpress_get_enclosure_data($post->ID, $feed_slug);
 
-		if( !$EpisodeData && !empty($GeneralSettings['process_podpress']) && $feed_slug == 'podcast' )
-			$EpisodeData = powerpress_get_enclosure_data_podpress($post->ID);
+            if (!$EpisodeData && !empty($GeneralSettings['process_podpress']) && $feed_slug == 'podcast')
+                $EpisodeData = powerpress_get_enclosure_data_podpress($post->ID);
 
-		if( !$EpisodeData || !$EpisodeData['url'] )
-			continue;
+            if (!$EpisodeData || !$EpisodeData['url'])
+                continue;
 
-		// Just in case, if there's no URL lets escape!
-		if( !$EpisodeData['url'] )
-			continue;
+            // Just in case, if there's no URL lets escape!
+            if (!$EpisodeData['url'])
+                continue;
 
-		// If the player is not already inserted in the body of the post using the shortcode...
-		//if( preg_match('/\[powerpress(.*)\]/is', $content) == 0 )
-		if( !isset($ExcludePlayers[ $feed_slug ]) ) // If the player is not in our exclude list because it's already in the post body somewhere...
-		{
-			if( isset($GeneralSettings['premium_caps']) && $GeneralSettings['premium_caps'] && !powerpress_premium_content_authorized($feed_slug) )
-			{
-				$new_content .=  powerpress_premium_content_message($post->ID, $feed_slug, $EpisodeData);
-			}
-			else
-			{
-				if( $GeneralSettings['player_function'] != 3 && $GeneralSettings['player_function'] != 0 ) // Play in new window only or disabled
-				{
-					do_action('wp_powerpress_player_scripts');
-					$AddDefaultPlayer = empty($EpisodeData['no_player']);
+            // If the player is not already inserted in the body of the post using the shortcode...
+            //if( preg_match('/\[powerpress(.*)\]/is', $content) == 0 )
+            if (!isset($ExcludePlayers[$feed_slug])) // If the player is not in our exclude list because it's already in the post body somewhere...
+            {
+                if (isset($GeneralSettings['premium_caps']) && $GeneralSettings['premium_caps'] && !powerpress_premium_content_authorized($feed_slug)) {
+                    $new_content .= powerpress_premium_content_message($post->ID, $feed_slug, $EpisodeData);
+                } else {
+                    if ($GeneralSettings['player_function'] != 3 && $GeneralSettings['player_function'] != 0) // Play in new window only or disabled
+                    {
+                        do_action('wp_powerpress_player_scripts');
+                        $AddDefaultPlayer = empty($EpisodeData['no_player']);
 
-					if( $EpisodeData && !empty($EpisodeData['embed']) )
-					{
-						$new_content .=  trim($EpisodeData['embed']);
-						if( !empty($GeneralSettings['embed_replace_player']) )
-							$AddDefaultPlayer = false;
-					}
+                        if ($EpisodeData && !empty($EpisodeData['embed'])) {
+                            $new_content .= trim($EpisodeData['embed']);
+                            if (!empty($GeneralSettings['embed_replace_player']))
+                                $AddDefaultPlayer = false;
+                        }
 
-					if( $AddDefaultPlayer )
-					{
-						$image = '';
-						if( isset($EpisodeData['image']) && $EpisodeData['image'] != '' )
-							$image = $EpisodeData['image'];
+                        if ($AddDefaultPlayer) {
+                            $image = '';
+                            if (isset($EpisodeData['image']) && $EpisodeData['image'] != '')
+                                $image = $EpisodeData['image'];
 
-						$new_content .= apply_filters('powerpress_player', '', powerpress_add_flag_to_redirect_url($EpisodeData['url'], 'p'), $EpisodeData );
-					}
-				}
+                            $new_content .= apply_filters('powerpress_player', '', powerpress_add_flag_to_redirect_url($EpisodeData['url'], 'p'), $EpisodeData);
+                        }
+                    }
 
-				if( !isset($EpisodeData['no_links']) ) {
-					do_action('wp_powerpress_player_scripts');
-					$new_content .= apply_filters('powerpress_player_links', '',  powerpress_add_flag_to_redirect_url($EpisodeData['url'], 'p'), $EpisodeData );
-					$new_content .= apply_filters('powerpress_player_subscribe_links', '',  powerpress_add_flag_to_redirect_url($EpisodeData['url'], 'p'), $EpisodeData );
-				}
-			}
-		}
-	}
+                    if (!isset($EpisodeData['no_links'])) {
+                        do_action('wp_powerpress_player_scripts');
+                        $new_content .= apply_filters('powerpress_player_links', '', powerpress_add_flag_to_redirect_url($EpisodeData['url'], 'p'), $EpisodeData);
+                        $new_content .= apply_filters('powerpress_player_subscribe_links', '', powerpress_add_flag_to_redirect_url($EpisodeData['url'], 'p'), $EpisodeData);
+                    }
+                }
+            }
+        }
+    }
 
 	if( $new_content == '' )
 		return $content;
@@ -1010,39 +1001,42 @@ function powerpress_rss2_item()
 	$General = get_option('powerpress_general');
 	$summary_cdata = ( !empty( $General['itunes_cdata'] ) ? true : false );
 
-	if( empty($subtitle) ) {
-		$subtitle = powerpress_get_the_exerpt( false, !empty($General['feed_action_hook']) );
-	}
+	if ( empty ($General['suppress_unused_item_tags']) || !$General['suppress_unused_item_tags']) {
+        if (empty($subtitle)) {
+            $subtitle = powerpress_get_the_exerpt(false, !empty($General['feed_action_hook']));
+        }
 
-	// If no summary specified and we have enhanced summary enabled...
-	if( empty($summary) && !empty($powerpress_feed['enhance_itunes_summary']) ) {
-		$summary = powerpress_enhanced_itunes_summary( !empty($General['feed_action_hook']) );
-		if( !empty($summary) ) {
-			$summary_cdata = true; // Always use CDATA for enhanced iTunes summary
-		}
-	}
+        // If no summary specified and we have enhanced summary enabled...
+        if (empty($summary) && !empty($powerpress_feed['enhance_itunes_summary'])) {
+            $summary = powerpress_enhanced_itunes_summary(!empty($General['feed_action_hook']));
+            if (!empty($summary)) {
+                $summary_cdata = true; // Always use CDATA for enhanced iTunes summary
+            }
+        }
 
-	if( empty($summary) ) { // Backwards compatibility with PodPress, the excerpt is used as the itunes summary if set
-		$summary = powerpress_get_the_exerpt( true, !empty($General['feed_action_hook']) ); // Will call powerpress_get_the_content(true) if the excerpt does not exist
-	}
+        if (empty($summary)) { // Backwards compatibility with PodPress, the excerpt is used as the itunes summary if set
+            $summary = powerpress_get_the_exerpt(true, !empty($General['feed_action_hook'])); // Will call powerpress_get_the_content(true) if the excerpt does not exist
+        }
 
-	if( !empty($subtitle) ) {
-		echo "\t<itunes:subtitle>". powerpress_format_itunes_value($subtitle, 'subtitle') .'</itunes:subtitle>'.PHP_EOL;
-	}
+        if (!empty($subtitle)) {
+            echo "\t<itunes:subtitle>" . powerpress_format_itunes_value($subtitle, 'subtitle') . '</itunes:subtitle>' . PHP_EOL;
+        }
 
-	if( !empty($summary) ) {
-		if( $summary_cdata ) {
-			echo "\t\t<itunes:summary><![CDATA[". powerpress_format_itunes_value($summary, 'summary', true) .']]></itunes:summary>'.PHP_EOL;
-		} else {
-			echo "\t\t<itunes:summary>". powerpress_format_itunes_value($summary, 'summary') .'</itunes:summary>'.PHP_EOL;
-		}
-	}
+        if (!empty($summary)) {
+            if ($summary_cdata) {
+                echo "\t\t<itunes:summary><![CDATA[" . powerpress_format_itunes_value($summary, 'summary', true) . ']]></itunes:summary>' . PHP_EOL;
+            } else {
+                echo "\t\t<itunes:summary>" . powerpress_format_itunes_value($summary, 'summary') . '</itunes:summary>' . PHP_EOL;
+            }
+        }
 
-	if( !empty($author) ) {
-		echo "\t\t<itunes:author>" . esc_html($author) . '</itunes:author>'.PHP_EOL;
-	}
+        if( !empty($author) ) {
+            echo "\t\t<itunes:author>" . esc_html($author) . '</itunes:author>'.PHP_EOL;
+        }
+    }
 
-	// itunes episode image
+
+    // itunes episode image
 	if( !empty( $EpisodeData['itunes_image']) ) {
 		echo "\t\t".'<itunes:image href="' . esc_attr( powerpress_url_in_feed(str_replace(' ', '+', $EpisodeData['itunes_image'])), 'double') . '" />'.PHP_EOL;
 	} else if( !empty($powerpress_feed['itunes_image']) ) {
@@ -1077,9 +1071,11 @@ function powerpress_rss2_item()
 		echo "\t\t<itunes:block>yes</itunes:block>".PHP_EOL;
 	}
 
-	if( $cc && $cc == 'yes' ) {
-		echo "\t\t<itunes:isClosedCaptioned>yes</itunes:isClosedCaptioned>".PHP_EOL;
-	}
+    if ( empty ($General['suppress_unused_item_tags']) || !$General['suppress_unused_item_tags']) {
+        if ($cc && $cc == 'yes') {
+            echo "\t\t<itunes:isClosedCaptioned>yes</itunes:isClosedCaptioned>" . PHP_EOL;
+        }
+    }
 
 	if( !empty($powerpress_feed['itunes_feature']) ) { // We are using the itunes:order option to feature a specific episode.
 		// Skip inserting the order tag
@@ -1649,11 +1645,6 @@ add_filter('pre_transient_rewrite_rules', 'powerpress_pre_transient_rewrite_rule
 function powerpress_init()
 {
 	$GeneralSettings = get_option('powerpress_general');
-
-	if( !empty($GeneralSettings['powerpress-beta-features']) && file_exists(POWERPRESS_ABSPATH.'/powerpressadmin-pts.php') )
-	{
-		require_once(POWERPRESS_ABSPATH.'/powerpressadmin-pts.php');
-	}
 
 	if( empty($GeneralSettings['disable_appearance']) || $GeneralSettings['disable_appearance'] == false )
 	{
@@ -2422,13 +2413,13 @@ function get_the_powerpress_content()
 	$GeneralSettings['custom_feeds'] = array();
 	$GeneralSettings['custom_feeds']['podcast'] = 'Default Podcast Feed';
 
-	foreach( $Temp as $feed_slug=> $feed_title )
-	{
-		if( $feed_slug == 'podcast' )
-			continue;
-		$GeneralSettings['custom_feeds'][ $feed_slug ] = $feed_title;
-	}
-
+	if (is_array($Temp)){
+        foreach ($Temp as $feed_slug => $feed_title) {
+            if ($feed_slug == 'podcast')
+                continue;
+            $GeneralSettings['custom_feeds'][$feed_slug] = $feed_title;
+        }
+    }
 	// Handle post type feeds....
 	if( !empty($GeneralSettings['posttype_podcasting']) )
 	{
@@ -2454,13 +2445,14 @@ function get_the_powerpress_content()
 				}; break;
 			}
 
-			foreach( $PostTypeSettingsArray as $feed_slug=> $postTypeSettings )
-			{
-				if( !empty( $postTypeSettings['title']) )
-					$GeneralSettings['custom_feeds'][ $feed_slug ] = $postTypeSettings['title'];
-				else
-					$GeneralSettings['custom_feeds'][ $feed_slug ] = $feed_slug;
-			}
+            if (is_array($PostTypeSettingsArray)) {
+                foreach ($PostTypeSettingsArray as $feed_slug => $postTypeSettings) {
+                    if (!empty($postTypeSettings['title']))
+                        $GeneralSettings['custom_feeds'][$feed_slug] = $postTypeSettings['title'];
+                    else
+                        $GeneralSettings['custom_feeds'][$feed_slug] = $feed_slug;
+                }
+            }
 		}
 	}
 
@@ -3429,11 +3421,12 @@ function powerpress_merge_empty_feed_settings($CustomFeedSettings, $FeedSettings
 	if( !$CustomFeedSettings )
 		return $FeedSettings; // If the $CustomFeedSettings is false
 
-	foreach( $CustomFeedSettings as $key=> $value )
-	{
-		if( $value !== '' || !isset($FeedSettings[$key]) )
-			$FeedSettings[$key] = $value;
-	}
+    if (is_array($CustomFeedSettings)) {
+        foreach ($CustomFeedSettings as $key => $value) {
+            if ($value !== '' || !isset($FeedSettings[$key]))
+                $FeedSettings[$key] = $value;
+        }
+    }
 
 	return $FeedSettings;
 }

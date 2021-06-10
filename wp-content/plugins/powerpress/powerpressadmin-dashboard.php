@@ -133,140 +133,15 @@ jQuery(document).ready(function($) {
 <?php
 }
 
+/**
+ * Prints Blubrry Stats Widget to the WordPress dashboard using the stats widget class
+ */
 function powerpress_dashboard_stats_content()
 {
-	$Settings = get_option('powerpress_general');
-    $creds = get_option('powerpress_creds');
-    require_once(POWERPRESS_ABSPATH .'/powerpressadmin-auth.class.php');
-    $auth = new PowerPressAuth();
-	
-	if( !empty($Settings['disable_dashboard_stats']) )
-		return; // Lets not do anythign to the dashboard for PowerPress Statistics
-	
-	// If using user capabilities...
-	if( !empty($Settings['use_caps']) && !current_user_can('view_podcast_stats') )
-		return;
-
-	$content = '';
-	$UserPass = ( !empty($Settings['blubrry_auth']) ? $Settings['blubrry_auth']:'');
-	$Keyword = ( !empty($Settings['blubrry_program_keyword']) ? $Settings['blubrry_program_keyword']:'');
-	$StatsCached = get_option('powerpress_stats');
-	if( empty($StatsCached) )
-		$StatsCached = array();
-	if( !empty($StatsCached['content']) )
-		$content = $StatsCached['content'];
-	if( empty($StatsCached['updated']) )
-		$StatsCached['updated'] = 1; // Some time
-	
-	// If no content or it's been over 3 hours...
-    if( !empty($Settings['network_mode']) ) {
-        $content = 'Network mode is enabled, please visit the <a href="https://stats.blubrry.com/" target="_blank">Blubrry.com</a> to see your statistics';
-    }
-    //logged in but no program selected
-    else if (empty($Keyword) && ( $creds || $UserPass && time() > ($StatsCached['updated']+(60*60*3)) ) ) {
-        $content = "No program selected. Please visit the <a href=\"https://stats.blubrry.com/\" target=\"_blank\">Blubrry.com</a> to see your statistics";
-    }
-    else if ($creds) {
-        $success = false;
-        $api_url_array = powerpress_get_api_array();
-
-        $accessToken = powerpress_getAccessToken();
-        $req_url = sprintf('/2/stats/%s/summary.html?nobody=1', $Keyword);
-        $req_url .= (defined('POWERPRESS_BLUBRRY_API_QSA')?'?'. POWERPRESS_BLUBRRY_API_QSA:'');
-        $new_content = $auth->api($accessToken, $req_url, false, false, 2, false);
-
-        if( $new_content )
-        {
-            update_option('powerpress_stats', array('updated'=>time(), 'content'=>$new_content) );
-            $content = $new_content;
-            $success = true;
-        }
-
-        if( $success == false )
-        {
-            if( empty($StatsCached['retry_count']) )
-                $StatsCached['retry_count'] = 1;
-            else if( $StatsCached['retry_count'] < 24 )
-                $StatsCached['retry_count']++;
-
-            if( $StatsCached['retry_count'] > 12 ) // After 36 hours, if we keep failing to authenticate then lets clear the data and display the authentication notice.
-            {
-                $content = '';
-            }
-            // Update the updated flag so it will not try again for 3 hours...
-            update_option('powerpress_stats', array('updated'=>time(), 'content'=>$content, 'retry_count'=>$StatsCached['retry_count'] ) );
-        }
-    }
-    else if( $UserPass && time() > ($StatsCached['updated']+(60*60*3)) )
-	{
-		$success = false;
-		$api_url_array = powerpress_get_api_array();
-		foreach( $api_url_array as $index=> $api_url )
-		{
-			$req_url = sprintf('%s/stats/%s/summary.html?nobody=1', rtrim($api_url, '/'), $Keyword);
-			$req_url .= (defined('POWERPRESS_BLUBRRY_API_QSA')?'&'. POWERPRESS_BLUBRRY_API_QSA:'');
-			
-			$new_content = powerpress_remote_fopen($req_url, $UserPass, array(), 2); // Only give this 2 seconds to return results
-			if( !$new_content && $api_url == 'https://api.blubrry.com/' ) { // Lets force cURL and see if that helps...
-				$new_content = powerpress_remote_fopen($req_url, $UserPass, array(), 2, false, true); // Only give this 2 seconds to return results
-			}
-
-			if( $new_content )
-			{
-				update_option('powerpress_stats', array('updated'=>time(), 'content'=>$new_content) );
-				$content = $new_content;
-				$success = true;
-				break;
-			}
-		}
-		
-		if( $success == false )
-		{
-			if( empty($StatsCached['retry_count']) )
-				$StatsCached['retry_count'] = 1;
-			else if( $StatsCached['retry_count'] < 24 )
-				$StatsCached['retry_count']++;
-				
-			if( $StatsCached['retry_count'] > 12 ) // After 36 hours, if we keep failing to authenticate then lets clear the data and display the authentication notice.
-			{
-				$content = '';
-			}
-			// Update the updated flag so it will not try again for 3 hours...
-			update_option('powerpress_stats', array('updated'=>time(), 'content'=>$content, 'retry_count'=>$StatsCached['retry_count'] ) );
-		}
-	}
-	
-	if( !$UserPass && !$creds )
-	{
-		$content = sprintf('<p>'. __('Wait a sec! This feature is only available to Blubrry Podcast Community members. Join our community to get %s and access to other valuable %s.', 'powerpress') .'</p>',
-			'<a href="http://create.blubrry.com/resources/podcast-media-download-statistics/basic-statistics/" target="_blank">'. __('Free Podcast Statistics') . '</a>',
-			'<a href="http://create.blubrry.com/resources/" target="_blank">'. __('Services', 'powerpress') . '</a>' );
-		$content .= ' ';
-		$content .= sprintf('<p>'. __('Our %s integrated PowerPress makes podcast publishing simple. Check out the %s on our exciting three-step publishing system!', 'powerpress') .'</p>',
-			'<a href="http://create.blubrry.com/resources/podcast-media-hosting/" target="_blank">'. __('Podcast Hosting', 'powerpress') .'</a>',
-			'<a href="http://create.blubrry.com/resources/powerpress/using-powerpress/blubrry-hosting-with-powerpress/" target="_blank">'. __('Video', 'powerpress') .'</a>' );
-	}
-	else if( empty($content) )
-	{
-		$content = sprintf(__('Error: A network or authentication error occurred. To verify your account, click the link &quot;click here to configure Blubrry Statistics and Hosting services&quot; found in the %s tab.', 'powerpress'), '<a href="'. admin_url("admin.php?page=powerpressadmin_basic") .'#tab2">'.__('Services &amp; Statistics'.'</a>', 'powerpress') );
-	}
-	
-?>
-<div>
-<?php
-	echo $content;
-	
-	if( $UserPass && empty($Settings['network_mode']) )
-	{
-?>
-	<div id="blubrry_stats_media_show">
-		<a href="<?php echo admin_url('admin.php'); ?>?action=powerpress-jquery-stats&amp;KeepThis=true&amp;TB_iframe=true&amp;modal=false" title="<?php echo __('Blubrry Media statistics', 'powerpress'); ?>" class="thickbox"><?php echo __('more', 'powerpress'); ?></a>
-	</div>
-<?php } ?>
-</div>
-<?php
+    require_once('powerpressadmin-stats-widget.class.php');
+    $widget = new PowerPressStatsWidget();
+    $widget->powerpress_print_stats_widget();
 }
-
 
 function powerpress_dashboard_news_content()
 {

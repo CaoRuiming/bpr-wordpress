@@ -802,7 +802,7 @@ function notes_tab($FeedSlug, $object, $GeneralSettings, $PCITranscript, $PCITra
             </div>
         </div>
         <br />
-        <?php if( !isset($GeneralSettings['new_episode_box_pci']) || $GeneralSettings['new_episode_box_pci'] == 1) { ?>
+        <?php if( !isset($GeneralSettings['new_episode_box_pci']) || $GeneralSettings['new_episode_box_pci'] == 1) {?>
         <div class="pp-section-container">
             <h4 class="pp-section-title-block"> <?php echo esc_html(__('Podcast Index Settings', 'powerpress')); ?> </h4>
                 <p style="font-size: 14px;" class="pp-ep-box-text">
@@ -818,7 +818,7 @@ function notes_tab($FeedSlug, $object, $GeneralSettings, $PCITranscript, $PCITra
                                class="pp-ep-box-input"
                                name="Powerpress[<?php echo $FeedSlug; ?>][pci_transcript_url]"
                                value="<?php echo esc_attr($PCITranscriptURL); ?>"
-                               placeholder="<?php echo esc_attr(__('URL to transcript file', 'powerpress')); ?>"
+                               placeholder="<?php echo 'https://' . $_SERVER['SERVER_NAME'] . '/wp-content/uploads/' . date('Y') . '/' . date('m') . '/' . 'transcript.txt'; ?>"
                                style="width: 96%; margin: 1em 4% 0 0;"/>
                         <label class="pp-ep-box-label-under"><?php echo esc_html(__("Can be added later by editing this post", 'powerpress')); ?></label>
                     </div>
@@ -836,7 +836,7 @@ function notes_tab($FeedSlug, $object, $GeneralSettings, $PCITranscript, $PCITra
                                class="pp-ep-box-input"
                                name="Powerpress[<?php echo $FeedSlug; ?>][pci_chapters_url]"
                                value="<?php echo esc_attr($PCIChaptersURL); ?>"
-                               placeholder="<?php echo esc_attr(__('URL to chapters file', 'powerpress')); ?>"
+                               placeholder="<?php echo 'https://' . $_SERVER['SERVER_NAME'] . '/wp-content/uploads/' . date('Y') . '/' . date('m') . '/' . 'chapters.json'; ?>"
                                style="width: 96%; margin: 1em 4% 0 0;"/>
                         <label class="pp-ep-box-label-under"><?php echo esc_html(__("Must be the format application/json+chapters", 'powerpress')); ?></label>
                     </div>

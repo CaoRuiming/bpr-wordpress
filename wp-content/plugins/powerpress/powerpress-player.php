@@ -195,58 +195,57 @@ function powerpress_shortcode_handler( $attributes, $content = null )
 						$GeneralSettings['custom_feeds'] = array(); // reset this array since we're working with  a custom post type
 					};
 				}
-				
-				foreach( $PostTypeSettingsArray as $feed_slug => $postTypeSettings )
-				{
-					if( !empty( $postTypeSettings['title']) )
-						$GeneralSettings['custom_feeds'][ $feed_slug ] = $postTypeSettings['title'];
-					else
-						$GeneralSettings['custom_feeds'][ $feed_slug ] = $feed_slug;
-				}
+
+                if (is_array($PostTypeSettingsArray)) {
+                    foreach ($PostTypeSettingsArray as $feed_slug => $postTypeSettings) {
+                        if (!empty($postTypeSettings['title']))
+                            $GeneralSettings['custom_feeds'][$feed_slug] = $postTypeSettings['title'];
+                        else
+                            $GeneralSettings['custom_feeds'][$feed_slug] = $feed_slug;
+                    }
+                }
 			}
 		}
-	
-		foreach( $GeneralSettings['custom_feeds'] as $feed_slug => $feed_title )
-		{
-			if( isset($GeneralSettings['disable_player']) && isset($GeneralSettings['disable_player'][$feed_slug]) )
-				continue;
-			
-			$EpisodeData = powerpress_get_enclosure_data($post->ID, $feed_slug);
-			if( !$EpisodeData && !empty($GeneralSettings['process_podpress']) && $feed_slug == 'podcast' )
-				$EpisodeData = powerpress_get_enclosure_data_podpress($post->ID);
-				
-			if( !$EpisodeData )
-				continue;
-				
-			if( !empty($EpisodeData['embed']) )
-				$return .= $EpisodeData['embed'];
-			
-			// Shortcode over-ride settings:
-			if( !empty($image) )
-				$EpisodeData['image'] = $image;
-			if( !empty($width) )
-				$EpisodeData['width'] = $width;
-			if( !empty($height) )
-				$EpisodeData['height'] = $height;
-				
-			if( isset($GeneralSettings['premium_caps']) && $GeneralSettings['premium_caps'] && !powerpress_premium_content_authorized($feed_slug) )
-			{
-				$return .= powerpress_premium_content_message($post->ID, $feed_slug, $EpisodeData);
-				continue;
-			}
-				
-			if( !isset($EpisodeData['no_player']) )
-			{
-				do_action('wp_powerpress_player_scripts');
-				$return .= apply_filters('powerpress_player', '', powerpress_add_flag_to_redirect_url($EpisodeData['url'], 'p'), $EpisodeData );
-			}
-			if( !isset($EpisodeData['no_links']) )
-			{
-				do_action('wp_powerpress_player_scripts');
-				$return .= apply_filters('powerpress_player_links', '',  powerpress_add_flag_to_redirect_url($EpisodeData['url'], 'p'), $EpisodeData );
-				$return .= apply_filters('powerpress_player_subscribe_links', '',  powerpress_add_flag_to_redirect_url($EpisodeData['url'], 'p'), $EpisodeData );
-			}
-		}
+
+		if (is_array($GeneralSettings['custom_feeds'])) {
+            foreach ($GeneralSettings['custom_feeds'] as $feed_slug => $feed_title) {
+                if (isset($GeneralSettings['disable_player']) && isset($GeneralSettings['disable_player'][$feed_slug]))
+                    continue;
+
+                $EpisodeData = powerpress_get_enclosure_data($post->ID, $feed_slug);
+                if (!$EpisodeData && !empty($GeneralSettings['process_podpress']) && $feed_slug == 'podcast')
+                    $EpisodeData = powerpress_get_enclosure_data_podpress($post->ID);
+
+                if (!$EpisodeData)
+                    continue;
+
+                if (!empty($EpisodeData['embed']))
+                    $return .= $EpisodeData['embed'];
+
+                // Shortcode over-ride settings:
+                if (!empty($image))
+                    $EpisodeData['image'] = $image;
+                if (!empty($width))
+                    $EpisodeData['width'] = $width;
+                if (!empty($height))
+                    $EpisodeData['height'] = $height;
+
+                if (isset($GeneralSettings['premium_caps']) && $GeneralSettings['premium_caps'] && !powerpress_premium_content_authorized($feed_slug)) {
+                    $return .= powerpress_premium_content_message($post->ID, $feed_slug, $EpisodeData);
+                    continue;
+                }
+
+                if (!isset($EpisodeData['no_player'])) {
+                    do_action('wp_powerpress_player_scripts');
+                    $return .= apply_filters('powerpress_player', '', powerpress_add_flag_to_redirect_url($EpisodeData['url'], 'p'), $EpisodeData);
+                }
+                if (!isset($EpisodeData['no_links'])) {
+                    do_action('wp_powerpress_player_scripts');
+                    $return .= apply_filters('powerpress_player_links', '', powerpress_add_flag_to_redirect_url($EpisodeData['url'], 'p'), $EpisodeData);
+                    $return .= apply_filters('powerpress_player_subscribe_links', '', powerpress_add_flag_to_redirect_url($EpisodeData['url'], 'p'), $EpisodeData);
+                }
+            }
+        }
 	}
 	
 	return $return;

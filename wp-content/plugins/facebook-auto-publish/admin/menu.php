@@ -122,7 +122,7 @@ function xyz_fbap_insert_og_image_for_fb(){
 						$excerpt=str_replace("&nbsp;","",$excerpt);
 						$name = $post->post_title;
 						if(in_array(3, $ar2))
-							$name = apply_filters('the_title', $name);
+							$name = apply_filters('the_title', $name,$postid);
 							$name = html_entity_decode($name, ENT_QUOTES, get_bloginfo('charset'));
 							$name=strip_tags($name);
 							$name=strip_shortcodes($name);

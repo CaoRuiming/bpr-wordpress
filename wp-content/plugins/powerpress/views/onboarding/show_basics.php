@@ -160,7 +160,7 @@ if (isset($_POST['pp_start']['title'])) {
                                             <p class="pp-smaller-text"><?php echo __('RGB color space', 'powerpress'); ?></p>
                                             <img style="display: none;" src="<?php echo powerpress_get_root_url(); ?>images/onboarding/checkmark.svg" id="colorspace-icon" class="success-fail-icon">
                                             <hr style="margin: 0 0 1em 0;">
-                                            <a href="https://create.blubrry.com/resources/powerpress/powerpress-settings/artwork-2/"><?php echo __('Learn more about Podcast Artwork', 'powerpress'); ?></a>
+                                            <a href="https://blubrry.com/support/powerpress-documentation/artwork-2/"><?php echo __('Learn more about Podcast Artwork', 'powerpress'); ?></a>
                                         </div>
                                     </div>
                                 </div>

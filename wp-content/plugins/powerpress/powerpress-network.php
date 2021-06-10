@@ -19,28 +19,10 @@ class PowerPressNetwork
 
     function __construct($parent_slug)
     {
-        $pluginList = get_option( 'active_plugins' );
-        if (in_array('powerpress/powerpress.php',$pluginList)) {
-            $this->parent_slug = $parent_slug;
-            $this->init();
-            $this->apiBus = new PowerpressNetworkDataBus();
-            add_action('admin_menu', array($this, 'checkUpdateProgram'));
-        }
-        else {
-            if (in_array('powerpress-network/powerpress-network.php',$pluginList)) {
-                function sample_admin_notice__success() {
-                    ?>
-                    <div class="notice notice-error">
-                        <p><?php _e( 'WARNING: PowerPress Network will not work with PowerPress not active.' ); ?></p>
-                    </div>
-                    <?php
-                }
-                add_action( 'admin_notices', 'sample_admin_notice__success' );
-            }
-            else {
-                die("PowerPress Network plugin not activated - must first activate PowerPress.");
-            }
-        }
+        $this->parent_slug = $parent_slug;
+        $this->init();
+        $this->apiBus = new PowerpressNetworkDataBus();
+        add_action('admin_menu', array($this, 'checkUpdateProgram'));
     }
 
     function init()
@@ -596,7 +578,7 @@ class PowerPressNetwork
                     break;
 
                 case 'List Applicants':
-                    $props = $this->apiBus->getApplicantsInNetwork($apiUrl, $creds, $networkInfo, $needDirectAPI );
+                    $props = $this->apiBus->getApplicantsInNetwork($apiUrl, $creds, $networkInfo, true );
                     break;
 
                 case 'Manage List':

@@ -1388,7 +1388,7 @@ jQuery(document).ready( function() {
 			$Settings = get_option('powerpress_general');
             $creds = get_option('powerpress_creds');
 			if( empty($Settings['blubrry_auth']) && !$creds ) {
-				echo '<div class="notice is-dismissible updated"><p>'. sprintf(__('You must have a blubrry Podcast Hosting account to continue.', 'powerpress')) .' '. '<a href="http://create.blubrry.com/resources/podcast-media-hosting/" target="_blank">'. __('Learn More', 'powerpress') .'</a>'. '</p></div>';
+				echo '<div class="notice is-dismissible updated"><p>'. sprintf(__('You must have a blubrry Podcast Hosting account to continue.', 'powerpress')) .' '. '<a href="https://blubrry.com/services/podcast-hosting/" target="_blank">'. __('Learn More', 'powerpress') .'</a>'. '</p></div>';
 				$this->m_step = 0; // Drop back a step
 			}
 		}

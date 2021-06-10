@@ -97,7 +97,7 @@ class PowerpressNetworkDataBus{
     static function getNetworksInAccount($creds)
     {
         $cacheName = 'ppn-cache n';
-        $requestUrl = '/2/powerpress/network';
+        $requestUrl = '/2/powerpress/network?cache=' . md5( rand(0, 999) . time()) ;
         return PowerpressNetworkDataBus::getCacheOrCallAPI($creds, $cacheName, $requestUrl,  true);
     }
 
@@ -113,7 +113,7 @@ class PowerpressNetworkDataBus{
     {
         if (isset($networkInfo['network_id'])) {
             $cacheName = 'ppn-cache n-' . $networkInfo['network_id'];
-            $requestUrl = $apiUrl . '2/powerpress/network/' . $networkInfo['network_id'];
+            $requestUrl = $apiUrl . '2/powerpress/network/' . $networkInfo['network_id']. '?cache=' . md5( rand(0, 999) . time()) ;
             $props = PowerpressNetworkDataBus::getCacheOrCallAPI($creds, $cacheName, $requestUrl, $needDirectAPI);
             return $props;
         }
@@ -131,7 +131,7 @@ class PowerpressNetworkDataBus{
     static function getProgramsInNetwork($apiUrl, $creds, $networkInfo, $needDirectAPI)
     {
         $cacheName = 'ppn-cache n-'.$networkInfo['network_id'].'-p';
-        $requestUrl = '/2/powerpress/network/' . $networkInfo['network_id'] . '/programs';
+        $requestUrl = '/2/powerpress/network/' . $networkInfo['network_id'] . '/programs?cache=' . md5( rand(0, 999) . time()) ;
         return PowerpressNetworkDataBus::getCacheOrCallAPI($creds, $cacheName, $requestUrl, $needDirectAPI);
     }
 
@@ -160,7 +160,7 @@ class PowerpressNetworkDataBus{
     static function getListsInNetwork($apiUrl, $creds, $networkInfo, $needDirectAPI)
     {
         $cacheName = 'ppn-cache n-'.$networkInfo['network_id'].'-l';
-        $requestUrl = $apiUrl . '2/powerpress/network/' . $networkInfo['network_id'] . '/lists/';
+        $requestUrl = $apiUrl . '2/powerpress/network/' . $networkInfo['network_id'] . '/lists/?cache=' . md5( rand(0, 999) . time()) ;
         $props = PowerpressNetworkDataBus::getCacheOrCallAPI($creds, $cacheName, $requestUrl, $needDirectAPI);
         return $props;
     }
@@ -224,7 +224,7 @@ class PowerpressNetworkDataBus{
     static function getApplicantsInNetwork($apiUrl, $creds, $networkInfo, $needDirectAPI)
     {
         $cacheName = "ppn-cache n-".$networkInfo['network_id']."-a";
-        $requestUrl = $apiUrl . '2/powerpress/network/' . $networkInfo['network_id'] . '/applicant';
+        $requestUrl = $apiUrl . '2/powerpress/network/' . $networkInfo['network_id'] . '/applicant?cache=' . md5( rand(0, 999) . time() );
         return PowerpressNetworkDataBus::getCacheOrCallAPI($creds, $cacheName, $requestUrl, $needDirectAPI);
     }
 
@@ -239,7 +239,7 @@ class PowerpressNetworkDataBus{
     {
         if (!empty($networkInfo['network_id']) && !empty ($networkInfo['list_id'])) {
             $cacheName = 'ppn-cache n-' . $networkInfo['network_id'] . '-l-' . $networkInfo['list_id'];
-            $requestUrl = $apiUrl . '2/powerpress/network/' . $networkInfo['network_id'] . '/lists/' . $networkInfo['list_id'] . '/programs';
+            $requestUrl = $apiUrl . '2/powerpress/network/' . $networkInfo['network_id'] . '/lists/' . $networkInfo['list_id'] . '/programs?cache=' . md5( rand(0, 999) . time()) ;
             $props = PowerpressNetworkDataBus::getCacheOrCallAPI($creds, $cacheName, $requestUrl, $needDirectAPI = true);
             if (!empty($props['list_info']['list_title']) && !empty($props['list_info']['list_description'])) {
                 PowerPressNetwork::insertOption('list_title', $props['list_info']['list_title']);
@@ -262,7 +262,7 @@ class PowerpressNetworkDataBus{
     {
         $cacheName = 'ppn-cache n-'.$networkInfo['network_id'].'-p-'.$networkInfo['program_id'];
         if (!empty($networkInfo['network_id']) && !empty($networkInfo['program_id']) ) {
-            $requestUrl = $apiUrl . '2/powerpress/network/' . $networkInfo['network_id'] . '/programs/' . $networkInfo['program_id'];
+            $requestUrl = $apiUrl . '2/powerpress/network/' . $networkInfo['network_id'] . '/programs/' . $networkInfo['program_id'] . '?cache=' . md5( rand(0, 999) . time()) ;
             $props = PowerpressNetworkDataBus::getCacheOrCallAPI(false, $cacheName, $requestUrl, $needDirectAPI);
             if (!empty($props['program_info']['program_id']) && !empty($props['program_info']['program_title'])) {
                 PowerPressNetwork::insertOption('program_id', $props['program_info']['program_id']);
@@ -308,7 +308,7 @@ class PowerpressNetworkDataBus{
     {
         if(!empty($networkInfo['network_id']))
         {
-            $requestUrl = $apiUrl . '2/powerpress/network/' . $networkInfo['network_id'] . '/account/information/';
+            $requestUrl = $apiUrl . '2/powerpress/network/' . $networkInfo['network_id'] . '/account/information/?cache=' . md5( rand(0, 999) . time()) ;
             $props = self::getCacheOrCallAPI($creds, null, $requestUrl, $needDirectAPI);
             return $props;
         } else {
@@ -350,7 +350,7 @@ class PowerpressNetworkDataBus{
         $feedUrl = trim($feedUrl);
         $feedUrl = preg_replace('#^(https?://|ftps?://)?(www.)?#', '', $feedUrl);
         $feedUrl = urlencode($feedUrl);
-        $requestUrl = $apiUrl . '2/powerpress/network/' . $networkInfo['network_id'] . '/applicant/findshow?feedUrl=' . $feedUrl;
+        $requestUrl = $apiUrl . '2/powerpress/network/' . $networkInfo['network_id'] . '/applicant/findshow?feedUrl=' . $feedUrl . '&cache=' . md5( rand(0, 999) . time()) ;
         $props = PowerpressNetworkDataBus::getCacheOrCallAPI($creds, null, $requestUrl, true);
         $requestUrl = $apiUrl.'2/powerpress/network/'.$networkInfo['network_id'].'/lists/';
         $props['list'] = PowerpressNetworkDataBus::getCacheOrCallAPI($creds, null, $requestUrl, true);

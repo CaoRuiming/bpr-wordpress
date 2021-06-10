@@ -125,6 +125,15 @@ jQuery(document).ready(function($) {
 		}
 	});
 
+	//Check screen width and hide the sidenav if necessary
+    let width = jQuery(window).width();
+    if (width < 650) {
+        //Welcome tab sidenav already gets hidden inside the tab functions
+        jQuery('.toggle-sidenav').not("#welcome-toggle-sidenav").each(function(index, element) {
+            jQuery(this).click();
+        });
+    }
+
 } );
 //-->
 </script>
@@ -132,8 +141,8 @@ jQuery(document).ready(function($) {
 <input type="hidden" name="General[pp-gen-settings-tabs]" value="1" />
 <input type="hidden" name="PlayerSettings[pp-gen-settings-tabs]" value="1" />
 
-<input type="hidden" id="save_tab_pos" name="tab" value="<?php echo (empty($_POST['tab']) ? "settings-welcome" : $_POST['tab']); ?>" />
-<input type="hidden" id="save_sidenav_pos" name="sidenav-tab" value="<?php echo (empty($_POST['sidenav-tab']) ? "" : $_POST['sidenav-tab']); ?>" />
+<input type="hidden" id="save_tab_pos" name="tab" value="<?php echo (empty($_POST['tab']) ? "settings-welcome" : esc_attr($_POST['tab'])); ?>" />
+<input type="hidden" id="save_sidenav_pos" name="sidenav-tab" value="<?php echo (empty($_POST['sidenav-tab']) ? "" : esc_attr($_POST['sidenav-tab'])); ?>" />
 
 <div id="powerpress_admin_header">
 <h2><?php echo __('Blubrry PowerPress Settings', 'powerpress'); ?></h2> 
@@ -152,12 +161,15 @@ jQuery(document).ready(function($) {
     </div>
 	
 	<div id="settings-welcome" class="pp-tabcontent active">
-        <div class="pp-sidenav">
-            <?php
-            powerpressadmin_edit_blubrry_services($General);
-            ?>
-            <div class="pp-sidenav-extra" style="margin-top: 10%;"><a href="https://www.blubrry.com/support/" class="pp-sidenav-extra-text"><?php echo htmlspecialchars(__('POWERPRESS DOCUMENTATION', 'powerpress')); ?></a></div>
-            <div class="pp-sidenav-extra"><a href="https://www.blubrry.com/podcast-insider/" class="pp-sidenav-extra-text"><?php echo htmlspecialchars(__('PODCAST INSIDER BLOG', 'powerpress')); ?></a></div>
+        <div class="pp-sidenav-toggle-container">
+            <div id="welcome-toggle-sidenav" class="toggle-sidenav" title="Blubrry Services" onclick="powerpress_displaySideNav(this);">&lt;</div>
+            <div class="pp-sidenav">
+                <?php
+                powerpressadmin_edit_blubrry_services($General);
+                ?>
+                <div class="pp-sidenav-extra" style="margin-top: 10%;"><a href="https://www.blubrry.com/support/" class="pp-sidenav-extra-text"><?php echo htmlspecialchars(__('POWERPRESS DOCUMENTATION', 'powerpress')); ?></a></div>
+                <div class="pp-sidenav-extra"><a href="https://www.blubrry.com/podcast-insider/" class="pp-sidenav-extra-text"><?php echo htmlspecialchars(__('PODCAST INSIDER BLOG', 'powerpress')); ?></a></div>
+            </div>
         </div>
         <button style="display: none;" id="welcome-default-open" class="pp-sidenav-tablinks active" onclick="sideNav(event, 'welcome-all')"><img class="pp-nav-icon" style="width: 22px;" alt="" src="<?php echo powerpress_get_root_url(); ?>images/settings_nav_icons/rss-symbol.svg"><?php echo htmlspecialchars(__('Hidden button', 'powerpress')); ?></button>
         <div id="welcome-all" class="pp-sidenav-tab active">
@@ -166,20 +178,23 @@ jQuery(document).ready(function($) {
 	</div>
 
     <div id="settings-feeds" class="pp-tabcontent has-sidenav">
-        <div class="pp-sidenav">
-            <div class="pp-sidenav-extra"><p class="pp-sidenav-extra-text"><b><?php echo htmlspecialchars(__('FEED SETTINGS', 'powerpress')); ?></b></p></div>
-            <button id="feeds-default-open" class="pp-sidenav-tablinks active" onclick="sideNav(event, 'feeds-feeds')"><img class="pp-nav-icon" alt="" src="<?php echo powerpress_get_root_url(); ?>images/settings_nav_icons/megaphone_gray.svg"><?php echo htmlspecialchars(__('Podcast Feeds', 'powerpress')); ?></button>
-            <button class="pp-sidenav-tablinks" id="feeds-settings-tab" onclick="sideNav(event, 'feeds-settings')"><img class="pp-nav-icon" alt="" src="<?php echo powerpress_get_root_url(); ?>images/settings_nav_icons/option_bar_settings_gray.svg"><?php echo htmlspecialchars(__('Feed Settings', 'powerpress')); ?></button>
-            <button class="pp-sidenav-tablinks" id="feeds-artwork-tab" onclick="sideNav(event, 'feeds-artwork')"><img class="pp-nav-icon" alt="" src="<?php echo powerpress_get_root_url(); ?>images/settings_nav_icons/camera_gray.svg"><?php echo htmlspecialchars(__('Podcast Artwork', 'powerpress')); ?></button>
-            <button class="pp-sidenav-tablinks" id="feeds-seo-tab" onclick="sideNav(event, 'feeds-seo')"><img class="pp-nav-icon" alt="" src="<?php echo powerpress_get_root_url(); ?>images/settings_nav_icons/fileboard_checklist_gray.svg"><?php echo htmlspecialchars(__('Podcast SEO', 'powerpress')); ?></button>
-            <button class="pp-sidenav-tablinks" id="feeds-basic-tab" onclick="sideNav(event, 'feeds-basic')"><img class="pp-nav-icon" alt="" src="<?php echo powerpress_get_root_url(); ?>images/settings_nav_icons/edit_gray.svg"><?php echo htmlspecialchars(__('Basic Show Information', 'powerpress')); ?></button>
-            <button class="pp-sidenav-tablinks" id="feeds-rating-tab" onclick="sideNav(event, 'feeds-rating')"><img class="pp-nav-icon" alt="" src="<?php echo powerpress_get_root_url(); ?>images/settings_nav_icons/star_favorite_gray.svg"><?php echo htmlspecialchars(__('Rating Settings', 'powerpress')); ?></button>
-            <button class="pp-sidenav-tablinks" id="feeds-apple-tab" onclick="sideNav(event, 'feeds-apple')"><span id="apple-icon-feed" class="destinations-side-icon" style="margin-left: 2px;"></span><span class="destination-side-text" style="margin-left: 6px;"><?php echo htmlspecialchars(__('Apple Settings', 'powerpress')); ?></span></button>
-            <?php
-            powerpressadmin_edit_blubrry_services($General);
-            ?>
-            <div class="pp-sidenav-extra"><a href="https://www.blubrry.com/support/" class="pp-sidenav-extra-text"><?php echo htmlspecialchars(__('POWERPRESS DOCUMENTATION', 'powerpress')); ?></a></div>
-            <div class="pp-sidenav-extra"><a href="https://www.blubrry.com/podcast-insider/" class="pp-sidenav-extra-text"><?php echo htmlspecialchars(__('PODCAST INSIDER BLOG', 'powerpress')); ?></a></div>
+        <div class="pp-sidenav-toggle-container">
+            <div id="feeds-toggle-sidenav" class="toggle-sidenav" title="More Feed Settings and Blubrry Services" onclick="powerpress_displaySideNav(this);">&lt;</div>
+            <div class="pp-sidenav">
+                <div class="pp-sidenav-extra"><p class="pp-sidenav-extra-text"><b><?php echo htmlspecialchars(__('FEED SETTINGS', 'powerpress')); ?></b></p></div>
+                <button id="feeds-default-open" class="pp-sidenav-tablinks active" onclick="sideNav(event, 'feeds-feeds')"><img class="pp-nav-icon" alt="" src="<?php echo powerpress_get_root_url(); ?>images/settings_nav_icons/megaphone_gray.svg"><?php echo htmlspecialchars(__('Podcast Feeds', 'powerpress')); ?></button>
+                <button class="pp-sidenav-tablinks" id="feeds-settings-tab" onclick="sideNav(event, 'feeds-settings')"><img class="pp-nav-icon" alt="" src="<?php echo powerpress_get_root_url(); ?>images/settings_nav_icons/option_bar_settings_gray.svg"><?php echo htmlspecialchars(__('Feed Settings', 'powerpress')); ?></button>
+                <button class="pp-sidenav-tablinks" id="feeds-artwork-tab" onclick="sideNav(event, 'feeds-artwork')"><img class="pp-nav-icon" alt="" src="<?php echo powerpress_get_root_url(); ?>images/settings_nav_icons/camera_gray.svg"><?php echo htmlspecialchars(__('Podcast Artwork', 'powerpress')); ?></button>
+                <button class="pp-sidenav-tablinks" id="feeds-seo-tab" onclick="sideNav(event, 'feeds-seo')"><img class="pp-nav-icon" alt="" src="<?php echo powerpress_get_root_url(); ?>images/settings_nav_icons/fileboard_checklist_gray.svg"><?php echo htmlspecialchars(__('Podcast SEO', 'powerpress')); ?></button>
+                <button class="pp-sidenav-tablinks" id="feeds-basic-tab" onclick="sideNav(event, 'feeds-basic')"><img class="pp-nav-icon" alt="" src="<?php echo powerpress_get_root_url(); ?>images/settings_nav_icons/edit_gray.svg"><?php echo htmlspecialchars(__('Basic Show Information', 'powerpress')); ?></button>
+                <button class="pp-sidenav-tablinks" id="feeds-rating-tab" onclick="sideNav(event, 'feeds-rating')"><img class="pp-nav-icon" alt="" src="<?php echo powerpress_get_root_url(); ?>images/settings_nav_icons/star_favorite_gray.svg"><?php echo htmlspecialchars(__('Rating Settings', 'powerpress')); ?></button>
+                <button class="pp-sidenav-tablinks" id="feeds-apple-tab" onclick="sideNav(event, 'feeds-apple')"><span id="apple-icon-feed" class="destinations-side-icon" style="margin-left: 2px;"></span><span class="destination-side-text" style="margin-left: 6px;"><?php echo htmlspecialchars(__('Apple Settings', 'powerpress')); ?></span></button>
+                <?php
+                powerpressadmin_edit_blubrry_services($General);
+                ?>
+                <div class="pp-sidenav-extra"><a href="https://www.blubrry.com/support/" class="pp-sidenav-extra-text"><?php echo htmlspecialchars(__('POWERPRESS DOCUMENTATION', 'powerpress')); ?></a></div>
+                <div class="pp-sidenav-extra"><a href="https://www.blubrry.com/podcast-insider/" class="pp-sidenav-extra-text"><?php echo htmlspecialchars(__('PODCAST INSIDER BLOG', 'powerpress')); ?></a></div>
+            </div>
         </div>
         <div id="feeds-feeds" class="pp-sidenav-tab active">
             <?php
@@ -227,18 +242,21 @@ jQuery(document).ready(function($) {
     </div>
 
     <div id="settings-website" class="pp-tabcontent">
-        <div class="pp-sidenav">
-            <div class="pp-sidenav-extra"><p class="pp-sidenav-extra-text"><b><?php echo htmlspecialchars(__('WEBSITE SETTINGS', 'powerpress')); ?></b></p></div>
-            <button id="website-default-open" class="pp-sidenav-tablinks active" onclick="sideNav(event, 'website-settings')"><img class="pp-nav-icon" alt="" src="<?php echo powerpress_get_root_url(); ?>images/settings_nav_icons/desktop_gray.svg"><?php echo htmlspecialchars(__('Website Settings', 'powerpress')); ?></button>
-            <button class="pp-sidenav-tablinks" id="website-blog-tab" onclick="sideNav(event, 'website-blog')"><img class="pp-nav-icon" alt="" src="<?php echo powerpress_get_root_url(); ?>images/settings_nav_icons/file_gray.svg"><?php echo htmlspecialchars(__('Blog Posts and Pages', 'powerpress')); ?></button>
-            <button class="pp-sidenav-tablinks" id="website-subscribe-tab" onclick="sideNav(event, 'website-subscribe')"><img class="pp-nav-icon" alt="" src="<?php echo powerpress_get_root_url(); ?>images/settings_nav_icons/profile_plus_round_gray.svg"><?php echo htmlspecialchars(__('Subscribe Page', 'powerpress')); ?></button>
-            <button class="pp-sidenav-tablinks" id="website-shortcodes-tab" onclick="sideNav(event, 'website-shortcodes')"><img class="pp-nav-icon" alt="" src="<?php echo powerpress_get_root_url(); ?>images/settings_nav_icons/connection_pattern_gray.svg"><?php echo htmlspecialchars(__('PowerPress Shortcodes', 'powerpress')); ?></button>
-            <button class="pp-sidenav-tablinks" id="website-new-window-tab" onclick="sideNav(event, 'website-new-window')"><img class="pp-nav-icon" alt="" src="<?php echo powerpress_get_root_url(); ?>images/settings_nav_icons/play_gray.svg"><?php echo htmlspecialchars(__('Play in New Window', 'powerpress')); ?></button>
-            <?php
-            powerpressadmin_edit_blubrry_services($General);
-            ?>
-            <div class="pp-sidenav-extra"><a href="https://www.blubrry.com/support/" class="pp-sidenav-extra-text"><?php echo htmlspecialchars(__('POWERPRESS DOCUMENTATION', 'powerpress')); ?></a></div>
-            <div class="pp-sidenav-extra"><a href="https://www.blubrry.com/podcast-insider/" class="pp-sidenav-extra-text"><?php echo htmlspecialchars(__('PODCAST INSIDER BLOG', 'powerpress')); ?></a></div>
+        <div class="pp-sidenav-toggle-container">
+            <div id="website-toggle-sidenav" class="toggle-sidenav" title="More Website Settings and Blubrry Services" onclick="powerpress_displaySideNav(this);">&lt;</div>
+            <div class="pp-sidenav">
+                <div class="pp-sidenav-extra"><p class="pp-sidenav-extra-text"><b><?php echo htmlspecialchars(__('WEBSITE SETTINGS', 'powerpress')); ?></b></p></div>
+                <button id="website-default-open" class="pp-sidenav-tablinks active" onclick="sideNav(event, 'website-settings')"><img class="pp-nav-icon" alt="" src="<?php echo powerpress_get_root_url(); ?>images/settings_nav_icons/desktop_gray.svg"><?php echo htmlspecialchars(__('Website Settings', 'powerpress')); ?></button>
+                <button class="pp-sidenav-tablinks" id="website-blog-tab" onclick="sideNav(event, 'website-blog')"><img class="pp-nav-icon" alt="" src="<?php echo powerpress_get_root_url(); ?>images/settings_nav_icons/file_gray.svg"><?php echo htmlspecialchars(__('Blog Posts and Pages', 'powerpress')); ?></button>
+                <button class="pp-sidenav-tablinks" id="website-subscribe-tab" onclick="sideNav(event, 'website-subscribe')"><img class="pp-nav-icon" alt="" src="<?php echo powerpress_get_root_url(); ?>images/settings_nav_icons/profile_plus_round_gray.svg"><?php echo htmlspecialchars(__('Subscribe Page', 'powerpress')); ?></button>
+                <button class="pp-sidenav-tablinks" id="website-shortcodes-tab" onclick="sideNav(event, 'website-shortcodes')"><img class="pp-nav-icon" alt="" src="<?php echo powerpress_get_root_url(); ?>images/settings_nav_icons/connection_pattern_gray.svg"><?php echo htmlspecialchars(__('PowerPress Shortcodes', 'powerpress')); ?></button>
+                <button class="pp-sidenav-tablinks" id="website-new-window-tab" onclick="sideNav(event, 'website-new-window')"><img class="pp-nav-icon" alt="" src="<?php echo powerpress_get_root_url(); ?>images/settings_nav_icons/play_gray.svg"><?php echo htmlspecialchars(__('Play in New Window', 'powerpress')); ?></button>
+                <?php
+                powerpressadmin_edit_blubrry_services($General);
+                ?>
+                <div class="pp-sidenav-extra"><a href="https://www.blubrry.com/support/" class="pp-sidenav-extra-text"><?php echo htmlspecialchars(__('POWERPRESS DOCUMENTATION', 'powerpress')); ?></a></div>
+                <div class="pp-sidenav-extra"><a href="https://www.blubrry.com/podcast-insider/" class="pp-sidenav-extra-text"><?php echo htmlspecialchars(__('PODCAST INSIDER BLOG', 'powerpress')); ?></a></div>
+            </div>
         </div>
 
         <?php
@@ -327,12 +345,15 @@ jQuery(document).ready(function($) {
 	</div>
 
 	<div id="settings-advanced" class="pp-tabcontent">
-        <div class="pp-sidenav">
-            <?php
-            powerpressadmin_edit_blubrry_services($General);
-            ?>
-            <div class="pp-sidenav-extra" style="margin-top: 10%;"><a href="https://www.blubrry.com/support/" class="pp-sidenav-extra-text"><?php echo htmlspecialchars(__('POWERPRESS DOCUMENTATION', 'powerpress')); ?></a></div>
-            <div class="pp-sidenav-extra"><a href="https://www.blubrry.com/podcast-insider/" class="pp-sidenav-extra-text"><?php echo htmlspecialchars(__('PODCAST INSIDER BLOG', 'powerpress')); ?></a></div>
+        <div class="pp-sidenav-toggle-container">
+            <div id="advanced-toggle-sidenav" class="toggle-sidenav" title="Blubrry Services" onclick="powerpress_displaySideNav(this);">&lt;</div>
+            <div class="pp-sidenav">
+                <?php
+                powerpressadmin_edit_blubrry_services($General);
+                ?>
+                <div class="pp-sidenav-extra" style="margin-top: 10%;"><a href="https://www.blubrry.com/support/" class="pp-sidenav-extra-text"><?php echo htmlspecialchars(__('POWERPRESS DOCUMENTATION', 'powerpress')); ?></a></div>
+                <div class="pp-sidenav-extra"><a href="https://www.blubrry.com/podcast-insider/" class="pp-sidenav-extra-text"><?php echo htmlspecialchars(__('PODCAST INSIDER BLOG', 'powerpress')); ?></a></div>
+            </div>
         </div>
 	<?php
     powerpressadmin_advanced_options($General, false);
@@ -486,7 +507,7 @@ function goToPodcastSEO() {
             <div class="pp-settings-subsection" style="border-bottom: none; margin-top: 2em;">
                 <p class="pp-main"><?php echo __('PowerPress Playlist Player', 'powerpress'); ?></p>
                 <p class="pp-sub"><?php echo __('Create playlists for your podcasts.', 'powerpress'); ?>
-                <b><a href="http://create.blubrry.com/resources/powerpress/advanced-tools-and-options/powerpress-playlist-shortcode/" target="_blank">(<?php echo __('learn more', 'powerpress'); ?>)</a></b>
+                <b><a href="https://blubrry.com/support/powerpress-documentation/powerpress-playlist-shortcode/" target="_blank">(<?php echo __('learn more', 'powerpress'); ?>)</a></b>
                 </p>
             </div>
 		</div>
@@ -495,7 +516,15 @@ function goToPodcastSEO() {
             <div class="pp-settings-subsection" style="border-bottom: none; margin-top: 2em;">
                 <p class="pp-main"><?php echo __('PowerPress Network', 'powerpress'); ?></p>
                 <p class="pp-sub"><?php echo __('Create a network of podcasts.', 'powerpress'); ?>
-                    <b><a href="http://create.blubrry.com/professional-podcast-hosting/podcast-network-plugin/network-plugin-documentation/" target="_blank">(<?php echo __('learn more', 'powerpress'); ?>)</a></b>
+                    <b><a href="https://blubrry.com/support/powerpress-documentation/podcast-network/" target="_blank">(<?php echo __('learn more', 'powerpress'); ?>)</a></b>
+                </p>
+            </div>
+        </div>
+        <div>
+            <input class="pp-settings-checkbox" style="margin-top: 3em;" type="checkbox" name="General[powerpress_accept_json]" value="1" <?php echo ( !empty($General['powerpress_accept_json']) ?' checked':''); ?> />
+            <div class="pp-settings-subsection" style="border-bottom: none; margin-top: 2em;">
+                <p class="pp-main"><?php echo __('Allow JSON uploads', 'powerpress'); ?></p>
+                <p class="pp-sub"><?php echo __('Check this box if you plan to upload chapter files to your WordPress site.', 'powerpress'); ?>
                 </p>
             </div>
         </div>
@@ -642,7 +671,7 @@ function powerpressadmin_edit_blubrry_services($General, $action_url = false, $a
             <p style="font-size: 125%; margin: 1ch 0 0 1ch">
                 <strong><a class="button-primary  button-blubrry" id="connect-blubrry-button-options"
                            title="<?php echo esc_attr(__('Blubrry Services Info', 'powerpress')); ?>"
-                           href="http://create.blubrry.com/resources/podcast-media-hosting/"
+                           href="https://blubrry.com/services/podcast-hosting/"
                            target="_blank"><?php echo __('SEE MY OPTIONS', 'powerpress'); ?></a></strong>
             </p>
         </div>
@@ -828,7 +857,7 @@ function powerpress_settings_tab_footer()
     </div>
     <?php
 }
-function powerpressadmin_welcome($GeneralSettings, $FeedSettings)
+function powerpressadmin_welcome($GeneralSettings, $FeedSettings, $NewPostQueryString = '')
 {
     if (isset($_GET['feed_slug'])) {
         $feed_slug = $_GET['feed_slug'];
@@ -866,6 +895,11 @@ function powerpressadmin_welcome($GeneralSettings, $FeedSettings)
     </script>
 <div>
     <div class="pp-settings-program-summary">
+        <?php
+        require_once('powerpressadmin-stats-widget.class.php');
+        $widget = new PowerPressStatsWidget();
+        $widget->powerpress_print_stats_widget();
+        ?>
         <div class="prog-sum-head">
             <h2 class="pp-heading" id="welcome-title"><?php echo isset($FeedSettings['title']) ? $FeedSettings['title'] : ''; ?></h2>
             <div class="pp-settings-recent-post">
@@ -881,7 +915,7 @@ function powerpressadmin_welcome($GeneralSettings, $FeedSettings)
             </div>
         </div>
         <div class="prog-sum-contents">
-            <a id="welcome-tab-new-post" href="<?php echo admin_url('post-new.php') ?>">
+            <a id="welcome-tab-new-post" href="<?php echo admin_url('post-new.php') . $NewPostQueryString; ?>">
                 <div class="pp_button-container">
                     <?php echo __('CREATE NEW EPISODE', 'powerpress'); ?>
                 </div>
@@ -971,7 +1005,7 @@ function powerpressadmin_edit_funding($FeedSettings = false, $feed_slug='podcast
 	    <label for="donate_label" class="pp-settings-label"><?php echo __('Donate Label', 'powerpress'); ?></label>
         <input class="pp-settings-text-input" type="text" id="donate_label" value="<?php echo esc_attr($FeedSettings['donate_label']); ?>" name="Feed[donate_label]" />
         <label for="donate_label" class="pp-settings-label-under"><?php echo __('optional', 'powerpress'); ?></label>
-	    <p class="pp-settings-text" style="margin-top: 1em;"><a href="http://create.blubrry.com/resources/powerpress/advanced-tools-and-options/syndicating-a-donate-link-in-your-podcast/" target="_blank"><?php echo __('Learn more about syndicating donate links for podcasting', 'powerpress'); ?></a></p>
+	    <p class="pp-settings-text" style="margin-top: 1em;"><a href="https://blubrry.com/support/powerpress-documentation/syndicating-a-donate-link-in-your-podcast/" target="_blank"><?php echo __('Learn more about syndicating donate links for podcasting', 'powerpress'); ?></a></p>
     </div>
 <?php
 }

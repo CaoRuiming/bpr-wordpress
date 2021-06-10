@@ -6,8 +6,13 @@
     } else {
         $message_style = 'display: none;';
     }
-?>
-<div class="pp_container">
+//Needed to add this style rule because the footer doesn't sit at the bottom on this page for some reason ?>
+<style>
+    #wpfooter {
+        position: relative;
+    }
+</style>
+<div class="pp_container" id="pp-create-episode">
     <h2 class="pp_align-center"><?php echo __('Time to work on a new episode', 'powerpress'); ?></h2>
     <hr  class="pp_align-center" />
     <p class="pp_align-center"><?php echo __('Get started by creating your first post and adding an episode.', 'powerpress'); ?></p>
@@ -25,7 +30,7 @@
                         <div class="pp_content">
                             <!--<footer class="pp_align-center" style="height: 100%">-->
                                 <div class="btn-caption-container">
-                                    <p class="pp_align-center" style="margin-bottom: 1ch;"><?php echo __('Release a new episode or blog post.', 'powerpress'); ?></p>
+                                    <p class="pp_align-center" style="width: 100%; margin-bottom: 1ch;"><?php echo __('Release a new episode or blog post.', 'powerpress'); ?></p>
                                     <p style="text-align: center; font-size: 14px; margin-top: 0;"><?php echo __('FYI: Before submitting to podcast directories, you are required to have at least one published episode.', 'powerpress'); ?></p>
                                 </div>
                                 <div class="pp_button-container">
@@ -59,5 +64,5 @@
             </div>
         </div>
     </section>
-
+</div>
 

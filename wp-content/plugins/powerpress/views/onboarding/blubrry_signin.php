@@ -62,48 +62,50 @@
             }
 
 
-            $tempClient = get_option('powerpress_temp_client');
-            if ($_GET['state'] != $tempClient['state']) {
-                powerpress_page_message_add_error(__('An error occurred linking your account. State does not match.', 'powerpress'));
-                return false;
+            $creds = get_option('powerpress_creds');
+            if (!$creds) {
+                $tempClient = get_option('powerpress_temp_client');
+                if ($_GET['state'] != $tempClient['state']) {
+                    powerpress_page_message_add_error(__('An error occurred linking your account. State does not match.', 'powerpress'));
+                    return false;
+                }
+                $redirectUri = get_option('powerpress_blubrry_api_redirect_uri');
+
+                // Get the client ID for this installation
+                $resultClient = $auth->issueClient($_GET['code'], $tempClient['temp_client_id'], $tempClient['temp_client_secret'], $redirectUri);
+                if ($resultClient === false || empty($resultClient['client_id']) || empty($resultClient['client_secret'])) {
+                    if (!empty($resultTokens['error_description']))
+                        powerpress_page_message_add_error($resultTokens['error_description']);
+                    else if (!empty($resultTokens['error']))
+                        powerpress_page_message_add_error($resultTokens['error']);
+                    else
+                        powerpress_page_message_add_error(__('Error issuing client:', 'powerpress-network') . ' ' . $auth->GetLastError() . $auth->getDebugInfo());
+                    powerpress_page_message_print();
+                    exit;
+                }
+
+                // Get the access and refresh token for this client
+                $resultTokens = $auth->getAccessTokenFromCode($_GET['code'], $resultClient['client_id'], $resultClient['client_secret'], $redirectUri);
+                if ($resultTokens === false || empty($resultTokens['access_token']) || empty($resultTokens['refresh_token'])) {
+                    if (!empty($resultTokens['error_description']))
+                        powerpress_page_message_add_error($resultTokens['error_description']);
+                    else if (!empty($resultTokens['error']))
+                        powerpress_page_message_add_error($resultTokens['error']);
+                    else
+                        powerpress_page_message_add_error(__('Error retrieving access token:', 'powerpress-network') . ' ' . $auth->GetLastError());
+                    powerpress_page_message_print();
+                    exit;
+                }
+
+                $props = array();
+                $props['code'] = $_GET['code'];
+                $props['client_id'] = $resultClient['client_id'];
+                $props['client_secret'] = $resultClient['client_secret'];
+                $props['access_token'] = $resultTokens['access_token'];
+                $props['access_expires'] = (time() + $resultTokens['expires_in'] - 10);
+                $props['refresh_token'] = $resultTokens['refresh_token'];
+                powerpress_save_settings($props, 'powerpress_creds');
             }
-            $redirectUri = get_option('powerpress_blubrry_api_redirect_uri');
-
-            // Get the client ID for this installation
-            $resultClient = $auth->issueClient($_GET['code'], $tempClient['temp_client_id'], $tempClient['temp_client_secret'], $redirectUri);
-            if ($resultClient === false || empty($resultClient['client_id']) || empty($resultClient['client_secret'])) {
-                if (!empty($resultTokens['error_description']))
-                    powerpress_page_message_add_error($resultTokens['error_description']);
-                else if (!empty($resultTokens['error']))
-                    powerpress_page_message_add_error($resultTokens['error']);
-                else
-                    powerpress_page_message_add_error(__('Error issuing client:', 'powerpress-network') . ' ' . $auth->GetLastError() . $auth->getDebugInfo());
-                powerpress_page_message_print();
-                exit;
-            }
-
-            // Get the access and refresh token for this client
-            $resultTokens = $auth->getAccessTokenFromCode($_GET['code'], $resultClient['client_id'], $resultClient['client_secret'], $redirectUri);
-
-            if ($resultTokens === false || empty($resultTokens['access_token']) || empty($resultTokens['refresh_token'])) {
-                if (!empty($resultTokens['error_description']))
-                    powerpress_page_message_add_error($resultTokens['error_description']);
-                else if (!empty($resultTokens['error']))
-                    powerpress_page_message_add_error($resultTokens['error']);
-                else
-                    powerpress_page_message_add_error(__('Error retrieving access token:', 'powerpress-network') . ' ' . $auth->GetLastError());
-                powerpress_page_message_print();
-                exit;
-            }
-
-            $props = array();
-            $props['code'] = $_GET['code'];
-            $props['client_id'] = $resultClient['client_id'];
-            $props['client_secret'] = $resultClient['client_secret'];
-            $props['access_token'] = $resultTokens['access_token'];
-            $props['access_expires'] = (time() + $resultTokens['expires_in'] - 10);
-            $props['refresh_token'] = $resultTokens['refresh_token'];
-            powerpress_save_settings($props, 'powerpress_creds');
 
             $result = $auth->checkAccountVerified();
             if (isset($result['account_enabled']) && isset($result['account_confirmed'])) {
@@ -150,7 +152,7 @@
                     <div class="pp_container">
                         <h2 class="pp_align-center"><?php echo __('You\'re ready to go!', 'powerpress'); ?></h2>
                         <hr class="pp_align-center"/>
-                        <p class="pp_align-center"><?php echo __('You can now now able to upload episodes from within WordPress to blubrry, view basic stats from the wordpress dashboard.', 'powerpress'); ?></p>
+                        <p class="pp_align-center"><?php echo __('You can now now able to upload episodes from within WordPress to blubrry, view Free Stats from the wordpress dashboard.', 'powerpress'); ?></p>
                         <p class="pp_align-center"><?php echo __('If this is the wrong Blubrry account,  visit settings to unlink this account.', 'powerpress'); ?></p>
                     </div>
 
@@ -306,7 +308,7 @@
             }
 
             if (isset($Error)) {
-                $Error .= '<p style="text-align: center;"><a href="http://create.blubrry.com/resources/powerpress/powerpress-settings/services-stats/" target="_blank">' . __('Click Here For Help', 'powerpress') . '</a></p>';
+                $Error .= '<p style="text-align: center;"><a href="https://blubrry.com/support/powerpress-documentation/services-stats/" target="_blank">' . __('Click Here For Help', 'powerpress') . '</a></p>';
             }
             if ($Save) {
                 powerpress_save_settings($SaveSettings);
