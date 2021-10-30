@@ -45,6 +45,7 @@
                   name="s"
                   placeholder="Search…"
                   autocomplete="off"
+                  maxlength="280"
                 >
               </form>
             </div>
