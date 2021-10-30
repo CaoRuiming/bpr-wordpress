@@ -148,7 +148,7 @@ function powerpress_admin_init()
 	// Security step, we must be in a powerpress/* page...
 	if( isset($_GET['page']) && ( strstr($_GET['page'], 'powerpress/' ) !== false || strstr($_GET['page'], 'powerpressadmin_' ) !== false ) )
 	{
-		// Save settings here
+        // Save settings here
 		if( isset($_POST[ 'Feed' ]) || isset($_POST[ 'General' ])  )
 		{
 			check_admin_referer('powerpress-edit');
@@ -3129,10 +3129,8 @@ function powerpress_admin_page_header($page=false, $nonce_field = 'powerpress-ed
 function powerpress_admin_page_footer($SaveButton=true, $form=true)
 {
 	if( $SaveButton ) { ?>
-<h2 style="margin-bottom: 0;"><b><?php echo __('Looking for Support, Consulting, or Custom Development?','powerpress'); ?></b></h2>
+<h2 style="margin-bottom: 0;"><b><?php echo __('Looking for Support?','powerpress'); ?></b></h2>
 <p class="submit" style="margin-top: 0; margin-left: 2em;">
-    <?php echo __('Blubrry offers a variety of options, free and paid, to assist you with your podcasting and Internet media needs. Whether you need your theme customized for podcasting or you want consulting on what video format is best for your audience, we have the staff and knowledge to assist.', 'powerpress'); ?>
-    <br />
     <a title="<?php echo esc_attr(__('Blubrry Services Info', 'powerpress')); ?>"
        href="https://blubrry.com/services/podcast-hosting/"
        target="_blank"><?php echo __('Learn more about Blubrry Support Options', 'powerpress'); ?></a>

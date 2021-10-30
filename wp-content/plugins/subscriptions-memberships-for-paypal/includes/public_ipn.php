@@ -42,6 +42,12 @@ function wpeppsub_listen_for_paypal_ipn() {
 			} else {
 				// Loop through each POST
 				foreach ( $_POST as $key => $value ) {
+				    // Sanitize the key
+                    $key = sanitize_key($key);
+
+                    // Sanitize the value
+                    $value = sanitize_text_field($value);
+
 					// Encode the value and append the data
 					$encoded_data .= $arg_separator."$key=" . urlencode( $value );
 				}
@@ -194,11 +200,11 @@ function wpeppsub_listen_for_paypal_ipn() {
 				
 				// save to db
 				$my_post = array(
-					'post_title'    => $payer_email,
+					'post_title'    => sanitize_email($payer_email),
 					'post_status'   => 'publish',
 					'post_type'     => $post_type
 				);
-				$post_id = wp_insert_post($my_post);
+				$post_id = wp_insert_post(wp_slash($my_post));
 				
 				// save post data
 				update_post_meta($post_id, 'wpeppsub_order_data', $data);
@@ -351,7 +357,7 @@ function wpeppsub_listen_for_paypal_ipn() {
 						// save to db, since the signup post hasnt come yet
 						
 						
-						$payer_email = $encoded_data_array['payer_email'];
+						$payer_email = sanitize_email($encoded_data_array['payer_email']);
 						$post_type = "wpplugin_subscr_eot";
 						
 						// save to db
@@ -360,7 +366,7 @@ function wpeppsub_listen_for_paypal_ipn() {
 							'post_status'   => 'publish',
 							'post_type'     => $post_type
 						);
-						$post_id = wp_insert_post($my_post);
+						$post_id = wp_insert_post(wp_slash($my_post));
 						
 						// save post data
 						update_post_meta($post_id, 'wpeppsub_order_data', $data);

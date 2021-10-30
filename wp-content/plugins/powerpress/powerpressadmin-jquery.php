@@ -211,14 +211,14 @@ function powerpress_admin_jquery_init()
 			if (is_plugin_active('powerpress-hosting/powerpress-hosting.php')) {
 			    $website_detection_string = "&wp_blubrry_hosted=true";
 			} else {
-			    $website_detection_string = "&wp_admin_url=" . urlencode(admin_url('admin.php'));
+			    $website_detection_string = "&wp_admin_url=" . urlencode(admin_url());
 			}
             if ($creds) {
                 $accessToken = powerpress_getAccessToken();
                 $req_url = sprintf('/2/media/%s/index.json?quota=true%s&published=true&cache=' . md5( rand(0, 999) . time() ), $blubrryProgramKeyword, $website_detection_string);
                 $req_url .= (defined('POWERPRESS_BLUBRRY_API_QSA') ? '&' . POWERPRESS_BLUBRRY_API_QSA : '');
                 $req_url_programs = sprintf('/2/service/index.json?cache=' . md5( rand(0, 999) . time() ));
-                $req_url_programs .= (defined('POWERPRESS_BLUBRRY_API_QSA') ? '?' . POWERPRESS_BLUBRRY_API_QSA : '');
+                $req_url_programs .= (defined('POWERPRESS_BLUBRRY_API_QSA') ? '&' . POWERPRESS_BLUBRRY_API_QSA : '');
                 $results = $auth->api($accessToken, $req_url);
                 $results_programs = $auth->api($accessToken, $req_url_programs);
             } else {
@@ -226,7 +226,7 @@ function powerpress_admin_jquery_init()
                     $req_url = sprintf('%s/media/%s/index.json?quota=true%s&published=true&cache=' . md5( rand(0, 999) . time() ), rtrim($api_url, '/'), $blubrryProgramKeyword, $website_detection_string);
                     $req_url .= (defined('POWERPRESS_BLUBRRY_API_QSA') ? '&' . POWERPRESS_BLUBRRY_API_QSA : '');
                     $req_url_programs = sprintf('%s/service/index.json?cache=' . md5( rand(0, 999) . time() ), rtrim($api_url, '/'));
-                    $req_url_programs .= (defined('POWERPRESS_BLUBRRY_API_QSA') ? '?' . POWERPRESS_BLUBRRY_API_QSA : '');
+                    $req_url_programs .= (defined('POWERPRESS_BLUBRRY_API_QSA') ? '&' . POWERPRESS_BLUBRRY_API_QSA : '');
                     $json_data = powerpress_remote_fopen($req_url, $Settings['blubrry_auth']);
                     $json_data_programs = powerpress_remote_fopen($req_url_programs, $Settings['blubrry_auth']);
                     if (!$json_data && $api_url == 'https://api.blubrry.com/') { // Lets force cURL and see if that helps...
@@ -339,7 +339,7 @@ window.onload = function() {
     const program = document.querySelector('#blubrry_program_keyword');
     const remember = document.querySelector('#remember_selection');
     function reloadFrame() {
-        window.location = "<?php echo admin_url('admin.php'); ?>?action=powerpress-jquery-media&blubrryProgramKeyword="+ program.value +"&podcast-feed=<?php echo $FeedSlug; ?>&KeepThis=true&TB_iframe=true&modal=false&remSel=" + remember.checked;
+        window.location = "<?php echo admin_url(); ?>?action=powerpress-jquery-media&blubrryProgramKeyword="+ program.value +"&podcast-feed=<?php echo $FeedSlug; ?>&KeepThis=true&TB_iframe=true&modal=false&remSel=" + remember.checked;
     }
     if (program) {
         program.addEventListener('change', function () {
@@ -1001,7 +1001,7 @@ jQuery(document).ready(function($) {
             }
              ?>
 
-        <form action="<?php echo admin_url('admin.php'); ?>" enctype="multipart/form-data" method="post">
+        <form action="<?php echo admin_url(); ?>" enctype="multipart/form-data" method="post">
 <?php wp_nonce_field('powerpress-jquery-account-save'); ?>
             <input type="hidden" name="action" value="powerpress-jquery-account-save" />
             <div id="accountinfo">
@@ -1306,7 +1306,9 @@ if( $jquery )
 
 do_action('admin_print_styles');
 do_action('admin_print_scripts');
-do_action('admin_head');
+if (!is_plugin_active('woocommerce/woocommerce.php')) {
+    do_action('admin_head');
+}
 
 echo '<!-- done adding extra stuff -->';
 
@@ -1370,7 +1372,9 @@ if( $jquery )
 
 do_action('admin_print_styles');
 do_action('admin_print_scripts');
-do_action('admin_head');
+if (!is_plugin_active('woocommerce/woocommerce.php')) {
+    do_action('admin_head');
+}
 
 echo '<!-- done adding extra stuff -->';
 

@@ -44,7 +44,7 @@ $pagename = get_query_var('pagename');
                      src="<?php if (isset($props[0]->program_header_image)) {
                          echo("https://assets.blubrry.com/coverart/300/{$props[0]->program_id}.jpg");
                      } else {
-                         echo("https://www.blubrry.com/themes/blubrry3/images/cover.png");
+                         echo("https://assets.blubrry.com/coverart/300/default.jpg");
                      } ?>"
                 >
             </div>

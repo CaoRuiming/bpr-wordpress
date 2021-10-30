@@ -657,7 +657,7 @@ function powerpressadmin_edit_blubrry_services($General, $action_url = false, $a
                 <span><img src="<?php echo powerpress_get_root_url(); ?>images/done_24px.svg" style="margin: 0 0 0 8%;vertical-align: text-bottom;"  alt="<?php echo __('Enabled!', 'powerpress'); ?>" /></span>
                 <p id="connected-blubrry-blurb"><?php echo __("Connected to <b>Blubrry</b>", 'powerpress'); ?></p>
             </div>
-            <a style="display: block;" class="thickbox" title="<?php echo esc_attr(__('Blubrry Services Integration', 'powerpress')); ?>" href="<?php echo admin_url(); echo wp_nonce_url( "admin.php?action=powerpress-jquery-account-edit", 'powerpress-jquery-account-edit'); ?>&amp;KeepThis=true&amp;TB_iframe=true&amp;width=600&amp;height=400&amp;modal=true" target="_blank"><?php echo __('Go to Blubrry Account', 'powerpress'); ?></a>
+            <a style="display: block;" class="thickbox" title="<?php echo esc_attr(__('Blubrry Services Integration', 'powerpress')); ?>" href="<?php echo admin_url(); echo wp_nonce_url( "admin.php?action=powerpress-jquery-account-edit", 'powerpress-jquery-account-edit'); ?>&amp;KeepThis=true&amp;TB_iframe=true&amp;width=600&amp;height=400&amp;modal=true" target="_blank"><?php echo __('Blubrry Hosting Settings', 'powerpress'); ?></a>
         </div>
     <?php
     }
@@ -1125,7 +1125,7 @@ function powerpressadmin_edit_artwork($FeedSettings, $General)
 
 <div class="pp-settings-section">
     <h2><?php echo __('RSS2 Image', 'powerpress'); ?> </h2>
-    <label for="Feed[rss2_image]" class="pp-settings-label"><?php echo __('Recommendation: Use Apple Podacst image', 'powerpress'); ?></label>
+    <label for="Feed[rss2_image]" class="pp-settings-label"><?php echo __('Recommendation: Use Apple Podcast image', 'powerpress'); ?></label>
     <input class="pp-settings-text-input" type="text" id="rss2_image" name="Feed[rss2_image]" value="<?php echo esc_attr( !empty($FeedSettings['rss2_image'])? $FeedSettings['rss2_image']:''); ?>" maxlength="255" />
     <label for="Feed[rss2_image]" class="pp-settings-label-under"><?php echo __('Place the URL to the RSS image above.', 'powerpress'); ?> <?php echo __('Example', 'powerpress'); ?> http://mysite.com/images/rss.jpg</label>
 

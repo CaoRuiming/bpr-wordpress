@@ -145,6 +145,7 @@ function powerpresssubscribe_get_settings($ExtraData, $detect_category=true)
             $Settings['subscribe_feature_jiosaavn'] = (isset($GeneralSettings['subscribe_feature_jiosaavn']) ? $GeneralSettings['subscribe_feature_jiosaavn'] : false );
             $Settings['subscribe_feature_podchaser'] = (isset($GeneralSettings['subscribe_feature_podchaser']) ? $GeneralSettings['subscribe_feature_podchaser'] : false );
             $Settings['subscribe_feature_gaana'] = (isset($GeneralSettings['subscribe_feature_gaana']) ? $GeneralSettings['subscribe_feature_gaana'] : false );
+            $Settings['subscribe_feature_anghami'] = (isset($GeneralSettings['subscribe_feature_anghami']) ? $GeneralSettings['subscribe_feature_anghami'] : false );
             $Settings['subscribe_feature_email_shortcode'] = (isset($GeneralSettings['subscribe_feature_email_shortcode']) ? $GeneralSettings['subscribe_feature_email_shortcode'] : true );
             $Settings['subscribe_feature_apple_shortcode'] = (isset($GeneralSettings['subscribe_feature_apple_shortcode']) ? $GeneralSettings['subscribe_feature_apple_shortcode'] : true );
             $Settings['subscribe_feature_gp_shortcode'] = (isset($GeneralSettings['subscribe_feature_gp_shortcode']) ? $GeneralSettings['subscribe_feature_gp_shortcode'] : true );
@@ -161,6 +162,7 @@ function powerpresssubscribe_get_settings($ExtraData, $detect_category=true)
             $Settings['subscribe_feature_jiosaavn_shortcode'] = (isset($GeneralSettings['subscribe_feature_jiosaavn_shortcode']) ? $GeneralSettings['subscribe_feature_jiosaavn_shortcode'] : true );
             $Settings['subscribe_feature_podchaser_shortcode'] = (isset($GeneralSettings['subscribe_feature_podchaser_shortcode']) ? $GeneralSettings['subscribe_feature_podchaser_shortcode'] : true );
             $Settings['subscribe_feature_gaana_shortcode'] = (isset($GeneralSettings['subscribe_feature_gaana_shortcode']) ? $GeneralSettings['subscribe_feature_gaana_shortcode'] : true );
+            $Settings['subscribe_feature_anghami_shortcode'] = (isset($GeneralSettings['subscribe_feature_anghami_shortcode']) ? $GeneralSettings['subscribe_feature_anghami_shortcode'] : true );
             $Settings['subscribe_feature_email_sidebar'] = (isset($GeneralSettings['subscribe_feature_email_sidebar']) ? $GeneralSettings['subscribe_feature_email_sidebar'] : true );
             $Settings['subscribe_feature_apple_sidebar'] = (isset($GeneralSettings['subscribe_feature_apple_sidebar']) ? $GeneralSettings['subscribe_feature_apple_sidebar'] : true );
             $Settings['subscribe_feature_gp_sidebar'] = (isset($GeneralSettings['subscribe_feature_gp_sidebar']) ? $GeneralSettings['subscribe_feature_gp_sidebar'] : true );
@@ -177,6 +179,7 @@ function powerpresssubscribe_get_settings($ExtraData, $detect_category=true)
             $Settings['subscribe_feature_jiosaavn_sidebar'] = (isset($GeneralSettings['subscribe_feature_jiosaavn_sidebar']) ? $GeneralSettings['subscribe_feature_jiosaavn_sidebar'] : false );
             $Settings['subscribe_feature_podchaser_sidebar'] = (isset($GeneralSettings['subscribe_feature_podchaser_sidebar']) ? $GeneralSettings['subscribe_feature_podchaser_sidebar'] : false );
             $Settings['subscribe_feature_gaana_sidebar'] = (isset($GeneralSettings['subscribe_feature_gaana_sidebar']) ? $GeneralSettings['subscribe_feature_gaana_sidebar'] : false );
+            $Settings['subscribe_feature_anghami_sidebar'] = (isset($GeneralSettings['subscribe_feature_anghami_sidebar']) ? $GeneralSettings['subscribe_feature_anghami_sidebar'] : false );
             if (isset($GeneralSettings['subscribe_no_important_styling'])) {
                 $Settings['subscribe_no_important_styling'] = $GeneralSettings['subscribe_no_important_styling'];
             } else {
@@ -232,6 +235,7 @@ function powerpresssubscribe_get_settings($ExtraData, $detect_category=true)
             $Settings['subscribe_feature_jiosaavn'] = (isset($GeneralSettings['subscribe_feature_jiosaavn']) ? $GeneralSettings['subscribe_feature_jiosaavn'] : false );
             $Settings['subscribe_feature_podchaser'] = (isset($GeneralSettings['subscribe_feature_podchaser']) ? $GeneralSettings['subscribe_feature_podchaser'] : false );
             $Settings['subscribe_feature_gaana'] = (isset($GeneralSettings['subscribe_feature_gaana']) ? $GeneralSettings['subscribe_feature_gaana'] : false );
+            $Settings['subscribe_feature_anghami'] = (isset($GeneralSettings['subscribe_feature_anghami']) ? $GeneralSettings['subscribe_feature_anghami'] : false );
             $Settings['subscribe_feature_email_shortcode'] = (isset($GeneralSettings['subscribe_feature_email_shortcode']) ? $GeneralSettings['subscribe_feature_email_shortcode'] : true );
             $Settings['subscribe_feature_apple_shortcode'] = (isset($GeneralSettings['subscribe_feature_apple_shortcode']) ? $GeneralSettings['subscribe_feature_apple_shortcode'] : true );
             $Settings['subscribe_feature_gp_shortcode'] = (isset($GeneralSettings['subscribe_feature_gp_shortcode']) ? $GeneralSettings['subscribe_feature_gp_shortcode'] : true );
@@ -248,6 +252,7 @@ function powerpresssubscribe_get_settings($ExtraData, $detect_category=true)
             $Settings['subscribe_feature_jiosaavn_shortcode'] = (isset($GeneralSettings['subscribe_feature_jiosaavn_shortcode']) ? $GeneralSettings['subscribe_feature_jiosaavn_shortcode'] : true );
             $Settings['subscribe_feature_podchaser_shortcode'] = (isset($GeneralSettings['subscribe_feature_podchaser_shortcode']) ? $GeneralSettings['subscribe_feature_podchaser_shortcode'] : true );
             $Settings['subscribe_feature_gaana_shortcode'] = (isset($GeneralSettings['subscribe_feature_gaana_shortcode']) ? $GeneralSettings['subscribe_feature_gaana_shortcode'] : true );
+            $Settings['subscribe_feature_anghami_shortcode'] = (isset($GeneralSettings['subscribe_feature_anghami_shortcode']) ? $GeneralSettings['subscribe_feature_anghami_shortcode'] : true );
             $Settings['subscribe_feature_email_sidebar'] = (isset($GeneralSettings['subscribe_feature_email_sidebar']) ? $GeneralSettings['subscribe_feature_email_sidebar'] : true );
             $Settings['subscribe_feature_apple_sidebar'] = (isset($GeneralSettings['subscribe_feature_apple_sidebar']) ? $GeneralSettings['subscribe_feature_apple_sidebar'] : true );
             $Settings['subscribe_feature_gp_sidebar'] = (isset($GeneralSettings['subscribe_feature_gp_sidebar']) ? $GeneralSettings['subscribe_feature_gp_sidebar'] : true );
@@ -264,6 +269,7 @@ function powerpresssubscribe_get_settings($ExtraData, $detect_category=true)
             $Settings['subscribe_feature_jiosaavn_sidebar'] = (isset($GeneralSettings['subscribe_feature_jiosaavn_sidebar']) ? $GeneralSettings['subscribe_feature_jiosaavn_sidebar'] : false );
             $Settings['subscribe_feature_podchaser_sidebar'] = (isset($GeneralSettings['subscribe_feature_podchaser_sidebar']) ? $GeneralSettings['subscribe_feature_podchaser_sidebar'] : false );
             $Settings['subscribe_feature_gaana_sidebar'] = (isset($GeneralSettings['subscribe_feature_gaana_sidebar']) ? $GeneralSettings['subscribe_feature_gaana_sidebar'] : false );
+            $Settings['subscribe_feature_anghami_sidebar'] = (isset($GeneralSettings['subscribe_feature_anghami_sidebar']) ? $GeneralSettings['subscribe_feature_anghami_sidebar'] : false );
             if (isset($GeneralSettings['subscribe_no_important_styling'])) {
                 $Settings['subscribe_no_important_styling'] = $GeneralSettings['subscribe_no_important_styling'];
             } else {
@@ -329,6 +335,7 @@ function powerpresssubscribe_get_settings($ExtraData, $detect_category=true)
                         $Settings['subscribe_feature_jiosaavn'] = (isset($GeneralSettings['subscribe_feature_jiosaavn']) ? $GeneralSettings['subscribe_feature_jiosaavn'] : false );
                         $Settings['subscribe_feature_podchaser'] = (isset($GeneralSettings['subscribe_feature_podchaser']) ? $GeneralSettings['subscribe_feature_podchaser'] : false );
                         $Settings['subscribe_feature_gaana'] = (isset($GeneralSettings['subscribe_feature_gaana']) ? $GeneralSettings['subscribe_feature_gaana'] : false );
+                        $Settings['subscribe_feature_anghami'] = (isset($GeneralSettings['subscribe_feature_anghami']) ? $GeneralSettings['subscribe_feature_anghami'] : false );
                         $Settings['subscribe_feature_email_shortcode'] = (isset($GeneralSettings['subscribe_feature_email_shortcode']) ? $GeneralSettings['subscribe_feature_email_shortcode'] : true );
                         $Settings['subscribe_feature_apple_shortcode'] = (isset($GeneralSettings['subscribe_feature_apple_shortcode']) ? $GeneralSettings['subscribe_feature_apple_shortcode'] : true );
                         $Settings['subscribe_feature_gp_shortcode'] = (isset($GeneralSettings['subscribe_feature_gp_shortcode']) ? $GeneralSettings['subscribe_feature_gp_shortcode'] : true );
@@ -345,6 +352,7 @@ function powerpresssubscribe_get_settings($ExtraData, $detect_category=true)
                         $Settings['subscribe_feature_jiosaavn_shortcode'] = (isset($GeneralSettings['subscribe_feature_jiosaavn_shortcode']) ? $GeneralSettings['subscribe_feature_jiosaavn_shortcode'] : true );
                         $Settings['subscribe_feature_podchaser_shortcode'] = (isset($GeneralSettings['subscribe_feature_podchaser_shortcode']) ? $GeneralSettings['subscribe_feature_podchaser_shortcode'] : true );
                         $Settings['subscribe_feature_gaana_shortcode'] = (isset($GeneralSettings['subscribe_feature_gaana_shortcode']) ? $GeneralSettings['subscribe_feature_gaana_shortcode'] : true );
+                        $Settings['subscribe_feature_anghami_shortcode'] = (isset($GeneralSettings['subscribe_feature_anghami_shortcode']) ? $GeneralSettings['subscribe_feature_anghami_shortcode'] : true );
                         $Settings['subscribe_feature_email_sidebar'] = (isset($GeneralSettings['subscribe_feature_email_sidebar']) ? $GeneralSettings['subscribe_feature_email_sidebar'] : true );
                         $Settings['subscribe_feature_apple_sidebar'] = (isset($GeneralSettings['subscribe_feature_apple_sidebar']) ? $GeneralSettings['subscribe_feature_apple_sidebar'] : true );
                         $Settings['subscribe_feature_gp_sidebar'] = (isset($GeneralSettings['subscribe_feature_gp_sidebar']) ? $GeneralSettings['subscribe_feature_gp_sidebar'] : true );
@@ -361,6 +369,7 @@ function powerpresssubscribe_get_settings($ExtraData, $detect_category=true)
                         $Settings['subscribe_feature_jiosaavn_sidebar'] = (isset($GeneralSettings['subscribe_feature_jiosaavn_sidebar']) ? $GeneralSettings['subscribe_feature_jiosaavn_sidebar'] : false );
                         $Settings['subscribe_feature_podchaser_sidebar'] = (isset($GeneralSettings['subscribe_feature_podchaser_sidebar']) ? $GeneralSettings['subscribe_feature_podchaser_sidebar'] : false );
                         $Settings['subscribe_feature_gaana_sidebar'] = (isset($GeneralSettings['subscribe_feature_gaana_sidebar']) ? $GeneralSettings['subscribe_feature_gaana_sidebar'] : false );
+                        $Settings['subscribe_feature_anghami_sidebar'] = (isset($GeneralSettings['subscribe_feature_anghami_sidebar']) ? $GeneralSettings['subscribe_feature_anghami_sidebar'] : false );
                         if (isset($GeneralSettings['subscribe_no_important_styling'])) {
                             $Settings['subscribe_no_important_styling'] = $GeneralSettings['subscribe_no_important_styling'];
                         } else {
@@ -410,6 +419,7 @@ function powerpresssubscribe_get_settings($ExtraData, $detect_category=true)
         $Settings['subscribe_feature_jiosaavn'] = (isset($GeneralSettings['subscribe_feature_jiosaavn']) ? $GeneralSettings['subscribe_feature_jiosaavn'] : false );
         $Settings['subscribe_feature_podchaser'] = (isset($GeneralSettings['subscribe_feature_podchaser']) ? $GeneralSettings['subscribe_feature_podchaser'] : false );
         $Settings['subscribe_feature_gaana'] = (isset($GeneralSettings['subscribe_feature_gaana']) ? $GeneralSettings['subscribe_feature_gaana'] : false );
+        $Settings['subscribe_feature_anghami'] = (isset($GeneralSettings['subscribe_feature_anghami']) ? $GeneralSettings['subscribe_feature_anghami'] : false );
         $Settings['subscribe_feature_email_shortcode'] = (isset($GeneralSettings['subscribe_feature_email_shortcode']) ? $GeneralSettings['subscribe_feature_email_shortcode'] : true );
         $Settings['subscribe_feature_apple_shortcode'] = (isset($GeneralSettings['subscribe_feature_apple_shortcode']) ? $GeneralSettings['subscribe_feature_apple_shortcode'] : true );
         $Settings['subscribe_feature_gp_shortcode'] = (isset($GeneralSettings['subscribe_feature_gp_shortcode']) ? $GeneralSettings['subscribe_feature_gp_shortcode'] : true );
@@ -426,6 +436,7 @@ function powerpresssubscribe_get_settings($ExtraData, $detect_category=true)
         $Settings['subscribe_feature_jiosaavn_shortcode'] = (isset($GeneralSettings['subscribe_feature_jiosaavn_shortcode']) ? $GeneralSettings['subscribe_feature_jiosaavn_shortcode'] : true );
         $Settings['subscribe_feature_podchaser_shortcode'] = (isset($GeneralSettings['subscribe_feature_podchaser_shortcode']) ? $GeneralSettings['subscribe_feature_podchaser_shortcode'] : true );
         $Settings['subscribe_feature_gaana_shortcode'] = (isset($GeneralSettings['subscribe_feature_gaana_shortcode']) ? $GeneralSettings['subscribe_feature_gaana_shortcode'] : true );
+        $Settings['subscribe_feature_anghami_shortcode'] = (isset($GeneralSettings['subscribe_feature_anghami_shortcode']) ? $GeneralSettings['subscribe_feature_anghami_shortcode'] : true );
         $Settings['subscribe_feature_email_sidebar'] = (isset($GeneralSettings['subscribe_feature_email_sidebar']) ? $GeneralSettings['subscribe_feature_email_sidebar'] : true );
         $Settings['subscribe_feature_apple_sidebar'] = (isset($GeneralSettings['subscribe_feature_apple_sidebar']) ? $GeneralSettings['subscribe_feature_apple_sidebar'] : true );
         $Settings['subscribe_feature_gp_sidebar'] = (isset($GeneralSettings['subscribe_feature_gp_sidebar']) ? $GeneralSettings['subscribe_feature_gp_sidebar'] : true );
@@ -442,6 +453,7 @@ function powerpresssubscribe_get_settings($ExtraData, $detect_category=true)
         $Settings['subscribe_feature_jiosaavn_sidebar'] = (isset($GeneralSettings['subscribe_feature_jiosaavn_sidebar']) ? $GeneralSettings['subscribe_feature_jiosaavn_sidebar'] : false );
         $Settings['subscribe_feature_podchaser_sidebar'] = (isset($GeneralSettings['subscribe_feature_podchaser_sidebar']) ? $GeneralSettings['subscribe_feature_podchaser_sidebar'] : false );
         $Settings['subscribe_feature_gaana_sidebar'] = (isset($GeneralSettings['subscribe_feature_gaana_sidebar']) ? $GeneralSettings['subscribe_feature_gaana_sidebar'] : false );
+        $Settings['subscribe_feature_anghami_sidebar'] = (isset($GeneralSettings['subscribe_feature_anghami_sidebar']) ? $GeneralSettings['subscribe_feature_anghami_sidebar'] : false );
         if (isset($GeneralSettings['subscribe_no_important_styling'])) {
             $Settings['subscribe_no_important_styling'] = $GeneralSettings['subscribe_no_important_styling'];
         } else {
@@ -465,6 +477,7 @@ function powerpresssubscribe_get_settings($ExtraData, $detect_category=true)
             $Settings['subscribe_feature_jiosaavn'] = false;
             $Settings['subscribe_feature_podchaser'] = false;
             $Settings['subscribe_feature_gaana'] = false;
+            $Settings['subscribe_feature_anghami'] = false;
             $Settings['subscribe_feature_email_shortcode'] = false;
             $Settings['subscribe_feature_apple_shortcode'] = false;
             $Settings['subscribe_feature_gp_shortcode'] = false;
@@ -481,6 +494,7 @@ function powerpresssubscribe_get_settings($ExtraData, $detect_category=true)
             $Settings['subscribe_feature_jiosaavn_shortcode'] = false;
             $Settings['subscribe_feature_podchaser_shortcode'] = false;
             $Settings['subscribe_feature_gaana_shortcode'] = false;
+            $Settings['subscribe_feature_anghami_shortcode'] = false;
             $Settings['subscribe_feature_email_sidebar'] = false;
             $Settings['subscribe_feature_gp_sidebar'] = false;
             $Settings['subscribe_feature_apple_sidebar'] = false;
@@ -497,6 +511,7 @@ function powerpresssubscribe_get_settings($ExtraData, $detect_category=true)
             $Settings['subscribe_feature_jiosaavn_sidebar'] = false;
             $Settings['subscribe_feature_podchaser_sidebar'] = false;
             $Settings['subscribe_feature_gaana_sidebar'] = false;
+            $Settings['subscribe_feature_anghami_sidebar'] = false;
         }
 		
 		return $Settings;
@@ -629,9 +644,15 @@ function powerpressplayer_link_subscribe_pre($content, $media_url, $ExtraData = 
         $links_array[] = "<a href=\"".  esc_attr($SubscribeSettings['deezer_url'] ) ."\" class=\"powerpress_link_subscribe powerpress_link_subscribe_deezer\" title=\"". __('Subscribe on Deezer', 'powerpress') ."\" rel=\"nofollow\">". __('Deezer','powerpress') ."</a>".PHP_EOL_WEB;
     }
 
-	$links_array[] = "<a href=\"". htmlspecialchars($feed_url) ."\" class=\"powerpress_link_subscribe powerpress_link_subscribe_rss\" title=\"". __('Subscribe via RSS', 'powerpress') ."\" rel=\"nofollow\">". __('RSS','powerpress') ."</a>".PHP_EOL_WEB;
-	
-	if( !empty($SubscribeSettings['subscribe_page_url']) )
+    if( !empty($SubscribeSettings['subscribe_feature_anghami']) && !empty($SubscribeSettings['anghami_url']) )
+    {
+        $SubscribeSettings['anghami_url'] = trim($SubscribeSettings['anghami_url']);
+        $links_array[] = "<a href=\"".  esc_attr($SubscribeSettings['anghami_url'] ) ."\" class=\"powerpress_link_subscribe powerpress_link_subscribe_anghami\" title=\"". __('Subscribe on Anghami', 'powerpress') ."\" rel=\"nofollow\">". __('Anghami','powerpress') ."</a>".PHP_EOL_WEB;
+    }
+
+    $links_array[] = "<a href=\"". htmlspecialchars($feed_url) ."\" class=\"powerpress_link_subscribe powerpress_link_subscribe_rss\" title=\"". __('Subscribe via RSS', 'powerpress') ."\" rel=\"nofollow\">". __('RSS','powerpress') ."</a>".PHP_EOL_WEB;
+
+    if( !empty($SubscribeSettings['subscribe_page_url']) )
 	{
 		$label = (empty($SubscribeSettings['subscribe_page_link_text'])?__('More', 'powerpress'):$SubscribeSettings['subscribe_page_link_text']);
 		$links_array[] = "<a href=\"{$SubscribeSettings['subscribe_page_url']}\" class=\"powerpress_link_subscribe powerpress_link_subscribe_more\" title=\"". htmlspecialchars($label) ."\" rel=\"nofollow\">". htmlspecialchars($label) ."</a>".PHP_EOL_WEB;
@@ -1003,6 +1024,11 @@ function powerpress_do_subscribe_widget($settings, $PowerPressSettings)
                 $html .= '<a href="'.  esc_url( $settings['deezer_url'] ) .'" class="pp-sub-btn'.$settings['subscribe_widget_shape'].' pp-sub-deezer" title="'.  esc_attr( __('Subscribe on Deezer', 'powerpress') ) .'"><span class="pp-sub-ic"></span>'.  esc_html( __('Deezer', 'powerpress') ) .'</a>';
             }
 
+            if( !empty($settings['subscribe_feature_anghami_shortcode']) &&  !empty($settings['anghami_url']) ) {
+
+                $html .= '<a href="'.  esc_url( $settings['anghami_url'] ) .'" class="pp-sub-btn'.$settings['subscribe_widget_shape'].' pp-sub-deezer" title="'.  esc_attr( __('Subscribe on Anghami', 'powerpress') ) .'"><span class="pp-sub-ic"></span>'.  esc_html( __('Anghami', 'powerpress') ) .'</a>';
+            }
+
             //$html .= var_dump($settings, true);
 
 
@@ -1145,6 +1171,11 @@ function powerpress_do_subscribe_sidebar_widget($settings)
         if(  !empty($settings['subscribe_feature_deezer_sidebar']) && !empty($settings['deezer_url']) ) {
             $settings['deezer_url'] = trim($settings['deezer_url']);
             $html .= '<a href="'.  esc_url( $settings['deezer_url'] ) .'" class="pp-ssb-btn'.$settings['modern_style'].' '.$settings['modern_direction'].' pp-ssb-deezer" title="'.  esc_attr( __('Subscribe on Deezer', 'powerpress') ) .'"><span class="pp-ssb-ic"></span><span class="pp-ssb-text">'.  esc_html( __('Deezer', 'powerpress') ) .'</span></a>';
+        }
+
+        if(  !empty($settings['subscribe_feature_anghami_sidebar']) && !empty($settings['anghami_url']) ) {
+            $settings['anghami_url'] = trim($settings['anghami_url']);
+            $html .= '<a href="'.  esc_url( $settings['anghami_url'] ) .'" class="pp-ssb-btn'.$settings['modern_style'].' '.$settings['modern_direction'].' pp-ssb-deezer" title="'.  esc_attr( __('Subscribe on Anghami', 'powerpress') ) .'"><span class="pp-ssb-ic"></span><span class="pp-ssb-text">'.  esc_html( __('Anghami', 'powerpress') ) .'</span></a>';
         }
 
 		$html .= '<a href="'.  esc_url( $settings['feed_url'] ) .'" class="pp-ssb-btn'.$settings['modern_style'].' '.$settings['modern_direction'].' pp-ssb-rss" title="'.  esc_attr( __('Subscribe via RSS', 'powerpress') ) .'"><span class="pp-ssb-ic"></span><span class="pp-ssb-text">'.  esc_html( __('RSS', 'powerpress') ) .'</span></a>';

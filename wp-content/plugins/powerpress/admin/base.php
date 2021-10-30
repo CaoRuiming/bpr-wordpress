@@ -14,6 +14,8 @@
         <button class="warningButton" type="submit"><?php echo esc_html(__('Unlink Network', 'powerpress-network'));?></button>
     </form>
 </div>
-<a href="#TB_inline?&width=600&height=200&inlineId=unlinkNetwork" class="thickbox" title="Powerpress Network plugin"><button class="warningButton"><?php echo esc_html(__('Unlink Network', 'powerpress-network'));?></button></a>
 
-<button type="button" class="cacheButton" onclick="refreshAndCallDirectAPI('Select Choice', 'manageForm')"><?php echo esc_html(__('Clear site cache', 'powerpress-network'));?></button>
+<form method="POST" action="#/" id="clearSiteCache">
+    <a href="#TB_inline?&width=600&height=200&inlineId=unlinkNetwork" class="thickbox" title="Powerpress Network plugin"><button class="warningButton"><?php echo esc_html(__('Unlink Network', 'powerpress-network'));?></button></a>
+    <button type="button" class="cacheButton" onclick="refreshAndCallDirectAPI('Select Choice', 'clearSiteCache')"><?php echo esc_html(__('Clear site cache', 'powerpress-network'));?></button>
+</form>

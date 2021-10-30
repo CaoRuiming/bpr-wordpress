@@ -697,10 +697,14 @@ function approveProgram (applicantId, approve = true){
 function confirmRemovalOfProgram(programId)
 {
     let url = window.location.href;
-    $.ajax({
-        type: "POST",
-        url: url,
-        data: {'program_id' : programId},
+    jQuery(($) => {
+        $.ajax({
+            type: "POST",
+            url: url,
+            data: {'program_id' : programId},
+        }).done(() => {
+            refreshAndCallDirectAPI('List Programs', 'removeForm');
+        });
     });
 }
 

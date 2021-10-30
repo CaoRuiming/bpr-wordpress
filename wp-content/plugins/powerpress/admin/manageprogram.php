@@ -137,7 +137,8 @@ if (isset($_POST['program_id']))
     $networkInfo['network_title'] = get_option('powerpress_network_title');
     $networkInfo['network_id'] = get_option('powerpress_network_id');
     $networkInfo['program_id'] = $_POST['program_id'];
-    $post = false;
-    $results = PowerpressNetworkDataBus::removeSpecificProgramInNetwork($apiUrl, $post, $networkInfo, false);
+    $results = PowerpressNetworkDataBus::removeSpecificProgramInNetwork($apiUrl, false, $networkInfo, true);
+    echo json_encode($results);
+    exit;
 }
 ?>

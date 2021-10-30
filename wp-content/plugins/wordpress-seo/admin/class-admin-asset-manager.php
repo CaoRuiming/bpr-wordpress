@@ -299,7 +299,7 @@ class WPSEO_Admin_Asset_Manager {
 			'name'      => 'post-edit-classic',
 			'src'       => $scripts['post-edit']['src'],
 			'deps'      => array_map(
-				function( $dep ) {
+				static function( $dep ) {
 					if ( $dep === self::PREFIX . 'block-editor' ) {
 						return self::PREFIX . 'classic-editor';
 					}
@@ -359,9 +359,9 @@ class WPSEO_Admin_Asset_Manager {
 		$scripts = [];
 		$assets  = require $args['asset_file'];
 		foreach ( $assets as $file => $data ) {
-			$name = substr( $file, 0, -$args['ext_length'] );
-			$name = strtolower( preg_replace( '/([A-Z])/', '-$1', $name ) );
-			$name = $name . $args['suffix'];
+			$name  = substr( $file, 0, -$args['ext_length'] );
+			$name  = strtolower( preg_replace( '/([A-Z])/', '-$1', $name ) );
+			$name .= $args['suffix'];
 
 			$deps = $data['dependencies'];
 			if ( isset( $args['additional_deps'][ $name ] ) ) {
@@ -513,10 +513,6 @@ class WPSEO_Admin_Asset_Manager {
 				'src'  => 'alerts-' . $flat_version,
 			],
 			[
-				'name' => 'badge',
-				'src'  => 'badge-' . $flat_version,
-			],
-			[
 				'name' => 'edit-page',
 				'src'  => 'edit-page-' . $flat_version,
 			],
@@ -601,6 +597,11 @@ class WPSEO_Admin_Asset_Manager {
 			[
 				'name' => 'elementor',
 				'src'  => 'elementor-' . $flat_version,
+			],
+			[
+				'name' => 'workouts',
+				'src'  => 'workouts-' . $flat_version,
+				'deps' => [ self::PREFIX . 'monorepo' ],
 			],
 		];
 	}

@@ -36,7 +36,7 @@ function episode_box_top($EnclosureURL, $FeedSlug, $ExtraData, $GeneralSettings,
     <div id="a-pp-selected-media-<?php echo $FeedSlug; ?>" <?php echo $padding; ?>>
         <h3 id="pp-pp-selected-media-head-<?php echo $FeedSlug; ?>">
             <?php echo esc_html(__('Media URL', 'powerpress')); ?>
-            <a class="pp-ep-box-settings thickbox" title='Entry Box Settings' href="<?php echo admin_url('admin.php'); ?>?action=powerpress-ep-box-options&amp;KeepThis=true&amp;TB_iframe=true&amp;width=600&amp;height=400&amp;modal=false">
+            <a class="pp-ep-box-settings thickbox" title='Entry Box Settings' href="<?php echo admin_url(); ?>?action=powerpress-ep-box-options&amp;KeepThis=true&amp;TB_iframe=true&amp;width=600&amp;height=400&amp;modal=false">
                 <img class="ep-box-settings-icon" src="<?php echo powerpress_get_root_url(); ?>images/outline_settings_24px.svg" alt="" />
             </a>
         </h3>
@@ -86,7 +86,7 @@ function episode_box_top($EnclosureURL, $FeedSlug, $ExtraData, $GeneralSettings,
                             <p class="blubrry-connect-info"><?php echo __('Select or upload your media to your Blubrry hosting account.', 'powerpress'); ?></p>
                         </div>
                         <a id="pp-change-media-link-<?php echo $FeedSlug; ?>"
-                           href="<?php echo admin_url('admin.php'); ?>?action=powerpress-jquery-media&podcast-feed=<?php echo $FeedSlug; ?>&KeepThis=true&TB_iframe=true&modal=false"
+                           href="<?php echo admin_url(); ?>?action=powerpress-jquery-media&podcast-feed=<?php echo $FeedSlug; ?>&KeepThis=true&TB_iframe=true&modal=false"
                            class="thickbox">
                             <div id="change-media-button-<?php echo $FeedSlug; ?>"><?php echo esc_html(__('CHOOSE FILE', 'powerpress')); ?></div>
                         </a>

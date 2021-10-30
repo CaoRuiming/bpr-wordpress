@@ -3,11 +3,11 @@
 Plugin Name: Blubrry PowerPress
 Plugin URI: http://create.blubrry.com/resources/powerpress/
 Description: <a href="https://create.blubrry.com/resources/powerpress/" target="_blank">Blubrry PowerPress</a> is the No. 1 Podcasting plugin for WordPress. Developed by podcasters for podcasters; features include Simple and Advanced modes, multiple audio/video player options, subscribe to podcast tools, podcast SEO features, and more! Fully supports Apple Podcasts (previously iTunes), Google Podcasts, Spotify, Stitcher, and Blubrry Podcasting directories, as well as all podcast applications and clients.
-Version: 8.6.6
+Version: 8.7.5
 Author: Blubrry
 Author URI: https://blubrry.com/
 Requires at least: 3.6
-Tested up to: 5.7
+Tested up to: 5.8
 Text Domain: powerpress
 Change Log:
 	Please see readme.txt for detailed change log.
@@ -36,7 +36,7 @@ if( !function_exists('add_action') ) {
 
 // WP_PLUGIN_DIR (REMEMBER TO USE THIS DEFINE IF NEEDED)
 
-define('POWERPRESS_VERSION', '8.6.6' );
+define('POWERPRESS_VERSION', '8.7.5' );
 
 // Translation support:
 if ( !defined('POWERPRESS_ABSPATH') )
@@ -1459,6 +1459,32 @@ function powerpress_feed_content_type($content_type = '', $feedslug = '')
 }
 
 add_filter( 'feed_content_type', 'powerpress_feed_content_type', 10, 2 );
+
+function wpse_152316_wp_audio_extensions( $ext )
+{
+    remove_filter( current_filter(), __FUNCTION__ );
+    $ext[] = '';
+    return $ext;
+}
+
+/**
+ * Allow unrecognize audio sources hosted on trusted hosts that use query strings on their podcast media.
+ *
+ * @see http://wordpress.stackexchange.com/a/152352/26350
+ */
+
+add_filter( 'wp_audio_shortcode_override',
+    function( $html, $atts )
+    {
+        $trusted_hosts_use_qstrings = array('traffic.libsyn.com', 'cdn.simplecast.com', 'buzzsprout.com', 'audioboom.com');
+        foreach ($trusted_hosts_use_qstrings as $host) {
+            if (strpos($atts['src'], $host) !== false) {
+                add_filter('wp_audio_extensions', 'wpse_152316_wp_audio_extensions');
+            }
+        }
+        return $html;
+    }
+    , PHP_INT_MAX, 2 );
 
 // Following code only works for WP 3.3 or older. WP 3.4+ now uses the get_locale setting, so we have to override directly in the get_bloginfo_rss functoin.
 if( version_compare($GLOBALS['wp_version'], '3.4', '<') )

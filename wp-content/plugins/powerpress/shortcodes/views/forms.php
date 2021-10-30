@@ -4,7 +4,7 @@ $success = '';
 if (!empty($_POST)) {
     $url = parse_url($_POST['feedUrl']);
     $feedUrl = (isset($url['host']) ? $url['host'] : "ERROR") .  $url['path'];
-    if (!empty($url['query'])){
+    if (!empty($url['query'])) {
         $feedUrl.='?'.$url['query'];
     }
     $feedUrl = urlencode($feedUrl);
@@ -14,17 +14,19 @@ if (!empty($_POST)) {
     $results = $GLOBALS['ppn_object']->requestAPI($requestUrl, true, $post);
     if (isset($results['program_id'])) {
         $requestUrl = '/2/powerpress/network/' . $props['powerpress_network']['network_id'] . '/applicant/submit';
-        $requestUrl .= '?feedUrl=' . $_POST['feedUrl'] . '&programId=' . $results['program_id'];
+        $requestUrl .= '?feedUrl=' . $results['program_rssurl']. '&programId=' . $results['program_id'];
         $requestUrl .= '&webName=' . $results['program_keyword'];
         $requestUrl .= '&listId=' . $_POST['list_id'];
-        $submit = $GLOBALS['ppn_object']->requestAPI($requestUrl, true, $post);
-        if(isset($submit->danger)){
+
+        $submit = $GLOBALS['ppn_object']->requestAPI($requestUrl, true, post);
+        if(isset($submit['danger'])){
             $error = 'Application could not be submitted. If you have not already submitted an application, please contact the network administrator.';
         } else {
             $success = 'Application successfully submitted!';
         }
     } else {
-        $error = "Show could not be found in Blubrry directory. Please double check your URL or contact Blubrry support.";
+        $error = isset($results['alert']) ?
+            $results['alert'] : "Show could not be found in Blubrry directory. Please double check your URL or contact Blubrry support.";
     }
 }
 ?>
