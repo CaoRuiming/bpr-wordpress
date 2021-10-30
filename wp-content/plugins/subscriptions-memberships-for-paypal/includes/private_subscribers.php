@@ -20,7 +20,7 @@ function wpeppsub_plugin_subscribers() {
 				
 				// search
 				if (isset($_GET['s'])) {
-					$s = $_GET['s'];
+					$s = sanitize_text_field($_GET['s']);
 				} else {
 					$s = "";
 				}
@@ -124,15 +124,15 @@ function wpeppsub_plugin_subscribers() {
 				$view_bare = '?page=wpeppsub_subscribers&action=view&order='.$item['ID'];
 				$view_url = wp_nonce_url($view_bare, 'view_'.$item['ID']);
 				
-				return "<a href='$view_url'>".$item['payer']."</a>";
+				return "<a href='" . esc_url($view_url) . "'>" . esc_html($item['payer']) . "</a>";
 			}
 			
 			
 			function column_cb($item) {
 				return sprintf(
 					'<input type="checkbox" name="%1$s[]" value="%2$s" />',
-					$this->_args['singular'],
-					$item['ID']
+					esc_attr($this->_args['singular']),
+                    esc_attr($item['ID'])
 				);
 			}
 
@@ -195,8 +195,8 @@ function wpeppsub_plugin_subscribers() {
 				
 				if (isset($_REQUEST['orderby'])) {
 					function usort_reorder($a,$b) {
-						$orderby = (!empty($_REQUEST['orderby'])) ? $_REQUEST['orderby'] : 'order';
-						$order = (!empty($_REQUEST['order'])) ? $_REQUEST['order'] : 'asc';
+						$orderby = (!empty($_REQUEST['orderby'])) ? sanitize_text_field($_REQUEST['orderby']) : 'order';
+						$order = (!empty($_REQUEST['order'])) ? sanitize_text_field($_REQUEST['order']) : 'asc';
 						$result = strcmp($a[$orderby], $b[$orderby]);
 						return ($order==='asc') ? $result : -$result;
 					}
@@ -253,22 +253,25 @@ function wpeppsub_plugin_subscribers() {
 				</td></tr></table>
 				
 				<?php
-				if (isset($_GET['message']) && $_GET['message'] == "deleted") {
-					echo "<div class='updated'><p>Order entry(s) deleted.</p></div>";
-				}
-				if (isset($_GET['message']) && $_GET['message'] == "nothing") {
-					echo "<div class='updated'><p>No action selected.</p></div>";
-				}
-				if (isset($_GET['message']) && $_GET['message'] == "nothing_deleted") {
-					echo "<div class='updated'><p>Nothing selected to delete.</p></div>";
-				}
-				if (isset($_GET['message']) && $_GET['message'] == "error") {
-					echo "<div class='updated'><p>An error occured while processing the query. Please try again.</p></div>";
-				}
+                if (isset($_GET['message'])) {
+                    switch ($_GET['message']){
+                        case 'deleted':
+                            echo "<div class='updated'><p>Order entry(s) deleted.</p></div>";
+                            break;
+                        case 'nothing':
+                            echo "<div class='updated'><p>No action selected.</p></div>";
+                            break;
+                        case 'nothing_deleted':
+                            echo "<div class='updated'><p>Nothing selected to delete.</p></div>";
+                            break;
+                        case 'error':
+                            echo "<div class='updated'><p>An error occured while processing the query. Please try again.</p></div>";
+                    }
+                }
 				?>
 				
 				<form id="products-filter" method="get">
-					<input type="hidden" name="page" value="<?php echo $_REQUEST['page'] ?>" />
+					<input type="hidden" name="page" value="<?php echo esc_attr($_REQUEST['page']); ?>" />
 					<?php
 					$testListTable->search_box( 'search', 'search_id' );
 					$testListTable->display() ?>
@@ -364,12 +367,12 @@ function wpeppsub_plugin_subscribers() {
 			
 			<?php
 			// error
-			if (isset($error) && isset($error) && isset($message)) {
-				echo "<div class='error'><p>"; echo $message; echo"</p></div>";
+			if (isset($error) && isset($message)) {
+				echo "<div class='error'><p>"; echo esc_html($message); echo"</p></div>";
 			}
 			// saved
-			if (!isset($error)&& !isset($error) && isset($message)) {
-				echo "<div class='updated'><p>"; echo $message; echo"</p></div>";
+			if (!isset($error) && isset($message)) {
+				echo "<div class='updated'><p>"; echo esc_html($message); echo"</p></div>";
 			}
 			?>
 			
@@ -377,32 +380,32 @@ function wpeppsub_plugin_subscribers() {
 			
 			<div style="background-color:#fff;padding:8px;border: 1px solid #CCCCCC;"><br />
 			
-				<span style="font-size:16pt;">Subscriber: <?php echo $payer_email; ?></span>
+				<span style="font-size:16pt;">Subscriber: <?php echo esc_html($payer_email); ?></span>
 				<br /><br />
 				
 				<table width="430px"><tr><td>
 					
 					<b>Transaction</b></td></tr><tr><td>
-					PayPal Subscriber ID: </td><td><a target="_blank" href="https://www.paypal.com/us/cgi-bin/webscr?cmd=_profile-recurring-payments&encrypted_profile_id=<?php echo $subscr_id; ?>"><?php echo $subscr_id; ?></a></td></tr><tr><td>
+					PayPal Subscriber ID: </td><td><a target="_blank" href="https://www.paypal.com/us/cgi-bin/webscr?cmd=_profile-recurring-payments&encrypted_profile_id=<?php echo esc_attr($subscr_id); ?>"><?php echo esc_html($subscr_id); ?></a></td></tr><tr><td>
 					
 					<br /></td><td></td></tr><tr><td>
 					<b>Status</b></td></tr><tr><td>
-					Subscriber Status: </td><td><?php echo $status; ?></td></tr><tr><td>
+					Subscriber Status: </td><td><?php echo esc_html($status); ?></td></tr><tr><td>
 					
 					<br /></td><td></td></tr><tr><td>
 					<b>Subscription Details</b></td></tr><tr><td>
-					Trial Amount: </td><td><?php echo $mc_amount1; ?></td></tr><tr><td>
-					Trial Cycle Period: </td><td><?php echo $period1; ?></td></tr><tr><td>
+					Trial Amount: </td><td><?php echo esc_html($mc_amount1); ?></td></tr><tr><td>
+					Trial Cycle Period: </td><td><?php echo esc_html($period1); ?></td></tr><tr><td>
 					<br />
-					Amount: </td><td><br /><?php echo $amount3; ?></td></tr><tr><td>
-					Cycle Period: </td><td><?php echo $period3; ?></td></tr><tr><td>
-					Cycle Length: </td><td><?php echo $recur_times; ?></td></tr><tr><td>
+					Amount: </td><td><br /><?php echo esc_html($amount3); ?></td></tr><tr><td>
+					Cycle Period: </td><td><?php echo esc_html($period3); ?></td></tr><tr><td>
+					Cycle Length: </td><td><?php echo esc_html($recur_times); ?></td></tr><tr><td>
 					
 					<br /></td><td></td></tr><tr><td>
 					<b>Payer</b></td></tr><tr><td>
-					Payer Name: </td><td><?php echo $first_name; echo " "; echo $last_name; ?></td></tr><tr><td>
-					Payer Email: </td><td><?php echo $payer_email; ?></td></tr><tr><td>
-					Payer Currency: </td><td><?php echo $mc_currency; ?></td></tr><tr><td>
+					Payer Name: </td><td><?php echo esc_html($first_name); echo " "; echo esc_html($last_name); ?></td></tr><tr><td>
+					Payer Email: </td><td><?php echo esc_html($payer_email); ?></td></tr><tr><td>
+					Payer Currency: </td><td><?php echo esc_html($mc_currency); ?></td></tr><tr><td>
 					
 					<br /></td><td></td></tr><tr><td>
 					<b>Button</b></td></tr><tr><td>
@@ -413,8 +416,8 @@ function wpeppsub_plugin_subscribers() {
 					?>
 					
 					
-					Button Name: </td><td><a href="<?php echo $edit_url; ?>"><?php echo $item_name; ?></a></td></tr><tr><td>
-					Button ID/SKU: </td><td><?php echo $item_number; ?></td></tr><tr><td>
+					Button Name: </td><td><a href="<?php echo esc_url($edit_url); ?>"><?php echo esc_html($item_name); ?></a></td></tr><tr><td>
+					Button ID/SKU: </td><td><?php echo esc_html($item_number); ?></td></tr><tr><td>
 					
 					
 					<br /></td><td></td></tr><tr><td>
@@ -458,7 +461,7 @@ function wpeppsub_plugin_subscribers() {
 						$view_bare = '?page=wpeppsub_menu&action=view&order='.$id;
 						$view_url = wp_nonce_url($view_bare, 'view_'.$id);
 						
-						echo "<a href='?page=wpeppsub_menu&action=view&order=$id&wpnonce=$view_url'>$id - $payment_date</a><br />";
+						echo "<a href='?page=wpeppsub_menu&action=view&order=" . esc_attr($id) . "&wpnonce=" . esc_attr($view_url) . "'>" . esc_html($id . "-" . $payment_date) . "</a><br />";
 						$count++;
 					}
 					
@@ -503,12 +506,12 @@ function wpeppsub_plugin_subscribers() {
 		
 		if(isset($_GET['inline'])) {
 			if ($_GET['inline'] == "true") {
-				$post_id = array($_GET['order']);
+				$post_id = array(intval($_GET['order']));
 			} else {
-				$post_id = $_GET['order'];
+                $post_id = array_map('intval', $_GET['order']);
 			}
 		} else {
-			$post_id = $_GET['order'];
+            $post_id = array_map('intval', $_GET['order']);
 		}
 		
 		if (empty($post_id)) {

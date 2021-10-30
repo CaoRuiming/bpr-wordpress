@@ -3,16 +3,18 @@ Contributors: amandato, blubrry
 Tags: podcasting, podcast, podcaster, powerpress, itunes, apple, apple podcasts, google podcasts, google play, enclosure, professional, apple, apple tv, ipad, iphone, soundcloud, squarespace, youtube, viddler, ustream, podcasting, audio, video, rss2, feed, player, media, rss, mp3, music, embed, feedburner, statistics, stats, flv, flash, id3, episodes, blubrry, mp4, m4v, wordpressmu, mu, wordpress mu, multisite, multi site, mediacaster, post, plugin, posts, simple, social, dashboard, TSG, Buzzsprout, MTR, WP-boxCast, CastMyBlog, tgs podcasting,  simple podcasting, seriously simple podcasting, seriously-simple-podcasting, serious, seriously, ssp, podlove, podcast.de, clammr, clammr radio, audio player, stitcher, tunein, show, shows, series, docs, documentation, support, free, add-ons, extensions, addons, libsyn, libsyn-podcasting, podbean, podomatic, spreaker
 Requires at least: 3.6
 Requires PHP: 5.2
-Tested up to: 5.7
-Stable tag: 8.6.6
+Tested up to: 5.8
+Stable tag: 8.7.5
 Donate link: https://create.blubrry.com/resources/podcast-media-hosting/
 License: GPLv2 or later
 
-No. 1 Podcasting plugin for WordPress, with simple & advanced modes, players, subscribe tools, and more! Supports Apple Podcasts, Google, Spotify,..
+No. 1 Podcasting plugin for WordPress.
 
 == Description ==
 
-No. 1 Podcasting plugin for WordPress, with simple & advanced modes, players, subscribe tools, and more!
+No. 1 Podcasting plugin for WordPress.
+
+[youtube https://www.youtube.com/watch?v=xdoc0VaAZtU]
 
 Publish and manage your podcast right from your WordPress website. Developed by podcasters for podcasters (Blubrry Podcasting), PowerPress features options supported by the top podcasting apps and directories, including Apple Podcasts, Google Podcasts, Spotify, Amazon Music and more. Best of all, it integrates with Blubrry’s hosting and statistics, providing convenient features such as easy uploads available only to Blubrry customers. Don’t worry though, we work with any hosting provider.
 
@@ -183,6 +185,34 @@ If you are a fan of PowerPress, we would greatly appreciate it if you could take
 
 
 == Changelog ==
+
+= 8.7.5 =
+* Released on 10/25/2021
+* Solved a bug that occurred when detecting a filetype on media with a query string
+
+= 8.7.4 =
+* Released on 10/04/2021
+* Fixed a missing CSS issue in the onboarding section
+* Updated copy
+* Allow query strings in media from trusted hosts
+
+= 8.7.3 =
+* Released on 09/13/2021
+* Corrected admin url in several places to exclude unnecessary admin.php
+
+= 8.7.2 =
+* Released on 09/01/2021
+* Solved conflict with woocommerce
+* Updated video and image in readme
+* Added title attribute to Blubrry player for ADA compliance
+
+= 8.7.1 =
+* Released on 08/18/2021
+* Start sending website admin URL on migrate for Blubrry users
+
+= 8.7 =
+* Released 07/19/2021
+* Bugfixes in the PowerPress Network section
 
 = 8.6.6 =
 * Released 06/09/2021

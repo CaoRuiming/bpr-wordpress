@@ -116,6 +116,8 @@
                         'amazon_url'=>esc_url($props['subscribe_amazon_music']), //For future use
                         'subscribe_feature_pandora_sidebar'=>false,
                         'pandora_url'=>esc_url($props['subscribe_pandora']), //For future use
+                        'subscribe_feature_anghami_sidebar'=>false,
+                        'anghami_url'=>esc_url($props['subscribe_anghami']), //For future use
                         'subscribe_feature_rss_sidebar'=>true,
                         'subscribe_page_url'=>esc_url($props['subscribe_html'])
                     ]) ?>

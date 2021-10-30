@@ -79,7 +79,7 @@ function wpeppsub_log($input) {
 		);
 		
 		// update
-		wp_update_post( $my_post );
+		wp_update_post( wp_slash($my_post) );
 		
 	}
 
@@ -112,7 +112,7 @@ function wpeppsub_clear_log() {
 		);
 		
 		// update
-		wp_update_post( $my_post );
+		wp_update_post( wp_slash($my_post) );
 
 }
 

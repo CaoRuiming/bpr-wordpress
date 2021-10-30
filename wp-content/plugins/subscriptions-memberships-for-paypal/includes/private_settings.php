@@ -10,7 +10,7 @@ function wpeppsub_plugin_options() {
 
 	?>
 	
-	<form method='post' action='<?php $_SERVER["REQUEST_URI"]; ?>'>
+	<form method='post' action='<?php esc_url($_SERVER["REQUEST_URI"]); ?>'>
 		
 		<?php
 		// save and update options
@@ -118,9 +118,9 @@ function wpeppsub_plugin_options() {
 		<?php
 		
 		if (isset($_REQUEST['hidden_tab_value'])) {
-			$active_tab =  $_REQUEST['hidden_tab_value'];
+			$active_tab = sanitize_text_field($_REQUEST['hidden_tab_value']);
 		} else {
-			$active_tab = isset( $_GET[ 'tab' ] ) ? $_GET[ 'tab' ] : '1';
+			$active_tab = isset($_GET['tab']) ? sanitize_text_field($_GET['tab']) : '1';
 		}
 		
 		
@@ -258,26 +258,26 @@ function wpeppsub_plugin_options() {
 				
 				<b>Language:</b> </td><td>
 				<select name="language" style="width: 280px">
-				<option <?php if ($value['language'] == "1") { echo "SELECTED"; } ?> value="1">Danish</option>
-				<option <?php if ($value['language'] == "2") { echo "SELECTED"; } ?> value="2">Dutch</option>
-				<option <?php if ($value['language'] == "3") { echo "SELECTED"; } ?> value="3">English</option>
-				<option <?php if ($value['language'] == "20") { echo "SELECTED"; } ?> value="20">English - UK</option>
-				<option <?php if ($value['language'] == "4") { echo "SELECTED"; } ?> value="4">French</option>
-				<option <?php if ($value['language'] == "5") { echo "SELECTED"; } ?> value="5">German</option>
-				<option <?php if ($value['language'] == "6") { echo "SELECTED"; } ?> value="6">Hebrew</option>
-				<option <?php if ($value['language'] == "7") { echo "SELECTED"; } ?> value="7">Italian</option>
-				<option <?php if ($value['language'] == "8") { echo "SELECTED"; } ?> value="8">Japanese</option>
-				<option <?php if ($value['language'] == "9") { echo "SELECTED"; } ?> value="9">Norwgian</option>
-				<option <?php if ($value['language'] == "10") { echo "SELECTED"; } ?> value="10">Polish</option>
-				<option <?php if ($value['language'] == "11") { echo "SELECTED"; } ?> value="11">Portuguese</option>
-				<option <?php if ($value['language'] == "12") { echo "SELECTED"; } ?> value="12">Russian</option>
-				<option <?php if ($value['language'] == "13") { echo "SELECTED"; } ?> value="13">Spanish</option>
-				<option <?php if ($value['language'] == "14") { echo "SELECTED"; } ?> value="14">Swedish</option>
-				<option <?php if ($value['language'] == "15") { echo "SELECTED"; } ?> value="15">Simplified Chinese -China only</option>
-				<option <?php if ($value['language'] == "16") { echo "SELECTED"; } ?> value="16">Traditional Chinese - Hong Kong only</option>
-				<option <?php if ($value['language'] == "17") { echo "SELECTED"; } ?> value="17">Traditional Chinese - Taiwan only</option>
-				<option <?php if ($value['language'] == "18") { echo "SELECTED"; } ?> value="18">Turkish</option>
-				<option <?php if ($value['language'] == "19") { echo "SELECTED"; } ?> value="19">Thai</option>
+				<option <?php selected($value['language'], '1'); ?> value="1">Danish</option>
+				<option <?php selected($value['language'], '2'); ?> value="2">Dutch</option>
+				<option <?php selected($value['language'], '3'); ?> value="3">English</option>
+				<option <?php selected($value['language'], '20'); ?> value="20">English - UK</option>
+				<option <?php selected($value['language'], '4'); ?> value="4">French</option>
+				<option <?php selected($value['language'], '5'); ?> value="5">German</option>
+				<option <?php selected($value['language'], '6'); ?> value="6">Hebrew</option>
+				<option <?php selected($value['language'], '7'); ?> value="7">Italian</option>
+				<option <?php selected($value['language'], '8'); ?> value="8">Japanese</option>
+				<option <?php selected($value['language'], '9'); ?> value="9">Norwgian</option>
+				<option <?php selected($value['language'], '10'); ?> value="10">Polish</option>
+				<option <?php selected($value['language'], '11'); ?> value="11">Portuguese</option>
+				<option <?php selected($value['language'], '12'); ?> value="12">Russian</option>
+				<option <?php selected($value['language'], '13'); ?> value="13">Spanish</option>
+				<option <?php selected($value['language'], '14'); ?> value="14">Swedish</option>
+				<option <?php selected($value['language'], '15'); ?> value="15">Simplified Chinese -China only</option>
+				<option <?php selected($value['language'], '16'); ?> value="16">Traditional Chinese - Hong Kong only</option>
+				<option <?php selected($value['language'], '17'); ?> value="17">Traditional Chinese - Taiwan only</option>
+				<option <?php selected($value['language'], '18'); ?> value="18">Turkish</option>
+				<option <?php selected($value['language'], '19'); ?> value="19">Thai</option>
 				</select></td><td>
 				
 				PayPal currently supports 18 languages.</td></tr><tr><td colspan="2">
@@ -287,31 +287,31 @@ function wpeppsub_plugin_options() {
 				
 				<b>Currency:</b> </td><td>
 				<select name="currency" style="width: 280px">
-				<option <?php if ($value['currency'] == "1") { echo "SELECTED"; } ?> value="1">Australian Dollar - AUD</option>
-				<option <?php if ($value['currency'] == "2") { echo "SELECTED"; } ?> value="2">Brazilian Real - BRL</option>
-				<option <?php if ($value['currency'] == "3") { echo "SELECTED"; } ?> value="3">Canadian Dollar - CAD</option>
-				<option <?php if ($value['currency'] == "4") { echo "SELECTED"; } ?> value="4">Czech Koruna - CZK</option>
-				<option <?php if ($value['currency'] == "5") { echo "SELECTED"; } ?> value="5">Danish Krone - DKK</option>
-				<option <?php if ($value['currency'] == "6") { echo "SELECTED"; } ?> value="6">Euro - EUR</option>
-				<option <?php if ($value['currency'] == "7") { echo "SELECTED"; } ?> value="7">Hong Kong Dollar - HKD</option> 	 
-				<option <?php if ($value['currency'] == "8") { echo "SELECTED"; } ?> value="8">Hungarian Forint - HUF</option>
-				<option <?php if ($value['currency'] == "9") { echo "SELECTED"; } ?> value="9">Israeli New Sheqel - ILS</option>
-				<option <?php if ($value['currency'] == "10") { echo "SELECTED"; } ?> value="10">Japanese Yen - JPY</option>
-				<option <?php if ($value['currency'] == "11") { echo "SELECTED"; } ?> value="11">Malaysian Ringgit - MYR</option>
-				<option <?php if ($value['currency'] == "12") { echo "SELECTED"; } ?> value="12">Mexican Peso - MXN</option>
-				<option <?php if ($value['currency'] == "13") { echo "SELECTED"; } ?> value="13">Norwegian Krone - NOK</option>
-				<option <?php if ($value['currency'] == "14") { echo "SELECTED"; } ?> value="14">New Zealand Dollar - NZD</option>
-				<option <?php if ($value['currency'] == "15") { echo "SELECTED"; } ?> value="15">Philippine Peso - PHP</option>
-				<option <?php if ($value['currency'] == "16") { echo "SELECTED"; } ?> value="16">Polish Zloty - PLN</option>
-				<option <?php if ($value['currency'] == "17") { echo "SELECTED"; } ?> value="17">Pound Sterling - GBP</option>
-				<option <?php if ($value['currency'] == "18") { echo "SELECTED"; } ?> value="18">Russian Ruble - RUB</option>
-				<option <?php if ($value['currency'] == "19") { echo "SELECTED"; } ?> value="19">Singapore Dollar - SGD</option>
-				<option <?php if ($value['currency'] == "20") { echo "SELECTED"; } ?> value="20">Swedish Krona - SEK</option>
-				<option <?php if ($value['currency'] == "21") { echo "SELECTED"; } ?> value="21">Swiss Franc - CHF</option>
-				<option <?php if ($value['currency'] == "22") { echo "SELECTED"; } ?> value="22">Taiwan New Dollar - TWD</option>
-				<option <?php if ($value['currency'] == "23") { echo "SELECTED"; } ?> value="23">Thai Baht - THB</option>
-				<option <?php if ($value['currency'] == "24") { echo "SELECTED"; } ?> value="24">Turkish Lira - TRY</option>
-				<option <?php if ($value['currency'] == "25") { echo "SELECTED"; } ?> value="25">U.S. Dollar - USD</option>
+				<option <?php selected($value['currency'], '1'); ?> value="1">Australian Dollar - AUD</option>
+				<option <?php selected($value['currency'], '2'); ?> value="2">Brazilian Real - BRL</option>
+				<option <?php selected($value['currency'], '3'); ?> value="3">Canadian Dollar - CAD</option>
+				<option <?php selected($value['currency'], '4'); ?> value="4">Czech Koruna - CZK</option>
+				<option <?php selected($value['currency'], '5'); ?> value="5">Danish Krone - DKK</option>
+				<option <?php selected($value['currency'], '6'); ?> value="6">Euro - EUR</option>
+				<option <?php selected($value['currency'], '7'); ?> value="7">Hong Kong Dollar - HKD</option>
+				<option <?php selected($value['currency'], '8'); ?> value="8">Hungarian Forint - HUF</option>
+				<option <?php selected($value['currency'], '9'); ?> value="9">Israeli New Sheqel - ILS</option>
+				<option <?php selected($value['currency'], '10'); ?> value="10">Japanese Yen - JPY</option>
+				<option <?php selected($value['currency'], '11'); ?> value="11">Malaysian Ringgit - MYR</option>
+				<option <?php selected($value['currency'], '12'); ?> value="12">Mexican Peso - MXN</option>
+				<option <?php selected($value['currency'], '13'); ?> value="13">Norwegian Krone - NOK</option>
+				<option <?php selected($value['currency'], '14'); ?> value="14">New Zealand Dollar - NZD</option>
+				<option <?php selected($value['currency'], '15'); ?> value="15">Philippine Peso - PHP</option>
+				<option <?php selected($value['currency'], '16'); ?> value="16">Polish Zloty - PLN</option>
+				<option <?php selected($value['currency'], '17'); ?> value="17">Pound Sterling - GBP</option>
+				<option <?php selected($value['currency'], '18'); ?> value="18">Russian Ruble - RUB</option>
+				<option <?php selected($value['currency'], '19'); ?> value="19">Singapore Dollar - SGD</option>
+				<option <?php selected($value['currency'], '20'); ?> value="20">Swedish Krona - SEK</option>
+				<option <?php selected($value['currency'], '21'); ?> value="21">Swiss Franc - CHF</option>
+				<option <?php selected($value['currency'], '22'); ?> value="22">Taiwan New Dollar - TWD</option>
+				<option <?php selected($value['currency'], '23'); ?> value="23">Thai Baht - THB</option>
+				<option <?php selected($value['currency'], '24'); ?> value="24">Turkish Lira - TRY</option>
+				<option <?php selected($value['currency'], '25'); ?> value="25">U.S. Dollar - USD</option>
 				</select></td><td>
 				
 				PayPal currently supports 25 currencies.
@@ -332,7 +332,7 @@ function wpeppsub_plugin_options() {
 			<table><tr><td colspan="2">
 				<h3>PayPal Accounts</h3></td></tr><tr><td>
 				
-				<b>Live Account:</b> </td><td><input type='text' name='liveaccount' value='<?php echo $value['liveaccount']; ?>'> Required </td></tr><tr><td>
+				<b>Live Account:</b> </td><td><input type='text' name='liveaccount' value='<?php echo esc_attr($value['liveaccount']); ?>'> Required </td></tr><tr><td>
 				</td><td colspan="2">
 				<br />Enter a valid Merchant account ID (strongly recommend) or PayPal account email address. All payments will go to this account.
 				<br /><br />You can find your Merchant account ID in your PayPal account under Profile -> My business info -> Merchant account ID
@@ -341,7 +341,7 @@ function wpeppsub_plugin_options() {
 				
 				</td></tr><tr><td>
 				
-				<b>Sandbox Account:</b> </td><td><input type='text' name='sandboxaccount' value='<?php echo $value['sandboxaccount']; ?>'> Optional</td></tr><tr><td>
+				<b>Sandbox Account:</b> </td><td><input type='text' name='sandboxaccount' value='<?php echo esc_attr($value['sandboxaccount']); ?>'> Optional</td></tr><tr><td>
 				</td><td colspan="2">
 				<br />Enter a valid sandbox PayPal account email address. A Sandbox account is a PayPal accont with fake money used for testing. <br />This is useful to make sure your PayPal account and settings are working properly being going live.
 				<br /><br />To create a Sandbox account, you first need a Developer Account. You can sign up for free at the <a target='_blank' href='https://developer.paypal.com/'>PayPal Developer</a> site. <br /><br />
@@ -356,9 +356,9 @@ function wpeppsub_plugin_options() {
 				<h3>PayPal Options</h3></td></tr><tr><td>
 				
 				<b>Sandbox Mode:</b> </td><td colspan="2">
-				&nbsp; &nbsp; <input <?php if ($value['mode'] == "1") { echo "checked='checked'"; } ?> type='radio' name='mode' value='1'>On (Sandbox mode)
-				&nbsp; &nbsp;  &nbsp;<input <?php if ($value['mode'] == "2") { echo "checked='checked'"; } ?> type='radio' name='mode' value='2'>Off (Live mode)
-				
+				&nbsp; &nbsp; <input <?php checked($value['mode'], '1' ); ?> type='radio' name='mode' value='1'>On (Sandbox mode)
+				&nbsp; &nbsp;  &nbsp;<input <?php checked($value['mode'], '2' ); ?> type='radio' name='mode' value='2'>Off (Live mode)
+
 				</td></tr><tr><td>				
 				
 				<b>Statements Name:</b> </td><td>
@@ -383,28 +383,28 @@ function wpeppsub_plugin_options() {
 				
 				<b>Default Button Size and style:</b>
 				</td></tr><tr><td valign="top">
-				<input <?php if ($value['size'] == "1") { echo "checked='checked'"; } ?> type='radio' name='size' value='1'>Small Buy Now <br /><img src='https://www.paypalobjects.com/en_US/i/btn/btn_buynow_SM.gif'></td><td valign='top' style='text-align: center;'>
-				<input <?php if ($value['size'] == "2") { echo "checked='checked'"; } ?> type='radio' name='size' value='2'>Big Buy Now<br /><img src='https://www.paypalobjects.com/en_US/i/btn/btn_buynow_LG.gif'></td><td valign='top' style='text-align: center;'>
-				<input <?php if ($value['size'] == "3") { echo "checked='checked'"; } ?> type='radio' name='size' value='3'>Big Buy Now with Credit Cards <br /><img src='https://www.paypalobjects.com/en_US/i/btn/btn_buynowCC_LG.gif'></td><td valign='top' style='text-align: center;'>
-				<input <?php if ($value['size'] == "7") { echo "checked='checked'"; } ?> type='radio' name='size' value='7'>Gold Buy Now (English only)<br /><img src='https://www.paypalobjects.com/webstatic/en_US/i/buttons/buy-logo-medium.png'>
+				<input <?php checked($value['size'], '1'); ?> type='radio' name='size' value='1'>Small Buy Now <br /><img src='https://www.paypalobjects.com/en_US/i/btn/btn_buynow_SM.gif'></td><td valign='top' style='text-align: center;'>
+				<input <?php checked($value['size'], '2'); ?> type='radio' name='size' value='2'>Big Buy Now<br /><img src='https://www.paypalobjects.com/en_US/i/btn/btn_buynow_LG.gif'></td><td valign='top' style='text-align: center;'>
+				<input <?php checked($value['size'], '3'); ?> type='radio' name='size' value='3'>Big Buy Now with Credit Cards <br /><img src='https://www.paypalobjects.com/en_US/i/btn/btn_buynowCC_LG.gif'></td><td valign='top' style='text-align: center;'>
+				<input <?php checked($value['size'], '7'); ?> type='radio' name='size' value='7'>Gold Buy Now (English only)<br /><img src='https://www.paypalobjects.com/webstatic/en_US/i/buttons/buy-logo-medium.png'>
 				
 				</td></tr><tr><td valign="top">
-				<input <?php if ($value['size'] == "4") { echo "checked='checked'"; } ?> type='radio' name='size' value='4'>Small Pay Now <br /><img src='https://www.paypalobjects.com/en_US/i/btn/btn_paynow_SM.gif'></td><td valign='top' style='text-align: center;'>
-				<input <?php if ($value['size'] == "5") { echo "checked='checked'"; } ?> type='radio' name='size' value='5'>Big Pay Now <br /><img src='https://www.paypalobjects.com/en_US/i/btn/btn_paynow_LG.gif'></td><td valign='top' style='text-align: center;'>
-				<input <?php if ($value['size'] == "6") { echo "checked='checked'"; } ?> type='radio' name='size' value='6'>Big Pay Now with Credit Cards <br /><img src='https://www.paypalobjects.com/en_US/i/btn/btn_paynowCC_LG.gif'></td><td valign='top' style='text-align: center;'>
+				<input <?php checked($value['size'], '4'); ?> type='radio' name='size' value='4'>Small Pay Now <br /><img src='https://www.paypalobjects.com/en_US/i/btn/btn_paynow_SM.gif'></td><td valign='top' style='text-align: center;'>
+				<input <?php checked($value['size'], '5'); ?> type='radio' name='size' value='5'>Big Pay Now <br /><img src='https://www.paypalobjects.com/en_US/i/btn/btn_paynow_LG.gif'></td><td valign='top' style='text-align: center;'>
+				<input <?php checked($value['size'], '6'); ?> type='radio' name='size' value='6'>Big Pay Now with Credit Cards <br /><img src='https://www.paypalobjects.com/en_US/i/btn/btn_paynowCC_LG.gif'></td><td valign='top' style='text-align: center;'>
 				
-				<input <?php if ($value['size'] == "12") { echo "checked='checked'"; } ?> type='radio' name='size' value='12'>Gold Check Out (English only)<br /><img src='https://www.paypalobjects.com/webstatic/en_US/i/buttons/checkout-logo-medium.png'>
+				<input <?php checked($value['size'], '12'); ?> type='radio' name='size' value='12'>Gold Check Out (English only)<br /><img src='https://www.paypalobjects.com/webstatic/en_US/i/buttons/checkout-logo-medium.png'>
 				
 				<!--
-				<input <?php //if ($value['size'] == "8") { echo "checked='checked'"; } ?> type='radio' name='size' value='8'>Custom <br />
-				<input type="text" id="image_1" name="image_1" size="14" value="<?php //echo $value['image_1']; ?>">
+				<input <?php //checked($value['size'], '8'); ?> type='radio' name='size' value='8'>Custom <br />
+				<input type="text" id="image_1" name="image_1" size="14" value="<?php //echo esc_attr($value['image_1']); ?>">
 				<input id="_btn" class="upload_image_button" type="button" value="Upload Image"></td></tr>
 				-->
 				
 				</td></tr><tr><td valign="top">
-				<input <?php if ($value['size'] == "9") { echo "checked='checked'"; } ?> type='radio' name='size' value='9'>Small Subscribe <br /><img src='https://www.paypalobjects.com/en_US/i/btn/btn_subscribe_SM.gif'></td><td valign='top' style='text-align: center;'>
-				<input <?php if ($value['size'] == "10") { echo "checked='checked'"; } ?> type='radio' name='size' value='10'>Big Subscribe <br /><img src='https://www.paypalobjects.com/en_US/i/btn/btn_subscribe_LG.gif'></td><td valign='top' style='text-align: center;'>
-				<input <?php if ($value['size'] == "11") { echo "checked='checked'"; } ?> type='radio' name='size' value='11'>Big Subscribe with Credit Cards <br /><img src='https://www.paypalobjects.com/en_US/i/btn/btn_subscribeCC_LG.gif'></td><td valign='top' style='text-align: center;'>
+				<input <?php checked($value['size'], '9'); ?> type='radio' name='size' value='9'>Small Subscribe <br /><img src='https://www.paypalobjects.com/en_US/i/btn/btn_subscribe_SM.gif'></td><td valign='top' style='text-align: center;'>
+				<input <?php checked($value['size'], '10'); ?> type='radio' name='size' value='10'>Big Subscribe <br /><img src='https://www.paypalobjects.com/en_US/i/btn/btn_subscribe_LG.gif'></td><td valign='top' style='text-align: center;'>
+				<input <?php checked($value['size'], '11'); ?> type='radio' name='size' value='11'>Big Subscribe with Credit Cards <br /><img src='https://www.paypalobjects.com/en_US/i/btn/btn_subscribeCC_LG.gif'></td><td valign='top' style='text-align: center;'>
 				
 				
 				<tr><td colspan="4">
@@ -416,27 +416,27 @@ function wpeppsub_plugin_options() {
 				<table><tr><td valign="top">
 				
 				<b>Button opens in:</b></td><td valign="top">
-				<input <?php if ($value['opens'] == "1") { echo "checked='checked'"; } ?>  type='radio' name='opens' value='1'>Same window
-				<input <?php if ($value['opens'] == "2") { echo "checked='checked'"; } ?> type='radio' name='opens' value='2'>New window
+				<input <?php checked($value['opens'], '1'); ?>  type='radio' name='opens' value='1'>Same window
+				<input <?php checked($value['opens'], '2'); ?> type='radio' name='opens' value='2'>New window
 				
 				<br /><br /></td></tr><tr><td valign="top">
 				
 				<b>Prompt buyers for a shipping address:</b></td><td valign="top">
-				<input <?php if ($value['no_shipping'] == "0") { echo "checked='checked'"; } ?> type='radio' name='no_shipping' value='0'>Yes
-				<input <?php if ($value['no_shipping'] == "1") { echo "checked='checked'"; } ?> type='radio' name='no_shipping' value='1'>No
-				<input <?php if ($value['no_shipping'] == "2") { echo "checked='checked'"; } ?> type='radio' name='no_shipping' value='2'>Yes, and require
+				<input <?php checked($value['no_shipping'], '0'); ?> type='radio' name='no_shipping' value='0'>Yes
+				<input <?php checked($value['no_shipping'], '1'); ?> type='radio' name='no_shipping' value='1'>No
+				<input <?php checked($value['no_shipping'], '2'); ?> type='radio' name='no_shipping' value='2'>Yes, and require
 				
 				<br /><br /></td></tr><tr><td valign="top">
 				
 				<b>Default Cancel URL: </b></td><td valign="top">
-				<input type='text' name='cancel' value='<?php echo $value['cancel']; ?>'> Optional </td></tr><tr><td colspan="2">
-				If the customer goes to PayPal and clicks the cancel button, where do they go. <br />Example: <?php echo $siteurl; ?>/cancel. Max length: 1,024.
+				<input type='text' name='cancel' value='<?php echo esc_attr($value['cancel']); ?>'> Optional </td></tr><tr><td colspan="2">
+				If the customer goes to PayPal and clicks the cancel button, where do they go. <br />Example: <?php echo esc_url($siteurl); ?>/cancel. Max length: 1,024.
 				
 				<br /><br /></td></tr><tr><td valign="top">
 				
 				<b>Default Return URL: </b></td><td valign="top">
-				<input type='text' name='return' value='<?php echo $value['return']; ?>'> Optional </td></tr><tr><td colspan="2">
-				If the customer goes to PayPal and successfully pays, where are they redirected to after. <br />Example: <?php echo $siteurl; ?>/thankyou. Max length: 1,024.
+				<input type='text' name='return' value='<?php echo esc_attr($value['return']); ?>'> Optional </td></tr><tr><td colspan="2">
+				If the customer goes to PayPal and successfully pays, where are they redirected to after. <br />Example: <?php echo esc_url($siteurl); ?>/thankyou. Max length: 1,024.
 				
 				</td></tr></table>
 				
@@ -458,10 +458,10 @@ function wpeppsub_plugin_options() {
 				<table><tr><td valign="top">
 				Enable Logging: </td><td>
 				
-				<input <?php if ($value['log'] == "1") { echo "checked='checked'"; } ?>  type='radio' name='log' value='1'>On
-				<input <?php if ($value['log'] == "2") { echo "checked='checked'"; } ?> type='radio' name='log' value='2'>Off
+				<input <?php checked($value['log'], '1'); ?> type='radio' name='log' value='1'>On
+				<input <?php checked($value['log'], '2'); ?> type='radio' name='log' value='2'>Off
 				
-				<input type='hidden' name='logging_id' value='<?php echo $value['logging_id']; ?>'>
+				<input type='hidden' name='logging_id' value='<?php echo esc_attr($value['logging_id']); ?>'>
 				
 				</td></tr><tr><td valign="top">
 				
@@ -470,7 +470,7 @@ function wpeppsub_plugin_options() {
 				$textarea = $post_data->post_content;
 				?>
 				
-				<br />Logs: </td><td><br /><textarea cols='80' rows='20' name='logs' readonly><?php echo $textarea; ?></textarea>
+				<br />Logs: </td><td><br /><textarea cols='80' rows='20' name='logs' readonly><?php echo esc_textarea($textarea); ?></textarea>
 				
 				<br />
 				
@@ -484,8 +484,8 @@ function wpeppsub_plugin_options() {
 				?>
 				
 				
-				<a href='<?php echo $clear_url; ?>'>Clear Logs</a> &nbsp; &nbsp; &nbsp;  
-				<a href='<?php echo $reload_url; ?>'>Reload</a> &nbsp; &nbsp; &nbsp;  
+				<a href='<?php echo esc_url($clear_url); ?>'>Clear Logs</a> &nbsp; &nbsp; &nbsp;
+				<a href='<?php echo esc_url($reload_url); ?>'>Reload</a> &nbsp; &nbsp; &nbsp;
 				Logging should be turned off until you are actively debugging a problem.
 				
 				</td></tr></table>
@@ -494,8 +494,8 @@ function wpeppsub_plugin_options() {
 				<table><tr><td valign="top">
 				Remove all plugin data on uninstall: </td><td>
 				
-				<input <?php if ($value['uninstall'] == "1") { echo "checked='checked'"; } ?>  type='radio' name='uninstall' value='1'>Yes
-				<input <?php if ($value['uninstall'] == "2") { echo "checked='checked'"; } ?> type='radio' name='uninstall' value='2'>No
+				<input <?php checked($value['uninstall'], '1'); ?> type='radio' name='uninstall' value='1'>Yes
+				<input <?php checked($value['uninstall'], '2'); ?> type='radio' name='uninstall' value='2'>No
 				
 				</td><td>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Note: If you plan on installing the Pro version of this plugin then keep this set to "No".
 				
@@ -520,34 +520,34 @@ function wpeppsub_plugin_options() {
 				
 				
 				Account creation: </td><td>
-				<input <?php if ($value['subscriber'] == "1") { echo "checked='checked'"; } ?>  type='radio' name='subscriber' value='1'>Yes
-				<input <?php if ($value['subscriber'] == "2") { echo "checked='checked'"; } ?> type='radio' name='subscriber' value='2'>No
+				<input <?php checked($value['subscriber'], '1'); ?> type='radio' name='subscriber' value='1'>Yes
+				<input <?php checked($value['subscriber'], '2'); ?> type='radio' name='subscriber' value='2'>No
 				</td><td> A setting of 'Yes' will automatically create a WordPress user account for subscribers.
 				
 				</td></tr><tr><td>
 				
 				Content visibility: </td><td>
-				<input <?php if ($value['content'] == "1") { echo "checked='checked'"; } ?>  type='radio' name='content' value='1'>Yes
-				<input <?php if ($value['content'] == "2") { echo "checked='checked'"; } ?> type='radio' name='content' value='2'>No
+				<input <?php checked($value['content'], '1'); ?> type='radio' name='content' value='1'>Yes
+				<input <?php checked($value['content'], '2'); ?> type='radio' name='content' value='2'>No
 				</td><td> A setting of 'Yes' will allow Admin, Editor, Author and Contributor roles to see content even without an active subscription.
 				
 				</td></tr><tr><td>
 				
 				Admin bar: </td><td>
-				<input <?php if ($value['hideadmin'] == "1") { echo "checked='checked'"; } ?>  type='radio' name='hideadmin' value='1'>Yes
-				<input <?php if ($value['hideadmin'] == "2") { echo "checked='checked'"; } ?> type='radio' name='hideadmin' value='2'>No
+				<input <?php checked($value['hideadmin'], '1'); ?> type='radio' name='hideadmin' value='1'>Yes
+				<input <?php checked($value['hideadmin'], '2'); ?> type='radio' name='hideadmin' value='2'>No
 				</td><td> A setting of 'Yes' will hide the admin bar if the subscriber is logged in. Note: This will hide the bar only for subscribers, not admins.
 				
 				</td></tr><tr><td>
 				
 				Not logged in text: </td><td>
-				<input type='text' name='guest_text' value='<?php echo $value['guest_text']; ?>'>
+				<input type='text' name='guest_text' value='<?php echo esc_attr($value['guest_text']); ?>'>
 				</td><td> Text to display for guests who are not signed in.
 				
 				</td></tr><tr><td>
 				
 				Expired / Cancelled text: </td><td>
-				<input type='text' name='cancelled_text' value='<?php echo $value['cancelled_text']; ?>'>
+				<input type='text' name='cancelled_text' value='<?php echo esc_attr($value['cancelled_text']); ?>'>
 				</td><td> Text to display for users that have an expired or cancelled subscription.
 				
 				</td></tr></table>
@@ -565,7 +565,7 @@ function wpeppsub_plugin_options() {
 		
 		
 		<input type='hidden' name='update'>
-		<input type='hidden' name='hidden_tab_value' id="hidden_tab_value" value="<?php echo $active_tab; ?>">
+		<input type='hidden' name='hidden_tab_value' id="hidden_tab_value" value="<?php echo esc_attr($active_tab); ?>">
 		
 	</form>
 	
@@ -603,7 +603,7 @@ function wpeppsub_plugin_options() {
 	<div class="dashicons dashicons-yes" style="margin-bottom: 6px;"></div> Further plugin development <br />
 	<br />
 
-	<center><a target='_blank' href="https://wpplugin.org/downloads/subscriptions-memberships/" class='button-primary' style='font-size: 17px;line-height: 28px;height: 32px;'>Learn More</a></center>
+	<center><a target='_blank' href="https://wpplugin.org/downloads/paypal-subscriptions-memberships/" class='button-primary' style='font-size: 17px;line-height: 28px;height: 32px;'>Learn More</a></center>
 	<br />
 
 	</div>

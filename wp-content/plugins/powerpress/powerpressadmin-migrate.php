@@ -79,7 +79,7 @@ function powerpress_admin_migrate_get_files($clean=false, $exclude_blubrry=true)
 
 function powepress_admin_migrate_add_urls($urls)
 {
-	$Settings = get_option('powerpress_general');
+    $Settings = get_option('powerpress_general');
     $creds = get_option('powerpress_creds');
     require_once(POWERPRESS_ABSPATH .'/powerpressadmin-auth.class.php');
     $auth = new PowerPressAuth();
@@ -93,14 +93,19 @@ function powepress_admin_migrate_add_urls($urls)
 	
 	$json_data = false;
 	$api_url_array = powerpress_get_api_array();
+    if (is_plugin_active('powerpress-hosting/powerpress-hosting.php')) {
+        $website_detection_string = "?wp_blubrry_hosted=true";
+    } else {
+        $website_detection_string = "?wp_admin_url=" . urlencode(admin_url());
+    }
     if ($creds) {
         $accessToken = powerpress_getAccessToken();
-        $req_url = sprintf('/2/media/%s/migrate_add.json', urlencode($Settings['blubrry_program_keyword']));
-        $req_url .= (defined('POWERPRESS_BLUBRRY_API_QSA')?'?'. POWERPRESS_BLUBRRY_API_QSA:'');
+        $req_url = sprintf('/2/media/%s/migrate_add.json%s', urlencode($Settings['blubrry_program_keyword']), $website_detection_string);
+        $req_url .= (defined('POWERPRESS_BLUBRRY_API_QSA')?'&'. POWERPRESS_BLUBRRY_API_QSA:'');
         $results = $auth->api($accessToken, $req_url, $PostArgs);
     } else {
         foreach ($api_url_array as $index => $api_url) {
-            $req_url = sprintf('%s/media/%s/migrate_add.json', rtrim($api_url, '/'), urlencode($Settings['blubrry_program_keyword']));
+            $req_url = sprintf('%s/media/%s/migrate_add.json%s', rtrim($api_url, '/'), urlencode($Settings['blubrry_program_keyword']), $website_detection_string);
             $req_url .= (defined('POWERPRESS_BLUBRRY_API_QSA') ? '&' . POWERPRESS_BLUBRRY_API_QSA : '');
 
             $json_data = powerpress_remote_fopen($req_url, $Settings['blubrry_auth'], $PostArgs);

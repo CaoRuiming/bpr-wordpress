@@ -4,16 +4,16 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 /*
 Plugin Name: Subscriptions & Memberships for PayPal
-Plugin URI: https://wpplugin.org/paypal-subscriptions-memberships
+Plugin URI: https://wpplugin.org/downloads/paypal-subscriptions-memberships/
 Description: A simple and easy way to sell subscriptions or memberships.
 Tags: PayPal, subscription, membership, subscriptions, memberships, PayPal Buttons, eCommerce
 Author: Scott Paterson
 Author URI: https://wpplugin.org
 License: GPL2
-Version: 1.1.2
+Version: 1.1.6
 */
 
-/*  Copyright 2014-2017 Scott Paterson
+/*  Copyright 2014-2021 Scott Paterson
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by

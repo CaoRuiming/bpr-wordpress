@@ -73,13 +73,11 @@ function wpeppsub_button_media_buttons_init() {
 
 						$id = $posts[$count]->ID;
 						$post_title = $posts[$count]->post_title;
-						$price = get_post_meta($id,'wpeppsub_button_price',true);
-						$sku = get_post_meta($id,'wpeppsub_button_id',true);
 
-						echo "<option value='$id'>";
-						echo "Name: ";
-						echo $post_title;
-						echo "</option>";
+						printf('<option value="%d">Name: %s</option>',
+                            esc_attr($id),
+                            esc_html($post_title)
+                        );
 
 						$count++;
 					}

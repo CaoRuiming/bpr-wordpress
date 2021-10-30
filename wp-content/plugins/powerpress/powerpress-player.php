@@ -15,12 +15,25 @@ function powerpressplayer_get_next_id()
 
 function powerpressplayer_get_extension($media_url, $EpisodeData = array() )
 {
+    $qpos = strpos($media_url, "?");
+    if ($qpos!==false) {
+        $ext = powerpressplayer_get_extension(substr($media_url, 0, $qpos));
+        if ($ext != 'unknown') {
+            return $ext;
+        }
+    }
+
 	$extension = 'unknown';
 	$parts = pathinfo($media_url);
 	if( !empty($parts['extension']) )
 		$extension = strtolower($parts['extension']);
-	
-	// Hack to use the audio/mp3 content type to set extension to mp3, some folks use tinyurl.com to mp3 files which remove the file extension...
+
+    $qpos = strpos($extension, "?");
+    if ($qpos!==false) {
+        $extension = substr($extension, 0, $qpos);
+    }
+
+    // Hack to use the audio/mp3 content type to set extension to mp3, some folks use tinyurl.com to mp3 files which remove the file extension...
 	if( isset($EpisodeData['type']) && $EpisodeData['type'] == 'audio/mpeg' && $extension != 'mp3' )
 		$extension = 'mp3';
 	
@@ -340,11 +353,13 @@ function powerpress_generate_embed($player, $EpisodeData) // $post_id, $feed_slu
 		$url .= '&amp;autoplay=true';
 		
 	$url .= '&amp;powerpress_player='.$player;
+    $iframeTitle = esc_attr( __('Blubrry Podcast Player', 'powerpress') );
 	$embed .= '<iframe';
 	//$embed .= ' class="powerpress-player-embed"';
 	$embed .= ' width="'. $width .'"';
 	$embed .= ' height="'. $height .'"';
 	$embed .= ' src="'. $url .'"';
+    $embed .= ' title="'. $iframeTitle .'"';
 	$embed .= ' frameborder="0" scrolling="no"';
 	if($extension != 'mp3' && $extension != 'm4a' && $extension != 'oga')
 		$embed .= ' webkitAllowFullScreen mozallowfullscreen allowFullScreen';
@@ -1375,8 +1390,10 @@ function powerpressplayer_build_blubrryaudio($media_url, $EpisodeData=array(), $
 		
 		if( empty($GLOBALS['powerpress_skipto_player'][ get_the_ID() ][ $feedSlug ] ) )
 			$GLOBALS['powerpress_skipto_player'][ get_the_ID() ][ $feedSlug ] = $playerID;
+
+		$iframeTitle = esc_attr( __('Blubrry Podcast Player', 'powerpress') );
 		
-		return '<iframe src="'. $url .'" scrolling="no" width="100%" height="138px" frameborder="0" id="'. $playerID .'" class="blubrryplayer"></iframe>';
+		return '<iframe src="'. $url .'" scrolling="no" width="100%" height="138px" frameborder="0" id="'. $playerID .'" class="blubrryplayer" title="' . $iframeTitle . '"></iframe>';
 	}
 	
 	return powerpressplayer_build_mediaelementaudio($media_url, $EpisodeData, $embed);
@@ -1384,7 +1401,8 @@ function powerpressplayer_build_blubrryaudio($media_url, $EpisodeData=array(), $
 
 function powerpressplayer_build_blubrryaudio_by_id($directory_episode_id)
 {
-	return '<iframe src="https://player.blubrry.com?podcast_id='. $directory_episode_id .'" id="playeriframe" class="blubrryplayer" scrolling="no" width="100%" height="138px" frameborder="0"></iframe>';
+    $iframeTitle = esc_attr( __('Blubrry Podcast Player', 'powerpress') );
+	return '<iframe src="https://player.blubrry.com?podcast_id='. $directory_episode_id .'" id="playeriframe" class="blubrryplayer" scrolling="no" width="100%" height="138px" frameborder="0" title="' . $iframeTitle . '"></iframe>';
 }
 
 /*

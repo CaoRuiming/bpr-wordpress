@@ -11,7 +11,7 @@ function wpeppsub_options($atts) {
 			'widget' 	=> ''
 		), $atts);
 			
-		$post_id = $atts['id'];
+		$post_id = intval($atts['id']);
 		
 	// check to see if post exists
 	$check_post = get_post($post_id);
@@ -425,35 +425,35 @@ function wpeppsub_options($atts) {
 	
 	
 	$output = "";
-	$output .= "<div class='wpeppsub_wrapper' $alignment>";
+	$output .= "<div class='wpeppsub_wrapper' " . esc_attr($alignment) . ">";
 	
 	if ($wpeppsub_button_show == "1") {
-		$output .= "$wpeppsub_button_name";
+		$output .= esc_html($wpeppsub_button_name);
 	}
 
 
 
 
-	$output .= "<form target='$target' action='https://www.$path.com/cgi-bin/webscr' method='post'>";
+	$output .= "<form target='" . esc_attr($target) . "' action='https://www." . esc_attr($path) . ".com/cgi-bin/webscr' method='post'>";
 	$output .= "<input type='hidden' name='cmd' value='_xclick-subscriptions'>";
-	$output .= "<input type='hidden' name='business' value='$account'>";
-	$output .= "<input type='hidden' name='lc' value='$language'>";
-	$output .= "<input type='hidden' name='currency_code' value='$currency'>";
-	$output .= "<input type='hidden' name='no_shipping' value='". $value['no_shipping'] ."' />";
+	$output .= "<input type='hidden' name='business' value='" . esc_attr($account) . "'>";
+	$output .= "<input type='hidden' name='lc' value='" . esc_attr($language) . "'>";
+	$output .= "<input type='hidden' name='currency_code' value='" . esc_attr($currency) . "'>";
+	$output .= "<input type='hidden' name='no_shipping' value='". esc_attr($value['no_shipping']) ."' />";
 	$output .= "<input type='hidden' name='no_note' value='1' />";
-	$output .= "<input type='hidden' name='custom' value='$post_id' />"; // post_id,
-	$output .= "<input type='hidden' name='return' value='". $value['return'] ."' />";
+	$output .= "<input type='hidden' name='custom' value='" . esc_attr($post_id) . "' />"; // post_id,
+	$output .= "<input type='hidden' name='return' value='". esc_attr($value['return']) ."' />";
 	$output .= "<input type='hidden' name='bn' value='WPPlugin_SP'>";
-	$output .= "<input type='hidden' name='cancel_return' value='". $value['cancel'] ."' />";
-	$output .= "<input type='hidden' name='item_name' value='$wpeppsub_button_name'>";
-	$output .= "<input type='hidden' name='item_number' value='$wpeppsub_button_sku' />";
+	$output .= "<input type='hidden' name='cancel_return' value='". esc_attr($value['cancel']) ."' />";
+	$output .= "<input type='hidden' name='item_name' value='" . esc_attr($wpeppsub_button_name) . "'>";
+	$output .= "<input type='hidden' name='item_number' value='" . esc_attr($wpeppsub_button_sku) . "' />";
 	
 	
 	
 	// notify url
 	//$notify_url = get_admin_url() . "admin-post.php?action=add_wpeppsub_button_ipn";
 	$notify_url = add_query_arg( 'wpeppsub-listener', 'IPN', home_url( 'index.php' ) );
-	$output .= "<input type='hidden' name='notify_url' value='$notify_url'>";
+	$output .= "<input type='hidden' name='notify_url' value='" . esc_attr($notify_url) . "'>";
 	//$output .= "<input type='hidden' name='notify' value='$notify_url'>";
 	
 	
@@ -465,9 +465,9 @@ function wpeppsub_options($atts) {
 		$wpeppsub_p1 = esc_attr(get_post_meta($post_id,'wpeppsub_p1',true));
 		$wpeppsub_t1 = esc_attr(get_post_meta($post_id,'wpeppsub_t1',true));
 		
-		$output .= "<input type='hidden' name='a1' value='$wpeppsub_a1'>";
-		$output .= "<input type='hidden' name='p1' value='$wpeppsub_p1'>";
-		$output .= "<input type='hidden' name='t1' value='$wpeppsub_t1'>";
+		$output .= "<input type='hidden' name='a1' value='" . esc_attr($wpeppsub_a1) . "'>";
+		$output .= "<input type='hidden' name='p1' value='" . esc_attr($wpeppsub_p1) . "'>";
+		$output .= "<input type='hidden' name='t1' value='" . esc_attr($wpeppsub_t1) . "'>";
 	}
 	
 	// amount
@@ -475,15 +475,15 @@ function wpeppsub_options($atts) {
 	$wpeppsub_p3 = esc_attr(get_post_meta($post_id,'wpeppsub_p3',true));
 	$wpeppsub_t3 = esc_attr(get_post_meta($post_id,'wpeppsub_t3',true));
 		
-	$output .= "<input type='hidden' name='a3' value='$wpeppsub_a3'>";
-	$output .= "<input type='hidden' name='p3' value='$wpeppsub_p3'>";
-	$output .= "<input type='hidden' name='t3' value='$wpeppsub_t3'>";
+	$output .= "<input type='hidden' name='a3' value='" . esc_attr($wpeppsub_a3) . "'>";
+	$output .= "<input type='hidden' name='p3' value='" . esc_attr($wpeppsub_p3) . "'>";
+	$output .= "<input type='hidden' name='t3' value='" . esc_attr($wpeppsub_t3) . "'>";
 	
 	$wpeppsub_srt = esc_attr(get_post_meta($post_id,'wpeppsub_srt',true));
 	
 	if ($wpeppsub_srt != "0" && $wpeppsub_srt != "1") {
 		$output .= "<input type='hidden' name='src' value='1'>";
-		$output .= "<input type='hidden' name='srt' value='$wpeppsub_srt'>";
+		$output .= "<input type='hidden' name='srt' value='" . esc_attr($wpeppsub_srt) . "'>";
 	}
 	
 	if ($wpeppsub_srt == "0") {
@@ -495,8 +495,8 @@ function wpeppsub_options($atts) {
 		$output .= "<br />";
 	}
 	
-	$output .= "<input class='wpeppsub_paypalbuttonimage' type='image' src='$img' border='0' name='submit' alt='Make your payments with PayPal. It is free, secure, effective.' style='border: none;'>";
-	$output .= "<img alt='' border='0' style='border:none;display:none;' src='https://www.paypal.com/$language/i/scr/pixel.gif' width='1' height='1'>";
+	$output .= "<input class='wpeppsub_paypalbuttonimage' type='image' src='" . esc_attr($img) . "' border='0' name='submit' alt='Make your payments with PayPal. It is free, secure, effective.' style='border: none;'>";
+	$output .= "<img alt='' border='0' style='border:none;display:none;' src='https://www.paypal.com/" . esc_attr($language) . "/i/scr/pixel.gif' width='1' height='1'>";
 	$output .= "</form>";
 	$output .= "</div>";
 
@@ -553,7 +553,7 @@ add_shortcode('wpeppsub_login', 'wpeppsub_login');
 // logout shortcode
 function wpeppsub_logout() {
 	if (is_user_logged_in()) {
-		echo '<a href="'; echo wp_logout_url( home_url() ); echo'">Logout</a>';
+		echo '<a href="'; echo esc_url(wp_logout_url(home_url())); echo'">Logout</a>';
 	}
 }
 

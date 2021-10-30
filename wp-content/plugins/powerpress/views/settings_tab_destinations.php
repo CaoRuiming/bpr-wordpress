@@ -58,6 +58,8 @@
         $FeedSettings['podchaser_url'] = '';
     if(empty($FeedSettings['gaana_url']) )
         $FeedSettings['gaana_url'] = '';
+    if(empty($FeedSettings['anghami_url']) )
+        $FeedSettings['anghami_url'] = '';
 
     $Settings['subscribe_feature_email'] = (isset($General['subscribe_feature_email']) ? $General['subscribe_feature_email'] : false );
     $Settings['subscribe_feature_apple'] = (isset($General['subscribe_feature_apple']) ? $General['subscribe_feature_apple'] : false );
@@ -75,6 +77,7 @@
     $Settings['subscribe_feature_jiosaavn'] = (isset($General['subscribe_feature_jiosaavn']) ? $General['subscribe_feature_jiosaavn'] : false );
     $Settings['subscribe_feature_podchaser'] = (isset($General['subscribe_feature_podchaser']) ? $General['subscribe_feature_podchaser'] : false );
     $Settings['subscribe_feature_gaana'] = (isset($General['subscribe_feature_gaana']) ? $General['subscribe_feature_gaana'] : false );
+    $Settings['subscribe_feature_anghami'] = (isset($General['subscribe_feature_anghami']) ? $General['subscribe_feature_anghami'] : false );
     $Settings['subscribe_feature_email_shortcode'] = (isset($General['subscribe_feature_email_shortcode']) ? $General['subscribe_feature_email_shortcode'] : true );
     $Settings['subscribe_feature_apple_shortcode'] = (isset($General['subscribe_feature_apple_shortcode']) ? $General['subscribe_feature_apple_shortcode'] : true );
     $Settings['subscribe_feature_gp_shortcode'] = (isset($General['subscribe_feature_gp_shortcode']) ? $General['subscribe_feature_gp_shortcode'] : true );
@@ -91,6 +94,7 @@
     $Settings['subscribe_feature_jiosaavn_shortcode'] = (isset($General['subscribe_feature_jiosaavn_shortcode']) ? $General['subscribe_feature_jiosaavn_shortcode'] : false );
     $Settings['subscribe_feature_podchaser_shortcode'] = (isset($General['subscribe_feature_podchaser_shortcode']) ? $General['subscribe_feature_podchaser_shortcode'] : false );
     $Settings['subscribe_feature_gaana_shortcode'] = (isset($General['subscribe_feature_gaana_shortcode']) ? $General['subscribe_feature_gaana_shortcode'] : false );
+    $Settings['subscribe_feature_anghami_shortcode'] = (isset($General['subscribe_feature_anghami_shortcode']) ? $General['subscribe_feature_anghami_shortcode'] : false );
     $Settings['subscribe_feature_email_sidebar'] = (isset($General['subscribe_feature_email_sidebar']) ? $General['subscribe_feature_email_sidebar'] : true );
     $Settings['subscribe_feature_apple_sidebar'] = (isset($General['subscribe_feature_apple_sidebar']) ? $General['subscribe_feature_apple_sidebar'] : true );
     $Settings['subscribe_feature_gp_sidebar'] = (isset($General['subscribe_feature_gp_sidebar']) ? $General['subscribe_feature_gp_sidebar'] : true );
@@ -107,6 +111,7 @@
     $Settings['subscribe_feature_jiosaavn_sidebar'] = (isset($General['subscribe_feature_jiosaavn_sidebar']) ? $General['subscribe_feature_jiosaavn_sidebar'] : false );
     $Settings['subscribe_feature_podchaser_sidebar'] = (isset($General['subscribe_feature_podchaser_sidebar']) ? $General['subscribe_feature_podchaser_sidebar'] : false );
     $Settings['subscribe_feature_gaana_sidebar'] = (isset($General['subscribe_feature_gaana_sidebar']) ? $General['subscribe_feature_gaana_sidebar'] : false );
+    $Settings['subscribe_feature_anghami_sidebar'] = (isset($General['subscribe_feature_anghami_sidebar']) ? $General['subscribe_feature_anghami_sidebar'] : false );
 
 
 function subscribeSetting($directory, $feed_url, $listing_url) {
@@ -306,6 +311,15 @@ function subscribeSetting($directory, $feed_url, $listing_url) {
 
                 <?php
                 break;
+            case 'anghami': ?>
+
+                <h2 class="pp-heading"><span id="anghami-icon" class="destinations-side-icon"></span><span class="directory-summary-head"><?php echo __('Anghami', 'powerpress'); ?></span></h2>
+                <p class="pp-settings-text"><b><a href="https://blubrry.com/manual/podcast-promotion/submit-podcast-to-anghami/?podcast-feed=<?php echo urlencode($feed_url); ?>" target="_blank"><?php echo  __('How to submit a podcast to Anghami', 'powerpress'); ?></a></b></p>
+                <input class="pp-settings-text-input-less-wide" type="text" id="anghami_url<?php echo $id_tail; ?>" name="Feed[anghami_url]" placeholder="<?php echo __('Anghami Listing URL', 'powerpress'); ?>" value="<?php echo esc_attr($listing_url); ?>" maxlength="255" />
+                <label for="anghami_url" class="pp-settings-label-under"><?php echo sprintf(__('e.g. %s', 'powerpress'), 'https://www.anghami.com/artist/example'); ?></label>
+
+                <?php
+                break;
             case 'default':
                 break;
         }
@@ -333,6 +347,7 @@ function subscribeSetting($directory, $feed_url, $listing_url) {
         <button class="pp-sidenav-tablinks" id="destinations-email-tab" onclick="sideNav(event, 'destinations-email')"><span id="email-icon-side" class="destinations-side-icon"></span><span class="destination-side-text"><?php echo htmlspecialchars(__('Email', 'powerpress')); ?></span></button>
         <button class="pp-sidenav-tablinks" id="destinations-tunein-tab" onclick="sideNav(event, 'destinations-tunein')"><span id="tunein-icon-side" class="destinations-side-icon"></span><span class="destination-side-text"><?php echo htmlspecialchars(__('TuneIn', 'powerpress')); ?></span></button>
         <button class="pp-sidenav-tablinks" id="destinations-deezer-tab" onclick="sideNav(event, 'destinations-deezer')"><span id="deezer-icon-side" class="destinations-side-icon"></span><span class="destination-side-text"><?php echo htmlspecialchars(__('Deezer', 'powerpress')); ?></span></button>
+        <!--waiting on icon for this destination <button class="pp-sidenav-tablinks" id="destinations-anghami-tab" onclick="sideNav(event, 'destinations-anghami')"><span id="deezer-icon-side" class="destinations-side-icon"></span><span class="destination-side-text"><?php echo htmlspecialchars(__('Anghami', 'powerpress')); ?></span></button>-->
         <?php
         powerpressadmin_edit_blubrry_services($General);
         ?>
@@ -518,6 +533,16 @@ function subscribeSetting($directory, $feed_url, $listing_url) {
         <p class="pp-settings-text-smaller-margin"><input type="hidden" name="General[subscribe_feature_deezer_sidebar]" value="0" /><input class="pp-settings-checkbox" type="checkbox" id="subscribe_feature_deezer_sidebar" name="General[subscribe_feature_deezer_sidebar]" value="1" <?php if( !empty($Settings['subscribe_feature_deezer_sidebar']) ) echo 'checked '; ?>/> <label for="subscribe_feature_deezer_sidebar"><?php echo __('Show link in subscribe sidebar', 'powerpress'); ?></label></p>
         <p class="pp-settings-text-smaller-margin"><input type="hidden" name="General[subscribe_feature_deezer_shortcode]" value="0" /><input class="pp-settings-checkbox" type="checkbox" id="subscribe_feature_deezer_shortcode" name="General[subscribe_feature_deezer_shortcode]" value="1" <?php if( !empty($Settings['subscribe_feature_deezer_shortcode']) ) echo 'checked '; ?>/> <label for="subscribe_feature_deezer_shortcode"><?php echo __('Show link on subscribe page', 'powerpress'); ?></label></p>
         <p class="pp-settings-text-smaller-margin"><input type="hidden" name="General[subscribe_feature_deezer]" value="0" /><input class="pp-settings-checkbox" type="checkbox" id="subscribe_feature_deezer" name="General[subscribe_feature_deezer]" value="1" <?php if( !empty($Settings['subscribe_feature_deezer']) ) echo 'checked '; ?>/> <label for="subscribe_feature_deezer"><?php echo __('Show link under media player', 'powerpress'); ?></label></p>
+    </div>
+    <?php powerpress_settings_tab_footer(); ?>
+</div>
+
+<div id="destinations-anghami" class="pp-sidenav-tab">
+    <?php subscribeSetting('anghami', $feed_url, $FeedSettings['anghami_url']); ?>
+    <div class="pp-show-subscribe">
+        <p class="pp-settings-text-smaller-margin"><input type="hidden" name="General[subscribe_feature_anghami_sidebar]" value="0" /><input class="pp-settings-checkbox" type="checkbox" id="subscribe_feature_anghami_sidebar" name="General[subscribe_feature_anghami_sidebar]" value="1" <?php if( !empty($Settings['subscribe_feature_anghami_sidebar']) ) echo 'checked '; ?>/> <label for="subscribe_feature_anghami_sidebar"><?php echo __('Show link in subscribe sidebar', 'powerpress'); ?></label></p>
+        <p class="pp-settings-text-smaller-margin"><input type="hidden" name="General[subscribe_feature_anghami_shortcode]" value="0" /><input class="pp-settings-checkbox" type="checkbox" id="subscribe_feature_anghami_shortcode" name="General[subscribe_feature_anghami_shortcode]" value="1" <?php if( !empty($Settings['subscribe_feature_anghami_shortcode']) ) echo 'checked '; ?>/> <label for="subscribe_feature_anghami_shortcode"><?php echo __('Show link on subscribe page', 'powerpress'); ?></label></p>
+        <p class="pp-settings-text-smaller-margin"><input type="hidden" name="General[subscribe_feature_anghami]" value="0" /><input class="pp-settings-checkbox" type="checkbox" id="subscribe_feature_anghami" name="General[subscribe_feature_anghami]" value="1" <?php if( !empty($Settings['subscribe_feature_anghami']) ) echo 'checked '; ?>/> <label for="subscribe_feature_anghami"><?php echo __('Show link under media player', 'powerpress'); ?></label></p>
     </div>
     <?php powerpress_settings_tab_footer(); ?>
 </div>

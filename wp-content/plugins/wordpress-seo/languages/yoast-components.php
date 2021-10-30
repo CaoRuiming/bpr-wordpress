@@ -25,7 +25,7 @@ $generated_i18n_strings = array(
 	// Reference: packages/analysis-report/src/ContentAnalysis.js:97
 	__( 'Problems', 'wordpress-seo' ),
 
-	// Reference: packages/components/src/Alert.js:131
+	// Reference: packages/components/src/Alert.js:135
 	__( 'Dismiss this alert', 'wordpress-seo' ),
 
 	// Reference: packages/components/src/ErrorBoundary.js:51
@@ -74,13 +74,15 @@ $generated_i18n_strings = array(
 	// Reference: packages/components/src/help-icon/HelpIcon.js:50
 	__( '(Opens in a new browser tab)', 'wordpress-seo' ),
 
-	// Reference: packages/components/src/image-select/ImageSelectButtons.js:32
+	// Reference: packages/components/src/image-select/ImageSelect.js:43
+	// Reference: packages/components/src/image-select/ImageSelectButtons.js:34
 	__( 'Replace image', 'wordpress-seo' ),
 
-	// Reference: packages/components/src/image-select/ImageSelectButtons.js:33
+	// Reference: packages/components/src/image-select/ImageSelect.js:44
+	// Reference: packages/components/src/image-select/ImageSelectButtons.js:35
 	__( 'Select image', 'wordpress-seo' ),
 
-	// Reference: packages/components/src/image-select/ImageSelectButtons.js:42
+	// Reference: packages/components/src/image-select/ImageSelectButtons.js:45
 	__( 'Remove image', 'wordpress-seo' ),
 
 	// Reference: packages/components/src/inputs/DurationInput.js:138
@@ -177,22 +179,22 @@ $generated_i18n_strings = array(
 	// Reference: packages/search-metadata-previews/src/snippet-editor/ModeSwitcher.js:91
 	__( 'Mobile result', 'wordpress-seo' ),
 
-	// Reference: packages/search-metadata-previews/src/snippet-editor/SnippetEditor.js:256
+	// Reference: packages/search-metadata-previews/src/snippet-editor/SnippetEditor.js:277
 	__( 'Modify your meta description by editing it right here', 'wordpress-seo' ),
 
-	// Reference: packages/search-metadata-previews/src/snippet-editor/SnippetEditor.js:279
+	// Reference: packages/search-metadata-previews/src/snippet-editor/SnippetEditor.js:300
 	__( 'Close snippet editor', 'wordpress-seo' ),
 
-	// Reference: packages/search-metadata-previews/src/snippet-editor/SnippetEditor.js:570
+	// Reference: packages/search-metadata-previews/src/snippet-editor/SnippetEditor.js:591
 	__( 'Edit snippet', 'wordpress-seo' ),
 
-	// Reference: packages/search-metadata-previews/src/snippet-editor/SnippetEditorFields.js:182
+	// Reference: packages/search-metadata-previews/src/snippet-editor/SnippetEditorFields.js:292
 	__( 'SEO title', 'wordpress-seo' ),
 
-	// Reference: packages/search-metadata-previews/src/snippet-editor/SnippetEditorFields.js:204
+	// Reference: packages/search-metadata-previews/src/snippet-editor/SnippetEditorFields.js:314
 	__( 'Slug', 'wordpress-seo' ),
 
-	// Reference: packages/search-metadata-previews/src/snippet-editor/SnippetEditorFields.js:225
+	// Reference: packages/search-metadata-previews/src/snippet-editor/SnippetEditorFields.js:335
 	__( 'Meta description', 'wordpress-seo' ),
 
 	// Reference: packages/search-metadata-previews/src/snippet-preview/FixedWidthContainer.js:133
@@ -215,19 +217,19 @@ $generated_i18n_strings = array(
 	// Reference: packages/search-metadata-previews/src/snippet-preview/ProductDataMobile.js:62
 	__( 'Availability', 'wordpress-seo' ),
 
-	// Reference: packages/search-metadata-previews/src/snippet-preview/SnippetPreview.js:474
+	// Reference: packages/search-metadata-previews/src/snippet-preview/SnippetPreview.js:475
 	__( 'Please provide a meta description by editing the snippet below. If you don’t, Google will try to find a relevant part of your post to show in the search results.', 'wordpress-seo' ),
 
-	// Reference: packages/search-metadata-previews/src/snippet-preview/SnippetPreview.js:583
+	// Reference: packages/search-metadata-previews/src/snippet-preview/SnippetPreview.js:584
 	__( 'Url preview', 'wordpress-seo' ),
 
-	// Reference: packages/search-metadata-previews/src/snippet-preview/SnippetPreview.js:758
+	// Reference: packages/search-metadata-previews/src/snippet-preview/SnippetPreview.js:759
 	__( 'Shopping data preview:', 'wordpress-seo' ),
 
-	// Reference: packages/search-metadata-previews/src/snippet-preview/SnippetPreview.js:816
+	// Reference: packages/search-metadata-previews/src/snippet-preview/SnippetPreview.js:817
 	__( 'SEO title preview', 'wordpress-seo' ),
 
-	// Reference: packages/search-metadata-previews/src/snippet-preview/SnippetPreview.js:833
+	// Reference: packages/search-metadata-previews/src/snippet-preview/SnippetPreview.js:834
 	__( 'Meta description preview:', 'wordpress-seo' ),
 
 	// Reference: packages/js/src/components/MailchimpSignup.js:119
@@ -239,15 +241,15 @@ $generated_i18n_strings = array(
 	// Reference: packages/js/src/components/MailchimpSignup.js:235
 	__( 'Email', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/components/MediaUpload.js:17
-	// Reference: packages/js/src/components/MediaUpload.js:18
-	// Reference: packages/js/src/components/MediaUpload.js:141
+	// Reference: packages/js/src/components/MediaUpload.js:21
+	// Reference: packages/js/src/components/MediaUpload.js:22
+	// Reference: packages/js/src/components/MediaUpload.js:145
 	__( 'Choose an image', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/components/MediaUpload.js:100
+	// Reference: packages/js/src/components/MediaUpload.js:104
 	__( 'Remove the image', 'wordpress-seo' ),
 
-	// Reference: packages/js/src/components/MediaUpload.js:122
+	// Reference: packages/js/src/components/MediaUpload.js:126
 	__( 'image preview', 'wordpress-seo' )
 );
 /* THIS IS THE END OF THE GENERATED FILE */

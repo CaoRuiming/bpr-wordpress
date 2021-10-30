@@ -48,18 +48,18 @@ function wpeppsub_ShowMetaBox() {
         $meta = get_post_meta($post->ID, $field['id'], true);
         
         echo '<tr>',
-                '<th style="width:20%"><label for="', $field['id'], '">', $field['name'], '</label></th>',
+                '<th style="width:20%"><label for="', esc_attr($field['id']), '">', esc_html($field['name']), '</label></th>',
                 '<td>';
         switch ($field['type']) {
             case 'select':
-                echo '<select name="', $field['id'], '" id="', $field['id'], '">';
+                echo '<select name="', esc_attr($field['id']), '" id="', esc_attr($field['id']), '">';
                 foreach ($field['options'] as $option) {
-                    echo '<option', $meta == $option ? ' selected="selected"' : '', '>', $option, '</option>';
+                    echo '<option ', selected($meta, $option, false), '>', esc_html($option), '</option>';
                 }
                 echo '</select>';
                 break;
         }
-        echo     '<td>', $field['desc'], '</td><td>',
+        echo     '<td>', esc_html($field['desc']), '</td><td>',
             '</tr>';
     }
     
@@ -93,7 +93,7 @@ function wpeppsub_SaveData($post_id) {
 		
 		foreach ($meta_box['fields'] as $field) {
 			$old = get_post_meta($post_id, $field['id'], true);
-			$new = $_POST[$field['id']];
+			$new = sanitize_text_field($_POST[$field['id']]);
 			
 			if ($new && $new != $old) {
 				update_post_meta($post_id, $field['id'], $new);
