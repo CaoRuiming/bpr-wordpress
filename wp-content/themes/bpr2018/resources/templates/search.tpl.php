@@ -20,6 +20,7 @@
         placeholder="Search…"
         name="s"
         value="<?php echo esc_attr( get_search_query() ); ?>"
+        maxlength="280"
       />
     </form>
   </div>
