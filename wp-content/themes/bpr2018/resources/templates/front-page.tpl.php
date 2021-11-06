@@ -65,7 +65,7 @@
                       } else {
                         the_author_posts_link();
                       } 
-                      # if (get_the_data()) { echo ' | <time itemprop="datePublished">' . get_the_date() . '</time>'; }
+                       if (get_the_date()) { echo ' | <time>' . get_the_date() . '</time>'; }
                       ?>
                     </div>
                   </div>
