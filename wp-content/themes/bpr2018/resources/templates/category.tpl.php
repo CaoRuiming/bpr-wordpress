@@ -76,14 +76,16 @@ if (is_single()) {
                     </p>
       
                     <div class="post-author post-date font-size-20">
-                      <a href="<?php echo esc_url(get_author_posts_url(get_the_author_meta('ID'))); ?>">
-                        <?php the_author(); ?>
-                      </a>
+                      <span itemprop="author" hidden aria-hidden><?php the_author(); ?></span>
                       <?php
-                      if (get_the_date()) { echo ' | <time>' . get_the_date() . '</time>'; }
+                      if (function_exists('coauthors_posts_links')) {
+                        coauthors_posts_links(',',',',null,null,true);
+                      } else {
+                        the_author_posts_link();
+                      } 
+                       if (get_the_data()) { echo ' | <time itemprop="datePublished">' . get_the_date() . '</time>'; }
                       ?>
                     </div>
-                  </div>
                 </article>
               </div>
             </div>

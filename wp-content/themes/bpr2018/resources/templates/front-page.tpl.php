@@ -58,12 +58,14 @@
                     </p>
       
                     <div class="post-author post-date font-size-20">
-                      <?php $author_id = $post->post_author; ?>
-                      <a href="<?php echo esc_url(get_author_posts_url($author_id)); ?>">
-                        <?php echo get_the_author_meta('display_name', $author_id); ?>
-                      </a>
+                      <span itemprop="author" hidden aria-hidden><?php the_author(); ?></span>
                       <?php
-                      if (get_the_date('', $id)) { echo ' | <time>' . get_the_date('', $id) . '</time>'; }
+                      if (function_exists('coauthors_posts_links')) {
+                        coauthors_posts_links(',',',',null,null,true);
+                      } else {
+                        the_author_posts_link();
+                      } 
+                      # if (get_the_data()) { echo ' | <time itemprop="datePublished">' . get_the_date() . '</time>'; }
                       ?>
                     </div>
                   </div>
