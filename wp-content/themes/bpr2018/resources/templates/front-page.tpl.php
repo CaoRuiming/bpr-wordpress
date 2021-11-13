@@ -61,7 +61,7 @@
                       <span itemprop="author" hidden aria-hidden><?php the_author(); ?></span>
                       <?php
                       if (function_exists('coauthors_posts_links')) {
-                        coauthors_posts_links(',',',',null,null,true);
+                        coauthors_posts_links(', ',', ',null,null,true);
                       } else {
                         the_author_posts_link();
                       } 
