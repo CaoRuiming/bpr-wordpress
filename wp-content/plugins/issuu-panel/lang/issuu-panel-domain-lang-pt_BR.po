@@ -1,0 +1,340 @@
+# Copyright (C) 2014 Issuu Panel
+# This file is distributed under the same license as the Issuu Panel.
+msgid ""
+msgstr ""
+"Project-Id-Version: Issuu Panel 1.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/plugins/issuu-panel\n"
+"POT-Creation-Date: 2014-09-11 14:11:11+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2015-06-13 20:47-0300\n"
+"Last-Translator: Pedro Marcelo <pedromarcelodesaalves@gmail.com>\n"
+"Language-Team: Pedro Marcelo <pedromarcelodesaalves@gmail.com>\n"
+"X-Generator: Poedit 1.6.9\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"Language: pt_BR\n"
+
+msgid "Day"
+msgstr "Dia"
+
+msgid "Month"
+msgstr "Mês"
+
+msgid "Year"
+msgstr "Ano"
+
+msgid "Description"
+msgstr "Descrição"
+
+msgid "Back"
+msgstr "Voltar"
+
+msgid "Save"
+msgstr "Salvar"
+
+msgid "Update"
+msgstr "Atualizar"
+
+msgid "Edit"
+msgstr "Editar"
+
+msgid "Delete"
+msgstr "Excluir"
+
+msgid "Folder"
+msgstr "Pasta"
+
+msgid "Folders"
+msgstr "Pastas"
+
+msgid "Document"
+msgstr "Documento"
+
+msgid "Documents"
+msgstr "Documentos"
+
+msgid "About"
+msgstr "Sobre"
+
+msgid "Documents list"
+msgstr "Lista de documentos"
+
+msgid "Folders list"
+msgstr "Lista de pastas"
+
+msgid "File"
+msgstr "Arquivo"
+
+msgid "Files"
+msgstr "Arquivos"
+
+msgid "API key"
+msgstr "Chave de API"
+
+msgid "Insert API key"
+msgstr "Insira uma chave de API"
+
+msgid "Insert API key. "
+msgstr "Insira uma chave de API. "
+
+msgid "API secret"
+msgstr "Chave de API secreta"
+
+msgid "Insert API secret"
+msgstr "Insira uma chave de API secreta"
+
+msgid "Insert API secret. "
+msgstr "Insira uma chave de API secreta. "
+
+msgid ""
+"To create keys <a target=\"_blank\" href=\"https://issuu.com/home/settings/"
+"apikey\">click here</a>"
+msgstr ""
+"Para criar as chaves <a target=\"_blank\" href=\"https://issuu.com/home/"
+"settings/apikey\">clique aqui</a>"
+
+msgid "Upload file"
+msgstr "Carregar arquivo"
+
+msgid "Upload file by URL"
+msgstr "Carregar arquivo pela URL"
+
+msgid "URL file"
+msgstr "URL do arquivo"
+
+msgid "Title"
+msgstr "Título do documento"
+
+msgid "Name in URL"
+msgstr "Nome na URL"
+
+msgid "Publish date"
+msgstr "Data de publicação"
+
+msgid "Allow comments"
+msgstr "Permitir comentários"
+
+msgid "Allow file download"
+msgstr "Permitir download do arquivo"
+
+msgid "Access"
+msgstr "Acesso"
+
+msgid "Public"
+msgstr "Público"
+
+msgid "Private"
+msgstr "Privado"
+
+msgid "Create new folder"
+msgstr "Criar nova pasta"
+
+msgid "No documents found"
+msgstr "Nenhum documento encontrado"
+
+msgid "Update folder"
+msgstr "Atualizar pasta"
+
+msgid "Folder's name"
+msgstr "Nome da pasta"
+
+msgid "Insert folder's name"
+msgstr "Informe o nome da pasta"
+
+msgid "Folder's documents"
+msgstr "Documentos da pasta"
+
+msgid "Use commas to separate tags. Do not use spaces."
+msgstr "Use vírgulas para separar as tags. Não use espaços."
+
+msgid ""
+"Date of publication of the document.<br><strong>NOTE:</strong> If you do not "
+"enter a value, the current date will be used"
+msgstr ""
+"Data da publicação do documento.<br><strong>OBS:</strong> Caso não informe "
+"um valor, a data atual será usada"
+
+msgid ""
+"To publish this document <a href=\"http://issuu.com/home/publications\" "
+"target=\"_blank\">click here</a>"
+msgstr ""
+"Para publicar este documento <a href=\"http://issuu.com/home/publications\" "
+"target=\"_blank\">clique aqui</a>"
+
+msgid ""
+"Name that is entered in the URL: http://issuu.com/(username)/docs/(name)."
+"<br>Use only lowercase letters [a-z], numbers [0-9] and/or other characters "
+"[_.-]. Do not use spaces.<br><strong>NOTE:</strong> If you do not enter a "
+"value, it will automatically be generated"
+msgstr ""
+"Nome que será inserido na URL: http://issuu.com/(nome_do_usuario)/docs/"
+"(nome).<br>Use somente letras minúsculas [a-z], números [0-9] e/ou outros "
+"caracteres[_.-].Não use espaços.<br><strong>OBS:</strong> Caso não informe "
+"um valor, ele será gerado automaticamente"
+
+msgid "URL where the file is located"
+msgstr "URL onde o arquivo está localizado"
+
+msgid "Document deleted successfully"
+msgstr "Documento excluído com sucesso"
+
+msgid "Documents deleted successfully"
+msgstr "Documentos excluídos com sucesso"
+
+msgid "Nothing was excluded"
+msgstr "Nada foi excluído"
+
+msgid "Document updated successfully"
+msgstr "Documento atualizado com sucesso"
+
+msgid "Document sent successfully"
+msgstr "Documento enviado com sucesso"
+
+msgid "Folder created successfully"
+msgstr "Pasta criada com sucesso"
+
+msgid "Error while creating the folder"
+msgstr "Erro ao criar pasta"
+
+msgid "Error while updating the folder"
+msgstr "Erro ao atualizar pasta"
+
+msgid "Folders deleted successfully"
+msgstr "Pastas excluídas com sucesso"
+
+msgid "Folder deleted successfully"
+msgstr "Pasta excluída com sucesso"
+
+msgid "Folder updated successfully"
+msgstr "Pasta atualizada com sucesso"
+
+msgid "Authentication required"
+msgstr "Autenticação obrigatória"
+
+msgid "Invalid API key"
+msgstr "Chave de API inválida"
+
+msgid "Required field is missing"
+msgstr "Campo obrigatório não informado"
+
+msgid "Invalid field format"
+msgstr "Formato de campo inválido"
+
+msgid "Folder name exists for user"
+msgstr "Valor do campo 'Nome da pasta' já existe para este usuário"
+
+msgid "File size is too large"
+msgstr "O arquivo é muito grande"
+
+msgid "Document not found"
+msgstr "Documento não encontrado"
+
+msgid "Document still converting"
+msgstr "O documento está sendo convertido"
+
+msgid "Document failed conversion"
+msgstr "A conversão do documento falhou"
+
+msgid "Exceeding allowed amount of unlisted publications"
+msgstr "Quantidade permitida de publicações não listadas excedida"
+
+msgid ""
+"The name parameter in the request is already in use. Choose a different name "
+"or omit field to have name auto-generated"
+msgstr ""
+"O valor do campo 'Nome na URL' já está em uso. Escolha um nome diferente ou "
+"omita o valor para que ele seja gerado automaticamente"
+
+msgid "Select..."
+msgstr "Selecionar..."
+
+msgid "Documents per page"
+msgstr "Documentos por página"
+
+msgid "Order"
+msgstr "Ordem"
+
+msgid "Ascending"
+msgstr "Crescente"
+
+msgid "Descending"
+msgstr "Decrescente"
+
+msgid "Order by"
+msgstr "Ordenar por"
+
+msgid "Document ID"
+msgstr "ID do documento"
+
+msgid "Insert"
+msgstr "Inserir"
+
+msgid "Cancel"
+msgstr "Cancelar"
+
+msgid "« First page"
+msgstr "« Primeira página"
+
+msgid "Last Page »"
+msgstr "Última página »"
+
+msgid "Insert folder ID"
+msgstr "Insira o ID da pasta"
+
+msgid "No documents in list"
+msgstr "Sem documentos nesta lista"
+
+msgid "Administrator"
+msgstr "Administrador"
+
+msgid "Editor"
+msgstr "Editor"
+
+msgid "Author"
+msgstr "Autor"
+
+msgid "Users with capacities from"
+msgstr "Usuários com capacidades a partir do"
+
+msgid "can use this plugin"
+msgstr "podem usar este plugin"
+
+msgid "End result of ordination"
+msgstr "Resultado final da ordenação"
+
+msgid "Parameter ordering of documents"
+msgstr "Parâmetro de ordenação dos documentos"
+
+msgid "Number of documents per page"
+msgstr "Número de documentos por página"
+
+msgid "Folder's ID"
+msgstr "ID da pasta"
+
+msgid "Integer"
+msgstr "Número inteiro"
+
+msgid "Get and display the last document"
+msgstr "Obtém e exibe o último documento"
+
+msgid "URL page"
+msgstr "URL da página"
+
+msgid "No documents"
+msgstr "Sem documentos"
+
+msgid "Debug"
+msgstr "Debug"
+
+msgid "Cache"
+msgstr "Cache"
+
+msgid "Reader"
+msgstr "Leitor"
+
+msgid "Flush cache"
+msgstr "Esvaziar cache"
+
+msgid "Issuu Panel Simple Reader is compatible with mobile devices"
+msgstr "Issuu Panel Simple Reader é compatível com dispositivos móveis"

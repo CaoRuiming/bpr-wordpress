@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html class="issuu-panel-max-height">
+<head>
+	<meta charset="utf-8">
+	<style type="text/css" media="screen, print">
+		@-o-keyframes progress{0%{-ms-background-position-x:0;background-position-x:0}100%{-ms-background-position-x:40px;background-position-x:40px}}@-moz-keyframes progress{0%{-ms-background-position-x:0;background-position-x:0}100%{-ms-background-position-x:40px;background-position-x:40px}}@-webkit-keyframes progress{0%{-ms-background-position-x:0;background-position-x:0}100%{-ms-background-position-x:40px;background-position-x:40px}}@keyframes progress{0%{-ms-background-position-x:0;background-position-x:0}100%{-ms-background-position-x:40px;background-position-x:40px}}#ip-progress-background{position:absolute;top:0;left:0;width:100%;min-height:100%;display:table}#ip-progress-background>.ip-progress{width:100%;min-height:100%;display:table-cell;vertical-align:middle}#ip-progress-background>.ip-progress>.ip-progress-bar{margin:0 auto;width:300px;max-width:90%;height:15px;background-color:#069;background-size:40px 40px;border-radius:12.5px;box-shadow:inset 1px 1px 3px rgba(0,0,0,.6);-webkit-animation:progress 1.5s linear infinite;-moz-animation:progress 1.5s linear infinite;-ms-animation:progress 1.5s linear infinite;-o-animation:progress 1.5s linear infinite;animation:progress 1.5s linear infinite;background-image:-webkit-gradient(linear,0 100%,100% 0,color-stop(.25,rgba(255,255,255,.15)),color-stop(.25,transparent),color-stop(.5,transparent),color-stop(.5,rgba(255,255,255,.15)),color-stop(.75,rgba(255,255,255,.15)),color-stop(.75,transparent),to(transparent));background-image:-webkit-linear-gradient(45deg,rgba(255,255,255,.15) 25%,transparent 25%,transparent 50%,rgba(255,255,255,.15) 50%,rgba(255,255,255,.15) 75%,transparent 75%,transparent);background-image:-moz-linear-gradient(45deg,rgba(255,255,255,.15) 25%,transparent 25%,transparent 50%,rgba(255,255,255,.15) 50%,rgba(255,255,255,.15) 75%,transparent 75%,transparent);background-image:linear-gradient(45deg,rgba(255,255,255,.15) 25%,transparent 25%,transparent 50%,rgba(255,255,255,.15) 50%,rgba(255,255,255,.15) 75%,transparent 75%,transparent)}#issuu-panel-reader-body{margin:0;padding:0}#issuu-panel-reader-body>ul#issuu-panel-document{padding:0;display:block;list-style:none;margin:0 auto;overflow:hidden;position:relative}#issuu-panel-reader-body>ul#issuu-panel-document>li{position:absolute;top:0;left:0;opacity:0;max-height:100%;transition:opacity .35s ease-in}#issuu-panel-reader-body>ul#issuu-panel-document>li.ip-doc-active{opacity:1}#issuu-panel-reader-body>ul#issuu-panel-document>li>img{display:inline-block;width:auto;max-width:100%;max-height:100%}.issuu-panel-effect{opacity:0;-webkit-transition:opacity .35s ease-in-out;-moz-transition:opacity .35s ease-in-out;-o-transition:opacity .35s ease-in-out;transition:opacity .35s ease-in-out}.ipe-show{opacity:1;}
+	</style>
+</head>
+<body id="issuu-panel-reader-body">
+	<div id="ip-progress-background" class="issuu-panel-effect ipe-show">
+		<div class="ip-progress">
+			<div class="ip-progress-bar"></div>
+		</div>
+	</div>
+	<ul id="issuu-panel-document" class="issuu-panel-effect" data-ip-reader-pages="<?php echo $pageCount; ?>">
+		<?php for($i = 1; $i <= $pageCount; $i++) : ?>
+			<?php if ($i != 1) : ?>
+				<li class="issuu-panel-max-height">
+			<?php else : ?>
+				<li class="ip-doc-active issuu-panel-max-height">
+			<?php endif; ?>
+				<img class="issuu-panel-max-height" src="https://image.issuu.com/<?php echo $docId; ?>/jpg/page_<?php echo $i; ?>.jpg"
+					data-ip-reader-page="<?php echo $i; ?>">
+			</li>
+		<?php endfor; ?>
+	</ul>
+	<?php wp_print_scripts('jquery'); ?>
+	<script async type="text/javascript">
+		var readerDimension;!function(i){i(window).load(function(){i("#ip-progress-background").removeClass("ipe-show"),i("#issuu-panel-document").addClass("ipe-show"),i("#issuu-panel-document > li > img").each(function(){this.issuuPanelProp=i(this).width()/i(this).height()}),(readerDimension=function(){var s=i("#issuu-panel-document").css({width:"100%",height:i(window).height()}),e=0;i("#issuu-panel-document > li > img").each(function(){var s=i(window).height(),h=this.issuuPanelProp*s;h>i(window).width()?(h=i(window).width(),s=i(this).width()/this.issuuPanelProp,i(this).css({width:h,height:s})):i(this).css({width:h,height:i(window).height()}),i(this).css({width:h}),h>e&&(e=h)}),s.css({width:e}),e=0})(),i(window).resize(readerDimension)})}(jQuery);
+	</script>
+</body>
+</html>

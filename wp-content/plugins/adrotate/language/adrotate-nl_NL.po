@@ -1,0 +1,6076 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: AdRotate\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-08-31 02:04-0500\n"
+"PO-Revision-Date: 2021-08-31 02:04-0500\n"
+"Last-Translator: Arnan de Gans <support@ajdg.solutions>\n"
+"Language-Team: Arnan de Gans\n"
+"Language: nl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Generator: Poedit 2.4.2\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: adrotate-functions.php:797
+msgid "Advert saved"
+msgstr "Advertentie opgeslagen"
+
+#: adrotate-functions.php:801
+msgid "Group saved"
+msgstr "Groep bewaard"
+
+#: adrotate-functions.php:805
+msgid "Banner image saved"
+msgstr "Advertentie afbeelding opgeslagen"
+
+#: adrotate-functions.php:809
+msgid "Ad(s) deleted"
+msgstr "Advertentie(s) verwijderd"
+
+#: adrotate-functions.php:813
+msgid "Group deleted"
+msgstr "Groep verwijderd"
+
+#: adrotate-functions.php:817
+msgid "Asset(s) deleted"
+msgstr "Asset(s) verwijderd"
+
+#: adrotate-functions.php:821
+msgid ""
+"Something went wrong deleting the file or folder. Make sure your permissions "
+"are in order."
+msgstr ""
+"Er is iets mis gegaan met het verwijderen van het bestand of de map. Zorg "
+"ervoor dat de permissies in orde zijn."
+
+#: adrotate-functions.php:825
+msgid "Advert(s) statistics reset"
+msgstr "Advertentie(s) statistieken gereset"
+
+#: adrotate-functions.php:829
+msgid "Advert(s) renewed"
+msgstr "Advertentie(s) vernieuwd"
+
+#: adrotate-functions.php:833
+msgid "Advert(s) deactivated"
+msgstr "Advertentie(s) gedeactiveerd"
+
+#: adrotate-functions.php:837
+msgid "Advert(s) activated"
+msgstr "Advertentie(s) geactiveerd"
+
+#: adrotate-functions.php:841
+msgid "Group including the Adverts in it deleted"
+msgstr "Groep inclusief advertenties verwijderd"
+
+#: adrotate-functions.php:845
+msgid "Export created"
+msgstr "Export gemaakt"
+
+#: adrotate-functions.php:849
+msgid ""
+"Advert HTML generated and placed in the AdCode field. Configure your advert "
+"below. Do not forget to check all settings and schedule the advert."
+msgstr ""
+"Advertentie-HTML gegenereerd en geplaatst in het veld AdCode. Configureer uw "
+"advertentie hieronder. Vergeet niet om alle instellingen te controleren en "
+"de advertentie te plannen."
+
+#: adrotate-functions.php:854
+msgid "Settings saved"
+msgstr "Instellingen opgeslagen"
+
+#: adrotate-functions.php:858
+msgid "Database optimized"
+msgstr "Database geoptimaliseerd"
+
+#: adrotate-functions.php:862
+msgid "Database repaired"
+msgstr "Database is hersteld"
+
+#: adrotate-functions.php:866
+msgid "Adverts evaluated and statuses have been corrected where required"
+msgstr "Advertenties geëvalueerd en statussen zijn waar nodig gecorrigeerd"
+
+#: adrotate-functions.php:870
+msgid "Cleanup complete"
+msgstr "Opschonen voltooid"
+
+#: adrotate-functions.php:875
+msgid "Action prohibited"
+msgstr "Actie niet toegestaan"
+
+#: adrotate-functions.php:879
+msgid ""
+"The advert was saved but has an issue which might prevent it from working "
+"properly. Review the colored advert."
+msgstr ""
+"De advertentie is opgeslagen, maar heeft een probleem waardoor het mogelijk "
+"niet goed werkt. Bekijk de gekleurde advertentie."
+
+#: adrotate-functions.php:883
+msgid "No data found in selected time period"
+msgstr "Geen gegevens gevonden in geselecteerde tijdsperiode"
+
+#: adrotate-functions.php:887
+msgid "Database can only be optimized or cleaned once every hour"
+msgstr ""
+"Database kan slechts eenmaal per uur worden geoptimaliseerd of opgeschoond"
+
+#: adrotate-functions.php:891
+msgid "Form can not be (partially) empty!"
+msgstr "Formulier kan niet (gedeeltelijk) leeg zijn!"
+
+#: adrotate-functions.php:895
+msgid "No adverts found."
+msgstr "Geen advertenties gevonden."
+
+#: adrotate-functions.php:899
+msgid ""
+"The advert hash is not usable or is missing required data. Please copy the "
+"hash correctly and try again."
+msgstr ""
+"De advertentie hash is niet bruikbaar of mist vereiste informatie. Probeer "
+"het opnieuw met een nieuwe hash."
+
+#: adrotate-functions.php:903
+msgid ""
+"The advert hash can not be used on the same site as it originated from or is "
+"not a valid hash for importing."
+msgstr ""
+"De advertentie hash is niet bruikbaar op dezelfde website als waar hij "
+"gegenereerd is of de hash is niet een geldige hash voor het importeren van "
+"een advertentie."
+
+#: adrotate-functions.php:907
+msgid "Unexpected error"
+msgstr "Onverwachte fout"
+
+#: adrotate-manage-publisher.php:897
+msgid "AdRotate Advertiser"
+msgstr "AdRotate Adverteerder"
+
+#: adrotate-output.php:547
+msgid "Oh no! Something went wrong!"
+msgstr "Ohjee! Er ging iets mis!"
+
+#: adrotate-output.php:548
+msgid ""
+"WordPress was unable to verify the authenticity of the url you have clicked. "
+"Verify if the url used is valid or log in via your browser."
+msgstr ""
+"WordPress kon de authenticiteit van de URL waarop je hebt geklikt niet "
+"verifieren. Controleer of de gebruikte URL geldig is of log in via je "
+"browser."
+
+#: adrotate-output.php:549
+msgid ""
+"If you have received the url you want to visit via email, you are being "
+"tricked!"
+msgstr ""
+"Als je de URL die je wilt laden hebt ontvangen via email, wordt je wellicht "
+"voor de gek gehouden!"
+
+#: adrotate-output.php:550
+msgid "Contact support if the issue persists:"
+msgstr "Neem contact op met de helpdesk als het probleem zich blijft voordoen:"
+
+#: adrotate-output.php:562
+msgid ""
+"Error, Advert is not available at this time due to schedule/geolocation "
+"restrictions!"
+msgstr ""
+"Fout, Ad is op dit moment niet beschikbaar vanwege schema/geolocatie "
+"beperkingen!"
+
+#: adrotate-output.php:567
+msgid ""
+"Either there are no banners, they are disabled or none qualified for this "
+"location!"
+msgstr ""
+"Ofwel zijn er geen banners, ze zijn uitgeschakeld of er zijn geen "
+"advertenties beschikbaar voor deze locatie!"
+
+#: adrotate-output.php:572
+msgid "Error, no Advert ID set! Check your syntax!"
+msgstr "Fout, geen Ad-ID ingesteld! Controleer de code!"
+
+#: adrotate-output.php:578
+msgid "Error, no group ID set! Check your syntax!"
+msgstr "Fout, geen groeps-ID ingesteld! Controleer de code!"
+
+#: adrotate-output.php:583
+msgid "Error, group does not exist! Check your syntax!"
+msgstr "Fout, groep bestaat niet! Controleer de code!"
+
+#: adrotate-output.php:589
+msgid ""
+"There was an error locating the database tables for AdRotate. Please "
+"deactivate and re-activate AdRotate from the plugin page!!"
+msgstr ""
+"Er is een fout opgetreden bij het lokaliseren van de databasetabellen voor "
+"AdRotate. Dit is meestal op te lossen door AdRotate te deactiveren en "
+"opnieuw activeren!!"
+
+#: adrotate-output.php:589
+msgid "If this does not solve the issue please seek support at"
+msgstr ""
+"Als dit het probleem niet oplost, neem dan contact op met de helpdesk via"
+
+#: adrotate-output.php:595
+msgid ""
+"There was an error loading the page. Please try again by reloading the page "
+"via the menu on the left."
+msgstr ""
+"Er is een fout opgetreden bij het laden van de pagina. Probeer het opnieuw "
+"door de pagina te herladen via het menu aan de linkerkant."
+
+#: adrotate-output.php:595
+msgid "If the issue persists please seek help at"
+msgstr "Als het probleem aanhoudt, zoek dan hulp via"
+
+#: adrotate-output.php:601
+msgid "An unknown error occured."
+msgstr "Er is een onbekende fout opgetreden."
+
+#: adrotate-output.php:621 adrotate-output.php:624 adrotate-output.php:628
+#: dashboard/settings/maintenance.php:20
+msgid "Check adverts"
+msgstr "Controleer advertenties"
+
+#: adrotate-output.php:633
+msgid ""
+"You have enabled caching support but W3 Total Cache is not active on your "
+"site!"
+msgstr ""
+"Je hebt ondersteuning voor caching ingeschakeld, maar W3 Total Cache is niet "
+"actief op de site!"
+
+#: adrotate-output.php:633
+msgid "Disable W3 Total Cache Support"
+msgstr "Schakel W3 Total Cache support uit"
+
+#: adrotate-output.php:636
+msgid ""
+"You have enable caching support but the W3TC_DYNAMIC_SECURITY definition is "
+"not set."
+msgstr ""
+"Je hebt ondersteuning voor caching ingeschakelt, maar de definitie "
+"W3TC_DYNAMIC_SECURITY is niet ingesteld."
+
+#: adrotate-output.php:636
+msgid "How to configure W3 Total Cache"
+msgstr "W3 Total Cache configureren"
+
+#: adrotate-output.php:640
+msgid ""
+"You have enable caching support but Borlabs Cache is not active on your site!"
+msgstr ""
+"Je hebt ondersteuning voor caching ingeschakeld, maar Borlabs Cache is niet "
+"actief op de site!"
+
+#: adrotate-output.php:640
+msgid "Disable Borlabs Cache Support"
+msgstr "Ondersteuning voor Borlabs cache uitschakelen"
+
+#: adrotate-output.php:646
+msgid ""
+"You have enabled Borlabs Cache support but Fragment caching is not enabled!"
+msgstr ""
+"Je hebt de ondersteuning voor Borlabs cache ingeschakeld, maar "
+"Fragmentcaching is niet ingeschakeld!"
+
+#: adrotate-output.php:646
+msgid "Enable Fragment Caching"
+msgstr "Fragmentcaching inschakelen"
+
+#: adrotate-output.php:653
+msgid "Your AdRotate Banner folder is not writable or does not exist."
+msgstr ""
+"De map voor de banner van AdRotate is niet beschrijfbaar of bestaat niet."
+
+#: adrotate-output.php:653
+msgid "Set up your banner folder"
+msgstr "De banner map instellen"
+
+#: adrotate-output.php:656
+msgid ""
+"You have AdRotate Professional installed. Please switch to AdRotate Pro! You "
+"can delete this plugin after AdRotate Pro is activated."
+msgstr ""
+"Je hebt AdRotate Professional geïnstalleerd. Stap over naar AdRotate Pro! Je "
+"kunt deze plug-in verwijderen nadat AdRotate Pro is geactiveerd."
+
+#: adrotate-output.php:656
+msgid "Switch plugins"
+msgstr "Stap over"
+
+#: adrotate-output.php:659
+msgid ""
+"Something is wrong with your installation of AdRotate. Either the plugin is "
+"installed twice or your current installation has the wrong folder name. "
+"Please install the plugin properly!"
+msgstr ""
+"Er is iets mis met de installatie van AdRotate. Ofwel is de plugin twee keer "
+"geïnstalleerd of uw huidige installatie heeft de verkeerde map naam. "
+"Installeer de plugin goed!"
+
+#: adrotate-output.php:659
+msgid "Installation instructions"
+msgstr "Installatie-instructies"
+
+#: adrotate-output.php:735
+msgid "your attention:"
+msgstr "jouw aandacht:"
+
+#: adrotate-output.php:766
+msgid ""
+"Thank you for choosing AdRotate. Everything related to AdRotate is in this "
+"menu. If you need help getting started take a look at the"
+msgstr ""
+"Bedankt voor het kiezen van AdRotate Banner Manager. Alles wat met AdRotate "
+"te maken heeft, zit in dit menu. Als je hulp nodig hebt om aan de slag te "
+"gaan, kijk dan eens naar de"
+
+#: adrotate-output.php:766
+msgid "manuals"
+msgstr "handleidingen"
+
+#: adrotate-output.php:766
+msgid "and"
+msgstr "en"
+
+#: adrotate-output.php:766
+msgid "forums"
+msgstr "forums"
+
+#: adrotate-output.php:844
+msgid "Need help fast? Or do you have a question?"
+msgstr "Snel hulp nodig? Of heb je een vraag?"
+
+#: adrotate-output.php:845
+msgid "Help AdRotate Grow"
+msgstr "Help AdRotate groeien"
+
+#: adrotate-output.php:846
+msgid "Get more features with AdRotate Pro"
+msgstr "Beschik over meer functies met AdRotate Pro"
+
+#: adrotate-output.php:852
+msgid ""
+"If you need help, or have questions about AdRotate, the best and fastest way "
+"to get your answer is via the AdRotate support forum. Usually I answer "
+"questions the same day, often with a solution in the first answer."
+msgstr ""
+"Als je hulp nodig hebt, of vragen hebt over AdRotate, is de beste en snelste "
+"manier om je antwoord te krijgen via het AdRotate-forum. Meestal beantwoord "
+"ik vragen dezelfde dag, vaak met een oplossing in het eerste antwoord."
+
+#: adrotate-output.php:853
+msgid "AdRotate Manuals"
+msgstr "AdRotate Handleidingen"
+
+#: adrotate-output.php:853
+msgid "Support Forums"
+msgstr "Supportfora"
+
+#: adrotate-output.php:854
+msgid ""
+"When posting on the forum, please include a brief description of the "
+"problem, include any errors or symptoms. Often it helps if you try to "
+"explain what you are trying to do. Providing some extra information always "
+"helps with gettng a better answer or advise."
+msgstr ""
+"Als je op het forum en post maakt, voeg dan een korte omschrijving van het "
+"probleem toe, vermeld eventuele fouten of symptomen. Vaak helpt het als je "
+"probeert uit te leggen wat je probeert te doen. Het verstrekken van wat "
+"extra informatie helpt altijd bij het krijgen van een beter antwoord of "
+"advies."
+
+#: adrotate-output.php:856
+msgid ""
+"Consider writing a review, sharing AdRotate in Social media or making a "
+"donation if you like the plugin or if you find it useful. Writing a review "
+"and sharing AdRotate on social media costs you nothing but doing so is super "
+"helpful as promotion which helps to ensure future development."
+msgstr ""
+"Overweeg een recensie te schrijven, AdRotate te delen op sociale media of "
+"een donatie te doen als je de plug-in leuk of nuttig vindt. Het schrijven "
+"van een recensie en het delen van AdRotate op sociale media kost je niets, "
+"maar is super nuttig omdat alle promotie helpt om toekomstige ontwikkeling "
+"te garanderen."
+
+#: adrotate-output.php:857
+msgid "Post Tweet"
+msgstr "Tweet plaatsen"
+
+#: adrotate-output.php:857
+msgid "Share on Facebook"
+msgstr "Deel op Facebook"
+
+#: adrotate-output.php:857
+msgid "Write review on WordPress.org"
+msgstr "Schrijf een review op WordPress.org"
+
+#: adrotate-output.php:858
+msgid "Thank you very much for your help and support!"
+msgstr "Hartelijk dank voor je hulp!"
+
+#: adrotate-output.php:863
+msgid ""
+"AdRotate Professional has a lot more functions for even better advertising "
+"management. Check out the feature comparison tab on any of the product pages "
+"to see what AdRotate Pro has to offer for you!"
+msgstr ""
+"AdRotate Professional heeft veel meer functies voor nog beter "
+"advertentiebeheer. Bekijk het tabblad met de vergelijking van functies op "
+"een van de productpagina's om te zien wat AdRotate Pro voor u te bieden "
+"heeft!"
+
+#: adrotate-output.php:863
+msgid "Compare Licenses"
+msgstr "Licenties vergelijken"
+
+#: adrotate-output.php:864
+msgid "Single License"
+msgstr "Enkele licentie"
+
+#: adrotate-output.php:864
+msgid "Use on ONE WordPress installation."
+msgstr "Gebruik op één WordPress-installatie."
+
+#: adrotate-output.php:864 adrotate-output.php:865
+msgid "Buy now"
+msgstr "Koop nu"
+
+#: adrotate-output.php:865
+msgid "Multi License"
+msgstr "Multi Licentie"
+
+#: adrotate-output.php:865
+msgid "Use on up to FIVE WordPress installations."
+msgstr "Gebruik maximaal vijf WordPress-installaties."
+
+#: adrotate-statistics.php:155
+msgid "January"
+msgstr "Januari"
+
+#: adrotate-statistics.php:155
+msgid "February"
+msgstr "Februari"
+
+#: adrotate-statistics.php:155
+msgid "March"
+msgstr "Maart"
+
+#: adrotate-statistics.php:155
+msgid "April"
+msgstr "April"
+
+#: adrotate-statistics.php:155
+msgid "May"
+msgstr "Mei"
+
+#: adrotate-statistics.php:155
+msgid "June"
+msgstr "Juni"
+
+#: adrotate-statistics.php:155
+msgid "July"
+msgstr "Juli"
+
+#: adrotate-statistics.php:155
+msgid "August"
+msgstr "Augustus"
+
+#: adrotate-statistics.php:155
+msgid "September"
+msgstr "September"
+
+#: adrotate-statistics.php:155
+msgid "October"
+msgstr "Oktober"
+
+#: adrotate-statistics.php:155
+msgid "November"
+msgstr "November"
+
+#: adrotate-statistics.php:155
+msgid "December"
+msgstr "December"
+
+#: adrotate-statistics.php:164
+msgid "Previous"
+msgstr "Vorige"
+
+#: adrotate-statistics.php:166 dashboard/publisher/statistics-advert.php:66
+#: dashboard/publisher/statistics-group.php:73
+#: dashboard/publisher/statistics-main.php:48
+msgid "This month"
+msgstr "Deze maand"
+
+#: adrotate-statistics.php:167
+msgid "Next"
+msgstr "Volgende"
+
+#: adrotate-statistics.php:225
+msgid "No data to show!"
+msgstr "Geen gegevens om te laten zien!"
+
+#: adrotate-statistics.php:302 adrotate-statistics.php:303
+msgid "Not found"
+msgstr "Niet gevonden"
+
+#: adrotate-widget.php:134
+msgid "Title (optional):"
+msgstr "Titel (optioneel):"
+
+#: adrotate-widget.php:137
+msgid "HTML will be stripped out."
+msgstr "HTML wordt verwijderd."
+
+#: adrotate-widget.php:140
+msgid "Description (optional):"
+msgstr "Beschrijving (optioneel):"
+
+#: adrotate-widget.php:143
+msgid "What is this widget used for? (Not parsed, HTML will be stripped out.)"
+msgstr ""
+"Waar wordt deze widget voor gebruikt? (Niet ontleed, HTML zal worden "
+"gestript.)"
+
+#: adrotate-widget.php:146
+msgid "Type:"
+msgstr "Type:"
+
+#: adrotate-widget.php:148
+msgid "Advert - Use Advert ID"
+msgstr "Advertentie - Advertentie-ID gebruiken"
+
+#: adrotate-widget.php:149
+msgid "Group - Use group ID"
+msgstr "Groep - Groeps-ID gebruiken"
+
+#: adrotate-widget.php:152
+msgid "Choose what you want to use this widget for"
+msgstr "Groupe de Pub - Mettre l'identifiant du groupe"
+
+#: adrotate-widget.php:155
+msgid "ID:"
+msgstr "ID:"
+
+#: adrotate-widget.php:158
+msgid "Fill in the ID of the type you want to display!"
+msgstr "Vul het ID in van het type dat je wilt weergeven!"
+
+#: adrotate.php:105 adrotate.php:175
+msgid "Manage Adverts"
+msgstr "Advertenties beheren"
+
+#: adrotate.php:106 adrotate.php:301 dashboard/publisher/groups-main.php:12
+msgid "Manage Groups"
+msgstr "Beheer Groepen"
+
+#: adrotate.php:107 adrotate.php:339 dashboard/publisher/schedules-main.php:12
+msgid "Manage Schedules"
+msgstr "Schema's beheren"
+
+#: adrotate.php:108
+msgid "Manage Media"
+msgstr "Beheer Media"
+
+#: adrotate.php:109 adrotate.php:503 dashboard/adrotatepro.php:98
+#: dashboard/publisher/adverts-edit.php:178
+#: dashboard/publisher/statistics-main.php:23
+#: dashboard/settings/statistics.php:17
+msgid "Statistics"
+msgstr "Statistieken"
+
+#: adrotate.php:110 adrotate.php:238 adrotate.php:309
+msgid "Get AdRotate Pro"
+msgstr "Koop AdRotate Pro"
+
+#: adrotate.php:111
+msgid "Support"
+msgstr "Ondersteuning"
+
+#: adrotate.php:112
+msgid "Settings"
+msgstr "Instellingen"
+
+#: adrotate.php:131
+msgid "Get AdRotate Professional"
+msgstr "Koop AdRotate Professional"
+
+#: adrotate.php:235 adrotate.php:307
+msgid "Manage"
+msgstr "Beheren"
+
+#: adrotate.php:236
+msgid "Advert Generator"
+msgstr "Advertentie Generator"
+
+#: adrotate.php:237 dashboard/publisher/adverts-edit.php:108
+msgid "New Advert"
+msgstr "Nieuwe advertentie"
+
+#: adrotate.php:308
+msgid "Add New"
+msgstr "Nieuw"
+
+#: adrotate.php:376
+msgid "Manage Media and Assets"
+msgstr "Media en assets beheren"
+
+#: adrotate.php:380
+msgid ""
+"Upload images to the AdRotate Pro banners folder from here. This is useful "
+"if you have HTML5 adverts containing multiple files."
+msgstr ""
+"Upload afbeeldingen naar de map AdRotate Pro banners vanaf hier. Dit is "
+"handig als je HTML5-advertenties met meerdere bestanden hebt."
+
+#: adrotate.php:422
+msgid "Advert Statistics"
+msgstr "Statistieken voor advertenties"
+
+#: adrotate.php:465
+msgid "AdRotate Support"
+msgstr "Ondersteuning voor AdRotate"
+
+#: adrotate.php:496
+msgid "AdRotate Settings"
+msgstr "AdRotate-instellingen"
+
+#: adrotate.php:501 dashboard/publisher/statistics-main.php:28
+msgid "General"
+msgstr "Algemeen"
+
+#: adrotate.php:502 dashboard/settings/notifications.php:18
+msgid "Notifications"
+msgstr "Meldingen"
+
+#: adrotate.php:504 dashboard/publisher/groups-edit.php:205
+msgid "Geo Targeting"
+msgstr "Geo-targeting"
+
+#: adrotate.php:505 dashboard/settings/roles.php:17
+msgid "Access Roles"
+msgstr "Rollen"
+
+#: adrotate.php:506 dashboard/settings/misc.php:16
+msgid "Miscellaneous"
+msgstr "Diversen"
+
+#: adrotate.php:507 dashboard/settings/maintenance.php:16
+msgid "Maintenance"
+msgstr "Onderhoud"
+
+#: dashboard/adrotatepro.php:47
+msgid "Mobile campaigns"
+msgstr "Mobiele campagnes"
+
+#: dashboard/adrotatepro.php:50
+msgid ""
+"Target mobile users with ease and show the right adverts to smartphones, "
+"tablets and computers. Mix and match as you please and offer adverts that "
+"suit the device or mobile operating system. Create as many mobile adverts as "
+"you want without effort and with a few easy to use options they show up "
+"where you want them to!"
+msgstr ""
+"Target mobiele gebruikers met gemak en toon de juiste advertenties op "
+"smartphones, tablets en computers. Mix en match wanneer je wilt en bied "
+"advertenties aan die passen bij het apparaat of het mobiele "
+"besturingssysteem. Maak zoveel mobiele advertenties als je wilt zonder "
+"moeite en met een paar gebruiksvriendelijke opties worden ze weergegeven "
+"waar je ze wilt!"
+
+#: dashboard/adrotatepro.php:55
+msgid "Schedule all campaigns with ease"
+msgstr "Plan alle campagnes met gemak"
+
+#: dashboard/adrotatepro.php:58
+msgid ""
+"Schedule your adverts and set up advertising campaigns based on dates you or "
+"your advertisers specify without hassle. Seasonal adverts, weekly adverts, "
+"specific days in the week. You name it, AdRotate schedules it. This makes "
+"planning your revenue stream very flexible. You can set one or many "
+"schedules for adverts."
+msgstr ""
+"Plan jouw advertenties en stel advertentiecampagnes in op basis van de "
+"datums die u of uw adverteerders zonder gedoe opgeven. Seizoensadvertenties, "
+"wekelijkse advertenties, specifieke dagen in de week. Noem maar op, AdRotate "
+"plant het. Dit maakt het plannen van uw inkomstenstroom zeer flexibel. U een "
+"of meer schema's voor advertenties instellen."
+
+#: dashboard/adrotatepro.php:63
+msgid "Satisfy your advertisers"
+msgstr "Stel jouw adverteerders tevreden"
+
+#: dashboard/adrotatepro.php:66
+msgid ""
+"Set up advertisers and let them log in to their statistics or even create "
+"their own adverts. Created adverts go into a moderation queue for your staff "
+"to review. Advertisers have access to their own little dashboard where they "
+"can see their adverts performance."
+msgstr ""
+"Stel adverteerders in en laat ze inloggen op hun statistieken of zelfs hun "
+"eigen advertenties maken. Gemaakte advertenties gaan in een wachtrij voor "
+"jouw personeel om te bekijken. Adverteerders hebben toegang tot hun eigen "
+"dashboard waar ze hun advertentieprestaties kunnen zien."
+
+#: dashboard/adrotatepro.php:71
+msgid "Get Fast Support almost all year round"
+msgstr "Krijg bijna het hele jaar door snelle ondersteuning"
+
+#: dashboard/adrotatepro.php:74
+msgid ""
+"When you activate your AdRotate Pro license you can use premium support, "
+"right from your dashboard. No more queueing up in the forums. Premium "
+"support always gets priority over the forums and is checked twice a day. Get "
+"a solution (usually) within two business days."
+msgstr ""
+"Wanneer jeje AdRotate Pro licentie activeert, krijg je onder meer toegang "
+"tot persoonlijke e-mail ondersteuning. Niet meer wachten op het langzamere "
+"forum. Premium ondersteuning heeft altijd voorrang op de forums en wordt "
+"twee keer per dag gecontroleerd. Krijg (meestal) binnen twee werkdagen een "
+"oplossing."
+
+#: dashboard/adrotatepro.php:82
+msgid "Localize your ad campaigns with Geo Targeting"
+msgstr "Advertentiecampagnes lokaliseren met Geo Targeting"
+
+#: dashboard/adrotatepro.php:85
+msgid ""
+"Go nationwide or global with localized adverts for your various audiences. "
+"Set up adverts for countries and cities and sell impressions per general "
+"area. Connect your site to MaxMind GeoIP2: Precision or AdRotate Geo. "
+"AdRotate Geo is an exclusive Geo Lookup service for AdRotate Pro users."
+msgstr ""
+"Ga landelijk of wereldwijd met gelokaliseerde advertenties voor jouw "
+"verschillende doelgroepen. Advertenties instellen voor landen en steden en "
+"vertoningen per algemeen gebied verkopen. Verbind uw site met MaxMind "
+"GeoIP2: Precision or AdRotate Geo. AdRotate Geo is een exclusieve Geo Lookup-"
+"service voor AdRotate Pro-gebruikers."
+
+#: dashboard/adrotatepro.php:90
+msgid "Avoid adblockers"
+msgstr "Vermijd adblockers"
+
+#: dashboard/adrotatepro.php:93
+msgid ""
+"Try and avoid adblockers so your adverts get the exposure you want them to "
+"have. AdRotate Pro offers some advanced tools to deceive adblockers so your "
+"adverts are less likely to be removed. Of-course make sure you create your "
+"adverts smartly so these features reach their full potential!"
+msgstr ""
+"Probeer adblockers te vermijden, zodat je advertenties de zichtbaarheid "
+"krijgen die je wilt dat ze hebben. AdRotate Pro biedt een aantal "
+"geavanceerde tools om adblockers te misleiden, zodat je advertenties minder "
+"snel worden verwijderd. Zorg er natuurlijk voor dat je je advertenties slim "
+"maakt, zodat deze functies hun volledige potentieel bereiken!"
+
+#: dashboard/adrotatepro.php:101
+msgid ""
+"Get statistics in AdRotate Pro. Similar to the free version you can track "
+"stats in AdRotate itself and use all kinds of extra scheduling options. Or "
+"you can track stats in Google Analytics and see more in-depth information "
+"which relates to your visitors that way."
+msgstr ""
+"Statistieken in AdRotate Pro. Net als bij de gratis versie u statistieken "
+"bijhouden in AdRotate zelf en allerlei extra planningsopties gebruiken. U "
+"ook statistieken bijhouden in Google Analytics en meer diepgaande informatie "
+"zien die op die manier betrekking heeft op jouw bezoekers."
+
+#: dashboard/adrotatepro.php:106
+msgid "Stay up-to-date with notifications"
+msgstr "Meldingen instellen"
+
+#: dashboard/adrotatepro.php:109
+msgid ""
+"Stay in touch with Email notifications. Have AdRotate send you an alert when "
+"adverts expire or need your attention. Get notified when adverts expire, "
+"have errors or when advertisers create new adverts. Select up to three email "
+"addresses to be notified. Never miss an expiration date again."
+msgstr ""
+"Blijf op de hoogte van e-mailmeldingen. Laat AdRotate je een waarschuwing "
+"sturen wanneer advertenties verlopen of je aandacht nodig hebben. Ontvang "
+"een melding wanneer advertenties verlopen, fouten hebben of wanneer "
+"adverteerders nieuwe advertenties maken. Selecteer maximaal drie e-"
+"mailadressen die u wilt op de hoogte stellen. Mis nooit meer een vervaldatum."
+
+#: dashboard/publisher/adverts-disabled.php:15
+msgid "Disabled Adverts"
+msgstr "Advertenties voor uitgeschakelden"
+
+#: dashboard/publisher/adverts-disabled.php:20
+#: dashboard/publisher/adverts-error.php:19
+#: dashboard/publisher/adverts-main.php:20
+#: dashboard/publisher/groups-main.php:20
+#: dashboard/publisher/schedules-main.php:21
+msgid "Bulk Actions"
+msgstr "Bulk acties"
+
+#: dashboard/publisher/adverts-disabled.php:21
+#: dashboard/publisher/adverts-edit.php:186
+msgid "Activate"
+msgstr "Activeren"
+
+#: dashboard/publisher/adverts-disabled.php:22
+#: dashboard/publisher/adverts-error.php:21
+#: dashboard/publisher/adverts-main.php:22 dashboard/publisher/media.php:68
+#: dashboard/publisher/media.php:73 dashboard/publisher/media.php:77
+msgid "Delete"
+msgstr "Verwijderen"
+
+#: dashboard/publisher/adverts-disabled.php:23
+#: dashboard/publisher/adverts-error.php:22
+#: dashboard/publisher/adverts-main.php:23
+msgid "Reset stats"
+msgstr "Reset statistieken"
+
+#: dashboard/publisher/adverts-disabled.php:25
+#: dashboard/publisher/adverts-error.php:29
+#: dashboard/publisher/adverts-main.php:30
+#: dashboard/publisher/groups-main.php:24
+#: dashboard/publisher/schedules-main.php:22
+msgid "Go"
+msgstr "Ga"
+
+#: dashboard/publisher/adverts-disabled.php:35
+#: dashboard/publisher/adverts-edit.php:263
+#: dashboard/publisher/adverts-error.php:39
+#: dashboard/publisher/adverts-main.php:39
+#: dashboard/publisher/groups-edit.php:350
+#: dashboard/publisher/groups-main.php:32
+#: dashboard/publisher/schedules-main.php:31
+msgid "ID"
+msgstr "ID"
+
+#: dashboard/publisher/adverts-disabled.php:36
+#: dashboard/publisher/adverts-error.php:41
+#: dashboard/publisher/adverts-main.php:40
+#: dashboard/publisher/schedules-main.php:32
+msgid "Start / End"
+msgstr "Begin/einde"
+
+#: dashboard/publisher/adverts-disabled.php:37
+#: dashboard/publisher/adverts-edit.php:116
+#: dashboard/publisher/adverts-edit.php:264
+#: dashboard/publisher/adverts-error.php:40
+#: dashboard/publisher/adverts-main.php:41
+#: dashboard/publisher/groups-edit.php:65
+#: dashboard/publisher/groups-edit.php:351
+#: dashboard/publisher/groups-main.php:33 dashboard/publisher/media.php:48
+#: dashboard/publisher/schedules-main.php:33
+msgid "Name"
+msgstr "Naam"
+
+#: dashboard/publisher/adverts-disabled.php:39
+#: dashboard/publisher/adverts-main.php:43
+#: dashboard/publisher/groups-edit.php:355
+#: dashboard/publisher/groups-main.php:36
+msgid "Shown"
+msgstr "Getoonde"
+
+#: dashboard/publisher/adverts-disabled.php:40
+#: dashboard/publisher/adverts-main.php:45
+#: dashboard/publisher/groups-edit.php:356
+#: dashboard/publisher/groups-main.php:38
+#: dashboard/publisher/statistics-advert.php:52
+#: dashboard/publisher/statistics-advert.php:58
+#: dashboard/publisher/statistics-advert.php:72
+#: dashboard/publisher/statistics-advert.php:78
+#: dashboard/publisher/statistics-advert.php:99
+#: dashboard/publisher/statistics-group.php:59
+#: dashboard/publisher/statistics-group.php:65
+#: dashboard/publisher/statistics-group.php:79
+#: dashboard/publisher/statistics-group.php:85
+#: dashboard/publisher/statistics-group.php:104
+#: dashboard/publisher/statistics-main.php:40
+#: dashboard/publisher/statistics-main.php:54
+#: dashboard/publisher/statistics-main.php:58
+#: dashboard/publisher/statistics-main.php:75
+msgid "Clicks"
+msgstr "Kliks"
+
+#: dashboard/publisher/adverts-disabled.php:41
+#: dashboard/publisher/adverts-main.php:47
+#: dashboard/publisher/statistics-advert.php:53
+#: dashboard/publisher/statistics-advert.php:59
+#: dashboard/publisher/statistics-advert.php:73
+#: dashboard/publisher/statistics-advert.php:79
+#: dashboard/publisher/statistics-advert.php:100
+#: dashboard/publisher/statistics-group.php:60
+#: dashboard/publisher/statistics-group.php:66
+#: dashboard/publisher/statistics-group.php:80
+#: dashboard/publisher/statistics-group.php:86
+#: dashboard/publisher/statistics-group.php:105
+#: dashboard/publisher/statistics-main.php:41
+#: dashboard/publisher/statistics-main.php:55
+#: dashboard/publisher/statistics-main.php:59
+#: dashboard/publisher/statistics-main.php:76
+msgid "CTR"
+msgstr "CTR"
+
+#: dashboard/publisher/adverts-disabled.php:61
+#: dashboard/publisher/adverts-error.php:56
+#: dashboard/publisher/adverts-main.php:69
+#: dashboard/publisher/groups-main.php:70
+msgid "Edit"
+msgstr "Bewerken"
+
+#: dashboard/publisher/adverts-disabled.php:61
+#: dashboard/publisher/adverts-error.php:56
+#: dashboard/publisher/adverts-main.php:69
+#: dashboard/publisher/groups-main.php:70
+msgid "Stats"
+msgstr "Statistieken"
+
+#: dashboard/publisher/adverts-disabled.php:61
+#: dashboard/publisher/adverts-error.php:56
+#: dashboard/publisher/adverts-main.php:69
+msgid "Groups:"
+msgstr "﻿Groepen:"
+
+#: dashboard/publisher/adverts-edit.php:50
+msgid "The AdCode cannot be empty!"
+msgstr "De AdCode kan niet leeg zijn!"
+
+#: dashboard/publisher/adverts-edit.php:53
+msgid "You did not use %asset% in your AdCode but did select a file to use!"
+msgstr ""
+"Je hebt geen %asset% in je AdCode, maar er is wel een bestand geselecteerd "
+"om te gebruiken!"
+
+#: dashboard/publisher/adverts-edit.php:56
+msgid "You did use %asset% in your AdCode but did not select a file to use!"
+msgstr ""
+"U gebruikt %asset% in de AdCode, maar je hebt geen bestand geselecteerd om "
+"te gebruiken!"
+
+#: dashboard/publisher/adverts-edit.php:59
+msgid ""
+"There is a problem saving the image. Please re-set your image and re-save "
+"the ad!"
+msgstr ""
+"Er is een probleem met het opslaan van de afbeelding. Selecteer de "
+"afbeelding en sla de advertentie opnieuw op!"
+
+#: dashboard/publisher/adverts-edit.php:62
+msgid ""
+"This kind of advert can not have statistics enabled in AdRotate. Impression "
+"counting is available in AdRotate Pro."
+msgstr ""
+"Voor dit soort advertenties kunnen geen statistieken zijn ingeschakeld in "
+"AdRotate. Het tellen van vertoningen is beschikbaar in AdRotate Pro."
+
+#: dashboard/publisher/adverts-edit.php:67
+msgid "This advert is expired and currently not shown on your website!"
+msgstr ""
+"Deze advertentie is verlopen en momenteel niet weergegeven op uw website!"
+
+#: dashboard/publisher/adverts-edit.php:70
+msgid "The advert will expire in less than 2 days!"
+msgstr "De advertentie vervalt binnen 2 dagen!"
+
+#: dashboard/publisher/adverts-edit.php:73
+msgid "This advert will expire in less than 7 days!"
+msgstr "Deze advertentie vervalt in minder dan 7 dagen!"
+
+#: dashboard/publisher/adverts-edit.php:76
+msgid "This advert has been disabled and does not rotate on your site!"
+msgstr "Deze advertentie is uitgeschakeld en is niet zichtbaar op de site!"
+
+#: dashboard/publisher/adverts-edit.php:79
+msgid ""
+"AdRotate cannot find an error but the advert is marked erroneous, try re-"
+"saving the ad!"
+msgstr ""
+"AdRotate kan geen fout vinden, maar de advertentie is onjuist gemarkeerd, "
+"probeer de advertentie opnieuw op te slaan!"
+
+#: dashboard/publisher/adverts-edit.php:83
+msgid "This advert still uses the %image% tag. Please change it to %asset%!"
+msgstr ""
+"Deze advertentie maakt nog steeds gebruik van de %image% tag. Wijzig het in "
+"%asset%!"
+
+#: dashboard/publisher/adverts-edit.php:110
+msgid "Edit Advert"
+msgstr "Advertentie bewerken"
+
+#: dashboard/publisher/adverts-edit.php:125
+msgid "AdCode"
+msgstr "AdCode"
+
+#: dashboard/publisher/adverts-edit.php:130
+msgid "Basic Examples:"
+msgstr "Basisvoorbeelden:"
+
+#: dashboard/publisher/adverts-edit.php:131
+msgid "Click any of the examples to use it."
+msgstr "Klik op een van de voorbeelden om het te gebruiken."
+
+#: dashboard/publisher/adverts-edit.php:140
+msgid "Useful tags"
+msgstr "Handige Tags"
+
+#: dashboard/publisher/adverts-edit.php:142
+msgid "Insert the advert ID Number."
+msgstr "Voeg het nummer van de advertentie-ID in."
+
+#: dashboard/publisher/adverts-edit.php:142
+msgid "Use this tag when selecting a image below."
+msgstr "Gebruik deze tag bij het selecteren van een afbeelding hieronder."
+
+#: dashboard/publisher/adverts-edit.php:142
+msgid "Insert the advert name."
+msgstr "Voeg de naam van de advertentie in."
+
+#: dashboard/publisher/adverts-edit.php:142
+msgid "Insert a random string. Useful for DFP/DoubleClick type adverts."
+msgstr ""
+"Een willekeurige tekenreeks invoegen. Handig voor DFP/DoubleClick-"
+"typeadvertenties."
+
+#: dashboard/publisher/adverts-edit.php:142
+msgid "Add inside the &lt;a&gt; tag to open the advert in a new window."
+msgstr ""
+"Voeg in de &lt;a&gt; tag toe om de advertentie in een nieuw venster te "
+"openen."
+
+#: dashboard/publisher/adverts-edit.php:142
+msgid "Add inside the &lt;a&gt; tag to tell crawlers to ignore this link."
+msgstr ""
+"Voeg in de &lt;a&gt; tag toe om crawlers te vertellen deze koppeling te "
+"negeren."
+
+#: dashboard/publisher/adverts-edit.php:143
+msgid ""
+"Place the cursor where you want to add a tag and click to add it to your "
+"AdCode."
+msgstr ""
+"Plaats de cursor op de plek waar je een tag wilt toevoegen en klik op de tag "
+"om deze toe te voegen aan de AdCode."
+
+#: dashboard/publisher/adverts-edit.php:148
+msgid "Preview"
+msgstr "Voorbeeld"
+
+#: dashboard/publisher/adverts-edit.php:151
+msgid ""
+"Note: While this preview is an accurate one, it might look different then it "
+"does on the website."
+msgstr ""
+"Let op: Hoewel dit voorbeeld accuraat is, kan deze er anders uitzien dan op "
+"de website."
+
+#: dashboard/publisher/adverts-edit.php:152
+msgid ""
+"This is because of CSS differences. Your themes CSS file is not active here!"
+msgstr ""
+"Dit komt door verschillen in CSS. Het thema CSS-bestand is hier niet actief!"
+
+#: dashboard/publisher/adverts-edit.php:157
+msgid "Banner asset"
+msgstr "Banner Asset"
+
+#: dashboard/publisher/adverts-edit.php:159
+msgid "WordPress media:"
+msgstr "WordPress media:"
+
+#: dashboard/publisher/adverts-edit.php:159
+msgid "Select Banner"
+msgstr "Selecteer banner"
+
+#: dashboard/publisher/adverts-edit.php:161
+msgid "- OR -"
+msgstr "- Of -"
+
+#: dashboard/publisher/adverts-edit.php:162
+msgid "Banner folder:"
+msgstr "Banner map:"
+
+#: dashboard/publisher/adverts-edit.php:163
+msgid "No image selected"
+msgstr "Geen afbeelding geselecteerd"
+
+#: dashboard/publisher/adverts-edit.php:173
+msgid "Use %asset% in the adcode instead of the file path."
+msgstr "Gebruik %asset% in de adcode in plaats van het bestandspad."
+
+#: dashboard/publisher/adverts-edit.php:173
+msgid ""
+"Use either the text field or the dropdown. If the textfield has content that "
+"field has priority."
+msgstr ""
+"Gebruik het tekstveld of de vervolgkeuzelijst. Als het tekstveld inhoud "
+"heeft, heeft dat veld prioriteit."
+
+#: dashboard/publisher/adverts-edit.php:180
+msgid "Count clicks and impressions."
+msgstr "Tel klikken en vertoningen."
+
+#: dashboard/publisher/adverts-edit.php:181
+msgid ""
+"Click counting does not work for Javascript/html5 adverts such as those "
+"provided by Google AdSense/DFP/DoubleClick."
+msgstr ""
+"Klikken tellen werkt niet voor Javascript/html5 advertenties zoals die van "
+"Google AdSense/DFP/DoubleClick."
+
+#: dashboard/publisher/adverts-edit.php:189
+msgid "Enabled, this ad will be visible"
+msgstr "Actief, deze advertentie wordt getoond"
+
+#: dashboard/publisher/adverts-edit.php:190
+msgid "Disabled, do not show this advert anywhere"
+msgstr "Inactief, laat deze advertentie nergens zien"
+
+#: dashboard/publisher/adverts-edit.php:196
+msgid ""
+"Target your audience with Geo Targeting and easily select which devices and "
+"mobile operating systems the advert should show on with AdRotate Pro!"
+msgstr ""
+"Target uw doelgroep met Geo Targeting en selecteer eenvoudig op welke "
+"apparaten en mobiele besturingssystemen de advertentie moet worden "
+"weergegeven met AdRotate Pro!"
+
+#: dashboard/publisher/adverts-edit.php:196
+#: dashboard/publisher/adverts-edit.php:234
+#: dashboard/publisher/groups-edit.php:227
+msgid "Upgrade now"
+msgstr "Nu bijwerken"
+
+#: dashboard/publisher/adverts-edit.php:198
+msgid "Schedule your advert"
+msgstr "Plan jouw advertentie"
+
+#: dashboard/publisher/adverts-edit.php:199
+msgid ""
+"Time uses a 24 hour clock. When you're used to the AM/PM system keep this in "
+"mind: If the start or end time is after lunch, add 12 hours. 2PM is 14:00 "
+"hours. 6AM is 6:00 hours."
+msgstr ""
+"De tijd gebruikt een 24-uursklok. Wanneer u gewend bent aan het AM/PM-"
+"systeem, houdt u dit in gedachten: Als de begin- of eindtijd na de lunch is, "
+"voegt u 12 uur toe. 14.00 uur is 14:00 uur. 6am is 6:00 uur."
+
+#: dashboard/publisher/adverts-edit.php:203
+msgid "Start date"
+msgstr "Startdatum"
+
+#: dashboard/publisher/adverts-edit.php:207
+msgid "End date"
+msgstr "Einddatum"
+
+#: dashboard/publisher/adverts-edit.php:213
+msgid "Start time"
+msgstr "Starttijd"
+
+#: dashboard/publisher/adverts-edit.php:218
+msgid "End time"
+msgstr "Eindtijd"
+
+#: dashboard/publisher/adverts-edit.php:226
+msgid "Maximum Clicks"
+msgstr "Maximale klikken"
+
+#: dashboard/publisher/adverts-edit.php:227
+#: dashboard/publisher/adverts-edit.php:229
+msgid "Leave empty or 0 to skip this."
+msgstr "Laat leeg of 0 om dit over te slaan."
+
+#: dashboard/publisher/adverts-edit.php:228
+msgid "Maximum Impressions"
+msgstr "Maximale vertoningen"
+
+#: dashboard/publisher/adverts-edit.php:234
+msgid ""
+"Plan ahead and create multiple and more advanced schedules for each advert "
+"with AdRotate Pro."
+msgstr ""
+"Plan vooruit en maak meerdere en geavanceerdere schema's voor elke "
+"advertentie met AdRotate Pro."
+
+#: dashboard/publisher/adverts-edit.php:236
+#: dashboard/publisher/groups-edit.php:157
+#: dashboard/publisher/groups-edit.php:302
+msgid "Usage"
+msgstr "Gebruik"
+
+#: dashboard/publisher/adverts-edit.php:240
+#: dashboard/publisher/groups-edit.php:161
+#: dashboard/publisher/groups-edit.php:306
+msgid "Widget"
+msgstr "Widget"
+
+#: dashboard/publisher/adverts-edit.php:241
+msgid ""
+"Drag the AdRotate widget to the sidebar where you want to place the advert "
+"and select the advert or the group the advert is in."
+msgstr ""
+"In het dashboard Uiterlijk > Widgets. Sleep het object AdRotate naar de "
+"zijbalk waar u de advertentie wilt plaatsen en selecteer de advertentie of "
+"de groep waarin de advertentie zich bevindt."
+
+#: dashboard/publisher/adverts-edit.php:244
+#: dashboard/publisher/groups-edit.php:165
+#: dashboard/publisher/groups-edit.php:310
+msgid "In a post or page"
+msgstr "In een bericht of pagina"
+
+#: dashboard/publisher/adverts-edit.php:246
+#: dashboard/publisher/groups-edit.php:167
+#: dashboard/publisher/groups-edit.php:312
+msgid "Directly in a theme"
+msgstr "Direct in een thema"
+
+#: dashboard/publisher/adverts-edit.php:253
+#: dashboard/publisher/adverts-edit.php:296
+msgid "Save Advert"
+msgstr "Advertentie opslaan"
+
+#: dashboard/publisher/adverts-edit.php:254
+#: dashboard/publisher/adverts-edit.php:297
+#: dashboard/publisher/adverts-generator.php:148
+#: dashboard/publisher/groups-edit.php:175
+#: dashboard/publisher/groups-edit.php:320
+#: dashboard/publisher/groups-edit.php:414
+msgid "Cancel"
+msgstr "Annuleren"
+
+#: dashboard/publisher/adverts-edit.php:258
+msgid "Select Groups"
+msgstr "Groepen selecteren"
+
+#: dashboard/publisher/adverts-edit.php:265
+#: dashboard/publisher/groups-main.php:34
+#: dashboard/publisher/schedules-main.php:34
+#: dashboard/publisher/statistics-main.php:35
+msgid "Adverts"
+msgstr "Advertenties"
+
+#: dashboard/publisher/adverts-edit.php:274
+#: dashboard/publisher/groups-main.php:60
+#: dashboard/settings/geotargeting.php:54 dashboard/settings/statistics.php:25
+msgid "Default"
+msgstr "Standaard"
+
+#: dashboard/publisher/adverts-edit.php:275
+#: dashboard/publisher/groups-main.php:61
+msgid "Dynamic"
+msgstr "Dynamisch"
+
+#: dashboard/publisher/adverts-edit.php:275
+#: dashboard/publisher/groups-main.php:61
+msgid "second rotation"
+msgstr "tweede rotatie"
+
+#: dashboard/publisher/adverts-edit.php:276
+#: dashboard/publisher/groups-main.php:62
+msgid "Block"
+msgstr "Blok"
+
+#: dashboard/publisher/adverts-edit.php:276
+#: dashboard/publisher/groups-main.php:62
+msgid "grid"
+msgstr "rooster"
+
+#: dashboard/publisher/adverts-edit.php:277
+#: dashboard/publisher/groups-edit.php:234
+#: dashboard/publisher/groups-main.php:63
+msgid "Post Injection"
+msgstr "Post injectie"
+
+#: dashboard/publisher/adverts-edit.php:278
+msgid "Geolocation"
+msgstr "Geolocatie"
+
+#: dashboard/publisher/adverts-edit.php:285
+#: dashboard/publisher/groups-edit.php:74
+#: dashboard/publisher/groups-main.php:70
+msgid "Mode"
+msgstr "Modus"
+
+#: dashboard/publisher/adverts-edit.php:302
+#: dashboard/publisher/adverts-generator.php:131
+msgid "Portability"
+msgstr "Mobiliteit"
+
+#: dashboard/publisher/adverts-edit.php:303
+msgid ""
+"This long code is your advert. It includes all settings from above except "
+"the schedule and group selection. You can import this hash into another "
+"setup of AdRotate or AdRotate Professional. Do not alter the hash or the "
+"advert will not work. In most browsers you can tripleclick in the field to "
+"select the whole thing. You can paste the hash into the 'Advert Hash' field "
+"in the Advert Generator of another AdRotate setup."
+msgstr ""
+"Deze lange code is de advertentie. Op het schema en de groepselectie na "
+"bevat deze alle instellingen van hierboven. Je kunt deze hash importeren in "
+"een andere installatie van AdRotate of AdRotate Professional. Wijzig de hash "
+"niet of de advertentie werkt niet. In de meeste browsers kun je "
+"tripleclicken (3x klikken) in het veld om de hele hash te selecteren. Je "
+"kunt de hash in het veld ‘Advert Hash', plakken in de advertentie generator "
+"van een andere installatie van AdRotate."
+
+#: dashboard/publisher/adverts-edit.php:307
+#: dashboard/publisher/adverts-generator.php:137
+msgid "Advert hash"
+msgstr "Advertentie hash"
+
+#: dashboard/publisher/adverts-error.php:12
+msgid "Adverts that need attention"
+msgstr "Advertenties die aandacht nodig hebben"
+
+#: dashboard/publisher/adverts-error.php:20
+#: dashboard/publisher/adverts-main.php:21
+msgid "Deactivate"
+msgstr "Deactiveren"
+
+#: dashboard/publisher/adverts-error.php:23
+#: dashboard/publisher/adverts-main.php:25
+msgid "-- Renew --"
+msgstr "-- Verlengen --"
+
+#: dashboard/publisher/adverts-error.php:24
+#: dashboard/publisher/adverts-main.php:26
+msgid "For 1 year"
+msgstr "Voor 1 jaar"
+
+#: dashboard/publisher/adverts-error.php:25
+#: dashboard/publisher/adverts-main.php:27
+msgid "For 180 days"
+msgstr "Gedurende 180 dagen"
+
+#: dashboard/publisher/adverts-error.php:26
+#: dashboard/publisher/adverts-main.php:28
+msgid "For 30 days"
+msgstr "Gedurende 30 dagen"
+
+#: dashboard/publisher/adverts-error.php:27
+#: dashboard/publisher/adverts-main.php:29
+msgid "For 7 days"
+msgstr "Gedurende 7 dagen"
+
+#: dashboard/publisher/adverts-error.php:64
+msgid "Configuration errors"
+msgstr "Configuratiefouten"
+
+#: dashboard/publisher/adverts-error.php:65
+msgid "Expires soon"
+msgstr "Verloopt binnenkort"
+
+#: dashboard/publisher/adverts-error.php:66
+#: dashboard/settings/maintenance.php:45
+msgid "Expired"
+msgstr "Verlopen"
+
+#: dashboard/publisher/adverts-generator.php:36
+msgid "Generate Advert Code"
+msgstr "Advertentiecode genereren"
+
+#: dashboard/publisher/adverts-generator.php:41
+msgid "Required"
+msgstr "Verplicht"
+
+#: dashboard/publisher/adverts-generator.php:47
+msgid "Banner image"
+msgstr "Banner afbeelding"
+
+#: dashboard/publisher/adverts-generator.php:50
+msgid "Select advert image"
+msgstr "Afbeelding van de advertentie selecteren"
+
+#: dashboard/publisher/adverts-generator.php:56
+msgid "Is your file not listed? Upload it to the banners folder using (s)FTP."
+msgstr ""
+"Staat jouw bestand er niet bij? Upload het naar de banners map met (s)FTP."
+
+#: dashboard/publisher/adverts-generator.php:60
+msgid "Target website"
+msgstr "Doelwebsite"
+
+#: dashboard/publisher/adverts-generator.php:62
+msgid "Where does the person clicking the advert go?"
+msgstr "Waar gaat de persoon die op de advertentie klikt naartoe?"
+
+#: dashboard/publisher/adverts-generator.php:69
+msgid "Viewports"
+msgstr "Poorten bekijken"
+
+#: dashboard/publisher/adverts-generator.php:69
+#: dashboard/publisher/groups-edit.php:218
+#: dashboard/settings/notifications.php:48
+msgid "Available in AdRotate Pro"
+msgstr "Beschikbaar in AdRotate Pro"
+
+#: dashboard/publisher/adverts-generator.php:75
+msgid "Smaller Devices"
+msgstr "Kleinere apparaten"
+
+#: dashboard/publisher/adverts-generator.php:78
+#: dashboard/publisher/adverts-generator.php:86
+#: dashboard/publisher/adverts-generator.php:94
+msgid "No file selected"
+msgstr "Geen bestand geselecteerd"
+
+#: dashboard/publisher/adverts-generator.php:79
+msgid ""
+"Smaller smartphones and tablets with a viewport of up to 480px wide (up-to "
+"1440px resolution)."
+msgstr ""
+"Kleinere smartphones en tablets met een viewport van maximaal 480px breed "
+"(up-to-1440px resolutie)."
+
+#: dashboard/publisher/adverts-generator.php:83
+msgid "Medium sized Devices"
+msgstr "Middelgrote apparaten"
+
+#: dashboard/publisher/adverts-generator.php:87
+msgid ""
+"Larger smartphones or Small tablets with a viewport of up to 960px wide (up-"
+"to 1536px resolution)."
+msgstr ""
+"Grotere smartphones of kleine tablets met een viewport van maximaal 960px "
+"breed (tot 1536px resolutie)."
+
+#: dashboard/publisher/adverts-generator.php:91
+msgid "Larger Devices"
+msgstr "Grotere apparaten"
+
+#: dashboard/publisher/adverts-generator.php:95
+msgid ""
+"Small laptops and Larger tablets with a viewport of up to 1280px wide (up-to "
+"2048px resolution)."
+msgstr ""
+"Kleine laptops en grotere tablets met een viewport van maximaal 1280px breed "
+"(up-to-2048px resolutie)."
+
+#: dashboard/publisher/adverts-generator.php:99
+#: dashboard/publisher/media.php:37
+msgid "Important:"
+msgstr "Let op:"
+
+#: dashboard/publisher/adverts-generator.php:99
+msgid ""
+"All sizes are optional, but it is highly recommended to use at least the "
+"small and medium size. Devices with viewports greater than 1280px will use "
+"the full sized banner."
+msgstr ""
+"Alle maten zijn optioneel, maar het is sterk aanbevolen om ten minste de "
+"kleine en middelgrote te gebruiken. Apparaten met viewports groter dan "
+"1280px gebruiken de volledige banner."
+
+#: dashboard/publisher/adverts-generator.php:99
+msgid ""
+"Are your files not listed? Upload them via the AdRotate Media Manager. For "
+"your convenience, use easy to use filenames."
+msgstr ""
+"Staat je bestand niet in de lijst? Upload ze via de AdRotate Media Manager. "
+"Gebruik voor het gemak eenvoudige bestandsnamen."
+
+#: dashboard/publisher/adverts-generator.php:104
+msgid "Optional"
+msgstr "Optioneel"
+
+#: dashboard/publisher/adverts-generator.php:110
+msgid "Target window"
+msgstr "Doelvenster"
+
+#: dashboard/publisher/adverts-generator.php:112
+msgid "Open the advert in a new window?"
+msgstr "De advertentie openen in een nieuw venster?"
+
+#: dashboard/publisher/adverts-generator.php:112
+msgid "(Recommended)"
+msgstr "(Aanbevolen)"
+
+#: dashboard/publisher/adverts-generator.php:116
+msgid "NoFollow"
+msgstr "Nofollow"
+
+#: dashboard/publisher/adverts-generator.php:118
+msgid "Tell crawlers and search engines not to follow the target website url?"
+msgstr "Vertel crawlers en zoekmachines niet om de doel website url te volgen?"
+
+#: dashboard/publisher/adverts-generator.php:118
+#: dashboard/publisher/adverts-generator.php:124
+msgid "(Available in AdRotate Pro)"
+msgstr "(Beschikbaar in AdRotate Pro)"
+
+#: dashboard/publisher/adverts-generator.php:118
+msgid ""
+"Letting bots (Such as Googlebot) index paid links may negatively affect your "
+"SEO and PageRank."
+msgstr ""
+"Het laten indexeren van betaalde links kan een negatieve invloed hebben op "
+"jouw SEO en PageRank."
+
+#: dashboard/publisher/adverts-generator.php:122
+msgid "Alt and Title"
+msgstr "Alt en titel"
+
+#: dashboard/publisher/adverts-generator.php:124
+msgid "Add an alt and title attribute based on the asset name?"
+msgstr ""
+"Een alt- en titelkenmerk toevoegen op basis van de naam van het actief?"
+
+#: dashboard/publisher/adverts-generator.php:124
+msgid ""
+"Some bots/crawlers use them as a descriptive measure to see what the code is "
+"about."
+msgstr ""
+"Sommige bots / crawlers gebruiken ze als een beschrijvende maatregel om te "
+"zien waar de code over gaat."
+
+#: dashboard/publisher/adverts-generator.php:139
+msgid ""
+"To import a ready made advert, enter a advert hash from another AdRotate "
+"setup..."
+msgstr ""
+"Als je een kant-en-klare advertentie wilt importeren, voert dan een "
+"advertentie hash in van een andere installatie van AdRotate..."
+
+#: dashboard/publisher/adverts-generator.php:147
+msgid "Generate and Configure Advert"
+msgstr "Advertentie genereren en configureren"
+
+#: dashboard/publisher/adverts-generator.php:148
+msgid "Always test your adverts before activating them."
+msgstr "Test je advertenties altijd voordat je ze activeert."
+
+#: dashboard/publisher/adverts-generator.php:151
+msgid "CAUTION:"
+msgstr "Waarschuwing:"
+
+#: dashboard/publisher/adverts-generator.php:151
+msgid ""
+"While the Code Generator has been tested and works, code generation, as "
+"always, is a interpretation of user input. If you provide the correct bits "
+"and pieces, a working advert may be generated. If you leave fields empty or "
+"insert the wrong info you probably end up with a broken advert."
+msgstr ""
+"Terwijl de Code Generator is getest en werkt, code generatie, zoals altijd, "
+"is een interpretatie van de input van de gebruiker. Als u de juiste bits en "
+"pieces verstrekt, kan een werkende advertentie worden gegenereerd. Als u "
+"velden leeg laat staan of de verkeerde informatie invoegt, komt u "
+"waarschijnlijk met een kapotte advertentie terecht."
+
+#: dashboard/publisher/adverts-generator.php:151
+msgid "NOTE:"
+msgstr "OPMERKING:"
+
+#: dashboard/publisher/adverts-generator.php:151
+msgid "If you insert an Advert Hash, all other fields are ignored."
+msgstr ""
+"Als je een advertentie hash invuld, worden alle andere velden genegeerd."
+
+#: dashboard/publisher/adverts-main.php:12
+msgid "Active Adverts"
+msgstr "Actieve advertenties"
+
+#: dashboard/publisher/adverts-main.php:24
+msgid "Export to CSV"
+msgstr "Exporteer naar CSV"
+
+#: dashboard/publisher/adverts-main.php:44
+#: dashboard/publisher/adverts-main.php:46
+#: dashboard/publisher/groups-main.php:37
+#: dashboard/publisher/groups-main.php:39
+#: dashboard/publisher/statistics-advert.php:44
+#: dashboard/publisher/statistics-group.php:51
+msgid "Today"
+msgstr "Vandaag"
+
+#: dashboard/publisher/adverts-main.php:90
+msgid "No adverts created yet!"
+msgstr "Nog geen advertenties gemaakt!"
+
+#: dashboard/publisher/groups-edit.php:41
+msgid ""
+"Your block is a 1x1 grid. Either add more rows or columns or set the group "
+"to Default mode."
+msgstr ""
+"Het blok is een 1x1 raster. Voeg meer rijen of kolommen toe of stel de groep "
+"in op de standaardmodus."
+
+#: dashboard/publisher/groups-edit.php:44
+msgid "You have enabled Post Injection but did not select any categories."
+msgstr ""
+"Je hebt Post Injectie ingeschakeld, maar hebt geen categorieën geselecteerd."
+
+#: dashboard/publisher/groups-edit.php:47
+msgid "You have enabled Page Injection but did not select any pages."
+msgstr ""
+"U hebt pagina-injectie ingeschakeld, maar hebt geen pagina's geselecteerd."
+
+#: dashboard/publisher/groups-edit.php:57
+msgid "New Group"
+msgstr "Nieuwe groep"
+
+#: dashboard/publisher/groups-edit.php:59
+msgid "Edit Group"
+msgstr "Groep bewerken"
+
+#: dashboard/publisher/groups-edit.php:77
+msgid "Default - Show one ad at a time"
+msgstr "Standaard - Eén advertentie tegelijk weergeven"
+
+#: dashboard/publisher/groups-edit.php:78
+msgid "Dynamic Mode - Show a different ad every few seconds"
+msgstr "Dynamische modus - Elke paar seconden een andere advertentie weergeven"
+
+#: dashboard/publisher/groups-edit.php:79
+msgid "Block Mode - Show a block of adverts"
+msgstr "Blokmodus - Een blok advertenties weergeven"
+
+#: dashboard/publisher/groups-edit.php:83
+msgid "Dynamic mode requires jQuery. You can enable this in AdRotate Settings."
+msgstr ""
+"Dynamische modus vereist jQuery. Je kunt dit inschakelen in AdRotate-"
+"instellingen."
+
+#: dashboard/publisher/groups-edit.php:87
+msgid "Advert size"
+msgstr "Advertentiegrootte"
+
+#: dashboard/publisher/groups-edit.php:89
+msgid "pixel(s) wide"
+msgstr "pixel(s) breed"
+
+#: dashboard/publisher/groups-edit.php:89
+msgid "pixel(s) high."
+msgstr "pixel(s) hoog."
+
+#: dashboard/publisher/groups-edit.php:92
+msgid ""
+"Define the maximum size of the adverts in pixels. Size can be 'auto' (Not "
+"recommended)."
+msgstr ""
+"Definieer de maximale grootte van de advertenties in pixels. Grootte kan "
+"'auto' zijn (niet aanbevolen)."
+
+#: dashboard/publisher/groups-edit.php:98
+msgid "Dynamic and Block Mode"
+msgstr "Dynamische en blokmodus"
+
+#: dashboard/publisher/groups-edit.php:102
+msgid "Block size"
+msgstr "Blokgrootte"
+
+#: dashboard/publisher/groups-edit.php:108
+msgid "rows"
+msgstr "rijen"
+
+#: dashboard/publisher/groups-edit.php:112
+msgid "columns"
+msgstr "kolommen"
+
+#: dashboard/publisher/groups-edit.php:115
+msgid "Block Mode"
+msgstr "Blokmodus"
+
+#: dashboard/publisher/groups-edit.php:115
+msgid "Larger blocks will degrade your sites performance! Default: 2/2."
+msgstr ""
+"Grotere blokken zullen de prestaties van de website verslechteren! "
+"Standaard: 2/2."
+
+#: dashboard/publisher/groups-edit.php:119
+msgid "Automated refresh"
+msgstr "Automatisch vernieuwen"
+
+#: dashboard/publisher/groups-edit.php:138
+msgid "seconds."
+msgstr "seconden."
+
+#: dashboard/publisher/groups-edit.php:141
+#: dashboard/publisher/groups-edit.php:150
+msgid "Dynamic Mode"
+msgstr "Dynamische modus"
+
+#: dashboard/publisher/groups-edit.php:141
+msgid ""
+"Load a new advert in this interval without reloading the page. Default: 6."
+msgstr ""
+"Laad een nieuwe advertentie in dit interval zonder de pagina opnieuw te "
+"laden. Standaard: 6."
+
+#: dashboard/publisher/groups-edit.php:145
+msgid "Repeat impressions"
+msgstr "Herhaalde vertoningen"
+
+#: dashboard/publisher/groups-edit.php:147
+msgid "Count impressions for every cycle of adverts?"
+msgstr "Aantal vertoningen voor elke cyclus van advertenties?"
+
+#: dashboard/publisher/groups-edit.php:150
+msgid ""
+"Uncheck this option to only count impressions for the first cycle of adverts."
+msgstr ""
+"Schakel deze optie uit om alleen vertoningen voor de eerste cyclus van "
+"advertenties te tellen."
+
+#: dashboard/publisher/groups-edit.php:155
+#: dashboard/publisher/groups-edit.php:227
+msgid "Get access to all features in AdRotate Pro."
+msgstr "Krijg toegang tot alle functies in AdRotate Pro."
+
+#: dashboard/publisher/groups-edit.php:155
+msgid "Upgrade today"
+msgstr "Upgrade vandaag"
+
+#: dashboard/publisher/groups-edit.php:162
+#: dashboard/publisher/groups-edit.php:307
+msgid ""
+"Drag the AdRotate widget to the sidebar you want it in, select \"Group of "
+"Adverts\" and enter ID"
+msgstr ""
+"Sleep de AdRotate widget naar de zijbalk waarin je deze wilt hebben, "
+"selecteer de “Advertentie groep\" en voer een ID in"
+
+#: dashboard/publisher/groups-edit.php:174
+#: dashboard/publisher/groups-edit.php:319
+#: dashboard/publisher/groups-edit.php:413
+msgid "Save Group"
+msgstr "Groep opslaan"
+
+#: dashboard/publisher/groups-edit.php:178 dashboard/settings/statistics.php:28
+msgid "Advanced"
+msgstr "Geavanceerd"
+
+#: dashboard/publisher/groups-edit.php:182
+msgid "Advert Margin"
+msgstr "Advertentiemarge"
+
+#: dashboard/publisher/groups-edit.php:184
+msgid "pixel(s)"
+msgstr "pixel(en)"
+
+#: dashboard/publisher/groups-edit.php:187
+msgid "A transparent area outside the advert in pixels. Default: 0."
+msgstr "Een transparant gebied buiten de advertentie in pixels. Standaard: 0."
+
+#: dashboard/publisher/groups-edit.php:187
+msgid "Set to 0 to disable."
+msgstr "Stel in op 0 om uit te schakelen."
+
+#: dashboard/publisher/groups-edit.php:187
+msgid "Margins are automatically disabled for blocks where required."
+msgstr "Marges worden automatisch uitgeschakeld voor blokken waar nodig."
+
+#: dashboard/publisher/groups-edit.php:191
+msgid "Align the group"
+msgstr "De groep uitlijnen"
+
+#: dashboard/publisher/groups-edit.php:194
+msgid "None (Default)"
+msgstr "None"
+
+#: dashboard/publisher/groups-edit.php:195
+msgid "Left"
+msgstr "Links"
+
+#: dashboard/publisher/groups-edit.php:196
+msgid "Right"
+msgstr "Rechts"
+
+#: dashboard/publisher/groups-edit.php:197
+msgid "Center"
+msgstr "Midden"
+
+#: dashboard/publisher/groups-edit.php:201
+msgid ""
+"Align the group in your post or page. Using 'center' may affect your margin "
+"setting. Not every theme supports this feature."
+msgstr ""
+"Lijn de groep uit op een bericht of pagina. Het gebruik van 'center' kan "
+"invloed hebben zijn de marge-instelling. Niet elk thema ondersteunt deze "
+"functie."
+
+#: dashboard/publisher/groups-edit.php:206
+msgid "Enable Geo Targeting for this group."
+msgstr "Geotargeting inschakelen voor deze groep."
+
+#: dashboard/publisher/groups-edit.php:207
+msgid "Do not forget to tell the adverts for which areas they should show."
+msgstr ""
+"Vergeet niet om de advertenties te vertellen voor welke gebieden ze moeten "
+"laten zien."
+
+#: dashboard/publisher/groups-edit.php:210
+msgid "Mobile Support"
+msgstr "Mobiele ondersteuning"
+
+#: dashboard/publisher/groups-edit.php:211
+msgid "Enable mobile support for this group."
+msgstr "Mobiele ondersteuning voor deze groep inschakelen."
+
+#: dashboard/publisher/groups-edit.php:212
+msgid "Do not forget to put at least one mobile advert in this group."
+msgstr ""
+"Vergeet niet om tenminste één mobiele advertentie in deze groep te plaatsen."
+
+#: dashboard/publisher/groups-edit.php:215
+msgid "Fallback Group"
+msgstr "Fallback-groep"
+
+#: dashboard/publisher/groups-edit.php:222
+msgid ""
+"Select another group to fall back on when all adverts are expired, not in "
+"the visitors geographic area or are otherwise unavailable."
+msgstr ""
+"Selecteer een andere groep waarop u wilt terugvallen wanneer alle "
+"advertenties zijn verlopen, niet in het geografische gebied van bezoekers of "
+"anderszins niet beschikbaar zijn."
+
+#: dashboard/publisher/groups-edit.php:237
+#: dashboard/publisher/groups-edit.php:270
+#: dashboard/settings/geotargeting.php:24
+msgid "Disabled"
+msgstr "Uitgeschakeld"
+
+#: dashboard/publisher/groups-edit.php:238
+#: dashboard/publisher/groups-edit.php:271
+msgid "Widget (Pro only)"
+msgstr "Widget (alleen Pro)"
+
+#: dashboard/publisher/groups-edit.php:239
+#: dashboard/publisher/groups-edit.php:272
+msgid "Before content"
+msgstr "Voor de inhoud"
+
+#: dashboard/publisher/groups-edit.php:240
+#: dashboard/publisher/groups-edit.php:273
+msgid "After content"
+msgstr "Na inhoud (content)"
+
+#: dashboard/publisher/groups-edit.php:241
+#: dashboard/publisher/groups-edit.php:274
+msgid "Before and after content"
+msgstr "Voor en na de inhoud"
+
+#: dashboard/publisher/groups-edit.php:242
+#: dashboard/publisher/groups-edit.php:275
+msgid "Inside the content..."
+msgstr "Binnen de inhoud..."
+
+#: dashboard/publisher/groups-edit.php:246
+#: dashboard/publisher/groups-edit.php:279
+msgid "after the middle paragraph"
+msgstr "na de middelste alinea"
+
+#: dashboard/publisher/groups-edit.php:247
+#: dashboard/publisher/groups-edit.php:280
+msgid "after the 1st paragraph"
+msgstr "na de 1e alinea"
+
+#: dashboard/publisher/groups-edit.php:248
+#: dashboard/publisher/groups-edit.php:281
+msgid "after the 2nd paragraph"
+msgstr "na de 2e alinea"
+
+#: dashboard/publisher/groups-edit.php:249
+#: dashboard/publisher/groups-edit.php:282
+msgid "after the 3rd paragraph"
+msgstr "na de 3e alinea"
+
+#: dashboard/publisher/groups-edit.php:250
+#: dashboard/publisher/groups-edit.php:283
+msgid "after the 4th paragraph"
+msgstr "na de 4e alinea"
+
+#: dashboard/publisher/groups-edit.php:251
+#: dashboard/publisher/groups-edit.php:284
+msgid "after the 5th paragraph"
+msgstr "na de 5e alinea"
+
+#: dashboard/publisher/groups-edit.php:252
+#: dashboard/publisher/groups-edit.php:285
+msgid "after the 6th paragraph"
+msgstr "na de 6e alinea"
+
+#: dashboard/publisher/groups-edit.php:253
+#: dashboard/publisher/groups-edit.php:286
+msgid "after the 7th paragraph"
+msgstr "na de 7e alinea"
+
+#: dashboard/publisher/groups-edit.php:254
+#: dashboard/publisher/groups-edit.php:287
+msgid "after the 8th paragraph"
+msgstr "na de 8e alinea"
+
+#: dashboard/publisher/groups-edit.php:267
+msgid "Page Injection"
+msgstr "Pagina-injectie"
+
+#: dashboard/publisher/groups-edit.php:323
+msgid "Wrapper code"
+msgstr "Wrapper-code"
+
+#: dashboard/publisher/groups-edit.php:324
+msgid "Wraps around each advert. HTML/JavaScript allowed, use with care!"
+msgstr ""
+"Wraps rond elke advertentie. HTML/JavaScript toegestaan, gebruik met zorg!"
+
+#: dashboard/publisher/groups-edit.php:328
+msgid "Before advert"
+msgstr "Voor de advertentie"
+
+#: dashboard/publisher/groups-edit.php:331
+#: dashboard/publisher/groups-edit.php:339
+msgid "Example:"
+msgstr "Voorbeeld:"
+
+#: dashboard/publisher/groups-edit.php:332
+msgid "Options:"
+msgstr "Opties:"
+
+#: dashboard/publisher/groups-edit.php:336
+msgid "After advert"
+msgstr "Na advertentie"
+
+#: dashboard/publisher/groups-edit.php:345
+msgid "Select adverts"
+msgstr "Advertenties selecteren"
+
+#: dashboard/publisher/groups-edit.php:352
+msgid "Visible until"
+msgstr "Zichtbaar tot"
+
+#: dashboard/publisher/groups-edit.php:353
+msgid "Weight"
+msgstr "Gewicht"
+
+#: dashboard/publisher/groups-edit.php:400
+msgid "No adverts created!"
+msgstr "Geen advertenties gemaakt!"
+
+#: dashboard/publisher/groups-edit.php:407
+msgid "Configuration errors."
+msgstr "Configuratiefouten."
+
+#: dashboard/publisher/groups-edit.php:408
+#: dashboard/publisher/schedules-main.php:87
+msgid "Expires soon."
+msgstr "Verloopt binnenkort."
+
+#: dashboard/publisher/groups-edit.php:409
+#: dashboard/publisher/schedules-main.php:88
+msgid "Has expired."
+msgstr "Is verlopen."
+
+#: dashboard/publisher/groups-main.php:21
+msgid "Delete Group"
+msgstr "Verwijder groep"
+
+#: dashboard/publisher/groups-main.php:22
+msgid "Delete Group including adverts"
+msgstr "Groep inclusief advertenties verwijderen"
+
+#: dashboard/publisher/groups-main.php:24
+msgid "You are about to delete a group"
+msgstr "U staat op het punt een groep te verwijderen"
+
+#: dashboard/publisher/groups-main.php:24
+msgid "This action can not be undone!"
+msgstr "Deze actie kan niet ongedaan worden gemaakt!"
+
+#: dashboard/publisher/groups-main.php:24 dashboard/settings/maintenance.php:22
+#: dashboard/settings/maintenance.php:101
+msgid "OK to continue, CANCEL to stop."
+msgstr "OK om door te gaan, annuleren om te stoppen."
+
+#: dashboard/publisher/groups-main.php:84
+msgid "No groups created!"
+msgstr "Groepen aangemaakt!"
+
+#: dashboard/publisher/media.php:19
+msgid "Upload new file"
+msgstr "Upload nieuw bestand"
+
+#: dashboard/publisher/media.php:37
+msgid "Accepted files:"
+msgstr "Geaccepteerde bestanden zijn:"
+
+#: dashboard/publisher/media.php:37
+msgid "Maximum size is 512Kb per file."
+msgstr "Maximale grootte is 512Kb per bestand."
+
+#: dashboard/publisher/media.php:37
+msgid ""
+"Make sure your file has no spaces or special characters in the name. Replace "
+"spaces with a - or _."
+msgstr ""
+"Zorg ervoor dat de bestandsnaam geen spaties of speciale tekens in de naam "
+"heeft. Spaties vervangen door een - of _."
+
+#: dashboard/publisher/media.php:37
+msgid ""
+"Zip files are automatically extracted in the location where they are "
+"uploaded and the original zip file will be deleted once extracted."
+msgstr ""
+"Zip-bestanden worden automatisch geëxtraheerd op de locatie waar ze worden "
+"geüpload en het oorspronkelijke zip-bestand wordt verwijderd zodra ze zijn "
+"geëxtraheerd."
+
+#: dashboard/publisher/media.php:37
+msgid ""
+"You can create top-level folders below. Folder names can between 1 and 100 "
+"characters long. Any special characters are stripped out."
+msgstr ""
+"Hieronder kun je mappen op het top-niveau maken. Mapnamen kunnen tussen de 1 "
+"en 100 tekens lang zijn. Alle speciale karakters worden verwijderd."
+
+#: dashboard/publisher/media.php:40
+msgid "Upload file"
+msgstr "Bestand uploaden"
+
+#: dashboard/publisher/media.php:40
+msgid "Click only once per file!"
+msgstr "Klik slechts één keer per bestand!"
+
+#: dashboard/publisher/media.php:43
+msgid "Available files in"
+msgstr "Beschikbare bestanden in"
+
+#: dashboard/publisher/media.php:55
+msgid "Create folder"
+msgstr "Maak map"
+
+#: dashboard/publisher/media.php:88
+msgid "No files found!"
+msgstr "Geen bestanden gevonden!"
+
+#: dashboard/publisher/media.php:96
+msgid ""
+"Make sure the banner images are not in use by adverts when you delete them!"
+msgstr ""
+"Zorg ervoor dat de bannerafbeeldingen niet worden gebruikt door advertenties "
+"wanneer u ze verwijdert!"
+
+#: dashboard/publisher/media.php:96
+msgid "Deleting a folder deletes everything inside that folder as well!"
+msgstr "Als u een map verwijdert, wordt ook alles in die map verwijderd!"
+
+#: dashboard/publisher/schedules-main.php:13
+msgid ""
+"In AdRotate Pro you can schedule adverts for multiple periods of time. One "
+"schedule can be assigned to many adverts allowing you to manage multi advert "
+"campaigns easily. Schedules can be active on certain days of the week or on "
+"certain hours of the day."
+msgstr ""
+"In AdRotate Pro kun je advertenties voor meerdere periodes inplannen. Een "
+"schema kan aan meerdere advertenties worden toegewezen, zodat je eenvoudig "
+"meerdere advertentiecampagnes kunt beheren. Schema's kunnen actief zijn op "
+"bepaalde dagen van de week of op bepaalde uren van de dag."
+
+#: dashboard/publisher/schedules-main.php:13
+msgid "Get more scheduling options with"
+msgstr "Meer planningsopties met"
+
+#: dashboard/publisher/schedules-main.php:36
+msgid "Max Shown"
+msgstr "Max getoond"
+
+#: dashboard/publisher/schedules-main.php:37
+msgid "Max Clicks"
+msgstr "Max klikken"
+
+#: dashboard/publisher/schedules-main.php:70
+msgid "Mon:"
+msgstr "Ma:"
+
+#: dashboard/publisher/schedules-main.php:70
+msgid "Tue:"
+msgstr "Di:"
+
+#: dashboard/publisher/schedules-main.php:70
+msgid "Wed:"
+msgstr "Wo:"
+
+#: dashboard/publisher/schedules-main.php:70
+msgid "Thu:"
+msgstr "Do:"
+
+#: dashboard/publisher/schedules-main.php:70
+msgid "Fri:"
+msgstr "Vr:"
+
+#: dashboard/publisher/schedules-main.php:70
+msgid "Sat:"
+msgstr "Zat:"
+
+#: dashboard/publisher/schedules-main.php:70
+msgid "Sun:"
+msgstr "Zon:"
+
+#: dashboard/publisher/schedules-main.php:70
+msgid "Between:"
+msgstr "Tussen:"
+
+#: dashboard/publisher/schedules-main.php:70
+msgid "Impression spread:"
+msgstr "Impressie spreiding:"
+
+#: dashboard/publisher/schedules-main.php:70
+msgid "Auto Delete:"
+msgstr "Automatisch verwijderen:"
+
+#: dashboard/publisher/schedules-main.php:81
+msgid "Nothing here!"
+msgstr "Niet gevonden!"
+
+#: dashboard/publisher/statistics-advert.php:39
+msgid "Statistics for advert"
+msgstr "Statistieken voor advertenties"
+
+#: dashboard/publisher/statistics-advert.php:46
+#: dashboard/publisher/statistics-group.php:53
+#: dashboard/publisher/statistics-main.php:30
+msgid "All time"
+msgstr "Altijd"
+
+#: dashboard/publisher/statistics-advert.php:51
+#: dashboard/publisher/statistics-advert.php:57
+#: dashboard/publisher/statistics-advert.php:71
+#: dashboard/publisher/statistics-advert.php:77
+#: dashboard/publisher/statistics-advert.php:98
+#: dashboard/publisher/statistics-group.php:58
+#: dashboard/publisher/statistics-group.php:64
+#: dashboard/publisher/statistics-group.php:78
+#: dashboard/publisher/statistics-group.php:84
+#: dashboard/publisher/statistics-group.php:103
+#: dashboard/publisher/statistics-main.php:39
+#: dashboard/publisher/statistics-main.php:53
+#: dashboard/publisher/statistics-main.php:57
+#: dashboard/publisher/statistics-main.php:74
+msgid "Impressions"
+msgstr "Impressies"
+
+#: dashboard/publisher/statistics-advert.php:64
+#: dashboard/publisher/statistics-group.php:71
+#: dashboard/publisher/statistics-main.php:46
+msgid "Last month"
+msgstr "Afgelopen maand"
+
+#: dashboard/publisher/statistics-advert.php:85
+#: dashboard/publisher/statistics-group.php:92
+#: dashboard/publisher/statistics-main.php:64
+msgid "Monthly overview of clicks and impressions"
+msgstr "Maandelijks overzicht van klikken en vertoningen"
+
+#: dashboard/publisher/statistics-advert.php:108
+#: dashboard/publisher/statistics-group.php:112
+#: dashboard/publisher/statistics-main.php:82
+#: dashboard/settings/notifications.php:58
+msgid "Note:"
+msgstr "Notitie:"
+
+#: dashboard/publisher/statistics-advert.php:108
+#: dashboard/publisher/statistics-group.php:112
+#: dashboard/publisher/statistics-main.php:82
+msgid ""
+"All statistics are indicative. They do not nessesarily reflect results "
+"counted by other parties."
+msgstr ""
+"Alle statistieken zijn indicatief. Ze komen niet perse overeen met de "
+"resultaten die door andere partijen zijn geteld."
+
+#: dashboard/publisher/statistics-group.php:46
+msgid "Statistics for group"
+msgstr "Statistieken voor groep"
+
+#: dashboard/publisher/statistics-main.php:37
+msgid "Adverts counting stats"
+msgstr "Advertenties tellen statistieken"
+
+#: dashboard/settings/general.php:17
+msgid "General Settings"
+msgstr "Algemene instellingen"
+
+#: dashboard/settings/general.php:18
+msgid "General settings for AdRotate."
+msgstr "Algemene instellingen voor AdRotate."
+
+#: dashboard/settings/general.php:18 dashboard/settings/statistics.php:18
+msgid "Some options are only available in AdRotate Pro!"
+msgstr "Sommige opties zijn alleen beschikbaar in AdRotate Pro!"
+
+#: dashboard/settings/general.php:21
+msgid "Duplicate adverts"
+msgstr "Advertenties dupliceren"
+
+#: dashboard/settings/general.php:22
+msgid ""
+"Try and prevent adverts in groups that are in Default or Block mode from "
+"showing multiple times on the same page load."
+msgstr ""
+"Probeer te voorkomen dat advertenties in groepen die in standaard- of "
+"blokmodus ingesteld zijn meerdere keren worden weergegeven tijdens het laden "
+"van dezelfde pagina."
+
+#: dashboard/settings/general.php:23
+msgid ""
+"If you still notice double adverts from groups placed on a page, start with "
+"carefully looking at your setup to make sure you did not cause this yourself."
+msgstr ""
+"Als je nog steeds dubbele advertenties ziet van groepen die op een pagina "
+"zijn geplaatst, moet je eerst goed naar je setup kijken om ervoor te zorgen "
+"dat je dit niet zelf hebt veroorzaakt."
+
+#: dashboard/settings/general.php:23
+msgid "On some servers $_SESSION is disabled."
+msgstr "Op sommige servers is _SESSION $ uitgeschakeld."
+
+#: dashboard/settings/general.php:23
+msgid ""
+"A plugin called \"WP Session Manager\" by Eric Mann may fix this. However, "
+"most people will not need this extra plugin!"
+msgstr ""
+"Een plugin genaamd \"WP Session Manager\" door Eric Mann kan dit oplossen. "
+"Echter, de meeste mensen zullen niet nodig deze extra plugin!"
+
+#: dashboard/settings/general.php:26
+msgid "Shortcode in widgets"
+msgstr "Shortcode in widgets"
+
+#: dashboard/settings/general.php:27
+msgid ""
+"Try and activate shortcodes in text widgets if your theme does not add "
+"support for it by itself. (This does not always work!)"
+msgstr ""
+"Probeer shortcodes in tekstwidgets te activeren als je thema er zelf geen "
+"ondersteuning voor heeft. (Dit werkt niet altijd!)"
+
+#: dashboard/settings/general.php:30
+msgid "Advert live preview"
+msgstr "Advertentie live preview"
+
+#: dashboard/settings/general.php:31
+msgid ""
+"Disable live previews for adverts if you have faulty adverts that overflow "
+"their designated area while creating/editing adverts."
+msgstr ""
+"Schakel live previews voor advertenties uit als je advertenties hebt die hun "
+"voorbeeld vak overschrijden tijdens het maken / bewerken van advertenties."
+
+#: dashboard/settings/general.php:34
+msgid "Dynamic mode on mobile"
+msgstr "Dynamische modus op mobiel"
+
+#: dashboard/settings/general.php:35
+msgid ""
+"Disable dynamic mode in groups for mobile devices if you notice skipping or "
+"jumpy content."
+msgstr ""
+"Schakel de dynamische modus uit voor mobiele apparaten als je overlappende "
+"of springerige content opmerkt."
+
+#: dashboard/settings/general.php:38
+msgid "Load jQuery"
+msgstr "JQuery laden"
+
+#: dashboard/settings/general.php:39
+msgid ""
+"Load jQuery if your theme does not load it already. jQuery is required for "
+"dynamic groups, statistics and some other features."
+msgstr ""
+"Laad jQuery als je thema het niet zelf laadt. jQuery is vereist voor "
+"dynamische groepen, statistieken en enkele andere functies."
+
+#: dashboard/settings/general.php:42
+msgid "Load scripts in footer?"
+msgstr "Scripts laden in footer?"
+
+#: dashboard/settings/general.php:43
+msgid "Load all AdRotate Javascripts in the footer of your site."
+msgstr "Laad alle AdRotate Javascripts in de footer van je site."
+
+#: dashboard/settings/general.php:46
+msgid "Adblock disguise"
+msgstr "Adblock vermomming"
+
+#: dashboard/settings/general.php:48
+msgid "Leave empty to disable. Use only lowercaps letters. For example:"
+msgstr ""
+"Laat leeg om uit te schakelen. Gebruik alleen lowercaps letters. "
+"Bijvoorbeeld:"
+
+#: dashboard/settings/general.php:49
+msgid ""
+"Try and avoid adblock plugins in most modern browsers when using shortcodes."
+msgstr ""
+"Probeer adblock-plug-ins in de meeste moderne browsers te vermijden bij het "
+"gebruik van shortcodes."
+
+#: dashboard/settings/general.php:49
+msgid ""
+"To also apply this feature to widgets, use a text widget with a shortcode "
+"instead of the AdRotate widget."
+msgstr ""
+"Als u deze functie ook wilt toepassen op widgets, gebruikt u een tekstwidget "
+"met een shortcode in plaats van de widget AdRotate."
+
+#: dashboard/settings/general.php:49
+msgid ""
+"Avoid the use of obvious keywords or filenames in your adverts or this "
+"feature will have little effect!"
+msgstr ""
+"Vermijd het gebruik van voor de hand liggende termen of bestandsnamen in de "
+"advertenties of deze functie zal weinig effect hebben!"
+
+#: dashboard/settings/general.php:54
+msgid "Banner Folder"
+msgstr "Banner map"
+
+#: dashboard/settings/general.php:55
+msgid "Set a folder where your banner images will be stored."
+msgstr "Stel een map in waar de advertentie afbeeldingen worden opgeslagen."
+
+#: dashboard/settings/general.php:58
+msgid "Folder name"
+msgstr "Naam map"
+
+#: dashboard/settings/general.php:60
+msgid "(Default: banners)."
+msgstr "(Standaard: banners)."
+
+#: dashboard/settings/general.php:61
+msgid ""
+"To try and trick ad blockers you could set the folder to something crazy "
+"like:"
+msgstr ""
+"Om te proberen ad blockers te misleiden, u de map instellen op iets geks als:"
+
+#: dashboard/settings/general.php:62
+msgid ""
+"This folder will not be automatically created if it doesn't exist. AdRotate "
+"will show errors when the folder is missing."
+msgstr ""
+"Deze map wordt niet automatisch gemaakt als deze niet bestaat. AdRoteren "
+"geeft fouten weer wanneer de map ontbreekt."
+
+#: dashboard/settings/general.php:67
+msgid "Bot filter"
+msgstr "Botfilter"
+
+#: dashboard/settings/general.php:68
+msgid "The bot filter is used for the AdRotate stats tracker."
+msgstr ""
+"Het botfilter wordt gebruikt voor Geo Targeting en de AdRotate stats tracker."
+
+#: dashboard/settings/general.php:71
+msgid "User-Agent Filter"
+msgstr "Filter van gebruikersagent"
+
+#: dashboard/settings/general.php:74
+msgid ""
+"A comma separated list of keywords. Filter out bots/crawlers/user-agents."
+msgstr ""
+"Een komma gescheiden lijst van zoekwoorden. Filter bots/crawlers/user-agents."
+
+#: dashboard/settings/general.php:75
+msgid ""
+"Keep in mind that this might give false positives. The word 'fire' also "
+"matches 'firefox', but not vice-versa. So be careful!"
+msgstr ""
+"Houd er rekening mee dat dit valse positieven kan geven. Het woord 'vuur' "
+"komt ook overeen met 'firefox', maar niet andersom. Dus wees voorzichtig!"
+
+#: dashboard/settings/general.php:76
+msgid ""
+"Only words with alphanumeric characters and [ - _ ] are allowed. All other "
+"characters are stripped out."
+msgstr ""
+"Alleen woorden met alfanumerieke tekens en [ - _ ] zijn toegestaan. Alle "
+"andere personages zijn gestript."
+
+#: dashboard/settings/general.php:77
+msgid ""
+"Additionally to the list specified here, empty User-Agents are blocked as "
+"well."
+msgstr ""
+"Bovendien worden lege gebruikersagents geblokkeerd in de lijst die hier is "
+"opgegeven."
+
+#: dashboard/settings/general.php:77
+msgid "Learn more about"
+msgstr "Meer informatie over"
+
+#: dashboard/settings/general.php:77
+msgid "user-agents"
+msgstr "gebruikersagenten"
+
+#: dashboard/settings/general.php:83 dashboard/settings/maintenance.php:107
+#: dashboard/settings/misc.php:47 dashboard/settings/notifications.php:72
+#: dashboard/settings/roles.php:55 dashboard/settings/statistics.php:85
+msgid "Update Options"
+msgstr "Update opties"
+
+#: dashboard/settings/geotargeting.php:17
+msgid "Geo Targeting - Available in AdRotate Pro"
+msgstr "Geotargeting - Beschikbaar in AdRotate Pro"
+
+#: dashboard/settings/geotargeting.php:18
+msgid "Target certain areas in the world for better advertising oppurtunities."
+msgstr ""
+"Richt je op bepaalde gebieden in de wereld voor betere reclame mogelijkheden."
+
+#: dashboard/settings/geotargeting.php:21
+msgid "Which Geo Service"
+msgstr "Welke Geo-service"
+
+#: dashboard/settings/geotargeting.php:32
+msgid "30000 free lookups every day, uses GeoLite2 databases from MaxMind!"
+msgstr ""
+"30000 gratis lookups elke dag, maakt gebruik van GeoLite2 databases van "
+"MaxMind!"
+
+#: dashboard/settings/geotargeting.php:33
+#: dashboard/settings/geotargeting.php:37
+#: dashboard/settings/geotargeting.php:41
+#: dashboard/settings/geotargeting.php:45 dashboard/settings/statistics.php:32
+#: dashboard/settings/statistics.php:35 dashboard/settings/statistics.php:38
+#: dashboard/settings/statistics.php:41
+msgid "Supports:"
+msgstr "Ondersteunt:"
+
+#: dashboard/settings/geotargeting.php:34
+#: dashboard/settings/geotargeting.php:38
+#: dashboard/settings/geotargeting.php:42
+#: dashboard/settings/geotargeting.php:46
+msgid "Scalability:"
+msgstr "Schaalbaarheid:"
+
+#: dashboard/settings/geotargeting.php:34
+msgid "Suitable for small to medium sized websites."
+msgstr "Geschikt voor kleine tot middelgrote websites."
+
+#: dashboard/settings/geotargeting.php:36
+#: dashboard/settings/geotargeting.php:40
+msgid "More info"
+msgstr "Meer info"
+
+#: dashboard/settings/geotargeting.php:36
+msgid "10000 free lookups per month, requires account."
+msgstr "10000 gratis lookups per maand, vereist account."
+
+#: dashboard/settings/geotargeting.php:38
+msgid ""
+"Suitable for small to medium sized websites with a free account - Paid "
+"options available."
+msgstr ""
+"Geschikt voor kleine tot middelgrote websites met een gratis account - "
+"Betaalde opties beschikbaar."
+
+#: dashboard/settings/geotargeting.php:40
+msgid "The most accurate geo targeting available."
+msgstr "De meest nauwkeurige geo targeting beschikbaar."
+
+#: dashboard/settings/geotargeting.php:42
+msgid "Suitable for any size website as long as you have lookups."
+msgstr "Geschikt voor elke grootte website, zolang je lookups."
+
+#: dashboard/settings/geotargeting.php:44
+msgid "Basic geolocation included in every CloudFlare account."
+msgstr "Basisgeolocatie opgenomen in elk CloudFlare-account."
+
+#: dashboard/settings/geotargeting.php:46
+msgid "Suitable for any size website."
+msgstr "Geschikt voor elke grootte website."
+
+#: dashboard/settings/geotargeting.php:51
+msgid "Geo Cookie Lifespan"
+msgstr "Geo Cookie Levensduur"
+
+#: dashboard/settings/geotargeting.php:60
+msgid "Hours."
+msgstr "Uren."
+
+#: dashboard/settings/geotargeting.php:61
+msgid ""
+"Geo Data is stored in a cookie to reduce lookups. How long should this "
+"cookie last? A longer period is less accurate for mobile users but may "
+"reduce the usage of your lookups drastically."
+msgstr ""
+"Geo Gegevens worden opgeslagen in een cookie om lookups te verminderen. Hoe "
+"lang moet deze cookie geldig blijven? Een langere periode is minder "
+"nauwkeurig voor mobiele gebruikers, maar kan het gebruik van lookups "
+"drastisch verminderen."
+
+#: dashboard/settings/geotargeting.php:67
+msgid "MaxMind City/Country"
+msgstr "MaxMind Stad/Land"
+
+#: dashboard/settings/geotargeting.php:70
+msgid "Username/Email"
+msgstr "Gebruikersnaam/E-mailadres"
+
+#: dashboard/settings/geotargeting.php:74
+msgid "Password/License Key"
+msgstr "Wachtwoord / licentiecode"
+
+#: dashboard/settings/maintenance.php:17
+msgid ""
+"Use these functions when you notice your database is slow, unresponsive and "
+"sluggish."
+msgstr "Gebruik deze functies wanneer je merkt dat de database traag word."
+
+#: dashboard/settings/maintenance.php:22
+msgid "Check for errors"
+msgstr "Controleren op fouten"
+
+#: dashboard/settings/maintenance.php:22
+msgid "You are about to check all adverts for errors."
+msgstr "U staat op het punt om alle advertenties te controleren op fouten."
+
+#: dashboard/settings/maintenance.php:22
+msgid "This might take a few seconds!"
+msgstr "Dit kan een paar seconden duren!"
+
+#: dashboard/settings/maintenance.php:24
+msgid ""
+"Apply all evaluation rules to all adverts to see if any error slipped in."
+msgstr ""
+"Pas alle evaluatieregels toe op alle advertenties om te zien of er een fout "
+"is binnengegleden."
+
+#: dashboard/settings/maintenance.php:28
+msgid "Clean-up Database and Files"
+msgstr "Database en bestanden opschonen"
+
+#: dashboard/settings/maintenance.php:30
+msgid "Run Clean-up"
+msgstr "Opruimen uitvoeren"
+
+#: dashboard/settings/maintenance.php:30
+msgid "You are about to do maintenance on your setup of AdRotate."
+msgstr ""
+"Je staat op het punt om onderhoud te doen aan de installatie van AdRotate."
+
+#: dashboard/settings/maintenance.php:30
+msgid ""
+"This optionally may delete old statistics and tries to delete old export "
+"files."
+msgstr ""
+"Dit kan optioneel oude statistieken verwijderen en probeert oude "
+"exportbestanden te verwijderen."
+
+#: dashboard/settings/maintenance.php:30
+msgid "Are you sure you want to continue?"
+msgstr "Weet u zeker dat u wilt doorgaan?"
+
+#: dashboard/settings/maintenance.php:30
+msgid "THIS ACTION CAN NOT BE UNDONE!"
+msgstr "DEZE ACTIE KAN NIET ONGEDAAN WORDEN GEMAAKT!"
+
+#: dashboard/settings/maintenance.php:32
+msgid "Basic database maintenance."
+msgstr "Basis databaseonderhoud."
+
+#: dashboard/settings/maintenance.php:33
+msgid "Delete stats older than 365 days."
+msgstr "Verwijder statistieken ouder dan 365 dagen."
+
+#: dashboard/settings/maintenance.php:34
+msgid "Delete leftover export files."
+msgstr "Verwijder overgebleven exportbestanden."
+
+#: dashboard/settings/maintenance.php:35
+msgid ""
+"For when you create an advert, group or schedule and it does not save or "
+"keep changes you make."
+msgstr ""
+"Voor wanneer je een advertentie, groep of schema maakt en de aangebrachte "
+"wijzigingen niet worden opgeslagen of bewaard."
+
+#: dashboard/settings/maintenance.php:35
+msgid ""
+"Additionally you can delete statistics and/or unused export files. This will "
+"improve the speed of your site."
+msgstr ""
+"Daarnaast kun je oude schema's, statistieken, weggegooide advertenties "
+"verwijderen. Het uitvoeren van deze routine van tijd tot tijd kan de "
+"snelheid van de site te verbeteren."
+
+#: dashboard/settings/maintenance.php:39
+msgid ""
+"DISCLAIMER: The above functions are intented to be used to OPTIMIZE your "
+"database or clean up overhead data. They only apply to your ads/groups and "
+"stats. Not to other settings or other parts of WordPress! Always always make "
+"a backup! If for any reason your data is lost, damaged or otherwise becomes "
+"unusable in any way or by any means in whichever way I will not take "
+"responsibility. You should always have a backup of your database. These "
+"functions do NOT destroy data. If data is lost, damaged or unusable in any "
+"way, your database likely was beyond repair already. Claiming it worked "
+"before clicking these buttons is not a valid point in any case."
+msgstr ""
+"DISCLAIMER: De bovenstaande functies zijn bedoeld om te worden gebruikt om "
+"de database te optimaliseren. Ze zijn alleen van toepassing op uw "
+"advertenties / groepen en statistieken. Niet naar andere instellingen of "
+"andere delen van WordPress! Maak altijd een back-up! Als om welke reden dan "
+"ook uw gegevens verloren gaan, beschadigd of anderszins onbruikbaar worden "
+"op welke manier dan ook op welke manier dan ook zal ik geen "
+"verantwoordelijkheid nemen. U moet altijd een back-up van uw database "
+"hebben. Deze functies vernietigen geen gegevens. Als gegevens op enigerlei "
+"wijze verloren, beschadigd of onbruikbaar zijn, is uw database "
+"waarschijnlijk al niet meer te repareren. Beweren dat het werkte voordat u "
+"op deze knoppen klikt, is in ieder geval geen geldig punt."
+
+#: dashboard/settings/maintenance.php:41
+msgid "Status and Versions"
+msgstr "Status en versies"
+
+#: dashboard/settings/maintenance.php:44
+msgid "Current status of adverts"
+msgstr "Huidige status van advertenties"
+
+#: dashboard/settings/maintenance.php:45
+msgid "Normal"
+msgstr "Normaal"
+
+#: dashboard/settings/maintenance.php:45
+msgid "Error"
+msgstr "Fout"
+
+#: dashboard/settings/maintenance.php:45
+msgid "Expires Soon"
+msgstr "Verloopt binnenkort"
+
+#: dashboard/settings/maintenance.php:45
+msgid "Unknown"
+msgstr "Onbekend"
+
+#: dashboard/settings/maintenance.php:48
+msgid "Banners/assets Folder"
+msgstr "Map Banners/assets"
+
+#: dashboard/settings/maintenance.php:52 dashboard/settings/maintenance.php:61
+msgid "Exists and appears writable"
+msgstr "Bestaat en lijkt beschrijfbaar"
+
+#: dashboard/settings/maintenance.php:52 dashboard/settings/maintenance.php:61
+msgid "Not writable or does not exist"
+msgstr "Niet beschrijfbaar of bestaat niet"
+
+#: dashboard/settings/maintenance.php:57
+msgid "Reports Folder"
+msgstr "Map rapporten"
+
+#: dashboard/settings/maintenance.php:66
+msgid "Advert evaluation"
+msgstr "Advertentie-evaluatie"
+
+#: dashboard/settings/maintenance.php:67
+msgid "Not scheduled! Re-activate the plugin from the plugins page."
+msgstr "Niet gepland! Activeer de plug-in opnieuw vanaf de pagina plug-ins."
+
+#: dashboard/settings/maintenance.php:68
+msgid "Clean Trackerdata"
+msgstr "Trackerdata opschonen"
+
+#: dashboard/settings/maintenance.php:69
+msgid "Not scheduled!"
+msgstr "Niet gepland!"
+
+#: dashboard/settings/maintenance.php:72
+msgid "Background tasks"
+msgstr "Achtergrondtaken"
+
+#: dashboard/settings/maintenance.php:74
+msgid "Reset background tasks"
+msgstr "Achtergrondtaken opnieuw instellen"
+
+#: dashboard/settings/maintenance.php:78
+msgid "Unsupported plugins"
+msgstr "Niet-ondersteunde plugins"
+
+#: dashboard/settings/maintenance.php:80
+msgid "Disable 3rd party plugins"
+msgstr "Schakel niet-ondersteunde plugins uit"
+
+#: dashboard/settings/maintenance.php:82
+msgid "One or more unsupported 3rd party plugins detected."
+msgstr "Één of meer niet ondersteunde plugins gedetecteerd."
+
+#: dashboard/settings/maintenance.php:84
+msgid ""
+"These are plugins that alter functions of AdRotate or highjack parts of the "
+"dashboard which may affect security and/or stability."
+msgstr ""
+"Dit zijn plugins die delen van het AdRotate dashboard overnemen wat de "
+"stabiliteit en veiligheid kan beinvloeden."
+
+#: dashboard/settings/maintenance.php:89
+msgid "Internal Versions"
+msgstr "Interne versies"
+
+#: dashboard/settings/maintenance.php:90
+msgid ""
+"Unless you experience database issues or a warning shows below, these "
+"numbers are not really relevant for troubleshooting. Support may ask for "
+"them to verify your database status."
+msgstr ""
+"Tenzij u databaseproblemen of een waarschuwing hieronder onderziet, zijn "
+"deze nummers niet echt relevant voor het oplossen van problemen. "
+"Ondersteuning kan hen vragen om uw databasestatus te verifiëren."
+
+#: dashboard/settings/maintenance.php:93
+msgid "AdRotate version"
+msgstr "Versie AdRotate"
+
+#: dashboard/settings/maintenance.php:94 dashboard/settings/maintenance.php:96
+msgid "Current:"
+msgstr "Huidige pagina:"
+
+#: dashboard/settings/maintenance.php:94 dashboard/settings/maintenance.php:96
+msgid "Should be:"
+msgstr "Moet zijn:"
+
+#: dashboard/settings/maintenance.php:94 dashboard/settings/maintenance.php:96
+msgid "Previous:"
+msgstr "Vorige:"
+
+#: dashboard/settings/maintenance.php:95
+msgid "Database version"
+msgstr "Databaseversie"
+
+#: dashboard/settings/maintenance.php:99
+msgid "Manual upgrade"
+msgstr "Handmatige upgrade"
+
+#: dashboard/settings/maintenance.php:101
+msgid "YOU ARE ABOUT TO DO A MANUAL UPDATE FOR ADROTATE."
+msgstr "U staat op het punt een handmatige update voor adrotate te doen."
+
+#: dashboard/settings/maintenance.php:101
+msgid "Make sure you have a database backup!"
+msgstr "Zorg ervoor dat je een database back-up hebt!"
+
+#: dashboard/settings/maintenance.php:101
+msgid "This might take a while and may slow down your site during this action!"
+msgstr ""
+"Dit kan een tijdje duren en kan de website vertragen tijdens deze actie!"
+
+#: dashboard/settings/maintenance.php:101
+msgid "Run updater"
+msgstr "Updater uitvoeren"
+
+#: dashboard/settings/misc.php:19
+msgid "Widget alignment"
+msgstr "Uitlijning van het object"
+
+#: dashboard/settings/misc.php:20
+msgid ""
+"Check this box if your widgets do not align in your themes sidebar. (Does "
+"not always help!)"
+msgstr ""
+"Schakel dit selectievakje in als de widgets niet in de zijbalk van het thema "
+"worden uitgelijnd. (Helpt niet altijd!)"
+
+#: dashboard/settings/misc.php:23
+msgid "Widget padding"
+msgstr "Opvulling van widgets"
+
+#: dashboard/settings/misc.php:24
+msgid ""
+"Enable this to remove the padding (blank space) around ads in widgets. (Does "
+"not always work!)"
+msgstr ""
+"Schakel dit in om de opvulling (lege ruimte) rond advertenties in widgets te "
+"verwijderen. (Werkt niet altijd!)"
+
+#: dashboard/settings/misc.php:28
+msgid "NOTICE:"
+msgstr "LET OP:"
+
+#: dashboard/settings/misc.php:29
+msgid ""
+"You have enabled W3 Total Caching support but not defined the security hash."
+msgstr ""
+"Je hebt W3 Total Caching-ondersteuning ingeschakeld, maar hebt de "
+"beveiligingshash niet gedefinieerd."
+
+#: dashboard/settings/misc.php:29
+msgid ""
+"AdRotate has generated the following line for you to add to your wp-config."
+"php around line 52 (below the WordPress nonces). If you do not know how to "
+"add this line, check out the following guide;"
+msgstr ""
+"AdRotate heeft de volgende regel gegenereerd die u toevoegen aan het wp-"
+"config.php bestand, rond lijn 52 (onder de WordPress-nonces). Als je niet "
+"weet hoe deze regel moet worden toevoegen, raadpleeg dan eerst de "
+"handleiding;"
+
+#: dashboard/settings/misc.php:29
+msgid "Set up W3 Total Caching"
+msgstr "W3 Total Caching instellen"
+
+#: dashboard/settings/misc.php:33
+msgid "W3 Total Caching"
+msgstr "W3 Total Caching"
+
+#: dashboard/settings/misc.php:34
+msgid "Check this box if you use W3 Total Caching on your site."
+msgstr "Schakel deze optie in als je W3 Total Caching gebruikt."
+
+#: dashboard/settings/misc.php:37
+msgid "Borlabs Cache"
+msgstr "Borlabs Cache"
+
+#: dashboard/settings/misc.php:38
+msgid "Check this box if you use Borlabs Caching on your site."
+msgstr "Schakel deze optie in als je Borlabs Caching op de site gebruikt."
+
+#: dashboard/settings/misc.php:42
+msgid ""
+"It may take a while for the ad to start rotating. The caching plugin needs "
+"to refresh the cache. This can take up to a week if not done manually."
+msgstr ""
+"Het kan even duren voordat de advertentie begint te werken. De cache moet "
+"worden vernieuwd. Dit kan een paar dagen duren als dit niet handmatig "
+"gebeurt."
+
+#: dashboard/settings/misc.php:42
+msgid ""
+"Caching support only works for [shortcodes] and the AdRotate Widget. If you "
+"use a PHP Snippet you need to wrap your PHP in the exclusion code yourself."
+msgstr ""
+"Ondersteuning voor caching werkt alleen voor [shortcodes] en de AdRotate "
+"Widgets. Als je een PHP Snippet gebruikt, moet je zelf de PHP code in the "
+"uitzonderings code van de caching plugin gebruiken."
+
+#: dashboard/settings/notifications.php:19
+msgid "Set up who gets notifications if ads need your attention."
+msgstr ""
+"Stel in wie meldingen ontvangt als advertenties de aandacht nodig hebben."
+
+#: dashboard/settings/notifications.php:22
+msgid "How to notify"
+msgstr "Hoe te notificeren"
+
+#: dashboard/settings/notifications.php:24
+msgid "Dashboard banner."
+msgstr "Dashboard banner."
+
+#: dashboard/settings/notifications.php:25
+msgid "Email message."
+msgstr "E-mailbericht."
+
+#: dashboard/settings/notifications.php:29
+msgid "Test notification"
+msgstr "Testmelding"
+
+#: dashboard/settings/notifications.php:31
+msgid "Test"
+msgstr "Test"
+
+#: dashboard/settings/notifications.php:31
+msgid ""
+"Send a test notification to enabled methods. Before you test, save the "
+"options first!"
+msgstr ""
+"Stuur een testmelding naar ingeschakelde methoden. Voordat u test, slaat u "
+"eerst de opties op!"
+
+#: dashboard/settings/notifications.php:36
+msgid "Dashboard Banner"
+msgstr "Dashboardbanner"
+
+#: dashboard/settings/notifications.php:37
+msgid ""
+"These go in a dashboard banner visible to all users with access to AdRotate "
+"on every WordPress dashboard page."
+msgstr ""
+"Deze gaan in een dashboardbanner die zichtbaar is voor alle gebruikers met "
+"toegang tot AdRotate op elke WordPress-dashboardpagina."
+
+#: dashboard/settings/notifications.php:40
+#: dashboard/settings/notifications.php:52
+msgid "What"
+msgstr "Wat"
+
+#: dashboard/settings/notifications.php:42
+msgid "Expired adverts."
+msgstr "Verlopen advertenties."
+
+#: dashboard/settings/notifications.php:43
+msgid "Almost expired adverts."
+msgstr "Bijna verlopen advertenties."
+
+#: dashboard/settings/notifications.php:48
+msgid "Email Message"
+msgstr "E-mailbericht"
+
+#: dashboard/settings/notifications.php:49
+msgid ""
+"Receive email notifications about what is happening with your AdRotate setup."
+msgstr ""
+"Ontvang e-mailmeldingen over wat er gebeurt met de installatie AdRotate."
+
+#: dashboard/settings/notifications.php:54
+msgid "Daily digest of any advert status other than normal."
+msgstr "Dagelijkse samenvatting van een andere advertentiestatus dan normaal."
+
+#: dashboard/settings/notifications.php:55
+msgid "When you are running out of Geo Targeting Lookups."
+msgstr "Wanneer u geen Geo Targeting-lookups meer hebt."
+
+#: dashboard/settings/notifications.php:56
+msgid "Any advertiser saving an advert in your moderation queue."
+msgstr "Elke adverteerder die een advertentie opslaat in de wachtrij."
+
+#: dashboard/settings/notifications.php:57
+msgid "A moderator approved an advert from the moderation queue."
+msgstr ""
+"Een moderator heeft een advertentie uit de moderatiewachtrij goedgekeurd."
+
+#: dashboard/settings/notifications.php:58
+msgid "A moderator rejected an advert from the moderation queue."
+msgstr ""
+"Een moderator heeft een advertentie uit de moderatiewachtrij afgewezen."
+
+#: dashboard/settings/notifications.php:58
+msgid ""
+"If you have a lot of activity with many advertisers adding/changing adverts "
+"you may get a lot of messages!"
+msgstr ""
+"Als u veel activiteit met veel adverteerders toe te voegen / wijzigen van "
+"advertenties u een heleboel berichten te krijgen!"
+
+#: dashboard/settings/notifications.php:58
+msgid ""
+"Sending out a lot of email is sometimes seen as automated mailing and deemed "
+"spammy. This may result in automated filters such as those used in services "
+"like Google Gmail and Microsoft Hotmail/Outlook.com blocking your server. "
+"Make sure you whitelist the sending address in your email account once you "
+"start receiving notifications!"
+msgstr ""
+"Het versturen van veel e-mail wordt soms gezien als geautomatiseerde mailing "
+"en beschouwd als spam. Dit kan leiden tot geautomatiseerde filters zoals die "
+"worden gebruikt in services zoals Google Gmail en Microsoft Hotmail/Outlook."
+"com die uw server blokkeren. Zorg ervoor dat je het verzendadres in je e-"
+"mailaccount op de witte lijst brengt zodra je meldingen ontvangt!"
+
+#: dashboard/settings/notifications.php:63
+msgid "Publishers"
+msgstr "Uitgevers"
+
+#: dashboard/settings/notifications.php:66
+msgid ""
+"Messages are sent once every 24 hours.  Maximum of 5 addresses. Comma "
+"separated. This field may not be empty!"
+msgstr ""
+"Berichten worden eens per 24 uur verzonden.  Maximaal 5 adressen. Komma "
+"gescheiden. Dit veld is misschien niet leeg!"
+
+#: dashboard/settings/roles.php:18
+msgid "Who has access to what?"
+msgstr "Wie heeft toegang tot wat?"
+
+#: dashboard/settings/roles.php:21
+msgid "Manage/Add/Edit adverts"
+msgstr "Advertenties beheren/toevoegen/bewerken"
+
+#: dashboard/settings/roles.php:25
+msgid "Role to see and add/edit ads."
+msgstr "Rol om advertenties te zien en toe te voegen / te bewerken."
+
+#: dashboard/settings/roles.php:29
+msgid "Delete/Reset adverts"
+msgstr "Advertenties verwijderen/opnieuw instellen"
+
+#: dashboard/settings/roles.php:33
+msgid "Role to delete ads and reset stats."
+msgstr "Rol om advertenties te verwijderen en statistieken te resetten."
+
+#: dashboard/settings/roles.php:37
+msgid "Manage/Add/Edit groups"
+msgstr "Groepen beheren/toevoegen/bewerken"
+
+#: dashboard/settings/roles.php:41
+msgid "Role to see and add/edit groups."
+msgstr "Rol om groepen te zien en toe te voegen/bewerken."
+
+#: dashboard/settings/roles.php:45
+msgid "Delete groups"
+msgstr "Groepen verwijderen"
+
+#: dashboard/settings/roles.php:49
+msgid "Role to delete groups."
+msgstr "Rol om groepen te verwijderen."
+
+#: dashboard/settings/statistics.php:18
+msgid "Track statistics for your adverts."
+msgstr "Verzamel statistieken van actieve advertenties."
+
+#: dashboard/settings/statistics.php:21
+msgid "How to track stats"
+msgstr "Hoe statistieken bij te houden"
+
+#: dashboard/settings/statistics.php:24
+msgid "Disabled - Do not track stats"
+msgstr "Uitgeschakeld, laat deze advertentie nergens zien"
+
+#: dashboard/settings/statistics.php:31
+msgid "Tracks impressions and clicks locally"
+msgstr "Hiermee houdt u vertoningen en klikken lokaal bij"
+
+#: dashboard/settings/statistics.php:31 dashboard/settings/statistics.php:34
+#: dashboard/settings/statistics.php:37 dashboard/settings/statistics.php:40
+msgid "Setup guide"
+msgstr "Jouw installatie"
+
+#: dashboard/settings/statistics.php:32
+msgid ""
+"Clicks and Impressions, Click and impression limits, impression spread for "
+"schedules. Javascript/HTML5 adverts will only track impressions."
+msgstr ""
+"Klikken en vertoningen, klik- en vertoningslimieten, vertoningsspreiding "
+"voor schema's. Javascript/HTML5-advertenties houden alleen vertoningen bij."
+
+#: dashboard/settings/statistics.php:34
+msgid ""
+"Requires the Matomo tracking code installed in your sites footer. See the "
+"manual for details."
+msgstr ""
+"Vereist de Matomo tracking code geïnstalleerd in uw sites footer. Zie de "
+"handleiding voor meer informatie."
+
+#: dashboard/settings/statistics.php:35 dashboard/settings/statistics.php:38
+msgid ""
+"Clicks and Impressions via events. Javascript/HTML5 adverts will only track "
+"impressions."
+msgstr ""
+"Klikken en vertoningen via evenementen. Javascript/HTML5-advertenties houden "
+"alleen vertoningen bij."
+
+#: dashboard/settings/statistics.php:37
+msgid ""
+"Requires Google Global Tag tracking code installed in your sites footer!"
+msgstr ""
+"Vereist Google Global Tag tracking code geïnstalleerd in de site footer!"
+
+#: dashboard/settings/statistics.php:40
+msgid ""
+"Requires Google Tag Manager installed in your sites head tag and a Google "
+"Analytics Account!"
+msgstr ""
+"Vereist Google Tag Manager geïnstalleerd in de head tag van de website en "
+"een Google Analytics-account!"
+
+#: dashboard/settings/statistics.php:41
+msgid ""
+"Clicks and Impressions via custom events. Javascript/HTML5 adverts will only "
+"track impressions."
+msgstr ""
+"Klikken en vertoningen via evenementen. Javascript/HTML5-advertenties houden "
+"alleen vertoningen bij."
+
+#: dashboard/settings/statistics.php:47
+msgid "AdRotate Statistics"
+msgstr "AdRotate Statistieken"
+
+#: dashboard/settings/statistics.php:48
+msgid ""
+"The settings below are for the local tracker and have no effect when using "
+"Google Analytics or Matomo."
+msgstr ""
+"De onderstaande instellingen zijn voor de lokale tracker en hebben geen "
+"effect bij het gebruik van Google Analytics of Matomo."
+
+#: dashboard/settings/statistics.php:51
+msgid "Admin stats"
+msgstr "Beheerdersstatistieken"
+
+#: dashboard/settings/statistics.php:53
+msgid "Track statistics from admin users."
+msgstr "Statistieken van beheerders bijhouden."
+
+#: dashboard/settings/statistics.php:57
+msgid "Logged in impressions"
+msgstr "Impressies"
+
+#: dashboard/settings/statistics.php:59
+msgid "Track impressions from logged in users."
+msgstr "Vertoningen van ingelogde gebruikers bijhouden."
+
+#: dashboard/settings/statistics.php:63
+msgid "Logged in clicks"
+msgstr "Max klikken"
+
+#: dashboard/settings/statistics.php:65
+msgid "Track clicks from logged in users."
+msgstr "Volg klikken van ingelogde gebruikers."
+
+#: dashboard/settings/statistics.php:69
+msgid "Impression timer"
+msgstr "Vertoningstimer"
+
+#: dashboard/settings/statistics.php:71 dashboard/settings/statistics.php:78
+msgid "Seconds."
+msgstr "Seconden."
+
+#: dashboard/settings/statistics.php:72
+msgid "Default: 60."
+msgstr "Standaard: 60."
+
+#: dashboard/settings/statistics.php:72
+msgid "This number may not be empty, be lower than 10 or exceed 3600 (1 hour)."
+msgstr ""
+"Dit aantal mag niet leeg zijn, lager zijn dan 10 of meer dan 3600 (1 uur)."
+
+#: dashboard/settings/statistics.php:76
+msgid "Click timer"
+msgstr "Kosten per klik"
+
+#: dashboard/settings/statistics.php:79
+msgid "Default: 86400."
+msgstr "Standaard: 86400."
+
+#: dashboard/settings/statistics.php:79
+msgid ""
+"This number may not be empty, be lower than 60 or exceed 86400 (24 hours)."
+msgstr ""
+"Dit aantal mag niet leeg zijn, lager zijn dan 60 of hoger zijn dan 86400 (24 "
+"uur)."
+
+#: dashboard/support.php:83
+msgid "Premium Support available in AdRotate Pro"
+msgstr "Premium-ondersteuning beschikbaar in AdRotate Pro"
+
+#: dashboard/support.php:86
+msgid "Premium support always comes first!"
+msgstr "Premium ondersteuning staat altijd op de eerste plaats!"
+
+#: dashboard/support.php:86
+msgid "No queuing up on the forum..."
+msgstr "Geen rij op het forum ..."
+
+#: dashboard/support.php:86
+msgid "Using this form includes essential information for a quick answer."
+msgstr ""
+"Het gebruik van dit formulier bevat essentiële informatie voor een snel "
+"antwoord."
+
+#: dashboard/support.php:86
+msgid "Available in AdRotate Professional!"
+msgstr "Beschikbaar in AdRotate Professional!"
+
+#: dashboard/support.php:88
+msgid "Your name:"
+msgstr "Jouw naam:"
+
+#: dashboard/support.php:89
+msgid "Your Email Address:"
+msgstr "Jouw e-mailadres:"
+
+#: dashboard/support.php:90
+msgid "Subject:"
+msgstr "Onderwerp:"
+
+#: dashboard/support.php:91
+msgid "Problem description / Question:"
+msgstr "Probleembeschrijving / Vraag:"
+
+#: dashboard/support.php:92
+msgid "Please log in to my website and take a look."
+msgstr "Log dan in op mijn website en neem een kijkje."
+
+#: dashboard/support.php:94
+msgid "When you send this form the following data will be submitted:"
+msgstr ""
+"Wanneer u dit formulier verzendt, worden de volgende gegevens ingediend:"
+
+#: dashboard/support.php:95
+msgid ""
+"Your name, Account email address, Your website url and some basic WordPress "
+"information will be included with the message."
+msgstr ""
+"Jouw naam, account e-mailadres, het website adres en een aantal WordPress "
+"gegevens zullen worden meegestuurd in het bericht."
+
+#: dashboard/support.php:95
+msgid "This information is treated as confidential and is mandatory."
+msgstr "Deze informatie wordt als vertrouwelijk behandeld en is verplicht."
+
+#: dashboard/support.php:98
+msgid "Get Help"
+msgstr "Hulp vragen"
+
+#: dashboard/support.php:98
+msgid "Premium Support is available in AdRotate Pro!"
+msgstr "Premium Support is beschikbaar in AdRotate Pro!"
+
+#~ msgid "Check all adverts for configuration errors"
+#~ msgstr "Alle advertenties controleren op configuratiefouten"
+
+#~ msgid "Clean-up database and old files"
+#~ msgstr "Database en oude bestanden opschonen"
+
+#~ msgid "More features with AdRotate Pro"
+#~ msgstr "Krijg meer features met AdRotate Pro"
+
+#~ msgid ""
+#~ "Many users only think to review AdRotate when something goes wrong while "
+#~ "thousands of people happily use AdRotate."
+#~ msgstr ""
+#~ "Veel gebruikers denken alleen om AdRotate te reviewen wanneer er iets "
+#~ "misgaat terwijl duizenden mensen Graag AdRotate gebruiken."
+
+#~ msgid "If you find AdRotate useful please leave your"
+#~ msgstr "Als u AdRotate nuttig vindt, laat je"
+
+#~ msgid "rating"
+#~ msgstr "score"
+
+#~ msgid "on WordPress.org to help AdRotate grow in a positive way"
+#~ msgstr ""
+#~ "op WordPress.org om AdRotate te helpen groeien op een positieve manier"
+
+#~ msgid ""
+#~ "Get more advanced features such as Geo Targeting, scheduling and much "
+#~ "more with AdRotate Pro."
+#~ msgstr ""
+#~ "Krijg meer geavanceerde features zoals Geo Targeting, advertenties "
+#~ "inplannen en nog veel meer met AdRotate Pro."
+
+#~ msgid "Get access to premium support and free updates for one year!"
+#~ msgstr ""
+#~ "Krijg toegang tot premium ondersteuning en gratis updates voor een jaar!"
+
+#~ msgid "General Info"
+#~ msgstr "Algemene info"
+
+#~ msgid "Advertisers"
+#~ msgstr "Adverteerders"
+
+#~ msgid "At a Glance"
+#~ msgstr "In een oogopslag"
+
+#~ msgid "Your setup"
+#~ msgstr "Jouw installatie"
+
+#~ msgid "Adverts that need you"
+#~ msgstr "Controleer advertenties"
+
+#~ msgid "(Almost) Expired"
+#~ msgstr "(Bijna) Verlopen"
+
+#~ msgid "Groups"
+#~ msgstr "Groepen"
+
+#~ msgid "Have errors"
+#~ msgstr "Fouten hebben"
+
+#~ msgid "Use on TWO WordPress installations."
+#~ msgstr "Gebruik op twee WordPress-installaties."
+
+#~ msgid "Developer License"
+#~ msgstr "Ontwikkelaarslicentie"
+
+#~ msgid "Use on up to a HUNDRED WordPress installations and/or networks."
+#~ msgstr ""
+#~ "Gebruik op maximaal honderd WordPress-installaties en/of -netwerken."
+
+#~ msgid "Tracking is enabled but no valid link/tag was found in the adcode!"
+#~ msgstr ""
+#~ "Tracking is ingeschakeld, maar er is geen geldige link/tag gevonden in de "
+#~ "adcode!"
+
+#~ msgid "Enable click and impression tracking for this advert."
+#~ msgstr ""
+#~ "Schakel het bijhouden van klikken en vertoningen in voor deze advertentie."
+
+#~ msgid ""
+#~ "Note: Clicktracking does not work for Javascript adverts such as those "
+#~ "provided by Google AdSense/DFP/DoubleClick. HTML5/Flash adverts are not "
+#~ "always supported."
+#~ msgstr ""
+#~ "Opmerking: Clicktracking werkt niet voor Javascript-advertenties, zoals "
+#~ "die van Google AdSense/DFP/DoubleClick. HTML5/Flash-advertenties worden "
+#~ "niet altijd ondersteund."
+
+#~ msgid "Advertisers - Available in AdRotate Pro"
+#~ msgstr "Adverteerders - Beschikbaar in AdRotate Pro"
+
+#~ msgid "Enable advertisers so they can review and manage their own ads."
+#~ msgstr ""
+#~ "Stel adverteerders in zodat ze hun eigen advertenties kunnen bekijken en "
+#~ "beheren."
+
+#~ msgid "Enable Advertisers"
+#~ msgstr "Adverteerders inschakelen"
+
+#~ msgid "Allow adverts to be coupled to users (Advertisers)."
+#~ msgstr ""
+#~ "Toestaan dat advertenties worden gekoppeld aan gebruikers (Adverteerders)."
+
+#~ msgid "Edit/update adverts"
+#~ msgstr "Advertenties bewerken/bijwerken"
+
+#~ msgid "Allow advertisers to add new or edit their adverts."
+#~ msgstr ""
+#~ "Sta adverteerders toe om nieuwe advertenties toe te voegen of te bewerken."
+
+#~ msgid "Mobile adverts"
+#~ msgstr "Mobiele advertenties"
+
+#~ msgid "Allow advertisers to specify on which devices their ads will show."
+#~ msgstr ""
+#~ "Sta adverteerders toe om aan te geven op welke apparaten hun advertenties "
+#~ "worden weergegeven."
+
+#~ msgid ""
+#~ "Allow advertisers to specify where their ads will show. Geo Targeting has "
+#~ "to be enabled, too."
+#~ msgstr ""
+#~ "Sta adverteerders toe om aan te geven waar hun advertenties worden "
+#~ "weergegeven. Geo Targeting moet ook ingeschakeld zijn."
+
+#~ msgid "Advertiser role"
+#~ msgstr "Functie Adverteerder"
+
+#~ msgid "Create a seperate user role for your advertisers."
+#~ msgstr "Maak een aparte gebruikersrol voor jouw adverteerders."
+
+#~ msgid ""
+#~ "Don't forget to give these users access to their advertiser dashboard via "
+#~ "the Roles tab."
+#~ msgstr ""
+#~ "Vergeet niet deze gebruikers toegang te geven tot hun "
+#~ "adverteerdersdashboard via het tabblad Rollen."
+
+#~ msgid ""
+#~ "Enable this option to if your theme does not support shortcodes in the "
+#~ "WordPress text widget."
+#~ msgstr ""
+#~ "Schakel deze optie in als het thema geen shortcodes ondersteunt in de "
+#~ "tekst widget van WordPress. (Dit werkt niet altijd!)"
+
+#~ msgid "Disable dynamic mode"
+#~ msgstr "Schakel dynamische modus uit"
+
+#~ msgid "Get started today"
+#~ msgstr "Begin vandaag nog"
+
+#~ msgid "The ad will expire in less than 2 days!"
+#~ msgstr "De advertentie loopt af in minder dan 2 dagen!"
+
+#~ msgid "This ad will expire in less than 7 days!"
+#~ msgstr "Deze advertentie loopt af in minder dan 7 dagen!"
+
+#~ msgid "Get more features with AdRotate Pro."
+#~ msgstr "Beschik over meer functies met AdRotate Pro."
+
+#~ msgid "Available in AdRotate Pro!"
+#~ msgstr "Beschikbaar in AdRotate Pro!"
+
+#~ msgid "Show to everyone"
+#~ msgstr "Aan iedereen weergeven"
+
+#~ msgid "Disable this option to hide the advert from logged-in visitors."
+#~ msgstr ""
+#~ "Schakel deze optie uit om de advertentie te verbergen voor ingelogde "
+#~ "bezoekers."
+
+#~ msgid "Few impressions"
+#~ msgstr "Weinig vertoningen"
+
+#~ msgid "Less than average"
+#~ msgstr "Minder dan gemiddeld"
+
+#~ msgid "Normal impressions"
+#~ msgstr "Normale vertoningen"
+
+#~ msgid "More than average"
+#~ msgstr "Meer dan gemiddeld"
+
+#~ msgid "Many impressions"
+#~ msgstr "Veel vertoningen"
+
+#~ msgid "Mobile"
+#~ msgstr "Mobiel"
+
+#~ msgid "Desktops/Laptops"
+#~ msgstr "Desktops/laptops"
+
+#~ msgid "Smartphones"
+#~ msgstr "Smartphones"
+
+#~ msgid "Tablets"
+#~ msgstr "Tabletten"
+
+#~ msgid ""
+#~ "Also enable 'Mobile Support' in the group this advert goes in or 'Device' "
+#~ "and 'Operating System' are ignored!"
+#~ msgstr ""
+#~ "Ook inschakelen 'Mobiele ondersteuning' in de groep deze advertentie gaat "
+#~ "in of 'Apparaat' en 'Besturingssysteem' worden genegeerd!"
+
+#~ msgid ""
+#~ "Operating system detection only detects iOS and Android, select 'Not "
+#~ "Mobile/Other' for everything else."
+#~ msgstr ""
+#~ "Besturingssysteemdetectie detecteert alleen iOS en Android, selecteer "
+#~ "'Niet mobiel/ander' voor al het andere."
+
+#~ msgid "Mobile OS"
+#~ msgstr "Mobiel besturingssysteem"
+
+#~ msgid "iOS"
+#~ msgstr "iOS"
+
+#~ msgid "Android"
+#~ msgstr "Android"
+
+#~ msgid "Not mobile/Others"
+#~ msgstr "Niet mobiel/Anderen"
+
+#~ msgid "Auto-delete"
+#~ msgstr "Automatisch verwijderen"
+
+#~ msgid "Automatically delete the advert 1 day after it expires?"
+#~ msgstr ""
+#~ "Automatisch verwijderen van de advertentie 1 dag nadat deze is verlopen?"
+
+#~ msgid ""
+#~ "This is useful for short running campaigns that do not require attention "
+#~ "after they finish."
+#~ msgstr ""
+#~ "Dit is handig voor kortlopende campagnes die geen aandacht nodig hebben "
+#~ "nadat ze zijn voltooid."
+
+#~ msgid ""
+#~ "Assign the advert to a group and enable that group to use Geo Targeting."
+#~ msgstr ""
+#~ "Wijs de advertentie toe aan een groep en stel die groep in staat "
+#~ "geotargeting te gebruiken."
+
+#~ msgid "Enter cities or metro IDs (DMA)"
+#~ msgstr "Vul steden of metro-IDen in"
+
+#~ msgid "A comma separated list of Cities or Metro IDs:"
+#~ msgstr "Een door komma's gescheiden lijst steden of metro IDs:"
+
+#~ msgid ""
+#~ "AdRotate does not check the validity of names and assumes the basic "
+#~ "english name."
+#~ msgstr ""
+#~ "AdRotate controleert de geldigheid van namen niet gaat uit van de "
+#~ "standaard engelse spelling."
+
+#~ msgid "Enter States or State ISO3166-2 codes"
+#~ msgstr "Vul Staten of ISO3166-2 codes van staten in"
+
+#~ msgid "The listed cities must be in these states?"
+#~ msgstr "Moeten de steden moeten in deze staten liggen?"
+
+#~ msgid "A comma separated list of states:"
+#~ msgstr "Een door komma's gescheiden lijst met staten:"
+
+#~ msgid "Select Countries and or Regions"
+#~ msgstr "Selecteer landen en/of regio's"
+
+#~ msgid "Target your audience with Geo Targeting in AdRotate Pro"
+#~ msgstr "Target je doelgroep met Geo Targeting in AdRotate Pro"
+
+#~ msgid ""
+#~ "Use the Generator if you have received a target url, banner image and/or "
+#~ "some separate files with a description on how to use those. The AdRotate "
+#~ "Generator will take your bits and pieces and try to generate a working "
+#~ "adcode from it."
+#~ msgstr ""
+#~ "Gebruik de generator als je een url, banner afbeelding en/of een aantal "
+#~ "afzonderlijke bestanden hebt ontvangen met een beschrijving over hoe je "
+#~ "deze kunt gebruiken. De AdRotate Generator neemt de stukjes en beetjes en "
+#~ "probeert er een werkende adcode van te genereren."
+
+#~ msgid ""
+#~ "If you have an advert hash from another AdRotate or AdRotate Professional "
+#~ "setup you can enter it in the Portability field. This feature is a bit of "
+#~ "an experiment, but the basic function works."
+#~ msgstr ""
+#~ "Als je een advertentie hash hebt van een andere installatie van AdRotate "
+#~ "of AdRotate Professional hebt kun je deze invoeren in het advertentie "
+#~ "hash veld. Deze functie is een beetje een experiment, maar de "
+#~ "basisfunctie werkt."
+
+#~ msgid ""
+#~ "If you have a complete and working ad code / ad tag you do not use the "
+#~ "Generator. You can simply paste that code in the AdCode field when "
+#~ "creating your advert. For example as provided by Media.net or Google "
+#~ "AdSense among others."
+#~ msgstr ""
+#~ "Als je een volledige en werkende advertentiecode / advertentietag hebt, "
+#~ "gebruik je de Generator niet. Die code kun je eenvoudig plakken in het "
+#~ "veld AdCode bij het maken van jouw advertentie. Bijvoorbeeld zoals "
+#~ "voorzien door Media.net of Google AdSense onder anderen."
+
+#~ msgid "Create your advert"
+#~ msgstr "Advertentie maken"
+
+#~ msgid ""
+#~ "This is a regular advert consisting of an image and a link, made up from "
+#~ "HTML code."
+#~ msgstr ""
+#~ "Dit is een gewone advertentie bestaande uit een afbeelding en een link, "
+#~ "samengesteld uit HTML-code."
+
+#~ msgid "Caution:"
+#~ msgstr "Waarschuwing:"
+
+#~ msgid "AdRotate Professional"
+#~ msgstr "AdRotate Professional"
+
+#~ msgid "review"
+#~ msgstr "review"
+
+#~ msgid ""
+#~ "Maintained for backwards compatibility, please switch to Google Global "
+#~ "Tag or Google Tag Manager."
+#~ msgstr ""
+#~ "Blijf onderhouden voor achterwaartse compatibiliteit, schakel over naar "
+#~ "Google Global Tag of Google Tag Manager."
+
+#~ msgid "Requires the Matomo tracker installed in your sites footer."
+#~ msgstr ""
+#~ "Vereist dat de Matomo-tracker in de footer van de site is geïnstalleerd."
+
+#~ msgid ""
+#~ "Click and Impression recording via Cookie. Javascript/HTML5 adverts will "
+#~ "only track impressions."
+#~ msgstr ""
+#~ "Klikken en vertoningen via evenementen. Javascript/HTML5-advertenties "
+#~ "houden alleen vertoningen bij."
+
+#~ msgid "AdRotate Tracker"
+#~ msgstr "AdRotate Tracker"
+
+#~ msgid "Advert Management"
+#~ msgstr "Advertentiemanagement"
+
+#~ msgid "Group Management"
+#~ msgstr "Groepsmanagement"
+
+#~ msgid "Schedules"
+#~ msgstr "Schema’s"
+
+#~ msgid "AdRotate Pro"
+#~ msgstr "AdRotate Pro"
+
+#~ msgid "Get more features"
+#~ msgstr "Krijg meer functies"
+
+#~ msgid "Buy AdRotate Professional"
+#~ msgstr "Koop AdRotate Professional"
+
+#~ msgid "Advertising Partners & Affiliates"
+#~ msgstr "Advertentie Partners & Affiliates"
+
+#~ msgid ""
+#~ "A selection of quality advertiser networks and useful products. If you "
+#~ "need adverts or just want more or more diverse adverts. Check out these "
+#~ "great options!"
+#~ msgstr ""
+#~ "Een selectie van hoogwaardige adverteerdersnetwerken en nuttige "
+#~ "producten. Als je advertenties nodig hebt of gewoon meer of meer diverse "
+#~ "advertenties wilt. Bekijk deze geweldige opties!"
+
+#~ msgid "Check out these and other preferred products or providers on my"
+#~ msgstr "Bekijk deze en andere aanbevolen producten en diensten op mijn"
+
+#~ msgid "recommended products page"
+#~ msgstr "aanbevolen producten pagina"
+
+#~ msgid ""
+#~ "If you remove spaces from filenames for HTML5 adverts also edit the html "
+#~ "file so it knows about the changed name. For example for the javascript "
+#~ "file."
+#~ msgstr ""
+#~ "Als je spaties uit bestandsnamen voor HTML5-advertenties verwijdert, "
+#~ "bewerkt dan ook het html-bestand, zodat deze de gewijzigde naam gebruikt. "
+#~ "Bijvoorbeeld voor het javascript bestand."
+
+#~ msgid "Actions"
+#~ msgstr "Acties"
+
+#~ msgid ""
+#~ "Who gets email from advertisers. Maximum of 5 addresses. Comma separated. "
+#~ "This field may not be empty!"
+#~ msgstr ""
+#~ "Wie krijgt e-mail van adverteerders. Maximaal 5 adressen. Komma "
+#~ "gescheiden. Dit veld is misschien niet leeg!"
+
+#~ msgid "Join the Media.net advertising network"
+#~ msgstr "Word lid van het Media.net advertentienetwerk"
+
+#~ msgid "Get contextual adverts from Media.net"
+#~ msgstr "Ontvang contextuele advertenties van Media.net"
+
+#~ msgid ""
+#~ "Based on your input and experiences later iterations of the Code "
+#~ "Generator will be better and more feature rich."
+#~ msgstr ""
+#~ "Op basis van uw input en ervaringen later iteraties van de Code Generator "
+#~ "zal beter en meer functie rijk."
+
+#~ msgid "Upgrade instructions"
+#~ msgstr "Instructies voor upgrade"
+
+#~ msgid "AdRotate Banner Manager"
+#~ msgstr "AdRotate Banner Manager"
+
+#~ msgid "Support AdRotate Banner Manager"
+#~ msgstr "Ondersteun AdRotate Banner Manager"
+
+#~ msgid ""
+#~ "Consider writing a review or making a donation if you like the plugin or "
+#~ "if you find the plugin useful. Thanks for your support!"
+#~ msgstr ""
+#~ "Overweeg het schrijven van een recensie of het maken van een donatie als "
+#~ "je de plugin nuttig vind. Dankjewel voor je steun!"
+
+#~ msgid "Plugins and services"
+#~ msgstr "Plugins en services"
+
+#~ msgid "WP Maintenance"
+#~ msgstr "WP-onderhoud"
+
+#~ msgid "Professional service"
+#~ msgstr "Professionele service"
+
+#~ msgid ""
+#~ "Get all the latest updates for WordPress and plugins. Maintenance, delete "
+#~ "spam and clean up files."
+#~ msgstr ""
+#~ "Ontvang de nieuwste updates voor WordPress en plug-ins. Onderhoud, spam "
+#~ "verwijderen en bestanden opruimen."
+
+#~ msgid "HTML5 Advert setup"
+#~ msgstr "HTML5-advertentie-instelling"
+
+#~ msgid ""
+#~ "Did you get a HTML5 advert and can’t get it to work in AdRotate Pro? I’ll "
+#~ "install and configure it for you."
+#~ msgstr ""
+#~ "Heb je een HTML5-advertentie en krijg je het niet aan het werk in "
+#~ "AdRotate Pro? Ik zal installeren en configureren voor je."
+
+#~ msgid "Single Page Checkout"
+#~ msgstr "Enkele pagina KASSA"
+
+#~ msgid "WooCommerce Plugin"
+#~ msgstr "WooCommerce plugin"
+
+#~ msgid ""
+#~ "Merge your cart and checkout pages into one single page in seconds with "
+#~ "no setup required at all."
+#~ msgstr ""
+#~ "Voeg uw winkelwagen- en betaalpagina's in enkele seconden samen in één "
+#~ "pagina zonder dat u hoeft te worden ingesteld."
+
+#~ msgid "News & Updates"
+#~ msgstr "Nieuws & updates"
+
+#~ msgid ""
+#~ "When you are stuck with AdRotate or AdRotate Pro, check the forums first. "
+#~ "Chances are your question has already been asked and answered!"
+#~ msgstr ""
+#~ "Wanneer u vastzit aan AdRotate Banner Manager of AdRotate Professional, "
+#~ "controleert u eerst de forums. De kans is groot dat uw vraag al is "
+#~ "gesteld en beantwoord!"
+
+#~ msgid ""
+#~ "Next to the forum there are many manuals and guides available for almost "
+#~ "every function and feature in the plugin."
+#~ msgstr ""
+#~ "Naast het forum zijn er veel handleidingen en gidsen beschikbaar voor "
+#~ "bijna elke functie en functie in de plugin."
+
+#~ msgid "Take a look at the AdRotate Manuals"
+#~ msgstr "Bekijk de handleidingen voor AdRotate"
+
+#~ msgid "View topics"
+#~ msgstr "Bekijk onderwerpen"
+
+#~ msgid ""
+#~ "AdRotate does not check the validity of names and assumes the basic "
+#~ "english name"
+#~ msgstr ""
+#~ "AdRotate controleert de geldigheid van namen niet gaat uit van de "
+#~ "standaard engelse spelling"
+
+#~ msgid "Hello"
+#~ msgstr "Hallo"
+
+#~ msgid ""
+#~ "Attached in this email you will find the exported CSV file you generated "
+#~ "on "
+#~ msgstr ""
+#~ "Bijgevoegd in deze e-mail vindt je het geëxporteerde CSV-bestand dat je "
+#~ "hebt gegenereerd op "
+
+#~ msgid "Have a nice day!"
+#~ msgstr "Een prettige dag!"
+
+#~ msgid "Your AdRotate Notifier"
+#~ msgstr "AdRotate notificatie"
+
+#~ msgid "advert(s) with errors!"
+#~ msgstr "advertentie(s) met fouten!"
+
+#~ msgid "advert(s) expired!"
+#~ msgstr "advertentie(s) afgelopen!"
+
+#~ msgid "advert(s) will expire in less than 2 days."
+#~ msgstr "advertentie(s) zullen binnen 2 dagen aflopen."
+
+#~ msgid "advert(s) will expire in less than a week."
+#~ msgstr "advertentie(s) lopen binnen een week af."
+
+#~ msgid "advert(s) have an unknown status."
+#~ msgstr "advertentie (s) hebben een onbekende status."
+
+#~ msgid "This notification is sent to you from your website"
+#~ msgstr "Deze melding is verstuurd vanaf jouw website"
+
+#~ msgid "Access your dashboard here:"
+#~ msgstr "Dashboard:"
+
+#~ msgid "[AdRotate]"
+#~ msgstr "[AdRotate]"
+
+#~ msgid ""
+#~ "You can reply to this message by clicking reply in your email client."
+#~ msgstr ""
+#~ "Je kunt dit bericht beantwoorden door op beantwoorden te klikken in de e-"
+#~ "mailclient."
+
+#~ msgid "[AdRotate] An advertiser has put in a request for renewal!"
+#~ msgstr ""
+#~ "[AdRotate] Een adverteerder heeft een verzoek tot vernieuwing geplaatst!"
+
+#~ msgid "[AdRotate] An advertiser wants his ad removed."
+#~ msgstr ""
+#~ "[AdRotate] Een adverteerder wil dat zijn advertentie wordt verwijderd."
+
+#~ msgid "[AdRotate] An advertiser wrote a comment on his ad!"
+#~ msgstr ""
+#~ "[AdRotate] Een adverteerder schreef een bericht over zijn advertentie!"
+
+#~ msgid "[AdRotate] An advertiser has a problem!"
+#~ msgstr "[AdRotate] Een adverteerder heeft een probleem!"
+
+#~ msgid "Hello moderator"
+#~ msgstr "Hallo moderator"
+
+#~ msgid "requests ad"
+#~ msgstr "verzoekt advertentie"
+
+#~ msgid "renewed!"
+#~ msgstr "vernieuwd!"
+
+#~ msgid "removed."
+#~ msgstr "verwijderd."
+
+#~ msgid "has something to say about ad"
+#~ msgstr "heeft iets te zeggen over advertentie"
+
+#~ msgid "has a problem with AdRotate."
+#~ msgstr "heeft een probleem met AdRotate."
+
+#~ msgid "Attached message:"
+#~ msgstr "Bijgevoegd bericht:"
+
+#~ msgid "You can reply to this message to contact"
+#~ msgstr "Je dit bericht beantwoorden door contact op te nemen met"
+
+#~ msgid "Review the ad here:"
+#~ msgstr "Bekijk de advertentie hier:"
+
+#~ msgid "Advertiser updated"
+#~ msgstr "Adverteerder bijgewerkt"
+
+#~ msgid "Email(s) with reports successfully sent"
+#~ msgstr "E-mail(s) succesvol verzonden"
+
+#~ msgid "Weight changed"
+#~ msgstr "Gewicht gewijzigd"
+
+#~ msgid "Adverts imported"
+#~ msgstr "Advertenties geïmporteerd"
+
+#~ msgid "Schedule saved"
+#~ msgstr "Schema opgeslagen"
+
+#~ msgid "Schedule(s) deleted"
+#~ msgstr "Schema(s) verwijderd"
+
+#~ msgid "Advert(s) duplicated"
+#~ msgstr "Advertentie(s) gedupliceerd"
+
+#~ msgid "Advert(s) archived"
+#~ msgstr "Advertentie(s) gearchiveerd"
+
+#~ msgid "Advert(s) moved to the trash"
+#~ msgstr "Advertentie(s) verplaatst naar de Prullenbak"
+
+#~ msgid "Advert(s) restored from trash"
+#~ msgstr "Advertentie(s) vanuit de  Prullenbak teruggehaald"
+
+#~ msgid "Your message has been sent."
+#~ msgstr "Je bericht is verzonden."
+
+#~ msgid "Header & ads.txt updated."
+#~ msgstr "Header & ads.txt is bijgewerkt."
+
+#~ msgid "Your message has been sent. Someone will be in touch shortly."
+#~ msgstr ""
+#~ "Het bericht is verzonden. Iemand zal binnenkort contact met je opnemen."
+
+#~ msgid "Advert submitted for review"
+#~ msgstr "Advertentie ter beoordeling ingediend"
+
+#~ msgid "Advert updated and awaiting review"
+#~ msgstr "Advertentie bijgewerkt en in afwachting van beoordeling"
+
+#~ msgid "Ad approved"
+#~ msgstr "Advertentie goedgekeurd"
+
+#~ msgid "Ad(s) rejected"
+#~ msgstr "Advertentie(s) afgewezen"
+
+#~ msgid "Ad(s) queued"
+#~ msgstr "Advertentie(s) in wachtrij"
+
+#~ msgid "Test notification sent"
+#~ msgstr "Test melding verzonden"
+
+#~ msgid "Test mailing sent"
+#~ msgstr "Test melding verzonden"
+
+#~ msgid ""
+#~ "The ad was saved but has an issue which might prevent it from working "
+#~ "properly. Please contact staff."
+#~ msgstr ""
+#~ "De advertentie is opgeslagen, maar heeft een probleem waardoor deze "
+#~ "mogelijk niet goed werkt. Neem contact op met het de moderator."
+
+#~ msgid "No file uploaded."
+#~ msgstr "Geen bestand geüpload."
+
+#~ msgid "The file could not be read."
+#~ msgstr "Het bestand kan niet worden gelezen."
+
+#~ msgid "Wrong file type."
+#~ msgstr "Onjuist bestandstype."
+
+#~ msgid "Wrong file type. No file uploaded."
+#~ msgstr "Onjuist bestandstype. Er is geen bestand geüpload."
+
+#~ msgid "File is too large."
+#~ msgstr "Het bestand is te groot."
+
+#~ msgid "There was an error unzipping the file. Please try again later."
+#~ msgstr ""
+#~ "Er was een fout bij het uitpakken van het bestand. Probeer het later "
+#~ "opnieuw."
+
+#~ msgid "Invalid request"
+#~ msgstr "Ongeldig verzoek"
+
+#~ msgid "No license key or email provided"
+#~ msgstr "Geen licentiecode of e-mailadres opgegeven"
+
+#~ msgid ""
+#~ "The request did not get through or the response was invalid. Contact "
+#~ "support."
+#~ msgstr ""
+#~ "De aanvraag is niet ontvangen of het antwoord is ongeldig. Contact op met "
+#~ "de helpdesk."
+
+#~ msgid "The email provided is invalid."
+#~ msgstr "Het opgegeven e-mailadres is ongeldig."
+
+#~ msgid "Invalid license key."
+#~ msgstr "Ongeldige licentiecode."
+
+#~ msgid "The purchase matching this product is not complete. Contact support."
+#~ msgstr ""
+#~ "De aankoop van dit product is niet volledig. Contact op met de helpdesk."
+
+#~ msgid ""
+#~ "No remaining activations for this license. You can manage your license "
+#~ "activations from your account on ajdg.solutions."
+#~ msgstr ""
+#~ "Geen resterende activeringen voor deze licentie. Je kunt de licentie "
+#~ "activeringen beheren vanuit jouw account op ajdg.solutions."
+
+#~ msgid "Could not (de)activate key. Contact support."
+#~ msgstr "Kan sleutel niet (de)activeren. Contact op met de helpdesk."
+
+#~ msgid ""
+#~ "Woohoo! Thank you! Your license is now active. You can now use Premium "
+#~ "Support and AdRotate Geo."
+#~ msgstr ""
+#~ "Jeej! Dankjewel. De licentie is geactiveerd. Je kunt vanaf nu gebuik "
+#~ "maken van Premium Support en AdRotate Geo."
+
+#~ msgid ""
+#~ "Also you will receive updates and support for one year of purchasing and "
+#~ "be notified via email when it is time to renew your license."
+#~ msgstr ""
+#~ "Ook ontvangt je updates en ondersteuning voor één jaar na de aankoop en "
+#~ "word hierover geïnformeerd via e-mail wanneer het tijd is om de licentie "
+#~ "te verlengen."
+
+#~ msgid "Your license is now de-activated"
+#~ msgstr "De licentie is nu gedeactiveerd"
+
+#~ msgid "Thank you. Your licenses have been reset"
+#~ msgstr "Dankjewel. Je licenties zijn gereset"
+
+#~ msgid ""
+#~ "This license can not be activated for networks. Please purchase a "
+#~ "Developer license."
+#~ msgstr ""
+#~ "Deze licentie kan niet worden geactiveerd voor netwerken. Koop een "
+#~ "Developer licentie."
+
+#~ msgid "File size exceeded."
+#~ msgstr "De bestandsgrootte is overschreden."
+
+#~ msgid "Upload incomplete."
+#~ msgstr "Upload onvolledig."
+
+#~ msgid "Could not write file to server."
+#~ msgstr "Kan het bestand niet naar de server schrijven."
+
+#~ msgid "An unknown error occured, contact staff."
+#~ msgstr ""
+#~ "Er is een onbekende fout opgetreden, neem contact op met de moderator."
+
+#~ msgid "Something went wrong!"
+#~ msgstr "Er is iets fout gegaan!"
+
+#~ msgid "Go back and try again. If the error persists, contact staff."
+#~ msgstr ""
+#~ "Ga terug en probeer het opnieuw. Als de fout aanhoudt, neemt u contact op "
+#~ "met de moderator."
+
+#~ msgid "The file was either too large or not in the right format."
+#~ msgstr "Het bestand was ofwel te groot of niet in de juiste indeling."
+
+#~ msgid "Enable"
+#~ msgstr "Inschakelen"
+
+#~ msgid "Is this user an AdRotate Advertiser?"
+#~ msgstr "Is deze gebruiker een AdRotate adverteerder?"
+
+#~ msgid "Permissions"
+#~ msgstr "Permissies"
+
+#~ msgid "Can create and edit their own adverts?"
+#~ msgstr "Kan eigen advertenties maken en bewerken?"
+
+#~ msgid "Can specify mobile devices?"
+#~ msgstr "Kan mobiele apparaten configureren?"
+
+#~ msgid "Can use Geo Targeting?"
+#~ msgstr "Kan geo-targeting gebruiken?"
+
+#~ msgid ""
+#~ "These settings only have effect if you enable the global setting in "
+#~ "AdRotate Settings."
+#~ msgstr ""
+#~ "Deze instellingen hebben alleen effect als je de globale instelling in "
+#~ "inschakeld in de AdRotate instellingen."
+
+#~ msgid "Notes"
+#~ msgstr "Notities"
+
+#~ msgid "Also visible in the advertiser profile."
+#~ msgstr "Ook zichtbaar in het profiel van de adverteerder."
+
+#, php-format
+#~ msgid ""
+#~ "Error, Ad (%s) is not available at this time due to schedule/budgeting/"
+#~ "geolocation/mobile restrictions or does not exist!"
+#~ msgstr ""
+#~ "Fout, advertentie (%s) is op dit moment niet beschikbaar vanwege planning/"
+#~ "budgettering/geolocatie/mobiele beperkingen of bestaat niet!"
+
+#, php-format
+#~ msgid ""
+#~ "Error, Ad (%s) is not available at this time due to schedule/budgeting/"
+#~ "geolocation/mobile restrictions!"
+#~ msgstr ""
+#~ "Fout, advertentie (%s) is op dit moment niet beschikbaar vanwege planning/"
+#~ "budgettering/geolocatie/mobiele beperkingen!"
+
+#~ msgid ""
+#~ "You did not yet activate your AdRotate Professional license. Activate and "
+#~ "get updates, premium support and access to AdRotate Geo!"
+#~ msgstr ""
+#~ "Je hebt je AdRotate Pro licentie nog niet geactiveerd. Activeer en krijg "
+#~ "toegang tot updates, Premium ondersteuning en AdRotate Geo!"
+
+#~ msgid "Activate license"
+#~ msgstr "Activeer licentie"
+
+#~ msgid "Your license has expired. Please consider getting a new license."
+#~ msgstr "Jouw licentie is verlopen. Overweeg een nieuwe licentie te kopen."
+
+#~ msgid "Get a discount"
+#~ msgstr "Krijg korting"
+
+#~ msgid ""
+#~ "You have enabled email notifications but did not select anything to be "
+#~ "notified about. You are wasting server resources!"
+#~ msgstr ""
+#~ "Je hebt e-mail meldingen ingeschakeld, maar er is geen notificatie "
+#~ "methode geselecteerd."
+
+#~ msgid ""
+#~ "The AdRotate Geo service can only be used after you activate your license "
+#~ "for this website."
+#~ msgstr ""
+#~ "De AdRotate geo service kan alleen worden gebruikt nadat je de licentie "
+#~ "voor deze website hebt geactiveerd."
+
+#~ msgid ""
+#~ "AdRotate Geo can only be used with a valid license. Your license has "
+#~ "expired. In order to continue to use AdRotate Geo please get a new "
+#~ "license."
+#~ msgstr ""
+#~ "AdRotate Geo kan alleen worden gebruikt met een geldige licentie. Uw "
+#~ "licentie is verlopen. Om AdRotate Geo te blijven gebruiken, u een nieuwe "
+#~ "licentie aanvragen."
+
+#~ msgid "Buy a new license"
+#~ msgstr "Een nieuwe licentie kopen"
+
+#, php-format
+#~ msgid ""
+#~ "You are running out of Geo Lookups for AdRotate. You have less than %d "
+#~ "remaining lookups."
+#~ msgstr ""
+#~ "Je hebt geen geo-lookups meer voor AdRotate. U hebt minder dan %d "
+#~ "resterende lookups."
+
+#~ msgid ""
+#~ "AdRotate Geo is no longer working because you have no more lookups for "
+#~ "today. This resets at midnight UTC/GMT."
+#~ msgstr ""
+#~ "AdRotate geo werkt niet meer omdat je geen lookups meer hebt voor "
+#~ "vandaag. Dit wordt gereset om middernacht UTC/GMT."
+
+#~ msgid ""
+#~ "MaxMind Geo Targeting is no longer working because you have no more "
+#~ "lookups. Buy more lookups from the Maxmind website!"
+#~ msgstr ""
+#~ "MaxMind geo targeting werkt niet meer omdat je geen lookups meer hebt. "
+#~ "Koop meer opzoekacties op de website van Maxmind!"
+
+#~ msgid ""
+#~ "Geo Targeting is not working because your MaxMind account details are "
+#~ "incomplete."
+#~ msgstr ""
+#~ "Geo-targeting werkt niet omdat de gegevens van de MaxMind-account "
+#~ "onvolledig zijn."
+
+#~ msgid "Enter MaxMind account details"
+#~ msgstr "MaxMind-accountgegevens invoeren"
+
+#~ msgid ""
+#~ "Geo Targeting is not working. Check if IP Geolocation is enabled in your "
+#~ "CloudFlare account."
+#~ msgstr ""
+#~ "Geo targeting werkt niet. Controleer of IP Geolocation is ingeschakeld in "
+#~ "uw CloudFlare-account."
+
+#~ msgid ""
+#~ "Geo Targeting is not working because your Ipstack account API key is "
+#~ "missing."
+#~ msgstr ""
+#~ "Geo-targeting werkt niet omdat de API-sleutel van je Ipstack-account "
+#~ "ontbreekt."
+
+#~ msgid "Enter API key"
+#~ msgstr "API-sleutel invoeren"
+
+#~ msgid "You can also ask questions via"
+#~ msgstr "Je kunt ook vragen stellen via"
+
+#~ msgid "email"
+#~ msgstr "e-mail"
+
+#~ msgid "if you have a valid license."
+#~ msgstr "als je een geldige licentie hebt."
+
+#~ msgid "Your adverts"
+#~ msgstr "Jouw advertenties"
+
+#~ msgid ""
+#~ "The overall stats do not take adverts from other advertisers into account."
+#~ msgstr ""
+#~ "De algemene statistieken nemen geen advertenties van andere adverteerders "
+#~ "in aanmerking."
+
+#~ msgid "Your ads are published with"
+#~ msgstr "Jouw advertenties worden gepubliceerd met"
+
+#~ msgid "is a registered trademark"
+#~ msgstr "is een gedeponeerd handelsmerk"
+
+#~ msgid "Premium Support"
+#~ msgstr "Premium Support"
+
+#~ msgid "Advertiser"
+#~ msgstr "Adverteerder"
+
+#~ msgid "Network Settings"
+#~ msgstr "Netwerk instellingen"
+
+#~ msgid "Header & ads.txt"
+#~ msgstr "Header & ads.txt"
+
+#~ msgid "Queue"
+#~ msgstr "Wachtrij"
+
+#~ msgid "Archive"
+#~ msgstr "Archief"
+
+#~ msgid "Trash"
+#~ msgstr "Prullenbak"
+
+#~ msgid "All Users"
+#~ msgstr "Alle gebruikers"
+
+#~ msgid "New User"
+#~ msgstr "Nieuwe gebruiker"
+
+#~ msgid "Tools"
+#~ msgstr "Tools"
+
+#~ msgid "Notice"
+#~ msgstr "Melding"
+
+#~ msgid "No ads for user."
+#~ msgstr "Geen advertenties voor de gebruiker."
+
+#~ msgid "Primary site"
+#~ msgstr "Primaire site"
+
+#~ msgid ""
+#~ "Enter the site id for the site you will publish adverts from. This is "
+#~ "usually id 1."
+#~ msgstr ""
+#~ "Voer de site-id in voor de site waarvandaan je advertenties publiceert. "
+#~ "Dit is meestal id 1."
+
+#~ msgid "Enable dashboard on sites"
+#~ msgstr "Dashboard inschakelen op sites"
+
+#~ msgid ""
+#~ "Enabled by default. This allows admins of those sites to create and "
+#~ "manage adverts with AdRotate Pro just like you do from your primary site. "
+#~ "Caution: May cause group id conflicts when using cross site adverts, use "
+#~ "with care!"
+#~ msgstr ""
+#~ "Standaard ingeschakeld. Dit stelt beheerders van die sites in staat om "
+#~ "advertenties te maken en te beheren met AdRotate Pro net zoals je doet "
+#~ "vanaf je primaire site. Waarschuwing: kan groeps-ID-conflicten "
+#~ "veroorzaken bij het gebruik van cross-site advertenties, pas dus op!"
+
+#~ msgid "Network License"
+#~ msgstr "Netwerklicentie"
+
+#~ msgid ""
+#~ "Activate your AdRotate License here to receive automated updates and "
+#~ "enable support via the fast and personal ticket system."
+#~ msgstr ""
+#~ "Activeer hier je AdRotate-licentie om geautomatiseerde updates te "
+#~ "ontvangen en toegang te krijgen tot Premium support."
+
+#~ msgid "For network activated setups like this you need a Developer License."
+#~ msgstr ""
+#~ "Voor netwerkgeactiveerde opstellingen zoals deze heb je een developer "
+#~ "license nodig."
+
+#~ msgid "License Type"
+#~ msgstr "Licentie type"
+
+#~ msgid "Not activated - Not eligible for support and updates."
+#~ msgstr ""
+#~ "Niet geactiveerd - Je komt niet in aanmerking voor ondersteuning en "
+#~ "updates."
+
+#~ msgid ""
+#~ "Your license has expired. In order to continue to receive updates, "
+#~ "support and access to AdRotate Geo please get a new license."
+#~ msgstr ""
+#~ "Uw licentie is verlopen. Om updates te blijven ontvangen, ondersteuning "
+#~ "en toegang tot AdRotate Geo u een nieuwe licentie."
+
+#~ msgid ""
+#~ "As a thank you for your continued use and support of AdRotate Pro you can "
+#~ "get a new license at a special discounted price."
+#~ msgstr ""
+#~ "Als dank voor uw voortdurende gebruik en ondersteuning van AdRotate Pro u "
+#~ "een nieuwe licentie te krijgen tegen een speciale gereduceerde prijs."
+
+#~ msgid "Get a new license"
+#~ msgstr "Koop een nieuwe licentie"
+
+#~ msgid "License Email"
+#~ msgstr "Licentie e-mail"
+
+#~ msgid "The email address you used in your purchase of AdRotate Pro."
+#~ msgstr ""
+#~ "Het e-mailadres dat je hebt gebruikt bij de aankoop van AdRotate Pro."
+
+#~ msgid "You can find the license key in your order email."
+#~ msgstr "Je vindt de licentiecode in de e-mail van de bestelling."
+
+#~ msgid ""
+#~ "If you have installed AdRotate Pro for a client or in a multisite setup "
+#~ "and want to hide the License Key, Email address from them."
+#~ msgstr ""
+#~ "Als u AdRotate Pro hebt geïnstalleerd voor een client of in een "
+#~ "instelling op meerdere plaatsen en de licentiesleutel wilt verbergen, "
+#~ "wordt het e-mailadres voor deze client geïnstalleerd."
+
+#~ msgid "Force de-activate"
+#~ msgstr "Fort activeren"
+
+#~ msgid ""
+#~ "If your license has expired you may need to force de-activate the old "
+#~ "license before you can activate the new key."
+#~ msgstr ""
+#~ "Als uw licentie is verlopen, moet u mogelijk de oude licentie deactiveren "
+#~ "voordat u de nieuwe sleutel activeren."
+
+#~ msgid "De-activate"
+#~ msgstr "De-activeren"
+
+#~ msgid "Group:"
+#~ msgstr "Groep:"
+
+#~ msgid "Wrapper before:"
+#~ msgstr "Wrapper voor:"
+
+#~ msgid "Wrapper after:"
+#~ msgstr "Wrapper na:"
+
+#~ msgid "Simple HTML to center an advert or apply a paragraph for example."
+#~ msgstr ""
+#~ "Eenvoudige HTML om een advertentie te centreren of een alinea "
+#~ "bijvoorbeeld toe te passen."
+
+#~ msgid "Advert:"
+#~ msgstr "Advertentie:"
+
+#~ msgid "-- Choose an advert --"
+#~ msgstr "--Kies een advertentie--"
+
+#~ msgid "NOTE: This widget has Post Injection enabled!"
+#~ msgstr "Let op: deze widget heeft post injectie ingeschakeld!"
+
+#~ msgid "-- Choose a group --"
+#~ msgstr "--Kies een groep--"
+
+#~ msgid "Please contact staff, click tracking is not active!"
+#~ msgstr "Neem contact op met de moderator, click tracking is niet actief!"
+
+#~ msgid "Please contact staff if you don't know what this means."
+#~ msgstr "Neem contact op met de moderator als je niet weet wat dit betekent."
+
+#~ msgid "This advert has no schedules!"
+#~ msgstr "Deze advertentie heeft geen schema's!"
+
+#~ msgid ""
+#~ "Clicktracking is enabled but no valid link/tag was found in the adcode!"
+#~ msgstr ""
+#~ "Clicktracking is ingeschakeld, maar er is geen geldige link/tag gevonden "
+#~ "in de adcode!"
+
+#~ msgid ""
+#~ "Correct your adcode or contact staff if you don't know what this means."
+#~ msgstr ""
+#~ "Corrigeer de adcode of neem contact op met de moderator als je niet weet "
+#~ "wat dit betekent."
+
+#~ msgid ""
+#~ "Please contact staff, CPC is enabled but clicktracking is not active!"
+#~ msgstr ""
+#~ "Neem contact op met de moderator, CPC is ingeschakeld, maar clicktracking "
+#~ "is niet actief!"
+
+#~ msgid ""
+#~ "This advert has been rejected by staff Please adjust the ad to conform "
+#~ "with the requirements!"
+#~ msgstr ""
+#~ "Deze advertentie is afgewezen door de moderator gelieve de advertentie "
+#~ "aan te passen om te voldoen aan de vereisten!"
+
+#~ msgid "This advert is queued and awaiting review!"
+#~ msgstr ""
+#~ "Deze advertentie is in de wachtrij geplaatst en wacht op beoordeling!"
+
+#~ msgid "This ad is expired and currently not rotating!"
+#~ msgstr "Deze advertentie is verlopen en momenteel niet actief!"
+
+#~ msgid "This ad has been disabled and is not rotating!"
+#~ msgstr "Deze advertentie is uitgeschakeld!"
+
+#~ msgid ""
+#~ "This advert is approved and currently showing on the site! Saving the "
+#~ "advert now will put it in the moderation queue for review!"
+#~ msgstr ""
+#~ "Deze advertentie is goedgekeurd en wordt momenteel weergegeven op de "
+#~ "site! Het opslaan van de advertentie zal deze in de wachtrij voor revisie "
+#~ "zetten!"
+
+#~ msgid "Title"
+#~ msgstr "Titel"
+
+#~ msgid "For your and the staffs reference."
+#~ msgstr "Voor uw en de moderator referentie."
+
+#~ msgid "Live Preview"
+#~ msgstr "Voorvertoning"
+
+#~ msgid "Upload a file"
+#~ msgstr "Upload een bestand"
+
+#~ msgid "Accepted files are:"
+#~ msgstr "Geaccepteerde bestanden zijn:"
+
+#~ msgid "Use either the upload option or the dropdown menu."
+#~ msgstr "Gebruik de upload optie of het dropdown menu."
+
+#~ msgid "Device"
+#~ msgstr "Apparaat"
+
+#~ msgid "Computers"
+#~ msgstr "Computers"
+
+#~ msgid ""
+#~ "Operating system detection only detects iOS/Android/Others or neither. "
+#~ "Only works if Smartphones and/or Tablets is enabled."
+#~ msgstr ""
+#~ "Detectie van besturingssysteem detecteert alleen iOS/Android/anderen of "
+#~ "geen van beide. Werkt alleen als smartphones en/of tablets is "
+#~ "ingeschakeld."
+
+#~ msgid "Others"
+#~ msgstr "Anderen"
+
+#~ msgid ""
+#~ "Select where your ad should be visible. If your desired group/location is "
+#~ "not listed or the specification is unclear contact your publisher."
+#~ msgstr ""
+#~ "Selecteer waar je advertentie zichtbaar moet zijn. Als de gewenste groep/"
+#~ "locatie niet wordt vermeld of als de specificatie onduidelijk is, neem "
+#~ "dan contact op met de moderator."
+
+#~ msgid "Choose Schedules"
+#~ msgstr "Schema's kiezen"
+
+#~ msgid ""
+#~ "Select when your ad should be visible. If your desired timeframe is not "
+#~ "listed contact your publisher."
+#~ msgstr ""
+#~ "Selecteer wanneer de advertentie zichtbaar moet zijn. Neem contact op met "
+#~ "de moderator als het gewenste schema niet wordt vermeld."
+
+#~ msgid "In use by this advert."
+#~ msgstr "Door deze advertentie gebruikt."
+
+#~ msgid "Submit ad for review"
+#~ msgstr "Advertentie voor revisie verzenden"
+
+#~ msgid "Editing and creating adverts is not available right now"
+#~ msgstr ""
+#~ "Het bewerken en maken van advertenties is momenteel niet beschikbaar"
+
+#~ msgid ""
+#~ "The administrator has disabled editing of adverts. Contact your "
+#~ "representative if you think this is incorrect."
+#~ msgstr ""
+#~ "De beheerder heeft het bewerken van advertenties uitgeschakeld. Neem "
+#~ "contact op met uw vertegenwoordiger als u denkt dat dit onjuist is."
+
+#~ msgid ""
+#~ "The adverts in here are disabled but kept for reference or later use."
+#~ msgstr ""
+#~ "De advertenties hier zijn uitgeschakeld, maar bewaard voor referentie of "
+#~ "later gebruik."
+
+#~ msgid "Queued Adverts"
+#~ msgstr "Advertenties in de wachtrij"
+
+#~ msgid ""
+#~ "Adverts listed here are queued for review, awaiting payment, rejected by "
+#~ "a reviewer or have a configuration error."
+#~ msgstr ""
+#~ "Advertenties die hier worden vermeld, staan in de wachtrij voor "
+#~ "beoordeling, wachten op betaling, worden geweigerd door een revisor of "
+#~ "hebben een configuratiefout."
+
+#~ msgid "Budget:"
+#~ msgstr "Budget:"
+
+#~ msgid "CPC:"
+#~ msgstr "Cpc:"
+
+#~ msgid "CPM:"
+#~ msgstr "Cpm:"
+
+#~ msgid "Rejected"
+#~ msgstr "Afgewezen"
+
+#~ msgid "Summary"
+#~ msgstr "Samenvatting"
+
+#~ msgid "Overall statistics over active adverts"
+#~ msgstr "Algemene statistieken over actieve advertenties"
+
+#~ msgid "Best performing advert"
+#~ msgstr "Best presterende advertentie"
+
+#~ msgid "with"
+#~ msgstr "met"
+
+#~ msgid "clicks."
+#~ msgstr "kliks."
+
+#~ msgid "No advert stands out at this time."
+#~ msgstr "Geen enkele advertentie valt op dit moment op."
+
+#~ msgid "Least performing advert"
+#~ msgstr "Minst presterende advertentie"
+
+#~ msgid "Export options for montly overview"
+#~ msgstr "Exportopties voor montly overzicht"
+
+#~ msgid "Select period"
+#~ msgstr "Selecteer periode"
+
+#~ msgid "Email options"
+#~ msgstr "E-mailopties"
+
+#~ msgid ""
+#~ "Maximum of 3 email addresses, comma seperated. Leave empty to download "
+#~ "the CSV file instead."
+#~ msgstr ""
+#~ "Maximaal 3 e-mailadressen, komma gescheiden. Laat leeg om het CSV-bestand "
+#~ "te downloaden."
+
+#~ msgid "Export"
+#~ msgstr "Exporteren"
+
+#~ msgid "Download or email your selected timeframe as a CSV file."
+#~ msgstr "Download of e-mail uw geselecteerde tijdsbestek als CSV-bestand."
+
+#~ msgid ""
+#~ "These are active and currently in the pool of adverts shown on the "
+#~ "website."
+#~ msgstr ""
+#~ "Deze zijn actief en bevinden zich momenteel in de pool van advertenties "
+#~ "die op de website worden weergegeven."
+
+#~ msgid "Statistics for"
+#~ msgstr "Statistieken voor"
+
+#~ msgid "Clicks today"
+#~ msgstr "Klikken vandaag"
+
+#~ msgid "Impressions last month"
+#~ msgstr "Vertoningen van vorige maand"
+
+#~ msgid "Clicks last month"
+#~ msgstr "Klikken van vorige maand"
+
+#~ msgid "Impressions this month"
+#~ msgstr "Vertoningen deze maand"
+
+#~ msgid "Clicks this month"
+#~ msgstr "Klikken deze maand"
+
+#~ msgid "Periodic overview of clicks and impressions"
+#~ msgstr "Periodiek overzicht van klikken en vertoningen"
+
+#~ msgid "Shown from"
+#~ msgstr "Getoond van"
+
+#~ msgid "Shown until"
+#~ msgstr "Getoond tot"
+
+#~ msgid "Used"
+#~ msgstr "Gebruikt"
+
+#~ msgid "Max Impressions"
+#~ msgstr "Maximale vertoningen"
+
+#~ msgid ""
+#~ "This is because of CSS differences. The themes CSS file is not active "
+#~ "here!"
+#~ msgstr ""
+#~ "Dit komt door verschillen in CSS. Het thema CSS-bestand is hier niet "
+#~ "actief!"
+
+#~ msgid "Export options"
+#~ msgstr "Exporteer opties"
+
+#~ msgid "Whole year"
+#~ msgstr "Gehele jaar"
+
+#~ msgid "Invalid ad ID."
+#~ msgstr "Ongeldige advertentie-id."
+
+#~ msgid "Queued"
+#~ msgstr "Wachtrij"
+
+#~ msgid "Subject"
+#~ msgstr "Onderwerp"
+
+#~ msgid "Advert/Campaign"
+#~ msgstr "Advertentie/campagne"
+
+#~ msgid "No advert in particular"
+#~ msgstr "Geen advertentie in het bijzonder"
+
+#~ msgid "Short message"
+#~ msgstr "Kort bericht"
+
+#~ msgid "Send"
+#~ msgstr "Verzenden"
+
+#~ msgid ""
+#~ "These are users marked as Advertisers. You can add more advertisers by "
+#~ "editing existing users or creating new users."
+#~ msgstr ""
+#~ "Dit zijn gebruikers die zijn gemarkeerd als Adverteerders. U meer "
+#~ "adverteerders toevoegen door bestaande gebruikers te bewerken of nieuwe "
+#~ "gebruikers te maken."
+
+#~ msgid "Email"
+#~ msgstr "E-mail"
+
+#~ msgid "Contact"
+#~ msgstr "Contact"
+
+#~ msgid "Has no adverts"
+#~ msgstr "Heeft geen advertenties"
+
+#~ msgid "Advertiser Profile"
+#~ msgstr "Adverteerdersprofiel"
+
+#~ msgid "Profile"
+#~ msgstr "Profiel"
+
+#~ msgid "Who"
+#~ msgstr "Wie"
+
+#~ msgid "No HTML/Javascript or code allowed."
+#~ msgstr "Geen HTML/Javascript of code toegestaan."
+
+#~ msgid "Create and edit their own adverts?"
+#~ msgstr "Kan eigen advertenties maken en bewerken?"
+
+#~ msgid "Specify devices for mobile adverts?"
+#~ msgstr "Apparaten opgeven voor mobiele advertenties?"
+
+#~ msgid "Can set up Geo Targeting?"
+#~ msgstr "Kan geotargeting worden ingesteld?"
+
+#~ msgid "Save"
+#~ msgstr "Opslaan"
+
+#~ msgid "Back"
+#~ msgstr "Terug"
+
+#~ msgid "ads.txt"
+#~ msgstr "ads.txt"
+
+#~ msgid ""
+#~ "Add authorized publishers here to make sure the adverts you display are "
+#~ "legitimate. Only applies to advertising networks. The use of ads.txt is "
+#~ "optional."
+#~ msgstr ""
+#~ "Voeg hier geautoriseerde uitgevers toe om ervoor te zorgen dat de "
+#~ "advertenties die u weergeeft legitiem zijn. Geldt alleen voor "
+#~ "advertentienetwerken. Het gebruik van ads.txt is optioneel."
+
+#~ msgid ""
+#~ "An authorization consists of 3 or 4 parts; domainname, Publisher ID, Type "
+#~ "[, Authority ID]. Comment lines are prefixed with a #."
+#~ msgstr ""
+#~ "Een vergunning bestaat uit 3 of 4 delen; domeinnaam, Publisher ID, Type "
+#~ "[, Authority ID]. Opmerkingsregels zijn vooraf vastgelegd met een #."
+
+#~ msgid ""
+#~ "Typos and wrong information may result in missing adverts or the wrong "
+#~ "adverts being shown on your website."
+#~ msgstr ""
+#~ "Typefouten en verkeerde informatie kunnen leiden tot ontbrekende "
+#~ "advertenties of de verkeerde advertenties die op uw website worden "
+#~ "weergegeven."
+
+#~ msgid "Header Snippet"
+#~ msgstr "Koptekstfragment"
+
+#~ msgid ""
+#~ "Use this field for code from adverts that require a piece of code in the "
+#~ "header. Some newer Google AdSense adverts require this."
+#~ msgstr ""
+#~ "Gebruik dit veld voor code van advertenties waarvoor een stukje code in "
+#~ "de koptekst nodig is. Sommige nieuwere Google AdSense-advertenties "
+#~ "vereisen dit."
+
+#~ msgid ""
+#~ "Make sure you paste the code exactly as provided without alterations. If "
+#~ "you have more than one snippet paste them under each other on a new line."
+#~ msgstr ""
+#~ "Zorg ervoor dat u de code precies zoals voorzien zonder wijzigingen "
+#~ "plakt. Als u meer dan één fragment hebt, plakt u ze onder elkaar op een "
+#~ "nieuwe regel."
+
+#~ msgid ""
+#~ "If you have multiple snippets but some are identical you should only use "
+#~ "one snippet."
+#~ msgstr ""
+#~ "Als u meerdere fragmenten hebt, maar sommige identiek zijn, mag u slechts "
+#~ "één fragment gebruiken."
+
+#~ msgid "Archived Adverts"
+#~ msgstr "Gearchiveerde advertenties"
+
+#~ msgid ""
+#~ "The archive is a way of permanently disabling adverts. Archiving adverts "
+#~ "is meant to preserve stats and/or settings. While you can edit the "
+#~ "adverts, you can not activate them again. They can however be duplicated "
+#~ "to new adverts which you can use."
+#~ msgstr ""
+#~ "Het archief is een manier om advertenties permanent uit te schakelen. Het "
+#~ "archiveren van advertenties is bedoeld om statistieken en/of instellingen "
+#~ "te behouden. Hoewel je de advertenties bewerken, kun je ze niet opnieuw "
+#~ "activeren. Ze kunnen echter worden gedupliceerd naar nieuwe advertenties "
+#~ "die u gebruiken."
+
+#~ msgid ""
+#~ "Archived adverts have their stats moved to a separate database table "
+#~ "which may increase the overall speed of your site."
+#~ msgstr ""
+#~ "Gearchiveerde advertenties hebben hun statistieken verplaatst naar een "
+#~ "aparte database tabel die de algehele snelheid van uw site kan verhogen."
+
+#~ msgid ""
+#~ "Archiving multiple adverts at the same time may slow down your site, in "
+#~ "some cases a lot of data has to be moved. Not every hosting provider "
+#~ "allows you to move large quantities of data. To avoid this, archive one "
+#~ "or two adverts at a time."
+#~ msgstr ""
+#~ "Het archiveren van meerdere advertenties tegelijkertijd kan uw site "
+#~ "vertragen, in sommige gevallen moet veel gegevens worden verplaatst. Niet "
+#~ "elke hostingprovider stelt u in staat om grote hoeveelheden gegevens te "
+#~ "verplaatsen. Om dit te voorkomen, archiveren een of twee advertenties "
+#~ "tegelijk."
+
+#~ msgid "Duplicate"
+#~ msgstr "Kopiëren"
+
+#~ msgid "Delete (Permanently)"
+#~ msgstr "Verwijderen (permanent)"
+
+#~ msgid "Export to XML"
+#~ msgstr "Exporteer naar XML"
+
+#~ msgid "Advertiser:"
+#~ msgstr "Adverteerder:"
+
+#~ msgid ""
+#~ "These adverts are temporarily disabled. You can archive adverts to "
+#~ "permanently disable them."
+#~ msgstr ""
+#~ "Deze advertenties zijn tijdelijk uitgeschakeld. U advertenties archiveren "
+#~ "om ze permanent uit te schakelen."
+
+#~ msgid ""
+#~ "Archiving adverts moves gathered statistics away from the live database "
+#~ "which may speed up your website."
+#~ msgstr ""
+#~ "Het archiveren van advertenties verplaatst verzamelde statistieken uit de "
+#~ "buurt van de live database die uw website kan versnellen."
+
+#~ msgid "Archive (Permanently)"
+#~ msgstr "Archief (Permanent)"
+
+#~ msgid "Move to Trash"
+#~ msgstr "Verplaats naar prullenmand"
+
+#~ msgid "Devices:"
+#~ msgstr "Apparaten:"
+
+#~ msgid "Weight:"
+#~ msgstr "Gewicht:"
+
+#~ msgid "You have set an advertiser but didn't enable tracking!"
+#~ msgstr ""
+#~ "U hebt een adverteerder ingesteld, maar hebt tracking niet ingeschakeld!"
+
+#~ msgid ""
+#~ "There is a problem saving the asset. Please try again with the media "
+#~ "picker and re-save the advert!"
+#~ msgstr ""
+#~ "Er is een probleem met het opslaan van het actief. Probeer het opnieuw "
+#~ "met de mediakiezer en sla de advertentie opnieuw op!"
+
+#~ msgid ""
+#~ "This advert has run out of budget. Add more budget to the advert or reset "
+#~ "the rate to zero!"
+#~ msgstr ""
+#~ "Deze advertentie heeft geen budget meer. Voeg meer budget toe aan de "
+#~ "advertentie of stel het tarief terug naar nul!"
+
+#~ msgid "CPC is enabled but Tracking is not active!"
+#~ msgstr "CPC is ingeschakeld, maar Tracking is niet actief!"
+
+#~ msgid "Advert has no devices selected!"
+#~ msgstr "Advertentie heeft geen apparaten geselecteerd!"
+
+#~ msgid "Advert has no operating systems selected!"
+#~ msgstr "Advertentie heeft geen besturingssystemen geselecteerd!"
+
+#~ msgid ""
+#~ "AdRotate cannot find an error but the advert is marked erroneous, check "
+#~ "the settings and try re-saving the advert!"
+#~ msgstr ""
+#~ "AdRotate kan geen fout vinden, maar de advertentie is onjuist gemarkeerd, "
+#~ "controleer de instellingen en probeer de advertentie opnieuw op te slaan!"
+
+#~ msgid ""
+#~ "This advert has been rejected by staff. Please adjust the advert to "
+#~ "conform with the requirements!"
+#~ msgstr ""
+#~ "Deze advertentie is afgewezen door het personeel. Pas de advertentie aan "
+#~ "om aan de eisen te voldoen!"
+
+#~ msgid "This advert has been archived and can not be activated anymore!"
+#~ msgstr ""
+#~ "Deze advertentie is gearchiveerd en kan niet meer geactiveerd worden!"
+
+#~ msgid "Visible to Advertisers!"
+#~ msgstr "Zichtbaar voor adverteerders!"
+
+#~ msgid "Status"
+#~ msgstr "Status"
+
+#~ msgid "Maybe, this advert is queued for review"
+#~ msgstr "Misschien staat deze advertentie in de wachtrij voor beoordeling"
+
+#~ msgid "No, this advert is rejected (advertiser can make changes)"
+#~ msgstr ""
+#~ "Nee, deze advertentie wordt afgewezen (adverteerder kan wijzigingen "
+#~ "aanbrengen)"
+
+#~ msgid "Archive this advert permanently"
+#~ msgstr "Archiveer deze advertentie permanent"
+
+#~ msgid "Create a new schedule"
+#~ msgstr "Een nieuwe planning maken"
+
+#~ msgid "Leave empty to skip this."
+#~ msgstr "Laat leeg om dit over te slaan."
+
+#~ msgid "Spread Impressions"
+#~ msgstr "Vertoningen verspreiden"
+
+#~ msgid ""
+#~ "Try to evenly spread impressions for each advert over the duration of "
+#~ "this schedule. This may cause adverts to intermittently not show."
+#~ msgstr ""
+#~ "Probeer vertoningen voor elke advertentie gelijkmatig te spreiden over de "
+#~ "duur van dit schema. Dit kan ertoe leiden dat advertenties met "
+#~ "tussenpozen niet worden weergegeven."
+
+#~ msgid "Choose an existing schedules"
+#~ msgstr "Een bestaande planning kiezen"
+
+#~ msgid "You can add, edit or delete schedules from the"
+#~ msgstr "U schema's toevoegen, bewerken of verwijderen uit de"
+
+#~ msgid "dashboard. Save your advert first!"
+#~ msgstr "dashboard. Sla eerst je advertentie op!"
+
+#~ msgid "Schedules not in use by this advert are hidden."
+#~ msgstr ""
+#~ "Schema's die niet door deze advertentie worden gebruikt, worden verborgen."
+
+#~ msgid "Operating System"
+#~ msgstr "Operating System"
+
+#~ msgid "Not specified"
+#~ msgstr "Niet opgegeven"
+
+#~ msgid ""
+#~ "Must be a registered user on your site with appropriate access roles."
+#~ msgstr ""
+#~ "Moet een geregistreerde gebruiker op uw site met de juiste toegangsrollen."
+
+#~ msgid "Advert Budget"
+#~ msgstr "Advertentiebudget"
+
+#~ msgid "When the budget reaches 0, the advert will expire."
+#~ msgstr "Wanneer het budget 0 bereikt, vervalt de advertentie."
+
+#~ msgid "Cost-per-Click"
+#~ msgstr "Kosten per klik"
+
+#~ msgid "Cost-per-Mille"
+#~ msgstr "Kosten per Mille"
+
+#~ msgid "Active"
+#~ msgstr "Actief"
+
+#~ msgid "Default rotation"
+#~ msgstr "Standaardrotatie"
+
+#~ msgid "-- Weight --"
+#~ msgstr "-- Gewicht --"
+
+#~ msgid "Barely visible"
+#~ msgstr "Nauwelijks zichtbaar"
+
+#~ msgid "Normal coverage"
+#~ msgstr "Normale dekking"
+
+#~ msgid "Best visibility"
+#~ msgstr "Beste zichtbaarheid"
+
+#~ msgid "Moderation Queue"
+#~ msgstr "Moderator wachtrij"
+
+#~ msgid ""
+#~ "The moderation queue lists adverts assigned to your advertisers that need "
+#~ "reviewing. This includes changes made by advertisers."
+#~ msgstr ""
+#~ "In de moderatiewachtrij worden advertenties weergegeven die zijn "
+#~ "toegewezen aan uw adverteerders die moeten worden beoordeeld. Dit geldt "
+#~ "ook voor wijzigingen die door adverteerders zijn aangebracht."
+
+#~ msgid "Approve"
+#~ msgstr "Goedkeuren"
+
+#~ msgid "Reject"
+#~ msgstr "Afwijzen"
+
+#~ msgid "Rejected."
+#~ msgstr "Afgewezen."
+
+#~ msgid "Trashed Adverts"
+#~ msgstr "Weggegooide advertenties"
+
+#~ msgid ""
+#~ "The trash is a temporary place for deleted adverts. If an advert is "
+#~ "deleted by accident you can restore it from here. If nothing is done the "
+#~ "advert is deleted after 3 days. Once the advert has been deleted it can "
+#~ "no longer be recovered."
+#~ msgstr ""
+#~ "De prullenbak is een tijdelijke plaats voor verwijderde advertenties. Als "
+#~ "een advertentie per ongeluk wordt verwijderd, u deze vanaf hier "
+#~ "herstellen. Als er niets wordt gedaan, wordt de advertentie na 3 dagen "
+#~ "verwijderd. Zodra de advertentie is verwijderd, kan deze niet meer worden "
+#~ "hersteld."
+
+#~ msgid "Restore"
+#~ msgstr "Herstellen"
+
+#~ msgid "px wide"
+#~ msgstr "px breed"
+
+#~ msgid "px high."
+#~ msgstr "px hoog."
+
+#~ msgid ""
+#~ "The size will be visible in management and is for reference when in "
+#~ "default mode."
+#~ msgstr ""
+#~ "De grootte is zichtbaar in het beheer en is ter referentie wanneer u in "
+#~ "de standaardmodus staat."
+
+#~ msgid "Automatic refresh"
+#~ msgstr "Automatisch vernieuwen"
+
+#~ msgid "Do not forget to set up Geo Targeting for your adverts as well."
+#~ msgstr ""
+#~ "Vergeet niet om geotargeting ook in te stellen voor je advertenties."
+
+#~ msgid "No"
+#~ msgstr "Nee"
+
+#~ msgid "Fallback"
+#~ msgstr "Fallback"
+
+#~ msgid "Group"
+#~ msgstr "Groep"
+
+#~ msgid "New Schedule"
+#~ msgstr "Nieuw schema"
+
+#~ msgid "Edit Schedule"
+#~ msgstr "Tijdschema bewerken"
+
+#~ msgid ""
+#~ "Time uses a 24 hour clock. When you're used to AM/PM: If the start or end "
+#~ "time is after lunch, add 12 hours. 2PM is 14:00 hours. 6AM is 6:00 hours."
+#~ msgstr ""
+#~ "De tijd gebruikt een 24-uursklok. Wanneer u gewend bent aan AM/PM: Als de "
+#~ "begin- of eindtijd na de lunch is, voegt u 12 uur toe. 14.00 uur is 14:00 "
+#~ "uur. 6am is 6:00 uur."
+
+#~ msgid "Everything below is optional."
+#~ msgstr "Alles hieronder is optioneel."
+
+#~ msgid ""
+#~ "These settings may cause adverts to intermittently not show. Use with "
+#~ "care!"
+#~ msgstr ""
+#~ "Deze instellingen kunnen ertoe leiden dat advertenties met tussenpozen "
+#~ "niet worden weergegeven. Gebruik met zorg!"
+
+#~ msgid ""
+#~ "The maximum clicks and impressions are measured only for the schedule "
+#~ "that has the limit set up. And applies to each individual advert in the "
+#~ "group."
+#~ msgstr ""
+#~ "De maximale klikken en vertoningen worden alleen gemeten voor het schema "
+#~ "waarvoor de limiet is ingesteld. En geldt voor elke individuele "
+#~ "advertentie in de groep."
+
+#~ msgid "Show only on"
+#~ msgstr "Alleen weergeven op"
+
+#~ msgid "Monday"
+#~ msgstr "Maandag"
+
+#~ msgid "Tuesday"
+#~ msgstr "Dinsdag"
+
+#~ msgid "Wednesday"
+#~ msgstr "Woensdag"
+
+#~ msgid "Thursday"
+#~ msgstr "Donderdag"
+
+#~ msgid "Friday"
+#~ msgstr "Vrijdag"
+
+#~ msgid "Saturday"
+#~ msgstr "Zaterdag"
+
+#~ msgid "Sunday"
+#~ msgstr "Zondag"
+
+#~ msgid "Daily start at"
+#~ msgstr "Dagelijks beginnen bij"
+
+#~ msgid "End on"
+#~ msgstr "Eindigt op"
+
+#~ msgid ""
+#~ "Evenly spread impressions for each advert over the duration of this "
+#~ "schedule."
+#~ msgstr ""
+#~ "Gelijkmatig verspreide vertoningen voor elke advertentie gedurende de "
+#~ "duur van dit schema."
+
+#~ msgid "Requires Maximum Impressions to be higher than 100."
+#~ msgstr ""
+#~ "Voor maximale vertoningen moet de maximale vertoning hoger zijn dan 100."
+
+#~ msgid "Automatically delete the schedule 1 day after it expires?"
+#~ msgstr "Automatisch verwijderen van de planning 1 dag nadat het verloopt?"
+
+#~ msgid "Adverts hide schedules that are not used by that advert."
+#~ msgstr ""
+#~ "Advertenties verbergen schema's die niet door die advertentie worden "
+#~ "gebruikt."
+
+#~ msgid "Save Schedule"
+#~ msgstr "Schema opslaan"
+
+#~ msgid "Select Adverts"
+#~ msgstr "Advertenties selecteren"
+
+#~ msgid "Period"
+#~ msgstr "Periode"
+
+#~ msgid "From"
+#~ msgstr "Van"
+
+#~ msgid "Until"
+#~ msgstr "Tot"
+
+#~ msgid "from"
+#~ msgstr "van"
+
+#~ msgid "Lookups remaining"
+#~ msgstr "Nog zoeken"
+
+#~ msgid ""
+#~ "This number is provided by the geo service and not checked for accuracy. "
+#~ "Not every geo service provides a quota."
+#~ msgstr ""
+#~ "Dit nummer wordt geleverd door de geo-service en niet gecontroleerd op "
+#~ "nauwkeurigheid. Niet elke geoservice biedt een quotum."
+
+#~ msgid "User ID"
+#~ msgstr "Gebruikers ID"
+
+#~ msgid "License Key/API Key"
+#~ msgstr "Licentiesleutel/API-sleutel"
+
+#~ msgid "AdRotate Pro License"
+#~ msgstr "Licentie voor AdRotate Pro"
+
+#~ msgid ""
+#~ "Activate your AdRotate Pro License to receive automatic updates, use "
+#~ "AdRotate Geo and be eligble for premium support."
+#~ msgstr ""
+#~ "Activeer uw AdRotate Pro-licentie om automatische updates te ontvangen, "
+#~ "gebruik AdRotate Geo en wees geschikt voor premium ondersteuning."
+
+#~ msgid "Hide License Details"
+#~ msgstr "Licentiegegevens verbergen"
+
+#~ msgid "De-activate license"
+#~ msgstr "Licentie deactiveren"
+
+#~ msgid "Click only once! this may take a few seconds."
+#~ msgstr "Klik maar één keer! dit kan enkele seconden duren."
+
+#~ msgid ""
+#~ "Use these functions when you are running into trouble with your adverts "
+#~ "or you notice your database is slow, unresponsive and sluggish. Normally "
+#~ "you should not need these functions, but sometimes they are a lifesaver!"
+#~ msgstr ""
+#~ "Gebruik deze functies wanneer u problemen ondervindt met uw advertenties "
+#~ "of u merkt dat uw database traag, reageert en traag is. Normaal gesproken "
+#~ "moet je deze functies niet nodig hebben, maar soms zijn ze een redder in "
+#~ "nood!"
+
+#~ msgid "Delete Assets"
+#~ msgstr "Elementen verwijderen"
+
+#~ msgid "Clean-up Assets"
+#~ msgstr "Schoonmaakmiddelen"
+
+#~ msgid ""
+#~ "You are about to delete advert files. This may delete advert assets "
+#~ "(images etc.) you may want to re-use at some point. Make sure you have a "
+#~ "backup!"
+#~ msgstr ""
+#~ "U staat op het punt om advertentiebestanden te verwijderen. Dit kan "
+#~ "verwijderen advertentie activa (afbeeldingen etc.) die u zou willen "
+#~ "hergebruiken op een bepaald punt. Zorg ervoor dat je een back-up hebt!"
+
+#~ msgid ""
+#~ "Check for unused image assets and delete them. This function only deletes "
+#~ "images and optionally export files. No other files or folders are touched."
+#~ msgstr ""
+#~ "Controleer op ongebruikte afbeeldingselementen en verwijder deze. Deze "
+#~ "functie verwijdert alleen afbeeldingen en exporteert optioneel bestanden. "
+#~ "Er worden geen andere bestanden of mappen aangeraakt."
+
+#~ msgid "Delete expired schedules."
+#~ msgstr "Verlopen schema's verwijderen."
+
+#~ msgid "Delete all adverts and their data from the trash."
+#~ msgstr "Verwijder alle advertenties en hun gegevens uit de prullenbak."
+
+#~ msgid "Troubleshooting"
+#~ msgstr "Probleemoplossen"
+
+#~ msgid ""
+#~ "The below options are not meant for normal use and are only there for "
+#~ "developers to review saved settings or how ads are selected. These can be "
+#~ "used as a measure of troubleshooting upon request but for normal use they "
+#~ "SHOULD BE LEFT UNCHECKED!!"
+#~ msgstr ""
+#~ "De onderstaande opties zijn niet bedoeld voor normaal gebruik en zijn er "
+#~ "alleen voor ontwikkelaars om opgeslagen instellingen of hoe advertenties "
+#~ "worden geselecteerd te controleren. Deze kunnen worden gebruikt als een "
+#~ "maatregel van het oplossen van problemen op verzoek, maar voor normaal "
+#~ "gebruik moeten ze worden overgelaten unchecked!"
+
+#~ msgid ""
+#~ "Troubleshoot ads and how they are selected. Visible on the front-end."
+#~ msgstr ""
+#~ "Problemen met advertenties oplossen en hoe ze zijn geselecteerd. "
+#~ "Zichtbaar aan de voorkant."
+
+#~ msgid "Geo Data output on the front-end."
+#~ msgstr "Geo Data output aan de front-end."
+
+#~ msgid ""
+#~ "Disable timers for clicks and impressions. AdRotate Internal Tracker only."
+#~ msgstr ""
+#~ "Timers voor klikken en vertoningen uitschakelen. Alleen interne tracker "
+#~ "roteren."
+
+#~ msgid ""
+#~ "Temporarily disable encryption on the redirect url. AdRotate Internal "
+#~ "Tracker only."
+#~ msgstr ""
+#~ "Schakel versleuteling op de omleidingsurl tijdelijk uit. Alleen interne "
+#~ "tracker roteren."
+
+#~ msgid "Send email notifications"
+#~ msgstr "Meldingen instellen"
+
+#~ msgid "Delete adverts from trash"
+#~ msgstr "Advertenties verwijderen uit afval"
+
+#~ msgid "Delete expired adverts"
+#~ msgstr "Verlopen advertenties verwijderen"
+
+#~ msgid "Check for new version"
+#~ msgstr "Controleren op nieuwe versie"
+
+#~ msgid "Check for updates"
+#~ msgstr "Controleer op updates"
+
+#~ msgid "Hide Schedules"
+#~ msgstr "Schema's verbergen"
+
+#~ msgid ""
+#~ "When editing adverts; Hide schedules that are not in use by that advert."
+#~ msgstr ""
+#~ "Wanneer je advertenties bewerkt; Verberg de schema’s die niet door de "
+#~ "advertentie gebruikt worden."
+
+#~ msgid ""
+#~ "Who has access to what? All but the \"advertiser page\" are usually for "
+#~ "admins and moderators."
+#~ msgstr ""
+#~ "Wie heeft toegang tot wat? Alle, behalve de \"adverteerder pagina\" zijn "
+#~ "meestal voor admins en moderators."
+
+#~ msgid "Advertiser page"
+#~ msgstr "Pagina Adverteerder"
+
+#~ msgid "Role to allow users/advertisers to see their advertisement page."
+#~ msgstr ""
+#~ "Rol om gebruikers/adverteerders hun advertentiepagina te laten zien."
+
+#~ msgid ""
+#~ "All permissions below do NOT apply to avertisers and they should NOT have "
+#~ "access to it!"
+#~ msgstr ""
+#~ "Alle onderstaande machtigingen zijn NIET van toepassing op afwenden en ze "
+#~ "mogen er GEEN toegang toe hebben!"
+
+#~ msgid "Full report page"
+#~ msgstr "Volledige rapportpagina"
+
+#~ msgid "Role to review the full report."
+#~ msgstr "Rol om het volledige rapport te bekijken."
+
+#~ msgid "Manage/Add/Edit schedules"
+#~ msgstr "Schema's beheren/toevoegen/bewerken"
+
+#~ msgid "Role to see and add/edit schedules."
+#~ msgstr "Rol om schema's te zien en toe te voegen/bewerken."
+
+#~ msgid "Delete schedules"
+#~ msgstr "Schema's verwijderen"
+
+#~ msgid "Role to delete schedules."
+#~ msgstr "Rol om schema's te verwijderen."
+
+#~ msgid "Manage advertisers"
+#~ msgstr "Adverteerders beheren"
+
+#~ msgid "Access to see and manage the advertisers."
+#~ msgstr "Toegang tot het bekijken en beheren van de adverteerders."
+
+#~ msgid "Moderate new adverts"
+#~ msgstr "Nieuw"
+
+#~ msgid "Role to approve adverts submitted by advertisers."
+#~ msgstr ""
+#~ "Rol om advertenties goed te keuren die door adverteerders zijn ingediend."
+
+#~ msgid "Approve/Reject adverts in Moderation Queue"
+#~ msgstr "Advertenties goedkeuren/weigeren in moderatiewachtrij"
+
+#~ msgid "Role to approve or reject adverts submitted by advertisers."
+#~ msgstr ""
+#~ "Rol om advertenties die door adverteerders zijn ingediend, goed te keuren "
+#~ "of te weigeren."
+
+#~ msgid "Depreciated"
+#~ msgstr "Afschrijving"
+
+#~ msgid "Google Analytics"
+#~ msgstr "Google Analytics"
+
+#~ msgid ""
+#~ "The settings below only have effect when you use Google Analytics. Either "
+#~ "the Universal Tracker of the Global Tag Tracker."
+#~ msgstr ""
+#~ "De onderstaande instellingen hebben alleen effect wanneer u Google "
+#~ "Analytics gebruikt. Ofwel de Universal Tracker van de Global Tag Tracker."
+
+#~ msgid "Click value"
+#~ msgstr "Kosten per klik"
+
+#~ msgid "Default: 1.00."
+#~ msgstr "Standaard: 1,00."
+
+#~ msgid "This number may not be empty, be lower than 0.1 or higher than 10."
+#~ msgstr ""
+#~ "Dit aantal mag niet leeg zijn, lager zijn dan 10 of meer dan 3600 (1 uur)."
+
+#~ msgid "Impression value"
+#~ msgstr "Vertoningswaarde"
+
+#~ msgid "Default: 2.00."
+#~ msgstr "Standaard"
+
+#~ msgid "Bulk import adverts"
+#~ msgstr "Advertenties voor bulkimport"
+
+#~ msgid ""
+#~ "Make sure the file is smaller than 4096Kb (up to approximately 1000 "
+#~ "adverts in 1 file)."
+#~ msgstr ""
+#~ "Zorg ervoor dat het bestand kleiner is dan 4096Kb (tot ongeveer 1000 "
+#~ "advertenties in 1 bestand)."
+
+#~ msgid "Import"
+#~ msgstr "Importeren"
+
+#~ msgid "Click only once!"
+#~ msgstr "Klik maar één keer! dit kan enkele seconden duren."
+
+#~ msgid ""
+#~ "As a thank you for your continued use and support of AdRotate "
+#~ "Professional you can get a new license at a special discounted price."
+#~ msgstr ""
+#~ "Als dank voor uw voortdurende gebruik en ondersteuning van AdRotate Pro u "
+#~ "een nieuwe licentie te krijgen tegen een speciale gereduceerde prijs."
+
+#~ msgid ""
+#~ "Licenses are valid for 1 year from purchasing. Activating a new license "
+#~ "key will re-enable the Premium Support contact form and lets you use "
+#~ "AdRotate Geo again."
+#~ msgstr ""
+#~ "Licenties zijn 1 jaar geldig na aankoop. Als u een nieuwe licentiesleutel "
+#~ "activeert, schakelt u het contactformulier premium ondersteuning opnieuw "
+#~ "in en u AdRotate Geo opnieuw gebruiken."
+
+#~ msgid "Get your new License"
+#~ msgstr "Koop een nieuwe licentie"
+
+#~ msgid "Replace License key"
+#~ msgstr "Licentiesleutel"
+
+#~ msgid "I have a new License key already"
+#~ msgstr "Ik heb al een nieuwe licentiesleutel"
+
+#~ msgid "What went wrong? Or what are you trying to do?"
+#~ msgstr "Wat ging er mis? Of wat probeer je te doen?"
+
+#~ msgid "Include error messages and/or relevant information."
+#~ msgstr "Foutberichten en/of relevante informatie opnemen."
+
+#~ msgid "Try to remember any actions that may cause the problem."
+#~ msgstr ""
+#~ "Probeer alle acties te onthouden die het probleem kunnen veroorzaken."
+
+#~ msgid "Any code/HTML will be stripped from your message."
+#~ msgstr "Alle code / HTML zal worden ontdaan van uw bericht."
+
+#~ msgid "Your question"
+#~ msgstr "Uw vraag"
+
+#~ msgid "Your feedback"
+#~ msgstr "Je feedback"
+
+#~ msgid "Which feature do you think should be improved?"
+#~ msgstr "Welke functie denk je dat moet worden verbeterd?"
+
+#~ msgid "Please use English or Dutch only!"
+#~ msgstr "Gebruik alleen Engels of Nederlands!"
+
+#~ msgid ""
+#~ "Sending multiple messages with the same question will put you at the very "
+#~ "end of my support priorities. Please do not send the same message more "
+#~ "than once here or elsewhere. Thank you!"
+#~ msgstr ""
+#~ "Het verzenden van meerdere berichten met dezelfde vraag zal u aan het "
+#~ "einde van mijn steun prioriteiten. Stuur niet hetzelfde bericht meer dan "
+#~ "een keer hier of elders. Dank u!"
+
+#~ msgid "Activate License"
+#~ msgstr "Activeer licentie"
+
+#~ msgid "Contact your site administrator if you do not know what this means."
+#~ msgstr ""
+#~ "Neem contact op met uw sitebeheerder als u niet weet wat dit betekent."
+
+#~ msgid "No files found"
+#~ msgstr "Geen bestanden gevonden"
+
+#~ msgid "Folder not found or not accessible"
+#~ msgstr "Map niet gevonden of niet toegankelijk"
+
+#~ msgid ""
+#~ "You have a Network license, these are being depreciated. Please contact "
+#~ "AdRotate Support with your order number and license key for a FREE "
+#~ "upgrade to a Developer License!"
+#~ msgstr ""
+#~ "Je hebt een netwerklicentie, deze worden afgeschreven. Neem contact op "
+#~ "met de helpdesk van AdRotate met het order nummer en licentiecode voor "
+#~ "een gratis upgrade naar een ontwikkelaars licentie!"
+
+#~ msgid "Set up Geo Targeting"
+#~ msgstr "Geo-targeting instellen"
+
+#~ msgid "Configure Geo Targeting"
+#~ msgstr "Geo-targeting configureren"
+
+#~ msgid "AdRotate found"
+#~ msgstr "AdRotate gevonden"
+
+#~ msgid "that can be imported"
+#~ msgstr "die kunnen worden geïmporteerd"
+
+#~ msgid "Configured plugins can be imported into AdRotate! What is"
+#~ msgstr ""
+#~ "Geconfigureerde plugins kunnen worden geïmporteerd in AdRotate! Wat is"
+
+#~ msgid "AdRotate has detected"
+#~ msgstr "AdRotate heeft gedetecteerd"
+
+#~ msgid "Finish Update"
+#~ msgstr "Update voltooien"
+
+#~ msgid ""
+#~ "You have almost completed updating <strong>AdRotate</strong> to version"
+#~ msgstr ""
+#~ "Je hebt bijna het bijwerken van <strong>AdRotate</strong> voltooid naar "
+#~ "versie"
+
+#~ msgid ""
+#~ "To complete the update click the button on the left. This may take a few "
+#~ "seconds to complete!"
+#~ msgstr ""
+#~ "Klik op de knop aan de linkerkant om de update te voltooien. Dit kan "
+#~ "enkele seconden in beslag nemen!"
+
+#~ msgid ""
+#~ "Disable your ad blocker in your browser so your adverts and dashboard "
+#~ "show up correctly. Use"
+#~ msgstr ""
+#~ "Schakel je ad-blokkering uit in de browser zodat je advertenties en "
+#~ "dashboard correct worden weergegeven. Gebruiken"
+
+#~ msgid "to help your adverts avoid ad blockers."
+#~ msgstr "om je advertenties te helpen met het ontwijken van ad blockers."
+
+#~ msgid "Roles"
+#~ msgstr "Rollen"
+
+#~ msgid "Misc"
+#~ msgstr "Diverse"
+
+#, fuzzy
+#~ msgid "Start date (dd-mm-yyyy)"
+#~ msgstr "Date de début (jour/mois/année) :"
+
+#, fuzzy
+#~ msgid "impressions per hour"
+#~ msgstr "Vues"
+
+#, fuzzy
+#~ msgid "From / Until"
+#~ msgstr "Visible jusqu'à"
+
+#, fuzzy
+#~ msgid "End"
+#~ msgstr "Début / Fin"
+
+#, fuzzy
+#~ msgid "AdRotate Notice"
+#~ msgstr "AdRotate Pro"
+
+#, fuzzy
+#~ msgid "for WordPress. Created by"
+#~ msgstr "Publicité créée"
+
+#, fuzzy
+#~ msgid "Clicktracking is enabled but no valid link was found in the adcode!"
+#~ msgstr ""
+#~ "Le suivi des clicks par jQuery est activé, mais aucun lien valide n'a été "
+#~ "retrouvé dans le adcode!"
+
+#, fuzzy
+#~ msgid "This ad used"
+#~ msgstr "Oui, cette publicité sera utilisée"
+
+#, fuzzy
+#~ msgid "Show from"
+#~ msgstr "Montrer de "
+
+#, fuzzy
+#~ msgid "Show until"
+#~ msgstr "Montrer jusqu'à"
+
+#, fuzzy
+#~ msgid "Find out more"
+#~ msgstr "En savoir plus"
+
+#, fuzzy
+#~ msgid "ID - Name"
+#~ msgstr "ID - Nom"
+
+#, fuzzy
+#~ msgid "Code"
+#~ msgstr "Code"
+
+#, fuzzy
+#~ msgid "unlimited"
+#~ msgstr ""
+#~ "Activez AdRotate dans un nombre illimité d'installations Wordpress et/ou "
+#~ "réseaux."
+
+#, fuzzy
+#~ msgid "Clicks timer"
+#~ msgstr "Interval de clicks"
+
+#, fuzzy
+#~ msgid ""
+#~ "Your one stop for Webdevelopment, consultancy and anything WordPress! "
+#~ "Find out more about what I can do for you!"
+#~ msgstr ""
+#~ "Votre guichet unique pour le développement Web, le consulting et toutes "
+#~ "les façettes de Wordpress! Découvrez plus sur ce que je peux faire pour "
+#~ "vous!"
+
+#, fuzzy
+#~ msgid "Visit the"
+#~ msgstr "Visitez le"
+
+#, fuzzy
+#~ msgid "Remove Role"
+#~ msgstr "Rôle pour supprimer les groupes."
+
+#, fuzzy
+#~ msgid ""
+#~ "A comma separated list of keywords. Filter out bots/crawlers/user-agents. "
+#~ "To prevent impressions and clicks counted on them."
+#~ msgstr ""
+#~ "Filtrage par une liste de mots-clés séparés de virgules pour éviter les "
+#~ "impressions et le clics fait par les robots/crawlers/user-agents."
+
+#, fuzzy
+#~ msgid ""
+#~ "Keep in mind that this might give false positives. The word 'google' also "
+#~ "matches 'googlebot', but not vice-versa. So be careful!"
+#~ msgstr ""
+#~ "Gardez à l'esprit que cela peut donner des faux positifs. Le mot «Google» "
+#~ "correspond également à «Googlebot», mais pas vice-versa. Soyez donc "
+#~ "prudents!"
+
+#, fuzzy
+#~ msgid "Keep your list up-to-date"
+#~ msgstr "Gardez votre liste à jour"
+
+#, fuzzy
+#~ msgid ""
+#~ "Use only words with alphanumeric characters, [ - _ ] are allowed too. All "
+#~ "other characters are stripped out."
+#~ msgstr ""
+#~ "Utilisez uniquement des mots avec des caractères alphanumériques, [ - _ ] "
+#~ "sont aussi permis. Tous les autres caractères seront supprimés. "
+
+#, fuzzy
+#~ msgid "Show nag for"
+#~ msgstr "Aucune donnée à montrer!"
+
+#, fuzzy
+#~ msgid "Disable Dashboard Notifications."
+#~ msgstr ""
+#~ "Restez en contact avec Email et / ou les notifications push. Recevez des "
+#~ "messages quand les publicités expirent, ont des erreurs ou lorsque les "
+#~ "annonceurs créent de nouvelles annonces. Ne manquez plus jamais une date "
+#~ "d'expiration."
+
+#, fuzzy
+#~ msgid ""
+#~ "You have enabled WP Super Cache support. If you have version 1.4 or "
+#~ "newer, this function will not work. WP Super Cache has discontinued "
+#~ "support for dynamic content."
+#~ msgstr ""
+#~ "Vous avez activé le support de WP Super Cache. Si vous avez la version "
+#~ "1.4 ou plus récent, cette fonction ne marchera pas. WP Super Cache a "
+#~ "arrêté le support pour le contenu dynamique."
+
+#, fuzzy
+#~ msgid "WP Super Cache"
+#~ msgstr "WP Super Cache"
+
+#, fuzzy
+#~ msgid ""
+#~ "jQuery is required for all Javascript features below. Enable this if your "
+#~ "theme does not load jQuery already."
+#~ msgstr ""
+#~ "jQuery est requis pour toutes les fonctions Javascript ci-dessous. "
+#~ "Activez-le si votre thème ne charge pas jQuery directement."
+
+#, fuzzy
+#~ msgid "Load in footer?"
+#~ msgstr "Chargement dans le pied de page?"
+
+#, fuzzy
+#~ msgid ""
+#~ "Enable if you want to load the above libraries in the footer. Your theme "
+#~ "needs to call wp_footer() for this to work."
+#~ msgstr ""
+#~ "Activez cette option si vous voulez charger les bibliothèques dans le "
+#~ "pied de page. Votre thème doit appeler wp_footer() pour que cela "
+#~ "fonctionne."
+
+#, fuzzy
+#~ msgid ""
+#~ "NOTE: The below functions are intented to be used to OPTIMIZE your "
+#~ "database. They only apply to your ads/groups and stats. Not to other "
+#~ "settings or other parts of WordPress! Always always make a backup! These "
+#~ "functions are to be used when you feel or notice your database is slow, "
+#~ "unresponsive and sluggish."
+#~ msgstr ""
+#~ "NOTA BENE : Les options ci-dessous sont destinées à optimiser votre base "
+#~ "de données. Ils ne sont appliqués qu'à vos publicités/groupes et "
+#~ "statistiques, et non pas aux autres parties de Wordpress! Ayez toujours "
+#~ "une sauvegarde de votre site! Ces fonctions seront utilisées quand vous "
+#~ "sentez que votre base de données est lente ou ne réponds pas."
+
+#, fuzzy
+#~ msgid ""
+#~ "DISCLAIMER: If for any reason your data is lost, damaged or otherwise "
+#~ "becomes unusable in any way or by any means in whichever way I will not "
+#~ "take responsibility. You should always have a backup of your database. "
+#~ "These functions do NOT destroy data. If data is lost, damaged or "
+#~ "unusable, your database likely was beyond repair already. Claiming it "
+#~ "worked before clicking these buttons is not a valid point in any case."
+#~ msgstr ""
+#~ "AVERTISSEMENT: Si pour une raison quelconque, vos données sont perdues, "
+#~ "endommagées ou autrement deviennent inutilisables je ne vais pas en "
+#~ "prendre la responsabilité. Vous devriez toujours avoir une sauvegarde de "
+#~ "votre base de données. Ces fonctions ne détruisent pas les données. Si "
+#~ "les données sont perdues, endommagées ou inutilisables, votre base de "
+#~ "données était probablement déjà au-delà de la réparation. Affirmer que le "
+#~ "site fonctionnait avant de cliquer sur ces boutons n'est pas un argument "
+#~ "valable."
+
+#, fuzzy
+#~ msgid "Unknown Status"
+#~ msgstr "Statut Inconnu"
+
+#, fuzzy
+#~ msgid ""
+#~ "NOTE: The below options are not meant for normal use and are only there "
+#~ "for developers to review saved settings or how ads are selected. These "
+#~ "can be used as a measure of troubleshooting upon request but for normal "
+#~ "use they SHOULD BE LEFT UNCHECKED!!"
+#~ msgstr ""
+#~ "NOTA BENE : Les options ci-dessous ne sont pas destinées à une "
+#~ "utilisation normale, et ne sont là que pour que les développeurs puissent "
+#~ "examiner les paramètres ou voir comment les publicités sont "
+#~ "sélectionnées. Ceux-ci peuvent être utilisés comme une mesure de "
+#~ "dépannage sur demande, mais pour une utilisation normale, ils ne doivent "
+#~ "pas être activés!"
+
+#, fuzzy
+#~ msgid ""
+#~ "Troubleshoot ads and how (if) they are selected, has front-end output."
+#~ msgstr ""
+#~ "Dépannage des publicités. Si cette option est activée, les données seront "
+#~ "placées sur le site."
+
+#, fuzzy
+#~ msgid "Show all settings, dashboard routines and related values."
+#~ msgstr ""
+#~ "Afficher tous les paramétres, les widgets du tableau de bord et les "
+#~ "valeurs connexes."
+
+#, fuzzy
+#~ msgid "Show array of all userroles and capabilities."
+#~ msgstr ""
+#~ "Voir les données de tous les rôles d'utilisateurs et leur capacités."
+
+#, fuzzy
+#~ msgid "Review saved advertisers! Visible to advertisers."
+#~ msgstr "Réexaminer les annonceurs! Visible pour les annonceurs."
+
+#, fuzzy
+#~ msgid "Review Full Report, per ad/group stats. Visible only to publishers."
+#~ msgstr ""
+#~ "Voir le suivi des statistiques globales, ainsi que par publicité/groupe. "
+#~ "Visible uniquement aux annonceurs."
+
+#, fuzzy
+#~ msgid "Temporarily disable encryption on the redirect url."
+#~ msgstr "Désactiver temporairement le chiffrement sur l'url de redirection."
+
+#, fuzzy
+#~ msgid "The last few days"
+#~ msgstr "Les derniers jours"
+
+#, fuzzy
+#~ msgid "Full report"
+#~ msgstr "Rapport"
+
+#, fuzzy
+#~ msgid "Ticket Support"
+#~ msgstr ""
+#~ "Lorsque vous activez votre licence AdRotate Pro vous bénéficiez d'une "
+#~ "assistance premium qui a la priorité sur les forums et même les e-mails. "
+#~ "Vous obtiendraient une solution (en général) dans la journée."
+
+#, fuzzy
+#~ msgid ""
+#~ "Your one stop for Webdevelopment, consultancy and anything WordPress! If "
+#~ "you need a custom plugin. Theme customizations or have your site moved/"
+#~ "migrated entirely. Visit my website for details!"
+#~ msgstr ""
+#~ "Votre guichet unique pour le développement Web, le consulting et toutes "
+#~ "les façettes de Wordpress! Si vous avez besoin d'un plugin sur mesure, de "
+#~ "personnalisation de thème ou pour la migration de votre site entier, "
+#~ "visitez mon site pour tous les détails!"
+
+#, fuzzy
+#~ msgid "Advert ID:"
+#~ msgstr "ID :"
+
+#, fuzzy
+#~ msgid "Title:"
+#~ msgstr "Titre :"
+
+#, fuzzy
+#~ msgid "AdCode:"
+#~ msgstr "Code :"
+
+#, fuzzy
+#~ msgid "Current image:"
+#~ msgstr "Version actuelle :"
+
+#, fuzzy
+#~ msgid "After..."
+#~ msgstr "Après..."
+
+#, fuzzy
+#~ msgid "the first paragraph"
+#~ msgstr "le premier parapgraphe"
+
+#, fuzzy
+#~ msgid "every 2nd paragraph"
+#~ msgstr "chaque second paragraphe"
+
+#, fuzzy
+#~ msgid "every 3rd paragraph"
+#~ msgstr "chaque 3ème paragraphe"
+
+#, fuzzy
+#~ msgid "every 4th paragraph"
+#~ msgstr "chaque 4ème paragraphe"
+
+#, fuzzy
+#~ msgid "every 5th paragraph"
+#~ msgstr "chaque 5ème paragraphe"
+
+#, fuzzy
+#~ msgid "every 6th paragraph"
+#~ msgstr "chaque 6ème paragraphe"
+
+#, fuzzy
+#~ msgid "every 7th paragraph"
+#~ msgstr "chaque 7ème paragraphe"
+
+#, fuzzy
+#~ msgid "every 8th paragraph"
+#~ msgstr "chaque 8ème paragraphe"
+
+#, fuzzy
+#~ msgid "Upload new banner image"
+#~ msgstr "Image :"
+
+#, fuzzy
+#~ msgid "Upload image"
+#~ msgstr "Image :"
+
+#, fuzzy
+#~ msgid "ticket support"
+#~ msgstr ""
+#~ "Lorsque vous activez votre licence AdRotate Pro vous bénéficiez d'une "
+#~ "assistance premium qui a la priorité sur les forums et même les e-mails. "
+#~ "Vous obtiendraient une solution (en général) dans la journée."
+
+#, fuzzy
+#~ msgid "Register License"
+#~ msgstr "Licence Unique"
+
+#, fuzzy
+#~ msgid ""
+#~ "Error, Ad is not available at this time due to schedule/budgeting/"
+#~ "geolocation restrictions or does not exist!"
+#~ msgstr ""
+#~ "Erreur, la pub n'est pas disponible en ce moment en raison de "
+#~ "restrictions horaires/géographiques ou n'existe pas!"
+
+#, fuzzy
+#~ msgid "Enable click tracking for this advert."
+#~ msgstr "Activer le suivi des clicks pour cette publicité."
+
+#, fuzzy
+#~ msgid "Activate:"
+#~ msgstr "Activer"
+
+#, fuzzy
+#~ msgid "In a post or page:"
+#~ msgstr "Insérer des publicités au début ou à la fin de l'article/page."
+
+#, fuzzy
+#~ msgid "Directly in a theme:"
+#~ msgstr "Directement dans un thème :"
+
+#, fuzzy
+#~ msgid "End date (day/month/year):"
+#~ msgstr "Date de fin (jour/mois/année) :"
+
+#, fuzzy
+#~ msgid "Start time (hh:mm):"
+#~ msgstr "Début (hh:mm) :"
+
+#, fuzzy
+#~ msgid "Maximum Clicks:"
+#~ msgstr "Nombre de clicks max :"
+
+#, fuzzy
+#~ msgid "Responsive:"
+#~ msgstr "Responsive :"
+
+#, fuzzy
+#~ msgid "Sortorder:"
+#~ msgstr "Ordre de tri :"
+
+#, fuzzy
+#~ msgid "Cost per click"
+#~ msgstr "Activer le suivi des clicks pour cette publicité."
+
+#, fuzzy
+#~ msgid "Name:"
+#~ msgstr "Nom"
+
+#, fuzzy
+#~ msgid "Include ads in categories?"
+#~ msgstr "Intégrer les publicités dans les catégories?"
+
+#, fuzzy
+#~ msgid "the 2nd paragraph"
+#~ msgstr "le second paragraphe"
+
+#, fuzzy
+#~ msgid "the 3rd paragraph"
+#~ msgstr "le troisième paragraphe"
+
+#, fuzzy
+#~ msgid "the 4th paragraph"
+#~ msgstr "le quatrième paragraphe"
+
+#, fuzzy
+#~ msgid "Include ads in pages?"
+#~ msgstr "Intégrer les publicités dans les pages?"
+
+#, fuzzy
+#~ msgid "Before ad"
+#~ msgstr "Avant la pub"
+
+#, fuzzy
+#~ msgid "After ad"
+#~ msgstr "Après la pub"
+
+#, fuzzy
+#~ msgid "Target URL:"
+#~ msgstr "URL Cible :"
+
+#, fuzzy
+#~ msgid "Will be visible to Advertisers."
+#~ msgstr "Réexaminer les annonceurs! Visible pour les annonceurs."
+
+#, fuzzy
+#~ msgid "These are required."
+#~ msgstr "Ces données sont requises."
+
+#, fuzzy
+#~ msgid ""
+#~ "Copy the shortcode in a post or page. The PHP code goes in a theme file "
+#~ "where you want the advert to show up."
+#~ msgstr ""
+#~ "Copiez le shortcode dans un article ou une page. Le code PHP doit être "
+#~ "dans un fichier du thème si vus voulez que cette publicité soit affichée."
+
+#, fuzzy
+#~ msgid ""
+#~ "image.full.jpg, image.320.jpg and image.768.jpg will serve the same "
+#~ "advert for different viewports. Requires jQuery."
+#~ msgstr ""
+#~ "image.full.jpg, image.320.jpg et image.768.jpg serviront la même "
+#~ "publicité pour différentes tailles d'écran si le site est fluide. "
+#~ "Nécessite jQuery."
+
+#, fuzzy
+#~ msgid "Media:"
+#~ msgstr "Médias :"
+
+#, fuzzy
+#~ msgid "Ad Click Budget:"
+#~ msgstr "Activer le suivi des clicks pour cette publicité."
+
+#, fuzzy
+#~ msgid "Ad Impression Budget:"
+#~ msgstr "Gestion des pubs"
+
+#, fuzzy
+#~ msgid "Optionally select the group(s) this ad belongs to."
+#~ msgstr ""
+#~ "Choisir le groupe auquel cette publicité va être rattachée (optionel)"
+
+#, fuzzy
+#~ msgid "Block shape and border"
+#~ msgstr "Dimensions et bordure du bloc"
+
+#, fuzzy
+#~ msgid ""
+#~ "Make a grid for your ads. Selecting 3 and 2 makes a grid with 2 columns "
+#~ "showing a maximum of 6 ads. Default: 2x2."
+#~ msgstr ""
+#~ "Créer une grille pour vos publicités. Choisissez 3 et 2 créera une grille "
+#~ "avec 2 colonnes montrant un maximum de 6 publicités. Valeur par défaut : "
+#~ "2x2."
+
+#, fuzzy
+#~ msgid "Advert Width and Height"
+#~ msgstr "Dimensions des publicités"
+
+#, fuzzy
+#~ msgid "Insert ads to the begin or end of a post/page."
+#~ msgstr "Insérer des publicités au début ou à la fin de l'article/page."
+
+#, fuzzy
+#~ msgid "Wraps around each ad."
+#~ msgstr "Code qui enveloppe chaque publicité."
+
+#, fuzzy
+#~ msgid "HTML/JavaScript allowed, use with care!"
+#~ msgstr "HTML/Javascript est authorisé, utiliser avec précaution!"
+
+#, fuzzy
+#~ msgid "You are using"
+#~ msgstr "Vous utilisez"
+
+#, fuzzy
+#~ msgid ""
+#~ "AdRotate server is currently in development and these menus are not "
+#~ "functional yet."
+#~ msgstr ""
+#~ "AdRotate Server est actuellement en développement et ces menus ne sont "
+#~ "pas encore fonctionels."
+
+#, fuzzy
+#~ msgid "Javascript Libraries"
+#~ msgstr "Librairies Javascript"
+
+#, fuzzy
+#~ msgid ""
+#~ "These adverts are circulating in the pool of active adverts, served from "
+#~ "AdRotate server."
+#~ msgstr ""
+#~ "Ces publicités sont en circulation dans la séléction de publicités "
+#~ "actives servies par AdRotate server."
+
+#, fuzzy
+#~ msgid "No ads received yet!"
+#~ msgstr "Aucune publicité n'a été reçue pour le moment!"
+
+#, fuzzy
+#~ msgid "Erroneous ads from server"
+#~ msgstr "Publicités erronées parvenues du serveur"
+
+#, fuzzy
+#~ msgid "Adverts served from AdRotate server but having some issues."
+#~ msgstr "Publicités provenant du serveur AdRotate mais qui ont des soucis."
+
+#, fuzzy
+#~ msgid "Updated"
+#~ msgstr "Mis à jour"
+
+#, fuzzy
+#~ msgid ""
+#~ "Link this website to an AdRotate server so your adverts and stats are "
+#~ "synchronised regularly."
+#~ msgstr ""
+#~ "Lier ce site web à un serveur Adrotate pour que vos publicités et vos "
+#~ "statistiques soient synchronisées regulièrement."
+
+#, fuzzy
+#~ msgid "Linked - Adverts can be synced."
+#~ msgstr "Lié - Les publicités peuvent être synchronisées"
+
+#, fuzzy
+#~ msgid "Not linked - No adverts will be synced."
+#~ msgstr "Lié - Les publicités peuvent être synchronisées"
+
+#, fuzzy
+#~ msgid "Server Key"
+#~ msgstr "Clé Serveur"
+
+#, fuzzy
+#~ msgid ""
+#~ "You can get your server key from your AdRotate Server installation or the "
+#~ "AdRollr website."
+#~ msgstr ""
+#~ "Vous pouvez recevoir votre clé de serveur de votre installation AdRotate "
+#~ "Server ou du site AdRollr."
+
+#, fuzzy
+#~ msgid ""
+#~ "You should not share your key with anyone you do not trust. Treat this "
+#~ "key as a password!"
+#~ msgstr ""
+#~ "Vous ne devez pas partager votre clé. Traitez cette clé comme un mot de "
+#~ "passe!"
+
+#, fuzzy
+#~ msgid "Make this site a puppet"
+#~ msgstr "Rendre ce site une \"cellule\""
+
+#, fuzzy
+#~ msgid "Have AdRotate use AdRotate Server adverts exclusively."
+#~ msgstr "Utilisez les publicités provenant de AdRotate Server uniquement."
+
+#, fuzzy
+#~ msgid ""
+#~ "Enabling this function will DISABLE ALL LOCAL MANAGEMENT and will make "
+#~ "this installation of AdRotate a puppet for your AdRotate Server."
+#~ msgstr ""
+#~ "L'activation de cette fonction permet de désactiver toute la gestion "
+#~ "locale et de rendre cette installation de AdRotate une cellule de votre "
+#~ "serveur AdRotate. "
+
+#, fuzzy
+#~ msgid "Hide Server Details"
+#~ msgstr "Cacher les détails du serveur"
+
+#, fuzzy
+#~ msgid "Link to server"
+#~ msgstr "Lier au serveur"
+
+#, fuzzy
+#~ msgid "Unlink from server"
+#~ msgstr "Dissocier du serveur"
+
+#, fuzzy
+#~ msgid "An unknown error occurred"
+#~ msgstr "Une erreur inconnue s'est produite."
+
+#, fuzzy
+#~ msgid "Geographic Tracking"
+#~ msgstr "Activer le suivi des clicks pour cette publicité."
+
+#, fuzzy
+#~ msgid "GeoLocation"
+#~ msgstr "Géolocalisation"
+
+#, fuzzy
+#~ msgid "Geo Location"
+#~ msgstr "Ciblez votre audience avec la géolocation dans AdRotate Pro"
+
+#, fuzzy
+#~ msgid "AdRotate Website"
+#~ msgstr ""
+#~ "Lorsque vous activez votre licence AdRotate Pro vous bénéficiez d'une "
+#~ "assistance premium qui a la priorité sur les forums et même les e-mails. "
+#~ "Vous obtiendraient une solution (en général) dans la journée."
+
+#, fuzzy
+#~ msgid "Find my website at"
+#~ msgstr "site"
+
+#, fuzzy
+#~ msgid "Block of Ads (Obsolete)"
+#~ msgstr "Bloc de publicité (obsolète)"
+
+#, fuzzy
+#~ msgid "Default: 60. Set to 0 to disable this timer."
+#~ msgstr "Valeur par défaut: 86400. Mettre à 0 pour désaciver la minuterie."
+
+#, fuzzy
+#~ msgid "Default: 86400. Set to 0 to disable this timer."
+#~ msgstr "Valeur par défaut: 86400. Mettre à 0 pour désaciver la minuterie."
+
+#, fuzzy
+#~ msgid "Load jQuery Clicktracking"
+#~ msgstr "Charger le clicktracking (nombre de clicks) de jQuery"
+
+#, fuzzy
+#~ msgid ""
+#~ "Required for jQuery Clicktracking. When disabled AdRotate falls back on "
+#~ "Redirect Tracking."
+#~ msgstr ""
+#~ "Requis pour le suivi des clics par jQuery. Quand cette option est "
+#~ "désactivée, AdRotate utilise le suivi par redirection."
+
+#, fuzzy
+#~ msgid "Get help with installations"
+#~ msgstr "Obtenez de l'aide pour les installations"
+
+#, fuzzy
+#~ msgid "Not sure how to set up AdRotate? Get me to do it!"
+#~ msgstr "Vous ne savez pas comment configurer AdRotate? Embauchez-moi!"
+
+#, fuzzy
+#~ msgid "Stuck with AdRotate? I'll help!"
+#~ msgstr "Bloqué avec AdRotate? Je peux vous aider!"
+
+#, fuzzy
+#~ msgid "Visit store to see all services and products"
+#~ msgstr "Aller au magasin pour voir tous les services et tous les produits"
+
+#, fuzzy
+#~ msgid ""
+#~ "Redirect clicktracking is enabled but the %link% tag was not found in the "
+#~ "adcode!"
+#~ msgstr ""
+#~ "La redirection pour le suivi des clics est activée mais la balise %link% "
+#~ "n'a pas été trouvée dans le adcode!"
+
+#, fuzzy
+#~ msgid "Email or Remote page:"
+#~ msgstr "Email ou page distante :"

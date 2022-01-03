@@ -1,0 +1,124 @@
+@charset "utf-8";
+
+.issuu-folder-content{
+	display: block;
+}
+
+.issuu-folder-content a{
+	display: block;
+	height: inherit;
+	width: inherit;
+	text-decoration: none;
+}
+
+.issuu-folder-content:after{
+	content: " ";
+	display: table;
+	clear: both;
+}
+
+.issuu-folder{
+	position: relative;
+
+	width: 248px;
+	max-width: 248px;
+	height: 294px;
+	max-height: 294px;
+	
+	margin: 20px;
+	float: left;
+}
+
+.issuu-folder > a > div:last-child{
+	position: absolute;
+	top: 0;
+	left: 0;
+	margin: 0;
+	z-index: 4;
+	width: inherit;
+	height: inherit;
+	text-align: center;
+}
+
+.issuu-folder > a p{
+	width: inherit;
+	height: inherit;
+	display: table-cell;
+	vertical-align: middle;
+}
+
+.issuu-folder .add-stack{
+	width: 34px;
+	height: 34px;
+	text-shadow: none;
+	font-weight: normal;
+}
+
+.issuu-folder .add-stack:before{
+	content: "\f502";
+	display: inline-block;
+	font-family: dashicons;
+	font-size: 34px;
+	line-height: 1;
+}
+
+.issuu-folder p span{
+	display: block;
+	margin: 0 auto;
+	max-width: 140px;
+	padding: 5px 8px;
+	background-color: #ee5226;
+	color: #fff;
+	border-radius: 4px;
+	box-shadow: 0 0 5px #ee5226;
+	text-shadow: 1px 1px 1px #000;
+	font-weight: bold;
+	font-size: 16px;
+}
+
+.issuu-folder .folder-item{
+	width: 170px;
+	height: 240px;
+	background-color: #dfdfdf;
+	box-shadow: 0 0 3px rgba(0,0,0,.6);
+	position: absolute;
+	top: 23px;
+	left: 38px;
+}
+
+.issuu-folder .folder-item-doc{
+	height: auto !important;
+}
+
+.issuu-folder .folder-item img{
+	display: block;
+	width: 100%;
+	height: auto;
+}
+
+.issuu-folder .folder-item:first-child{
+	-webkit-transform: rotate(-20deg);
+	-moz-transform: rotate(-20deg);
+	-o-transform: rotate(-20deg);
+	transform: rotate(-20deg);
+
+	z-index: 3;
+}
+
+.issuu-folder .folder-item:nth-child(2n){
+	-webkit-transform: rotate(15deg);
+	-moz-transform: rotate(15deg);
+	-o-transform: rotate(15deg);
+	transform: rotate(15deg);
+
+	z-index: 2;
+}
+
+.issuu-folder .folder-item:nth-child(3n){
+	-webkit-transform: rotate(4deg);
+	-moz-transform: rotate(4deg);
+	-o-transform: rotate(4deg);
+	transform: rotate(4deg);
+
+	z-index: 1;
+}

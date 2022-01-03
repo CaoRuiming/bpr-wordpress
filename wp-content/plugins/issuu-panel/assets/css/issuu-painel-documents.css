@@ -1,0 +1,302 @@
+@charset "utf-8";
+
+body.issuu-panel-noscroll{
+	position: fixed;
+	overflow-y: hidden;
+	overflow-x: hidden;
+}
+
+.issuu-iframe{
+	margin-bottom: 20px;
+}
+
+.issuu-painel-list,
+.issuu-painel-list *{
+	-webkit-box-sizing: border-box;
+	   -moz-box-sizing: border-box;
+			box-sizing: border-box;
+}
+
+.issuu-painel-list{
+	display: block;
+}
+
+.issuu-painel-list > .issuu-document-row{
+	display: block;
+}
+
+@media(min-width: 768px){
+	.issuu-painel-list > .issuu-document-row{
+		width: 100%;
+		float: left;
+	}
+}
+
+.issuu-painel-list > .issuu-document-row > .document-cell{
+	padding: 8px;
+	background-color: #fff;
+	box-shadow: 1px 1px 3px rgba(0,0,0,.6);
+	margin-bottom: 10px;
+}
+
+@media(max-width: 767px){
+	.issuu-painel-list > .issuu-document-row > .document-cell{
+		max-width: 250px;
+		margin-right: auto;
+		margin-left: auto;
+	}
+}
+
+@media(min-width: 768px){
+	.issuu-painel-list > .issuu-document-row > .document-cell{
+		float: left;
+		width: calc(33.33333% - 26px);
+		margin-right: 39px;
+	}
+	
+	.issuu-painel-list > .issuu-document-row > .document-cell:last-child{
+		margin-right: 0px;
+	}
+}
+
+
+.issuu-painel-list > .issuu-document-row > .document-cell > a{
+	width: 100%;
+}
+
+.issuu-painel-list > .issuu-document-row > .document-cell > a > img{
+	width: inherit;
+	height: auto;
+}
+
+.issuu-painel-list:after{
+	content: " ";
+	display: table;
+	clear: both;
+}
+
+.issuu-painel-paginate{
+	margin-top: 8px;
+	margin-bottom: 8px;
+}
+
+.issuu-painel-paginate > .issuu-painel-page-numbers{
+	font-size: 12px;
+	display: inline-block;
+}
+
+.issuu-painel-paginate > .issuu-painel-page-numbers > .issuu-painel-number-page{
+	border-right: 1px solid #ee5226;
+	padding: 3px 7px;
+	color: #ee5226;
+	text-decoration: none;
+	display: inline-block;
+	line-height: 12px;
+}
+
+.issuu-painel-paginate > .issuu-painel-page-numbers > span.issuu-painel-number-page{
+	color: #333;
+}
+
+.issuu-painel-paginate > .issuu-painel-page-numbers > span.issuu-painel-number-page.issuu-painel-continue{
+	color: #ee5226;
+}
+
+.issuu-painel-paginate > .issuu-painel-page-numbers > .issuu-painel-number-page:last-child{
+	border-right: none;
+}
+
+.issuu-painel-paginate > .issuu-painel-number-text{
+	color: #ee5226;
+	text-decoration: none;
+	font-size: 12px;
+}
+
+.issuu-painel-paginate > .issuu-painel-number-text:hover{
+	color: #ee5226;
+	text-decoration: none;
+}
+
+#issuu-panel-reader{
+	background-color: rgba(0,24,0,.95);
+	width: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	padding: 20px 50px;
+	z-index: 99999;
+}
+
+#botao-issuu{
+	background-image: url(../includes/reader/img/botao.png);
+	-webkit-background-size: 100px;
+	background-size: 100px;
+	background-position: center;
+	background-repeat: no-repeat;
+	width: 100%;
+	min-height: 100%;
+}
+
+#issuu-panel-reader > #ip-iframe-reader{
+	position: relative;
+	display: block;
+	width: 100%;
+	min-height: 100%;
+	border: 0;
+	z-index: 20;
+}
+
+#issuu-panel-reader > #ip-iframe-reader::-webkit-scrollbar{
+	width: 8px;
+}
+
+#issuu-panel-reader > #ip-iframe-reader::-webkit-scrollbar:horizontal{
+	height: 8px;
+}
+
+#issuu-panel-reader > #ip-iframe-reader::-webkit-scrollbar-track,
+#issuu-panel-reader > #ip-iframe-reader::-webkit-scrollbar-corner{
+	background-color: rgba(0,24,0,.894);
+}
+
+#issuu-panel-reader > #ip-iframe-reader::-webkit-scrollbar-thumb{
+	background-color: #006699;
+	box-shadow: inset 2px 2px 5px rgba(255,255,255,.6);
+	border-radius: 4px;
+}
+
+#issuu-panel-reader-tools{
+	height: 50px;
+	width: calc(100% - 150px);
+	margin: 0 75px;
+	position: absolute;
+	bottom: 5px;
+	left: 0;
+	text-align: center;
+	z-index: 31;
+}
+
+.issuu-panel-reader-tools{
+	cursor: pointer;
+	display: inline-block;
+	background-image: url(../includes/reader/img/tools.png);
+	background-repeat: no-repeat;
+	-webkit-background-size: 200px 50px;
+	background-size: 200px 50px;
+	width: 37px;
+	height: 50px;
+}
+
+.issuu-panel-reader-tools.ip-zoom-max{
+	background-position: 0 0;
+}
+
+.issuu-panel-reader-tools.ip-zoom-more{
+	background-position: -37px 0;
+}
+
+.issuu-panel-reader-tools.ip-zoom-minus{
+	background-position: -74px 0;
+}
+
+.issuu-panel-reader-tools.ip-zoom-min{
+	background-position: -111px 0;
+}
+
+.issuu-panel-reader-tools.ip-close-reader{
+	width: 52px;
+	background-position: -148px 0;
+}
+
+@media (min-width: 768px) {
+	#issuu-panel-reader > #ip-iframe-reader{
+		margin: 0 auto;
+		width: 990px;
+	}
+}
+
+@media (min-width: 992px) {
+	#issuu-panel-reader > #ip-iframe-reader{
+		width: 1024px;
+	}
+}
+
+/* Navigation */
+#issuu-panel-reader > nav,
+#issuu-panel-reader > nav > ul{
+	position: absolute;
+	list-style: none;;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	margin: 0;
+	padding: 0;
+	z-index: 19;
+}
+
+#issuu-panel-reader > nav > ul > li{
+	position: absolute;
+	top: 0;
+	padding: 0 20px;
+	min-height: 100%;
+	width: 75px;
+	transition: background-color 0.25s ease-in;
+}
+
+#issuu-panel-reader > nav > ul > li:nth-child(1){
+	left: 0;
+}
+
+#issuu-panel-reader > nav > ul > li:nth-child(2){
+	right: 0;
+}
+
+#issuu-panel-reader > nav > ul > li:hover{
+	background-color: rgba(0,0,0,.3);
+}
+
+#issuu-panel-reader > nav > ul > li > a.ip-reader-navigation{
+	background-image: url(../includes/reader/img/navigation.png);
+	background-repeat: no-repeat;
+	position: inherit;
+	min-height: 100%;
+	width: 35px;
+	cursor: pointer;
+	-webkit-background-size: 60px 46.4px;
+	background-size: 60px 46.4px;
+	-ms-background-position-y: 95%;
+	background-position-y: 95%;
+}
+
+#issuu-panel-reader > nav > ul > li > a#ip-reader-prev{
+	-ms-background-position-x: 4px;
+	background-position-x: 4px;
+}
+
+#issuu-panel-reader > nav > ul > li > a#ip-reader-next{
+	-ms-background-position-x: -29px;
+	background-position-x: -29px;
+}
+
+@media (min-width: 768px) {
+	#issuu-panel-reader-tools{
+		margin: 0 90px;
+		width: calc(100% - 180px);
+	}
+	#issuu-panel-reader > nav > ul > li{
+		width: 90px;
+	}
+	#issuu-panel-reader > nav > ul > li > a.ip-reader-navigation{
+		width: 50px;
+		-ms-background-position-y: center;
+		background-position-y: center;
+		-webkit-background-size: 90px 69.6px;
+		background-size: 90px 69.6px;
+	}
+	#issuu-panel-reader > nav > ul > li > a#ip-reader-next{
+		-ms-background-position-x: -45px;
+		background-position-x: -45px;
+	}
+}

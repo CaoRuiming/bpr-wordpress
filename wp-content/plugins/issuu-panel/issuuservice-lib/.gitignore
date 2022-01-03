@@ -1,0 +1,4 @@
+vendor/
+console/log.txt
+composer.lock
+composer.phar

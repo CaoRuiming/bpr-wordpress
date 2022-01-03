@@ -1,0 +1,55 @@
+@charset "utf-8";
+
+*{
+	box-sizing: border-box;
+}
+
+body{
+	font-family: Calibri, sans-serif;
+	font-size: 16px;
+	position: relative;
+	margin: 0;
+	background-color: #e4e4e4;
+	color: #444;
+}
+
+a{
+	color: #248FB2;
+	text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6{
+	font-weight: 500;
+	margin: 0;
+	margin-bottom: 10px;
+	line-height: normal;
+}
+
+.icon-issuu:before{
+	display: inline-block;
+	content: " ";
+	margin-right: 8px;
+	width: 20px;
+	height: 20px;
+	background-image: url(../img/icon.png);
+	background-repeat: no-repeat;
+	-webkit-background-size: 20px;
+	background-size: 20px;
+}
+
+#container{
+	width: 1024px;
+	padding: 30px 20px;
+	margin: 0 auto;
+	box-shadow: 0 0 3px rgba(0,0,0,.6);
+	background-color: #fff;
+}
+
+#container > section{
+	margin-top: 20px;
+}

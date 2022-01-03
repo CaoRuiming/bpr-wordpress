@@ -1,0 +1,69 @@
+@charset "utf-8";
+
+*{
+	-webkit-box-sizing: border-box;
+	   -moz-box-sizing: border-box;
+			box-sizing: border-box;
+}
+
+select,
+input{
+	font-size: 14px !important;
+}
+
+select{
+	padding: 5px 0;
+	box-shadow: inset 0 1px 1px rgba(120,120,120,.3);
+}
+
+input[type="text"]{
+	padding: 4px 0;
+	padding-left: 8px;
+}
+
+#issuu-painel-table{
+	display: table;
+	vertical-align: middle;
+	width: 100%;
+	font-size: 14px;
+}
+
+#issuu-painel-table > .issuu-painel-table-row{
+	display: table-row;
+	vertical-align: inherit;
+}
+
+#issuu-painel-table > .issuu-painel-table-row > .issuu-painel-table-cell{
+	display: table-cell;
+	vertical-align: middle;
+	height: inherit;
+	padding-left: 8px;
+	padding-right: 8px;
+	padding-bottom: 8px;
+}
+
+#issuu-painel-table > .issuu-painel-table-row > .issuu-painel-table-cell:first-child{
+	width: 195px;
+	font-weight: bold;
+}
+
+.issuu-submit-button{
+	background: -webkit-linear-gradient(#eea026 0%, #ee5226 100%);
+	background: linear-gradient(#eea026 0%, #ee5226 100%);
+	border: 1px solid #ee5226;
+	padding: 6px 13px;
+	border-radius: 4px;
+	color: #fff;
+	text-shadow: 1px 1px 1px #000;
+	cursor: pointer;
+}
+
+.issuu-cancel-button{
+	background: -webkit-linear-gradient(#dbdbdb 0%, #afafaf 100%);
+	background: linear-gradient(#dbdbdb 0%, #afafaf 100%);
+	border: 1px solid #808080;
+	padding: 6px 13px;
+	border-radius: 4px;
+	cursor: pointer;
+
+}

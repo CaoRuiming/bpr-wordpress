@@ -1,0 +1,147 @@
+<style type="text/css">
+	.form-table{ width: 100%; }
+	.no-padding-left{ padding-left: 0 !important; }
+	.no-padding-right{ padding-right: 0 !important; }
+	.no-padding-top{ padding-top: 0 !important; }
+	.no-padding-bottom{ padding-bottom: 0 !important; }
+
+	.issuu-panel-action-buttons .ip-ab{
+		padding-bottom: 15px;
+	}
+
+	@media(max-width: 782px) {
+		.issuu-panel-action-buttons .button-primary{
+			width: 100%;
+			text-align: center;
+		}
+	}
+
+	@media (min-width: 783px) {
+		.issuu-panel-action-buttons .ip-ab{
+			display: table-cell;
+			width: 100px;
+		}
+		.issuu-panel-fat{
+			width: 400px;
+		}
+	}
+</style>
+<div class="wrap">
+	<?php if (strlen($issuu_panel_api_key) <= 0) : ?>
+		<div class="error">
+			<p>
+				<?php
+					the_issuu_message('Insert API key. ');
+					the_issuu_message("To create keys $link_api_service");
+				?>
+			</p>
+		</div>
+	<?php endif; ?>
+	<?php if (strlen($issuu_panel_api_secret) <= 0) : ?>
+		<div class="error">
+			<p>
+				<?php
+					the_issuu_message('Insert API secret. ');
+					the_issuu_message("To create keys $link_api_service");
+				?>
+			</p>
+		</div>
+	<?php endif; ?>
+	<h1>Issuu Panel Admin</h1>
+	<form action="?page=issuu-panel-admin" method="post" accept-charset="utf-8">
+		<table class="form-table">
+			<tbody>
+				<tr>
+					<th class="no-padding-bottom no-padding-right">
+						<label for="api_key"><?php the_issuu_message('API key'); ?></label>
+					</th>
+					<td class="no-padding-bottom no-padding-right">
+						<input type="text" name="api_key" id="api_key" placeholder="<?php the_issuu_message('Insert API key'); ?>"
+							value="<?php echo $issuu_panel_api_key; ?>" class="issuu-panel-fat">
+					</td>
+				</tr>
+				<tr>
+					<th class="no-padding-bottom no-padding-right">
+						<label for="api_key"><?php the_issuu_message('API secret'); ?></label>
+					</th>
+					<td class="no-padding-bottom no-padding-right">
+						<input type="text" name="api_secret" id="api_secret" class="issuu-panel-fat"
+							placeholder="<?php the_issuu_message('Insert API secret'); ?>"
+							value="<?php echo $issuu_panel_api_secret; ?>">
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2" class="no-padding-left no-padding-bottom">
+						<?php the_issuu_message('Users with capacities from'); ?>
+						<select name="enabled_user" id="enabled_user">
+							<?php foreach ($capabilities as $key => $value) : ?>
+								<?php if ($value == $issuu_panel_capacity) : ?>
+									<option value="<?php echo $key; ?>" selected><?php the_issuu_message($key); ?></option>
+								<?php else : ?>
+									<option value="<?php echo $key; ?>"><?php the_issuu_message($key); ?></option>
+								<?php endif; ?>
+							<?php endforeach; ?>
+						</select>
+						<?php the_issuu_message('can use this plugin'); ?>
+					</td>
+				</tr>
+				<tr>
+					<th class="no-padding-bottom no-padding-right">
+						<label for="issuu_panel_debug"><?php the_issuu_message('Debug'); ?></label>
+					</th>
+					<td class="no-padding-bottom no-padding-right">
+						<input type="checkbox" name="issuu_panel_debug" id="issuu_panel_debug" value="active"
+							<?php echo $issuu_panel_debug; ?>/>
+					</td>
+				</tr>
+				<tr>
+					<th class="no-padding-bottom no-padding-right">
+						<label for="issuu_panel_cache_status"><?php the_issuu_message('Cache'); ?></label>
+					</th>
+					<td class="no-padding-bottom no-padding-right">
+						<input type="checkbox" name="issuu_panel_cache_status" id="issuu_panel_cache_status" value="active"
+							<?php echo $issuu_panel_cache_status; ?>/>
+					</td>
+				</tr>
+				<tr>
+					<th>
+						<?php the_issuu_message('Reader'); ?>
+					</th>
+					<td>
+						<div class="issuu-panel-radio-group">
+							<label for="issuu_reader_1">
+								<input type="radio" name="issuu_panel_reader" id="issuu_reader_1" value="issuu_embed"
+									<?php echo $issuu_embed; ?>>
+								<strong>Issuu Embed</strong>
+							</label>
+						</div>
+						<div class="issuu-panel-radio-group">
+							<label for="issuu_reader_2">
+								<input type="radio" name="issuu_panel_reader" id="issuu_reader_2"
+									<?php echo $issuu_panel_simple_reader; ?> value="issuu_panel_simple_reader">
+								<strong>Issuu Panel Simple Reader</strong>
+							</label>
+							<p class="description">
+								<?php the_issuu_message('Issuu Panel Simple Reader is compatible with mobile devices'); ?>
+							</p>
+						</div>
+					</td>
+				</tr>
+				<tr class="issuu-panel-action-buttons">
+					<td class="no-padding-left no-padding-bottom no-padding-right" colspan="2">
+						<div class="ip-ab">
+							<button type="submit" class="button-primary">
+								<?php the_issuu_message('Save'); ?>
+							</button>
+						</div>
+						<div class="ip-ab">
+							<a href="?page=issuu-panel-admin&issuu_panel_flush_cache" class="button-primary">
+								<?php the_issuu_message('Flush cache'); ?>
+							</a>
+						</div>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</form>
+</div>

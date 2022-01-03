@@ -1,0 +1,311 @@
+# Translation of Issuu Panel in Polish
+# This file is distributed under the same license as the Issuu Panel package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2015-06-14 11:58:29+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: GlotPress/1.0-alpha-1000\n"
+"Project-Id-Version: Issuu Panel\n"
+
+msgid "Debug"
+msgstr "Sprawdź, wyczyść"
+
+msgid "Cache"
+msgstr "Pamięć podręczna"
+
+msgid "Reader"
+msgstr "Czytnik"
+
+msgid "Flush cache"
+msgstr "Wyczyść pamięć"
+
+msgid "Issuu Panel Simple Reader is compatible with mobile devices"
+msgstr "Issuu Panel jest kompatybilny z mobilną wersją strony"
+
+msgid "URL page"
+msgstr "URL strony"
+
+msgid "No documents"
+msgstr "Brak plików"
+
+msgid "Nothing was excluded"
+msgstr "Niczego nie wykluczono"
+
+msgid "Document updated successfully"
+msgstr "Plik został zaktualizowany poprawnie"
+
+msgid "Document sent successfully"
+msgstr "Plik pomyślnie przesłany"
+
+msgid "Folder created successfully"
+msgstr "Pomyślnie utworzono folder"
+
+msgid "Error while creating the folder"
+msgstr "Błąd podczas tworzenia folderu"
+
+msgid "Error while updating the folder"
+msgstr "Błąd podczas aktualizacji folderu"
+
+msgid "Folders deleted successfully"
+msgstr "Foldery zostały pomyślnie usuniętę"
+
+msgid "Folder deleted successfully"
+msgstr "Folder został pomyślnie usunięty"
+
+msgid "Folder updated successfully"
+msgstr "Folder został zaktualizowany poprawnie"
+
+msgid "Authentication required"
+msgstr "Wymagana autoryzacja"
+
+msgid "Invalid API key"
+msgstr "Niepoprawny API KEY"
+
+msgid "Required field is missing"
+msgstr "Brakuje wymaganego pola"
+
+msgid "Invalid field format"
+msgstr "Nieprawidłowy format pola"
+
+msgid "Folder name exists for user"
+msgstr "Taki folder już istnieje"
+
+msgid "File size is too large"
+msgstr "Plik jest za duży"
+
+msgid "Document not found"
+msgstr "Nie znaleziono pliku"
+
+msgid "Document still converting"
+msgstr "Plik jest jeszcze konwertowany"
+
+msgid "Document failed conversion"
+msgstr "Nie udało się skonwertować pliku"
+
+msgid "Exceeding allowed amount of unlisted publications"
+msgstr "Przekroczenie dozwolonej ilości ukrytych publikacji"
+
+msgid "The name parameter in the request is already in use. Choose a different name or omit field to have name auto-generated"
+msgstr "Taka nazwa pliku już istnieje. Wybierz inną nazwę lub pozostaw puste, aby automatycznie wygenerować nazwę"
+
+msgid "Select..."
+msgstr "Wybierz..."
+
+msgid "Documents per page"
+msgstr "Plików na stronie"
+
+msgid "Order"
+msgstr "Sortuj"
+
+msgid "Ascending"
+msgstr "Rosnąco"
+
+msgid "Descending"
+msgstr "Malejąco"
+
+msgid "Order by"
+msgstr "Sortuj wg"
+
+msgid "Document ID"
+msgstr "ID dokumentu"
+
+msgid "Insert"
+msgstr "Wstaw"
+
+msgid "Cancel"
+msgstr "Anuluj"
+
+msgid "« First page"
+msgstr "« Pierwsza strona"
+
+msgid "Last Page »"
+msgstr "Ostatnia strona »"
+
+msgid "Insert folder ID"
+msgstr "Wstaw ID folderu"
+
+msgid "No documents in list"
+msgstr "Brak plików na liście"
+
+msgid "Administrator"
+msgstr "Administrator"
+
+msgid "Editor"
+msgstr "Edytor"
+
+msgid "Author"
+msgstr "Autor"
+
+msgid "Users with capacities from"
+msgstr "Użytkownicy o uprawnieniu"
+
+msgid "can use this plugin"
+msgstr "mogą używać tego pluginu"
+
+msgid "End result of ordination"
+msgstr "Kolejność sortowania: rosnąco/malejąco"
+
+msgid "Parameter ordering of documents"
+msgstr "Sortowanie wg. parametrów"
+
+msgid "Number of documents per page"
+msgstr "Ilość plików na stronie"
+
+msgid "Folder's ID"
+msgstr "ID folderów"
+
+msgid "Integer"
+msgstr "Podaj liczbę całkowitą"
+
+msgid "Get and display the last document"
+msgstr "Pobierz i wyświetl ostatni plik"
+
+msgid "Save"
+msgstr "Zapisz"
+
+msgid "Update"
+msgstr "Zaktualizuj"
+
+msgid "Edit"
+msgstr "Edytuj"
+
+msgid "Delete"
+msgstr "Skasuj"
+
+msgid "Folder"
+msgstr "Folder"
+
+msgid "Folders"
+msgstr "Foldery"
+
+msgid "Document"
+msgstr "Plik"
+
+msgid "Documents"
+msgstr "Pliki"
+
+msgid "About"
+msgstr "O wtyczce"
+
+msgid "Documents list"
+msgstr "Lista plików"
+
+msgid "Folders list"
+msgstr "Lista folderów"
+
+msgid "File"
+msgstr "Plik"
+
+msgid "Files"
+msgstr "Pliki"
+
+msgid "API key"
+msgstr "API KEY"
+
+msgid "Insert API key"
+msgstr "Wpisz API Key"
+
+msgid "Insert API key. "
+msgstr "Wstaw API Key"
+
+msgid "API secret"
+msgstr "API secret"
+
+msgid "Insert API secret"
+msgstr "Wstaw API secret"
+
+msgid "Insert API secret. "
+msgstr "Wsta API secret."
+
+msgid "To create keys <a target=\"_blank\" href=\"https://issuu.com/home/settings/apikey\">click here</a>"
+msgstr "Aby utworzyć klucze <a target=\"_blank\" href=\"https://issuu.com/home/settings/apikey\">kliknij tutaj</a>"
+
+msgid "Upload file"
+msgstr "Prześlij plik"
+
+msgid "Upload file by URL"
+msgstr "Prześlij plik przez adres URL"
+
+msgid "URL file"
+msgstr "Link URL"
+
+msgid "Title"
+msgstr "Tytuł"
+
+msgid "Name in URL"
+msgstr "Nazwa linku"
+
+msgid "Publish date"
+msgstr "Data publikacji"
+
+msgid "Allow comments"
+msgstr "Zezwól na komentowanie"
+
+msgid "Allow file download"
+msgstr "Zezwól na pobieranie"
+
+msgid "Access"
+msgstr "Dostęp"
+
+msgid "Public"
+msgstr "Publiczne"
+
+msgid "Private"
+msgstr "Prywatne"
+
+msgid "Create new folder"
+msgstr "Utwórz nowy folder"
+
+msgid "No documents found"
+msgstr "Nie znaleziono plików"
+
+msgid "Update folder"
+msgstr "Zaktualizuj folder"
+
+msgid "Folder's name"
+msgstr "Nazwa folderu"
+
+msgid "Insert folder's name"
+msgstr "Wpisz nazwę folderu"
+
+msgid "Folder's documents"
+msgstr "Folder na pliki"
+
+msgid "Use commas to separate tags. Do not use spaces."
+msgstr "Użyj przecinków, aby oddzielić tagi. Nie używaj spacji!"
+
+msgid "Date of publication of the document.<br><strong>NOTE:</strong> If you do not enter a value, the current date will be used"
+msgstr "Data publikacji pliku.<br><strong>UWAGA</strong>Jeśli nie podasz daty, system użyje bieżącej daty jako daty publikacji."
+
+msgid "To publish this document <a href=\"http://issuu.com/home/publications\" target=\"_blank\">click here</a>"
+msgstr "Aby opublikować ten plik <a href=\"http://issuu.com/home/publications\" target=\"_blank\">kliknij tutaj</a>"
+
+msgid "Name that is entered in the URL: http://issuu.com/(username)/docs/(name).<br>Use only lowercase letters [a-z], numbers [0-9] and/or other characters [_.-]. Do not use spaces.<br><strong>NOTE:</strong> If you do not enter a value, it will automatically be generated"
+msgstr "Nazwa, która jest wpisana w adresie URL: http://issuu.com/(username)/docs/(name).<br>Używaj tylko małych liter [a-z], numerów [0-9] i/oraz specjalnych znaków [_.-]. NIE UŻYWAJ SPACJI.<br><strong>UWAGA:</strong> Jeśli nic nie wpiszesz, pole zostanie automatycznie uzupełnione."
+
+msgid "URL where the file is located"
+msgstr "Link, pod którym znajduje się plik"
+
+msgid "Document deleted successfully"
+msgstr "Plik został usunięty pomyślnie"
+
+msgid "Documents deleted successfully"
+msgstr "Pliki zostały usunięte pomyślnie"
+
+msgid "Day"
+msgstr "Dzień"
+
+msgid "Month"
+msgstr "Miesiąc"
+
+msgid "Year"
+msgstr "Rok"
+
+msgid "Description"
+msgstr "Opis"
+
+msgid "Back"
+msgstr "Cofnij"

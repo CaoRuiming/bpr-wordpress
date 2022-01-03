@@ -1,0 +1,51 @@
+<p>
+	<label for="<?php echo $this->get_field_id('issuu_panel_title'); ?>">
+		<strong><?php _e('Title'); ?></strong><br>
+		<input type="text" id="<?php echo $this->get_field_id('issuu_panel_title'); ?>" class="widefat"
+			name="<?php echo $this->get_field_name('issuu_panel_title'); ?>" value="<?php echo $ipanel_title ?>">
+	</label>
+</p>
+<p>
+	<label for="<?php echo $this->get_field_id('issuu_panel_folder'); ?>">
+		<strong><?php the_issuu_message('Folder') ?></strong><br>
+		<select id="<?php echo $this->get_field_id('issuu_panel_folder'); ?>"
+			name="<?php echo $this->get_field_name('issuu_panel_folder'); ?>">
+			<option value="0"><?php the_issuu_message('Select...'); ?></option>
+			<?php if ($result['stat'] == 'ok' && (isset($result['folder']) && !empty($result['folder']))) : ?>
+				<?php foreach ($result['folder'] as $folder) : ?>
+					<option <?php echo ($ipanel_folder == $folder->folderId)? 'selected' : ''?>
+						value="<?php echo $folder->folderId; ?>">
+						<?php echo $folder->name; ?>
+					</option>
+				<?php endforeach; ?>
+			<?php endif; ?>
+		</select>
+	</label>
+</p>
+<p>
+	<label for="<?php echo $this->get_field_id('issuu_panel_url_page'); ?>">
+		<strong><?php the_issuu_message('URL page') ?></strong><br>
+		<input type="text" id="<?php echo $this->get_field_id('issuu_panel_url_page'); ?>" class="widefat"
+			name="<?php echo $this->get_field_name('issuu_panel_url_page'); ?>" value="<?php echo $ipanel_url_page ?>">
+	</label>
+</p>
+<p>
+	<label for="<?php echo $this->get_field_id('issuu_panel_order_by'); ?>">
+		<strong><?php the_issuu_message('Order by'); ?></strong><br>
+		<select name="<?php echo $this->get_field_name('issuu_panel_order_by'); ?>"
+			id="<?php echo $this->get_field_id('issuu_panel_order_by'); ?>">
+			<option <?php echo ($ipanel_order_by == 'title')? 'selected' : ''?> value="title">
+				<?php the_issuu_message('Title'); ?>
+			</option>
+			<option <?php echo ($ipanel_order_by == 'publishDate')? 'selected' : ''?> value="publishDate">
+				<?php the_issuu_message('Publish date'); ?>
+			</option>
+			<option <?php echo ($ipanel_order_by == 'description')? 'selected' : ''?> value="description">
+				<?php the_issuu_message('Description'); ?>
+			</option>
+			<option <?php echo ($ipanel_order_by == 'documentId')? 'selected' : ''?> value="documentId">
+				<?php the_issuu_message('Document ID'); ?>
+			</option>
+		</select>
+	</label>
+</p>
