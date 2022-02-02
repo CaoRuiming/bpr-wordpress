@@ -1,0 +1,1 @@
+!function(t){t.sectionConstructor["news-block-upsell-button"]=t.Section.extend({attachEvents:function(){},isContextuallyActive:function(){return!0}})}(wp.customize);

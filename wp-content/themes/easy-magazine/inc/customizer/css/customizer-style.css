@@ -1,0 +1,63 @@
+/**
+* Custom Css for backend 
+*
+* @package Easy Magazine
+*/
+#easy-magazine-img-container li{
+    padding: 3px;
+}
+#easy-magazine-img-container .easy-magazine-radio-img-selected{
+    border: 3px solid #dd3333;
+}
+
+/**
+* Custom Css for backend 
+*
+* Repeater Text 
+* 
+*/
+.customize-control-repeater-text .repeater-text-fields .set {
+    margin-bottom: 5px;
+    padding-right: 15px;
+    position: relative;
+}
+
+.customize-control-repeater-text .repeater-text-fields input {
+    margin-bottom: 5px!important;
+}
+
+.customize-control-repeater-text .btn-remove-field {
+    color: red;
+    position: absolute;
+    right: -7px;
+    top: 3px;
+}
+
+.customize-control-repeater-text .btn-remove-field span {
+    text-decoration: none;
+}
+
+.customize-control-repeater-text .btn-remove-field:active,
+.customize-control-repeater-text .btn-remove-field:focus {
+    outline: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+#customize-control-theme_options-enable_frontpage_content span.customize-inside-control-row {
+    width: 100%;
+}
+
+#customize-control-theme_options-enable_frontpage_content label {
+    width: 52px;
+    position: relative;
+}
+
+input[type="range"] {
+    width: 100%;
+    background-color: #033b62;
+    -webkit-appearance: none;
+    height: 3px;
+    border-radius: 5px;
+    outline: none;
+}

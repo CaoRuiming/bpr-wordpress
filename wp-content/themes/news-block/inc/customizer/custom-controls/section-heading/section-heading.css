@@ -1,0 +1,24 @@
+.customize-section-heading .customize-control-title {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+span.customize-control-title:after {
+    content: '';
+    height: 10px;
+    background: #1d2c33;
+    flex-grow: 1;
+    margin-left: 10px;
+}
+
+span.customize-control-title:before {
+    content: '';
+    height: 10px;
+    background: #1d2c33;
+    width: 10px;
+    margin-right: 10px;
+}
+

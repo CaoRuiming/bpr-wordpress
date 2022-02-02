@@ -1,0 +1,34 @@
+/*---------------------------
+   Welcome Notice Styling
+----------------------------*/
+.news-block-welcome-notice .notice-content-wrap {
+    display: flex;
+}
+
+.news-block-welcome-notice .notice-dismiss-button {
+    text-align: right;
+}
+
+.news-block-welcome-notice .notice-dismiss-button a {
+    color: #ff0000;
+}
+
+.news-block-welcome-notice .notice-highlight {
+    font-weight: bold;
+}
+
+.news-block-welcome-notice .notice-content p {
+    text-indent: 20px;
+}
+
+.news-block-welcome-notice .notice-content {
+    padding: 0px 20px;
+}
+
+.news-block-welcome-notice .notice-actions {
+    padding-top: 15px;
+}
+
+.news-block-welcome-notice .notice-actions a {
+    padding: 2px 20px;
+}

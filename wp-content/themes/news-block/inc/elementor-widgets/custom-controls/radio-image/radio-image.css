@@ -1,0 +1,90 @@
+.bmm-preview-image-enlarge {
+    display: none;
+}
+
+
+/** Radio image controls **/
+.elementor-control-type-RADIOIMAGE {
+	border-bottom: 2px solid #6fd3f3;
+}
+
+.elementor-control-type-RADIOIMAGE .elementor-control-title{
+	display: block;
+    font-size: 20px;
+    text-decoration: underline;
+    font-weight: 500;
+    margin-bottom: 15px;
+}
+
+.elementor-control-type-RADIOIMAGE .bmm-radio-image-item:hover{
+    cursor: pointer;
+}
+
+.elementor-control-type-RADIOIMAGE .bmm-radio-image-item {
+	font-size: 15px;
+    text-align: center;
+    border: 1px solid #e1e1e1;
+    margin: 10px;
+    padding: 7px;
+    width: 140px;
+    border-radius: 5px;
+    font-weight: 500;
+}
+
+.elementor-control-type-RADIOIMAGE .bmm-radio-image-item.isActive{
+	background-color: #6fd4f4;
+    color: #383030;
+    border-color: #6fd4f4;
+}
+
+/** switch crontrols **/
+.elementor-control-type-switcher .elementor-control-field {
+	padding-top: 15px;
+	padding-bottom: 10px;
+}  
+
+.elementor-control-type-switcher .elementor-control-field label.elementor-control-title {
+	font-size: 15px;
+    font-weight: bold;
+}
+
+.elementor-control-type-switcher .elementor-control-field label.elementor-control-title {
+	font-size: 13px;
+    font-weight: 500;
+    display: block;
+}
+
+/** Multi checkbox items **/
+
+.elementor-control-type-MULTICHECKBOX{
+	border-bottom: 2px solid #6fd3f3;
+}
+
+.elementor-control-type-MULTICHECKBOX .elementor-control-title {
+	display: block;
+    font-size: 20px!important;
+    text-decoration: underline;
+    font-weight: 500;
+    margin-bottom: 15px;
+}
+
+.elementor-control-type-MULTICHECKBOX .bmm-multicheckbox-item {
+	font-size: 13px;
+    font-weight: bold;
+    padding: 10px 0;
+}
+
+
+/** select2 **/
+.elementor-control.elementor-control-type-select2 {
+    padding-top: 15px;
+}
+
+.elementor-control.elementor-control-type-select2 .elementor-control-title {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.elementor-control-type-RADIOIMAGE #elementor-radio-image-control-field .elementor-control-title {
+    font-size: 20px;
+}

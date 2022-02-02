@@ -1,0 +1,146 @@
+/*
+Theme Name: News Click
+Theme URI: https://themeansar.com/free-themes/news-click/
+Author: Themeansar
+Author URI: https://themeansar.com
+Description: News Click is a fast, clean, modern-looking Best Responsive News Magazine WordPress theme. The theme is fully widgetized, so users can manage the content by using easy to use widgets. News Click is suitable for dynamic news, newspapers, magazine, publishers, blogs, editors, online and gaming magazines, newsportals,personal blogs, newspaper, publishing or review siteand any creative website. News Click is SEO friendly, WPML,Gutenberg, translation and RTL ready. Live preview : https://demo.themeansar.com/newsup and documentation at https://docs.themeansar.com/docs/newsup/
+Version: 0.7
+Requires PHP: 7
+Tested up to: 5.7
+License: GNU General Public License v3 or later
+License URI: http://www.gnu.org/licenses/gpl-3.0.html
+Template: newsup
+Text Domain: news-click
+Tags: blog, portfolio, news, grid-Layout, one-column, two-columns, three-columns, flexible-header, left-sidebar, right-sidebar, custom-background, custom-colors, custom-logo, custom-menu, featured-images, footer-widgets, full-width-template, post-formats, rtl-language-support, theme-options, sticky-post, threaded-comments, translation-ready, block-styles, wide-blocks
+
+News Click WordPress Theme is child theme of Newsup, Copyright 2020 Themeansar
+News Click is distributed under the terms of the GNU General Public License v3
+
+News Click is based on Underscores https://underscores.me/, (C) 2012-2017 Automattic, Inc.
+Underscores is distributed under the terms of the GNU GPL v2 or later.
+*/
+span.time {
+    margin-left: 5px;
+    padding: 2px 4px;
+    border-radius: 2px;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 35px;
+}
+.mg-headwidget.center .heacent {
+    margin-top: unset !important;
+}
+.mg-headwidget.center .logo-center, .mg-headwidget.center .navbar-header, .mg-headwidget.center .site-branding-text  {
+    float: none;
+    text-align: center;
+}
+
+.mg-headwidget.center .navbar-brand {
+    float: none;
+    display: inline-block;
+    margin: 8px auto 0 auto;
+    font-weight: bold;
+}
+.mg-headwidget.center .heacent {
+    margin-top: 40px;
+    color: #fff;
+}
+.navbar-wp .dropdown-menu.searchinner .btn {
+    border: medium none;
+    border-radius: 0 4px 4px 0;
+    height: 40px;
+    line-height: 25px;
+    padding: 5px 15px;
+}
+.mg-search-box .dropdown-toggle::after {
+    display: none;
+}
+.m-header {
+    display: none;
+}
+.desk-header {
+    display: flex;
+}
+.mobilehomebtn {
+    width: 30px;
+    text-align: center;
+    line-height: 30px;
+    height: 30px;
+}
+.mg-blog-post.md{
+    width: 49.8%;
+    float: left;
+    height: 236px;
+}
+.mg-blog-post.md .bottom h4 {
+    font-size: 26px;
+}
+.mb1px {
+    margin-bottom: 1px;
+}
+.mg-blog-post.lg.mins {
+    width: 100%;
+    height: 222.5px;
+    margin-bottom: 30px;
+}
+
+.small-list-post {
+    width: 100%;
+    height: 474.5px;
+    margin-bottom: 30px; 
+}
+
+.mg-blog-post.lg.mins h4.title {
+    font-size: 22px;
+}
+
+.post-items ul:not(.post-categories) li a,.post-items ol:not(.post-categories) li a, .post-items table a, strong a, blockquote a, code a, p a, span:not(.author-name):not(.comments-link):not(.posted-on):not(.post-list) a, .navigation.posts-navigation .nav-links a:hover,
+.navigation.posts-navigation .nav-links a:hover, #cancel-comment-reply-link, .comment-reply-link {
+    text-decoration: underline;
+}
+
+@media screen and (max-width: 767px) and (min-width: 240px) {
+.mg-headwidget .navbar-wp .navbar-nav > li> a {
+    position: relative;
+    border-bottom: 1px solid rgba(225,225,225,0.4);
+}
+}
+@media (max-width: 991px) {
+    .navbar-wp .navbar-nav > li> a i {
+        display: none;
+    }   
+}
+@media (min-width: 1200px) {
+.mg-blog-post.md .bottom h4 {
+    max-height: 65px;
+    overflow: hidden;
+}
+}
+@media (max-width: 991.98px) {
+#menu-primary li.active.home {
+    display: none;
+}
+.m-header {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    display: flex;
+    justify-content: space-between;
+}
+.desk-header {
+    display: none;
+}
+}
+
+.small-list-post.no-img-list ul {
+   list-style: none;
+}
+.small-list-post.no-img-list .small-post {
+    border-bottom: .1rem solid rgba(19,18,18,.2);
+}
+.small-list-post.no-img-list .small-post:last-child {
+    border-bottom: none;
+}
+.small-list-post.no-img-list .mg-blog-meta a {
+    color: #3e3c3c;
+}

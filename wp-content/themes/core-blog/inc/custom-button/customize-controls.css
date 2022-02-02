@@ -1,0 +1,16 @@
+#customize-controls .control-section-core-blog .accordion-section-title:hover,
+#customize-controls .control-section-core-blog .accordion-section-title:focus {
+	background-color: #fff;
+}
+.control-section-core-blog .accordion-section-title .button {
+	margin-top:  -4px;
+	font-weight: 400;
+	margin-left: 8px;
+	background: #00ada7;
+	color: #fff;
+	border:0px solid #fff;
+}
+.rtl .control-section-core-blog .accordion-section-title .button {
+	margin-left:  0;
+	margin-right: 8px;
+}

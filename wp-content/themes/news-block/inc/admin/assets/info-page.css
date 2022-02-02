@@ -1,0 +1,355 @@
+/* CSS Document */
+.info-container {
+	background-color: #fff;
+	margin-right: 20px;
+	padding: 30px 30px 40px;
+	margin-top: 20px;
+	border: 1px solid #e5e5e5;
+	text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+h2{
+    flex: 0 1 100%;
+}
+
+.info-title {
+	margin: 0 0 45px;
+	text-transform: uppercase;
+}
+.info-icon {
+	font-size: 34px;
+	width: auto;
+	height: auto;
+}
+.info-text {
+	text-transform: uppercase;
+}
+.info-text a {
+	color: #444;
+	text-decoration: none;
+}
+.info-text a:hover {
+	color: #00b9eb;
+}
+.info-block {
+    border: 1px solid #eaeaea;
+    padding: 25px 15px 15px;
+    margin: 1%;
+    background-color: #f7f7f7;
+    flex: 1;
+    align-items: center;
+
+}
+
+/********************************
+	Demo listing wrap
+********************************/
+.theme-premium-features, .theme-demos-listing {
+    margin: 20px 20px 0 0;
+    padding: 20px 20px 20px 20px;
+    background-color: #ffffff;
+    text-align: center;
+}
+
+.theme-demos-listing h2 {
+    font-size: 21px;
+    }
+
+.theme-demos-listing .demo-importer-actions {
+    font-size: 17px;
+}
+
+.theme-demos-listing button {
+    background-color: #007cba;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin-left: 6px;
+    color: #fff;
+    font-weight: 700;
+    font-size: 15px;
+}
+
+.theme-demos-listing button:hover {
+    cursor: pointer;
+    opacity: 0.9;
+}
+
+.blazethemes-demo-importer-demo-elements .free_label{
+    background-color: #44c125;
+    position: absolute;
+    right: 0;
+    color: #fff;
+    font-size: 14px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    top: -14px;
+    right: -30px;
+}
+
+.blazethemes-demo-importer-demo-elements .premium_label{
+background-color: #ea2e49;
+    position: absolute;
+    right: 0;
+    color: #fff;
+    font-size: 14px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    top: -14px;
+    right: -30px;
+}
+
+.blazethemes-demo-importer-demo-elements h4.pagebuilder-label{
+    text-align: center;
+    background-color: #007CBA;
+    color: #fff;
+}
+
+
+.blazethemes-demo-importer-demo-importer-wrap * {
+    box-sizing: border-box;
+}
+
+.blazethemes-demo-importer-demo-importer-wrap img {
+    max-width: 100%;
+}
+
+.blazethemes-demo-importer-tab-filter{
+    background: #FFF;
+    border: 1px solid #DDD;
+    padding: 12px;
+    margin-top: 20px;
+}
+
+.blazethemes-demo-importer-clearfix:after,
+.blazethemes-demo-importer-clearfix:before{
+    content: "";
+    display: table;
+}
+
+.blazethemes-demo-importer-clearfix:after{
+    clear: both;
+}
+
+.blazethemes-demo-importer-tag-group{
+    float: left;
+}
+
+.blazethemes-demo-importer-tab{
+    display: inline-block;
+    padding: 5px 15px;
+    cursor: pointer;
+    border-radius: 20px;
+}
+
+.blazethemes-demo-importer-tab.blazethemes-demo-importer-active{
+    background: #0073aa;
+    color: #FFF;
+}
+
+.blazethemes-demo-importer-demo-box-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -20px;
+    margin-top: 25px;
+}
+
+.blazethemes-demo-importer-demo-box {
+    margin: 0 0 40px;
+    padding: 0 20px;
+}
+
+.blazethemes-demo-importer-demo-elements{
+    position: relative;
+    border: 1px solid #ddd;
+    -webkit-box-shadow: 0 1px 1px -1px rgba(0, 0, 0, .1);
+    box-shadow: 0 1px 1px -1px rgba(0, 0, 0, .1);
+}
+
+.blazethemes-demo-importer-demo-box img {
+    display: block;
+    width: 100%;
+}
+
+.blazethemes-demo-importer-demo-box h4 {
+    margin: 0;
+    padding: 0 15px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-size: 15px;
+    font-weight: 600;
+    background-color: #fafafa;
+    line-height: 48px;
+}
+
+.blazethemes-demo-importer-demo-box:hover .blazethemes-demo-importer-demo-buttons {
+    display: block;
+}
+
+.blazethemes-demo-importer-demo-box{
+    width: 20%;
+}
+
+.blazethemes-demo-importer-demo-actions {
+    position: relative;
+    border-top: 1px solid #ddd;
+}
+
+.blazethemes-demo-importer-demo-buttons {
+    display: none;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    top: 0;
+    height: 48px;
+    padding: 10px;
+    opacity: 1;
+    background: rgba(244, 244, 244, 0.8);
+}
+
+.blazethemes-demo-importer-demo-buttons a {
+    margin: 0 2px;
+}
+
+.blazethemes-demo-importer-ribbon {
+    width: 75px;
+    height: 75px;
+    overflow: hidden;
+    position: absolute;
+    top: -8px;
+    right: -8px;
+}
+
+.blazethemes-demo-importer-ribbon::before,
+.blazethemes-demo-importer-ribbon::after {
+    position: absolute;
+    z-index: -1;
+    content: '';
+    display: block;
+    border: 5px solid #b12222;
+    border-top-color: transparent;
+    border-right-color: transparent;
+}
+
+.blazethemes-demo-importer-ribbon span {
+    position: absolute;
+    display: block;
+    width: 120px;
+    padding: 8px 0;
+    background-color: #d42929;
+    box-shadow: 0 5px 10px rgba(0,0,0,.1);
+    color: #fff;
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 12px;
+    text-shadow: 0 1px 1px rgba(0,0,0,.2);
+    text-transform: uppercase;
+    text-align: center;
+    left: -12px;
+    top: 13px;
+    transform: rotate(45deg);
+}
+
+.blazethemes-demo-importer-ribbon::before {
+    top: 0;
+    left: 1px;
+}
+
+.blazethemes-demo-importer-ribbon::after {
+    bottom: 1px;
+    right: 0;
+}
+
+/** premium block **/
+.theme-premium-features h2{
+    font-size: 20px;
+}
+
+.theme-premium-features .section-column-wrap {
+    display: flex;
+    align-items: center;
+}
+
+.theme-premium-features .premium_description {
+    flex: 1 1 60%;
+    font-size: 15px;
+    text-align: left;
+    padding: 5px 20px;
+}
+
+.theme-premium-features .upgrade_description {
+    flex: 1 1 40%;
+    
+}
+
+.theme-premium-features .upgrade_description_inner {
+    background-color: #f0f0f0;
+    padding: 20px 5px;
+    margin: 0 auto;
+}
+
+.theme-premium-features .upgrade_description_inner .discount_code {
+    font-weight: 700;
+    font-size: 15px;
+    padding-bottom: 15px;
+}
+
+.theme-premium-features .upgrade_description .coupon_code{
+    width: 220px;
+    margin: 0 auto;
+    border: 2px dashed #922121;
+    margin-top: 15px;
+}
+.theme-premium-features .upgrade_description .coupon_code span{
+    padding-bottom: 5px;
+    display: block;
+    font-size: 14px;
+}
+
+.theme-premium-features .upgrade_description .coupon_code .coupon_text{
+    display: block;
+    padding: 5px 0;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+
+
+@media only screen and (min-width: 1120px){
+    .blazethemes-demo-importer-demo-importer-wrap{
+        margin-right: 5%;
+    }
+}
+
+@media only screen and (max-width: 2000px){
+    .blazethemes-demo-importer-demo-box{
+        width: 25%;
+    }
+}
+
+@media only screen and (max-width: 1640px){
+    .blazethemes-demo-importer-demo-box{
+        width: 33.33%;
+    }
+}
+
+@media only screen and (max-width: 1120px){
+    .blazethemes-demo-importer-demo-box{
+        width: 50%;
+    }
+}
+
+@media only screen and (max-width: 480px){
+    .blazethemes-demo-importer-demo-box{
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 782px){
+    .blazethemes-demo-importer-demo-box h4{
+        line-height: 60px;
+    }
+}

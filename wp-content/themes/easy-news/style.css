@@ -1,0 +1,239 @@
+/**
+Theme Name: Easy News
+Theme URI: https://creativthemes.com/downloads/easy-news
+Author: creativthemes
+Author URI: https://creativthemes.com
+Version: 1.0
+Requires PHP: 5.6
+Tested up to: 5.8
+Requires at least: 5.1
+Template: easy-magazine
+Text Domain: easy-news
+Description: Easy News is a powerful, multipurpose and modern WordPress magazine theme with pixel perfect design, outstanding features, fully responsive and mobile-friendly. It is a child theme of Easy Magazine wordpress theme. It is a perfect fit for Online News, Newspaper, Magazine, News Agencies, Car News, Tour & Travel Agencies, Business Magazines, Food, Lifestyle Brands, and Technology News websites. It is also suitable for any publishing or review websites that require a sleek, modern and clean look.
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Tags: translation-ready, custom-background, theme-options, custom-menu, threaded-comments, featured-images, footer-widgets, editor-style, right-sidebar, full-width-template, two-columns, grid-layout, custom-colors, custom-header, custom-logo, featured-image-header, blog, portfolio, entertainment
+
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned with others.
+*/
+
+/*--------------------------------------------------------------
+# Colors
+--------------------------------------------------------------*/
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"],
+.pagination .page-numbers.current,
+.pagination .page-numbers:hover,
+.pagination .page-numbers:focus,
+.tags-links a,
+.reply a,
+.section-title,
+.btn,
+.slick-prev:hover,
+.slick-next:hover,
+.slick-prev:focus,
+.slick-next:focus,
+.slick-dots li.slick-active button,
+#breaking-news .slick-arrow,
+#trending-posts .slick-arrow,
+#secondary .widget_tag_cloud .tagcloud a:hover,
+#secondary .widget_tag_cloud .tagcloud a:focus,
+#colophon .widget_tag_cloud .tagcloud a:hover,
+#colophon .widget_tag_cloud .tagcloud a:focus,
+#colophon .widget_search form.search-form button.search-submit,
+.backtotop,
+.menu-toggle:hover, 
+.menu-toggle:focus,
+.entry-meta .cat-links a {
+    background-color: #dc3232;
+}
+
+.logged-in-as a,
+a,
+.main-navigation ul.nav-menu > li:hover > a,
+.main-navigation ul.nav-menu > li.focus > a,
+.main-navigation ul.nav-menu .current_page_item > a,
+.main-navigation ul.nav-menu .current-menu-item > a,
+.main-navigation ul.nav-menu .current_page_ancestor > a,
+.main-navigation ul.nav-menu .current-menu-ancestor > a,
+.post-navigation a:hover, 
+.posts-navigation a:hover,
+.post-navigation a:focus, 
+.posts-navigation a:focus,
+.pagination .page-numbers,
+.pagination .page-numbers.dots:hover,
+.pagination .page-numbers.dots:focus,
+.pagination .page-numbers.prev,
+.pagination .page-numbers.next,
+#secondary a:hover,
+#secondary a:focus,
+.page-header small,
+.post-categories a,
+.entry-meta .author:before,
+.comment-meta .url:hover,
+.comment-meta .url:focus,
+.comment-metadata a:hover,
+.comment-metadata a:focus,
+.comment-metadata a:hover time,
+.comment-metadata a:focus time,
+.entry-title a:hover,
+.entry-title a:focus,
+.blog-posts-wrapper .sticky .post-item .entry-title a:hover,
+.blog-posts-wrapper .sticky .post-item .entry-title a:focus,
+#colophon a:hover,
+#colophon a:focus,
+#top-bar .widget_address_block ul li a:hover, 
+#top-bar .widget_address_block ul li a:focus {
+    color: #dc3232;
+}
+
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"],
+.widget_search form.search-form input[type="search"]:focus,
+.tags-links a,
+.reply a,
+.btn,
+#secondary .widget_tag_cloud .tagcloud a:hover,
+#secondary .widget_tag_cloud .tagcloud a:focus,
+#colophon .widget_tag_cloud .tagcloud a:hover,
+#colophon .widget_tag_cloud .tagcloud a:focus {
+    border-color: #dc3232;
+}
+
+.section-header {
+    border-bottom-color: #dc3232;
+}
+
+/*--------------------------------------------------------------
+# Typography
+--------------------------------------------------------------*/
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.main-navigation a {
+    font-family: 'Raleway', sans-serif;
+}
+
+body {
+    font-family: 'Lato', sans-serif;
+}
+
+/*--------------------------------------------------------------
+# Wrapper
+--------------------------------------------------------------*/
+.wrapper {
+    width: 90%;
+    max-width: 1200px;
+}
+
+/*--------------------------------------------------------------
+# Menus
+--------------------------------------------------------------*/
+#top-bar {
+    background-color: #fff;
+    border-bottom: 1px solid #eee;
+}
+#top-bar .widget_address_block ul li,
+#top-bar .widget_address_block ul li a,
+.social-icons li a {
+    color: #444;
+}
+#top-bar .widget_address_block ul li a:hover, 
+#top-bar .widget_address_block ul li a:focus {
+    opacity: 1;
+}
+.main-navigation {
+    background-color: #f5f5f5;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+}
+.main-navigation a {
+    font-weight: 600;
+}
+.menu-toggle span {
+    background-color: #000;
+}
+.menu-toggle:hover span,
+.menu-toggle:focus span {
+    background-color: #fff;
+}
+
+/*--------------------------------------------------------------
+# Front Page Sections
+--------------------------------------------------------------*/
+#featured-posts .entry-title {
+    font-size: 16px;
+}
+.entry-meta .cat-links a:hover,
+.entry-meta .cat-links a:focus {
+    background-color: #000;
+}
+.section-title:after {
+    content: "";
+    border-left: 0 solid transparent;
+    border-right: 25px solid transparent;
+    border-bottom: 38px solid #dc3232;
+    position: absolute;
+    top: 0;
+    right: -25px;}
+
+.section-title {
+    position: relative;
+}
+
+/*--------------------------------------------------------------
+# Responsive
+--------------------------------------------------------------*/
+@media screen and (min-width: 767px) {
+    #breaking-news .entry-title {
+        padding-left: 20px;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .main-navigation ul.nav-menu .current_page_item > a, 
+    .main-navigation ul.nav-menu .current-menu-item > a, 
+    .main-navigation ul.nav-menu .current_page_ancestor > a, 
+    .main-navigation ul.nav-menu .current-menu-ancestor > a,
+    .main-navigation ul.nav-menu > li:hover > a, 
+    .main-navigation ul.nav-menu > li.focus > a,
+    .main-navigation ul ul li:hover > a,
+    .main-navigation ul ul li.focus > a {
+        background-color: #dc3232;
+        color: #fff;
+    }
+    .main-navigation {
+        text-align: left;
+    }
+    .main-navigation ul.nav-menu > li > a {
+        color: #444;
+    }
+    #highlighted-posts article:first-child,
+    #highlighted-posts article {
+        width: 25%;
+    }
+    #highlighted-posts article:nth-child(2) {
+        width: 50%;
+    }
+    #highlighted-posts article:first-child .featured-image {
+        padding: 120px 0;
+    }
+    #highlighted-posts article:nth-child(2) .featured-image {
+        padding: 250px 0;
+    }
+    #highlighted-posts article:first-child .entry-title {
+        font-size: 16px;
+    }
+    #highlighted-posts article:nth-child(2) .entry-title {
+        font-size: 32px;
+    }
+    
+}

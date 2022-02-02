@@ -1,0 +1,66 @@
+<wpml-config>
+	<admin-texts>
+		<key name="magbook_theme_options">
+			<key name="magbook_search_text" />
+			<key name="magbook_tag_text" />
+			<key name="magbook_img-upload-footer-image" />
+			<key name="magbook_breaking_news_title" />
+			<key name="magbook_feature_news_title" />
+
+			<key name="image_slider_title1" />
+			<key name="image_slider_title2" />
+			<key name="image_slider_title3" />
+			<key name="image_slider_title4" />
+			<key name="image_slider_title5" />
+			<key name="image_slider_title6" />
+			<key name="image_slider_title7" />
+			<key name="image_slider_title8" />
+			<key name="image_slider_title9" />
+			<key name="image_slider_title10" />
+
+			<key name="image_featured_sliderimage1" />
+			<key name="image_featured_sliderimage2" />
+			<key name="image_featured_sliderimage3" />
+			<key name="image_featured_sliderimage4" />
+			<key name="image_featured_sliderimage5" />
+			<key name="image_featured_sliderimage6" />
+			<key name="image_featured_sliderimage7" />
+			<key name="image_featured_sliderimage8" />
+			<key name="image_featured_sliderimage9" />
+			<key name="image_featured_sliderimage10" />
+
+			<key name="image_description1" />
+			<key name="image_description2" />
+			<key name="image_description3" />
+			<key name="image_description4" />
+			<key name="image_description5" />
+			<key name="image_description6" />
+			<key name="image_description7" />
+			<key name="image_description8" />
+			<key name="image_description9" />
+			<key name="image_description10" />
+
+			<key name="imageredirect_slider_link1" />
+			<key name="imageredirect_slider_link2" />
+			<key name="imageredirect_slider_link3" />
+			<key name="imageredirect_slider_link4" />
+			<key name="imageredirect_slider_link5" />
+			<key name="imageredirect_slider_link6" />
+			<key name="imageredirect_slider_link7" />
+			<key name="imageredirect_slider_link8" />
+			<key name="imageredirect_slider_link9" />
+			<key name="imageredirect_slider_link10" />
+
+			<key name="slider_image_button_text1" />
+			<key name="slider_image_button_text2" />
+			<key name="slider_image_button_text3" />
+			<key name="slider_image_button_text4" />
+			<key name="slider_image_button_text5" />
+			<key name="slider_image_button_text6" />
+			<key name="slider_image_button_text7" />
+			<key name="slider_image_button_text8" />
+			<key name="slider_image_button_text9" />
+			<key name="slider_image_button_text10" />
+		</key>
+	</admin-texts>
+</wpml-config>
