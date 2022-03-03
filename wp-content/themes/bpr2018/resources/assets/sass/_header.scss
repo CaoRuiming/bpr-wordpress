@@ -268,14 +268,13 @@
 
 /* Navbar display breakpoints */
 #navbar-collapse {
-  margin-right: 25px;
+  margin-top: 25px;
   @media (min-width: $width-md) {
     display:none !important;
   }
 }
 
 #navbar-collapse-mobile {
-  display: ms-flexbox !important;
   @media (max-width: $width-md) {
     display:none !important;
   }
