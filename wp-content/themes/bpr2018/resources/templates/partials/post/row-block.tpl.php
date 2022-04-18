@@ -4,7 +4,7 @@ $pic_id = get_post_thumbnail_id();
 $pic_alt = get_post_meta($pic_id, '_wp_attachment_image_alt', true);
 $pic_title = get_the_title($pic_id);
 ?>
-<article class="col-sm-4 post-block" itemscope itemtype="https://schema.org/Article">
+<article class="col-sm-3 post-block" itemscope itemtype="https://schema.org/Article">
   <a href="<?php echo esc_url(get_permalink()); ?>" 
   title = "<?php echo htmlentities(the_title(), ENT_QUOTES | ENT_SUBSTITUTE)?>">
     <div class="img-30-wrapper">

@@ -113,17 +113,32 @@
     </h1>
 
     <div class="row">
-      <?php 
-      $recent  = new WP_Query(array(
+    <?php 
+    $recent  = new WP_Query(array(
         'category_name' => $category_object->slug,
-        'posts_per_page' => 3,
-      ));
+        'posts_per_page' => 4,
+    ));
 
-      while ($recent->have_posts()) {
+    while ($recent->have_posts()) {
         $recent->the_post();
         do_action('theme/single/row-block');
-      }
-      ?>
+    }
+    ?>
+    </div>
+
+    <div class="row">
+    <?php 
+    $recent  = new WP_Query(array(
+        'category_name' => $category_object->slug,
+        'posts_per_page' => 4,
+        'offset' => 3,
+    ));
+
+    while ($recent->have_posts()) {
+        $recent->the_post();
+        do_action('theme/single/row-block');
+    }
+    ?>
     </div>
 
     <a class="more-link" href="<?php echo esc_url(get_category_link($category_object)); ?>">
@@ -144,17 +159,32 @@
     </h1>
 
     <div class="row">
-      <?php 
-      $recent  = new WP_Query(array(
+    <?php 
+    $recent  = new WP_Query(array(
         'category_name' => $category_object->slug,
-        'posts_per_page' => 3,
-      ));
+        'posts_per_page' => 4,
+    ));
 
-      while ($recent->have_posts()) {
+    while ($recent->have_posts()) {
         $recent->the_post();
         do_action('theme/single/row-block');
-      }
-      ?>
+    }
+    ?>
+    </div>
+
+    <div class="row">
+    <?php 
+    $recent  = new WP_Query(array(
+        'category_name' => $category_object->slug,
+        'posts_per_page' => 4,
+        'offset' => 3,
+    ));
+
+    while ($recent->have_posts()) {
+        $recent->the_post();
+        do_action('theme/single/row-block');
+    }
+    ?>
     </div>
 
     <a class="more-link" href="<?php echo esc_url(get_category_link($category_object)); ?>">
@@ -175,17 +205,17 @@
     </h1>
 
     <div class="row">
-      <?php 
-      $recent  = new WP_Query(array(
+    <?php 
+    $recent  = new WP_Query(array(
         'category_name' => $category_object->slug,
-        'posts_per_page' => 3,
-      ));
+        'posts_per_page' => 4,
+    ));
 
-      while ($recent->have_posts()) {
+    while ($recent->have_posts()) {
         $recent->the_post();
         do_action('theme/single/row-block');
-      }
-      ?>
+    }
+    ?>
     </div>
 
     <a class="more-link" href="<?php echo esc_url(get_category_link($category_object)); ?>">
