@@ -131,7 +131,7 @@
     $recent  = new WP_Query(array(
         'category_name' => $category_object->slug,
         'posts_per_page' => 4,
-        'offset' => 3,
+        'offset' => 4,
     ));
 
     while ($recent->have_posts()) {
@@ -177,7 +177,7 @@
     $recent  = new WP_Query(array(
         'category_name' => $category_object->slug,
         'posts_per_page' => 4,
-        'offset' => 3,
+        'offset' => 4,
     ));
 
     while ($recent->have_posts()) {
